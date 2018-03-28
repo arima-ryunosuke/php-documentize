@@ -1,0 +1,133 @@
+<?php include_once __DIR__ . '/common.php' ?>
+<!DOCTYPE html>
+<html>
+<head><?= render_head() ?></head>
+<body>
+<?php /** @var $type */ ?>
+<?php /** @var $element */ ?>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(<?= h($element['fqsen']) ?>)</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"><?= h($element['final'] ? 'final' : '') ?></span>
+		<span class="label label-warning"><?= h($element['abstract'] ? 'abstract' : '') ?></span>
+		<span class="label label-info"><?= h($element['cloneable'] ? 'cloneable' : '') ?></span>
+		<span class="label label-info"><?= h($element['iterateable'] ? 'iterateable' : '') ?></span>
+		<span class="label label-deprecated"><?= h(isset($element['tags']['deprecated'][0]) ? 'deprecated ' . $element['tags']['deprecated'][0]['start'] : '') ?></span>
+        <?= source($element['location']) ?>
+	</div>
+
+	<h2><?= h($type) ?> <span class="category-name"><?= h($element['fqsen']) ?></span></h2>
+
+	<div class="description"><?= md($element['description']) ?></div>
+
+	<h3>Construction</h3>
+    <?= render_using($element['parents'], 'Parents') ?>
+    <?= render_using($element['implements'], 'Implements') ?>
+    <?= render_using($element['uses'], 'Uses') ?>
+    <?= render_seeTag($element['tags']['see'] ?? []) ?>
+
+	<h3>Hierarchy</h3>
+	<div class="hierarchy"><?= render_hierarchy($element['hierarchy'], $element['fqsen']) ?></div>
+
+	<h3>Constants</h3>
+    <?php if ($element['constants']): ?>
+		<ul>
+            <?php foreach ($element['constants'] as $constant): ?>
+				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-<?= h($constant['accessible']) ?>"><?= h($constant['accessible']) ?></span>
+                        <?= source($constant['location']) ?>
+					</div>
+					<h4 id="<?= h($constant['fqsen']) ?>" tabindex="-1" class="structure-title">
+						<small><?= render_type($constant['types']) ?></small>
+                        <?= h($constant['name']) ?>
+						<var><?= h($constant['value'] ? ' = ' . $constant['value'] : '') ?></var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><?= md($constant['description']) ?></div>
+
+                        <?= render_prototype($constant['prototypes']) ?>
+					</div>
+				</li>
+            <?php endforeach ?>
+		</ul>
+    <?php endif ?>
+
+	<h3>Properties</h3>
+    <?php if ($element['properties']): ?>
+		<ul>
+            <?php foreach ($element['properties'] as $property): ?>
+				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"><?= h($property['static'] ? 'static' : '') ?></span>
+						<span class="label label-primary"><?= h($property['magic'] ? 'magic' : '') ?></span>
+						<span class="label label-<?= h($property['accessible']) ?>"><?= h($property['accessible']) ?></span>
+                        <?= source($property['location']) ?>
+					</div>
+					<h4 id="<?= h($property['fqsen']) ?>" tabindex="-1" class="structure-title">
+						<small><?= render_type($property['types']) ?></small>
+						$<?= h($property['name']) ?>
+						<var><?= h($property['value'] ? ' = ' . $property['value'] : '') ?></var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><?= md($property['description']) ?></div>
+                        <?= render_prototype($property['prototypes']) ?>
+                        <?= render_seeTag($property['tags']['see'] ?? []) ?>
+					</div>
+				</li>
+            <?php endforeach ?>
+		</ul>
+    <?php endif ?>
+
+	<h3>Methods</h3>
+    <?php if ($element['methods']): ?>
+		<ul>
+            <?php foreach ($element['methods'] as $method): ?>
+				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"><?= h($method['final'] ? 'final' : '') ?></span>
+						<span class="label label-default"><?= h($method['static'] ? 'static' : '') ?></span>
+						<span class="label label-magic"><?= h($method['magic'] ? 'magic' : '') ?></span>
+						<span class="label label-danger"><?= h(isset($method['tags']['api'][0]) ? 'api' : '') ?></span>
+						<span class="label label-default"><?= h(isset($method['tags']['internal'][0]) ? 'internal' : '') ?></span>
+						<span class="label label-default"><?= h(isset($method['tags']['version'][0]) ? 'version ' . $method['tags']['version'][0]['version'] : '') ?></span>
+						<span class="label label-deprecated"><?= h(isset($method['tags']['deprecated'][0]) ? 'deprecated ' . $method['tags']['deprecated'][0]['start'] : '') ?></span>
+						<span class="label label-<?= h($method['accessible']) ?>"><?= h($method['accessible']) ?></span>
+                        <?= source($method['location']) ?>
+					</div>
+					<h4 id="<?= h($method['fqsen']) ?>" tabindex="-1" class="structure-title <?= isset($method['tags']['deprecated'][0]) ? 'strike' : '' ?>">
+                        <?= h($method['name']) ?>
+						<small>(<?= h(implode(', ', array_column($method['parameters'], 'declaration'))) ?>)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><?= md($method['description']) ?></div>
+                        <?= render_parameter($method['parameters']) ?>
+                        <?= render_return($method['return']) ?>
+                        <?= render_throwsTag($method['tags']['throws'] ?? []) ?>
+                        <?= render_prototype($method['prototypes']) ?>
+                        <?= render_seeTag($method['tags']['see'] ?? []) ?>
+					</div>
+					<div class="attribute">
+						<span class="label label-default"><?= h(isset($method['tags']['since'][0]) ? 'since ' . $method['tags']['since'][0]['version'] : '') ?></span>
+						<span class="label label-default"><?= h(isset($method['tags']['author'][0]) ? 'author ' . $method['tags']['author'][0]['name'] : '') ?></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            <?php endforeach ?>
+		</ul>
+    <?php endif ?>
+
+	<div class="attribute">
+		<span class="label label-default"><?= h(isset($element['tags']['license'][0]) ? 'license ' . $element['tags']['license'][0]['value'] : '') ?></span>
+		<span class="label label-default"><?= h(isset($element['tags']['author'][0]) ? 'author ' . $element['tags']['author'][0]['name'] : '') ?></span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

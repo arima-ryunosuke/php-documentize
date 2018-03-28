@@ -1,0 +1,112 @@
+<?php include_once __DIR__ . '/common.php' ?>
+<!DOCTYPE html>
+<html>
+<head><?= render_head() ?></head>
+<body>
+<?php /** @var $namespace */ ?>
+<?php /** @var $elements */ ?>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	Structure
+	<small class="ellipsis-text">(<?= h($namespace ?: 'global') ?>)</small>
+</h1>
+<div class="main-wrapper">
+	<h2>namespace <span class="category-name"><?= h($namespace ?: '(global)') ?></span></h2>
+
+    <?php if ($elements['namespaces']): ?>
+		<h3>Namespaces</h3>
+		<ul>
+            <?php foreach ($elements['namespaces'] as $childspace): ?>
+				<li class="">
+					<div class="ellipsis">
+						<a id="<?= h($childspace['fqsen']) ?>" href="<?= ref($childspace['fqsen'], 'namespace') ?>" class="bold" target="main">
+							<small><?= h($childspace['namespace']) ?>\</small><?= h($childspace['name']) ?>
+						</a>
+					</div>
+				</li>
+            <?php endforeach ?>
+		</ul>
+    <?php endif ?>
+
+    <?php foreach (['interfaces' => 'interface', 'traits' => 'trait', 'classes' => 'class'] as $typekey => $typename): ?>
+        <?php if ($elements[$typekey]): ?>
+			<h3><?= ucfirst($typekey) ?></h3>
+			<ul>
+                <?php foreach ($elements[$typekey] as $element): ?>
+					<li class="structure-item" data-parent-id="<?= h($element['fqsen']) ?>">
+						<div class="attribute">
+							<span class="label label-danger"><?= h($element['final'] ? 'final' : '') ?></span>
+							<span class="label label-warning"><?= h($element['abstract'] ? 'abstract' : '') ?></span>
+							<span class="label label-info"><?= h($element['cloneable'] ? 'cloneable' : '') ?></span>
+							<span class="label label-info"><?= h($element['iterateable'] ? 'iterateable' : '') ?></span>
+							<span class="label label-deprecated"><?= h(isset($element['tags']['deprecated'][0]) ? 'deprecated ' . $element['tags']['deprecated'][0]['start'] : '') ?></span>
+                            <?= source($element['location']) ?>
+						</div>
+						<h4 id="<?= h($element['fqsen']) ?>" tabindex="-1" class="structure-title <?= h(isset($element['tags']['deprecated'][0]) ? 'strike' : '') ?>">
+							<a href="<?= ref($element['fqsen'], 'typespace') ?>"><?= h($element['name']) ?></a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><?= md($element['description']) ?></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"><?= h(isset($element['tags']['license'][0]) ? 'license ' . $element['tags']['license'][0]['value'] : '') ?></span>
+							<span class="label label-default"><?= h(isset($element['tags']['author'][0]) ? 'author ' . $element['tags']['author'][0]['name'] : '') ?></span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                <?php endforeach ?>
+			</ul>
+        <?php endif ?>
+    <?php endforeach ?>
+
+    <?php if ($elements['constants']): ?>
+		<h3>Constants</h3>
+		<ul>
+            <?php foreach ($elements['constants'] as $constant): ?>
+				<li class="structure-item" data-parent-id="<?= h($constant['fqsen']) ?>">
+					<div class="attribute">
+                        <?= source($constant['location']) ?>
+					</div>
+					<h4 id="<?= h($constant['fqsen']) ?>" tabindex="-1" class="structure-title <?= h(isset($constant['tags']['deprecated'][0]) ? 'strike' : '') ?>">
+                        <?= h($constant['name']) ?><var><?= h($constant['value'] ? ' = ' . $constant['value'] : '') ?></var>
+					</h4>
+				</li>
+            <?php endforeach ?>
+		</ul>
+    <?php endif ?>
+
+    <?php if ($elements['functions']): ?>
+		<h3>Functions</h3>
+		<ul>
+            <?php foreach ($elements['functions'] as $function): ?>
+				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"><?= h(isset($function['tags']['api'][0]) ? 'api' : '') ?></span>
+						<span class="label label-default"><?= h(isset($function['tags']['internal'][0]) ? 'internal' : '') ?></span>
+						<span class="label label-default"><?= h(isset($function['tags']['version'][0]) ? 'version ' . $function['tags']['version'][0]['version'] : '') ?></span>
+						<span class="label label-deprecated"><?= h(isset($function['tags']['deprecated'][0]) ? 'deprecated ' . $function['tags']['deprecated'][0]['start'] : '') ?></span>
+                        <?= source($function['location']) ?>
+					</div>
+					<h4 id="<?= h($function['fqsen']) ?>" tabindex="-1" class="structure-title <?= h(isset($function['tags']['deprecated'][0]) ? 'strike' : '') ?>">
+                        <?= h($function['name']) ?>
+						<small>(<?= h(implode(', ', array_column($function['parameters'], 'declaration'))) ?>)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><?= md($function['description']) ?></div>
+                        <?= render_parameter($function['parameters']) ?>
+                        <?= render_return($function['return']) ?>
+                        <?= render_throwsTag($function['tags']['throws'] ?? []) ?>
+                        <?= render_seeTag($function['tags']['see'] ?? []) ?>
+					</div>
+					<div class="attribute">
+						<span class="label label-default"><?= h(isset($function['tags']['since'][0]) ? 'since ' . $function['tags']['since'][0]['version'] : '') ?></span>
+						<span class="label label-default"><?= h(isset($function['tags']['author'][0]) ? 'author ' . $function['tags']['author'][0]['name'] : '') ?></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            <?php endforeach ?>
+		</ul>
+    <?php endif ?>
+</div>
+</body>
+</html>

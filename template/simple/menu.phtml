@@ -1,0 +1,121 @@
+<?php include_once __DIR__ . '/common.php' ?>
+<!DOCTYPE html>
+<html>
+<head><?= render_head() ?></head>
+<body>
+<?php /** @var $namespaces */ ?>
+<?php
+function render_namespace($elements, &$all, $nest = 0)
+{
+    ?>
+	<li class="text-nowrap spacer holding-wrapper <?= h($nest ? 'indent' : '') ?>" data-namespace="<?= h($elements['fqsen']) ?>">
+		<div class="nheader ellipsis">
+			<span class="glyphicon glyphicon-plus switch-holding"></span>
+			<span class="label label-icon label-namespace">N</span>
+			<a id="<?= h($elements['fqsen']) ?>" href="<?= ref($elements['fqsen'], 'namespace') ?>" class="bold" target="main">
+                <?php if (!$nest): ?>
+					<small><?= h($elements['namespace'] ? $elements['namespace'] . '\\' : '') ?></small>
+                <?php endif ?>
+                <?= h($elements['name'] ?: '(global)') ?>
+			</a>
+		</div>
+		<ul class="has-indent holding">
+            <?php foreach ($elements['namespaces'] as $element): ?>
+                <?php render_namespace($element, $all, $nest + 1) ?>
+            <?php endforeach ?>
+            <?php foreach (['interfaces' => 'interface', 'traits' => 'trait', 'classes' => 'class'] as $typekey => $typename): ?>
+                <?php foreach ($elements[$typekey] as $element): ?>
+                    <?php $all[] = $element['fqsen']; ?>
+                    <?php foreach ($element['constants'] as $e): ?>
+                        <?php $all[] = $e['fqsen']; ?>
+                    <?php endforeach ?>
+                    <?php foreach ($element['properties'] as $e): ?>
+                        <?php $all[] = $e['fqsen']; ?>
+                    <?php endforeach ?>
+                    <?php foreach ($element['methods'] as $e): ?>
+                        <?php $all[] = $e['fqsen']; ?>
+                    <?php endforeach ?>
+					<li class="indent text-nowrap spacer holding-wrapper holding-class">
+						<div class="ellipsis">
+							<span class="glyphicon glyphicon-plus switch-holding"></span>
+							<span class="label label-icon label-<?= h($typename) ?>"><?= ucfirst($typename[0]) ?></span>
+							<a id="<?= h($element['fqsen']) ?>" href="<?= ref($element['fqsen'], 'typespace') ?>" class="<?= h(isset($element['tags']['deprecated'][0]) || isset($element['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($element['name']) ?></a>
+							<small class="ellipsis-text"><?= h(summary($element['description'])) ?></small>
+						</div>
+						<!-- for lazy load -->
+						<ul class="has-indent holding class-member"><?= '<!--' ?>
+                            <?php foreach ($element['constants'] as $constant): ?>
+								<li class="indent <?= h($constant['virtual'] ? 'faint' : '') ?> <?= h(($constant['accessible']) !== 'public' ? 'italic' : '') ?>">
+									<div class="ellipsis">
+										<span class="label label-icon label-constant">C</span>
+										<a id="<?= h($constant['fqsen']) ?>" href="<?= ref($constant['fqsen'], 'typespace') ?>" class="<?= h(isset($constant['tags']['deprecated'][0]) || isset($constant['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($constant['name']) ?></a>
+										<small class="ellipsis-text"><?= h(summary($constant['description'])) ?></small>
+									</div>
+								</li>
+                            <?php endforeach ?>
+                            <?php foreach ($element['properties'] as $property): ?>
+								<li class="indent <?= h($property['virtual'] ? 'faint' : '') ?> <?= h(($property['accessible']) !== 'public' ? 'italic' : '') ?>">
+									<div class="ellipsis">
+										<span class="label label-icon label-property">P</span>
+										<a id="<?= h($property['fqsen']) ?>" href="<?= ref($property['fqsen'], 'typespace') ?>" class="<?= h(isset($property['tags']['deprecated'][0]) || isset($property['tags']['internal'][0]) ? 'strike' : '') ?>" target="main">$<?= h($property['name']) ?></a>
+										<small class="ellipsis-text"><?= h(summary($property['description'])) ?></small>
+									</div>
+								</li>
+                            <?php endforeach ?>
+                            <?php foreach ($element['methods'] as $method): ?>
+								<li class="indent <?= h($method['virtual'] ? 'faint' : '') ?> <?= h(($method['accessible']) !== 'public' ? 'italic' : '') ?>">
+									<div class="ellipsis">
+										<span class="label label-icon label-method">M</span>
+										<a id="<?= h($method['fqsen']) ?>" href="<?= ref($method['fqsen'], 'typespace') ?>" class="<?= h(isset($method['tags']['deprecated'][0]) || isset($method['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($method['name']) ?></a>
+										<small class="ellipsis-text"><?= h(summary($method['description'])) ?></small>
+									</div>
+								</li>
+                            <?php endforeach ?>
+                            <?= '-->' ?>
+						</ul>
+					</li>
+                <?php endforeach ?>
+            <?php endforeach ?>
+            <?php foreach ($elements['constants'] as $element): ?>
+                <?php $all[] = $element['fqsen']; ?>
+				<li class="indent">
+					<div class="ellipsis">
+						<span class="label label-icon label-constant">C</span>
+						<a id="<?= h($element['fqsen']) ?>" href="<?= ref($element['fqsen'], 'constfunc') ?>" class="<?= h(isset($element['tags']['deprecated'][0]) || isset($element['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($element['name']) ?></a>
+						<small class="ellipsis-text"><?= h(summary($element['description'])) ?></small>
+					</div>
+				</li>
+            <?php endforeach ?>
+            <?php foreach ($elements['functions'] as $element): ?>
+                <?php $all[] = $element['fqsen']; ?>
+				<li class="indent">
+					<div class="ellipsis">
+						<span class="label label-icon label-function">F</span>
+						<a id="<?= h($element['fqsen']) ?>" href="<?= ref($element['fqsen'], 'constfunc') ?>" class="<?= h(isset($element['tags']['deprecated'][0]) || isset($element['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($element['name']) ?></a>
+						<small class="ellipsis-text"><?= h(summary($element['description'])) ?></small>
+					</div>
+				</li>
+            <?php endforeach ?>
+		</ul>
+	</li>
+    <?php
+}
+
+?>
+<h1>
+	Namespace
+	<input type="search" id="search" class="form-control" autocomplete="off" placeholder="search">
+</h1>
+<div class="main-wrapper">
+    <?php $all = []; ?>
+	<ul class="namespaces">
+        <?php foreach ($namespaces as $elements): ?>
+            <?php render_namespace($elements, $all) ?>
+        <?php endforeach ?>
+	</ul>
+	<script>
+        $('#search').data('source', <?= json_encode($all, JSON_UNESCAPED_UNICODE) ?>);
+	</script>
+</div>
+</body>
+</html>
