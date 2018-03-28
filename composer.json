@@ -39,7 +39,8 @@
     "build": [
       "@composer export",
       "@composer test",
-      "@composer pharize"
+      "@composer pharize",
+      "@composer example"
     ],
     "export": [
       "@php bin/export.php"
@@ -49,6 +50,10 @@
     ],
     "pharize": [
       "@php bin/pharize.php"
+    ],
+    "example": [
+      "@php documentize.phar generate template/example.php docs/example --stats --force --autoload '' --template-config template/config.php",
+      "bin/documentize generate vendor/symfony/console/ docs/symfony-console --stats --force --template-config template/config.php -e AddConsoleCommandPass.php -e ErrorListener.php -e '/Tests/*'"
     ]
   }
 }

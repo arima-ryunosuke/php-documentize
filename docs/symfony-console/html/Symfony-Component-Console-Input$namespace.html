@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script src="common.js"></script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	Structure
+	<small class="ellipsis-text">(Symfony\Component\Console\Input)</small>
+</h1>
+<div class="main-wrapper">
+	<h2>namespace <span class="category-name">Symfony\Component\Console\Input</span></h2>
+
+    
+            			<h3>Interfaces</h3>
+			<ul>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\InputAwareInterface">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning">abstract</span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/InputAwareInterface.php#L14-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\InputAwareInterface" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-InputAwareInterface$typespace.html#Symfony\Component\Console\Input\InputAwareInterface">InputAwareInterface</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>InputAwareInterface should be implemented by classes that depends on the<br />
+Console Input.</p></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Wouter J</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\InputInterface">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning">abstract</span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/InputInterface.php#L17-L161" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\InputInterface" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface">InputInterface</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>InputInterface is the interface implemented by all input classes.</p></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\StreamableInputInterface">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning">abstract</span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/StreamableInputInterface.php#L14-L37" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\StreamableInputInterface" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-StreamableInputInterface$typespace.html#Symfony\Component\Console\Input\StreamableInputInterface">StreamableInputInterface</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>StreamableInputInterface is the interface implemented by all input classes<br />
+that have an input stream.</p></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Robin Chalas</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                			</ul>
+                                			<h3>Classes</h3>
+			<ul>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\Input">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning">abstract</span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L17-L203" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\Input" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input">Input</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>Input is the base class for all concrete Input classes.</p>
+<p>Three concrete classes are provided by default:</p>
+<ul>
+<li><code>ArgvInput</code>: The input comes from the CLI arguments (argv)</li>
+<li><code>StringInput</code>: The input is provided as a string</li>
+<li><code>ArrayInput</code>: The input is provided as an array</li>
+</ul></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\ArgvInput">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L16-L350" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\ArgvInput" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-ArgvInput$typespace.html#Symfony\Component\Console\Input\ArgvInput">ArgvInput</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>ArgvInput represents an input coming from the CLI arguments.</p>
+<p>Usage:</p>
+<pre><code>$input = new ArgvInput();</code></pre>
+<p>By default, the <code>$_SERVER['argv']</code> array is used for the input values.</p>
+<p>This can be overridden by explicitly passing the input values in the constructor:</p>
+<pre><code>$input = new ArgvInput($_SERVER['argv']);</code></pre>
+<p>If you pass it yourself, don't forget that the first element of the array<br />
+is the name of the running application.</p>
+<p>When passing an argument to the constructor, be sure that it respects<br />
+the same rules as the argv one. It's almost always better to use the<br />
+<code>StringInput</code> when you want to provide your own input.</p></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\ArrayInput">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArrayInput.php#L17-L206" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\ArrayInput" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-ArrayInput$typespace.html#Symfony\Component\Console\Input\ArrayInput">ArrayInput</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>ArrayInput represents an input provided as an array.</p>
+<p>Usage:</p>
+<pre><code>$input = new ArrayInput(array('name' =&gt; 'foo', '--bar' =&gt; 'foobar'));</code></pre></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\InputArgument">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/InputArgument.php#L17-L129" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\InputArgument" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-InputArgument$typespace.html#Symfony\Component\Console\Input\InputArgument">InputArgument</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>Represents a command line argument.</p></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\InputDefinition">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/InputDefinition.php#L17-L402" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\InputDefinition" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition">InputDefinition</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>A InputDefinition represents a set of valid command line arguments and options.</p>
+<p>Usage:</p>
+<pre><code>$definition = new InputDefinition(array(
+  new InputArgument('name', InputArgument::REQUIRED),
+  new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
+));</code></pre></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\InputOption">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/InputOption.php#L17-L208" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\InputOption" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-InputOption$typespace.html#Symfony\Component\Console\Input\InputOption">InputOption</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>Represents a command line option.</p></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Input\StringInput">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/StringInput.php#L16-L72" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Input\StringInput" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Input-StringInput$typespace.html#Symfony\Component\Console\Input\StringInput">StringInput</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>StringInput represents an input provided as a string.</p>
+<p>Usage:</p>
+<pre><code>$input = new StringInput('foo --bar="foobar"');</code></pre></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                			</ul>
+            
+    
+    </div>
+</body>
+</html>

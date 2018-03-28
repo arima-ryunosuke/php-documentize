@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script src="common.js"></script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	Structure
+	<small class="ellipsis-text">(Symfony\Component\Console\Output)</small>
+</h1>
+<div class="main-wrapper">
+	<h2>namespace <span class="category-name">Symfony\Component\Console\Output</span></h2>
+
+    
+            			<h3>Interfaces</h3>
+			<ul>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Output\OutputInterface">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning">abstract</span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/OutputInterface.php#L16-L114" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Output\OutputInterface" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface">OutputInterface</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>OutputInterface is the interface implemented by all Output classes.</p></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Output\ConsoleOutputInterface">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning">abstract</span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/ConsoleOutputInterface.php#L14-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Output\ConsoleOutputInterface" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Output-ConsoleOutputInterface$typespace.html#Symfony\Component\Console\Output\ConsoleOutputInterface">ConsoleOutputInterface</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>ConsoleOutputInterface is the interface implemented by ConsoleOutput class.<br />
+This adds information about stderr output stream.</p></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Dariusz Górecki</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                			</ul>
+                                			<h3>Classes</h3>
+			<ul>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Output\Output">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning">abstract</span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/Output.php#L17-L175" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Output\Output" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output">Output</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>Base class for output classes.</p>
+<p>There are five levels of verbosity:</p>
+<ul>
+<li>normal: no option passed (normal output)</li>
+<li>verbose: -v (more output)</li>
+<li>very verbose: -vv (highly extended output)</li>
+<li>debug: -vvv (all debug output)</li>
+<li>quiet: -q (no output)</li>
+</ul></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Output\BufferedOutput">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/BufferedOutput.php#L14-L45" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Output\BufferedOutput" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput">BufferedOutput</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Jean-François Simon</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Output\StreamOutput">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/StreamOutput.php#L18-L113" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Output\StreamOutput" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput">StreamOutput</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>StreamOutput writes the output to a given stream.</p>
+<p>Usage:</p>
+<p>$output = new StreamOutput(fopen('php://stdout', 'w'));</p>
+<p>As <code>StreamOutput</code> can use any stream, you can also use a file:</p>
+<p>$output = new StreamOutput(fopen('/path/to/output.log', 'a', false));</p></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Output\ConsoleOutput">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/ConsoleOutput.php#L16-L152" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Output\ConsoleOutput" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Output-ConsoleOutput$typespace.html#Symfony\Component\Console\Output\ConsoleOutput">ConsoleOutput</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>ConsoleOutput is the default class for all CLI output. It uses STDOUT and STDERR.</p>
+<p>This class is a convenient wrapper around <code>StreamOutput</code> for both STDOUT and STDERR.</p>
+<pre><code>$output = new ConsoleOutput();</code></pre>
+<p>This is equivalent to:</p>
+<pre><code>$output = new StreamOutput(fopen('php://stdout', 'w'));
+$stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item" data-parent-id="Symfony\Component\Console\Output\NullOutput">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/NullOutput.php#L17-L123" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Output\NullOutput" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Output-NullOutput$typespace.html#Symfony\Component\Console\Output\NullOutput">NullOutput</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"><p>NullOutput suppresses all output.</p>
+<pre><code>$output = new NullOutput();</code></pre></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Fabien Potencier</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                			</ul>
+            
+    
+    </div>
+</body>
+</html>

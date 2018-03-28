@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script src="common.js"></script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Symfony\Component\Console\Helper\ProgressIndicator)</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"></span>
+		<span class="label label-warning"></span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L18-L271" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            	</div>
+
+	<h2>class <span class="category-name">Symfony\Component\Console\Helper\ProgressIndicator</span></h2>
+
+	<div class="description"></div>
+
+	<h3>Construction</h3>
+                
+	<h3>Hierarchy</h3>
+	<div class="hierarchy"></div>
+
+	<h3>Constants</h3>
+    
+	<h3>Properties</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$output" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$output						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$startTime" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$startTime						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$format" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$format						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$message" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$message						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$indicatorValues" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$indicatorValues						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L28-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$indicatorCurrent" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$indicatorCurrent						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$indicatorChangeInterval" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$indicatorChangeInterval						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$indicatorUpdateTime" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$indicatorUpdateTime						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$started" tabindex="-1" class="structure-title">
+						<small>boolean</small>
+						$started						<var> = false</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default">static</span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L33-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$formatters" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$formatters						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default">static</span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L34-L34" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$formats" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$formats						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            		</ul>
+    
+	<h3>Methods</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L36-L64" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::__construct()" tabindex="-1" class="structure-title ">
+                        __construct						<small>($output, $format = null, $indicatorChangeInterval = 100, $indicatorValues = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
+				<td class="rest">$output</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$format = null</td>
+				<td class="desc">Indicator format
+</td>
+			</tr>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$indicatorChangeInterval = 100</td>
+				<td class="desc">Change interval in milliseconds
+</td>
+			</tr>
+        			<tr>
+				<td class="type">array<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$indicatorValues = null</td>
+				<td class="desc">Animated indicator characters</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L66-L76" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::setMessage()" tabindex="-1" class="structure-title ">
+                        setMessage						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the current indicator message.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L78-L96" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::start()" tabindex="-1" class="structure-title ">
+                        start						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Starts the indicator output.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"></td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L98-L121" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::advance()" tabindex="-1" class="structure-title ">
+                        advance						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Advances the indicator.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L123-L138" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::finish()" tabindex="-1" class="structure-title ">
+                        finish						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Finish the indicator with message.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"></td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L140-L154" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::getFormatDefinition()" tabindex="-1" class="structure-title ">
+                        getFormatDefinition						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets the format for a given name.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The format name
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string<span class="type-separator"></span><wbr>null</td>
+			<td class="desc">A format string</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L156-L171" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::setPlaceholderFormatterDefinition()" tabindex="-1" class="structure-title ">
+                        setPlaceholderFormatterDefinition						<small>($name, $callable)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets a placeholder formatter for a given name.</p>
+<p>This method also allow you to override an existing placeholder.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The placeholder name (including the delimiter char like %)
+</td>
+			</tr>
+        			<tr>
+				<td class="type">callable</td>
+				<td class="rest">$callable</td>
+				<td class="desc">A PHP callable</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L173-L187" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::getPlaceholderFormatterDefinition()" tabindex="-1" class="structure-title ">
+                        getPlaceholderFormatterDefinition						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets the placeholder formatter for a given name.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The placeholder name (including the delimiter char like %)
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">callable<span class="type-separator"></span><wbr>null</td>
+			<td class="desc">A PHP callable</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L189-L204" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::display()" tabindex="-1" class="structure-title ">
+                        display						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L206-L218" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::determineBestFormat()" tabindex="-1" class="structure-title ">
+                        determineBestFormat						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L220-L233" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::overwrite()" tabindex="-1" class="structure-title ">
+                        overwrite						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Overwrites a previous message to the output.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$message</td>
+				<td class="desc">The message</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L235-L238" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::getCurrentTimeInMilliseconds()" tabindex="-1" class="structure-title ">
+                        getCurrentTimeInMilliseconds						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L240-L256" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::initPlaceholderFormatters()" tabindex="-1" class="structure-title ">
+                        initPlaceholderFormatters						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/ProgressIndicator.php#L258-L270" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::initFormats()" tabindex="-1" class="structure-title ">
+                        initFormats						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            		</ul>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default">author Kevin Bond</span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

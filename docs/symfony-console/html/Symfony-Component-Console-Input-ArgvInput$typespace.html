@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script src="common.js"></script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Symfony\Component\Console\Input\ArgvInput)</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"></span>
+		<span class="label label-warning"></span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L16-L350" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            	</div>
+
+	<h2>class <span class="category-name">Symfony\Component\Console\Input\ArgvInput</span></h2>
+
+	<div class="description"><p>ArgvInput represents an input coming from the CLI arguments.</p>
+<p>Usage:</p>
+<pre><code>$input = new ArgvInput();</code></pre>
+<p>By default, the <code>$_SERVER['argv']</code> array is used for the input values.</p>
+<p>This can be overridden by explicitly passing the input values in the constructor:</p>
+<pre><code>$input = new ArgvInput($_SERVER['argv']);</code></pre>
+<p>If you pass it yourself, don't forget that the first element of the array<br />
+is the name of the running application.</p>
+<p>When passing an argument to the constructor, be sure that it respects<br />
+the same rules as the argv one. It's almost always better to use the<br />
+<code>StringInput</code> when you want to provide your own input.</p></div>
+
+	<h3>Construction</h3>
+    	<table class="table">
+		<caption>Parents</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input</a></td>
+				<td class="desc">Input is the base class for all concrete Input classes.</td>
+			</tr>
+        		</tbody>
+	</table>
+        	<table class="table">
+		<caption>Implements</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-StreamableInputInterface$typespace.html#Symfony\Component\Console\Input\StreamableInputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>StreamableInputInterface</a></td>
+				<td class="desc">StreamableInputInterface is the interface implemented by all input classes</td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
+				<td class="desc">InputInterface is the interface implemented by all input classes.</td>
+			</tr>
+        		</tbody>
+	</table>
+            	<table class="table">
+		<caption>See</caption>
+		<tbody>
+        			<tr>
+				<td class="type">
+                    						<a href="http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html" target="_blank">http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html</a>
+                    				</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">
+                    						<a href="http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap12.html#tag_12_02" target="_blank">http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap12.html#tag_12_02</a>
+                    				</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+    
+	<h3>Hierarchy</h3>
+	<div class="hierarchy">
+	<ul class="">
+        			<li class="">
+                <a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Input-ArgvInput$typespace.html#Symfony\Component\Console\Input\ArgvInput" class="fqsen bold"><small>Symfony\Component\Console\Input\</small><wbr>ArgvInput</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Input-StringInput$typespace.html#Symfony\Component\Console\Input\StringInput" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>StringInput</a>                			</li>
+        	</ul>
+    			</li>
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Input-ArrayInput$typespace.html#Symfony\Component\Console\Input\ArrayInput" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>ArrayInput</a>                			</li>
+        	</ul>
+    			</li>
+        	</ul>
+    </div>
+
+	<h3>Constants</h3>
+    
+	<h3>Properties</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L43-L43" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::$tokens" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$tokens						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L44-L44" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::$parsed" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$parsed						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::$definition" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$definition						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$definition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::$definition</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::$stream" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$stream						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$stream" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::$stream</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L32-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::$options" tabindex="-1" class="structure-title">
+						<small>array</small>
+						$options						<var> = []</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$options" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::$options</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L33-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::$arguments" tabindex="-1" class="structure-title">
+						<small>array</small>
+						$arguments						<var> = []</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$arguments" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::$arguments</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L34-L34" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::$interactive" tabindex="-1" class="structure-title">
+						<small>boolean</small>
+						$interactive						<var> = true</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$interactive" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::$interactive</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            		</ul>
+    
+	<h3>Methods</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L46-L62" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::__construct()" tabindex="-1" class="structure-title ">
+                        __construct						<small>($argv = null, $definition = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$argv = null</td>
+				<td class="desc">An array of parameters from the CLI (in the argv format)
+</td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a><span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$definition = null</td>
+				<td class="desc">A InputDefinition instance</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::__construct()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::__construct()</a></td>
+				<td class="desc"></td>
+				<td class="rest">override</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L64-L67" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::setTokens()" tabindex="-1" class="structure-title ">
+                        setTokens						<small>($tokens)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$tokens</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L69-L89" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::parse()" tabindex="-1" class="structure-title ">
+                        parse						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Processes command line arguments.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::parse()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::parse()</a></td>
+				<td class="desc">Processes command line arguments.</td>
+				<td class="rest">override</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L91-L110" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::parseShortOption()" tabindex="-1" class="structure-title ">
+                        parseShortOption						<small>($token)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Parses a short option.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$token</td>
+				<td class="desc">The current token</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L112-L136" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::parseShortOptionSet()" tabindex="-1" class="structure-title ">
+                        parseShortOptionSet						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Parses a short option set.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The current token
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-RuntimeException$typespace.html#Symfony\Component\Console\Exception\RuntimeException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>RuntimeException</a></td>
+				<td class="desc">When option given doesn&#039;t exist</td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L138-L160" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::parseLongOption()" tabindex="-1" class="structure-title ">
+                        parseLongOption						<small>($token)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Parses a long option.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$token</td>
+				<td class="desc">The current token</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L162-L192" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::parseArgument()" tabindex="-1" class="structure-title ">
+                        parseArgument						<small>($token)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Parses an argument.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$token</td>
+				<td class="desc">The current token
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-RuntimeException$typespace.html#Symfony\Component\Console\Exception\RuntimeException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>RuntimeException</a></td>
+				<td class="desc">When too many arguments are given</td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L194-L209" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::addShortOption()" tabindex="-1" class="structure-title ">
+                        addShortOption						<small>($shortcut, $value)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Adds a short option value.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$shortcut</td>
+				<td class="desc">The short option key
+</td>
+			</tr>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="rest">$value</td>
+				<td class="desc">The value for the option
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-RuntimeException$typespace.html#Symfony\Component\Console\Exception\RuntimeException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>RuntimeException</a></td>
+				<td class="desc">When option given doesn&#039;t exist</td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L211-L257" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::addLongOption()" tabindex="-1" class="structure-title ">
+                        addLongOption						<small>($name, $value)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Adds a long option value.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The long option key
+</td>
+			</tr>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="rest">$value</td>
+				<td class="desc">The value for the option
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-RuntimeException$typespace.html#Symfony\Component\Console\Exception\RuntimeException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>RuntimeException</a></td>
+				<td class="desc">When option given doesn&#039;t exist</td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L259-L271" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::getFirstArgument()" tabindex="-1" class="structure-title ">
+                        getFirstArgument						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the first argument from the raw parameters (not parsed).<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string<span class="type-separator"></span><wbr>null</td>
+			<td class="desc">The value of the first argument or null otherwise</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getFirstArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getFirstArgument()</a></td>
+				<td class="desc">Returns the first argument from the raw parameters (not parsed).</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L273-L296" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::hasParameterOption()" tabindex="-1" class="structure-title ">
+                        hasParameterOption						<small>($values, $onlyParams = false)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns true if the raw parameters (not parsed) contain a value.</p>
+<p>This method is to be used to introspect the input parameters<br />
+before they have been validated. It must be used carefully.<br />
+Does not necessarily return the correct result for short options<br />
+when multiple flags are combined in the same option.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$values</td>
+				<td class="desc">The values to look for in the raw parameters (can be an array)
+</td>
+			</tr>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$onlyParams = false</td>
+				<td class="desc">Only check real parameters, skip those following an end of options (--) signal
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc">true if the value is contained in the raw parameters</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::hasParameterOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::hasParameterOption()</a></td>
+				<td class="desc">Returns true if the raw parameters (not parsed) contain a value.</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L298-L327" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::getParameterOption()" tabindex="-1" class="structure-title ">
+                        getParameterOption						<small>($values, $default = false, $onlyParams = false)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the value of a raw option (not parsed).</p>
+<p>This method is to be used to introspect the input parameters<br />
+before they have been validated. It must be used carefully.<br />
+Does not necessarily return the correct result for short options<br />
+when multiple flags are combined in the same option.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$values</td>
+				<td class="desc">The value(s) to look for in the raw parameters (can be an array)
+</td>
+			</tr>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="rest">$default = false</td>
+				<td class="desc">The default value to return if no result is found
+</td>
+			</tr>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$onlyParams = false</td>
+				<td class="desc">Only check real parameters, skip those following an end of options (--) signal
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">mixed</td>
+			<td class="desc">The option value</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getParameterOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getParameterOption()</a></td>
+				<td class="desc">Returns the value of a raw option (not parsed).</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/ArgvInput.php#L329-L349" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::__toString()" tabindex="-1" class="structure-title ">
+                        __toString						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns a stringified representation of the args passed to the command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L46-L56" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::bind()" tabindex="-1" class="structure-title ">
+                        bind						<small>($definition)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Binds the current Input instance with the given arguments and options.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
+				<td class="rest">$definition</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::bind()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::bind()</a></td>
+				<td class="desc">Binds the current Input instance with the given arguments and options.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L63-L78" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::validate()" tabindex="-1" class="structure-title ">
+                        validate						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Validates the input.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-RuntimeException$typespace.html#Symfony\Component\Console\Exception\RuntimeException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>RuntimeException</a></td>
+				<td class="desc">When not enough arguments are given</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::validate()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::validate()</a></td>
+				<td class="desc">Validates the input.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L80-L86" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::isInteractive()" tabindex="-1" class="structure-title ">
+                        isInteractive						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Is this input means interactive?<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::isInteractive()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::isInteractive()</a></td>
+				<td class="desc">Is this input means interactive?</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L88-L94" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::setInteractive()" tabindex="-1" class="structure-title ">
+                        setInteractive						<small>($interactive)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the input interactivity.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$interactive</td>
+				<td class="desc">If the input should be interactive</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::setInteractive()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::setInteractive()</a></td>
+				<td class="desc">Sets the input interactivity.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L96-L102" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::getArguments()" tabindex="-1" class="structure-title ">
+                        getArguments						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns all the given arguments merged with the default values.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">array</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getArguments()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getArguments()</a></td>
+				<td class="desc">Returns all the given arguments merged with the default values.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L104-L114" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::getArgument()" tabindex="-1" class="structure-title ">
+                        getArgument						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the argument value for a given argument name.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The argument name
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">mixed</td>
+			<td class="desc">The argument value
+
+</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>InvalidArgumentException</a></td>
+				<td class="desc">When argument given doesn&#039;t exist</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getArgument()</a></td>
+				<td class="desc">Returns the argument value for a given argument name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L116-L126" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::setArgument()" tabindex="-1" class="structure-title ">
+                        setArgument						<small>($name, $value)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets an argument value by name.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The argument name
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$value</td>
+				<td class="desc">The argument value
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>InvalidArgumentException</a></td>
+				<td class="desc">When argument given doesn&#039;t exist</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::setArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::setArgument()</a></td>
+				<td class="desc">Sets an argument value by name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L128-L134" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::hasArgument()" tabindex="-1" class="structure-title ">
+                        hasArgument						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns true if an InputArgument object exists by name or position.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>int</td>
+				<td class="rest">$name</td>
+				<td class="desc">The InputArgument name or position
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc">true if the InputArgument object exists, false otherwise</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::hasArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::hasArgument()</a></td>
+				<td class="desc">Returns true if an InputArgument object exists by name or position.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L136-L142" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::getOptions()" tabindex="-1" class="structure-title ">
+                        getOptions						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns all the given options merged with the default values.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">array</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getOptions()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getOptions()</a></td>
+				<td class="desc">Returns all the given options merged with the default values.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L144-L154" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::getOption()" tabindex="-1" class="structure-title ">
+                        getOption						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the option value for a given option name.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The option name
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">mixed</td>
+			<td class="desc">The option value
+
+</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>InvalidArgumentException</a></td>
+				<td class="desc">When option given doesn&#039;t exist</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getOption()</a></td>
+				<td class="desc">Returns the option value for a given option name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L156-L166" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::setOption()" tabindex="-1" class="structure-title ">
+                        setOption						<small>($name, $value)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets an option value by name.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The option name
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>bool</td>
+				<td class="rest">$value</td>
+				<td class="desc">The option value
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>InvalidArgumentException</a></td>
+				<td class="desc">When option given doesn&#039;t exist</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::setOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::setOption()</a></td>
+				<td class="desc">Sets an option value by name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L168-L174" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::hasOption()" tabindex="-1" class="structure-title ">
+                        hasOption						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns true if an InputOption object exists by name.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The InputOption name
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc">true if the InputOption object exists, false otherwise</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::hasOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::hasOption()</a></td>
+				<td class="desc">Returns true if an InputOption object exists by name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L176-L186" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::escapeToken()" tabindex="-1" class="structure-title ">
+                        escapeToken						<small>($token)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Escapes a token through escapeshellarg if it contains unsafe chars.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$token</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::escapeToken()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::escapeToken()</a></td>
+				<td class="desc">Escapes a token through escapeshellarg if it contains unsafe chars.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L188-L194" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::setStream()" tabindex="-1" class="structure-title ">
+                        setStream						<small>($stream)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the input stream to read from when interacting with the user.</p>
+<p>This is mainly useful for testing purpose.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">resource</td>
+				<td class="rest">$stream</td>
+				<td class="desc">The input stream</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-StreamableInputInterface$typespace.html#Symfony\Component\Console\Input\StreamableInputInterface::setStream()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>StreamableInputInterface::setStream()</a></td>
+				<td class="desc">Sets the input stream to read from when interacting with the user.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Input/Input.php#L196-L202" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Input\ArgvInput::getStream()" tabindex="-1" class="structure-title ">
+                        getStream						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the input stream.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">resource<span class="type-separator"></span><wbr>null</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-StreamableInputInterface$typespace.html#Symfony\Component\Console\Input\StreamableInputInterface::getStream()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>StreamableInputInterface::getStream()</a></td>
+				<td class="desc">Returns the input stream.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            		</ul>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default">author Fabien Potencier</span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script src="common.js"></script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Symfony\Component\Console\Style\OutputStyle)</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"></span>
+		<span class="label label-warning">abstract</span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L19-L155" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            	</div>
+
+	<h2>class <span class="category-name">Symfony\Component\Console\Style\OutputStyle</span></h2>
+
+	<div class="description"><p>Decorates output to add console style guide helpers.</p></div>
+
+	<h3>Construction</h3>
+        	<table class="table">
+		<caption>Implements</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
+				<td class="desc">OutputInterface is the interface implemented by all Output classes.</td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface</a></td>
+				<td class="desc">Output style helpers.</td>
+			</tr>
+        		</tbody>
+	</table>
+            
+	<h3>Hierarchy</h3>
+	<div class="hierarchy">
+	<ul class="">
+        			<li class="">
+                <a href="Symfony-Component-Console-Style-OutputStyle$typespace.html#Symfony\Component\Console\Style\OutputStyle" class="fqsen bold"><small>Symfony\Component\Console\Style\</small><wbr>OutputStyle</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Style-SymfonyStyle$typespace.html#Symfony\Component\Console\Style\SymfonyStyle" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>SymfonyStyle</a>                			</li>
+        	</ul>
+    			</li>
+        	</ul>
+    </div>
+
+	<h3>Constants</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/OutputInterface.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::VERBOSITY_QUIET" tabindex="-1" class="structure-title">
+						<small>integer</small>
+                        VERBOSITY_QUIET						<var> = 16</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::VERBOSITY_QUIET" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::VERBOSITY_QUIET</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/OutputInterface.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::VERBOSITY_NORMAL" tabindex="-1" class="structure-title">
+						<small>integer</small>
+                        VERBOSITY_NORMAL						<var> = 32</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::VERBOSITY_NORMAL" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::VERBOSITY_NORMAL</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/OutputInterface.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::VERBOSITY_VERBOSE" tabindex="-1" class="structure-title">
+						<small>integer</small>
+                        VERBOSITY_VERBOSE						<var> = 64</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::VERBOSITY_VERBOSE" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::VERBOSITY_VERBOSE</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/OutputInterface.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::VERBOSITY_VERY_VERBOSE" tabindex="-1" class="structure-title">
+						<small>integer</small>
+                        VERBOSITY_VERY_VERBOSE						<var> = 128</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::VERBOSITY_VERY_VERBOSE" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::VERBOSITY_VERY_VERBOSE</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/OutputInterface.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::VERBOSITY_DEBUG" tabindex="-1" class="structure-title">
+						<small>integer</small>
+                        VERBOSITY_DEBUG						<var> = 256</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::VERBOSITY_DEBUG" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::VERBOSITY_DEBUG</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/OutputInterface.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::OUTPUT_NORMAL" tabindex="-1" class="structure-title">
+						<small>integer</small>
+                        OUTPUT_NORMAL						<var> = 1</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::OUTPUT_NORMAL" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::OUTPUT_NORMAL</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/OutputInterface.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::OUTPUT_RAW" tabindex="-1" class="structure-title">
+						<small>integer</small>
+                        OUTPUT_RAW						<var> = 2</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::OUTPUT_RAW" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::OUTPUT_RAW</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Output/OutputInterface.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::OUTPUT_PLAIN" tabindex="-1" class="structure-title">
+						<small>integer</small>
+                        OUTPUT_PLAIN						<var> = 4</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::OUTPUT_PLAIN" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::OUTPUT_PLAIN</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+				</li>
+            		</ul>
+    
+	<h3>Properties</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::$output" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$output						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            		</ul>
+    
+	<h3>Methods</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L28-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::__construct()" tabindex="-1" class="structure-title ">
+                        __construct						<small>($output)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
+				<td class="rest">$output</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L33-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::newLine()" tabindex="-1" class="structure-title ">
+                        newLine						<small>($count = 1)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Add newline(s).<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$count = 1</td>
+				<td class="desc">The number of newlines</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::newLine()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::newLine()</a></td>
+				<td class="desc">Add newline(s).</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L41-L49" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::createProgressBar()" tabindex="-1" class="structure-title ">
+                        createProgressBar						<small>($max = 0)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$max = 0</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Helper-ProgressBar$typespace.html#Symfony\Component\Console\Helper\ProgressBar" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>ProgressBar</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L51-L57" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::write()" tabindex="-1" class="structure-title ">
+                        write						<small>($messages, $newline = false, $options = 0)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Writes a message to the output.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$messages</td>
+				<td class="desc">The message as an array of lines or a single string
+</td>
+			</tr>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$newline = false</td>
+				<td class="desc">Whether to add a newline
+</td>
+			</tr>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$options = 0</td>
+				<td class="desc">A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::write()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::write()</a></td>
+				<td class="desc">Writes a message to the output.</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L59-L65" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::writeln()" tabindex="-1" class="structure-title ">
+                        writeln						<small>($messages, $options = 0)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Writes a message to the output and adds a newline at the end.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$messages</td>
+				<td class="desc">The message as an array of lines of a single string
+</td>
+			</tr>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$options = 0</td>
+				<td class="desc">A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::writeln()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::writeln()</a></td>
+				<td class="desc">Writes a message to the output and adds a newline at the end.</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L67-L73" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::setVerbosity()" tabindex="-1" class="structure-title ">
+                        setVerbosity						<small>($level)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the verbosity of the output.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$level</td>
+				<td class="desc">The level of verbosity (one of the VERBOSITY constants)</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::setVerbosity()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::setVerbosity()</a></td>
+				<td class="desc">Sets the verbosity of the output.</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L75-L81" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::getVerbosity()" tabindex="-1" class="structure-title ">
+                        getVerbosity						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets the current verbosity of the output.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">int</td>
+			<td class="desc">The current level of verbosity (one of the VERBOSITY constants)</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::getVerbosity()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::getVerbosity()</a></td>
+				<td class="desc">Gets the current verbosity of the output.</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L83-L89" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::setDecorated()" tabindex="-1" class="structure-title ">
+                        setDecorated						<small>($decorated)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the decorated flag.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$decorated</td>
+				<td class="desc">Whether to decorate the messages</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::setDecorated()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::setDecorated()</a></td>
+				<td class="desc">Sets the decorated flag.</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L91-L97" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::isDecorated()" tabindex="-1" class="structure-title ">
+                        isDecorated						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets the decorated flag.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc">true if the output will decorate messages, false otherwise</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isDecorated()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isDecorated()</a></td>
+				<td class="desc">Gets the decorated flag.</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L99-L105" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::setFormatter()" tabindex="-1" class="structure-title ">
+                        setFormatter						<small>($formatter)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><tag-inheritdoc data-type='' /></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a></td>
+				<td class="rest">$formatter</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::setFormatter()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::setFormatter()</a></td>
+				<td class="desc"></td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L107-L113" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::getFormatter()" tabindex="-1" class="structure-title ">
+                        getFormatter						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns current output formatter instance.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::getFormatter()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::getFormatter()</a></td>
+				<td class="desc">Returns current output formatter instance.</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L115-L121" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::isQuiet()" tabindex="-1" class="structure-title ">
+                        isQuiet						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns whether verbosity is quiet (-q).<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc">true if verbosity is set to VERBOSITY_QUIET, false otherwise</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isQuiet()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isQuiet()</a></td>
+				<td class="desc">Returns whether verbosity is quiet (-q).</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L123-L129" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::isVerbose()" tabindex="-1" class="structure-title ">
+                        isVerbose						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns whether verbosity is verbose (-v).<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc">true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isVerbose()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isVerbose()</a></td>
+				<td class="desc">Returns whether verbosity is verbose (-v).</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L131-L137" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::isVeryVerbose()" tabindex="-1" class="structure-title ">
+                        isVeryVerbose						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns whether verbosity is very verbose (-vv).<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc">true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isVeryVerbose()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isVeryVerbose()</a></td>
+				<td class="desc">Returns whether verbosity is very verbose (-vv).</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L139-L145" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::isDebug()" tabindex="-1" class="structure-title ">
+                        isDebug						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns whether verbosity is debug (-vvv).<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc">true if verbosity is set to VERBOSITY_DEBUG, false otherwise</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isDebug()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isDebug()</a></td>
+				<td class="desc">Returns whether verbosity is debug (-vvv).</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/OutputStyle.php#L147-L154" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::getErrorOutput()" tabindex="-1" class="structure-title ">
+                        getErrorOutput						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L21-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::title()" tabindex="-1" class="structure-title ">
+                        title						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats a command title.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::title()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::title()</a></td>
+				<td class="desc">Formats a command title.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L28-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::section()" tabindex="-1" class="structure-title ">
+                        section						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats a section title.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::section()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::section()</a></td>
+				<td class="desc">Formats a section title.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L35-L38" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::listing()" tabindex="-1" class="structure-title ">
+                        listing						<small>($elements)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats a list.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$elements</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::listing()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::listing()</a></td>
+				<td class="desc">Formats a list.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L40-L45" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::text()" tabindex="-1" class="structure-title ">
+                        text						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats informational text.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::text()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::text()</a></td>
+				<td class="desc">Formats informational text.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L47-L52" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::success()" tabindex="-1" class="structure-title ">
+                        success						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats a success result bar.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::success()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::success()</a></td>
+				<td class="desc">Formats a success result bar.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L54-L59" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::error()" tabindex="-1" class="structure-title ">
+                        error						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats an error result bar.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::error()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::error()</a></td>
+				<td class="desc">Formats an error result bar.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L61-L66" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::warning()" tabindex="-1" class="structure-title ">
+                        warning						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats an warning result bar.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::warning()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::warning()</a></td>
+				<td class="desc">Formats an warning result bar.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L68-L73" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::note()" tabindex="-1" class="structure-title ">
+                        note						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats a note admonition.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::note()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::note()</a></td>
+				<td class="desc">Formats a note admonition.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L75-L80" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::caution()" tabindex="-1" class="structure-title ">
+                        caution						<small>($message)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats a caution admonition.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$message</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::caution()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::caution()</a></td>
+				<td class="desc">Formats a caution admonition.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L82-L85" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::table()" tabindex="-1" class="structure-title ">
+                        table						<small>($headers, $rows)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Formats a table.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$headers</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$rows</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::table()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::table()</a></td>
+				<td class="desc">Formats a table.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L87-L96" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::ask()" tabindex="-1" class="structure-title ">
+                        ask						<small>($question, $default = null, $validator = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Asks a question.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$question</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$default = null</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">callable<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$validator = null</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">mixed</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::ask()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::ask()</a></td>
+				<td class="desc">Asks a question.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L98-L106" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::askHidden()" tabindex="-1" class="structure-title ">
+                        askHidden						<small>($question, $validator = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Asks a question with the user input hidden.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$question</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">callable<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$validator = null</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">mixed</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::askHidden()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::askHidden()</a></td>
+				<td class="desc">Asks a question with the user input hidden.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L108-L116" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::confirm()" tabindex="-1" class="structure-title ">
+                        confirm						<small>($question, $default = true)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Asks for confirmation.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$question</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$default = true</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::confirm()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::confirm()</a></td>
+				<td class="desc">Asks for confirmation.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L118-L127" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::choice()" tabindex="-1" class="structure-title ">
+                        choice						<small>($question, $choices, $default = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Asks a choice question.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$question</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$choices</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>int<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$default = null</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">mixed</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::choice()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::choice()</a></td>
+				<td class="desc">Asks a choice question.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L136-L141" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::progressStart()" tabindex="-1" class="structure-title ">
+                        progressStart						<small>($max = 0)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Starts the progress output.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$max = 0</td>
+				<td class="desc">Maximum steps (0 if unknown)</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::progressStart()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::progressStart()</a></td>
+				<td class="desc">Starts the progress output.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L143-L148" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::progressAdvance()" tabindex="-1" class="structure-title ">
+                        progressAdvance						<small>($step = 1)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Advances the progress output X steps.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$step = 1</td>
+				<td class="desc">Number of steps to advance</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::progressAdvance()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::progressAdvance()</a></td>
+				<td class="desc">Advances the progress output X steps.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Style/StyleInterface.php#L150-L153" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Style\OutputStyle::progressFinish()" tabindex="-1" class="structure-title ">
+                        progressFinish						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Finishes the progress output.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface::progressFinish()" class="fqsen "><small>Symfony\Component\Console\Style\</small><wbr>StyleInterface::progressFinish()</a></td>
+				<td class="desc">Finishes the progress output.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            		</ul>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default">author Kevin Bond</span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

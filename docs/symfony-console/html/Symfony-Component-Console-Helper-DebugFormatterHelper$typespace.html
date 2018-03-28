@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script src="common.js"></script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Symfony\Component\Console\Helper\DebugFormatterHelper)</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"></span>
+		<span class="label label-warning"></span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/DebugFormatterHelper.php#L14-L127" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            	</div>
+
+	<h2>class <span class="category-name">Symfony\Component\Console\Helper\DebugFormatterHelper</span></h2>
+
+	<div class="description"><p>Helps outputting debug information when running an external program from a command.</p>
+<p>An external program can be a Process, an HTTP request, or anything else.</p></div>
+
+	<h3>Construction</h3>
+    	<table class="table">
+		<caption>Parents</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper</a></td>
+				<td class="desc">Helper is the base class for all helper classes.</td>
+			</tr>
+        		</tbody>
+	</table>
+        	<table class="table">
+		<caption>Implements</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperInterface</a></td>
+				<td class="desc">HelperInterface is the interface all helpers must implement.</td>
+			</tr>
+        		</tbody>
+	</table>
+            
+	<h3>Hierarchy</h3>
+	<div class="hierarchy">
+	<ul class="">
+        			<li class="">
+                <a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Helper-DebugFormatterHelper$typespace.html#Symfony\Component\Console\Helper\DebugFormatterHelper" class="fqsen bold"><small>Symfony\Component\Console\Helper\</small><wbr>DebugFormatterHelper</a>                			</li>
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Helper-DescriptorHelper$typespace.html#Symfony\Component\Console\Helper\DescriptorHelper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>DescriptorHelper</a>                			</li>
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Helper-FormatterHelper$typespace.html#Symfony\Component\Console\Helper\FormatterHelper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>FormatterHelper</a>                			</li>
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Helper-InputAwareHelper$typespace.html#Symfony\Component\Console\Helper\InputAwareHelper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>InputAwareHelper</a>                			</li>
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Helper-ProcessHelper$typespace.html#Symfony\Component\Console\Helper\ProcessHelper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>ProcessHelper</a>                			</li>
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Helper-QuestionHelper$typespace.html#Symfony\Component\Console\Helper\QuestionHelper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>QuestionHelper</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Helper-SymfonyQuestionHelper$typespace.html#Symfony\Component\Console\Helper\SymfonyQuestionHelper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>SymfonyQuestionHelper</a>                			</li>
+        	</ul>
+    			</li>
+        	</ul>
+    			</li>
+        	</ul>
+    </div>
+
+	<h3>Constants</h3>
+    
+	<h3>Properties</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/DebugFormatterHelper.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::$colors" tabindex="-1" class="structure-title">
+						<small>array</small>
+						$colors						<var> = [&#039;black&#039;, &#039;red&#039;, &#039;green&#039;, &#039;yellow&#039;, &#039;blue&#039;, &#039;magenta&#039;, &#039;cyan&#039;, &#039;white&#039;, &#039;default&#039;]</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/DebugFormatterHelper.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::$started" tabindex="-1" class="structure-title">
+						<small>array</small>
+						$started						<var> = []</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/DebugFormatterHelper.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::$count" tabindex="-1" class="structure-title">
+						<small>integer</small>
+						$count						<var> = -1</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/Helper.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::$helperSet" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$helperSet						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::$helperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper::$helperSet</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            		</ul>
+    
+	<h3>Methods</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/DebugFormatterHelper.php#L27-L41" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::start()" tabindex="-1" class="structure-title ">
+                        start						<small>($id, $message, $prefix = &#039;RUN&#039;)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Starts a debug formatting session.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$id</td>
+				<td class="desc">The id of the formatting session
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$message</td>
+				<td class="desc">The message to display
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$prefix = &#039;RUN&#039;</td>
+				<td class="desc">The prefix to use
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/DebugFormatterHelper.php#L43-L83" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::progress()" tabindex="-1" class="structure-title ">
+                        progress						<small>($id, $buffer, $error = false, $prefix = &#039;OUT&#039;, $errorPrefix = &#039;ERR&#039;)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Adds progress to a formatting session.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$id</td>
+				<td class="desc">The id of the formatting session
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$buffer</td>
+				<td class="desc">The message to display
+</td>
+			</tr>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$error = false</td>
+				<td class="desc">Whether to consider the buffer as error
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$prefix = &#039;OUT&#039;</td>
+				<td class="desc">The prefix for output
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$errorPrefix = &#039;ERR&#039;</td>
+				<td class="desc">The prefix for error output
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/DebugFormatterHelper.php#L85-L108" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::stop()" tabindex="-1" class="structure-title ">
+                        stop						<small>($id, $message, $successful, $prefix = &#039;RES&#039;)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Stops a formatting session.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$id</td>
+				<td class="desc">The id of the formatting session
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$message</td>
+				<td class="desc">The message to display
+</td>
+			</tr>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$successful</td>
+				<td class="desc">Whether to consider the result as success
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$prefix = &#039;RES&#039;</td>
+				<td class="desc">The prefix for the end output
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/DebugFormatterHelper.php#L110-L118" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::getBorder()" tabindex="-1" class="structure-title ">
+                        getBorder						<small>($id)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$id</td>
+				<td class="desc">The id of the formatting session
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/DebugFormatterHelper.php#L120-L126" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::getName()" tabindex="-1" class="structure-title ">
+                        getName						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the canonical name of this helper.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc">The canonical name</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface::getName()" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperInterface::getName()</a></td>
+				<td class="desc">Returns the canonical name of this helper.</td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/Helper.php#L25-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::setHelperSet()" tabindex="-1" class="structure-title ">
+                        setHelperSet						<small>($helperSet = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the helper set associated with this helper.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
+				<td class="rest">$helperSet = null</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface::setHelperSet()" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperInterface::setHelperSet()</a></td>
+				<td class="desc">Sets the helper set associated with this helper.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/Helper.php#L33-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::getHelperSet()" tabindex="-1" class="structure-title ">
+                        getHelperSet						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets the helper set associated with this helper.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
+			<td class="desc">A HelperSet instance</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface::getHelperSet()" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperInterface::getHelperSet()</a></td>
+				<td class="desc">Gets the helper set associated with this helper.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/Helper.php#L41-L55" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::strlen()" tabindex="-1" class="structure-title ">
+                        strlen						<small>($string)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the length of a string, using mb_strwidth if it is available.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$string</td>
+				<td class="desc">The string to check its length
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">int</td>
+			<td class="desc">The length of the string</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::strlen()" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper::strlen()</a></td>
+				<td class="desc">Returns the length of a string, using mb_strwidth if it is available.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/Helper.php#L57-L73" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::substr()" tabindex="-1" class="structure-title ">
+                        substr						<small>($string, $from, $length = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the subset of a string, using mb_substr if it is available.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$string</td>
+				<td class="desc">String to subset
+</td>
+			</tr>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$from</td>
+				<td class="desc">Start offset
+</td>
+			</tr>
+        			<tr>
+				<td class="type">int<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$length = null</td>
+				<td class="desc">Length to read
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc">The string subset</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::substr()" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper::substr()</a></td>
+				<td class="desc">Returns the subset of a string, using mb_substr if it is available.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/Helper.php#L75-L102" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::formatTime()" tabindex="-1" class="structure-title ">
+                        formatTime						<small>($secs)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"></td>
+				<td class="rest">$secs</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::formatTime()" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper::formatTime()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/Helper.php#L104-L119" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::formatMemory()" tabindex="-1" class="structure-title ">
+                        formatMemory						<small>($memory)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"></td>
+				<td class="rest">$memory</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::formatMemory()" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper::formatMemory()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/Helper.php#L121-L124" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::strlenWithoutDecoration()" tabindex="-1" class="structure-title ">
+                        strlenWithoutDecoration						<small>($formatter, $string)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a></td>
+				<td class="rest">$formatter</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"></td>
+				<td class="rest">$string</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::strlenWithoutDecoration()" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper::strlenWithoutDecoration()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Helper/Helper.php#L126-L137" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::removeDecoration()" tabindex="-1" class="structure-title ">
+                        removeDecoration						<small>($formatter, $string)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a></td>
+				<td class="rest">$formatter</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"></td>
+				<td class="rest">$string</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::removeDecoration()" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper::removeDecoration()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            		</ul>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default">author Fabien Potencier</span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

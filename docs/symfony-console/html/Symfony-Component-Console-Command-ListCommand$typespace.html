@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script src="common.js"></script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Symfony\Component\Console\Command\ListCommand)</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"></span>
+		<span class="label label-warning"></span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/ListCommand.php#L21-L90" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            	</div>
+
+	<h2>class <span class="category-name">Symfony\Component\Console\Command\ListCommand</span></h2>
+
+	<div class="description"><p>ListCommand displays the list of all available commands for the application.</p></div>
+
+	<h3>Construction</h3>
+    	<table class="table">
+		<caption>Parents</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
+				<td class="desc">Base class for all commands.</td>
+			</tr>
+        		</tbody>
+	</table>
+                
+	<h3>Hierarchy</h3>
+	<div class="hierarchy">
+	<ul class="">
+        			<li class="">
+                <a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Command-HelpCommand$typespace.html#Symfony\Component\Console\Command\HelpCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>HelpCommand</a>                			</li>
+        			<li class="indent">
+                <a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen bold"><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a>                			</li>
+        	</ul>
+    			</li>
+        	</ul>
+    </div>
+
+	<h3>Constants</h3>
+    
+	<h3>Properties</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default">static</span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L32-L35" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::$defaultName" tabindex="-1" class="structure-title">
+						<small>string<span class="type-separator"></span><wbr>null</small>
+						$defaultName						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The default command name</p></div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::$defaultName" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::$defaultName</a></td>
+				<td class="desc">The default command name</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            		</ul>
+    
+	<h3>Methods</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/ListCommand.php#L28-L56" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::configure()" tabindex="-1" class="structure-title ">
+                        configure						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Configures the current command.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::configure()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::configure()</a></td>
+				<td class="desc">Configures the current command.</td>
+				<td class="rest">override</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/ListCommand.php#L58-L64" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getNativeDefinition()" tabindex="-1" class="structure-title ">
+                        getNativeDefinition						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets the InputDefinition to be used to create representations of this Command.</p>
+<p>Can be overridden to provide the original command representation when it would otherwise<br />
+be changed by merging with the application InputDefinition.</p>
+<p>This method is not part of public API and should not be used directly.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
+			<td class="desc">An InputDefinition instance</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getNativeDefinition()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getNativeDefinition()</a></td>
+				<td class="desc">Gets the InputDefinition to be used to create representations of this Command.</td>
+				<td class="rest">override</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/ListCommand.php#L66-L77" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::execute()" tabindex="-1" class="structure-title ">
+                        execute						<small>($input, $output)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Executes the current command.</p>
+<p>This method is not abstract because you can use this class<br />
+as a concrete class. In this case, instead of defining the<br />
+execute() method, you set the code to execute by passing<br />
+a Closure to the setCode() method.<tag-inheritdoc data-type='' /></p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
+				<td class="rest">$input</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
+				<td class="rest">$output</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">null<span class="type-separator"></span><wbr>int</td>
+			<td class="desc">null or 0 if everything went fine, or an error code
+
+</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-LogicException$typespace.html#Symfony\Component\Console\Exception\LogicException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>LogicException</a></td>
+				<td class="desc">When this abstract method is not implemented</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::execute()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::execute()</a></td>
+				<td class="desc">Executes the current command.</td>
+				<td class="rest">override</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>See</caption>
+		<tbody>
+        			<tr>
+				<td class="type">
+                                            <a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setCode()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setCode()</a>                    				</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/ListCommand.php#L79-L89" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::createDefinition()" tabindex="-1" class="structure-title ">
+                        createDefinition						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><tag-inheritdoc data-type='' /></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L53-L62" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getDefaultName()" tabindex="-1" class="structure-title ">
+                        getDefaultName						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string<span class="type-separator"></span><wbr>null</td>
+			<td class="desc">The default command name or null when no default name is set</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getDefaultName()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getDefaultName()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L64-L78" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::__construct()" tabindex="-1" class="structure-title ">
+                        __construct						<small>($name = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$name = null</td>
+				<td class="desc">The name of the command; passing null means it must be set in configure()
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-LogicException$typespace.html#Symfony\Component\Console\Exception\LogicException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>LogicException</a></td>
+				<td class="desc">When the command name is empty</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::__construct()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::__construct()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L80-L88" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::ignoreValidationErrors()" tabindex="-1" class="structure-title ">
+                        ignoreValidationErrors						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Ignores validation errors.</p>
+<p>This is mainly useful for the help command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::ignoreValidationErrors()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::ignoreValidationErrors()</a></td>
+				<td class="desc">Ignores validation errors.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L90-L98" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setApplication()" tabindex="-1" class="structure-title ">
+                        setApplication						<small>($application = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Application$typespace.html#Symfony\Component\Console\Application" class="fqsen "><small>Symfony\Component\Console\</small><wbr>Application</a></td>
+				<td class="rest">$application = null</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setApplication()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setApplication()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L100-L103" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setHelperSet()" tabindex="-1" class="structure-title ">
+                        setHelperSet						<small>($helperSet)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
+				<td class="rest">$helperSet</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setHelperSet()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setHelperSet()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L105-L113" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getHelperSet()" tabindex="-1" class="structure-title ">
+                        getHelperSet						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets the helper set.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
+			<td class="desc">A HelperSet instance</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getHelperSet()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getHelperSet()</a></td>
+				<td class="desc">Gets the helper set.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L115-L123" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getApplication()" tabindex="-1" class="structure-title ">
+                        getApplication						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets the application instance for this command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Application$typespace.html#Symfony\Component\Console\Application" class="fqsen "><small>Symfony\Component\Console\</small><wbr>Application</a></td>
+			<td class="desc">An Application instance</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getApplication()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getApplication()</a></td>
+				<td class="desc">Gets the application instance for this command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L125-L136" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::isEnabled()" tabindex="-1" class="structure-title ">
+                        isEnabled						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Checks whether the command is enabled or not in the current environment.</p>
+<p>Override this to check for x or y and return false if the command can not<br />
+run properly under the current conditions.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::isEnabled()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::isEnabled()</a></td>
+				<td class="desc">Checks whether the command is enabled or not in the current environment.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L164-L173" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::interact()" tabindex="-1" class="structure-title ">
+                        interact						<small>($input, $output)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Interacts with the user.</p>
+<p>This method is executed before the InputDefinition is validated.<br />
+This means that this is the only place where the command can<br />
+interactively ask for values of missing required arguments.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
+				<td class="rest">$input</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
+				<td class="rest">$output</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::interact()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::interact()</a></td>
+				<td class="desc">Interacts with the user.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L175-L183" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::initialize()" tabindex="-1" class="structure-title ">
+                        initialize						<small>($input, $output)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Initializes the command just after the input has been validated.</p>
+<p>This is mainly useful when a lot of commands extends one main command<br />
+where some things need to be initialized based on the input arguments and options.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
+				<td class="rest">$input</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
+				<td class="rest">$output</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::initialize()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::initialize()</a></td>
+				<td class="desc">Initializes the command just after the input has been validated.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L185-L256" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::run()" tabindex="-1" class="structure-title ">
+                        run						<small>($input, $output)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Runs the command.</p>
+<p>The code to execute is either defined directly with the<br />
+setCode() method or by overriding the execute() method<br />
+in a sub-class.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
+				<td class="rest">$input</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
+				<td class="rest">$output</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">int</td>
+			<td class="desc">The command exit code
+
+</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.exception.php" class="fqsen" target="_blank">\Exception</a></td>
+				<td class="desc">When binding input fails. Bypass this by calling {@link ignoreValidationErrors()}.</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::run()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::run()</a></td>
+				<td class="desc">Runs the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>See</caption>
+		<tbody>
+        			<tr>
+				<td class="type">
+                                            <a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand::setCode()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand::setCode()</a>                    				</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">
+                                            <a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand::execute()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand::execute()</a>                    				</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L258-L292" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setCode()" tabindex="-1" class="structure-title ">
+                        setCode						<small>($code)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the code to execute when running this command.</p>
+<p>If this method is used, it overrides the code defined<br />
+in the execute() method.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">callable</td>
+				<td class="rest">$code</td>
+				<td class="desc">A callable(InputInterface $input, OutputInterface $output)
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>InvalidArgumentException</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setCode()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setCode()</a></td>
+				<td class="desc">Sets the code to execute when running this command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>See</caption>
+		<tbody>
+        			<tr>
+				<td class="type">
+                                            <a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand::execute()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand::execute()</a>                    				</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+    					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L294-L319" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::mergeApplicationDefinition()" tabindex="-1" class="structure-title ">
+                        mergeApplicationDefinition						<small>($mergeArgs = true)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Merges the application definition with the command definition.</p>
+<p>This method is not part of public API and should not be used directly.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$mergeArgs = true</td>
+				<td class="desc">Whether to merge or not the Application definition arguments to Command definition arguments</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::mergeApplicationDefinition()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::mergeApplicationDefinition()</a></td>
+				<td class="desc">Merges the application definition with the command definition.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L321-L339" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setDefinition()" tabindex="-1" class="structure-title ">
+                        setDefinition						<small>($definition)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets an array of argument and option instances.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array<span class="type-separator"></span><wbr><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
+				<td class="rest">$definition</td>
+				<td class="desc">An array of argument and option instances or a definition instance
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setDefinition()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setDefinition()</a></td>
+				<td class="desc">Sets an array of argument and option instances.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L341-L349" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getDefinition()" tabindex="-1" class="structure-title ">
+                        getDefinition						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets the InputDefinition attached to this Command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
+			<td class="desc">An InputDefinition instance</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getDefinition()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getDefinition()</a></td>
+				<td class="desc">Gets the InputDefinition attached to this Command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L366-L381" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::addArgument()" tabindex="-1" class="structure-title ">
+                        addArgument						<small>($name, $mode = null, $description = &#039;&#039;, $default = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Adds an argument.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The argument name
+</td>
+			</tr>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$mode = null</td>
+				<td class="desc">The argument mode: InputArgument::REQUIRED or InputArgument::OPTIONAL
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$description = &#039;&#039;</td>
+				<td class="desc">A description text
+</td>
+			</tr>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="rest">$default = null</td>
+				<td class="desc">The default value (for InputArgument::OPTIONAL mode only)
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::addArgument()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::addArgument()</a></td>
+				<td class="desc">Adds an argument.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L383-L399" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::addOption()" tabindex="-1" class="structure-title ">
+                        addOption						<small>($name, $shortcut = null, $mode = null, $description = &#039;&#039;, $default = null)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Adds an option.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The option name
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$shortcut = null</td>
+				<td class="desc">The shortcut (can be null)
+</td>
+			</tr>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$mode = null</td>
+				<td class="desc">The option mode: One of the InputOption::VALUE_* constants
+</td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$description = &#039;&#039;</td>
+				<td class="desc">A description text
+</td>
+			</tr>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="rest">$default = null</td>
+				<td class="desc">The default value (must be null for InputOption::VALUE_NONE)
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::addOption()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::addOption()</a></td>
+				<td class="desc">Adds an option.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L401-L422" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setName()" tabindex="-1" class="structure-title ">
+                        setName						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the name of the command.</p>
+<p>This method can set both the namespace and the name if<br />
+you separate them by a colon (:)</p>
+<pre><code>$command-&gt;setName('foo:bar');</code></pre></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The command name
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>InvalidArgumentException</a></td>
+				<td class="desc">When the name is invalid</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setName()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setName()</a></td>
+				<td class="desc">Sets the name of the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L424-L441" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setProcessTitle()" tabindex="-1" class="structure-title ">
+                        setProcessTitle						<small>($title)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the process title of the command.</p>
+<p>This feature should be used only when creating a long process command,<br />
+like a daemon.</p>
+<p>PHP 5.5+ or the proctitle PECL library is required</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$title</td>
+				<td class="desc">The process title
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setProcessTitle()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setProcessTitle()</a></td>
+				<td class="desc">Sets the process title of the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L443-L451" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getName()" tabindex="-1" class="structure-title ">
+                        getName						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the command name.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc">The command name</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getName()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getName()</a></td>
+				<td class="desc">Returns the command name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L453-L463" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setHidden()" tabindex="-1" class="structure-title ">
+                        setHidden						<small>($hidden)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$hidden</td>
+				<td class="desc">Whether or not the command should be hidden from the list of commands
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
+			<td class="desc">The current instance</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setHidden()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setHidden()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L465-L471" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::isHidden()" tabindex="-1" class="structure-title ">
+                        isHidden						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">bool</td>
+			<td class="desc">whether the command should be publicly shown or not</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::isHidden()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::isHidden()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L473-L485" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setDescription()" tabindex="-1" class="structure-title ">
+                        setDescription						<small>($description)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the description for the command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$description</td>
+				<td class="desc">The description for the command
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setDescription()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setDescription()</a></td>
+				<td class="desc">Sets the description for the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L487-L495" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getDescription()" tabindex="-1" class="structure-title ">
+                        getDescription						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the description for the command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc">The description for the command</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getDescription()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getDescription()</a></td>
+				<td class="desc">Returns the description for the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L497-L509" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setHelp()" tabindex="-1" class="structure-title ">
+                        setHelp						<small>($help)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the help for the command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$help</td>
+				<td class="desc">The help for the command
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setHelp()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setHelp()</a></td>
+				<td class="desc">Sets the help for the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L511-L519" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getHelp()" tabindex="-1" class="structure-title ">
+                        getHelp						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the help for the command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc">The help for the command</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getHelp()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getHelp()</a></td>
+				<td class="desc">Returns the help for the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L521-L541" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getProcessedHelp()" tabindex="-1" class="structure-title ">
+                        getProcessedHelp						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the processed help for the command replacing the %command.name% and<br />
+%command.full_name% patterns with the real values dynamically.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc">The processed help for the command</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getProcessedHelp()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getProcessedHelp()</a></td>
+				<td class="desc">Returns the processed help for the command replacing the %command.name% and</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L543-L565" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::setAliases()" tabindex="-1" class="structure-title ">
+                        setAliases						<small>($aliases)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Sets the aliases for the command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string[]</td>
+				<td class="rest">$aliases</td>
+				<td class="desc">An array of aliases for the command
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>InvalidArgumentException</a></td>
+				<td class="desc">When an alias is invalid</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setAliases()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setAliases()</a></td>
+				<td class="desc">Sets the aliases for the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L567-L575" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getAliases()" tabindex="-1" class="structure-title ">
+                        getAliases						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the aliases for the command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">array</td>
+			<td class="desc">An array of aliases for the command</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getAliases()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getAliases()</a></td>
+				<td class="desc">Returns the aliases for the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L577-L593" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getSynopsis()" tabindex="-1" class="structure-title ">
+                        getSynopsis						<small>($short = false)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns the synopsis for the command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$short = false</td>
+				<td class="desc">Whether to show the short version of the synopsis (with options folded) or not
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc">The synopsis</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getSynopsis()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getSynopsis()</a></td>
+				<td class="desc">Returns the synopsis for the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L595-L611" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::addUsage()" tabindex="-1" class="structure-title ">
+                        addUsage						<small>($usage)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Add a command usage example.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$usage</td>
+				<td class="desc">The usage, it&#039;ll be prefixed with the command name
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::addUsage()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::addUsage()</a></td>
+				<td class="desc">Add a command usage example.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L613-L621" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getUsages()" tabindex="-1" class="structure-title ">
+                        getUsages						<small>()</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Returns alternative usages of the command.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">array</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getUsages()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getUsages()</a></td>
+				<td class="desc">Returns alternative usages of the command.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L623-L640" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::getHelper()" tabindex="-1" class="structure-title ">
+                        getHelper						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Gets a helper instance by name.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc">The helper name
+
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">mixed</td>
+			<td class="desc">The helper value
+
+</td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-LogicException$typespace.html#Symfony\Component\Console\Exception\LogicException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>LogicException</a></td>
+				<td class="desc">if no HelperSet is defined</td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>InvalidArgumentException</a></td>
+				<td class="desc">if the helper is not defined</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::getHelper()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::getHelper()</a></td>
+				<td class="desc">Gets a helper instance by name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/Command/Command.php#L642-L656" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\Command\ListCommand::validateName()" tabindex="-1" class="structure-title ">
+                        validateName						<small>($name)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>Validates a command name.</p>
+<p>It must be non-empty and parts can optionally be separated by &quot;:&quot;.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="fqsen "><small>Symfony\Component\Console\Exception\</small><wbr>InvalidArgumentException</a></td>
+				<td class="desc">When the name is invalid</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::validateName()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::validateName()</a></td>
+				<td class="desc">Validates a command name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            		</ul>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default">author Fabien Potencier</span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

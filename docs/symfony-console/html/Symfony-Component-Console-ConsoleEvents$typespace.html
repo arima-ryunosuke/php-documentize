@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script src="common.js"></script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Symfony\Component\Console\ConsoleEvents)</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger">final</span>
+		<span class="label label-warning"></span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/symfony/console/blob/v3.4.8/ConsoleEvents.php#L14-L60" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            	</div>
+
+	<h2>class <span class="category-name">Symfony\Component\Console\ConsoleEvents</span></h2>
+
+	<div class="description"><p>Contains all events dispatched by an Application.</p></div>
+
+	<h3>Construction</h3>
+                
+	<h3>Hierarchy</h3>
+	<div class="hierarchy"></div>
+
+	<h3>Constants</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/ConsoleEvents.php#L21-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\ConsoleEvents::COMMAND" tabindex="-1" class="structure-title">
+						<small>string</small>
+                        COMMAND						<var> = &#039;console.command&#039;</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The COMMAND event allows you to attach listeners before any command is<br />
+executed by the console. It also allows you to modify the command, input and output<br />
+before they are handled to the command.</p></div>
+
+                        					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/ConsoleEvents.php#L30-L36" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\ConsoleEvents::TERMINATE" tabindex="-1" class="structure-title">
+						<small>string</small>
+                        TERMINATE						<var> = &#039;console.terminate&#039;</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The TERMINATE event allows you to attach listeners after a command is<br />
+executed by the console.</p></div>
+
+                        					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/ConsoleEvents.php#L38-L49" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\ConsoleEvents::EXCEPTION" tabindex="-1" class="structure-title">
+						<small>string</small>
+                        EXCEPTION						<var> = &#039;console.exception&#039;</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The EXCEPTION event occurs when an uncaught exception appears<br />
+while executing Command#run().</p>
+<p>This event allows you to deal with the exception or<br />
+to modify the thrown exception.</p></div>
+
+                        					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/ConsoleEvents.php#L51-L59" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\ConsoleEvents::ERROR" tabindex="-1" class="structure-title">
+						<small>string</small>
+                        ERROR						<var> = &#039;console.error&#039;</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The ERROR event occurs when an uncaught exception or error appears.</p>
+<p>This event allows you to deal with the exception/error or<br />
+to modify the thrown exception.</p></div>
+
+                        					</div>
+				</li>
+            		</ul>
+    
+	<h3>Properties</h3>
+    
+	<h3>Methods</h3>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default">author Francesco Levorato</span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>
