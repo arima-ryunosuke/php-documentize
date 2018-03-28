@@ -1,0 +1,49 @@
+{
+  "name": "ryunosuke/documentize",
+  "description": "Parse PHPDOC for PSR-5",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ryunosuke",
+      "email": "ryunosuke.arima@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ryunosuke\\Documentize\\": "src/"
+    },
+    "files": [
+      "src/Utils/.constant.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ryunosuke\\Test\\": "tests/Test/"
+    }
+  },
+  "bin": [
+    "bin/documentize"
+  ],
+  "require": {
+    "php": ">=7.1",
+    "erusev/parsedown": "1.6.*",
+    "symfony/console": "3.*",
+    "symfony/process": "3.*"
+  },
+  "require-dev": {
+    "ryunosuke/functions": "1.1.*",
+    "phpunit/phpunit": "6.*"
+  },
+  "scripts": {
+    "build": [
+      "@composer export",
+      "@composer test"
+    ],
+    "export": [
+      "@php bin/export.php"
+    ],
+    "test": [
+      "vendor/bin/phpunit --configuration=tests/phpunit.xml"
+    ]
+  }
+}
