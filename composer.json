@@ -32,18 +32,23 @@
   },
   "require-dev": {
     "ryunosuke/functions": "1.1.*",
+    "seld/phar-utils": "1.0.*",
     "phpunit/phpunit": "6.*"
   },
   "scripts": {
     "build": [
       "@composer export",
-      "@composer test"
+      "@composer test",
+      "@composer pharize"
     ],
     "export": [
       "@php bin/export.php"
     ],
     "test": [
       "vendor/bin/phpunit --configuration=tests/phpunit.xml"
+    ],
+    "pharize": [
+      "@php bin/pharize.php"
     ]
   }
 }
