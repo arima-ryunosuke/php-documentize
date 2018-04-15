@@ -53,6 +53,7 @@
 						<div class="description"><?= md($constant['description']) ?></div>
 
                         <?= render_prototype($constant['prototypes']) ?>
+                        <?= render_seeTag($constant['tags']['see'] ?? []) ?>
 					</div>
 				</li>
             <?php endforeach ?>
