@@ -42,7 +42,7 @@ function ref($value, $suffix)
         $suffix = 'namespace';
         $parts = explode('\\', $value);
         array_pop($parts);
-        $file = implode('\\', $parts);
+        $file = implode('\\', $parts) . '\\';
     }
     return h(str_replace('\\', '-', $file) . "\$$suffix.html" . ($value ? "#$value" : ""));
 }

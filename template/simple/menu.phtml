@@ -8,10 +8,9 @@
 function render_namespace($elements, &$all, $nest = 0)
 {
     ?>
-	<li class="text-nowrap spacer holding-wrapper <?= h($nest ? 'indent' : '') ?>" data-namespace="<?= h($elements['fqsen']) ?>">
+	<li class="text-nowrap holding-wrapper <?= h($nest ? 'indent' : '') ?>" data-namespace="<?= h($elements['fqsen']) ?>">
 		<div class="nheader ellipsis">
-			<span class="glyphicon glyphicon-plus switch-holding"></span>
-			<span class="label label-icon label-namespace">N</span>
+			<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-namespace">N</span>
 			<a id="<?= h($elements['fqsen']) ?>" href="<?= ref($elements['fqsen'], 'namespace') ?>" class="bold" target="main">
                 <?php if (!$nest): ?>
 					<small><?= h($elements['namespace'] ? $elements['namespace'] . '\\' : '') ?></small>
@@ -35,10 +34,9 @@ function render_namespace($elements, &$all, $nest = 0)
                     <?php foreach ($element['methods'] as $e): ?>
                         <?php $all[] = $e['fqsen']; ?>
                     <?php endforeach ?>
-					<li class="indent text-nowrap spacer holding-wrapper holding-class">
-						<div class="ellipsis">
-							<span class="glyphicon glyphicon-plus switch-holding"></span>
-							<span class="label label-icon label-<?= h($typename) ?>"><?= ucfirst($typename[0]) ?></span>
+					<li class="indent text-nowrap holding-wrapper holding-class">
+						<div class="nheader ellipsis">
+							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-<?= h($typename) ?>"><?= ucfirst($typename[0]) ?></span>
 							<a id="<?= h($element['fqsen']) ?>" href="<?= ref($element['fqsen'], 'typespace') ?>" class="<?= h(isset($element['tags']['deprecated'][0]) || isset($element['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($element['name']) ?></a>
 							<small class="ellipsis-text"><?= h(summary($element['description'])) ?></small>
 						</div>

@@ -225,9 +225,7 @@ namespace NS {
         /** @var string クラスのプロパティです */
         protected $class_property = 'Rclass property';
 
-        /**
-         * @inheritdoc
-         */
+        // doccomment 自体がない場合は @inheritdoc されているとみなされます
         public function interfaceMethod($arg1) { }
 
         /**
@@ -302,6 +300,13 @@ namespace NS {
         protected $tagProperty;
 
         /**
+         * このプロパティは @ignore によりドキュメント化されません
+         *
+         * @ignore
+         */
+        public $ignoreProperty;
+
+        /**
          * これはメソッド用のタグの例示用メソッドです
          *
          * 右側に属性ラベルが表示されたり、メソッドに打ち消し線が引かれていたりするはずです。
@@ -342,6 +347,16 @@ namespace NS {
          * @author ryunosuke <ryunosuke.arima@gmail.com>
          */
         final public function tagMethod($arg1) { }
+
+        /**
+         * このメソッドは @ignore によりドキュメント化されません
+         *
+         * @ignore
+         */
+        public function ignoreMethod()
+        {
+
+        }
     }
 }
 
