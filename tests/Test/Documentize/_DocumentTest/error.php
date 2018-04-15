@@ -7,7 +7,7 @@ $t = $t;
 /**
  * {@inheritdoc Invalid}
  */
-class ChildClass extends ParentClass
+class ChildClass
 {
     const undefined = UNDEFINED;
 

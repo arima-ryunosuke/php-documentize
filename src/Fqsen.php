@@ -47,17 +47,6 @@ class Fqsen
      */
     public static function detectType($type)
     {
-        $type = ltrim($type, '\\');
-        $ltype = strtolower($type);
-        if (isset(self::BUILTIN_TYPES[$ltype])) {
-            return null;
-        }
-        if (isset(self::OWN_WORDS[$ltype])) {
-            return null;
-        }
-        if (!preg_match('#^[_a-z][_a-z0-9\\\\]*$#', $ltype)) {
-            return null;
-        }
         if (class_exists($type)) {
             return 'class';
         }
@@ -172,10 +161,10 @@ class Fqsen
             }
 
             // サブ use（読み替えて↓へフォールスルー）
-            if ($class[0] !== '\\' && strrpos($class, '\\') !== false) {
-                list($ns, $subname) = explode('\\', $class, 2);
-                if (isset($usings[$namespace][$ns])) {
-                    $class = $usings[$namespace][$ns] . '\\' . $subname;
+            if ($class[0] !== '\\') {
+                $parts = explode('\\', $class, 2);
+                if (isset($parts[1]) && isset($usings[$namespace][$parts[0]])) {
+                    $class = $usings[$namespace][$parts[0]] . '\\' . $parts[1];
                 }
                 elseif (self::detectType($namespace . '\\' . $class)) {
                     $class = $namespace . '\\' . $class;

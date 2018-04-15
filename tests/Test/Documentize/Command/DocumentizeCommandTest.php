@@ -72,7 +72,7 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
             'source'      => __DIR__ . '/notfounddir',
             'destination' => "$tmpdir/rdz-test",
         ]);
-        $this->assertContains('PHP Fatal error:  Uncaught InvalidArgumentException', $output);
-        ob_get_clean();
+        $output .= ob_get_clean();
+        $this->assertContains('Uncaught InvalidArgumentException', $output);
     }
 }

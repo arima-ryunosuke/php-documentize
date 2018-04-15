@@ -172,43 +172,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $loaded_traits = get_declared_traits();
         $loaded_classes = get_declared_classes();
 
-        // fatal が出ないようにオートローダを登録（オレオレ定義はドキュメントに出さないように蓄えておく）
+        // オートローダを登録して対象を全て読み漁る
         if (file_exists($this->options['autoloader'])) {
             require_once $this->options['autoloader'];
         }
-        $oreoreclass = [];
-        $dummyloader = static function ($class) use (&$oreoreclass, &$logs) {
-            // 深遠な理由でこいつは外す
-            if ($class !== 'ryunosuke\\Functions\\Cacher') {
-                $parts = explode('\\', $class);
-                $name = array_pop($parts);
-                $ns = implode('\\', $parts);
-                try {
-                    PhpFile::evaluate("namespace $ns {class $name {}}");
-                    $oreoreclass[] = $class;
-                }
-                catch (\Exception $e) {
-                    trigger_error($e->getMessage());
-                }
-
-                // class_exists や defined でもオートローダは呼ばれるが、純粋に require 系のときのみログる
-                $traces = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
-                foreach ($traces as $trace) {
-                    if (isset($trace['function'], $trace['args']) && ($trace['function'] === 'require' || $trace['function'] === 'require_once')) {
-                        $logs[] = [
-                            'errorno' => E_USER_ERROR,
-                            'message' => "Type '$class' is not found. in {$trace['args'][0]}",
-                            'file'    => $trace['file'],
-                            'line'    => $trace['line'],
-                        ];
-                        break;
-                    }
-                }
-            }
-        };
-        spl_autoload_register($dummyloader);
-
-        // 対象を全て読み漁る
         if (is_dir($this->options['target'])) {
             foreach (FileSystem::file_list($this->options['target']) as $file) {
                 $this->parseFile($file);
@@ -228,9 +195,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         do {
             $constants = array_diff_key(get_defined_constants(), $loaded_constants);
             $functions = array_diff(get_defined_functions()['user'], $loaded_functions);
-            $interfaces = array_diff(get_declared_interfaces(), $loaded_interfaces, $oreoreclass);
-            $traits = array_diff(get_declared_traits(), $loaded_traits, $oreoreclass);
-            $classes = array_diff(get_declared_classes(), $loaded_classes, $oreoreclass);
+            $interfaces = array_diff(get_declared_interfaces(), $loaded_interfaces);
+            $traits = array_diff(get_declared_traits(), $loaded_traits);
+            $classes = array_diff(get_declared_classes(), $loaded_classes);
             $loaded_constants = array_merge($loaded_constants, $constants);
             $loaded_functions = array_merge($loaded_functions, $functions);
             $loaded_interfaces = array_merge($loaded_interfaces, $interfaces);
@@ -450,7 +417,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $tmp[$data['name']] = $data;
         }
 
-        spl_autoload_unregister($dummyloader);
         restore_error_handler();
 
         return $result;
@@ -913,7 +879,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             foreach ($tags[$single] ?? [] as $tag) {
                 if (isset($tag['type']['fqsen'])) {
                     list($cate, $ns, $type) = Fqsen::parse($tag['type']['fqsen']);
-                    if ($cate !== 'namespace') {
+                    if ($cate !== 'namespace' && Fqsen::detectType("$ns\\$type")) {
                         $ref = new \ReflectionClass("$ns\\$type");
                         if (!$ref->isInternal()) {
                             $this->parseFile($ref->getFileName());
