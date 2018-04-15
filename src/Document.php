@@ -479,7 +479,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $ns = implode('\\', $parts);
         return [
             'category'   => 'namespace',
-            'fqsen'      => $namespace,
+            'fqsen'      => "$namespace\\",
             'namespace'  => $ns,
             'name'       => $name,
             'namespaces' => [],
