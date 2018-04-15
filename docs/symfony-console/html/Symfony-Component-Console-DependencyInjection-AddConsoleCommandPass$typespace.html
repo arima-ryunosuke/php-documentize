@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script src="common.js"></script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass)</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"></span>
+		<span class="label label-warning"></span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/symfony/console/blob/v3.4.8/DependencyInjection/AddConsoleCommandPass.php#L22-L106" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            	</div>
+
+	<h2>class <span class="category-name">Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass</span></h2>
+
+	<div class="description"><p>Registers console commands.</p></div>
+
+	<h3>Construction</h3>
+        	<table class="table">
+		<caption>Implements</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-DependencyInjection-Compiler-CompilerPassInterface$typespace.html#Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface" class="fqsen "><small>Symfony\Component\DependencyInjection\Compiler\</small><wbr>CompilerPassInterface</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+            
+	<h3>Hierarchy</h3>
+	<div class="hierarchy"></div>
+
+	<h3>Constants</h3>
+    
+	<h3>Properties</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/DependencyInjection/AddConsoleCommandPass.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass::$commandLoaderServiceId" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$commandLoaderServiceId						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-private">private</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/DependencyInjection/AddConsoleCommandPass.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass::$commandTag" tabindex="-1" class="structure-title">
+						<small>NULL</small>
+						$commandTag						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                                                					</div>
+				</li>
+            		</ul>
+    
+	<h3>Methods</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/DependencyInjection/AddConsoleCommandPass.php#L32-L36" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass::__construct()" tabindex="-1" class="structure-title ">
+                        __construct						<small>($commandLoaderServiceId = &#039;console.command_loader&#039;, $commandTag = &#039;console.command&#039;)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"></td>
+				<td class="rest">$commandLoaderServiceId = &#039;console.command_loader&#039;</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"></td>
+				<td class="rest">$commandTag = &#039;console.command&#039;</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/symfony/console/blob/v3.4.8/DependencyInjection/AddConsoleCommandPass.php#L38-L105" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass::process()" tabindex="-1" class="structure-title ">
+                        process						<small>($container)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>You can modify the container here before it is dumped to PHP code.</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-DependencyInjection-ContainerBuilder$typespace.html#Symfony\Component\DependencyInjection\ContainerBuilder" class="fqsen "><small>Symfony\Component\DependencyInjection\</small><wbr>ContainerBuilder</a></td>
+				<td class="rest">$container</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">void</td>
+			<td class="desc"></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Symfony-Component-DependencyInjection-Compiler-CompilerPassInterface$typespace.html#Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface::process()" class="fqsen "><small>Symfony\Component\DependencyInjection\Compiler\</small><wbr>CompilerPassInterface::process()</a></td>
+				<td class="desc"></td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            		</ul>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default">author Grégoire Pineau</span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

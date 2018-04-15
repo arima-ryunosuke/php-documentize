@@ -22,11 +22,20 @@ $.open = function (fqsen) {
     node.focus();
     node[0].click();
 };
+// title attribute
+$.fn.titleattr = function () {
+    return this.each(function () {
+        var $this = $(this);
+        var content = $this.find('.ellipsis-text');
+        $this.attr('title', content.length ? content.text() : $this.text());
+    });
+};
 // replace first comment node
 $.fn.uncomment = function () {
     return this.not('.uncommented').each(function () {
         this.innerHTML = this.firstChild.nodeValue;
         this.classList.add('uncommented');
+        $(this).find('.ellipsis').titleattr();
     });
 };
 // open/close holding
@@ -65,16 +74,12 @@ if (window.name === 'main') {
 
 var $document = $(document);
 
-// load class member
-$document.on('click', '.holding-class', function () {
-    $(this).find('.class-member').uncomment();
-});
 // holding
 $document.on('click', '.switch-holding', function () {
     $(this).closest('.holding-wrapper').collapse(null, true);
 });
 $document.on('click', 'a[target=main]', function () {
-    $(this).closest('.holding-wrapper').collapse(true, false);
+    $(this).closest('.holding-wrapper').collapse(true, true);
 });
 
 /* content ready */
@@ -106,12 +111,12 @@ $(function () {
             return it;
         },
     });
-    // title attribute
-    $('.ellipsis').each(function () {
-        var $this = $(this);
-        var content = $this.find('.ellipsis-text');
-        $this.attr('title', content.length ? content.text() : $this.text());
+    // load class member
+    $('.holding-class').on('click', function () {
+        $(this).find('.class-member').uncomment();
     });
+    // title attribute
+    $('.ellipsis').titleattr();
     // link tag
     $('tag-link').each(function () {
         var $this = $(this);
