@@ -8,7 +8,7 @@ return [
     'source-map' => [
         // これらはテストとか確認で使っているもの（消しても問題ない）
         '.*/timetoogo/pinq/'                                 => 'https://github.com/TimeToogo/Pinq/blob/3.4.1/',
-        '.*/symfony/console/'                                => 'https://github.com/symfony/console/blob/v3.4.8/',
+        '.*/symfony/(.+?)/'                                  => 'https://github.com/symfony/$1/blob/v3.4.8/',
         '.*/laravel/framework/'                              => 'https://github.com/laravel/framework/blob/5.4/',
         '.*/zendframework/zendframework/library/Zend/(.+?)/' => 'https://github.com/zendframework/zend-$1/blob/release-2.0.8/src/',
         // これが example のマップ

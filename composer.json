@@ -33,6 +33,8 @@
   "require-dev": {
     "ryunosuke/functions": "1.1.*",
     "seld/phar-utils": "1.0.*",
+    "symfony/event-dispatcher": "3.*",
+    "symfony/dependency-injection": "3.*",
     "phpunit/phpunit": "6.*"
   },
   "scripts": {
@@ -53,7 +55,7 @@
     ],
     "example": [
       "@php documentize.phar generate template/example.php docs/example --stats --force --autoload '' --template-config template/config.php",
-      "bin/documentize generate vendor/symfony/console/ docs/symfony-console --stats --force --template-config template/config.php -e AddConsoleCommandPass.php -e ErrorListener.php -e '/Tests/*'"
+      "bin/documentize generate vendor/symfony/console/ docs/symfony-console --stats --force --template-config template/config.php -e '/Tests/*'"
     ]
   }
 }

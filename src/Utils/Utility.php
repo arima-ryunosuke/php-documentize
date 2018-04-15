@@ -18,7 +18,7 @@ class Utility
      * $provider に null を与えるとキャッシュの削除となる。
      *
      * Example:
-     * <code>
+     * ```php
      * $provider = function(){return rand();};
      * // 乱数を返す処理だが、キャッシュされるので同じ値になる
      * $rand1 = cache('rand', $provider);
@@ -28,7 +28,7 @@ class Utility
      * cache('rand', null);
      * $rand3 = cache('rand', $provider);
      * assertNotSame($rand1, $rand3);
-     * </code>
+     * ```
      *
      * @package Utility
      *
@@ -68,6 +68,69 @@ class Utility
     }
 
     /**
+     * エラー出力する
+     *
+     * 第1引数 $message はそれらしく文字列化されて出力される。基本的にはあらゆる型を与えて良い。
+     *
+     * 第2引数 $destination で出力対象を指定する。省略すると error_log 設定に従う。
+     * 文字列を与えるとファイル名とみなし、ファイルに追記される。
+     * ファイルを開くが、**ファイルは閉じない**。閉じ処理は php の終了処理に身を任せる。
+     * したがって閉じる必要がある場合はファイルポインタを渡す必要がある。
+     *
+     * @package Utility
+     *
+     * @param string|mixed $message 出力メッセージ
+     * @param resource|string|mixed $destination 出力先
+     * @return int 書き込んだバイト数
+     */
+    public static function error($message, $destination = null)
+    {
+        static $persistences = [];
+
+        $time = date('d-M-Y H:i:s e');
+        $content = call_user_func(stringify, $message);
+        $location = '';
+        if (!($message instanceof \Exception || $message instanceof \Throwable)) {
+            foreach (debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS) as $trace) {
+                if (isset($trace['file'], $trace['line'])) {
+                    $location = " in {$trace['file']} on line {$trace['line']}";
+                    break;
+                }
+            }
+        }
+        $line = "[$time] PHP Log:  $content$location\n";
+
+        if ($destination === null) {
+            $destination = ini_get('error_log');
+        }
+
+        if ($destination === 'syslog') {
+            syslog(LOG_INFO, $message);
+            return strlen($line);
+        }
+
+        if (is_resource($destination)) {
+            $fp = $destination;
+        }
+        elseif (is_string($destination)) {
+            if (!isset($persistences[$destination])) {
+                $persistences[$destination] = fopen($destination, 'a');
+            }
+            $fp = $persistences[$destination];
+        }
+
+        if (empty($fp)) {
+            throw new \InvalidArgumentException('$destination must be resource or string.');
+        }
+
+        flock($fp, LOCK_EX);
+        fwrite($fp, $line);
+        flock($fp, LOCK_UN);
+
+        return strlen($line);
+    }
+
+    /**
      * 簡易ベンチマークを取る
      *
      * 「指定ミリ秒内で何回コールできるか？」でベンチする。
@@ -76,13 +139,13 @@ class Utility
      * 表示名が与えられていない場合、それらしい名前で表示する。
      *
      * Example:
-     * <code>
+     * ```php
      * // intval と int キャストはどちらが早いか調べる
      * benchmark([
      *     'intval',
      *     'intcast' => function($v){return (int)$v;},
      * ], ['12345'], 10);
-     * </code>
+     * ```
      *
      * @package Utility
      *

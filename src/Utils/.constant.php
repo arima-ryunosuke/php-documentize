@@ -127,6 +127,7 @@ const try_catch = ['ryunosuke\\Documentize\\Utils\\Syntax', 'try_catch'];
 const try_finally = ['ryunosuke\\Documentize\\Utils\\Syntax', 'try_finally'];
 const try_catch_finally = ['ryunosuke\\Documentize\\Utils\\Syntax', 'try_catch_finally'];
 const cache = ['ryunosuke\\Documentize\\Utils\\Utility', 'cache'];
+const error = ['ryunosuke\\Documentize\\Utils\\Utility', 'error'];
 const benchmark = ['ryunosuke\\Documentize\\Utils\\Utility', 'benchmark'];
 const stringify = ['ryunosuke\\Documentize\\Utils\\Vars', 'stringify'];
 const numberify = ['ryunosuke\\Documentize\\Utils\\Vars', 'numberify'];

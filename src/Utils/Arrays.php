@@ -14,12 +14,12 @@ class Arrays
      * iterable や Traversable は考慮せずあくまで「配列」としてチェックする。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(arrayize(1, 2, 3), [1, 2, 3]);
      * assertSame(arrayize([1], [2], [3]), [1, 2, 3]);
      * $object = new \stdClass();
      * assertSame(arrayize($object, false, [1, 2, 3]), [$object, false, 1, 2, 3]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -44,11 +44,11 @@ class Arrays
      * 空の配列は普通の配列とみなす。
      *
      * Example:
-     * <code>
+     * ```php
      * assertFalse(is_hasharray([]));
      * assertFalse(is_hasharray([1, 2, 3]));
      * assertTrue(is_hasharray(['x' => 'X']));
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -72,10 +72,10 @@ class Arrays
      * 空の場合は $default を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(first_key(['a', 'b', 'c']), 0);
      * assertSame(first_key([], 999), 999);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -99,10 +99,10 @@ class Arrays
      * 空の場合は $default を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(first_value(['a', 'b', 'c']), 'a');
      * assertSame(first_value([], 999), 999);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -126,10 +126,10 @@ class Arrays
      * 空の場合は $default を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(first_keyvalue(['a', 'b', 'c']), [0, 'a']);
      * assertSame(first_keyvalue([], 999), 999);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -151,10 +151,10 @@ class Arrays
      * 空の場合は $default を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(last_key(['a', 'b', 'c']), 2);
      * assertSame(last_key([], 999), 999);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -178,10 +178,10 @@ class Arrays
      * 空の場合は $default を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(last_value(['a', 'b', 'c']), 'c');
      * assertSame(last_value([], 999), 999);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -205,10 +205,10 @@ class Arrays
      * 空の場合は $default を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(last_keyvalue(['a', 'b', 'c']), [2, 'c']);
      * assertSame(last_keyvalue([], 999), 999);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -237,7 +237,7 @@ class Arrays
      * $key が存在しない場合は false を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = ['a' => 'A', 'b' => 'B', 'c' => 'C'];
      * // 'b' キーの前は 'a'
      * assertSame(prev_key($array, 'b'), 'a');
@@ -245,7 +245,7 @@ class Arrays
      * assertSame(prev_key($array, 'a'), null);
      * // 'x' キーはそもそも存在しないので false
      * assertSame(prev_key($array, 'x'), false);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -276,7 +276,7 @@ class Arrays
      * $array[] = 'hoge' で作成されるキーには完全準拠しない（標準は unset すると結構乱れる）。公式マニュアルを参照。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = [9 => 9, 'a' => 'A', 'b' => 'B', 'c' => 'C'];
      * // 'b' キーの次は 'c'
      * assertSame(next_key($array, 'b'), 'c');
@@ -286,7 +286,7 @@ class Arrays
      * assertSame(next_key($array, 'x'), false);
      * // 次に生成されるキーは 10
      * assertSame(next_key($array, null), 10);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -329,11 +329,11 @@ class Arrays
      * $needle が空の場合は常に false を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * assertTrue(in_array_and([1], [1, 2, 3]));
      * assertFalse(in_array_and([9], [1, 2, 3]));
      * assertFalse(in_array_and([1, 9], [1, 2, 3]));
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -366,11 +366,11 @@ class Arrays
      * $needle が空の場合は常に false を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * assertTrue(in_array_or([1], [1, 2, 3]), true);
      * assertFalse(in_array_or([9], [1, 2, 3]), false);
      * assertTrue(in_array_or([1, 9], [1, 2, 3]), true);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -398,12 +398,12 @@ class Arrays
      * 配列の+演算子の関数版
      *
      * Example:
-     * <code>
+     * ```php
      * // ただの加算の関数版なので同じキーは上書きされない
      * assertSame(array_add(['a', 'b', 'c'], ['X']), ['a', 'b', 'c']);
      * // 異なるキーは生える
      * assertSame(array_add(['a', 'b', 'c'], ['x' => 'X']), ['a', 'b', 'c', 'x' => 'X']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -428,12 +428,12 @@ class Arrays
      * 文字キーは保存されるが数値キーは再割り振りされる。
      *
      * Example:
-     * <code>
+     * ```php
      * // (配列, 要素) の呼び出し
      * assertSame(array_implode(['a', 'b', 'c'], 'X'), ['a', 'X', 'b', 'X', 'c']);
      * // (要素, ...配列) の呼び出し
      * assertSame(array_implode('X', 'a', 'b', 'c'), ['a', 'X', 'b', 'X', 'c']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -472,7 +472,7 @@ class Arrays
      * callable を与えると sprintf ではなくコールバック処理になる（$v, $k）。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = ['key1' => 'val1', 'key2' => 'val2'];
      * // key, value を利用した sprintf
      * assertSame(array_sprintf($array, '%2$s=%1$s'), ['key1=val1', 'key2=val2']);
@@ -481,7 +481,7 @@ class Arrays
      * // クロージャを与えるとコールバック動作になる
      * $closure = function($v, $k){return "$k=" . strtoupper($v);};
      * assertSame(array_sprintf($array, $closure, ' '), 'key1=VAL1 key2=VAL2');
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -519,13 +519,13 @@ class Arrays
      * デフォルト（ただの文字列）はプレフィックス（値だけに付与したいなら array_map で十分なので）。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = ['key1' => 'val1', 'key2' => 'val2'];
      * // キーにプレフィックス付与
      * assertSame(array_strpad($array, 'prefix-'), ['prefix-key1' => 'val1', 'prefix-key2' => 'val2']);
      * // 値にサフィックス付与
      * assertSame(array_strpad($array, '', ['-suffix']), ['key1' => 'val1-suffix', 'key2' => 'val2-suffix']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -560,12 +560,12 @@ class Arrays
      * 負数を与えると逆から N 番目となる。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_pos([1, 2, 3], 1), 2);
      * assertSame(array_pos([1, 2, 3], -1), 3);
      * assertSame(array_pos(['a' => 'A', 'b' => 'B', 'c' => 'C'], 1), 'B');
      * assertSame(array_pos(['a' => 'A', 'b' => 'B', 'c' => 'C'], 1, true), 'b');
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -608,10 +608,10 @@ class Arrays
      * さらに $key が配列の場合に限り、 $default を省略すると空配列として動作する。
      *
      * Example:
-     * <code>
+     * ```php
      * $fuga_of_array = array_of('fuga');
      * assertSame($fuga_of_array(['hoge' => 'HOGE', 'fuga' => 'FUGA']), 'FUGA');
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -642,7 +642,7 @@ class Arrays
      * さらに $key が配列の場合に限り、 $default を省略すると空配列として動作する。
      *
      * Example:
-     * <code>
+     * ```php
      * // 単純取得
      * assertSame(array_get(['a', 'b', 'c'], 1), 'b');
      * // 単純デフォルト
@@ -653,7 +653,7 @@ class Arrays
      * assertSame(array_get(['a', 'b', 'c'], [0, 9]), [0 => 'a']);
      * // 配列デフォルト（null ではなく [] を返す）
      * assertSame(array_get(['a', 'b', 'c'], [9]), []);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -695,7 +695,7 @@ class Arrays
      * 第3引数に配列を指定すると潜って設定する。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = ['a' => 'A', 'B'];
      * // 第3引数省略（最後に連番キーで設定）
      * assertSame(array_set($array, 'Z'), 1);
@@ -707,7 +707,7 @@ class Arrays
      * // 第3引数で配列を指定
      * assertSame(array_set($array, 'Z', ['x', 'y', 'z']), 'z');
      * assertSame($array, ['a' => 'A', 'B', 'Z', 'z' => 'Z', 'x' => ['y' => ['z' => 'Z']]]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -754,7 +754,7 @@ class Arrays
      * これを利用すると list の展開の利便性が上がったり、連想配列で返すことができる。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = ['a' => 'A', 'b' => 'B'];
      * // ない場合は $default を返す
      * assertSame(array_unset($array, 'x', 'X'), 'X');
@@ -770,7 +770,7 @@ class Arrays
      * $array = ['a' => 'A', 'b' => 'B', 'c' => 'C'];
      * // 配列のキーは返されるキーを表す。順番も維持される
      * assertSame(array_unset($array, ['x2' => 'b', 'x1' => 'a']), ['x2' => 'B', 'x1' => 'A']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -809,7 +809,7 @@ class Arrays
      * 存在しない場合は $default を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = [
      *     'a' => [
      *         'b' => [
@@ -821,7 +821,7 @@ class Arrays
      * assertSame(array_dive($array, 'a.b.x', 9), 9);
      * // 配列を与えても良い。その場合 $delimiter 引数は意味をなさない
      * assertSame(array_dive($array, ['a', 'b', 'c']), 'vvv');
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -850,10 +850,10 @@ class Arrays
      * この関数は論理値 FALSE を返す可能性がありますが、FALSE として評価される値を返す可能性もあります。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_exists(['a', 'b', '9'], 'ctype_digit'), 2);
      * assertSame(array_exists(['a', 'b', '9'], function($v){return $v === 'b';}), 1);
-     * </code>
+     * ```
      *
      * @package Array
      * @deprecated array_exists という名前で真偽値を返さないのは直感に反する。 キーが欲しい用途には array_find を使う
@@ -882,14 +882,14 @@ class Arrays
      * この関数は論理値 FALSE を返す可能性がありますが、FALSE として評価される値を返す可能性もあります。
      *
      * Example:
-     * <code>
+     * ```php
      * // 最初に見つかったキーを返す
      * assertSame(array_find(['a', 'b', '9'], 'ctype_digit'), 2);
      * assertSame(array_find(['a', 'b', '9'], function($v){return $v === 'b';}), 1);
      * // 最初に見つかったコールバック結果を返す（最初の数字の2乗を返す）
      * $ifnumeric2power = function($v){return ctype_digit($v) ? $v * $v : false;};
      * assertSame(array_find(['a', 'b', '9'], $ifnumeric2power, false), 81);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -918,10 +918,10 @@ class Arrays
      * キーを正規表現でフィルタする
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_grep_key(['a' => 'A', 'aa' => 'AA', 'b' => 'B'], '#^a#'), ['a' => 'A', 'aa' => 'AA']);
      * assertSame(array_grep_key(['a' => 'A', 'aa' => 'AA', 'b' => 'B'], '#^a#', true), ['b' => 'B']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -948,10 +948,10 @@ class Arrays
      * $callback が null を返すとその要素は取り除かれる。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_map_key(['a' => 'A', 'b' => 'B'], 'strtoupper'), ['A' => 'A', 'B' => 'B']);
      * assertSame(array_map_key(['a' => 'A', 'b' => 'B'], function(){}), []);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -977,9 +977,9 @@ class Arrays
      * 単に否定するだけなのにクロージャを書きたくないことはまれによくあるはず。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_filter_not(['a', '', 'c'], 'strlen'), [1 => '']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -999,10 +999,10 @@ class Arrays
      * ただし、完全な互換ではなく、引数順は ($k, $v) なので注意。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_filter_key(['a', 'b', 'c'], function ($k, $v) { return $k !== 1; }), [0 => 'a', 2 => 'c']);
      * assertSame(array_filter_key(['a', 'b', 'c'], function ($k, $v) { return $v !== 'b'; }), [0 => 'a', 2 => 'c']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1027,10 +1027,10 @@ class Arrays
      * キーは $k, 値は $v で宣言される。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_filter_eval(['a', 'b', 'c'], '$k !== 1'), [0 => 'a', 2 => 'c']);
      * assertSame(array_filter_eval(['a', 'b', 'c'], '$v !== "b"'), [0 => 'a', 2 => 'c']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1057,7 +1057,7 @@ class Arrays
      * $callback が要求するならキーも渡ってくる。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = [
      *     0 => ['id' => 1, 'name' => 'hoge', 'flag' => false],
      *     1 => ['id' => 2, 'name' => 'fuga', 'flag' => true],
@@ -1074,7 +1074,7 @@ class Arrays
      * // $column に配列を渡すと共通項が渡ってくる
      * $idname_is_2fuga = function($idname){return ($idname['id'] . $idname['name']) === '2fuga';};
      * assertSame(array_where($array, ['id', 'name'], $idname_is_2fuga), [1 => ['id' => 2, 'name' => 'fuga', 'flag' => true]]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1120,10 +1120,10 @@ class Arrays
      * $callback が要求するならキーも渡ってくる。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_map_filter([' a ', ' b ', ''], 'trim'), ['a', 'b']);
      * assertSame(array_map_filter([' a ', ' b ', ''], 'trim', true), ['a', 'b', '']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1153,7 +1153,7 @@ class Arrays
      * $ignore=null とすると 何もせずそのまま要素を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * $exa = new \Exception('a'); $exb = new \Exception('b'); $std = new \stdClass();
      * // getMessage で map される
      * assertSame(array_map_method([$exa, $exb], 'getMessage'), ['a', 'b']);
@@ -1161,7 +1161,7 @@ class Arrays
      * assertSame(array_map_method([$exa, $exb, $std, null], 'getMessage', [], true), ['a', 'b']);
      * // getMessage で map されるが、メソッドが存在しない場合はそのまま返す
      * assertSame(array_map_method([$exa, $exb, $std, null], 'getMessage', [], null), ['a', 'b', $std, null]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1198,12 +1198,12 @@ class Arrays
      * さらに引数が不要なら `@method` とするだけで良い。
      *
      * Example:
-     * <code>
+     * ```php
      * // 値を3乗したあと16進表記にして大文字化する
      * assertSame(array_maps([1, 2, 3, 4, 5], rbind('pow', 3), 'dechex', 'strtoupper'), ['1', '8', '1B', '40', '7D']);
      * // キーも渡ってくる
      * assertSame(array_maps(['a' => 'A', 'b' => 'B'], function($v, $k){return "$k:$v";}), ['a' => 'a:A', 'b' => 'b:B']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1245,14 +1245,14 @@ class Arrays
      * その際、「挿入後の番目」ではなく、単純に「元の引数の番目」であることに留意。キー・値が同じ位置を指定している場合はキーが先にくる。
      *
      * Example:
-     * <code>
+     * ```php
      * // 1番目に値を渡して map
      * $sprintf = function(){return vsprintf('%s%s%s', func_get_args());};
      * assertSame(array_nmap(['a', 'b'], $sprintf, 1, 'prefix-', '-suffix'), ['prefix-a-suffix', 'prefix-b-suffix']);
      * // 1番目にキー、2番目に値を渡して map
      * $sprintf = function(){return vsprintf('%s %s %s %s %s', func_get_args());};
      * assertSame(array_nmap(['k' => 'v'], $sprintf, [1 => 2], 'a', 'b', 'c'), ['k' => 'a k b v c']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1316,10 +1316,10 @@ class Arrays
      * 要素値を $callback の最左に適用して array_map する
      *
      * Example:
-     * <code>
+     * ```php
      * $sprintf = function(){return vsprintf('%s%s', func_get_args());};
      * assertSame(array_lmap(['a', 'b'], $sprintf, '-suffix'), ['a-suffix', 'b-suffix']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1337,10 +1337,10 @@ class Arrays
      * 要素値を $callback の最右に適用して array_map する
      *
      * Example:
-     * <code>
+     * ```php
      * $sprintf = function(){return vsprintf('%s%s', func_get_args());};
      * assertSame(array_rmap(['a', 'b'], $sprintf, 'prefix-'), ['prefix-a', 'prefix-b']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1361,11 +1361,11 @@ class Arrays
      * つまり、配列を与える限りは 0 以下を返すことはない。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_depth([]), 1);
      * assertSame(array_depth(['hoge']), 1);
      * assertSame(array_depth([['nest1' => ['nest2']]]), 3);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1394,12 +1394,12 @@ class Arrays
      * $value には配列も与えられるが、その場合数値キーは振り直される
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_insert([1, 2, 3], 'x'), [1, 2, 3, 'x']);
      * assertSame(array_insert([1, 2, 3], 'x', 1), [1, 'x', 2, 3]);
      * assertSame(array_insert([1, 2, 3], 'x', -1), [1, 2, 'x', 3]);
      * assertSame(array_insert([1, 2, 3], ['a' => 'A', 'b' => 'B'], 1), [1, 'a' => 'A', 'b' => 'B', 2, 3]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1430,14 +1430,14 @@ class Arrays
      * $rule が要求するならキーも渡ってくる。
      *
      * Example:
-     * <code>
+     * ```php
      * // lt2(2より小さい)で分類
      * $lt2 = function($v){return $v < 2;};
      * assertSame(array_assort([1, 2, 3], ['lt2' => $lt2]), ['lt2' => [1]]);
      * // lt3(3より小さい)、ctd(ctype_digit)で分類（両方に属する要素が存在する）
      * $lt3 = function($v){return $v < 3;};
      * assertSame(array_assort(['1', '2', '3'], ['lt3' => $lt3, 'ctd' => 'ctype_digit']), ['lt3' => ['1', '2'], 'ctd' => ['1', '2', '3']]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1468,7 +1468,7 @@ class Arrays
      * - $callback には配列が渡せる。配列を渡した場合は件数を配列で返す（Example 参照）
      *
      * Example:
-     * <code>
+     * ```php
      * $array = ['hoge', 'fuga', 'piyo'];
      * // 'o' を含むものの数（2個）
      * assertSame(array_count($array, function($s){return strpos($s, 'o') !== false;}), 2);
@@ -1477,7 +1477,7 @@ class Arrays
      *     'a' => function($s){return strpos($s, 'a') !== false;},
      *     'o' => function($s){return strpos($s, 'o') !== false;},
      * ]), ['a' => 1, 'o' => 2]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1517,7 +1517,7 @@ class Arrays
      * コールバックが配列を返すと入れ子としてグループする。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_group([1, 1, 1]), [1 => [1, 1, 1]]);
      * assertSame(array_group([1, 2, 3], function($v){return $v % 2;}), [1 => [1, 3], 0 => [2]]);
      * // group -> id で入れ子グループにする
@@ -1533,7 +1533,7 @@ class Arrays
      *         2 => $row2,
      *     ],
      * ]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1574,11 +1574,11 @@ class Arrays
      * $callback が要求するならキーも渡ってくる。
      *
      * Example:
-     * <code>
+     * ```php
      * assertTrue(array_all([true, true]));
      * assertFalse(array_all([true, false]));
      * assertFalse(array_all([false, false]));
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1609,11 +1609,11 @@ class Arrays
      * $callback が要求するならキーも渡ってくる。
      *
      * Example:
-     * <code>
+     * ```php
      * assertTrue(array_any([true, true]));
      * assertTrue(array_any([true, false]));
      * assertFalse(array_any([false, false]));
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1646,7 +1646,7 @@ class Arrays
      *
      * $orders には下記のような配列を渡す。
      *
-     * <code>
+     * ```php
      * $orders = [
      *     'col1' => true,                               // true: 昇順, false: 降順。照合は型に依存
      *     'col2' => SORT_NATURAL,                       // SORT_NATURAL, SORT_REGULAR などで照合。正数で昇順、負数で降順
@@ -1654,16 +1654,16 @@ class Arrays
      *     'col4' => function($v) {return $v;},          // クロージャを通した値で昇順。照合は返り値の型(php7 は returnType)に依存
      *     'col5' => function($a, $b) {return $a - $b;}, // クロージャで比較して昇順（いわゆる比較関数を渡す）
      * ];
-     * </code>
+     * ```
      *
      * Example:
-     * <code>
+     * ```php
      * $v1 = ['id' => '1', 'no' => 'a03', 'name' => 'yyy'];
      * $v2 = ['id' => '2', 'no' => 'a4',  'name' => 'yyy'];
      * $v3 = ['id' => '3', 'no' => 'a12', 'name' => 'xxx'];
      * // name 昇順, no 自然降順
      * assertSame(array_order([$v1, $v2, $v3], ['name' => true, 'no' => -SORT_NATURAL]), [$v3, $v2, $v1]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1785,10 +1785,10 @@ class Arrays
      * shuffle のキーが保存される＋参照渡しではない版
      *
      * Example:
-     * <code>
+     * ```php
      * srand(4);mt_srand(4);
      * assertSame(array_shuffle(['a' => 'A', 'b' => 'B', 'c' => 'C']), ['b' => 'B', 'a' => 'A', 'c' => 'C']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1814,13 +1814,13 @@ class Arrays
      * 「配列の並び順はそのままで値だけ変えたい/削ぎ落としたい」という状況はまれによくあるはず。
      *
      * Example:
-     * <code>
+     * ```php
      * $array1 = ['a' => 'A1', 'b' => 'B1', 'c' => 'C1'];
      * $array2 = ['c' => 'C2', 'b' => 'B2', 'a' => 'A2'];
      * $array3 = ['c' => 'C3', 'dummy' => 'DUMMY'];
      * // 全共通項である 'c' キーのみが生き残り、その値は最後の 'C3' になる
      * assertSame(array_shrink_key($array1, $array2, $array3), ['c' => 'C3']);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1841,7 +1841,7 @@ class Arrays
      * array_column は キーを保存することが出来ないが、この関数は引数を2つだけ与えるとキーはそのままで array_column 相当の配列を返す。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = [11 => ['id' => 1, 'name' => 'name1'], 12 => ['id' => 2, 'name' => 'name2'], 13 => ['id' => 3, 'name' => 'name3']];
      * // 第3引数を渡せば array_column と全く同じ
      * assertSame(array_lookup($array, 'name', 'id'), array_column($array, 'name', 'id'));
@@ -1849,7 +1849,7 @@ class Arrays
      * // 省略すればキーが保存される
      * assertSame(array_lookup($array, 'name'), [11 => 'name1', 12 => 'name2', 13 => 'name3']);
      * assertSame(array_lookup($array), $array);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1891,14 +1891,14 @@ class Arrays
      * 行列が逆転するイメージ。
      *
      * Example:
-     * <code>
+     * ```php
      * $row1 = ['id' => 1, 'name' => 'A'];
      * $row2 = ['id' => 2, 'name' => 'B'];
      * $rows = [$row1, $row2];
      * assertSame(array_columns($rows), ['id' => [1, 2], 'name' => ['A', 'B']]);
      * assertSame(array_columns($rows, 'id'), ['id' => [1, 2]]);
      * assertSame(array_columns($rows, 'name', 'id'), ['name' => [1 => 'A', 2 => 'B']]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1931,12 +1931,12 @@ class Arrays
      * キーがバラバラな配列を指定する場合は指定したほうが良い。が、null を指定すると最初の要素が使われるので大抵の場合は null で良い。
      *
      * Example:
-     * <code>
+     * ```php
      * assertSame(array_uncolumns(['id' => [1, 2], 'name' => ['A', 'B']]), [
      *     ['id' => 1, 'name' => 'A'],
      *     ['id' => 2, 'name' => 'B'],
      * ]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -1989,7 +1989,7 @@ class Arrays
      * 複雑だが実質的には「キーも設定できる array_walk_recursive」のように振る舞う（そしてそのような使い方を想定している）。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = [
      *    'k1' => 'v1',
      *    'k2' => [
@@ -2016,7 +2016,7 @@ class Arrays
      *         0     => 'v23',
      *     ],
      * ]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -2101,7 +2101,7 @@ class Arrays
      * $delimiter = null の場合に本当の配列で返す（巷の実装と同じ）。
      *
      * Example:
-     * <code>
+     * ```php
      * $array = [
      *    'k1' => 'v1',
      *    'k2' => [
@@ -2133,7 +2133,7 @@ class Arrays
      *    'k2.k22.k223.1' => 2,
      *    'k2.k22.k223.2' => 3,
      * ]);
-     * </code>
+     * ```
      *
      * @package Array
      *
@@ -2181,7 +2181,7 @@ class Arrays
      * 同名とみなされるキーは上書きされるか例外が飛ぶ。具体的には Example を参照。
      *
      * Example:
-     * <code>
+     * ```php
      * // 単純な階層展開
      * $array = [
      *    'k1'            => 'v1',
@@ -2222,7 +2222,7 @@ class Arrays
      * catch (\Exception $e) {
      *     assertInstanceof(\InvalidArgumentException::class, $e);
      * }
-     * </code>
+     * ```
      *
      * @package Array
      *
