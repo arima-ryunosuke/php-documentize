@@ -214,10 +214,6 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'kind'  => 'override',
                 'fqsen' => 'NS\\MockTrait::$mockProperty',
             ],
-            [
-                'kind'  => 'instead',
-                'fqsen' => 'NS\\MockTrait::$mockProperty',
-            ],
         ], $reflection->getProtoTypes());
         $this->assertEquals(1, $reflection->getValue());
     }

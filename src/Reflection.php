@@ -540,60 +540,68 @@ class Reflection
                 }
                 return $prototypes;
             case $this->reflection instanceof \ReflectionProperty:
+                $thisname = '$' . $this->getShortName();
                 $prototype = $this->getProtoType();
                 $tproperties = $this->context->getTraitProperties();
                 $properties = PhpFile::cache($this->context->getFileName())[$this->context->getNamespaceName()][$this->context->getFqsen()] ?? [];
                 $prototypes = [];
+                $overidden = false;
                 // 自身でも定義していてかつプロトタイプがあるなら override
-                if (isset($properties['$' . $this->getShortName()]) && $prototype) {
+                if (isset($properties[$thisname]) && $prototype) {
+                    $overidden = true;
                     $prototypes[] = [
                         'kind'  => 'override',
                         'fqsen' => $prototype->getFqsen(),
                     ];
                 }
                 // 自身にもトレイトにもなく、定義クラスが異なるなら inherit
-                if (!isset($properties['$' . $this->getShortName()]) && !isset($tproperties[$this->getShortName()]) && $this->context->getFqsen() !== $this->getDeclaringClass()->getFqsen()) {
+                if (!isset($properties[$thisname]) && !isset($tproperties[$this->getShortName()]) && $this->context->getFqsen() !== $this->getDeclaringClass()->getFqsen()) {
                     $prototypes[] = [
                         'kind'  => 'inherit',
-                        'fqsen' => $this->getDeclaringClass()->getFqsen() . '::$' . $this->getShortName(),
+                        'fqsen' => $this->getDeclaringClass()->getFqsen() . '::' . $thisname,
                     ];
                 }
-                // 取得しておいたトレイトのプロパティリストにあるなら instead
-                foreach ($tproperties[$this->getShortName()] ?? [] as $tproperty) {
-                    $prototypes[] = [
-                        'kind'  => 'instead',
-                        'fqsen' => $tproperty->getFqsen(),
-                    ];
+                // override ではなく取得しておいたトレイトのプロパティリストにあるなら instead
+                if (!$overidden) {
+                    foreach ($tproperties[$this->getShortName()] ?? [] as $tproperty) {
+                        $prototypes[] = [
+                            'kind'  => 'instead',
+                            'fqsen' => $tproperty->getFqsen(),
+                        ];
+                    }
                 }
                 return $prototypes;
             case $this->reflection instanceof \ReflectionMethod:
+                $thisname = $this->getShortName() . '()';
                 $prototype = $this->getProtoType();
                 $tmethods = $this->context->getTraitMethods();
                 $methods = PhpFile::cache($this->context->getFileName())[$this->context->getNamespaceName()][$this->context->getFqsen()] ?? [];
                 $prototypes = [];
+                $overidden = false;
                 // 自身でも定義していてかつプロトタイプがあり、それがクラスなら override
-                if (isset($methods[$this->getShortName() . '()']) && $prototype && !$prototype->getDeclaringClass()->isInterface()) {
+                if (isset($methods[$thisname]) && $prototype && !$prototype->getDeclaringClass()->isInterface()) {
+                    $overidden = true;
                     $prototypes[] = [
                         'kind'  => 'override',
                         'fqsen' => $prototype->getFqsen(),
                     ];
                 }
                 // 自身でも定義していてかつプロトタイプがあり、それがインターフェースなら implement
-                if (isset($methods[$this->getShortName() . '()']) && $prototype && $prototype->getDeclaringClass()->isInterface()) {
+                if (isset($methods[$thisname]) && $prototype && $prototype->getDeclaringClass()->isInterface()) {
                     $prototypes[] = [
                         'kind'  => 'implement',
                         'fqsen' => $prototype->getFqsen(),
                     ];
                 }
                 // 自身にもトレイトにもなく、定義クラスが異なるなら inherit
-                if (!isset($methods[$this->getShortName() . '()']) && !isset($tmethods[$this->getShortName()]) && $this->context->getFqsen() !== $this->getDeclaringClass()->getFqsen()) {
+                if (!isset($methods[$thisname]) && !isset($tmethods[$this->getShortName()]) && $this->context->getFqsen() !== $this->getDeclaringClass()->getFqsen()) {
                     $prototypes[] = [
                         'kind'  => 'inherit',
-                        'fqsen' => $this->getDeclaringClass()->getFqsen() . '::' . $this->getShortName() . '()',
+                        'fqsen' => $this->getDeclaringClass()->getFqsen() . '::' . $thisname,
                     ];
                 }
-                // 取得しておいたトレイトのメソッドリストにあるなら instead
-                if (isset($tmethods[$this->getShortName()])) {
+                // override ではなく取得しておいたトレイトのメソッドリストにあるなら instead
+                if (!$overidden && isset($tmethods[$this->getShortName()])) {
                     $prototypes[] = [
                         'kind'  => 'instead',
                         'fqsen' => $tmethods[$this->getShortName()]->getFqsen(),
