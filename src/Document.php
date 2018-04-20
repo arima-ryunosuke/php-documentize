@@ -733,6 +733,27 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     private function parseProperty(Reflection $refclass, $magicTags)
     {
         $result = [];
+        foreach ($refclass->getProperties() as $refproperty) {
+            $propdocs = $this->parseDoccomment($refproperty->getDocComment(true), $refclass->getNamespaceName(), $refclass->getFqsen());
+            $types = $propdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refproperty->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
+            $prototypes = $refproperty->getProtoTypes();
+            $result[$refproperty->getShortName()] = [
+                'category'    => $refproperty->getCategory(),
+                'fqsen'       => $refproperty->getFqsen(),
+                'namespace'   => $refproperty->getNamespaceName(),
+                'name'        => $refproperty->getShortName(),
+                'location'    => $refproperty->getLocation(),
+                'description' => $propdocs['description'] ?: $propdocs['tags']['var'][0]['description'] ?? '',
+                'value'       => Vars::var_export2($refproperty->getValue(), true),
+                'virtual'     => $prototypes && !Arrays::in_array_or(['override'], array_column($prototypes, 'kind')),
+                'magic'       => false,
+                'static'      => $refproperty->isStatic(),
+                'accessible'  => $refproperty->getAccessible(),
+                'prototypes'  => $prototypes,
+                'types'       => $types,
+                'tags'        => $propdocs['tags'],
+            ];
+        }
         foreach ($magicTags as $tag) {
             // @property のパースに失敗している場合は設定されていない
             if (!isset($tag['name'])) {
@@ -757,33 +778,34 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'tags'        => $propdocs['tags'],
             ];
         }
-        foreach ($refclass->getProperties() as $refproperty) {
-            $propdocs = $this->parseDoccomment($refproperty->getDocComment(true), $refclass->getNamespaceName(), $refclass->getFqsen());
-            $types = $propdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refproperty->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
-            $prototypes = $refproperty->getProtoTypes();
-            $result[$refproperty->getShortName()] = [
-                'category'    => $refproperty->getCategory(),
-                'fqsen'       => $refproperty->getFqsen(),
-                'namespace'   => $refproperty->getNamespaceName(),
-                'name'        => $refproperty->getShortName(),
-                'location'    => $refproperty->getLocation(),
-                'description' => $propdocs['description'] ?: $propdocs['tags']['var'][0]['description'] ?? '',
-                'value'       => Vars::var_export2($refproperty->getValue(), true),
-                'virtual'     => $prototypes && !Arrays::in_array_or(['override'], array_column($prototypes, 'kind')),
-                'magic'       => false,
-                'static'      => $refproperty->isStatic(),
-                'accessible'  => $refproperty->getAccessible(),
-                'prototypes'  => $prototypes,
-                'types'       => $types,
-                'tags'        => $propdocs['tags'],
-            ];
-        }
         return $result;
     }
 
     private function parseMethod(Reflection $refclass, $magicTags)
     {
         $result = [];
+        foreach ($refclass->getMethods() as $refmethod) {
+            $rmethod = $this->parseFunction($refmethod, $refclass->getNamespaceName(), $refclass->getFqsen());
+            $prototypes = $refmethod->getProtoTypes();
+            $result[$refmethod->getShortName()] = [
+                'category'    => $refmethod->getCategory(),
+                'fqsen'       => $refmethod->getFqsen(),
+                'namespace'   => $refmethod->getNamespaceName(),
+                'name'        => $refmethod->getShortName(),
+                'location'    => $refmethod->getLocation(),
+                'description' => $rmethod['description'],
+                'virtual'     => $prototypes && !Arrays::in_array_or(['override', 'implement'], array_column($prototypes, 'kind')),
+                'magic'       => false,
+                'abstract'    => $refmethod->isAbstract(),
+                'final'       => $refmethod->isFinal(),
+                'static'      => $refmethod->isStatic(),
+                'accessible'  => $refmethod->getAccessible(),
+                'prototypes'  => $prototypes,
+                'parameters'  => $rmethod['parameters'],
+                'return'      => $rmethod['return'],
+                'tags'        => $rmethod['tags'],
+            ];
+        }
         foreach ($magicTags as $tag) {
             // @method のパースに失敗している場合は設定されていない
             if (!isset($tag['name'])) {
@@ -808,28 +830,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'parameters'  => $mmethod['parameters'],
                 'return'      => $mmethod['return'],
                 'tags'        => $mmethod['tags'],
-            ];
-        }
-        foreach ($refclass->getMethods() as $refmethod) {
-            $rmethod = $this->parseFunction($refmethod, $refclass->getNamespaceName(), $refclass->getFqsen());
-            $prototypes = $refmethod->getProtoTypes();
-            $result[$refmethod->getShortName()] = [
-                'category'    => $refmethod->getCategory(),
-                'fqsen'       => $refmethod->getFqsen(),
-                'namespace'   => $refmethod->getNamespaceName(),
-                'name'        => $refmethod->getShortName(),
-                'location'    => $refmethod->getLocation(),
-                'description' => $rmethod['description'],
-                'virtual'     => $prototypes && !Arrays::in_array_or(['override', 'implement'], array_column($prototypes, 'kind')),
-                'magic'       => false,
-                'abstract'    => $refmethod->isAbstract(),
-                'final'       => $refmethod->isFinal(),
-                'static'      => $refmethod->isStatic(),
-                'accessible'  => $refmethod->getAccessible(),
-                'prototypes'  => $prototypes,
-                'parameters'  => $rmethod['parameters'],
-                'return'      => $rmethod['return'],
-                'tags'        => $rmethod['tags'],
             ];
         }
         return $result;
