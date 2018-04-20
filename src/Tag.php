@@ -153,6 +153,11 @@ class Tag
         ];
     }
 
+    protected function parseIgnore()
+    {
+        return $this->_parseNovalue();
+    }
+
     protected function parseInheritdoc($tagValue, $usings, $namespace, $own)
     {
         // @inheritdoc ["FQSEN"]

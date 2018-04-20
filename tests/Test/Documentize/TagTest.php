@@ -132,6 +132,14 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
         ]);
     }
 
+    function test_parseIgnore()
+    {
+        $this->assertTag(new Tag('@ignore', [], null, null), [
+            'tagname' => 'ignore',
+            'inline'  => false,
+        ]);
+    }
+
     function test_parseInheritdoc()
     {
         $this->assertTag(new Tag('@inheritdoc', [], null, null), [

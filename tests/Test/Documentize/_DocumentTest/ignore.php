@@ -32,6 +32,11 @@ namespace IgnoreSpace2 {
      */
     function internalF() { }
 
+    /**
+     * @ignore
+     */
+    function ignoreF() { }
+
     class normalC
     {
 
@@ -54,6 +59,14 @@ namespace IgnoreSpace2 {
      * @internal
      */
     class internalC
+    {
+
+    }
+
+    /**
+     * @ignore
+     */
+    class ignoreC
     {
 
     }

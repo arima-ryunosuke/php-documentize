@@ -126,6 +126,8 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertArrayNotHasKey('deprecatedF', $namespaces['IgnoreSpace2']['functions']);
         // @internal なので false
         $this->assertArrayNotHasKey('internalF', $namespaces['IgnoreSpace2']['functions']);
+        // @ignore なので false
+        $this->assertArrayNotHasKey('ignoreF', $namespaces['IgnoreSpace2']['functions']);
         // こいつは居る
         $this->assertArrayHasKey('normalF', $namespaces['IgnoreSpace2']['functions']);
 
@@ -135,6 +137,8 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertArrayNotHasKey('deprecatedC', $namespaces['IgnoreSpace2']['classes']);
         // @internal なので false
         $this->assertArrayNotHasKey('internalC', $namespaces['IgnoreSpace2']['classes']);
+        // @ignore なので false
+        $this->assertArrayNotHasKey('ignoreC', $namespaces['IgnoreSpace2']['classes']);
         // こいつは居る
         $this->assertArrayHasKey('normalC', $namespaces['IgnoreSpace2']['classes']);
         // すべて何らかの形で無視されるので定数の数は 0

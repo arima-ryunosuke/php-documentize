@@ -912,6 +912,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         if (Adhoc::fnmatchs($this->options['except'], $data['fqsen'], FNM_NOESCAPE)) {
             return true;
         }
+        if ($data['tags']['ignore'] ?? false) {
+            return true;
+        }
         if (($this->options["no-internal-$context"] ?? false) && ($data['tags']['internal'] ?? false)) {
             return true;
         }
