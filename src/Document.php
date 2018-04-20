@@ -640,7 +640,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function parseFunction(Reflection $reffunc, $namespace, $own)
     {
-        $docs = $this->parseDoccomment($reffunc->getDocComment(), $namespace, $own);
+        $docs = $this->parseDoccomment($reffunc->getDocComment(true), $namespace, $own);
 
         $result = [
             'description' => $docs['description'],
@@ -709,7 +709,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = [];
         foreach ($refclass->getConstants() as $refconst) {
-            $constdocs = $this->parseDoccomment($refconst->getDocComment(), $refclass->getNamespaceName(), $refclass->getFqsen());
+            $constdocs = $this->parseDoccomment($refconst->getDocComment(true), $refclass->getNamespaceName(), $refclass->getFqsen());
             $types = $constdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refconst->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
             $prototypes = $refconst->getProtoTypes();
             $result[$refconst->getShortName()] = [
@@ -758,7 +758,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             ];
         }
         foreach ($refclass->getProperties() as $refproperty) {
-            $propdocs = $this->parseDoccomment($refproperty->getDocComment(), $refclass->getNamespaceName(), $refclass->getFqsen());
+            $propdocs = $this->parseDoccomment($refproperty->getDocComment(true), $refclass->getNamespaceName(), $refclass->getFqsen());
             $types = $propdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refproperty->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
             $prototypes = $refproperty->getProtoTypes();
             $result[$refproperty->getShortName()] = [

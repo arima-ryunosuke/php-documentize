@@ -194,15 +194,23 @@ class Reflection
         throw new \DomainException();
     }
 
-    public function getDocComment()
+    public function getDocComment($prototype_flg = false)
     {
         switch (true) {
             case $this->reflection instanceof \ReflectionFunction:
             case $this->reflection instanceof \ReflectionClass:
+                return $this->reflection->getDocComment();
             case $this->reflection instanceof \ReflectionClassConstant:
             case $this->reflection instanceof \ReflectionProperty:
             case $this->reflection instanceof \ReflectionMethod:
-                return $this->reflection->getDocComment();
+                if (!$prototype_flg || $this->reflection->getDocComment()) {
+                    return $this->reflection->getDocComment();
+                }
+                $prototype = $this->getPrototype();
+                if ($prototype) {
+                    return $prototype->getDocComment();
+                }
+                return false;
         }
         throw new \DomainException();
     }

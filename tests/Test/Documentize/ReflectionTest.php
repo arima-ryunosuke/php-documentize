@@ -2,6 +2,7 @@
 
 namespace ryunosuke\Test\Documentize;
 
+use NS\ChildDoc;
 use NS\MagicClass;
 use NS\MockClass;
 use NS\MockInterface;
@@ -397,6 +398,25 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame('\\Exception', $method->getNamespaceName());
         $this->assertSame('getMessage', $method->getShortName());
         $this->assertSame('\\Exception::getMessage()', $method->getFqsen());
+    }
+
+    function test_getDocComment()
+    {
+        // 自分が持っていれば自動継承はされない
+        $reflection = new Reflection(new \ReflectionMethod(ChildDoc::class, 'nodocMethod'));
+        $this->assertEquals('/**  */', $reflection->getDocComment(true));
+
+        // 継承していれば自動で親コメントが得られる
+        $reflection = new Reflection(new \ReflectionMethod(ChildDoc::class, 'hasdoc1Method'));
+        $this->assertEquals('/** this is doc */', $reflection->getDocComment(true));
+
+        // 継承していても親に設定されていなければ false
+        $reflection = new Reflection(new \ReflectionMethod(ChildDoc::class, 'hasdoc2Method'));
+        $this->assertEquals(false, $reflection->getDocComment(true));
+
+        // 自分自身がなくて継承もしていないなら false
+        $reflection = new Reflection(new \ReflectionMethod(ChildDoc::class, 'ownMethod'));
+        $this->assertEquals(false, $reflection->getDocComment(true));
     }
 
     function test_getMagicMethod()
