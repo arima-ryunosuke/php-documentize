@@ -844,7 +844,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $description = $matches[1];
         }
 
-        $description = preg_replace_callback('#\{@.+\}#', function ($m) use (&$tags, $namespace, $own) {
+        $description = preg_replace_callback('#\{@.+?\}#', function ($m) use (&$tags, $namespace, $own) {
             $tag = new Tag($m[0], $this->usings, $namespace, $own);
             $tagvalues = $tag->toArray();
             $tags[$tagvalues['tagname']][] = $tagvalues;

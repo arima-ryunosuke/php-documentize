@@ -222,7 +222,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $parseDoccomment = self::forcedCallize($document, 'parseDoccomment');
 
         $comment = $parseDoccomment('/**
- * this is description
+ * this is description{@inline1 tag}{@inline2 tag}
  *
  * this is description1.
  * this is description2.
@@ -233,7 +233,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
  * @tagname2 tagvalue22
  */
 ', null, null);
-        $this->assertEquals("this is description
+        $this->assertEquals("this is description<tag-inline1  /><tag-inline2  />
 
 this is description1.
 this is description2.
@@ -241,6 +241,6 @@ there is inline tag.<tag-inlinetag  />
 
 ", $comment['description']);
 
-        $this->assertEquals(['inlinetag', 'tagname1', 'tagname2'], array_keys($comment['tags']));
+        $this->assertEquals(['inline1', 'inline2', 'inlinetag', 'tagname1', 'tagname2'], array_keys($comment['tags']));
     }
 }
