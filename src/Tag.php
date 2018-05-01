@@ -160,7 +160,7 @@ class Tag
     protected function parseInheritdoc($tagValue, $usings, $namespace, $own)
     {
         // @inheritdoc ["FQSEN"]
-        return ['type' => strlen($tagValue) ? (new Fqsen($tagValue))->resolve($usings, $namespace, $own)[0] : null];
+        return ['type' => strlen($tagValue) ? (new Fqsen($this->_addOwn($tagValue, $own)))->resolve($usings, $namespace, $own)[0] : null];
     }
 
     protected function parseInternal($tagValue)
