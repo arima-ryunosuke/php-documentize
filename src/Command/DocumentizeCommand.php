@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class DocumentizeCommand extends Command
 {
-    const VERSION = "1.0.0";
+    const VERSION = "1.0.2";
 
     protected function configure()
     {
