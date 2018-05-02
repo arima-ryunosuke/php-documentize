@@ -191,7 +191,7 @@ class Tag
         // @method [return type] [name]([type] [parameter], [...]) [description]
 
         // よくわからない場合は空を返す（無理にパースしても後段のために良くない）
-        if (!preg_match('#((?<static>static)\s*)?(?<type>[a-zA-z0-9\\_\[\]]+)\s+(?<name>[a-zA-z0-9_]+)(?=\()(?<remnant>.+)#ms', $tagValue, $matches)) {
+        if (!preg_match('#((?<static>static)\s*)?(?<type>[a-zA-z0-9|\\_\[\]]+)\s+(?<name>[a-zA-z0-9_]+)(?=\()(?<remnant>.+)#ms', $tagValue, $matches)) {
             return [];
         }
 
@@ -224,15 +224,19 @@ class Tag
 
         // インライン phpdoc https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#54-inline-phpdoc
         if (preg_match('#^\{(.*)\}$#s', $description, $desc)) {
-            $description = ltrim(preg_replace('#^ *#m', ' * ', trim($desc[1], "\r\n")), ' *');
+            $description = ltrim(preg_replace('#^ {4}#m', ' * ', trim($desc[1], "\r\n")), ' *');
 
             // インライン phpdoc が @param を含んでいるならそれを優先する（@method タグは型情報程度しか持てないため、phpdoc の方が情報量が多い）
-            if (strpos($description, '@param') !== false) {
+            if (strpos($description, '* @param') !== false) {
                 $paramsTag = '';
             }
             // インライン phpdoc が @return を含んでいるならそれを優先する（@method タグは型情報程度しか持てないため、phpdoc の方が情報量が多い）
-            if (strpos($description, '@return') !== false) {
+            if (strpos($description, '* @return') !== false) {
                 $returnTag = '';
+            }
+            // インライン phpdoc が @inherit を含んでいるならそれを優先する（@method タグは型情報程度しか持てないため、phpdoc の方が情報量が多い）
+            if (strpos($description, '@inheritdoc') !== false) {
+                $description = str_replace('@inheritdoc', "\n * @inheritdoc", $description);
             }
         }
 
@@ -274,7 +278,7 @@ class Tag
 
         // インライン phpdoc https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#54-inline-phpdoc
         if (preg_match('#^\{(.*)\}$#s', $description, $desc)) {
-            $description = ltrim(preg_replace('#^ *#m', ' * ', trim($desc[1], "\r\n")), ' *');
+            $description = ltrim(preg_replace('#^ {4}#m', ' * ', trim($desc[1], "\r\n")), ' *');
         }
 
         $varTag = '@var ' . trim($matches['type']);

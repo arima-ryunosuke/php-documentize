@@ -359,6 +359,48 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
  */
 ',
         ]);
+
+        $this->assertTag(new Tag('@method void methodName() {
+    this is description.
+    
+    - list 1
+        - list 1-2
+    - list 2
+    
+    ```php
+    var_dump([
+        "code",
+        "block",
+    ]);
+    ```
+    @inheritdoc
+}', [], null, null), [
+            'tagname'    => 'method',
+            'inline'     => false,
+            'static'     => false,
+            'name'       => 'methodName',
+            'parameter'  => '',
+            'doccomment' => '/**
+ * this is description.
+ * 
+ * - list 1
+ *     - list 1-2
+ * - list 2
+ * 
+ * ```php
+ * var_dump([
+ *     "code",
+ *     "block",
+ * ]);
+ * ```
+ * 
+ * @inheritdoc
+ * 
+ * @param mixed 
+ * @return void
+ */
+',
+        ]);
     }
 
     function test_parseParam()
