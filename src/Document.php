@@ -263,7 +263,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
                 // インラインは置換ではなく埋め込み。インラインでないなら完全置換
                 if ($doctag['inline']) {
-                    $target['description'] = str_replace('HereIsInheritdoc', trim($parent['description']), $target['description']);
+                    // ただし、文言指定されているなら親ではなくそれを使う
+                    $parentdoc = $doctag['description'] ?: trim($parent['description']);
+                    $target['description'] = str_replace('HereIsInheritdoc', $parentdoc, $target['description']);
                 }
                 else {
                     // ただし、子供自身の記述を活かしたい場合もあるので空の場合のみ

@@ -50,7 +50,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
         // inheritdoc だけは特別扱い
         $tag = new Tag('{@inheritdoc noinline}', [], null, null);
-        $this->assertEquals("HereIsInheritdoc<tag-inheritdoc data-type-category='type' data-type-fqsen='noinline' data-type-array='0' />", $tag->getInlineText());
+        $this->assertEquals("HereIsInheritdoc<tag-inheritdoc data-type-category='type' data-type-fqsen='noinline' data-type-array='0' data-description='' />", $tag->getInlineText());
     }
 
     function test_parseApi()
@@ -143,29 +143,43 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_parseInheritdoc()
     {
         $this->assertTag(new Tag('@inheritdoc', [], null, null), [
-            'tagname' => 'inheritdoc',
-            'inline'  => false,
-            'type'    => null,
+            'tagname'     => 'inheritdoc',
+            'inline'      => false,
+            'type'        => null,
+            'description' => ''
         ]);
 
         $this->assertTag(new Tag('@inheritdoc \\vendor\\Type', [], null, null), [
-            'tagname' => 'inheritdoc',
-            'inline'  => false,
-            'type'    => [
+            'tagname'     => 'inheritdoc',
+            'inline'      => false,
+            'type'        => [
                 'category' => 'type',
                 'fqsen'    => '\\vendor\\Type',
                 'array'    => 0,
             ],
+            'description' => ''
         ]);
 
         $this->assertTag(new Tag('@inheritdoc \\vendor\\Type::method()', [], null, null), [
-            'tagname' => 'inheritdoc',
-            'inline'  => false,
-            'type'    => [
+            'tagname'     => 'inheritdoc',
+            'inline'      => false,
+            'type'        => [
                 'category' => 'method',
                 'fqsen'    => '\\vendor\\Type::method()',
                 'array'    => 0,
             ],
+            'description' => ''
+        ]);
+
+        $this->assertTag(new Tag('@inheritdoc \\vendor\\Type::method() hogera', [], null, null), [
+            'tagname'     => 'inheritdoc',
+            'inline'      => false,
+            'type'        => [
+                'category' => 'method',
+                'fqsen'    => '\\vendor\\Type::method()',
+                'array'    => 0,
+            ],
+            'description' => 'hogera'
         ]);
     }
 

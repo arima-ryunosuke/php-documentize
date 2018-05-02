@@ -159,8 +159,12 @@ class Tag
 
     protected function parseInheritdoc($tagValue, $usings, $namespace, $own)
     {
-        // @inheritdoc ["FQSEN"]
-        return ['type' => strlen($tagValue) ? (new Fqsen($this->_addOwn($tagValue, $own)))->resolve($usings, $namespace, $own)[0] : null];
+        // @inheritdoc ["FQSEN"] [<description>]
+        $value = preg_split('#\s+#', $tagValue, 2);
+        return [
+            'type'        => strlen($tagValue) ? (new Fqsen($this->_addOwn($value[0], $own)))->resolve($usings, $namespace, $own)[0] : null,
+            'description' => $value[1] ?? '',
+        ];
     }
 
     protected function parseInternal($tagValue)
