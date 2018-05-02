@@ -586,6 +586,14 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'description' => 'this is description.',
         ]);
 
+        $this->assertTag(new Tag('@see http://example.com', [], null, null, null), [
+            'tagname'     => 'see',
+            'inline'      => false,
+            'kind'        => 'uri',
+            'type'        => 'http://example.com',
+            'description' => 'http://example.com',
+        ]);
+
         $this->assertTag(new Tag('@see $property', [], null, 'ClassName', null), [
             'tagname'     => 'see',
             'inline'      => false,
@@ -595,7 +603,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'fqsen'    => 'ClassName::$property',
                 'array'    => 0,
             ],
-            'description' => '',
+            'description' => '$property',
         ]);
 
         $this->assertTag(new Tag('@see method()', [], null, 'ClassName', null), [
@@ -607,7 +615,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'fqsen'    => 'ClassName::method()',
                 'array'    => 0,
             ],
-            'description' => '',
+            'description' => 'method()',
         ]);
     }
 

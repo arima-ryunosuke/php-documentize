@@ -332,7 +332,7 @@ class Tag
         return [
             'kind'        => $uri ? 'uri' : 'fqsen',
             'type'        => $uri ? $value[0] : (new Fqsen($this->_addOwn($value[0], $own)))->resolve($usings, $namespace, $own)[0],
-            'description' => $value[1] ?? '',
+            'description' => $value[1] ?? $value[0],
         ];
     }
 
