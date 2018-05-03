@@ -3,6 +3,7 @@
 namespace ryunosuke\Documentize\Command;
 
 use ryunosuke\Documentize\Document;
+use ryunosuke\Documentize\Utils\Arrays;
 use ryunosuke\Documentize\Utils\FileSystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -131,18 +132,18 @@ class DocumentizeCommand extends Command
         }
         $namespaces = $result['namespaces'];
 
-        foreach ($result['logs'] as $log) {
+        foreach (array_unique($result['logs'], SORT_REGULAR) as $log) {
             $map = [
-                E_NOTICE       => 'fg=yellow',
-                E_USER_NOTICE  => 'fg=yellow',
-                E_WARNING      => 'fg=magenta',
-                E_USER_WARNING => 'fg=magenta',
-                E_ERROR        => 'fg=red',
-                E_USER_ERROR   => 'fg=red',
+                E_NOTICE       => [OutputInterface::VERBOSITY_VERBOSE, 'fg=yellow'],
+                E_USER_NOTICE  => [OutputInterface::VERBOSITY_VERBOSE, 'fg=yellow'],
+                E_WARNING      => [OutputInterface::VERBOSITY_NORMAL, 'fg=magenta'],
+                E_USER_WARNING => [OutputInterface::VERBOSITY_NORMAL, 'fg=magenta'],
+                E_ERROR        => [0, 'fg=red'],
+                E_USER_ERROR   => [0, 'fg=red'],
             ];
-            $tag = $map[$log['errorno']] ?? 'fg=default';
+            $tag = $map[$log['errorno']][1] ?? 'fg=default';
             $message = $log['message'] . ($output->isDebug() ? ' at ' . $log['file'] . '#' . $log['line'] : '');
-            $output->writeln("<$tag>" . $message . "</>");
+            $output->writeln("<$tag>" . $message . "</>", $map[$log['errorno']][0]);
         }
 
         FileSystem::mkdir_p($dst);
@@ -169,6 +170,18 @@ class DocumentizeCommand extends Command
                 }
                 return $count;
             };
+            $output->writeln(implode(' ', [
+                'Logs',
+                sprintf('<comment>%s</comment> notices,', number_format(Arrays::array_count($result['logs'], function ($v) {
+                    return in_array($v['errorno'], [E_NOTICE, E_USER_NOTICE]);
+                }))),
+                sprintf('<comment>%s</comment> warnings,', number_format(Arrays::array_count($result['logs'], function ($v) {
+                    return in_array($v['errorno'], [E_WARNING, E_USER_WARNING]);
+                }))),
+                sprintf('<comment>%s</comment> errors', number_format(Arrays::array_count($result['logs'], function ($v) {
+                    return in_array($v['errorno'], [E_ERROR, E_USER_ERROR]);
+                }))),
+            ]));
             $output->writeln(implode(' ', [
                 'Found',
                 sprintf('<info>%s</info> constants,', number_format($counter(['namespaces' => $namespaces], 'constants'))),
