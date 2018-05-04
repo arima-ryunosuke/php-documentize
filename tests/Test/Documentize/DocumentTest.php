@@ -159,6 +159,25 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_gather_skip2()
     {
         $document = new Document([
+            'target'                 => __DIR__ . '/_DocumentTest/ignore-inherit.php',
+            'include'              => '*',
+            'contain'              => '*',
+        ]);
+        $namespaces = $document->gather();
+
+        // こいつは居る
+        $this->assertArrayHasKey('IgnoreInheritT', $namespaces['Ignore']['traits']);
+        // メソッドもある
+        $this->assertArrayHasKey('ignoreM', $namespaces['Ignore']['traits']['IgnoreInheritT']['methods']);
+        $this->assertArrayHasKey('noignoreM', $namespaces['Ignore']['traits']['IgnoreInheritT']['methods']);
+        // ただし、 ignoreM は use 先 C にはいない（noignoreM はオーバーライドしてるので居る）
+        $this->assertArrayNotHasKey('ignoreM', $namespaces['Ignore']['classes']['C']['methods']);
+        $this->assertArrayHasKey('noignoreM', $namespaces['Ignore']['classes']['C']['methods']);
+    }
+
+    function test_gather_skip3()
+    {
+        $document = new Document([
             'target'               => __DIR__ . '/_DocumentTest/magic.php',
             'include'              => '*',
             'contain'              => '*',

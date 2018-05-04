@@ -915,6 +915,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         if ($data['tags']['ignore'] ?? false) {
             return true;
         }
+        if (($data['tags']['ignoreinherit'] ?? false) && ($data['virtual'] ?? false)) {
+            return true;
+        }
         if (($this->options["no-internal-$context"] ?? false) && ($data['tags']['internal'] ?? false)) {
             return true;
         }

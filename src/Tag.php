@@ -157,6 +157,11 @@ class Tag
         return $this->_parseNovalue();
     }
 
+    protected function parseIgnoreInherit()
+    {
+        return $this->_parseNovalue();
+    }
+
     protected function parseInheritdoc($tagValue, $usings, $namespace, $own)
     {
         // @inheritdoc ["FQSEN"] [<description>]
