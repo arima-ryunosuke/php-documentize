@@ -220,30 +220,41 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         // 3パス目。走査中に継承・引用したりは出来ないのでこのタイミングでやる
         $inheritdoc = function (&$target, $mtype) use (&$namespaces, &$inheritdoc) {
-            if (!isset($target['tags']['inheritdoc'][0])) {
-                return;
+            if (isset($target['tags']['inheritdoc'][0])) {
+                $doctag = $target['tags']['inheritdoc'][0];
+                if ($doctag['type']) {
+                    $tfqsen = $doctag['type']['fqsen'];
+                }
+                else {
+                    $ref = new Reflection($target['fqsen']);
+                    $pt = $ref->getProtoType();
+                    if (!$pt) {
+                        if ($doctag['inline']) {
+                            $target['description'] = str_replace('HereIsInheritdoc', '', $target['description']);
+                        }
+                        trigger_error("{$target['fqsen']} uses inheritdoc, but prototype is not found.");
+                        return;
+                    }
+                    $tfqsen = $pt->getFqsen();
+                }
             }
-            $doctag = $target['tags']['inheritdoc'][0];
-            if ($doctag['type']) {
-                $tfqsen = $doctag['type']['fqsen'];
-            }
-            else {
+            elseif (($mtype === 'properties' || $mtype === 'methods') && !$target['magic'] && !$target['tags'] && !trim($target['description'])) {
+                $doctag = ['inline' => false];
                 $ref = new Reflection($target['fqsen']);
                 $pt = $ref->getProtoType();
                 if (!$pt) {
-                    if ($doctag['inline']) {
-                        $target['description'] = str_replace('HereIsInheritdoc', '', $target['description']);
-                    }
-                    trigger_error("{$target['fqsen']} uses inheritdoc, but prototype is not found.");
                     return;
                 }
                 $tfqsen = $pt->getFqsen();
+            }
+            else {
+                return;
             }
             list(, $ns, $cname, $member) = Fqsen::parse(rtrim($tfqsen, '()'));
             $member = rtrim(ltrim($member, '$'), '()');
             $OK = false;
             foreach (['interfaces', 'traits', 'classes'] as $type) {
-                if ($mtype == 'type') {
+                if ($mtype === 'type') {
                     if (!isset($namespaces[$ns][$type][$cname])) {
                         continue;
                     }
@@ -648,7 +659,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function parseFunction(Reflection $reffunc, $namespace, $own)
     {
-        $docs = $this->parseDoccomment($reffunc->getDocComment(true), $namespace, $own);
+        $docs = $this->parseDoccomment($reffunc->getDocComment(), $namespace, $own);
 
         $result = [
             'description' => $docs['description'],
@@ -717,7 +728,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = [];
         foreach ($refclass->getConstants() as $refconst) {
-            $constdocs = $this->parseDoccomment($refconst->getDocComment(true), $refclass->getNamespaceName(), $refclass->getFqsen());
+            $constdocs = $this->parseDoccomment($refconst->getDocComment(), $refclass->getNamespaceName(), $refclass->getFqsen());
             $types = $constdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refconst->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
             $prototypes = $refconst->getProtoTypes();
             $result[$refconst->getShortName()] = [
@@ -742,7 +753,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = [];
         foreach ($refclass->getProperties() as $refproperty) {
-            $propdocs = $this->parseDoccomment($refproperty->getDocComment(true), $refclass->getNamespaceName(), $refclass->getFqsen());
+            $propdocs = $this->parseDoccomment($refproperty->getDocComment(), $refclass->getNamespaceName(), $refclass->getFqsen());
             $types = $propdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refproperty->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
             $prototypes = $refproperty->getProtoTypes();
             $result[$refproperty->getShortName()] = [

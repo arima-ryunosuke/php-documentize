@@ -111,26 +111,3 @@ class UndefinedPropertyClass
 class MagicClass
 {
 }
-
-class ParentDoc
-{
-    /** this is doc */
-    function nodocMethod() { }
-
-    /** this is doc */
-    function hasdoc1Method() { }
-
-    function hasdoc2Method() { }
-}
-
-class ChildDoc extends ParentDoc
-{
-    /**  */
-    function nodocMethod() { }
-
-    function hasdoc1Method() { }
-
-    function hasdoc2Method() { }
-
-    function ownMethod() { }
-}
