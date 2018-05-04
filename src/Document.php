@@ -258,9 +258,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 // 親が @inheritdoc している可能性もあるので再帰する
                 $inheritdoc($parent, $mtype);
 
-                // タグは要素を問わずすべて継承
-                $target['tags'] = $parent['tags'];
-
                 // インラインは置換ではなく埋め込み。インラインでないなら完全置換
                 if ($doctag['inline']) {
                     // ただし、文言指定されているなら親ではなくそれを使う
@@ -274,6 +271,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     }
                 }
 
+                // タグは要素を問わずすべて継承
+                $target['tags'] = $parent['tags'];
+
                 if ($mtype === 'type') {
                     // dummy. 型で継承したい要素があるならここに記述
                 }
@@ -284,10 +284,18 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     // dummy. プロパティで継承したい要素があるならここに記述
                 }
                 elseif ($mtype === 'methods') {
-                    // メソッドは引数と返り値を継承
-                    $target['parameters'] = $parent['parameters'];
-                    $target['return'] = $parent['return'];
+                    // メソッドは引数と返り値を継承（空の場合のみ）
+                    $parentparams = array_column($parent['parameters'], null, 'name');
+                    foreach ($target['parameters'] as $n => $parameter) {
+                        if (isset($parentparams[$parameter['name']]) && !$parameter['description']) {
+                            $target['parameters'][$n] = $parentparams[$parameter['name']];
+                        }
+                    }
+                    if (!$target['return']['types']) {
+                        $target['return'] = $parent['return'];
+                    }
                 }
+
                 $OK = true;
                 break;
             }

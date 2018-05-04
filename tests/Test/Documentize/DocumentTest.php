@@ -59,6 +59,12 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertArrayHasKey('globalConstant', $namespaces['GlobalSpace']['constants']);
         $this->assertArrayHasKey('abc_function', $namespaces['A']['namespaces']['B']['namespaces']['C']['functions']);
 
+        $methods = $namespaces['GlobalSpace']['classes']['GlobalClass']['methods'];
+        $this->assertEquals("override classMethod1 arg comment\n", $methods['classMethod1']['parameters'][0]['description']);
+        $this->assertEquals("override classMethod1 return comment", $methods['classMethod1']['return']['description']);
+        $this->assertEquals("classMethod2 arg comment\n", $methods['classMethod2']['parameters'][0]['description']);
+        $this->assertEquals("classMethod2 return comment", $methods['classMethod2']['return']['description']);
+
         /// なんかテストしたいことがあったらここに随時記述（↑の通り全項目の細かいテストはやらん）
 
         $this->assertException('is not found', function () {

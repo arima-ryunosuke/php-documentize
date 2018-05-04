@@ -66,6 +66,21 @@ namespace GlobalSpace {
      */
     class GlobalParent
     {
+        /**
+         * class method1 comment
+         *
+         * @param int $arg classMethod1 arg comment
+         * @return self classMethod1 return comment
+         */
+        public function classMethod1(int $arg) { }
+
+        /**
+         * class method2 comment
+         *
+         * @param int $arg classMethod2 arg comment
+         * @return self classMethod2 return comment
+         */
+        public function classMethod2(int $arg) { }
     }
 
     /**
@@ -86,14 +101,31 @@ namespace GlobalSpace {
         protected $globalProperty = 1;
 
         /**
-         * class method comment
+         * self method comment
          *
          * {@inheritdoc}
          *
-         * @param int $arg classMethod arg comment
-         * @return self classMethod return comment
+         * @param int $arg selfMethod arg comment
+         * @return self selfMethod return comment
          */
-        public function classMethod(int $arg) { }
+        public function selfMethod(int $arg) { }
+
+        /**
+         * class method1 comment
+         *
+         * @inheritdoc
+         *
+         * @param int $arg override classMethod1 arg comment
+         * @return self override classMethod1 return comment
+         */
+        public function classMethod1(int $arg) { }
+
+        /**
+         * class method2 comment
+         *
+         * @inheritdoc
+         */
+        public function classMethod2(int $arg) { }
 
         /**
          * {@inheritdoc}
