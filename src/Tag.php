@@ -15,7 +15,7 @@ class Tag
     /** @var array タグの属性 */
     private $attributes;
 
-    public function __construct($tagtext, $usings, $namespace, $own)
+    public function __construct($tagtext, $usings, $namespace, $own, $last)
     {
         $inline = false;
         if (preg_match('#^\{(.*)\}$#', $tagtext, $m)) {
@@ -33,7 +33,7 @@ class Tag
         ];
         $method = "parse" . strtr(ucwords($tagName, '-'), ['-' => '']);
         if (method_exists($this, $method)) {
-            $this->attributes += $this->$method($tagValue, $usings, $namespace, $own);
+            $this->attributes += $this->$method($tagValue, $usings, $namespace, $own, $last);
         }
     }
 
@@ -195,7 +195,7 @@ class Tag
         return $this->parseSee($tagValue, $usings, $namespace, $own);
     }
 
-    protected function parseMethod($tagValue)
+    protected function parseMethod($tagValue, $usings, $namespace, $own, $last)
     {
         // @method [return type] [name]([type] [parameter], [...]) [description]
 
@@ -208,8 +208,6 @@ class Tag
         if ($args === false) {
             return [];
         }
-
-        $description = trim(str_replace("($args)", '', $matches['remnant']));
 
         // 引数は int|string のような記法も許されるため、個別にパースする必要がある
         // が、辛すぎるので タイプヒントだけ潰してあとは呼び元に任せる
@@ -228,10 +226,21 @@ class Tag
             $paramsTag[] = "@param $type " . preg_replace('#[^$0-9a-z]#i', '', explode('=', $parameter)[0]);
         }
 
+        if (($last[1] ?? null) === '*') {
+            $last = strtr($last, ['@**' => '/**', '*@' => '*/']);
+            return [
+                'static'     => !!$matches['static'],
+                'name'       => $matches['name'],
+                'parameter'  => implode(', ', $parameters),
+                'doccomment' => rtrim($last) . "\n",
+            ];
+        }
+
         $paramsTag = implode("\n * ", $paramsTag);
         $returnTag = '@return ' . trim($matches['type']);
 
         // インライン phpdoc https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#54-inline-phpdoc
+        $description = trim(str_replace("($args)", '', $matches['remnant']));
         if (preg_match('#^\{(.*)\}$#s', $description, $desc)) {
             $description = ltrim(preg_replace('#^ {4}#m', ' * ', trim($desc[1], "\r\n")), ' *');
 

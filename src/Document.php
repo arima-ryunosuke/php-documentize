@@ -855,16 +855,18 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         }
 
         $description = preg_replace_callback('#\{@.+?\}#', function ($m) use (&$tags, $namespace, $own) {
-            $tag = new Tag($m[0], $this->usings, $namespace, $own);
+            $tag = new Tag($m[0], $this->usings, $namespace, $own, null);
             $tagvalues = $tag->toArray();
             $tags[$tagvalues['tagname']][] = $tagvalues;
             return $tag->getInlineText();
         }, $description);
 
-        foreach (preg_grep('#^@#', preg_split('#(?=^@)#m', $doccomment)) as $tag) {
-            $tag = new Tag($tag, $this->usings, $namespace, $own);
+        $last = null;
+        foreach (preg_grep('#^@#', preg_split('#(?=^@)#m', $doccomment)) as $tagstr) {
+            $tag = new Tag($tagstr, $this->usings, $namespace, $own, $last);
             $tagvalues = $tag->toArray();
             $tags[$tagvalues['tagname']][] = $tagvalues;
+            $last = $tagstr;
         }
 
         return [
