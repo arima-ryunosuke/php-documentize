@@ -204,7 +204,7 @@ class Tag
         // @method [return type] [name]([type] [parameter], [...]) [description]
 
         // よくわからない場合は空を返す（無理にパースしても後段のために良くない）
-        if (!preg_match('#((?<static>static)\s*)?(?<type>[a-zA-z0-9|\\_\[\]]+)\s+(?<name>[a-zA-z0-9_]+)(?=\()(?<remnant>.+)#ms', $tagValue, $matches)) {
+        if (!preg_match('#((?<static>static)\s*)?(?<type>\$?[a-zA-z0-9\\|\\_\[\]]+)\s+(?<name>[a-zA-z0-9_]+)(?=\()(?<remnant>.+)#ms', $tagValue, $matches)) {
             return [];
         }
 

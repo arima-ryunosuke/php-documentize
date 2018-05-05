@@ -357,6 +357,31 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 ',
         ]);
 
+        $this->assertTag(new Tag('@method $this methodName($arg1, &$arg2, ...$args) {
+    this is description.
+    
+    @param string $arg1 arg1 is ...
+    @param string $arg2 arg2 is ...
+    @param array $args args are ...
+}', [], null, null, null), [
+            'tagname'    => 'method',
+            'inline'     => false,
+            'static'     => false,
+            'name'       => 'methodName',
+            'parameter'  => '$arg1, &$arg2, ...$args',
+            'doccomment' => '/**
+ * this is description.
+ * 
+ * @param string $arg1 arg1 is ...
+ * @param string $arg2 arg2 is ...
+ * @param array $args args are ...
+ * 
+ * 
+ * @return $this
+ */
+',
+        ]);
+
         $this->assertTag(new Tag('@method ArrayObject methodName($arg1, &$arg2, ...$args) {
     this is description.
     
