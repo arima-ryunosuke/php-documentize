@@ -865,18 +865,13 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $doccomment = trim(preg_replace('#(^/\\*\\*)|(\s+\\*/$)|(^ +\\* ?)#m', '', $doccomment));
 
         $tags = [];
-        $description = '';
 
-        if (preg_match('#^(.*?)(^@|\Z)#ms', $doccomment, $matches)) {
-            $description = $matches[1];
-        }
-
-        $description = preg_replace_callback('#\{@.+?\}#', function ($m) use (&$tags, $namespace, $own) {
+        $doccomment = preg_replace_callback('#\{@.+?\}#', function ($m) use (&$tags, $namespace, $own) {
             $tag = new Tag($m[0], $this->usings, $namespace, $own, null);
             $tagvalues = $tag->toArray();
             $tags[$tagvalues['tagname']][] = $tagvalues;
             return $tag->getInlineText();
-        }, $description);
+        }, $doccomment);
 
         $last = null;
         foreach (preg_grep('#^@#', preg_split('#(?=^@)#m', $doccomment)) as $tagstr) {
@@ -887,7 +882,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         }
 
         return [
-            'description' => $description,
+            'description' => preg_match('#^(.*?)(^@|\Z)#ms', $doccomment, $matches) ? $matches[1] : $doccomment,
             'tags'        => $tags,
         ];
     }
