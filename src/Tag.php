@@ -216,7 +216,7 @@ class Tag
         // 引数は int|string のような記法も許されるため、個別にパースする必要がある
         // が、辛すぎるので タイプヒントだけ潰してあとは呼び元に任せる
         $parameters = $paramsTag = [];
-        foreach (Strings::quoteexplode(',', $args, ['[' => ']', '"' => '"', "'" => "'"], '\\') as $param) {
+        foreach (array_filter(Strings::quoteexplode(',', $args, ['[' => ']', '"' => '"', "'" => "'"], '\\'), 'strlen') as $param) {
             $parts = preg_split('#\s+(?=[$.&])#u', trim($param), 2);
             if (isset($parts[1])) {
                 $type = array_shift($parts);
@@ -244,7 +244,7 @@ class Tag
         $returnTag = '@return ' . trim($matches['type']);
 
         // インライン phpdoc https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#54-inline-phpdoc
-        $description = trim(str_replace("($args)", '', $matches['remnant']));
+        $description = trim(Strings::str_subreplace($matches['remnant'], "($args)", [0 => '']));
         if (preg_match('#^\{(.*)\}$#s', $description, $desc)) {
             $description = ltrim(preg_replace('#^ {4}#m', ' * ', trim($desc[1], "\r\n")), ' *');
 

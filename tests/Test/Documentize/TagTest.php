@@ -422,7 +422,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
  * 
  * @inheritdoc
  * 
- * @param mixed 
+ * 
  * @return void
  */
 ',
