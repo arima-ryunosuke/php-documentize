@@ -176,11 +176,11 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_resolve_full()
     {
-        $fqsen = new Fqsen('\\vendor\\Type');
+        $fqsen = new Fqsen('\\' . __CLASS__);
         $this->assertEquals([
             [
-                'category' => 'type',
-                'fqsen'    => '\\vendor\\Type',
+                'category' => 'class',
+                'fqsen'    => __CLASS__,
                 'array'    => 0,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
@@ -188,23 +188,23 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_resolve_other()
     {
-        $fqsen = new Fqsen('vendor\\Type');
+        $fqsen = new Fqsen('Sub\\FqsenTest');
         $this->assertEquals([
             [
-                'category' => 'type',
-                'fqsen'    => 'vendor\\Type',
+                'category' => 'class',
+                'fqsen'    => __CLASS__,
                 'array'    => 0,
             ]
-        ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
+        ], $fqsen->resolve([__NAMESPACE__ => ['Sub' => __NAMESPACE__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
 
     function test_resolve_array()
     {
-        $fqsen = new Fqsen('vendor\\Type[][]');
+        $fqsen = new Fqsen(__CLASS__ . '[][]');
         $this->assertEquals([
             [
-                'category' => 'type',
-                'fqsen'    => 'vendor\\Type',
+                'category' => 'class',
+                'fqsen'    => __CLASS__,
                 'array'    => 2,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
@@ -248,5 +248,18 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'array'    => 0,
             ]
         ], $fqsen->resolve([], __NAMESPACE__, null));
+    }
+
+    function test_resolve_unknown()
+    {
+        $fqsen = new Fqsen('Unknown');
+        $this->assertEquals([
+            [
+                'category' => 'type',
+                'fqsen'    => 'Unknown',
+                'array'    => 0,
+            ]
+        ], @$fqsen->resolve([], __NAMESPACE__, null));
+        $this->assertContains("'Unknown' is unknown type", error_get_last()['message']);
     }
 }

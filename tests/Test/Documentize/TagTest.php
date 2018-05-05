@@ -49,8 +49,8 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertEquals("<tag-todo data-description='noinline' />", $tag->getInlineText());
 
         // inheritdoc だけは特別扱い
-        $tag = new Tag('{@inheritdoc noinline}', [], null, null, null);
-        $this->assertEquals("HereIsInheritdoc<tag-inheritdoc data-type-category='type' data-type-fqsen='noinline' data-type-array='0' data-description='' />", $tag->getInlineText());
+        $tag = new Tag('{@inheritdoc stdclass}', [], null, null, null);
+        $this->assertEquals("HereIsInheritdoc<tag-inheritdoc data-type-category='class' data-type-fqsen='\\stdClass' data-type-array='0' data-description='' />", $tag->getInlineText());
     }
 
     function test_parseApi()
@@ -157,34 +157,34 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'description' => ''
         ]);
 
-        $this->assertTag(new Tag('@inheritdoc \\vendor\\Type', [], null, null, null), [
+        $this->assertTag(new Tag('@inheritdoc ArrayObject', [], null, null, null), [
             'tagname'     => 'inheritdoc',
             'inline'      => false,
             'type'        => [
-                'category' => 'type',
-                'fqsen'    => '\\vendor\\Type',
+                'category' => 'class',
+                'fqsen'    => '\\ArrayObject',
                 'array'    => 0,
             ],
             'description' => ''
         ]);
 
-        $this->assertTag(new Tag('@inheritdoc \\vendor\\Type::method()', [], null, null, null), [
+        $this->assertTag(new Tag('@inheritdoc ArrayObject::method()', [], null, null, null), [
             'tagname'     => 'inheritdoc',
             'inline'      => false,
             'type'        => [
                 'category' => 'method',
-                'fqsen'    => '\\vendor\\Type::method()',
+                'fqsen'    => '\\ArrayObject::method()',
                 'array'    => 0,
             ],
             'description' => ''
         ]);
 
-        $this->assertTag(new Tag('@inheritdoc \\vendor\\Type::method() hogera', [], null, null, null), [
+        $this->assertTag(new Tag('@inheritdoc ArrayObject::method() hogera', [], null, null, null), [
             'tagname'     => 'inheritdoc',
             'inline'      => false,
             'type'        => [
                 'category' => 'method',
-                'fqsen'    => '\\vendor\\Type::method()',
+                'fqsen'    => '\\ArrayObject::method()',
                 'array'    => 0,
             ],
             'description' => 'hogera'
@@ -221,13 +221,13 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_parseLink()
     {
-        $this->assertTag(new Tag('@link \\vendor\\Type[] this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@link ArrayObject[] this is description.', [], null, null, null), [
             'tagname'     => 'link',
             'inline'      => false,
             'kind'        => 'fqsen',
             'type'        => [
-                'category' => 'type',
-                'fqsen'    => '\\vendor\\Type',
+                'category' => 'class',
+                'fqsen'    => '\\ArrayObject',
                 'array'    => 1,
             ],
             'description' => 'this is description.',
@@ -254,7 +254,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'inline'  => false,
         ]);
 
-        $this->assertTag(new Tag('@method \\vendor\\Type methodName($arg1, &$arg2, ...$args) this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@method ArrayObject methodName($arg1, &$arg2, ...$args) this is description.', [], null, null, null), [
             'tagname'    => 'method',
             'inline'     => false,
             'static'     => false,
@@ -266,12 +266,12 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
  * @param mixed $arg1
  * @param mixed $arg2
  * @param mixed $args
- * @return \\vendor\\Type
+ * @return ArrayObject
  */
 ',
         ]);
 
-        $this->assertTag(new Tag('@method \\vendor\\Type methodName(int|string $multitype, $arg1 = array(), $arg2 = ["1, 2", 3]) this is description (brace).', [], null, null, null), [
+        $this->assertTag(new Tag('@method ArrayObject methodName(int|string $multitype, $arg1 = array(), $arg2 = ["1, 2", 3]) this is description (brace).', [], null, null, null), [
             'tagname'    => 'method',
             'inline'     => false,
             'static'     => false,
@@ -283,12 +283,12 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
  * @param int|string $multitype
  * @param mixed $arg1
  * @param mixed $arg2
- * @return \\vendor\\Type
+ * @return ArrayObject
  */
 ',
         ]);
 
-        $this->assertTag(new Tag('@method \\vendor\\Type methodName(int|string $multitype, Type &$refdef = null)', [], null, null, null), [
+        $this->assertTag(new Tag('@method ArrayObject methodName(int|string $multitype, Type &$refdef = null)', [], null, null, null), [
             'tagname'    => 'method',
             'inline'     => false,
             'static'     => false,
@@ -299,7 +299,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
  * 
  * @param int|string $multitype
  * @param Type $refdef
- * @return \\vendor\\Type
+ * @return ArrayObject
  */
 ',
         ]);
@@ -335,7 +335,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 ',
         ]);
 
-        $this->assertTag(new Tag('@method static \\vendor\\Type methodName(int|string $multitype, Type &$refdef = null) {
+        $this->assertTag(new Tag('@method static ArrayObject methodName(int|string $multitype, Type &$refdef = null) {
     description
 }', [], null, null, null), [
             'tagname'    => 'method',
@@ -348,12 +348,12 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
  * 
  * @param int|string $multitype
  * @param Type $refdef
- * @return \\vendor\\Type
+ * @return ArrayObject
  */
 ',
         ]);
 
-        $this->assertTag(new Tag('@method \\vendor\\Type methodName($arg1, &$arg2, ...$args) {
+        $this->assertTag(new Tag('@method ArrayObject methodName($arg1, &$arg2, ...$args) {
     this is description.
     
     this is description.
@@ -377,7 +377,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
  * @param array $args args are ...
  * 
  * 
- * @return \\vendor\\Type
+ * @return ArrayObject
  */
 ',
         ]);
@@ -465,28 +465,28 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_parseParam()
     {
-        $this->assertTag(new Tag('@param \\vendor\\Type[] $name this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@param ArrayObject[] $name this is description.', [], null, null, null), [
             'tagname'     => 'param',
             'inline'      => false,
             'name'        => 'name',
             'type'        => [
                 [
-                    'category' => 'type',
-                    'fqsen'    => '\\vendor\\Type',
+                    'category' => 'class',
+                    'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
                 ],
             ],
             'description' => 'this is description.',
         ]);
 
-        $this->assertTag(new Tag('@param \\vendor\\Type[]|array $name', [], null, null, null), [
+        $this->assertTag(new Tag('@param ArrayObject[]|array $name', [], null, null, null), [
             'tagname'     => 'param',
             'inline'      => false,
             'name'        => 'name',
             'type'        => [
                 [
-                    'category' => 'type',
-                    'fqsen'    => '\\vendor\\Type',
+                    'category' => 'class',
+                    'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
                 ],
                 [
@@ -506,7 +506,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'inline'  => false,
         ]);
 
-        $this->assertTag(new Tag('@property \\vendor\\Type[] $name this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@property ArrayObject[] $name this is description.', [], null, null, null), [
             'tagname'    => 'property',
             'inline'     => false,
             'name'       => 'name',
@@ -514,12 +514,12 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'doccomment' => '/**
  * this is description.
  * 
- * @var \vendor\Type[]
+ * @var ArrayObject[]
  */
 ',
         ]);
 
-        $this->assertTag(new Tag('@property static \\vendor\\Type[]|array $name', [], null, null, null), [
+        $this->assertTag(new Tag('@property static ArrayObject[]|array $name', [], null, null, null), [
             'tagname'    => 'property',
             'inline'     => false,
             'name'       => 'name',
@@ -532,7 +532,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 ',
         ]);
 
-        $this->assertTag(new Tag('@property \\vendor\\Type[] $name {
+        $this->assertTag(new Tag('@property ArrayObject[] $name {
     description
 }', [], null, null, null), [
             'tagname'    => 'property',
@@ -542,7 +542,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'doccomment' => '/**
  * description
  * 
- * @var \vendor\Type[]
+ * @var ArrayObject[]
  */
 ',
         ]);
@@ -550,13 +550,13 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_parseReturn()
     {
-        $this->assertTag(new Tag('@return \\vendor\\Type[] this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@return ArrayObject[] this is description.', [], null, null, null), [
             'tagname'     => 'return',
             'inline'      => false,
             'type'        => [
                 [
-                    'category' => 'type',
-                    'fqsen'    => '\\vendor\\Type',
+                    'category' => 'class',
+                    'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
                 ]
             ],
@@ -566,13 +566,13 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_parseSee()
     {
-        $this->assertTag(new Tag('@see \\vendor\\Type[] this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@see ArrayObject[] this is description.', [], null, null, null), [
             'tagname'     => 'see',
             'inline'      => false,
             'kind'        => 'fqsen',
             'type'        => [
-                'category' => 'type',
-                'fqsen'    => '\\vendor\\Type',
+                'category' => 'class',
+                'fqsen'    => '\\ArrayObject',
                 'array'    => 1,
             ],
             'description' => 'this is description.',
@@ -630,12 +630,12 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_parseThrows()
     {
-        $this->assertTag(new Tag('@throws \\vendor\\Type[] this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@throws ArrayObject[] this is description.', [], null, null, null), [
             'tagname'     => 'throws',
             'inline'      => false,
             'type'        => [
-                'category' => 'type',
-                'fqsen'    => '\\vendor\\Type',
+                'category' => 'class',
+                'fqsen'    => '\\ArrayObject',
                 'array'    => 1,
             ],
             'description' => 'this is description.',
@@ -653,12 +653,12 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_parseUses()
     {
-        $this->assertTag(new Tag('@uses \\vendor\\Type::method() this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@uses ArrayObject::method() this is description.', [], null, null, null), [
             'tagname'     => 'uses',
             'inline'      => false,
             'type'        => [
                 'category' => 'method',
-                'fqsen'    => '\\vendor\\Type::method()',
+                'fqsen'    => '\\ArrayObject::method()',
                 'array'    => 0,
             ],
             'description' => 'this is description.',
@@ -667,12 +667,12 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_parseUsedBy()
     {
-        $this->assertTag(new Tag('@used-by \\vendor\\Type::method this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@used-by ArrayObject::method this is description.', [], null, null, null), [
             'tagname'     => 'used-by',
             'inline'      => false,
             'type'        => [
                 'category' => 'method',
-                'fqsen'    => '\\vendor\\Type::method()',
+                'fqsen'    => '\\ArrayObject::method()',
                 'array'    => 0,
             ],
             'description' => 'this is description.',
@@ -681,27 +681,27 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_parseVar()
     {
-        $this->assertTag(new Tag('@var \\vendor\\Type[] $name this is description.', [], null, null, null), [
+        $this->assertTag(new Tag('@var ArrayObject[] $name this is description.', [], null, null, null), [
             'tagname'     => 'var',
             'inline'      => false,
             'name'        => '$name',
             'type'        => [
                 [
-                    'category' => 'type',
-                    'fqsen'    => '\\vendor\\Type',
+                    'category' => 'class',
+                    'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
                 ],
             ],
             'description' => 'this is description.',
         ]);
-        $this->assertTag(new Tag('@var \\vendor\\Type[]|array $name', [], null, null, null), [
+        $this->assertTag(new Tag('@var ArrayObject[]|array $name', [], null, null, null), [
             'tagname'     => 'var',
             'inline'      => false,
             'name'        => '$name',
             'type'        => [
                 [
-                    'category' => 'type',
-                    'fqsen'    => '\\vendor\\Type',
+                    'category' => 'class',
+                    'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
                 ],
                 [

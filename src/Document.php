@@ -728,7 +728,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = [];
         foreach ($refclass->getConstants() as $refconst) {
-            $constdocs = $this->parseDoccomment($refconst->getDocComment(), $refclass->getNamespaceName(), $refclass->getFqsen());
+            /** @var Reflection $decclass なぜかコード補完されない？ */
+            $decclass = $refconst->getDeclaringClass();
+            $constdocs = $this->parseDoccomment($refconst->getDocComment(), $decclass->getNamespaceName(), $decclass->getFqsen());
             $types = $constdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refconst->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
             $prototypes = $refconst->getProtoTypes();
             $result[$refconst->getShortName()] = [
@@ -753,7 +755,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = [];
         foreach ($refclass->getProperties() as $refproperty) {
-            $propdocs = $this->parseDoccomment($refproperty->getDocComment(), $refclass->getNamespaceName(), $refclass->getFqsen());
+            /** @var Reflection $decclass なぜかコード補完されない？ */
+            $decclass = $refproperty->getDeclaringClass();
+            $propdocs = $this->parseDoccomment($refproperty->getDocComment(), $decclass->getNamespaceName(), $decclass->getFqsen());
             $types = $propdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refproperty->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
             $prototypes = $refproperty->getProtoTypes();
             $result[$refproperty->getShortName()] = [
@@ -804,7 +808,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = [];
         foreach ($refclass->getMethods() as $refmethod) {
-            $rmethod = $this->parseFunction($refmethod, $refclass->getNamespaceName(), $refclass->getFqsen());
+            /** @var Reflection $decclass なぜかコード補完されない？ */
+            $decclass = $refmethod->getDeclaringClass();
+            $rmethod = $this->parseFunction($refmethod, $decclass->getNamespaceName(), $decclass->getFqsen());
             $prototypes = $refmethod->getProtoTypes();
             $result[$refmethod->getShortName()] = [
                 'category'    => $refmethod->getCategory(),

@@ -143,6 +143,7 @@ class Fqsen
 
         $result = [];
         foreach (array_filter(array_unique($types), 'strlen') as $type) {
+            $detected = false;
             // Type[][] などの [] の数を配列階層数とする（ただし、パースに邪魔なので、置換して回数を数えておきそれを階層数とする）
             $fqsen = str_replace('[]', '', trim($type), $count);
             list($class, $member) = explode('::', $fqsen) + [1 => ''];
@@ -153,10 +154,12 @@ class Fqsen
             ];
             // array, callable などの組み込み型
             if (isset(self::BUILTIN_TYPES[strtolower($class)])) {
+                $detected = true;
                 $default['category'] = 'pseudo';
             }
             // $this, static などの自身を表す型
             elseif (isset(self::OWN_WORDS[strtolower($class)])) {
+                $detected = true;
                 $default['fqsen'] = $own;
             }
 
@@ -176,6 +179,7 @@ class Fqsen
             }
             // 型が導けるならそれを使う
             if ($dtype = self::detectType($class)) {
+                $detected = true;
                 $refclass = new \ReflectionClass($class);
                 $default['category'] = $dtype;
                 $default['fqsen'] = ($refclass->isInternal() ? '\\' : '') . $refclass->getName();
@@ -196,6 +200,11 @@ class Fqsen
                     $default['fqsen'] .= '::' . $member . '()';
                 }
             }
+
+            if (!$detected) {
+                trigger_error("'$fqsen' is unknown type ($own)");
+            }
+
             $result[] = $default;
         }
         return $result;
