@@ -46,11 +46,15 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
         // インラインならタグ化される
         $tag = new Tag('{@todo noinline}', [], null, null, null);
-        $this->assertEquals("<tag-todo data-description='noinline' />", $tag->getInlineText());
+        $this->assertEquals("<tag_todo data-description='noinline'></tag_todo>", $tag->getInlineText());
 
-        // inheritdoc だけは特別扱い
+        // link
+        $tag = new Tag('{@link stdclass}', [], null, null, null);
+        $this->assertEquals("<tag_link data-kind='fqsen' data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description='stdclass'>stdclass</tag_link>", $tag->getInlineText());
+
+        // inheritdoc
         $tag = new Tag('{@inheritdoc stdclass}', [], null, null, null);
-        $this->assertEquals("HereIsInheritdoc<tag-inheritdoc data-type-category='class' data-type-fqsen='\\stdClass' data-type-array='0' data-description='' />", $tag->getInlineText());
+        $this->assertEquals("<tag_inheritdoc data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description=''>HereIsInheritdoc</tag_inheritdoc>", $tag->getInlineText());
     }
 
     function test_parseApi()

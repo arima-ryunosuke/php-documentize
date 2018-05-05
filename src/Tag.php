@@ -48,19 +48,23 @@ class Tag
             return null;
         }
 
-        $custom = '';
+        $render = function ($content) {
+            // meta タグで埋め込む
+            // 値のみエスケープする。タグ名やキー名をエスケープしない理由は特に無いが、別に悪意あるものは来ないし、敢えてしないことで何かに活用できるかもしれない
+            $attrs = array_diff_key($this->attributes, ['tagname' => null, 'inline' => null]);
+            $attrs = Arrays::array_flatten($attrs, '-');
+            $attrs = Arrays::array_sprintf($attrs, function ($v, $k) { return "data-$k='" . htmlspecialchars($v, ENT_QUOTES) . "'"; }, ' ');
+            return "<tag_{$this->attributes['tagname']} $attrs>$content</tag_{$this->attributes['tagname']}>";
+        };
+
         switch ($this->attributes['tagname']) {
             // inheritdoc だけは特別扱い
-            /** @noinspection PhpMissingBreakStatementInspection */
             case 'inheritdoc':
-                $custom = "HereIsInheritdoc";
+                return $render('HereIsInheritdoc');
+            case 'link':
+                return $render($this->attributes['description']);
             default:
-                // カスタムタグっぽくタグ化して埋め込む（）
-                // 値のみエスケープする。タグ名やキー名をエスケープしない理由は特に無いが、別に悪意あるものは来ないし、敢えてしないことで何かに活用できるかもしれない
-                $attrs = array_diff_key($this->attributes, ['tagname' => null, 'inline' => null]);
-                $attrs = Arrays::array_flatten($attrs, '-');
-                $attrs = Arrays::array_sprintf($attrs, function ($v, $k) { return "data-$k='" . htmlspecialchars($v, ENT_QUOTES) . "'"; }, ' ');
-                return "$custom<tag-{$this->attributes['tagname']} $attrs />";
+                return $render('');
         }
     }
 

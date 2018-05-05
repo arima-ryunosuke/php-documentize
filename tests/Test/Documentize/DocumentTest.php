@@ -258,11 +258,11 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
  * @tagname2 tagvalue22
  */
 ', null, null);
-        $this->assertEquals("this is description<tag-inline1  /><tag-inline2  />
+        $this->assertEquals("this is description<tag_inline1 ></tag_inline1><tag_inline2 ></tag_inline2>
 
 this is description1.
 this is description2.
-there is inline tag.<tag-inlinetag  />
+there is inline tag.<tag_inlinetag ></tag_inlinetag>
 
 ", $comment['description']);
 
