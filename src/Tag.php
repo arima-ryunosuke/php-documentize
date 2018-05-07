@@ -80,6 +80,20 @@ class Tag
         return $fqsen;
     }
 
+    private function _validUri($value)
+    {
+        // filter_val を通過すれば万事OK
+        if (filter_var($value, FILTER_VALIDATE_URL)) {
+            return $value;
+        }
+        // 他のプロジェクトを見ていると www.hoge のようなホスト名だけ書かれているケースが散見されるのでスキーム省略もOKとする
+        if (strpos($value, '.') !== false || strpos($value, '/') !== false) {
+            // 敢えてスキームを付けたりせずそのまま返す（普通はホスト名を開けばブラウザで補完してくれるはず）
+            return $value;
+        }
+        return false;
+    }
+
     private function _parseNovalue()
     {
         // @tagname
@@ -185,10 +199,10 @@ class Tag
     {
         // @license [<SPDX identifier>|URI] [name]
         $value = preg_split('#\s+#', $tagValue, 2);
-        $type = filter_var($value[0], FILTER_VALIDATE_URL) ? 'uri' : 'spdx';
+        $uri = $this->_validUri($value[0]);
         return [
-            'type'        => $type,
-            'value'       => $value[0],
+            'type'        => $uri ? 'uri' : 'spdx',
+            'value'       => $uri ?: $value[0],
             'description' => $value[1] ?? '',
         ];
     }
@@ -332,10 +346,10 @@ class Tag
     {
         // @see [URI | "FQSEN"] [<description>]
         $value = preg_split('#\s+#', $tagValue, 2);
-        $uri = filter_var($value[0], FILTER_VALIDATE_URL);
+        $uri = $this->_validUri($value[0]);
         return [
             'kind'        => $uri ? 'uri' : 'fqsen',
-            'type'        => $uri ? $value[0] : (new Fqsen($this->_addOwn($value[0], $own)))->resolve($usings, $namespace, $own)[0],
+            'type'        => $uri ?: (new Fqsen($this->_addOwn($value[0], $own)))->resolve($usings, $namespace, $own)[0],
             'description' => $value[1] ?? $value[0],
         ];
     }

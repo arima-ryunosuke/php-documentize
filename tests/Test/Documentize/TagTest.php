@@ -214,6 +214,14 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'description' => 'this is description.',
         ]);
 
+        $this->assertTag(new Tag('@license example.com this is description.', [], null, null, null), [
+            'tagname'     => 'license',
+            'inline'      => false,
+            'type'        => 'uri',
+            'value'       => 'example.com',
+            'description' => 'this is description.',
+        ]);
+
         $this->assertTag(new Tag('@license MIT', [], null, null, null), [
             'tagname'     => 'license',
             'inline'      => false,
@@ -621,6 +629,14 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'kind'        => 'uri',
             'type'        => 'http://example.com',
             'description' => 'http://example.com',
+        ]);
+
+        $this->assertTag(new Tag('@see example.com', [], null, null, null), [
+            'tagname'     => 'see',
+            'inline'      => false,
+            'kind'        => 'uri',
+            'type'        => 'example.com',
+            'description' => 'example.com',
         ]);
 
         $this->assertTag(new Tag('@see $property', [], null, 'ClassName', null), [
