@@ -240,9 +240,9 @@ class Reflection
                 if (isset(PhpFile::cache($filename)[$this->context->getNamespaceName()][$this->context->getFqsen()]['$' . $this->getShortName()])) {
                     return $this->context;
                 }
-                $prototype = $this->getProtoType();
-                if ($prototype) {
-                    return $prototype->getDeclaringClass();
+                $tmem = $this->context->getTraitProperties();
+                if (isset($tmem[$this->getShortName()])) {
+                    return reset($tmem[$this->getShortName()])->context;
                 }
                 return new self($this->reflection->getDeclaringClass());
             case $this->reflection instanceof \ReflectionMethod:
@@ -250,9 +250,9 @@ class Reflection
                 if (isset(PhpFile::cache($filename)[$this->context->getNamespaceName()][$this->context->getFqsen()][$this->getShortName() . '()'])) {
                     return $this->context;
                 }
-                $prototype = $this->getProtoType();
-                if ($prototype) {
-                    return $prototype->getDeclaringClass();
+                $tmem = $this->context->getTraitMethods();
+                if (isset($tmem[$this->getShortName()])) {
+                    return $tmem[$this->getShortName()]->context;
                 }
                 return new self($this->reflection->getDeclaringClass());
         }
