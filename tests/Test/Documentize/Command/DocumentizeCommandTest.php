@@ -64,6 +64,20 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertContains('Input php count 1 files', $output);
     }
 
+    function test_no_generate()
+    {
+        $tmpdir = sys_get_temp_dir();
+        FileSystem::rm_rf("$tmpdir/rdz-test");
+
+        $output = $this->runApp([
+            'source'      => __DIR__ . '/_DocumentizeCommand',
+            'destination' => "$tmpdir/rdz-test",
+            '--template'  => "notfoundfile",
+        ]);
+        $this->assertContains('is not found', $output);
+        $this->assertContains('no generate', $output);
+    }
+
     function test_fatal()
     {
         ob_start();

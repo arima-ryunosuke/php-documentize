@@ -149,11 +149,16 @@ class DocumentizeCommand extends Command
         FileSystem::mkdir_p($dst);
         $starttime = time();
         $generatetime = microtime(true);
-        $generator = (require $tpl)($namespaces, $dst, $tplcfg);
-        if ($generator instanceof \Generator) {
-            foreach ($generator as $out) {
-                $output->writeln(sprintf("Create file to <info>%s</info>", $out), OutputInterface::VERBOSITY_VERBOSE);
+        if (file_exists($tpl)) {
+            $generator = (require $tpl)($namespaces, $dst, $tplcfg);
+            if ($generator instanceof \Generator) {
+                foreach ($generator as $out) {
+                    $output->writeln(sprintf("Create file to <info>%s</info>", $out), OutputInterface::VERBOSITY_VERBOSE);
+                }
             }
+        }
+        else {
+            $output->writeln("<error>template file '$tpl' is not found. so no generate.</error>");
         }
         $generatetime = microtime(true) - $generatetime;
 
