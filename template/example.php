@@ -1,9 +1,10 @@
 <?php
 
 /**
- * サンプルドキュメント生成用の叩き台 php ファイルです
+ * サンプルドキュメント生成用の叩き台です（グローバル）
+ *
+ * @author ryunosuke <ryunosuke.arima@gmail.com>
  */
-
 namespace {
 
     /** @var string グローバルの定数です */
@@ -84,6 +85,11 @@ namespace {
     }
 }
 
+/**
+ * サンプルドキュメント生成用の叩き台です（名前空間）
+ *
+ * @author ryunosuke <ryunosuke.arima@gmail.com>
+ */
 namespace NS {
 
     /** @var string 名前空間の定数です */
@@ -197,6 +203,24 @@ namespace NS {
      *     @return string 返り値です
      *     @throws \RuntimeException
      * }
+     * @**
+     *  * これは拡張構文を使用したマジックメソッドです
+     *  *
+     *  * 関数・メソッドと同じ形式でマジックメソッドに @param や @return を書くことが出来ます。
+     *  * 同様に @see や @throws も書けます。
+     *
+     *  * 普通のメソッドと似たような感じで method タグの上部に記述できるので自然な形になります。
+     *  * インラインのようなインデントの辛みもありません。
+     *  * ただし、完全に独自構文です。psr-5 と互換性は全くありませんし、見た目が受け入れられない人もいると思います。
+     *
+     *  * @see $this::actualMethod see を使うと参照が貼れます
+     *  * @see https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#54-inline-phpdoc URL も貼れます
+     *
+     *  * @param array $arg 引数です
+     *  * @return string 返り値です
+     *  * @throws \RuntimeException
+     *  *@
+     * @method void magicMethod4($arg)
      */
     // @formatter:on
     class Mclass
@@ -208,6 +232,17 @@ namespace NS {
          * @return mixed 返り値です
          */
         public function actualMethod($arg1) { }
+
+        /**
+         * ignoreinherit のメソッドです
+         *
+         * ignoreinherit しているので、自身のメソッドとしてはドキュメント化されますが、 継承先である Rclass では出現しません。
+         *
+         * @ignoreinherit
+         * @param string $arg1 引数1です
+         * @return mixed 返り値です
+         */
+        public function ignoreinheritMethod($arg1) { }
     }
 
     /**
@@ -254,6 +289,20 @@ namespace NS {
         public function inheritMethod($arg1) { }
 
         /**
+         * これは一部のみ継承するメソッドです
+         *
+         * $arg0, $arg2 は親に無い引数ですが、自身に記述されているので、マージされて使用されます。
+         * param type $arg1 hogehoge とすることで親の引数の一部のみを書き換えることも出来ます。
+         * return はこのメソッド自身に記述されているので上書きされて使用されます。
+         *
+         * @inheritdoc Mclass::actualMethod
+         * @param int $arg0 param 追加。親に $arg0 は無いが、ここに記述することで追加される
+         * @param int $arg2 param 追加。親に $arg2 は無いが、ここに記述することで追加される
+         * @return string return 上書き。親は mixed だが string と表記される
+         */
+        public function inheritMethod1($arg0, $arg1, $arg2) { }
+
+        /**
          * これは inheritdoc しているメソッドへの inheritdoc です
          *
          * 参照は再帰的に行われるので最終的に inheritdoc ではない実際に記述が為されているメソッドがドキュメント化されます。
@@ -263,6 +312,15 @@ namespace NS {
          * 継承元ドキュメントはここまでです。
          */
         public function inheritMethod2($arg1) { }
+
+        /**
+         * これは {inheritdoc FQSEN 文言指定} かつ文言指定メソッドです
+         *
+         * {inheritdoc FQSEN 文言指定} とすると元ドキュメントではなく文言指定で文字列を埋め込めます。
+         *
+         * {@inheritdoc inheritMethod() 継承しつつ文言指定ができます}
+         */
+        public function inheritMethod3($arg1) { }
     }
 
     /**
@@ -281,6 +339,59 @@ namespace NS {
      * 色々なタグを試すためのクラスです
      *
      * 色々なタグを使っています。
+     * 以下は markdown の確認用です。
+     *
+     * # 見出し1
+     *
+     * ## 見出し2
+     *
+     * ### 見出し3
+     *
+     * #### 見出し4
+     *
+     * ##### 見出し5
+     *
+     * ###### 見出し6
+     *
+     * ###### テキスト
+     *
+     * ~~打ち消し~~
+     * **強調**
+     * \*\*エスケープ\*\*
+     *
+     * > 引用
+     * >> 引用
+     *
+     * ###### 箇条書き
+     *
+     * - list 1
+     *     - list 1-1
+     *     - list 1-2
+     * - list 2
+     * - list 3
+     *
+     * 1. list 1
+     *     1. list 1-1
+     *     2. list 1-2
+     * 2. list 2
+     * 3. list 3
+     *
+     * ###### コード
+     *
+     * インライン `$hoge = 123;` コード
+     *
+     * ```php
+     * // コードブロック
+     * $hoge = 123;
+     * echo $hoge;
+     * ```
+     *
+     * ###### テーブル
+     *
+     * | No | col1(left) | col2(center)
+     * | --:|:--         |:--:
+     * |  1 | row1col1   | row1col2
+     * |  2 | row2col1   | row2col2
      *
      * @see Rclass これは see タグの説明です（内部リンク）
      * @see https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md これは see タグの説明です（外部リンク）
@@ -307,7 +418,7 @@ namespace NS {
         public $ignoreProperty;
 
         /**
-         * これはメソッド用のタグの例示用メソッドです
+         * これはメソッド用の{@link https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#7-tags タグ}の例示用メソッドです
          *
          * 右側に属性ラベルが表示されたり、メソッドに打ち消し線が引かれていたりするはずです。
          * また、 link タグを使うと
@@ -341,8 +452,8 @@ namespace NS {
          * @deprecated 2.3.4 これは deprecated タグの説明です
          * @version 3.4.5 これは version タグの説明です
          * @internal これは internal タグの説明です
-         * @param string $arg1 これは param タグの説明です
-         * @return string これは return タグの説明です
+         * @param string $arg1 これは param タグの説明です。{@link Tclass インラインタグが使えます}
+         * @return string これは return タグの説明です。{@link Tclass インラインタグが使えます}
          * @throws \RuntimeException これは throws タグの説明です
          * @author ryunosuke <ryunosuke.arima@gmail.com>
          */
@@ -353,13 +464,18 @@ namespace NS {
          *
          * @ignore
          */
-        public function ignoreMethod()
-        {
+        public function ignoreMethod() { }
 
-        }
+        // doccomment が無いかつ親を持つメソッドは自動で @inheritdoc されたとみなされます
+        public function inheritMethod($arg1) { }
     }
 }
 
+/**
+ * サンプルドキュメント生成用の叩き台です（ネスト）
+ *
+ * @author ryunosuke <ryunosuke.arima@gmail.com>
+ */
 namespace NS\NSS {
 
     /**
