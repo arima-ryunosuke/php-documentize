@@ -60,15 +60,18 @@ $.fn.collapse = function (mode, animation) {
 
 /* initialize */
 
+var $window = $(window);
+
 hljs.initHighlightingOnLoad();
 
 if (window.name === 'main') {
     $.open(window.location.hash.substring(1));
-    $(window).on('hashchange', function () {
+    $window.on('hashchange', function () {
         window.parent.history.replaceState('', '', '#' + window.location.hash.substring(1));
+        $window.scrollTop($window.scrollTop() - 32);
     });
     $(function () {
-        $(window).trigger('hashchange');
+        $window.trigger('hashchange');
     });
 }
 
