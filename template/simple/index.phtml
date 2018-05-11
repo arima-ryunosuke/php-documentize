@@ -46,6 +46,7 @@
 		}
 	</style>
 	<script>
+        var CACHEKEY = <?= intval($GLOBALS['config']['cachekey']) ?>;
         document.addEventListener('DOMContentLoaded', function () {
             if (location.hash) {
                 document.getElementsByName('menu')[0].addEventListener('load', function () {
@@ -62,7 +63,7 @@
 	<title><?= h($GLOBALS['config']['title']) ?></title>
 </head>
 <body>
-<iframe name="menu" src="html/menu.html"></iframe>
+<iframe name="menu" src="html/menu.html?<?= intval($GLOBALS['config']['cachekey']) ?>"></iframe>
 <iframe name="main"></iframe>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 return function ($namespaces, $dst, $config) {
     $GLOBALS['config'] = array_replace([
+        'cachekey'   => time(),
         'title'      => 'No Title',
         'menusize'   => 30,
         'source-map' => [],

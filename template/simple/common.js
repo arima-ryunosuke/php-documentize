@@ -9,7 +9,11 @@ $.open = function (fqsen, noclick) {
     if (!fqsen) {
         return;
     }
-    var menuFrame = window.parent.document.getElementsByName('menu')[0];
+    try {
+        var menuFrame = window.parent.document.getElementsByName('menu')[0];
+    } catch (e) {
+        return;
+    }
     var parts = fqsen.split('::');
     // 遅延ロードしてるので dom として存在しないことがある
     if (parts.length > 1) {
@@ -67,8 +71,8 @@ hljs.initHighlightingOnLoad();
 if (window.name === 'main') {
     $.open(window.location.hash.substring(1));
     $window.on('hashchange', function () {
+        $window.scrollTop($window.scrollTop() - $('h1:first').innerHeight() - 3);
         window.parent.history.replaceState('', '', '#' + window.location.hash.substring(1));
-        $window.scrollTop($window.scrollTop() - 32);
     });
     $(function () {
         $window.trigger('hashchange');
