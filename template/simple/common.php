@@ -115,7 +115,7 @@ function render_parameter($params)
 			<tr>
 				<td class="type"><?= render_type($param['types']) ?></td>
 				<td class="rest"><?= h($param['declaration']) ?></td>
-				<td class="desc"><?= h($param['description']) ?></td>
+				<td class="desc"><?= md($param['description']) ?></td>
 			</tr>
         <?php endforeach ?>
 		</tbody>
@@ -131,7 +131,7 @@ function render_return($return)
 		<tbody>
 		<tr>
 			<td class="type"><?= $return['types'] ? render_type($return['types']) : 'void' ?></td>
-			<td class="desc"><?= h($return['description']) ?></td>
+			<td class="desc"><?= md($return['description']) ?></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
