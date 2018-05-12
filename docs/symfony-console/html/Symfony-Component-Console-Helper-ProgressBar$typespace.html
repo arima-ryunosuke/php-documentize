@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -368,13 +391,12 @@
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
 				<td class="rest">$output</td>
-				<td class="desc">An OutputInterface instance
-</td>
+				<td class="desc"><p>An OutputInterface instance</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$max = 0</td>
-				<td class="desc">Maximum steps (0 if unknown)</td>
+				<td class="desc"><p>Maximum steps (0 if unknown)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -419,13 +441,12 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The placeholder name (including the delimiter char like %)
-</td>
+				<td class="desc"><p>The placeholder name (including the delimiter char like %)</p></td>
 			</tr>
         			<tr>
 				<td class="type">callable</td>
 				<td class="rest">$callable</td>
-				<td class="desc">A PHP callable</td>
+				<td class="desc"><p>A PHP callable</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -469,9 +490,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The placeholder name (including the delimiter char like %)
-
-</td>
+				<td class="desc"><p>The placeholder name (including the delimiter char like %)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -480,7 +499,7 @@
 		<tbody>
 		<tr>
 			<td class="type">callable<span class="type-separator"></span><wbr>null</td>
-			<td class="desc">A PHP callable</td>
+			<td class="desc"><p>A PHP callable</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -516,13 +535,12 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The format name
-</td>
+				<td class="desc"><p>The format name</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$format</td>
-				<td class="desc">A format string</td>
+				<td class="desc"><p>A format string</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -566,9 +584,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The format name
-
-</td>
+				<td class="desc"><p>The format name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -577,7 +593,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>null</td>
-			<td class="desc">A format string</td>
+			<td class="desc"><p>A format string</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -615,13 +631,12 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc">The text to associate with the placeholder
-</td>
+				<td class="desc"><p>The text to associate with the placeholder</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name = &#039;message&#039;</td>
-				<td class="desc">The name of the placeholder</td>
+				<td class="desc"><p>The name of the placeholder</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -713,7 +728,7 @@ when the corresponding placeholder is part of the custom format line<br />
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The progress bar start time</td>
+			<td class="desc"><p>The progress bar start time</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -752,7 +767,7 @@ when the corresponding placeholder is part of the custom format line<br />
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The progress bar max steps</td>
+			<td class="desc"><p>The progress bar max steps</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -791,7 +806,7 @@ when the corresponding placeholder is part of the custom format line<br />
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The progress bar step</td>
+			<td class="desc"><p>The progress bar step</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -830,7 +845,7 @@ when the corresponding placeholder is part of the custom format line<br />
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The progress bar step width</td>
+			<td class="desc"><p>The progress bar step width</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -869,7 +884,7 @@ when the corresponding placeholder is part of the custom format line<br />
 		<tbody>
 		<tr>
 			<td class="type">float</td>
-			<td class="desc">The current progress bar percent</td>
+			<td class="desc"><p>The current progress bar percent</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -904,7 +919,7 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$size</td>
-				<td class="desc">The progress bar size</td>
+				<td class="desc"><p>The progress bar size</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -952,7 +967,7 @@ when the corresponding placeholder is part of the custom format line<br />
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The progress bar size</td>
+			<td class="desc"><p>The progress bar size</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -987,7 +1002,7 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$char</td>
-				<td class="desc">A character</td>
+				<td class="desc"><p>A character</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1035,7 +1050,7 @@ when the corresponding placeholder is part of the custom format line<br />
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">A character</td>
+			<td class="desc"><p>A character</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1070,7 +1085,7 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$char</td>
-				<td class="desc">A character</td>
+				<td class="desc"><p>A character</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1118,7 +1133,7 @@ when the corresponding placeholder is part of the custom format line<br />
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">A character</td>
+			<td class="desc"><p>A character</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1153,7 +1168,7 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$char</td>
-				<td class="desc">A character</td>
+				<td class="desc"><p>A character</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1201,7 +1216,7 @@ when the corresponding placeholder is part of the custom format line<br />
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">A character</td>
+			<td class="desc"><p>A character</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1236,7 +1251,7 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$format</td>
-				<td class="desc">The format</td>
+				<td class="desc"><p>The format</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1280,7 +1295,7 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">int<span class="type-separator"></span><wbr>float</td>
 				<td class="rest">$freq</td>
-				<td class="desc">The frequency in steps</td>
+				<td class="desc"><p>The frequency in steps</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1324,7 +1339,7 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">int<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$max = null</td>
-				<td class="desc">Number of steps to complete the bar (0 if indeterminate), null to leave unchanged</td>
+				<td class="desc"><p>Number of steps to complete the bar (0 if indeterminate), null to leave unchanged</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1368,7 +1383,7 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$step = 1</td>
-				<td class="desc">Number of steps to advance</td>
+				<td class="desc"><p>Number of steps to advance</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1456,7 +1471,7 @@ when the corresponding placeholder is part of the custom format line<br />
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$step</td>
-				<td class="desc">The current progress</td>
+				<td class="desc"><p>The current progress</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1620,7 +1635,7 @@ Call display() to show the progress bar again.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$format</td>
-				<td class="desc">The format</td>
+				<td class="desc"><p>The format</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1664,7 +1679,7 @@ Call display() to show the progress bar again.</p></div>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$max</td>
-				<td class="desc">The progress bar max steps</td>
+				<td class="desc"><p>The progress bar max steps</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1708,7 +1723,7 @@ Call display() to show the progress bar again.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc">The message</td>
+				<td class="desc"><p>The message</p></td>
 			</tr>
         		</tbody>
 	</table>

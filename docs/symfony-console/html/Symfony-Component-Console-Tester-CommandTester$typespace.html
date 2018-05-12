@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -193,15 +216,12 @@
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$input</td>
-				<td class="desc">An array of command arguments and options
-</td>
+				<td class="desc"><p>An array of command arguments and options</p></td>
 			</tr>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$options = []</td>
-				<td class="desc">An array of execution options
-
-</td>
+				<td class="desc"><p>An array of execution options</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -210,7 +230,7 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The command exit code</td>
+			<td class="desc"><p>The command exit code</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -245,9 +265,7 @@
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$normalize = false</td>
-				<td class="desc">Whether to normalize end of lines to \n or not
-
-</td>
+				<td class="desc"><p>Whether to normalize end of lines to \n or not</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -256,7 +274,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The display</td>
+			<td class="desc"><p>The display</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -295,7 +313,7 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
-			<td class="desc">The current input instance</td>
+			<td class="desc"><p>The current input instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -334,7 +352,7 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
-			<td class="desc">The current output instance</td>
+			<td class="desc"><p>The current output instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -373,7 +391,7 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The status code</td>
+			<td class="desc"><p>The status code</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -408,10 +426,8 @@
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$inputs</td>
-				<td class="desc">An array of strings representing each input
-                     passed to the command input stream
-
-</td>
+				<td class="desc"><p>An array of strings representing each input<br />
+passed to the command input stream</p></td>
 			</tr>
         		</tbody>
 	</table>

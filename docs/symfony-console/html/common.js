@@ -5,11 +5,15 @@ $.escape = function (selector) {
     return selector.replace(/[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g, '\\$&');
 };
 // open main content by fqsen
-$.open = function (fqsen) {
+$.open = function (fqsen, noclick) {
     if (!fqsen) {
         return;
     }
-    var menuFrame = window.parent.document.getElementsByName('menu')[0];
+    try {
+        var menuFrame = window.parent.document.getElementsByName('menu')[0];
+    } catch (e) {
+        return;
+    }
     var parts = fqsen.split('::');
     // 遅延ロードしてるので dom として存在しないことがある
     if (parts.length > 1) {
@@ -20,7 +24,9 @@ $.open = function (fqsen) {
     var node = $('#' + $.escape(fqsen), menuFrame.contentWindow.document);
     node.parents('.holding-wrapper').collapse(true, false);
     node.focus();
-    node[0].click();
+    if (!noclick) {
+        node[0].click();
+    }
 };
 // title attribute
 $.fn.titleattr = function () {
@@ -58,15 +64,18 @@ $.fn.collapse = function (mode, animation) {
 
 /* initialize */
 
+var $window = $(window);
+
 hljs.initHighlightingOnLoad();
 
 if (window.name === 'main') {
     $.open(window.location.hash.substring(1));
-    $(window).on('hashchange', function () {
+    $window.on('hashchange', function () {
+        $window.scrollTop($window.scrollTop() - $('h1:first').innerHeight() - 3);
         window.parent.history.replaceState('', '', '#' + window.location.hash.substring(1));
     });
     $(function () {
-        $(window).trigger('hashchange');
+        $window.trigger('hashchange');
     });
 }
 
@@ -80,6 +89,11 @@ $document.on('click', '.switch-holding', function () {
 });
 $document.on('click', 'a[target=main]', function () {
     $(this).closest('.holding-wrapper').collapse(true, true);
+});
+// reverse menu
+$document.on('click', '.structure-title', function () {
+    $.open(this.id, true);
+    window.parent.history.replaceState('', '', '#' + this.id);
 });
 
 /* content ready */
@@ -117,8 +131,10 @@ $(function () {
     });
     // title attribute
     $('.ellipsis').titleattr();
+    // description table
+    $('table', '.description').addClass('table');
     // link tag
-    $('tag-link').each(function () {
+    $('tag_link').each(function () {
         var $this = $(this);
         var $a = $('<a/>');
         if ($this.data('kind') === 'uri') {
@@ -129,7 +145,7 @@ $(function () {
             var fqsen = $this.data('type-fqsen');
             $a.attr('href', fqsen.split('::')[0].split('\\').join('-') + '$typespace.html#' + fqsen);
         }
-        $a.text($this.data('description') || $a.attr('href'));
-        $this.before($a);
+        $a.text($this.data('description'));
+        $this.before($a).hide();
     });
 });

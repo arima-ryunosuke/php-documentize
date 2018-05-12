@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -201,33 +224,27 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The option name
-</td>
+				<td class="desc"><p>The option name</p></td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$shortcut = null</td>
-				<td class="desc">The shortcuts, can be null, a string of shortcuts delimited by | or an array of shortcuts
-</td>
+				<td class="desc"><p>The shortcuts, can be null, a string of shortcuts delimited by | or an array of shortcuts</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$mode = null</td>
-				<td class="desc">The option mode: One of the VALUE_* constants
-</td>
+				<td class="desc"><p>The option mode: One of the VALUE_* constants</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$description = &#039;&#039;</td>
-				<td class="desc">A description text
-</td>
+				<td class="desc"><p>A description text</p></td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc">The default value (must be null for self::VALUE_NONE)
-
-</td>
+				<td class="desc"><p>The default value (must be null for self::VALUE_NONE)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -284,7 +301,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The shortcut</td>
+			<td class="desc"><p>The shortcut</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -323,7 +340,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The name</td>
+			<td class="desc"><p>The name</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -362,7 +379,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if value mode is not self::VALUE_NONE, false otherwise</td>
+			<td class="desc"><p>true if value mode is not self::VALUE_NONE, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -401,7 +418,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if value mode is self::VALUE_REQUIRED, false otherwise</td>
+			<td class="desc"><p>true if value mode is self::VALUE_REQUIRED, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -440,7 +457,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if value mode is self::VALUE_OPTIONAL, false otherwise</td>
+			<td class="desc"><p>true if value mode is self::VALUE_OPTIONAL, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -479,7 +496,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if mode is self::VALUE_IS_ARRAY, false otherwise</td>
+			<td class="desc"><p>true if mode is self::VALUE_IS_ARRAY, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -514,9 +531,7 @@
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc">The default value
-
-</td>
+				<td class="desc"><p>The default value</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -573,7 +588,7 @@
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">The default value</td>
+			<td class="desc"><p>The default value</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -612,7 +627,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The description text</td>
+			<td class="desc"><p>The description text</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -645,7 +660,7 @@
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputOption$typespace.html#Symfony\Component\Console\Input\InputOption" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputOption</a></td>
+				<td class="type"><a href="http://php.net/manual/ja/class.self.php" class="fqsen" target="_blank">\self</a></td>
 				<td class="rest">$option</td>
 				<td class="desc"></td>
 			</tr>

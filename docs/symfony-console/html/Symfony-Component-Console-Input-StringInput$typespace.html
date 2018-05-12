@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -268,7 +291,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$input</td>
-				<td class="desc">A string representing the parameters from the CLI</td>
+				<td class="desc"><p>A string representing the parameters from the CLI</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -322,9 +345,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$input</td>
-				<td class="desc">The input to tokenize
-
-</td>
+				<td class="desc"><p>The input to tokenize</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -333,9 +354,7 @@
 		<tbody>
 		<tr>
 			<td class="type">array</td>
-			<td class="desc">An array of tokens
-
-</td>
+			<td class="desc"><p>An array of tokens</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -426,7 +445,7 @@
                         parse						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Processes command line arguments.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Processes command line arguments.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -446,7 +465,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::parse()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::parse()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-ArgvInput$typespace.html#Symfony\Component\Console\Input\ArgvInput::parse()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>ArgvInput::parse()</a></td>
 				<td class="desc">Processes command line arguments.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -482,7 +501,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$token</td>
-				<td class="desc">The current token</td>
+				<td class="desc"><p>The current token</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -536,9 +555,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The current token
-
-</td>
+				<td class="desc"><p>The current token</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -601,7 +618,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$token</td>
-				<td class="desc">The current token</td>
+				<td class="desc"><p>The current token</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -655,9 +672,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$token</td>
-				<td class="desc">The current token
-
-</td>
+				<td class="desc"><p>The current token</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -720,15 +735,12 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$shortcut</td>
-				<td class="desc">The short option key
-</td>
+				<td class="desc"><p>The short option key</p></td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$value</td>
-				<td class="desc">The value for the option
-
-</td>
+				<td class="desc"><p>The value for the option</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -791,15 +803,12 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The long option key
-</td>
+				<td class="desc"><p>The long option key</p></td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$value</td>
-				<td class="desc">The value for the option
-
-</td>
+				<td class="desc"><p>The value for the option</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -855,7 +864,7 @@
                         getFirstArgument						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the first argument from the raw parameters (not parsed).<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the first argument from the raw parameters (not parsed).</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -866,7 +875,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>null</td>
-			<td class="desc">The value of the first argument or null otherwise</td>
+			<td class="desc"><p>The value of the first argument or null otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -875,7 +884,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getFirstArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getFirstArgument()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-ArgvInput$typespace.html#Symfony\Component\Console\Input\ArgvInput::getFirstArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>ArgvInput::getFirstArgument()</a></td>
 				<td class="desc">Returns the first argument from the raw parameters (not parsed).</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -904,26 +913,24 @@
                         hasParameterOption						<small>($values, $onlyParams = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if the raw parameters (not parsed) contain a value.</p>
-<p>This method is to be used to introspect the input parameters<br />
-before they have been validated. It must be used carefully.<br />
-Does not necessarily return the correct result for short options<br />
-when multiple flags are combined in the same option.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns true if the raw parameters (not parsed) contain a value.
+
+This method is to be used to introspect the input parameters
+before they have been validated. It must be used carefully.
+Does not necessarily return the correct result for short options
+when multiple flags are combined in the same option.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$values</td>
-				<td class="desc">The values to look for in the raw parameters (can be an array)
-</td>
+				<td class="desc"><p>The values to look for in the raw parameters (can be an array)</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$onlyParams = false</td>
-				<td class="desc">Only check real parameters, skip those following an end of options (--) signal
-
-</td>
+				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -932,7 +939,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the value is contained in the raw parameters</td>
+			<td class="desc"><p>true if the value is contained in the raw parameters</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -941,7 +948,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::hasParameterOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::hasParameterOption()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-ArgvInput$typespace.html#Symfony\Component\Console\Input\ArgvInput::hasParameterOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>ArgvInput::hasParameterOption()</a></td>
 				<td class="desc">Returns true if the raw parameters (not parsed) contain a value.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -970,32 +977,29 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         getParameterOption						<small>($values, $default = false, $onlyParams = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the value of a raw option (not parsed).</p>
-<p>This method is to be used to introspect the input parameters<br />
-before they have been validated. It must be used carefully.<br />
-Does not necessarily return the correct result for short options<br />
-when multiple flags are combined in the same option.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the value of a raw option (not parsed).
+
+This method is to be used to introspect the input parameters
+before they have been validated. It must be used carefully.
+Does not necessarily return the correct result for short options
+when multiple flags are combined in the same option.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$values</td>
-				<td class="desc">The value(s) to look for in the raw parameters (can be an array)
-</td>
+				<td class="desc"><p>The value(s) to look for in the raw parameters (can be an array)</p></td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = false</td>
-				<td class="desc">The default value to return if no result is found
-</td>
+				<td class="desc"><p>The default value to return if no result is found</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$onlyParams = false</td>
-				<td class="desc">Only check real parameters, skip those following an end of options (--) signal
-
-</td>
+				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1004,7 +1008,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">The option value</td>
+			<td class="desc"><p>The option value</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1013,7 +1017,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getParameterOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getParameterOption()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-ArgvInput$typespace.html#Symfony\Component\Console\Input\ArgvInput::getParameterOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>ArgvInput::getParameterOption()</a></td>
 				<td class="desc">Returns the value of a raw option (not parsed).</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1091,7 +1095,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         bind						<small>($definition)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Binds the current Input instance with the given arguments and options.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Binds the current Input instance with the given arguments and options.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1116,7 +1120,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::bind()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::bind()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::bind()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::bind()</a></td>
 				<td class="desc">Binds the current Input instance with the given arguments and options.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1145,7 +1149,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         validate						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Validates the input.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Validates the input.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1174,7 +1178,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::validate()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::validate()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::validate()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::validate()</a></td>
 				<td class="desc">Validates the input.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1203,7 +1207,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         isInteractive						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Is this input means interactive?<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Is this input means interactive?</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1223,7 +1227,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::isInteractive()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::isInteractive()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::isInteractive()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::isInteractive()</a></td>
 				<td class="desc">Is this input means interactive?</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1252,14 +1256,14 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         setInteractive						<small>($interactive)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the input interactivity.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the input interactivity.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$interactive</td>
-				<td class="desc">If the input should be interactive</td>
+				<td class="desc"><p>If the input should be interactive</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1277,7 +1281,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::setInteractive()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::setInteractive()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setInteractive()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::setInteractive()</a></td>
 				<td class="desc">Sets the input interactivity.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1306,7 +1310,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         getArguments						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns all the given arguments merged with the default values.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns all the given arguments merged with the default values.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1326,7 +1330,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getArguments()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getArguments()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getArguments()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::getArguments()</a></td>
 				<td class="desc">Returns all the given arguments merged with the default values.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1355,16 +1359,14 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         getArgument						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the argument value for a given argument name.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the argument value for a given argument name.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The argument name
-
-</td>
+				<td class="desc"><p>The argument name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1373,9 +1375,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">The argument value
-
-</td>
+			<td class="desc"><p>The argument value</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1393,7 +1393,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getArgument()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::getArgument()</a></td>
 				<td class="desc">Returns the argument value for a given argument name.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1422,22 +1422,19 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         setArgument						<small>($name, $value)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets an argument value by name.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets an argument value by name.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The argument name
-</td>
+				<td class="desc"><p>The argument name</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$value</td>
-				<td class="desc">The argument value
-
-</td>
+				<td class="desc"><p>The argument value</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1464,7 +1461,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::setArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::setArgument()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::setArgument()</a></td>
 				<td class="desc">Sets an argument value by name.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1493,16 +1490,14 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         hasArgument						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if an InputArgument object exists by name or position.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns true if an InputArgument object exists by name or position.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>int</td>
 				<td class="rest">$name</td>
-				<td class="desc">The InputArgument name or position
-
-</td>
+				<td class="desc"><p>The InputArgument name or position</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1511,7 +1506,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the InputArgument object exists, false otherwise</td>
+			<td class="desc"><p>true if the InputArgument object exists, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1520,7 +1515,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::hasArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::hasArgument()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::hasArgument()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::hasArgument()</a></td>
 				<td class="desc">Returns true if an InputArgument object exists by name or position.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1549,7 +1544,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         getOptions						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns all the given options merged with the default values.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns all the given options merged with the default values.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1569,7 +1564,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getOptions()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getOptions()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getOptions()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::getOptions()</a></td>
 				<td class="desc">Returns all the given options merged with the default values.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1598,16 +1593,14 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         getOption						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the option value for a given option name.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the option value for a given option name.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The option name
-
-</td>
+				<td class="desc"><p>The option name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1616,9 +1609,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">The option value
-
-</td>
+			<td class="desc"><p>The option value</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1636,7 +1627,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::getOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::getOption()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::getOption()</a></td>
 				<td class="desc">Returns the option value for a given option name.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1665,22 +1656,19 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         setOption						<small>($name, $value)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets an option value by name.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets an option value by name.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The option name
-</td>
+				<td class="desc"><p>The option name</p></td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>bool</td>
 				<td class="rest">$value</td>
-				<td class="desc">The option value
-
-</td>
+				<td class="desc"><p>The option value</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1707,7 +1695,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::setOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::setOption()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::setOption()</a></td>
 				<td class="desc">Sets an option value by name.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1736,16 +1724,14 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         hasOption						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if an InputOption object exists by name.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns true if an InputOption object exists by name.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The InputOption name
-
-</td>
+				<td class="desc"><p>The InputOption name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1754,7 +1740,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the InputOption object exists, false otherwise</td>
+			<td class="desc"><p>true if the InputOption object exists, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1763,7 +1749,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface::hasOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface::hasOption()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::hasOption()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::hasOption()</a></td>
 				<td class="desc">Returns true if an InputOption object exists by name.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1846,15 +1832,16 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         setStream						<small>($stream)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the input stream to read from when interacting with the user.</p>
-<p>This is mainly useful for testing purpose.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the input stream to read from when interacting with the user.
+
+This is mainly useful for testing purpose.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">resource</td>
 				<td class="rest">$stream</td>
-				<td class="desc">The input stream</td>
+				<td class="desc"><p>The input stream</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1872,7 +1859,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-StreamableInputInterface$typespace.html#Symfony\Component\Console\Input\StreamableInputInterface::setStream()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>StreamableInputInterface::setStream()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setStream()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::setStream()</a></td>
 				<td class="desc">Sets the input stream to read from when interacting with the user.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1901,7 +1888,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
                         getStream						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the input stream.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the input stream.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1921,7 +1908,7 @@ when multiple flags are combined in the same option.<tag-inheritdoc data-type=''
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Input-StreamableInputInterface$typespace.html#Symfony\Component\Console\Input\StreamableInputInterface::getStream()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>StreamableInputInterface::getStream()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getStream()" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>Input::getStream()</a></td>
 				<td class="desc">Returns the input stream.</td>
 				<td class="rest">inherit</td>
 			</tr>

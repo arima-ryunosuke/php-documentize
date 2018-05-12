@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -209,19 +232,17 @@
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc">The message as an array of lines or a single string
-</td>
+				<td class="desc"><p>The message as an array of lines or a single string</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$newline = false</td>
-				<td class="desc">Whether to add a newline
-</td>
+				<td class="desc"><p>Whether to add a newline</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc">A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -265,13 +286,12 @@
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc">The message as an array of lines of a single string
-</td>
+				<td class="desc"><p>The message as an array of lines of a single string</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc">A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -315,7 +335,7 @@
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$level</td>
-				<td class="desc">The level of verbosity (one of the VERBOSITY constants)</td>
+				<td class="desc"><p>The level of verbosity (one of the VERBOSITY constants)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -363,7 +383,7 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The current level of verbosity (one of the VERBOSITY constants)</td>
+			<td class="desc"><p>The current level of verbosity (one of the VERBOSITY constants)</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -402,7 +422,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_QUIET, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_QUIET, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -441,7 +461,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -480,7 +500,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -519,7 +539,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_DEBUG, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_DEBUG, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -554,7 +574,7 @@
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated</td>
-				<td class="desc">Whether to decorate the messages</td>
+				<td class="desc"><p>Whether to decorate the messages</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -602,7 +622,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the output will decorate messages, false otherwise</td>
+			<td class="desc"><p>true if the output will decorate messages, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

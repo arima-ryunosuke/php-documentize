@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -58,7 +81,7 @@
 				<td class="type">
                     						<a href="http://www.php-fig.org/psr/psr-3/" target="_blank">http://www.php-fig.org/psr/psr-3/</a>
                     				</td>
-				<td class="desc"></td>
+				<td class="desc">http://www.php-fig.org/psr/psr-3/</td>
 			</tr>
         		</tbody>
 	</table>
@@ -262,7 +285,7 @@
                         log						<small>($level, $message, $context = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag-inheritdoc data-type='' /></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -444,7 +467,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Psr-Log-LoggerInterface$typespace.html#Psr\Log\LoggerInterface::emergency()" class="fqsen "><small>Psr\Log\</small><wbr>LoggerInterface::emergency()</a></td>
+				<td class="type"><a href="Psr-Log-AbstractLogger$typespace.html#Psr\Log\AbstractLogger::emergency()" class="fqsen "><small>Psr\Log\</small><wbr>AbstractLogger::emergency()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -505,7 +528,7 @@ trigger the SMS alerts and wake you up.</p></div>
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Psr-Log-LoggerInterface$typespace.html#Psr\Log\LoggerInterface::alert()" class="fqsen "><small>Psr\Log\</small><wbr>LoggerInterface::alert()</a></td>
+				<td class="type"><a href="Psr-Log-AbstractLogger$typespace.html#Psr\Log\AbstractLogger::alert()" class="fqsen "><small>Psr\Log\</small><wbr>AbstractLogger::alert()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -565,7 +588,7 @@ trigger the SMS alerts and wake you up.</p></div>
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Psr-Log-LoggerInterface$typespace.html#Psr\Log\LoggerInterface::critical()" class="fqsen "><small>Psr\Log\</small><wbr>LoggerInterface::critical()</a></td>
+				<td class="type"><a href="Psr-Log-AbstractLogger$typespace.html#Psr\Log\AbstractLogger::critical()" class="fqsen "><small>Psr\Log\</small><wbr>AbstractLogger::critical()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -625,7 +648,7 @@ be logged and monitored.</p></div>
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Psr-Log-LoggerInterface$typespace.html#Psr\Log\LoggerInterface::error()" class="fqsen "><small>Psr\Log\</small><wbr>LoggerInterface::error()</a></td>
+				<td class="type"><a href="Psr-Log-AbstractLogger$typespace.html#Psr\Log\AbstractLogger::error()" class="fqsen "><small>Psr\Log\</small><wbr>AbstractLogger::error()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -686,7 +709,7 @@ that are not necessarily wrong.</p></div>
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Psr-Log-LoggerInterface$typespace.html#Psr\Log\LoggerInterface::warning()" class="fqsen "><small>Psr\Log\</small><wbr>LoggerInterface::warning()</a></td>
+				<td class="type"><a href="Psr-Log-AbstractLogger$typespace.html#Psr\Log\AbstractLogger::warning()" class="fqsen "><small>Psr\Log\</small><wbr>AbstractLogger::warning()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -745,7 +768,7 @@ that are not necessarily wrong.</p></div>
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Psr-Log-LoggerInterface$typespace.html#Psr\Log\LoggerInterface::notice()" class="fqsen "><small>Psr\Log\</small><wbr>LoggerInterface::notice()</a></td>
+				<td class="type"><a href="Psr-Log-AbstractLogger$typespace.html#Psr\Log\AbstractLogger::notice()" class="fqsen "><small>Psr\Log\</small><wbr>AbstractLogger::notice()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -805,7 +828,7 @@ that are not necessarily wrong.</p></div>
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Psr-Log-LoggerInterface$typespace.html#Psr\Log\LoggerInterface::info()" class="fqsen "><small>Psr\Log\</small><wbr>LoggerInterface::info()</a></td>
+				<td class="type"><a href="Psr-Log-AbstractLogger$typespace.html#Psr\Log\AbstractLogger::info()" class="fqsen "><small>Psr\Log\</small><wbr>AbstractLogger::info()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -864,7 +887,7 @@ that are not necessarily wrong.</p></div>
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Psr-Log-LoggerInterface$typespace.html#Psr\Log\LoggerInterface::debug()" class="fqsen "><small>Psr\Log\</small><wbr>LoggerInterface::debug()</a></td>
+				<td class="type"><a href="Psr-Log-AbstractLogger$typespace.html#Psr\Log\AbstractLogger::debug()" class="fqsen "><small>Psr\Log\</small><wbr>AbstractLogger::debug()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>

@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -344,20 +367,19 @@
                         doWrite						<small>($message, $newline)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes a message to the output.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc">A message to write to the output
-</td>
+				<td class="desc"><p>A message to write to the output</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$newline</td>
-				<td class="desc">Whether to add a newline or not</td>
+				<td class="desc"><p>Whether to add a newline or not</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -411,19 +433,17 @@
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$verbosity = self::VERBOSITY_NORMAL</td>
-				<td class="desc">The verbosity level (one of the VERBOSITY constants in OutputInterface)
-</td>
+				<td class="desc"><p>The verbosity level (one of the VERBOSITY constants in OutputInterface)</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated = false</td>
-				<td class="desc">Whether to decorate messages
-</td>
+				<td class="desc"><p>Whether to decorate messages</p></td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a><span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$formatter = null</td>
-				<td class="desc">Output formatter instance (null to use default OutputFormatter)</td>
+				<td class="desc"><p>Output formatter instance (null to use default OutputFormatter)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -470,7 +490,7 @@
                         setFormatter						<small>($formatter)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag-inheritdoc data-type='' /></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -495,7 +515,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::setFormatter()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::setFormatter()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::setFormatter()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::setFormatter()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -524,7 +544,7 @@
                         getFormatter						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns current output formatter instance.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -544,7 +564,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::getFormatter()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::getFormatter()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::getFormatter()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::getFormatter()</a></td>
 				<td class="desc">Returns current output formatter instance.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -573,14 +593,14 @@
                         setDecorated						<small>($decorated)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the decorated flag.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated</td>
-				<td class="desc">Whether to decorate the messages</td>
+				<td class="desc"><p>Whether to decorate the messages</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -598,7 +618,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::setDecorated()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::setDecorated()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::setDecorated()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::setDecorated()</a></td>
 				<td class="desc">Sets the decorated flag.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -627,7 +647,7 @@
                         isDecorated						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the decorated flag.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -638,7 +658,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the output will decorate messages, false otherwise</td>
+			<td class="desc"><p>true if the output will decorate messages, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -647,7 +667,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isDecorated()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isDecorated()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::isDecorated()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::isDecorated()</a></td>
 				<td class="desc">Gets the decorated flag.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -676,14 +696,14 @@
                         setVerbosity						<small>($level)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the verbosity of the output.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$level</td>
-				<td class="desc">The level of verbosity (one of the VERBOSITY constants)</td>
+				<td class="desc"><p>The level of verbosity (one of the VERBOSITY constants)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -701,7 +721,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::setVerbosity()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::setVerbosity()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::setVerbosity()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::setVerbosity()</a></td>
 				<td class="desc">Sets the verbosity of the output.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -730,7 +750,7 @@
                         getVerbosity						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the current verbosity of the output.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -741,7 +761,7 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The current level of verbosity (one of the VERBOSITY constants)</td>
+			<td class="desc"><p>The current level of verbosity (one of the VERBOSITY constants)</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -750,7 +770,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::getVerbosity()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::getVerbosity()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::getVerbosity()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::getVerbosity()</a></td>
 				<td class="desc">Gets the current verbosity of the output.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -779,7 +799,7 @@
                         isQuiet						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether verbosity is quiet (-q).<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -790,7 +810,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_QUIET, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_QUIET, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -799,7 +819,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isQuiet()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isQuiet()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::isQuiet()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::isQuiet()</a></td>
 				<td class="desc">Returns whether verbosity is quiet (-q).</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -828,7 +848,7 @@
                         isVerbose						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether verbosity is verbose (-v).<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -839,7 +859,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -848,7 +868,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isVerbose()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isVerbose()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::isVerbose()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::isVerbose()</a></td>
 				<td class="desc">Returns whether verbosity is verbose (-v).</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -877,7 +897,7 @@
                         isVeryVerbose						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether verbosity is very verbose (-vv).<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -888,7 +908,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -897,7 +917,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isVeryVerbose()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isVeryVerbose()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::isVeryVerbose()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::isVeryVerbose()</a></td>
 				<td class="desc">Returns whether verbosity is very verbose (-vv).</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -926,7 +946,7 @@
                         isDebug						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether verbosity is debug (-vvv).<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -937,7 +957,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_DEBUG, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_DEBUG, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -946,7 +966,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::isDebug()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::isDebug()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::isDebug()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::isDebug()</a></td>
 				<td class="desc">Returns whether verbosity is debug (-vvv).</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -975,20 +995,19 @@
                         writeln						<small>($messages, $options = 0)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes a message to the output and adds a newline at the end.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc">The message as an array of lines of a single string
-</td>
+				<td class="desc"><p>The message as an array of lines of a single string</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc">A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1006,7 +1025,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::writeln()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::writeln()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::writeln()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::writeln()</a></td>
 				<td class="desc">Writes a message to the output and adds a newline at the end.</td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -1035,26 +1054,24 @@
                         write						<small>($messages, $newline = false, $options = 0)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes a message to the output.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc">The message as an array of lines or a single string
-</td>
+				<td class="desc"><p>The message as an array of lines or a single string</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$newline = false</td>
-				<td class="desc">Whether to add a newline
-</td>
+				<td class="desc"><p>Whether to add a newline</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc">A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1072,7 +1089,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface::write()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface::write()</a></td>
+				<td class="type"><a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output::write()" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>Output::write()</a></td>
 				<td class="desc">Writes a message to the output.</td>
 				<td class="rest">inherit</td>
 			</tr>

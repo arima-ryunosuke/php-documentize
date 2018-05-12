@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -107,7 +130,7 @@
                         configure						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Configures the current command.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Configures the current command.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -156,10 +179,12 @@
                         getNativeDefinition						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the InputDefinition to be used to create representations of this Command.</p>
-<p>Can be overridden to provide the original command representation when it would otherwise<br />
-be changed by merging with the application InputDefinition.</p>
-<p>This method is not part of public API and should not be used directly.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the InputDefinition to be used to create representations of this Command.
+
+Can be overridden to provide the original command representation when it would otherwise
+be changed by merging with the application InputDefinition.
+
+This method is not part of public API and should not be used directly.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -170,7 +195,7 @@ be changed by merging with the application InputDefinition.</p>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
-			<td class="desc">An InputDefinition instance</td>
+			<td class="desc"><p>An InputDefinition instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -208,11 +233,12 @@ be changed by merging with the application InputDefinition.</p>
                         execute						<small>($input, $output)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Executes the current command.</p>
-<p>This method is not abstract because you can use this class<br />
-as a concrete class. In this case, instead of defining the<br />
-execute() method, you set the code to execute by passing<br />
-a Closure to the setCode() method.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Executes the current command.
+
+This method is not abstract because you can use this class
+as a concrete class. In this case, instead of defining the
+execute() method, you set the code to execute by passing
+a Closure to the setCode() method.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -233,9 +259,7 @@ a Closure to the setCode() method.<tag-inheritdoc data-type='' /></p></div>
 		<tbody>
 		<tr>
 			<td class="type">null<span class="type-separator"></span><wbr>int</td>
-			<td class="desc">null or 0 if everything went fine, or an error code
-
-</td>
+			<td class="desc"><p>null or 0 if everything went fine, or an error code</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -265,7 +289,7 @@ a Closure to the setCode() method.<tag-inheritdoc data-type='' /></p></div>
         			<tr>
 				<td class="type">
                                             <a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setCode()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setCode()</a>                    				</td>
-				<td class="desc"></td>
+				<td class="desc">setCode()</td>
 			</tr>
         		</tbody>
 	</table>
@@ -292,7 +316,7 @@ a Closure to the setCode() method.<tag-inheritdoc data-type='' /></p></div>
                         createDefinition						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag-inheritdoc data-type='' /></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -342,7 +366,7 @@ a Closure to the setCode() method.<tag-inheritdoc data-type='' /></p></div>
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>null</td>
-			<td class="desc">The default command name or null when no default name is set</td>
+			<td class="desc"><p>The default command name or null when no default name is set</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -387,9 +411,7 @@ a Closure to the setCode() method.<tag-inheritdoc data-type='' /></p></div>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$name = null</td>
-				<td class="desc">The name of the command; passing null means it must be set in configure()
-
-</td>
+				<td class="desc"><p>The name of the command; passing null means it must be set in configure()</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -614,7 +636,7 @@ a Closure to the setCode() method.<tag-inheritdoc data-type='' /></p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
-			<td class="desc">A HelperSet instance</td>
+			<td class="desc"><p>A HelperSet instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -663,7 +685,7 @@ a Closure to the setCode() method.<tag-inheritdoc data-type='' /></p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Application$typespace.html#Symfony\Component\Console\Application" class="fqsen "><small>Symfony\Component\Console\</small><wbr>Application</a></td>
-			<td class="desc">An Application instance</td>
+			<td class="desc"><p>An Application instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -899,9 +921,7 @@ in a sub-class.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The command exit code
-
-</td>
+			<td class="desc"><p>The command exit code</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -911,7 +931,7 @@ in a sub-class.</p></div>
 		<tbody>
         			<tr>
 				<td class="type"><a href="http://php.net/manual/ja/class.exception.php" class="fqsen" target="_blank">\Exception</a></td>
-				<td class="desc">When binding input fails. Bypass this by calling {@link ignoreValidationErrors()}.</td>
+				<td class="desc">When binding input fails. Bypass this by calling ignoreValidationErrors().</td>
 			</tr>
         		</tbody>
 	</table>
@@ -930,13 +950,13 @@ in a sub-class.</p></div>
 		<tbody>
         			<tr>
 				<td class="type">
-                                            <a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand::setCode()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand::setCode()</a>                    				</td>
+                                            <a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::setCode()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::setCode()</a>                    				</td>
 				<td class="desc"></td>
 			</tr>
         			<tr>
 				<td class="type">
-                                            <a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand::execute()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand::execute()</a>                    				</td>
-				<td class="desc"></td>
+                                            <a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::execute()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::execute()</a>                    				</td>
+				<td class="desc">execute()</td>
 			</tr>
         		</tbody>
 	</table>
@@ -972,9 +992,7 @@ in the execute() method.</p></div>
         			<tr>
 				<td class="type">callable</td>
 				<td class="rest">$code</td>
-				<td class="desc">A callable(InputInterface $input, OutputInterface $output)
-
-</td>
+				<td class="desc"><p>A callable(InputInterface $input, OutputInterface $output)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -982,7 +1000,7 @@ in the execute() method.</p></div>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -1012,8 +1030,8 @@ in the execute() method.</p></div>
 		<tbody>
         			<tr>
 				<td class="type">
-                                            <a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand::execute()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand::execute()</a>                    				</td>
-				<td class="desc"></td>
+                                            <a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command::execute()" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command::execute()</a>                    				</td>
+				<td class="desc">execute()</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1048,7 +1066,7 @@ in the execute() method.</p></div>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$mergeArgs = true</td>
-				<td class="desc">Whether to merge or not the Application definition arguments to Command definition arguments</td>
+				<td class="desc"><p>Whether to merge or not the Application definition arguments to Command definition arguments</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1102,9 +1120,7 @@ in the execute() method.</p></div>
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
 				<td class="rest">$definition</td>
-				<td class="desc">An array of argument and option instances or a definition instance
-
-</td>
+				<td class="desc"><p>An array of argument and option instances or a definition instance</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1112,7 +1128,7 @@ in the execute() method.</p></div>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -1162,7 +1178,7 @@ in the execute() method.</p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
-			<td class="desc">An InputDefinition instance</td>
+			<td class="desc"><p>An InputDefinition instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1207,27 +1223,22 @@ in the execute() method.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The argument name
-</td>
+				<td class="desc"><p>The argument name</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$mode = null</td>
-				<td class="desc">The argument mode: InputArgument::REQUIRED or InputArgument::OPTIONAL
-</td>
+				<td class="desc"><p>The argument mode: InputArgument::REQUIRED or InputArgument::OPTIONAL</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$description = &#039;&#039;</td>
-				<td class="desc">A description text
-</td>
+				<td class="desc"><p>A description text</p></td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc">The default value (for InputArgument::OPTIONAL mode only)
-
-</td>
+				<td class="desc"><p>The default value (for InputArgument::OPTIONAL mode only)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1235,7 +1246,7 @@ in the execute() method.</p></div>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -1281,33 +1292,27 @@ in the execute() method.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The option name
-</td>
+				<td class="desc"><p>The option name</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$shortcut = null</td>
-				<td class="desc">The shortcut (can be null)
-</td>
+				<td class="desc"><p>The shortcut (can be null)</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$mode = null</td>
-				<td class="desc">The option mode: One of the InputOption::VALUE_* constants
-</td>
+				<td class="desc"><p>The option mode: One of the InputOption::VALUE_* constants</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$description = &#039;&#039;</td>
-				<td class="desc">A description text
-</td>
+				<td class="desc"><p>A description text</p></td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc">The default value (must be null for InputOption::VALUE_NONE)
-
-</td>
+				<td class="desc"><p>The default value (must be null for InputOption::VALUE_NONE)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1315,7 +1320,7 @@ in the execute() method.</p></div>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -1364,9 +1369,7 @@ you separate them by a colon (:)</p>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The command name
-
-</td>
+				<td class="desc"><p>The command name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1374,7 +1377,7 @@ you separate them by a colon (:)</p>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -1432,9 +1435,7 @@ like a daemon.</p>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$title</td>
-				<td class="desc">The process title
-
-</td>
+				<td class="desc"><p>The process title</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1442,7 +1443,7 @@ like a daemon.</p>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -1492,7 +1493,7 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The command name</td>
+			<td class="desc"><p>The command name</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1537,9 +1538,7 @@ like a daemon.</p>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$hidden</td>
-				<td class="desc">Whether or not the command should be hidden from the list of commands
-
-</td>
+				<td class="desc"><p>Whether or not the command should be hidden from the list of commands</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1548,7 +1547,7 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
-			<td class="desc">The current instance</td>
+			<td class="desc"><p>The current instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1597,7 +1596,7 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">whether the command should be publicly shown or not</td>
+			<td class="desc"><p>whether the command should be publicly shown or not</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1642,9 +1641,7 @@ like a daemon.</p>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$description</td>
-				<td class="desc">The description for the command
-
-</td>
+				<td class="desc"><p>The description for the command</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1652,7 +1649,7 @@ like a daemon.</p>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -1702,7 +1699,7 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The description for the command</td>
+			<td class="desc"><p>The description for the command</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1747,9 +1744,7 @@ like a daemon.</p>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$help</td>
-				<td class="desc">The help for the command
-
-</td>
+				<td class="desc"><p>The help for the command</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1757,7 +1752,7 @@ like a daemon.</p>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -1807,7 +1802,7 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The help for the command</td>
+			<td class="desc"><p>The help for the command</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1857,7 +1852,7 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The processed help for the command</td>
+			<td class="desc"><p>The processed help for the command</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1902,9 +1897,7 @@ like a daemon.</p>
         			<tr>
 				<td class="type">string[]</td>
 				<td class="rest">$aliases</td>
-				<td class="desc">An array of aliases for the command
-
-</td>
+				<td class="desc"><p>An array of aliases for the command</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1912,7 +1905,7 @@ like a daemon.</p>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -1971,7 +1964,7 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">array</td>
-			<td class="desc">An array of aliases for the command</td>
+			<td class="desc"><p>An array of aliases for the command</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2016,9 +2009,7 @@ like a daemon.</p>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$short = false</td>
-				<td class="desc">Whether to show the short version of the synopsis (with options folded) or not
-
-</td>
+				<td class="desc"><p>Whether to show the short version of the synopsis (with options folded) or not</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -2027,7 +2018,7 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The synopsis</td>
+			<td class="desc"><p>The synopsis</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2072,9 +2063,7 @@ like a daemon.</p>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$usage</td>
-				<td class="desc">The usage, it&#039;ll be prefixed with the command name
-
-</td>
+				<td class="desc"><p>The usage, it'll be prefixed with the command name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -2082,7 +2071,7 @@ like a daemon.</p>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type"><a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>ListCommand</a></td>
+			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
 			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
@@ -2177,9 +2166,7 @@ like a daemon.</p>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The helper name
-
-</td>
+				<td class="desc"><p>The helper name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -2188,9 +2175,7 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">The helper value
-
-</td>
+			<td class="desc"><p>The helper value</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

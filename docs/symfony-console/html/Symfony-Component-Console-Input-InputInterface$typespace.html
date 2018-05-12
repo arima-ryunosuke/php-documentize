@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -99,7 +122,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>null</td>
-			<td class="desc">The value of the first argument or null otherwise</td>
+			<td class="desc"><p>The value of the first argument or null otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -138,15 +161,12 @@ when multiple flags are combined in the same option.</p></div>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$values</td>
-				<td class="desc">The values to look for in the raw parameters (can be an array)
-</td>
+				<td class="desc"><p>The values to look for in the raw parameters (can be an array)</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$onlyParams = false</td>
-				<td class="desc">Only check real parameters, skip those following an end of options (--) signal
-
-</td>
+				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -155,7 +175,7 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the value is contained in the raw parameters</td>
+			<td class="desc"><p>true if the value is contained in the raw parameters</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -194,21 +214,17 @@ when multiple flags are combined in the same option.</p></div>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$values</td>
-				<td class="desc">The value(s) to look for in the raw parameters (can be an array)
-</td>
+				<td class="desc"><p>The value(s) to look for in the raw parameters (can be an array)</p></td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = false</td>
-				<td class="desc">The default value to return if no result is found
-</td>
+				<td class="desc"><p>The default value to return if no result is found</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$onlyParams = false</td>
-				<td class="desc">Only check real parameters, skip those following an end of options (--) signal
-
-</td>
+				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -217,7 +233,7 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">The option value</td>
+			<td class="desc"><p>The option value</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -383,9 +399,7 @@ when multiple flags are combined in the same option.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The argument name
-
-</td>
+				<td class="desc"><p>The argument name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -394,9 +408,7 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">The argument value
-
-</td>
+			<td class="desc"><p>The argument value</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -440,15 +452,12 @@ when multiple flags are combined in the same option.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The argument name
-</td>
+				<td class="desc"><p>The argument name</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$value</td>
-				<td class="desc">The argument value
-
-</td>
+				<td class="desc"><p>The argument value</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -501,9 +510,7 @@ when multiple flags are combined in the same option.</p></div>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>int</td>
 				<td class="rest">$name</td>
-				<td class="desc">The InputArgument name or position
-
-</td>
+				<td class="desc"><p>The InputArgument name or position</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -512,7 +519,7 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the InputArgument object exists, false otherwise</td>
+			<td class="desc"><p>true if the InputArgument object exists, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -586,9 +593,7 @@ when multiple flags are combined in the same option.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The option name
-
-</td>
+				<td class="desc"><p>The option name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -597,9 +602,7 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">The option value
-
-</td>
+			<td class="desc"><p>The option value</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -643,15 +646,12 @@ when multiple flags are combined in the same option.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The option name
-</td>
+				<td class="desc"><p>The option name</p></td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>bool</td>
 				<td class="rest">$value</td>
-				<td class="desc">The option value
-
-</td>
+				<td class="desc"><p>The option value</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -704,9 +704,7 @@ when multiple flags are combined in the same option.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The InputOption name
-
-</td>
+				<td class="desc"><p>The InputOption name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -715,7 +713,7 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the InputOption object exists, false otherwise</td>
+			<td class="desc"><p>true if the InputOption object exists, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -789,7 +787,7 @@ when multiple flags are combined in the same option.</p></div>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$interactive</td>
-				<td class="desc">If the input should be interactive</td>
+				<td class="desc"><p>If the input should be interactive</p></td>
 			</tr>
         		</tbody>
 	</table>

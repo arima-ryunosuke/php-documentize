@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -379,7 +402,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="http://php.net/manual/ja/throwable.getmessage.php" class="fqsen" target="_blank">\Throwable::getMessage()</a></td>
+				<td class="type"><a href="http://php.net/manual/ja/exception.getmessage.php" class="fqsen" target="_blank">\Exception::getMessage()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -428,7 +451,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="http://php.net/manual/ja/throwable.getcode.php" class="fqsen" target="_blank">\Throwable::getCode()</a></td>
+				<td class="type"><a href="http://php.net/manual/ja/exception.getcode.php" class="fqsen" target="_blank">\Exception::getCode()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -477,7 +500,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="http://php.net/manual/ja/throwable.getfile.php" class="fqsen" target="_blank">\Throwable::getFile()</a></td>
+				<td class="type"><a href="http://php.net/manual/ja/exception.getfile.php" class="fqsen" target="_blank">\Exception::getFile()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -526,7 +549,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="http://php.net/manual/ja/throwable.getline.php" class="fqsen" target="_blank">\Throwable::getLine()</a></td>
+				<td class="type"><a href="http://php.net/manual/ja/exception.getline.php" class="fqsen" target="_blank">\Exception::getLine()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -575,7 +598,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="http://php.net/manual/ja/throwable.gettrace.php" class="fqsen" target="_blank">\Throwable::getTrace()</a></td>
+				<td class="type"><a href="http://php.net/manual/ja/exception.gettrace.php" class="fqsen" target="_blank">\Exception::getTrace()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -624,7 +647,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="http://php.net/manual/ja/throwable.getprevious.php" class="fqsen" target="_blank">\Throwable::getPrevious()</a></td>
+				<td class="type"><a href="http://php.net/manual/ja/exception.getprevious.php" class="fqsen" target="_blank">\Exception::getPrevious()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -673,7 +696,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="http://php.net/manual/ja/throwable.gettraceasstring.php" class="fqsen" target="_blank">\Throwable::getTraceAsString()</a></td>
+				<td class="type"><a href="http://php.net/manual/ja/exception.gettraceasstring.php" class="fqsen" target="_blank">\Exception::getTraceAsString()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>
@@ -722,7 +745,7 @@
 		<caption>Prototype</caption>
 		<tbody>
         			<tr>
-				<td class="type"><a href="http://php.net/manual/ja/throwable.tostring.php" class="fqsen" target="_blank">\Throwable::__toString()</a></td>
+				<td class="type"><a href="http://php.net/manual/ja/exception.tostring.php" class="fqsen" target="_blank">\Exception::__toString()</a></td>
 				<td class="desc"></td>
 				<td class="rest">inherit</td>
 			</tr>

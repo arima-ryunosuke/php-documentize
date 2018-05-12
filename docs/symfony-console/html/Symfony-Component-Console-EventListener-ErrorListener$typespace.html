@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -217,20 +240,7 @@
                         getSubscribedEvents						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns an array of event names this subscriber wants to listen to.</p>
-<p>The array keys are event names and the value can be:</p>
-<ul>
-<li>The method name to call (priority defaults to 0)</li>
-<li>An array composed of the method name to call and the priority</li>
-<li>An array of arrays composed of the method names to call and respective<br />
-priorities, or 0 if unset</li>
-</ul>
-<p>For instance:</p>
-<ul>
-<li>array('eventName' =&gt; 'methodName')</li>
-<li>array('eventName' =&gt; array('methodName', $priority))</li>
-<li>array('eventName' =&gt; array(array('methodName1', $priority), array('methodName2')))</li>
-</ul></div>
+						<div class="description"></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -240,8 +250,8 @@ priorities, or 0 if unset</li>
 		<caption>Return</caption>
 		<tbody>
 		<tr>
-			<td class="type">array</td>
-			<td class="desc">The event names to listen to</td>
+			<td class="type">void</td>
+			<td class="desc"></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

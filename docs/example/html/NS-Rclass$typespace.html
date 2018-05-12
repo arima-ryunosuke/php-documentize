@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -25,7 +48,7 @@
 		<span class="label label-info"></span>
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
-        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L213-L266" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L248-L324" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             	</div>
 
 	<h2>class <span class="category-name">NS\Rclass</span></h2>
@@ -87,7 +110,7 @@
             				<li class="structure-item">
 					<div class="attribute">
 						<span class="label label-public">public</span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L110-L111" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L116-L117" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="NS\Rclass::INTERFACE_CONSTANT" tabindex="-1" class="structure-title">
 						<small>string</small>
@@ -117,7 +140,7 @@
 						<span class="label label-default"></span>
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L225-L226" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L260-L261" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="NS\Rclass::$class_property" tabindex="-1" class="structure-title">
 						<small>string</small>
@@ -132,7 +155,7 @@
 						<span class="label label-default"></span>
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L131-L132" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L137-L138" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="NS\Rclass::$trait_property" tabindex="-1" class="structure-title">
 						<small>string</small>
@@ -166,7 +189,7 @@
 						<span class="label label-default"></span>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L229-L229" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L264-L264" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="NS\Rclass::interfaceMethod()" tabindex="-1" class="structure-title ">
                         interfaceMethod						<small>($arg1)</small>
@@ -180,8 +203,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$arg1</td>
-				<td class="desc">引数1です
-</td>
+				<td class="desc"><p>引数1です</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -190,7 +212,7 @@
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">返り値です</td>
+			<td class="desc"><p>返り値です</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -222,7 +244,7 @@
 						<span class="label label-default"></span>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L231-L239" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L266-L274" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="NS\Rclass::actualMethod()" tabindex="-1" class="structure-title ">
                         actualMethod						<small>($arg1)</small>
@@ -237,8 +259,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$arg1</td>
-				<td class="desc">引数です
-</td>
+				<td class="desc"><p>引数です</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -247,7 +268,7 @@
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">返り値です</td>
+			<td class="desc"><p>返り値です</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -279,7 +300,7 @@
 						<span class="label label-default"></span>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L241-L254" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L276-L289" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="NS\Rclass::inheritMethod()" tabindex="-1" class="structure-title ">
                         inheritMethod						<small>($arg1)</small>
@@ -299,8 +320,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$arg1</td>
-				<td class="desc">引数です
-</td>
+				<td class="desc"><p>引数です</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -309,7 +329,7 @@
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">返り値です</td>
+			<td class="desc"><p>返り値です</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -331,7 +351,64 @@
 						<span class="label label-default"></span>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L256-L265" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L291-L303" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="NS\Rclass::inheritMethod1()" tabindex="-1" class="structure-title ">
+                        inheritMethod1						<small>($arg0, $arg1, $arg2)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>これは一部のみ継承するメソッドです</p>
+<p>$arg0, $arg2 は親に無い引数ですが、自身に記述されているので、マージされて使用されます。<br />
+param type $arg1 hogehoge とすることで親の引数の一部のみを書き換えることも出来ます。<br />
+return はこのメソッド自身に記述されているので上書きされて使用されます。</p></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$arg0</td>
+				<td class="desc"><p>param 追加。親に $arg0 は無いが、ここに記述することで追加される</p></td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$arg1</td>
+				<td class="desc"><p>引数です</p></td>
+			</tr>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$arg2</td>
+				<td class="desc"><p>param 追加。親に $arg2 は無いが、ここに記述することで追加される</p></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">string</td>
+			<td class="desc"><p>return 上書き。親は mixed だが string と表記される</p></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L305-L314" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="NS\Rclass::inheritMethod2()" tabindex="-1" class="structure-title ">
                         inheritMethod2						<small>($arg1)</small>
@@ -340,7 +417,7 @@
 						<div class="description"><p>これは inheritdoc しているメソッドへの inheritdoc です</p>
 <p>参照は再帰的に行われるので最終的に inheritdoc ではない実際に記述が為されているメソッドがドキュメント化されます。</p>
 <p>以下に継承元ドキュメントが表示されます。</p>
-<blockquote>これはドキュメントの継承元を指定したメソッドです
+<blockquote><tag_inheritdoc data-type-category='method' data-type-fqsen='NS\Rclass::inheritMethod()' data-type-array='0' data-description=''>これはドキュメントの継承元を指定したメソッドです
 
 inheritdoc で参照先を指定しているので、
 
@@ -348,7 +425,7 @@ inheritdoc で参照先を指定しているので、
 - php の言語構造の継承とは無関係
 
 という動作になります。
-結果としていま記述されているこのコメントは残り、 @param 指定などがないにも関わらず引数・返り値はドキュメント化されているはずです。<tag-inheritdoc data-type-category='method' data-type-fqsen='NS\Rclass::inheritMethod()' data-type-array='0' /></blockquote>
+結果としていま記述されているこのコメントは残り、 @param 指定などがないにも関わらず引数・返り値はドキュメント化されているはずです。</tag_inheritdoc></blockquote>
 <p>継承元ドキュメントはここまでです。</p></div>
                         	<table class="table">
 		<caption>Parameters</caption>
@@ -356,8 +433,7 @@ inheritdoc で参照先を指定しているので、
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$arg1</td>
-				<td class="desc">引数です
-</td>
+				<td class="desc"><p>引数です</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -366,7 +442,7 @@ inheritdoc で参照先を指定しているので、
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">返り値です</td>
+			<td class="desc"><p>返り値です</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -388,7 +464,53 @@ inheritdoc で参照先を指定しているので、
 						<span class="label label-default"></span>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L134-L140" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L316-L323" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            					</div>
+					<h4 id="NS\Rclass::inheritMethod3()" tabindex="-1" class="structure-title ">
+                        inheritMethod3						<small>($arg1)</small>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>これは {inheritdoc FQSEN 文言指定} かつ文言指定メソッドです</p>
+<p>{inheritdoc FQSEN 文言指定} とすると元ドキュメントではなく文言指定で文字列を埋め込めます。</p>
+<tag_inheritdoc data-type-category='method' data-type-fqsen='NS\Rclass::inheritMethod()' data-type-array='0' data-description='継承しつつ文言指定ができます'>継承しつつ文言指定ができます</tag_inheritdoc></div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$arg1</td>
+				<td class="desc"><p>引数です</p></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+		<tr>
+			<td class="type">mixed</td>
+			<td class="desc"><p>返り値です</p></td>
+			<td class="rest"></td>
+		</tr>
+		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L140-L146" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="NS\Rclass::traitMethod()" tabindex="-1" class="structure-title ">
                         traitMethod						<small>($arg1)</small>
@@ -401,8 +523,7 @@ inheritdoc で参照先を指定しているので、
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$arg1</td>
-				<td class="desc">引数1です
-</td>
+				<td class="desc"><p>引数1です</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -411,7 +532,7 @@ inheritdoc で参照先を指定しているので、
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc">返り値です</td>
+			<td class="desc"><p>返り値です</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

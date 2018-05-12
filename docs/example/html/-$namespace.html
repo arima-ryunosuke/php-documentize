@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -18,6 +41,9 @@
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">\</span></h2>
+	<div class="inner-item">
+		<div class="description"><p>サンプルドキュメント生成用の叩き台です（グローバル）</p></div>
+	</div>
 
     
             			<h3>Interfaces</h3>
@@ -29,7 +55,7 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L24-L43" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L25-L44" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="Ginterface" tabindex="-1" class="structure-title ">
 							<a href="Ginterface$typespace.html#Ginterface">Ginterface</a>
@@ -54,7 +80,7 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L45-L62" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L46-L63" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="Gtrait" tabindex="-1" class="structure-title ">
 							<a href="Gtrait$typespace.html#Gtrait">Gtrait</a>
@@ -79,7 +105,7 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L64-L84" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L65-L85" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="Gclass" tabindex="-1" class="structure-title ">
 							<a href="Gclass$typespace.html#Gclass">Gclass</a>
@@ -100,10 +126,11 @@
 		<ul>
             				<li class="structure-item" data-parent-id="GLOBAL_CONSTANT">
 					<div class="attribute">
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L10-L10" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L11-L11" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="GLOBAL_CONSTANT" tabindex="-1" class="structure-title ">
-                        GLOBAL_CONSTANT<var> = [
+						<small>array</small>
+                        GLOBAL_CONSTANT						<var> = [
     0   =&gt; 1,
     1   =&gt; 2,
     2   =&gt; 3,
@@ -112,6 +139,13 @@
     &#039;x&#039; =&gt; &#039;X&#039;,
 ]</var>
 					</h4>
+					<div class="inner-item">
+						<div class="description"><p>グローバルの定数です</p></div>
+					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
 				</li>
             		</ul>
     
@@ -123,7 +157,7 @@
 						<span class="label label-default"></span>
 						<span class="label label-default"></span>
 						<span class="label label-deprecated"></span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L12-L22" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L13-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             					</div>
 					<h4 id="global_function()" tabindex="-1" class="structure-title ">
                         global_function						<small>($format, ...$args)</small>
@@ -137,15 +171,13 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$format</td>
-				<td class="desc">引数1です
-</td>
+				<td class="desc"><p>引数1です</p></td>
 			</tr>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">...$args</td>
-				<td class="desc">可変引数です。
-    これは改行も含めた少し長めの引数概要です。
-</td>
+				<td class="desc"><p>可変引数です。<br />
+これは改行も含めた少し長めの引数概要です。</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -154,7 +186,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">返り値です</td>
+			<td class="desc"><p>返り値です</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -167,6 +199,11 @@
 					<div class="clearfix"></div>
 				</li>
             		</ul>
-    </div>
+    	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default">author ryunosuke</span>
+	</div>
+	<div class="clearfix"></div>
+</div>
 </body>
 </html>

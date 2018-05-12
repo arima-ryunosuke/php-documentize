@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -263,7 +286,7 @@
                         setFormatter						<small>($formatter)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag-inheritdoc data-type='' /></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -317,7 +340,7 @@
                         getFormatter						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns current output formatter instance.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -366,14 +389,14 @@
                         setDecorated						<small>($decorated)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the decorated flag.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated</td>
-				<td class="desc">Whether to decorate the messages</td>
+				<td class="desc"><p>Whether to decorate the messages</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -420,7 +443,7 @@
                         isDecorated						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the decorated flag.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -431,7 +454,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the output will decorate messages, false otherwise</td>
+			<td class="desc"><p>true if the output will decorate messages, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -469,14 +492,14 @@
                         setVerbosity						<small>($level)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the verbosity of the output.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$level</td>
-				<td class="desc">The level of verbosity (one of the VERBOSITY constants)</td>
+				<td class="desc"><p>The level of verbosity (one of the VERBOSITY constants)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -523,7 +546,7 @@
                         getVerbosity						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the current verbosity of the output.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -534,7 +557,7 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The current level of verbosity (one of the VERBOSITY constants)</td>
+			<td class="desc"><p>The current level of verbosity (one of the VERBOSITY constants)</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -572,7 +595,7 @@
                         isQuiet						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether verbosity is quiet (-q).<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -583,7 +606,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_QUIET, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_QUIET, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -621,7 +644,7 @@
                         isVerbose						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether verbosity is verbose (-v).<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -632,7 +655,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -670,7 +693,7 @@
                         isVeryVerbose						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether verbosity is very verbose (-vv).<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -681,7 +704,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -719,7 +742,7 @@
                         isDebug						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether verbosity is debug (-vvv).<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -730,7 +753,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if verbosity is set to VERBOSITY_DEBUG, false otherwise</td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_DEBUG, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -768,20 +791,19 @@
                         writeln						<small>($messages, $options = 0)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes a message to the output and adds a newline at the end.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc">The message as an array of lines of a single string
-</td>
+				<td class="desc"><p>The message as an array of lines of a single string</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc">A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -828,26 +850,24 @@
                         write						<small>($messages, $newline = false, $options = 0)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes a message to the output.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc">The message as an array of lines or a single string
-</td>
+				<td class="desc"><p>The message as an array of lines or a single string</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$newline = false</td>
-				<td class="desc">Whether to add a newline
-</td>
+				<td class="desc"><p>Whether to add a newline</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc">A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
 			</tr>
         		</tbody>
 	</table>

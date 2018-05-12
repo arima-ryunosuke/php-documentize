@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -110,7 +133,7 @@
                         setHelperSet						<small>($helperSet = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the helper set associated with this helper.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the helper set associated with this helper.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -164,7 +187,7 @@
                         getHelperSet						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the helper set associated with this helper.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the helper set associated with this helper.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -175,7 +198,7 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
-			<td class="desc">A HelperSet instance</td>
+			<td class="desc"><p>A HelperSet instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -220,9 +243,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$string</td>
-				<td class="desc">The string to check its length
-
-</td>
+				<td class="desc"><p>The string to check its length</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -231,7 +252,7 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">The length of the string</td>
+			<td class="desc"><p>The length of the string</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -266,21 +287,17 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$string</td>
-				<td class="desc">String to subset
-</td>
+				<td class="desc"><p>String to subset</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$from</td>
-				<td class="desc">Start offset
-</td>
+				<td class="desc"><p>Start offset</p></td>
 			</tr>
         			<tr>
 				<td class="type">int<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$length = null</td>
-				<td class="desc">Length to read
-
-</td>
+				<td class="desc"><p>Length to read</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -289,7 +306,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The string subset</td>
+			<td class="desc"><p>The string subset</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -514,7 +531,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The canonical name</td>
+			<td class="desc"><p>The canonical name</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

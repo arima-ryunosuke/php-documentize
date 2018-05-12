@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -238,19 +261,17 @@
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$format = null</td>
-				<td class="desc">Indicator format
-</td>
+				<td class="desc"><p>Indicator format</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$indicatorChangeInterval = 100</td>
-				<td class="desc">Change interval in milliseconds
-</td>
+				<td class="desc"><p>Change interval in milliseconds</p></td>
 			</tr>
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$indicatorValues = null</td>
-				<td class="desc">Animated indicator characters</td>
+				<td class="desc"><p>Animated indicator characters</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -465,9 +486,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The format name
-
-</td>
+				<td class="desc"><p>The format name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -476,7 +495,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>null</td>
-			<td class="desc">A format string</td>
+			<td class="desc"><p>A format string</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -512,13 +531,12 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The placeholder name (including the delimiter char like %)
-</td>
+				<td class="desc"><p>The placeholder name (including the delimiter char like %)</p></td>
 			</tr>
         			<tr>
 				<td class="type">callable</td>
 				<td class="rest">$callable</td>
-				<td class="desc">A PHP callable</td>
+				<td class="desc"><p>A PHP callable</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -562,9 +580,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The placeholder name (including the delimiter char like %)
-
-</td>
+				<td class="desc"><p>The placeholder name (including the delimiter char like %)</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -573,7 +589,7 @@
 		<tbody>
 		<tr>
 			<td class="type">callable<span class="type-separator"></span><wbr>null</td>
-			<td class="desc">A PHP callable</td>
+			<td class="desc"><p>A PHP callable</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -686,7 +702,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc">The message</td>
+				<td class="desc"><p>The message</p></td>
 			</tr>
         		</tbody>
 	</table>

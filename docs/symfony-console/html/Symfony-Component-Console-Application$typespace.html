@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -299,13 +322,12 @@ $app-&gt;run();</code></pre></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name = &#039;UNKNOWN&#039;</td>
-				<td class="desc">The name of the application
-</td>
+				<td class="desc"><p>The name of the application</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$version = &#039;UNKNOWN&#039;</td>
-				<td class="desc">The version of the application</td>
+				<td class="desc"><p>The version of the application</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -451,9 +473,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">0 if everything went fine, or an error code
-
-</td>
+			<td class="desc"><p>0 if everything went fine, or an error code</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -463,7 +483,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
         			<tr>
 				<td class="type"><a href="http://php.net/manual/ja/class.exception.php" class="fqsen" target="_blank">\Exception</a></td>
-				<td class="desc">When running fails. Bypass this when {@link setCatchExceptions()}.</td>
+				<td class="desc">When running fails. Bypass this when setCatchExceptions().</td>
 			</tr>
         		</tbody>
 	</table>
@@ -511,7 +531,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">0 if everything went fine, or an error code</td>
+			<td class="desc"><p>0 if everything went fine, or an error code</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -594,7 +614,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
-			<td class="desc">The HelperSet instance associated with this command</td>
+			<td class="desc"><p>The HelperSet instance associated with this command</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -677,7 +697,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
-			<td class="desc">The InputDefinition instance</td>
+			<td class="desc"><p>The InputDefinition instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -716,7 +736,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">A help message</td>
+			<td class="desc"><p>A help message</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -755,7 +775,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">Whether to catch exceptions or not during commands execution</td>
+			<td class="desc"><p>Whether to catch exceptions or not during commands execution</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -790,7 +810,7 @@ $app-&gt;run();</code></pre></div>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$boolean</td>
-				<td class="desc">Whether to catch exceptions or not during commands execution</td>
+				<td class="desc"><p>Whether to catch exceptions or not during commands execution</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -838,7 +858,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">Whether to automatically exit after a command execution or not</td>
+			<td class="desc"><p>Whether to automatically exit after a command execution or not</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -873,7 +893,7 @@ $app-&gt;run();</code></pre></div>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$boolean</td>
-				<td class="desc">Whether to automatically exit after a command execution or not</td>
+				<td class="desc"><p>Whether to automatically exit after a command execution or not</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -921,7 +941,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The application name</td>
+			<td class="desc"><p>The application name</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -956,7 +976,7 @@ $app-&gt;run();</code></pre></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The application name</td>
+				<td class="desc"><p>The application name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1004,7 +1024,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The application version</td>
+			<td class="desc"><p>The application version</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1039,7 +1059,7 @@ $app-&gt;run();</code></pre></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$version</td>
-				<td class="desc">The application version</td>
+				<td class="desc"><p>The application version</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1087,7 +1107,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The long application version</td>
+			<td class="desc"><p>The long application version</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1122,9 +1142,7 @@ $app-&gt;run();</code></pre></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The command name
-
-</td>
+				<td class="desc"><p>The command name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1133,7 +1151,7 @@ $app-&gt;run();</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
-			<td class="desc">The newly created command</td>
+			<td class="desc"><p>The newly created command</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1169,7 +1187,7 @@ $app-&gt;run();</code></pre></div>
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a>[]</td>
 				<td class="rest">$commands</td>
-				<td class="desc">An array of commands</td>
+				<td class="desc"><p>An array of commands</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1224,7 +1242,7 @@ If the command is not enabled it will not be added.</p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a><span class="type-separator"></span><wbr>null</td>
-			<td class="desc">The registered command if enabled or null</td>
+			<td class="desc"><p>The registered command if enabled or null</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1259,9 +1277,7 @@ If the command is not enabled it will not be added.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The command name or alias
-
-</td>
+				<td class="desc"><p>The command name or alias</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1270,9 +1286,7 @@ If the command is not enabled it will not be added.</p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
-			<td class="desc">A Command object
-
-</td>
+			<td class="desc"><p>A Command object</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1316,9 +1330,7 @@ If the command is not enabled it will not be added.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The command name or alias
-
-</td>
+				<td class="desc"><p>The command name or alias</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1327,7 +1339,7 @@ If the command is not enabled it will not be added.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the command exists, false otherwise</td>
+			<td class="desc"><p>true if the command exists, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1367,7 +1379,7 @@ If the command is not enabled it will not be added.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">string[]</td>
-			<td class="desc">An array of namespaces</td>
+			<td class="desc"><p>An array of namespaces</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1402,9 +1414,7 @@ If the command is not enabled it will not be added.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$namespace</td>
-				<td class="desc">A namespace or abbreviation to search for
-
-</td>
+				<td class="desc"><p>A namespace or abbreviation to search for</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1413,9 +1423,7 @@ If the command is not enabled it will not be added.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">A registered namespace
-
-</td>
+			<td class="desc"><p>A registered namespace</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1461,9 +1469,7 @@ match if you give it an abbreviation of a name or alias.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">A command name or a command alias
-
-</td>
+				<td class="desc"><p>A command name or a command alias</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1472,9 +1478,7 @@ match if you give it an abbreviation of a name or alias.</p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
-			<td class="desc">A Command instance
-
-</td>
+			<td class="desc"><p>A Command instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1519,9 +1523,7 @@ match if you give it an abbreviation of a name or alias.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$namespace = null</td>
-				<td class="desc">A namespace name
-
-</td>
+				<td class="desc"><p>A namespace name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1530,7 +1532,7 @@ match if you give it an abbreviation of a name or alias.</p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a>[]</td>
-			<td class="desc">An array of Command instances</td>
+			<td class="desc"><p>An array of Command instances</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1565,9 +1567,7 @@ match if you give it an abbreviation of a name or alias.</p></div>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$names</td>
-				<td class="desc">An array of names
-
-</td>
+				<td class="desc"><p>An array of names</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1576,7 +1576,7 @@ match if you give it an abbreviation of a name or alias.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">array</td>
-			<td class="desc">An array of abbreviations</td>
+			<td class="desc"><p>An array of abbreviations</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1791,9 +1791,7 @@ match if you give it an abbreviation of a name or alias.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">array</td>
-			<td class="desc">Array containing width and height
-
-</td>
+			<td class="desc"><p>Array containing width and height</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1829,15 +1827,12 @@ match if you give it an abbreviation of a name or alias.</p></div>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$width</td>
-				<td class="desc">The width
-</td>
+				<td class="desc"><p>The width</p></td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$height</td>
-				<td class="desc">The height
-
-</td>
+				<td class="desc"><p>The height</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -1951,7 +1946,7 @@ events are also dispatched during the life-cycle of the command.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc">0 if everything went fine, or an error code</td>
+			<td class="desc"><p>0 if everything went fine, or an error code</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1995,7 +1990,7 @@ events are also dispatched during the life-cycle of the command.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The command name</td>
+			<td class="desc"><p>The command name</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2034,7 +2029,7 @@ events are also dispatched during the life-cycle of the command.</p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
-			<td class="desc">An InputDefinition instance</td>
+			<td class="desc"><p>An InputDefinition instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2073,7 +2068,7 @@ events are also dispatched during the life-cycle of the command.</p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a>[]</td>
-			<td class="desc">An array of default Command instances</td>
+			<td class="desc"><p>An array of default Command instances</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2112,7 +2107,7 @@ events are also dispatched during the life-cycle of the command.</p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
-			<td class="desc">A HelperSet instance</td>
+			<td class="desc"><p>A HelperSet instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2147,9 +2142,7 @@ events are also dispatched during the life-cycle of the command.</p></div>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$abbrevs</td>
-				<td class="desc">Abbreviated suggestions to convert
-
-</td>
+				<td class="desc"><p>Abbreviated suggestions to convert</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -2158,7 +2151,7 @@ events are also dispatched during the life-cycle of the command.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">A formatted string of abbreviated suggestions</td>
+			<td class="desc"><p>A formatted string of abbreviated suggestions</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2194,15 +2187,12 @@ events are also dispatched during the life-cycle of the command.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The full name of the command
-</td>
+				<td class="desc"><p>The full name of the command</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$limit = null</td>
-				<td class="desc">The maximum number of parts of the namespace
-
-</td>
+				<td class="desc"><p>The maximum number of parts of the namespace</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -2211,7 +2201,7 @@ events are also dispatched during the life-cycle of the command.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The namespace of the command</td>
+			<td class="desc"><p>The namespace of the command</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2247,15 +2237,12 @@ if nothing is found in $collection, try in $abbrevs.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The string
-</td>
+				<td class="desc"><p>The string</p></td>
 			</tr>
         			<tr>
 				<td class="type">iterable</td>
 				<td class="rest">$collection</td>
-				<td class="desc">The collection
-
-</td>
+				<td class="desc"><p>The collection</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -2264,7 +2251,7 @@ if nothing is found in $collection, try in $abbrevs.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">string[]</td>
-			<td class="desc">A sorted array of similar string</td>
+			<td class="desc"><p>A sorted array of similar string</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2299,15 +2286,12 @@ if nothing is found in $collection, try in $abbrevs.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$commandName</td>
-				<td class="desc">The Command name
-</td>
+				<td class="desc"><p>The Command name</p></td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$isSingleCommand = false</td>
-				<td class="desc">Set to true if there is only one command in this application
-
-</td>
+				<td class="desc"><p>Set to true if there is only one command in this application</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -2400,9 +2384,7 @@ if nothing is found in $collection, try in $abbrevs.</p></div>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The full name of the command
-
-</td>
+				<td class="desc"><p>The full name of the command</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -2411,7 +2393,7 @@ if nothing is found in $collection, try in $abbrevs.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">string[]</td>
-			<td class="desc">The namespaces of the command</td>
+			<td class="desc"><p>The namespaces of the command</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

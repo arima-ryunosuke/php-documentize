@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <h1>
@@ -105,7 +128,7 @@
 					<div class="ellipsis">
 						<span class="label label-icon label-constant">C</span>
 						<a id="GLOBAL_CONSTANT" href="-$namespace.html#GLOBAL_CONSTANT" class="" target="main">GLOBAL_CONSTANT</a>
-						<small class="ellipsis-text"></small>
+						<small class="ellipsis-text">グローバルの定数です</small>
 					</div>
 				</li>
                                         				<li class="indent">
@@ -233,7 +256,7 @@
 								</li>
                                                         -->						</ul>
 					</li>
-                                                                                                                                                                                                                                                                                                                                                                        					<li class="indent text-nowrap holding-wrapper holding-class">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
 							<a id="NS\Mclass" href="NS-Mclass$typespace.html#NS\Mclass" class="" target="main">Mclass</a>
@@ -264,6 +287,13 @@
                             								<li class="indent  ">
 									<div class="ellipsis">
 										<span class="label label-icon label-method">M</span>
+										<a id="NS\Mclass::ignoreinheritMethod()" href="NS-Mclass$typespace.html#NS\Mclass::ignoreinheritMethod()" class="" target="main">ignoreinheritMethod</a>
+										<small class="ellipsis-text">ignoreinherit のメソッドです</small>
+									</div>
+								</li>
+                            								<li class="indent  ">
+									<div class="ellipsis">
+										<span class="label label-icon label-method">M</span>
 										<a id="NS\Mclass::magicMethod1()" href="NS-Mclass$typespace.html#NS\Mclass::magicMethod1()" class="" target="main">magicMethod1</a>
 										<small class="ellipsis-text">これはただのマジックメソッドです</small>
 									</div>
@@ -282,9 +312,16 @@
 										<small class="ellipsis-text">これはインライン phpdoc を使用したマジックメソッドです</small>
 									</div>
 								</li>
+                            								<li class="indent  ">
+									<div class="ellipsis">
+										<span class="label label-icon label-method">M</span>
+										<a id="NS\Mclass::magicMethod4()" href="NS-Mclass$typespace.html#NS\Mclass::magicMethod4()" class="" target="main">magicMethod4</a>
+										<small class="ellipsis-text">これは拡張構文を使用したマジックメソッドです</small>
+									</div>
+								</li>
                                                         -->						</ul>
 					</li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                					<li class="indent text-nowrap holding-wrapper holding-class">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
 							<a id="NS\Rclass" href="NS-Rclass$typespace.html#NS\Rclass" class="" target="main">Rclass</a>
@@ -336,8 +373,22 @@
                             								<li class="indent  ">
 									<div class="ellipsis">
 										<span class="label label-icon label-method">M</span>
+										<a id="NS\Rclass::inheritMethod1()" href="NS-Rclass$typespace.html#NS\Rclass::inheritMethod1()" class="" target="main">inheritMethod1</a>
+										<small class="ellipsis-text">これは一部のみ継承するメソッドです</small>
+									</div>
+								</li>
+                            								<li class="indent  ">
+									<div class="ellipsis">
+										<span class="label label-icon label-method">M</span>
 										<a id="NS\Rclass::inheritMethod2()" href="NS-Rclass$typespace.html#NS\Rclass::inheritMethod2()" class="" target="main">inheritMethod2</a>
 										<small class="ellipsis-text">これは inheritdoc しているメソッドへの inheritdoc です</small>
+									</div>
+								</li>
+                            								<li class="indent  ">
+									<div class="ellipsis">
+										<span class="label label-icon label-method">M</span>
+										<a id="NS\Rclass::inheritMethod3()" href="NS-Rclass$typespace.html#NS\Rclass::inheritMethod3()" class="" target="main">inheritMethod3</a>
+										<small class="ellipsis-text">これは {inheritdoc FQSEN 文言指定} かつ文言指定メソッドです</small>
 									</div>
 								</li>
                             								<li class="indent faint ">
@@ -349,7 +400,7 @@
 								</li>
                                                         -->						</ul>
 					</li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            					<li class="indent text-nowrap holding-wrapper holding-class">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
 							<a id="NS\Tclass" href="NS-Tclass$typespace.html#NS\Tclass" class="strike" target="main">Tclass</a>
@@ -384,6 +435,13 @@
 										<small class="ellipsis-text">これはメソッド用のタグの例示用メソッドです</small>
 									</div>
 								</li>
+                            								<li class="indent  ">
+									<div class="ellipsis">
+										<span class="label label-icon label-method">M</span>
+										<a id="NS\Tclass::inheritMethod()" href="NS-Tclass$typespace.html#NS\Tclass::inheritMethod()" class="" target="main">inheritMethod</a>
+										<small class="ellipsis-text">これはドキュメントの継承元を指定したメソッドです</small>
+									</div>
+								</li>
                             								<li class="indent faint ">
 									<div class="ellipsis">
 										<span class="label label-icon label-method">M</span>
@@ -401,8 +459,8 @@
                             								<li class="indent faint ">
 									<div class="ellipsis">
 										<span class="label label-icon label-method">M</span>
-										<a id="NS\Tclass::inheritMethod()" href="NS-Tclass$typespace.html#NS\Tclass::inheritMethod()" class="" target="main">inheritMethod</a>
-										<small class="ellipsis-text">これはドキュメントの継承元を指定したメソッドです</small>
+										<a id="NS\Tclass::inheritMethod1()" href="NS-Tclass$typespace.html#NS\Tclass::inheritMethod1()" class="" target="main">inheritMethod1</a>
+										<small class="ellipsis-text">これは一部のみ継承するメソッドです</small>
 									</div>
 								</li>
                             								<li class="indent faint ">
@@ -410,6 +468,13 @@
 										<span class="label label-icon label-method">M</span>
 										<a id="NS\Tclass::inheritMethod2()" href="NS-Tclass$typespace.html#NS\Tclass::inheritMethod2()" class="" target="main">inheritMethod2</a>
 										<small class="ellipsis-text">これは inheritdoc しているメソッドへの inheritdoc です</small>
+									</div>
+								</li>
+                            								<li class="indent faint ">
+									<div class="ellipsis">
+										<span class="label label-icon label-method">M</span>
+										<a id="NS\Tclass::inheritMethod3()" href="NS-Tclass$typespace.html#NS\Tclass::inheritMethod3()" class="" target="main">inheritMethod3</a>
+										<small class="ellipsis-text">これは {inheritdoc FQSEN 文言指定} かつ文言指定メソッドです</small>
 									</div>
 								</li>
                             								<li class="indent faint ">
@@ -425,7 +490,7 @@
 					<div class="ellipsis">
 						<span class="label label-icon label-constant">C</span>
 						<a id="NS\NAMESPACE_CONSTANT" href="NS-$namespace.html#NS\NAMESPACE_CONSTANT" class="" target="main">NAMESPACE_CONSTANT</a>
-						<small class="ellipsis-text"></small>
+						<small class="ellipsis-text">名前空間の定数です</small>
 					</div>
 				</li>
                                         				<li class="indent">
@@ -446,7 +511,7 @@
 	</li>
             	</ul>
 	<script>
-        $('#search').data('source', ["Ginterface","Ginterface::INTERFACE_CONSTANT","Ginterface::interfaceMethod()","Gtrait","Gtrait::$trait_property","Gtrait::traitMethod()","Gclass","Gclass::CLASS_CONSTANT","Gclass::$class_property","Gclass::classMethod()","GLOBAL_CONSTANT","global_function()","NS\\NSS\\C","NS\\NSS\\C::m()","NS\\NSS\\fff()","NS\\Ninterface","NS\\Ninterface::INTERFACE_CONSTANT","NS\\Ninterface::interfaceMethod()","NS\\Ntrait","NS\\Ntrait::$trait_property","NS\\Ntrait::traitMethod()","NS\\Nclass","NS\\Nclass::CLASS_CONSTANT","NS\\Nclass::$class_property","NS\\Nclass::classMethod()","NS\\Mclass","NS\\Mclass::$magicProperty1","NS\\Mclass::$magicProperty2","NS\\Mclass::actualMethod()","NS\\Mclass::magicMethod1()","NS\\Mclass::magicMethod2()","NS\\Mclass::magicMethod3()","NS\\Rclass","NS\\Rclass::INTERFACE_CONSTANT","NS\\Rclass::$class_property","NS\\Rclass::$trait_property","NS\\Rclass::interfaceMethod()","NS\\Rclass::actualMethod()","NS\\Rclass::inheritMethod()","NS\\Rclass::inheritMethod2()","NS\\Rclass::traitMethod()","NS\\Tclass","NS\\Tclass::INTERFACE_CONSTANT","NS\\Tclass::$tagProperty","NS\\Tclass::$class_property","NS\\Tclass::tagMethod()","NS\\Tclass::interfaceMethod()","NS\\Tclass::actualMethod()","NS\\Tclass::inheritMethod()","NS\\Tclass::inheritMethod2()","NS\\Tclass::traitMethod()","NS\\NAMESPACE_CONSTANT","NS\\namespace_function()","NS\\package_function()"]);
+        $('#search').data('source', ["Ginterface","Ginterface::INTERFACE_CONSTANT","Ginterface::interfaceMethod()","Gtrait","Gtrait::$trait_property","Gtrait::traitMethod()","Gclass","Gclass::CLASS_CONSTANT","Gclass::$class_property","Gclass::classMethod()","GLOBAL_CONSTANT","global_function()","NS\\NSS\\C","NS\\NSS\\C::m()","NS\\NSS\\fff()","NS\\Ninterface","NS\\Ninterface::INTERFACE_CONSTANT","NS\\Ninterface::interfaceMethod()","NS\\Ntrait","NS\\Ntrait::$trait_property","NS\\Ntrait::traitMethod()","NS\\Nclass","NS\\Nclass::CLASS_CONSTANT","NS\\Nclass::$class_property","NS\\Nclass::classMethod()","NS\\Mclass","NS\\Mclass::$magicProperty1","NS\\Mclass::$magicProperty2","NS\\Mclass::actualMethod()","NS\\Mclass::ignoreinheritMethod()","NS\\Mclass::magicMethod1()","NS\\Mclass::magicMethod2()","NS\\Mclass::magicMethod3()","NS\\Mclass::magicMethod4()","NS\\Rclass","NS\\Rclass::INTERFACE_CONSTANT","NS\\Rclass::$class_property","NS\\Rclass::$trait_property","NS\\Rclass::interfaceMethod()","NS\\Rclass::actualMethod()","NS\\Rclass::inheritMethod()","NS\\Rclass::inheritMethod1()","NS\\Rclass::inheritMethod2()","NS\\Rclass::inheritMethod3()","NS\\Rclass::traitMethod()","NS\\Tclass","NS\\Tclass::INTERFACE_CONSTANT","NS\\Tclass::$tagProperty","NS\\Tclass::$class_property","NS\\Tclass::tagMethod()","NS\\Tclass::inheritMethod()","NS\\Tclass::interfaceMethod()","NS\\Tclass::actualMethod()","NS\\Tclass::inheritMethod1()","NS\\Tclass::inheritMethod2()","NS\\Tclass::inheritMethod3()","NS\\Tclass::traitMethod()","NS\\NAMESPACE_CONSTANT","NS\\namespace_function()","NS\\package_function()"]);
 	</script>
 </div>
 </body>

@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -111,7 +134,7 @@
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper</a>[]</td>
 				<td class="rest">$helpers = []</td>
-				<td class="desc">An array of helper</td>
+				<td class="desc"><p>An array of helper</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -155,13 +178,12 @@
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperInterface</a></td>
 				<td class="rest">$helper</td>
-				<td class="desc">The helper instance
-</td>
+				<td class="desc"><p>The helper instance</p></td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$alias = null</td>
-				<td class="desc">An alias</td>
+				<td class="desc"><p>An alias</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -205,9 +227,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The helper name
-
-</td>
+				<td class="desc"><p>The helper name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -216,7 +236,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the helper is defined, false otherwise</td>
+			<td class="desc"><p>true if the helper is defined, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -251,9 +271,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The helper name
-
-</td>
+				<td class="desc"><p>The helper name</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -262,9 +280,7 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperInterface</a></td>
-			<td class="desc">The helper instance
-
-</td>
+			<td class="desc"><p>The helper instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -356,7 +372,7 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
-			<td class="desc">A Command instance</td>
+			<td class="desc"><p>A Command instance</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

@@ -4,11 +4,34 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
-	<script src="common.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
     </head>
 <body>
 <a id="anchor" href="./" style="display: none"></a>
@@ -122,9 +145,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$text</td>
-				<td class="desc">Text to escape
-
-</td>
+				<td class="desc"><p>Text to escape</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -133,7 +154,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">Escaped text</td>
+			<td class="desc"><p>Escaped text</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -168,9 +189,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$text</td>
-				<td class="desc">Text to escape
-
-</td>
+				<td class="desc"><p>Text to escape</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -179,9 +198,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">Escaped text
-
-</td>
+			<td class="desc"><p>Escaped text</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -216,13 +233,12 @@
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated = false</td>
-				<td class="desc">Whether this formatter should actually decorate strings
-</td>
+				<td class="desc"><p>Whether this formatter should actually decorate strings</p></td>
 			</tr>
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr><a href="Symfony-Component-Console-Formatter-OutputFormatterStyleInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterStyleInterface</a>[]</td>
 				<td class="rest">$styles = []</td>
-				<td class="desc">Array of &quot;name =&gt; FormatterStyle&quot; instances</td>
+				<td class="desc"><p>Array of &quot;name =&gt; FormatterStyle&quot; instances</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -259,14 +275,14 @@
                         setDecorated						<small>($decorated)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the decorated flag.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated</td>
-				<td class="desc">Whether to decorate the messages or not</td>
+				<td class="desc"><p>Whether to decorate the messages or not</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -313,7 +329,7 @@
                         isDecorated						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the decorated flag.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -324,7 +340,7 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc">true if the output will decorate messages, false otherwise</td>
+			<td class="desc"><p>true if the output will decorate messages, false otherwise</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -362,20 +378,19 @@
                         setStyle						<small>($name, $style)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets a new style.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets a new style.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc">The style name
-</td>
+				<td class="desc"><p>The style name</p></td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterStyleInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterStyleInterface</a></td>
 				<td class="rest">$style</td>
-				<td class="desc">The style instance</td>
+				<td class="desc"><p>The style instance</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -422,7 +437,7 @@
                         hasStyle						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Checks if output formatter has style with specified name.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Checks if output formatter has style with specified name.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -476,7 +491,7 @@
                         getStyle						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets style options from style with specified name.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets style options from style with specified name.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -539,16 +554,14 @@
                         format						<small>($message)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Formats a message according to the given styles.<tag-inheritdoc data-type='' /></p></div>
+						<div class="description"><tag_inheritdoc data-type='' data-description=''>Formats a message according to the given styles.</tag_inheritdoc></div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc">The message to style
-
-</td>
+				<td class="desc"><p>The message to style</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -557,7 +570,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">The styled message</td>
+			<td class="desc"><p>The styled message</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -650,7 +663,7 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterStyle$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyle" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterStyle</a><span class="type-separator"></span><wbr>false</td>
-			<td class="desc">false if string is not format string</td>
+			<td class="desc"><p>false if string is not format string</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -685,9 +698,7 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$text</td>
-				<td class="desc">Input text
-
-</td>
+				<td class="desc"><p>Input text</p></td>
 			</tr>
         		</tbody>
 	</table>
@@ -696,7 +707,7 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc">Styled text</td>
+			<td class="desc"><p>Styled text</p></td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
