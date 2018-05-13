@@ -1,6 +1,6 @@
 <?php
 
-/** Don't touch this code. This is auto generated. */
+# Don't touch this code. This is auto generated.
 
 namespace ryunosuke\Documentize\Utils;
 
@@ -29,8 +29,6 @@ class Utility
      * $rand3 = cache('rand', $provider);
      * assertNotSame($rand1, $rand3);
      * ```
-     *
-     * @package Utility
      *
      * @param string $key キャッシュのキー
      * @param callable $provider キャッシュがない場合にコールされる callable
@@ -76,8 +74,6 @@ class Utility
      * 文字列を与えるとファイル名とみなし、ファイルに追記される。
      * ファイルを開くが、**ファイルは閉じない**。閉じ処理は php の終了処理に身を任せる。
      * したがって閉じる必要がある場合はファイルポインタを渡す必要がある。
-     *
-     * @package Utility
      *
      * @param string|mixed $message 出力メッセージ
      * @param resource|string|mixed $destination 出力先
@@ -146,8 +142,6 @@ class Utility
      *     'intcast' => function($v){return (int)$v;},
      * ], ['12345'], 10);
      * ```
-     *
-     * @package Utility
      *
      * @param array|callable $suite ベンチ対象処理
      * @param array $args 各ケースに与えられる引数
@@ -219,7 +213,7 @@ class Utility
                 'name'   => $name,
                 'called' => $count,
                 'mills'  => $millisec / $count,
-                'ratio'  => $count / $maxcount,
+                'ratio'  => $maxcount / $count,
             ];
         }
 

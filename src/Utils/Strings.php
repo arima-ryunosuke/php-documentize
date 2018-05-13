@@ -1,6 +1,6 @@
 <?php
 
-/** Don't touch this code. This is auto generated. */
+# Don't touch this code. This is auto generated.
 
 namespace ryunosuke\Documentize\Utils;
 
@@ -13,8 +13,6 @@ class Strings
      * ```php
      * assertSame(strcat('a', 'b', 'c'), 'abc');
      * ```
-     *
-     * @package String
      *
      * @param mixed $variadic 結合する文字列（可変引数）
      * @return string 結合した文字列
@@ -40,8 +38,6 @@ class Strings
      * assertSame(split_noempty(',', 'a, , , b, c', false), ['a', ' ', ' ', ' b', ' c']);
      * ```
      *
-     * @package String
-     *
      * @param string $delimiter 区切り文字
      * @param string $string 対象文字
      * @param string|bool $trimchars 指定した文字を trim する。true を指定すると trim する
@@ -64,6 +60,113 @@ class Strings
     }
 
     /**
+     * explode の配列対応と $limit の挙動を変えたもの
+     *
+     * $delimiter には配列が使える。いわゆる「複数文字列での分割」の動作になる。
+     *
+     * $limit に負数を与えると「その絶対値-1までを結合したものと残り」を返す。
+     * 素の explode の負数 $limit の動作が微妙に気に入らない（implode 正数と対称性がない）ので再実装。
+     *
+     * Example:
+     * ```php
+     * // 配列を与えると複数文字列での分割
+     * assertSame(multiexplode([',', ' ', '|'], 'a,b c|d'), ['a', 'b', 'c', 'd']);
+     * // 負数を与えると前詰め
+     * assertSame(multiexplode(',', 'a,b,c,d', -2), ['a,b,c', 'd']);
+     * // もちろん上記2つは共存できる
+     * assertSame(multiexplode([',', ' ', '|'], 'a,b c|d', -2), ['a,b,c', 'd']);
+     * ```
+     *
+     * @param string|array $delimiter 分割文字列。配列可
+     * @param string $string 対象文字列
+     * @param int $limit 分割数
+     * @return array 分割された配列
+     */
+    public static function multiexplode($delimiter, $string, $limit = PHP_INT_MAX)
+    {
+        if (is_array($delimiter)) {
+            $representative = reset($delimiter);
+            $string = str_replace($delimiter, $representative, $string);
+            $delimiter = $representative;
+        }
+
+        if ($limit < 0) {
+            $parts = explode($delimiter, $string);
+            $sub = array_splice($parts, 0, $limit + 1);
+            if ($sub) {
+                array_unshift($parts, implode($delimiter, $sub));
+            }
+            return $parts;
+        }
+        return explode($delimiter, $string, $limit);
+    }
+
+    /**
+     * エスケープやクオートに対応した explode
+     *
+     * $enclosures は配列で開始・終了文字が別々に指定できるが、実装上の都合で今のところ1文字ずつのみ。
+     *
+     * Example:
+     * ```php
+     * // シンプルな例
+     * assertSame(quoteexplode(',', 'a,b,c\\,d,"e,f"'), [
+     *     'a', // 普通に分割される
+     *     'b', // 普通に分割される
+     *     'c\\,d', // \\ でエスケープしているので区切り文字とみなされない
+     *     '"e,f"', // "" でクオートされているので区切り文字とみなされない
+     * ]);
+     *
+     * // $enclosures で囲い文字の開始・終了文字を明示できる
+     * assertSame(quoteexplode(',', 'a,b,{e,f}', ['{' => '}']), [
+     *     'a', // 普通に分割される
+     *     'b', // 普通に分割される
+     *     '{e,f}', // { } で囲まれているので区切り文字とみなされない
+     * ]);
+     * ```
+     *
+     * @param string $delimiter 分割文字列
+     * @param string $string 対象文字列
+     * @param array|string $enclosures 囲い文字。 ["start" => "end"] で開始・終了が指定できる
+     * @param string $escape エスケープ文字
+     * @return array 分割された配列
+     */
+    public static function quoteexplode($delimiter, $string, $enclosures = "'\"", $escape = '\\')
+    {
+        if (is_string($enclosures)) {
+            $chars = str_split($enclosures);
+            $enclosures = array_combine($chars, $chars);
+        }
+
+        $delimiterlen = strlen($delimiter);
+        $starts = implode('', array_keys($enclosures));
+        $ends = implode('', $enclosures);
+        $enclosing = [];
+        $current = 0;
+        $result = [];
+        for ($i = 0, $l = strlen($string); $i < $l; $i++) {
+            if ($i !== 0 && $string[$i - 1] === $escape) {
+                continue;
+            }
+            if (strpos($ends, $string[$i]) !== false) {
+                if ($enclosing && $enclosures[$enclosing[count($enclosing) - 1]] === $string[$i]) {
+                    array_pop($enclosing);
+                    continue;
+                }
+            }
+            if (strpos($starts, $string[$i]) !== false) {
+                $enclosing[] = $string[$i];
+                continue;
+            }
+            if (empty($enclosing) && substr_compare($string, $delimiter, $i, $delimiterlen) === 0) {
+                $result[] = substr($string, $current, $i - $current);
+                $current = $i + $delimiterlen;
+            }
+        }
+        $result[] = substr($string, $current, $i);
+        return $result;
+    }
+
+    /**
      * 文字列比較の関数版
      *
      * 文字列以外が与えられた場合は常に false を返す。ただし __toString を実装したオブジェクトは別。
@@ -74,8 +177,6 @@ class Strings
      * assertTrue(str_equals('abc', 'ABC', true));
      * assertTrue(str_equals('\0abc', '\0abc'));
      * ```
-     *
-     * @package String
      *
      * @param string $str1 文字列1
      * @param string $str2 文字列2
@@ -115,8 +216,6 @@ class Strings
      * assertFalse(str_contains('abc', ['b', 'x'], false, true));
      * ```
      *
-     * @package String
-     *
      * @param string $haystack 対象文字列
      * @param string|array $needle 調べる文字列
      * @param bool $case_insensitivity 大文字小文字を区別するか
@@ -151,18 +250,27 @@ class Strings
     /**
      * fputcsv の文字列版（str_getcsv の put 版）
      *
-     * 特に難しいことはないシンプルな実装。ただし、エラーは例外に変換される。
+     * エラーは例外に変換される。
+     *
+     * 普通の配列を与えるとシンプルに "a,b,c" のような1行を返す。
+     * 多次元配列（2次元のみを想定）や Traversable を与えるとループして "a,b,c\nd,e,f" のような複数行を返す。
      *
      * Example:
      * ```php
+     * // シンプルな1行を返す
      * assertSame(str_putcsv(['a', 'b', 'c']), "a,b,c");
      * assertSame(str_putcsv(['a', 'b', 'c'], "\t"), "a\tb\tc");
      * assertSame(str_putcsv(['a', ' b ', 'c'], " ", "'"), "a ' b ' c");
+     *
+     * // 複数行を返す
+     * assertSame(str_putcsv([['a', 'b', 'c'], ['d', 'e', 'f']]), "a,b,c\nd,e,f");
+     * assertSame(str_putcsv((function() {
+     *     yield ['a', 'b', 'c'];
+     *     yield ['d', 'e', 'f'];
+     * })()), "a,b,c\nd,e,f");
      * ```
      *
-     * @package String
-     *
-     * @param array $array 値の配列
+     * @param array|\Traversable $array 値の配列 or 値の配列の配列
      * @param string $delimiter フィールド区切り文字
      * @param string $enclosure フィールドを囲む文字
      * @param string $escape エスケープ文字
@@ -170,26 +278,21 @@ class Strings
      */
     public static function str_putcsv($array, $delimiter = ',', $enclosure = '"', $escape = "\\")
     {
+        $fp = fopen('php://memory', 'rw+');
         try {
-            $fp = fopen('php://memory', 'rw+');
+            if (is_array($array) && call_user_func(array_depth, $array) === 1) {
+                $array = [$array];
+            }
             return call_user_func(call_safely, function ($fp, $array, $delimiter, $enclosure, $escape) {
-                if (version_compare(PHP_VERSION, '5.5.4') >= 0) {
-                    fputcsv($fp, $array, $delimiter, $enclosure, $escape);
-                }
-                else {
-                    fputcsv($fp, $array, $delimiter, $enclosure); // @codeCoverageIgnore
+                foreach ($array as $line) {
+                    fputcsv($fp, $line, $delimiter, $enclosure, $escape);
                 }
                 rewind($fp);
-                $result = stream_get_contents($fp);
-                fclose($fp);
-                return rtrim($result, "\n");
+                return rtrim(stream_get_contents($fp), "\n");
             }, $fp, $array, $delimiter, $enclosure, $escape);
         }
-        catch (\ErrorException $ex) {
-            if (isset($fp) && $fp) {
-                fclose($fp);
-            }
-            throw $ex;
+        finally {
+            fclose($fp);
         }
     }
 
@@ -199,6 +302,9 @@ class Strings
      * $subject 内の $search を $replaces に置換する。
      * str_replace とは「N 番目のみ置換できる」点で異なる。
      * つまり、$subject='hoge', $replace=[2 => 'fuga'] とすると「3 番目の 'hoge' が hoge に置換される」という動作になる（0 ベース）。
+     *
+     * $replace に 非配列を与えた場合は配列化される。
+     * つまり `$replaces = 'hoge'` は `$replaces = [0 => 'hoge']` と同じ（最初のマッチを置換する）。
      *
      * $replace に空配列を与えると何もしない。
      * 負数キーは後ろから数える動作となる。
@@ -216,16 +322,18 @@ class Strings
      * assertSame(str_subreplace('xxx', 'x', [0 => 'xxx', 1 => 'X']), 'xxxXx');
      * ```
      *
-     * @package String
-     *
      * @param string $subject 対象文字列
      * @param string $search 検索文字列
-     * @param array $replaces 置換文字列
+     * @param array|string $replaces 置換文字列配列（単一指定は配列化される）
      * @param bool $case_insensitivity 大文字小文字を区別するか
      * @return string 置換された文字列
      */
     public static function str_subreplace($subject, $search, $replaces, $case_insensitivity = false)
     {
+        if (!is_array($replaces)) {
+            $replaces = [$replaces];
+        }
+
         // 空はそのまま返す
         if (empty($replaces)) {
             return $subject;
@@ -280,15 +388,12 @@ class Strings
      * Example:
      * ```php
      * // $position を利用して "first", "second", "third" を得る（"で囲まれた "blank" は返ってこない）。
-     * $n = 0;
      * assertSame(str_between('{first} and {second} and "{blank}" and {third}', '{', '}', $n), 'first');
      * assertSame(str_between('{first} and {second} and "{blank}" and {third}', '{', '}', $n), 'second');
      * assertSame(str_between('{first} and {second} and "{blank}" and {third}', '{', '}', $n), 'third');
      * // ネストしている場合は最も外側を返す
      * assertSame(str_between('{nest1{nest2{nest3}}}', '{', '}'), 'nest1{nest2{nest3}}');
      * ```
-     *
-     * @package String
      *
      * @param string $string 対象文字列
      * @param string $from 開始文字列
@@ -303,6 +408,7 @@ class Strings
         $strlen = strlen($string);
         $fromlen = strlen($from);
         $tolen = strlen($to);
+        $position = intval($position);
         $enclosing = null;
         $nesting = 0;
         $start = null;
@@ -350,8 +456,6 @@ class Strings
      * assertFalse(starts_with('abcdef', 'xyz'));
      * ```
      *
-     * @package String
-     *
      * @param string $string 探される文字列
      * @param string $with 探す文字列
      * @param bool $case_insensitivity 大文字小文字を区別するか
@@ -376,8 +480,6 @@ class Strings
      * assertFalse(ends_with('abcdef', 'xyz'));
      * ```
      *
-     * @package String
-     *
      * @param string $string 探される文字列
      * @param string $with 探す文字列
      * @param bool $case_insensitivity 大文字小文字を区別するか
@@ -400,8 +502,6 @@ class Strings
      * assertSame(camel_case('this_is_a_pen'), 'thisIsAPen');
      * ```
      *
-     * @package String
-     *
      * @param string $string 対象文字列
      * @param string $delimiter デリミタ
      * @return string 変換した文字列
@@ -418,8 +518,6 @@ class Strings
      * ```php
      * assertSame(pascal_case('this_is_a_pen'), 'ThisIsAPen');
      * ```
-     *
-     * @package String
      *
      * @param string $string 対象文字列
      * @param string $delimiter デリミタ
@@ -438,8 +536,6 @@ class Strings
      * assertSame(snake_case('ThisIsAPen'), 'this_is_a_pen');
      * ```
      *
-     * @package String
-     *
      * @param string $string 対象文字列
      * @param string $delimiter デリミタ
      * @return string 変換した文字列
@@ -457,8 +553,6 @@ class Strings
      * assertSame(chain_case('ThisIsAPen'), 'this-is-a-pen');
      * ```
      *
-     * @package String
-     *
      * @param string $string 対象文字列
      * @param string $delimiter デリミタ
      * @return string 変換した文字列
@@ -471,27 +565,12 @@ class Strings
     /**
      * 安全な乱数文字列を生成する
      *
-     * 下記のいずれかを記述順の優先度で使用する。
-     *
-     * - random_bytes: 汎用だが php7 以降のみ
-     * - openssl_random_pseudo_bytes: openSsl が必要
-     * - mcrypt_create_iv: Mcrypt が必要
-     *
-     * @package String
-     *
      * @param int $length 生成文字列長
      * @param string $charlist 使用する文字セット
      * @return string 乱数文字列
      */
     public static function random_string($length = 8, $charlist = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
     {
-        // テスト＋カバレッジのための隠し引数
-        /** @noinspection PhpUnusedLocalVariableInspection */
-        $args = func_get_args();
-        $pf = true;
-
-        assert('$pf = count($args) > 2 ? $args[2] : true;');
-
         if ($length <= 0) {
             throw new \InvalidArgumentException('$length must be positive number.');
         }
@@ -501,30 +580,7 @@ class Strings
             throw new \InvalidArgumentException('charlist is empty.');
         }
 
-        // 使えるなら最も優秀なはず
-        if ((function_exists('random_bytes') && $pf === true) || $pf === 'random_bytes') {
-            $bytes = random_bytes($length);
-        }
-        // 次点
-        elseif ((function_exists('openssl_random_pseudo_bytes') && $pf === true) || $pf === 'openssl_random_pseudo_bytes') {
-            $bytes = openssl_random_pseudo_bytes($length, $crypto_strong);
-            if ($crypto_strong === false) {
-                throw new \Exception('failed to random_string ($crypto_strong is false).');
-            }
-        }
-        // よく分からない？
-        elseif ((function_exists('mcrypt_create_iv') && $pf === true) || $pf === 'mcrypt_create_iv') {
-            /** @noinspection PhpDeprecationInspection */
-            $bytes = mcrypt_create_iv($length);
-        }
-        // どれもないなら例外
-        else {
-            throw new \Exception('failed to random_string (enabled function is not exists).');
-        }
-
-        if (strlen($bytes) === 0) {
-            throw new \Exception('failed to random_string (bytes length is 0).');
-        }
+        $bytes = random_bytes($length);
 
         // 1文字1バイト使う。文字種によっては出現率に差が出るがう～ん
         $string = '';
@@ -543,8 +599,6 @@ class Strings
      * ```php
      * assertSame(kvsprintf('%hoge$s %fuga$d', ['hoge' => 'ThisIs', 'fuga' => '3.14']), 'ThisIs 3');
      * ```
-     *
-     * @package String
      *
      * @param string $format フォーマット文字列
      * @param array $array フォーマット引数
@@ -593,8 +647,6 @@ class Strings
      * assertSame(preg_capture($pattern, 'hoge', $default), [1 => '2000', 2 => '1', 4 => '1']);
      * ```
      *
-     * @package String
-     *
      * @param string $pattern 正規表現
      * @param string $subject 対象文字列
      * @param array $default デフォルト値
@@ -611,6 +663,49 @@ class Strings
         }
 
         return $default;
+    }
+
+    /**
+     * キャプチャも行える preg_replace
+     *
+     * 「置換を行いつつ、キャプチャ文字列が欲しい」状況はまれによくあるはず。
+     *
+     * $replacement に callable を渡すと preg_replace_callback がコールされる。
+     * callable と入っても単純文字列 callble （"strtoupper" など）は callable とはみなされない。
+     * 配列形式の callable や クロージャのみ preg_replace_callback になる。
+     *
+     * Example:
+     * ```php
+     * // 数字を除去しつつその除去された数字を得る
+     * assertSame(preg_splice('#\\d+#', '', 'abc123', $m), 'abc');
+     * assertSame($m, ['123']);
+     *
+     * // callable だと preg_replace_callback が呼ばれる
+     * assertSame(preg_splice('#[a-z]+#', function($m){return strtoupper($m[0]);}, 'abc123', $m), 'ABC123');
+     * assertSame($m, ['abc']);
+     *
+     * // ただし、 文字列 callable は文字列として扱う
+     * assertSame(preg_splice('#[a-z]+#', 'strtoupper', 'abc123', $m), 'strtoupper123');
+     * assertSame($m, ['abc']);
+     * ```
+     *
+     * @param string $pattern 正規表現
+     * @param string|callable $replacement 置換文字列
+     * @param string $subject 対象文字列
+     * @param array $matches キャプチャ配列が格納される
+     * @return string 置換された文字列
+     */
+    public static function preg_splice($pattern, $replacement, $subject, &$matches = [])
+    {
+        if (preg_match($pattern, $subject, $matches)) {
+            if (!is_string($replacement) && is_callable($replacement)) {
+                $subject = preg_replace_callback($pattern, $replacement, $subject);
+            }
+            else {
+                $subject = preg_replace($pattern, $replacement, $subject);
+            }
+        }
+        return $subject;
     }
 
     /**
@@ -643,8 +738,6 @@ class Strings
      * assertSame(render_string('{$_(max($nums))}', ['nums' => [1, 9, 3]]), '9');
      * ```
      *
-     * @package String
-     *
      * @param string $template レンダリング文字列
      * @param array $array レンダリング変数
      * @return string レンダリングされた文字列
@@ -669,7 +762,7 @@ class Strings
         }
 
         try {
-            $return = call_user_func(function () {
+            return call_user_func(function () {
                 // extract は数値キーを展開してくれないので自前ループで展開
                 foreach (func_get_arg(1) as $k => $v) {
                     $$k = $v;
@@ -682,25 +775,15 @@ class Strings
                 return eval(func_get_arg(0));
             }, $evalcode, $vars);
         }
-            /** @noinspection PhpUndefinedClassInspection */
         catch (\ParseError $ex) {
-            // for php 7
-            $return = false;
+            throw new \RuntimeException('failed to eval code.' . $evalcode, 0, $ex);
         }
-
-        if ($return === false) {
-            throw new \RuntimeException('failed to eval code.' . $evalcode);
-        }
-
-        return $return;
     }
 
     /**
      * "hoge {$hoge}" 形式のレンダリングのファイル版
      *
-     * @package String
-     *
-     * @see render_string
+     * @see render_string()
      *
      * @param string $template_file レンダリングするファイル名
      * @param array $array レンダリング変数

@@ -1,11 +1,9 @@
 <?php
 
-/** Don't touch this code. This is auto generated. */
+# Don't touch this code. This is auto generated.
 
 namespace ryunosuke\Documentize\Utils;
 
-const fnmatchs = ['ryunosuke\\Documentize\\Utils\\Adhoc', 'fnmatchs'];
-const explode = ['ryunosuke\\Documentize\\Utils\\Adhoc', 'explode'];
 const arrayize = ['ryunosuke\\Documentize\\Utils\\Arrays', 'arrayize'];
 const is_hasharray = ['ryunosuke\\Documentize\\Utils\\Arrays', 'is_hasharray'];
 const first_key = ['ryunosuke\\Documentize\\Utils\\Arrays', 'first_key'];
@@ -42,6 +40,7 @@ const array_maps = ['ryunosuke\\Documentize\\Utils\\Arrays', 'array_maps'];
 const array_nmap = ['ryunosuke\\Documentize\\Utils\\Arrays', 'array_nmap'];
 const array_lmap = ['ryunosuke\\Documentize\\Utils\\Arrays', 'array_lmap'];
 const array_rmap = ['ryunosuke\\Documentize\\Utils\\Arrays', 'array_rmap'];
+const array_each = ['ryunosuke\\Documentize\\Utils\\Arrays', 'array_each'];
 const array_depth = ['ryunosuke\\Documentize\\Utils\\Arrays', 'array_depth'];
 const array_insert = ['ryunosuke\\Documentize\\Utils\\Arrays', 'array_insert'];
 const array_assort = ['ryunosuke\\Documentize\\Utils\\Arrays', 'array_assort'];
@@ -70,6 +69,8 @@ const file_extension = ['ryunosuke\\Documentize\\Utils\\FileSystem', 'file_exten
 const file_set_contents = ['ryunosuke\\Documentize\\Utils\\FileSystem', 'file_set_contents'];
 const mkdir_p = ['ryunosuke\\Documentize\\Utils\\FileSystem', 'mkdir_p'];
 const dirname_r = ['ryunosuke\\Documentize\\Utils\\FileSystem', 'dirname_r'];
+const fnmatch_and = ['ryunosuke\\Documentize\\Utils\\FileSystem', 'fnmatch_and'];
+const fnmatch_or = ['ryunosuke\\Documentize\\Utils\\FileSystem', 'fnmatch_or'];
 const path_is_absolute = ['ryunosuke\\Documentize\\Utils\\FileSystem', 'path_is_absolute'];
 const path_resolve = ['ryunosuke\\Documentize\\Utils\\FileSystem', 'path_resolve'];
 const path_normalize = ['ryunosuke\\Documentize\\Utils\\FileSystem', 'path_normalize'];
@@ -88,6 +89,7 @@ const reflect_callable = ['ryunosuke\\Documentize\\Utils\\Funchand', 'reflect_ca
 const closurize = ['ryunosuke\\Documentize\\Utils\\Funchand', 'closurize'];
 const call_safely = ['ryunosuke\\Documentize\\Utils\\Funchand', 'call_safely'];
 const ob_capture = ['ryunosuke\\Documentize\\Utils\\Funchand', 'ob_capture'];
+const by_builtin = ['ryunosuke\\Documentize\\Utils\\Funchand', 'by_builtin'];
 const parameter_length = ['ryunosuke\\Documentize\\Utils\\Funchand', 'parameter_length'];
 const function_shorten = ['ryunosuke\\Documentize\\Utils\\Funchand', 'function_shorten'];
 const func_user_func_array = ['ryunosuke\\Documentize\\Utils\\Funchand', 'func_user_func_array'];
@@ -103,6 +105,8 @@ const random_at = ['ryunosuke\\Documentize\\Utils\\Math', 'random_at'];
 const probability = ['ryunosuke\\Documentize\\Utils\\Math', 'probability'];
 const strcat = ['ryunosuke\\Documentize\\Utils\\Strings', 'strcat'];
 const split_noempty = ['ryunosuke\\Documentize\\Utils\\Strings', 'split_noempty'];
+const multiexplode = ['ryunosuke\\Documentize\\Utils\\Strings', 'multiexplode'];
+const quoteexplode = ['ryunosuke\\Documentize\\Utils\\Strings', 'quoteexplode'];
 const str_equals = ['ryunosuke\\Documentize\\Utils\\Strings', 'str_equals'];
 const str_contains = ['ryunosuke\\Documentize\\Utils\\Strings', 'str_contains'];
 const str_putcsv = ['ryunosuke\\Documentize\\Utils\\Strings', 'str_putcsv'];
@@ -117,6 +121,7 @@ const chain_case = ['ryunosuke\\Documentize\\Utils\\Strings', 'chain_case'];
 const random_string = ['ryunosuke\\Documentize\\Utils\\Strings', 'random_string'];
 const kvsprintf = ['ryunosuke\\Documentize\\Utils\\Strings', 'kvsprintf'];
 const preg_capture = ['ryunosuke\\Documentize\\Utils\\Strings', 'preg_capture'];
+const preg_splice = ['ryunosuke\\Documentize\\Utils\\Strings', 'preg_splice'];
 const render_string = ['ryunosuke\\Documentize\\Utils\\Strings', 'render_string'];
 const render_file = ['ryunosuke\\Documentize\\Utils\\Strings', 'render_file'];
 const returns = ['ryunosuke\\Documentize\\Utils\\Syntax', 'returns'];
@@ -133,6 +138,8 @@ const stringify = ['ryunosuke\\Documentize\\Utils\\Vars', 'stringify'];
 const numberify = ['ryunosuke\\Documentize\\Utils\\Vars', 'numberify'];
 const is_primitive = ['ryunosuke\\Documentize\\Utils\\Vars', 'is_primitive'];
 const is_recursive = ['ryunosuke\\Documentize\\Utils\\Vars', 'is_recursive'];
+const is_iterable = ['ryunosuke\\Documentize\\Utils\\Vars', 'is_iterable'];
+const is_countable = ['ryunosuke\\Documentize\\Utils\\Vars', 'is_countable'];
 const var_type = ['ryunosuke\\Documentize\\Utils\\Vars', 'var_type'];
 const var_export2 = ['ryunosuke\\Documentize\\Utils\\Vars', 'var_export2'];
 const var_html = ['ryunosuke\\Documentize\\Utils\\Vars', 'var_html'];

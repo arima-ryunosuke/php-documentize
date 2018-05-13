@@ -1,6 +1,6 @@
 <?php
 
-/** Don't touch this code. This is auto generated. */
+# Don't touch this code. This is auto generated.
 
 namespace ryunosuke\Documentize\Utils;
 
@@ -10,8 +10,6 @@ class Vars
      * 値を何とかして文字列化する
      *
      * この関数の出力は互換性を考慮しない。頻繁に変更される可能性がある。
-     *
-     * @package Var
      *
      * @param mixed $var 文字列化する値
      * @return string $var を文字列化したもの
@@ -68,8 +66,6 @@ class Vars
      * assertSame(numberify('a1b2c3'), 123);
      * assertSame(numberify('a1b2.c3', true), 12.3);
      * ```
-     *
-     * @package Var
      *
      * @param string $var 対象の値
      * @param bool $decimal 小数として扱うか
@@ -140,8 +136,6 @@ class Vars
      * assertFalse(is_primitive(['array']));
      * ```
      *
-     * @package Var
-     *
      * @param mixed $var 調べる値
      * @return bool 複合型なら false
      */
@@ -164,8 +158,6 @@ class Vars
      * $object->recursive = $object;
      * assertTrue(is_recursive($object));
      * ```
-     *
-     * @package Var
      *
      * @param mixed $var 調べる値
      * @return bool 再帰参照を含むなら true
@@ -201,6 +193,52 @@ class Vars
     }
 
     /**
+     * 変数が foreach で回せるか調べる
+     *
+     * オブジェクトの場合は \Traversable のみ。
+     * 要するに {@link http://php.net/manual/ja/function.is-iterable.php is_iterable} の polyfill。
+     *
+     * Example:
+     * ```php
+     * assertTrue(is_iterable([1, 2, 3]));
+     * assertTrue(is_iterable((function () { yield 1; })()));
+     * assertFalse(is_iterable(1));
+     * assertFalse(is_iterable(new \stdClass()));
+     * ```
+     *
+     * @polyfill
+     *
+     * @param mixed $var 調べる値
+     * @return bool foreach で回せるなら true
+     */
+    public static function is_iterable($var)
+    {
+        return is_array($var) || $var instanceof \Traversable;
+    }
+
+    /**
+     * 変数が count でカウントできるか調べる
+     *
+     * Example:
+     * ```php
+     * assertTrue(is_countable([1, 2, 3]));
+     * assertTrue(is_countable(new \ArrayObject()));
+     * assertFalse(is_countable((function () { yield 1; })()));
+     * assertFalse(is_countable(1));
+     * assertFalse(is_countable(new \stdClass()));
+     * ```
+     *
+     * @polyfill
+     *
+     * @param mixed $var 調べる値
+     * @return bool count でカウントできるなら true
+     */
+    public static function is_countable($var)
+    {
+        return is_array($var) || $var instanceof \Countable;
+    }
+
+    /**
      * 値の型を取得する（gettype + get_class）
      *
      * プリミティブ型（gettype で得られるやつ）はそのまま、オブジェクトのときのみクラス名を返す。
@@ -217,8 +255,6 @@ class Vars
      * assertSame(var_type(new \stdClass), '\\stdClass');
      * assertSame(var_type(new \Exception()), '\\Exception');
      * ```
-     *
-     * @package Var
      *
      * @param mixed $var 型を取得する値
      * @return string 型名
@@ -278,8 +314,6 @@ class Vars
      *     ]),
      * ]");
      * ```
-     *
-     * @package Var
      *
      * @param mixed $value 出力する値
      * @param bool $return 返すなら true 出すなら false
@@ -341,12 +375,12 @@ class Vars
                 static $refs = [];
                 $class = get_class($value);
                 if (!isset($refs[$class])) {
-                    $refs[$class] = array_reduce((new \ReflectionClass($value))->getProperties(), function ($carry, \ReflectionProperty $rp) {
+                    $props = (new \ReflectionClass($value))->getProperties();
+                    $refs[$class] = call_user_func(array_each, $props, function (&$carry, \ReflectionProperty $rp) {
                         if (!$rp->isStatic()) {
                             $rp->setAccessible(true);
                             $carry[$rp->getName()] = $rp;
                         }
-                        return $carry;
                     }, []);
                 }
 
@@ -385,8 +419,6 @@ class Vars
      *
      * この関数の出力は互換性を考慮しない。頻繁に変更される可能性がある。
      *
-     * @package Var
-     *
      * @param mixed $value 出力する値
      */
     public static function var_html($value)
@@ -419,8 +451,6 @@ class Vars
      * $fuga = 'FUGA';
      * assertSame(hashvar($hoge, $fuga), ['hoge' => 'HOGE', 'fuga' => 'FUGA']);
      * ```
-     *
-     * @package Var
      *
      * @param mixed $vars 変数（可変引数）
      * @return array 引数の変数を変数名で compact した配列

@@ -23,6 +23,7 @@ $files = array_merge(
     FileSystem::file_list("$root/template"),
     FileSystem::file_list("$root/vendor/composer", $filter),
     FileSystem::file_list("$root/vendor/psr", $filter),
+    FileSystem::file_list("$root/vendor/paragonie", $filter),
     FileSystem::file_list("$root/vendor/myclabs", $filter),
     FileSystem::file_list("$root/vendor/erusev", $filter),
     FileSystem::file_list("$root/vendor/symfony", $filter),

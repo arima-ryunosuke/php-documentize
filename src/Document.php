@@ -2,7 +2,6 @@
 
 namespace ryunosuke\Documentize;
 
-use ryunosuke\Documentize\Utils\Adhoc;
 use ryunosuke\Documentize\Utils\Arrays;
 use ryunosuke\Documentize\Utils\FileSystem;
 use ryunosuke\Documentize\Utils\Vars;
@@ -58,7 +57,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         class_exists(PhpFile::class, true);
         class_exists(Reflection::class, true);
         class_exists(Tag::class, true);
-        class_exists(Utils\Adhoc::class, true);
         class_exists(\ryunosuke\Documentize\Utils\Arrays::class, true);
         class_exists(\ryunosuke\Documentize\Utils\Classobj::class, true);
         class_exists(\ryunosuke\Documentize\Utils\FileSystem::class, true);
@@ -592,10 +590,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             return false;
         }
 
-        if (!Adhoc::fnmatchs($this->options['include'], $filename, FNM_NOESCAPE)) {
+        if ($this->options['include'] && !Filesystem::fnmatch_or($this->options['include'], $filename, FNM_NOESCAPE)) {
             return false;
         }
-        if (Adhoc::fnmatchs($this->options['exclude'], $filename, FNM_NOESCAPE)) {
+        if ($this->options['exclude'] && Filesystem::fnmatch_or($this->options['exclude'], $filename, FNM_NOESCAPE)) {
             return false;
         }
 
@@ -906,10 +904,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function skip($data, $context)
     {
-        if (!Adhoc::fnmatchs($this->options['contain'], $data['fqsen'], FNM_NOESCAPE)) {
+        if ($this->options['contain'] && !Filesystem::fnmatch_or($this->options['contain'], $data['fqsen'], FNM_NOESCAPE)) {
             return true;
         }
-        if (Adhoc::fnmatchs($this->options['except'], $data['fqsen'], FNM_NOESCAPE)) {
+        if ($this->options['except'] && Filesystem::fnmatch_or($this->options['except'], $data['fqsen'], FNM_NOESCAPE)) {
             return true;
         }
         if ($data['tags']['ignore'] ?? false) {

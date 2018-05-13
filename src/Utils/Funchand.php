@@ -1,6 +1,6 @@
 <?php
 
-/** Don't touch this code. This is auto generated. */
+# Don't touch this code. This is auto generated.
 
 namespace ryunosuke\Documentize\Utils;
 
@@ -10,8 +10,6 @@ class Funchand
      * 指定 callable を指定クロージャで実行するクロージャを返す
      *
      * ほぼ内部向けで外から呼ぶことはあまり想定していない。
-     *
-     * @package Callable
      *
      * @param \Closure $invoker クロージャを実行するためのクロージャ（実処理）
      * @param callable $callable 最終的に実行したいクロージャ
@@ -73,8 +71,6 @@ class Funchand
      * assertSame($bind('%s%s%s', 'N', 'N'), 'NXN');
      * ```
      *
-     * @package Callable
-     *
      * @param callable $callable 対象 callable
      * @param int $n 挿入する引数位置
      * @param mixed $variadic 本来の引数（可変引数）
@@ -96,8 +92,6 @@ class Funchand
      * assertSame($bind('N', 'M'), 'NM');
      * ```
      *
-     * @package Callable
-     *
      * @param callable $callable 対象 callable
      * @param mixed $variadic 本来の引数（可変引数）
      * @return \Closure 束縛したクロージャ
@@ -115,8 +109,6 @@ class Funchand
      * $bind = rbind('sprintf', 'X');
      * assertSame($bind('%s%s', 'N'), 'NX');
      * ```
-     *
-     * @package Callable
      *
      * @param callable $callable 対象 callable
      * @param mixed $variadic 本来の引数（可変引数）
@@ -161,8 +153,6 @@ class Funchand
      * // ['hoge', 'HOGE'] |> 'pre-hogeHOGE' |> ['sS' => 'pre-hogeHOGE'] |> 'EGOHegoh-erp'
      * assertSame($composite('hoge'), 'EGOHegoh-erp');
      * ```
-     *
-     * @package Callable
      *
      * @param bool $arrayalbe 呼び出しチェーンを配列として扱うか
      * @param callable[] $variadic 合成する関数（可変引数）
@@ -210,8 +200,6 @@ class Funchand
      * assertSame($arg1('dummy', 'hoge'), 'hoge');
      * ```
      *
-     * @package Callable
-     *
      * @param int $n $n 番目の引数
      * @return \Closure $n 番目の引数をそのまま返すクロージャ
      */
@@ -236,8 +224,6 @@ class Funchand
      * assertTrue($not_strlen(''));
      * ```
      *
-     * @package Callable
-     *
      * @param callable $callable 対象 callable
      * @return \Closure 新しいクロージャ
      */
@@ -259,8 +245,6 @@ class Funchand
      * $evalfunc = eval_func('$a + $b + $c', 'a', 'b', 'c');
      * assertSame($evalfunc(1, 2, 3), 6);
      * ```
-     *
-     * @package Callable
      *
      * @param string $expression eval コード
      * @param mixed $variadic 引数名（可変引数）
@@ -285,8 +269,6 @@ class Funchand
      * assertInstanceof(\ReflectionFunction::class, reflect_callable('sprintf'));
      * assertInstanceof(\ReflectionMethod::class, reflect_callable('\Closure::bind'));
      * ```
-     *
-     * @package Callable
      *
      * @param callable $callable 対象 callable
      * @return \ReflectionFunction|\ReflectionMethod リフレクションインスタンス
@@ -324,8 +306,6 @@ class Funchand
      * assertSame($sprintf('%s %s', 'hello', 'world'), 'hello world');
      * ```
      *
-     * @package Callable
-     *
      * @param callable $callable 変換する callable
      * @return \Closure 変換したクロージャ
      */
@@ -361,8 +341,6 @@ class Funchand
      * }
      * ```
      *
-     * @package Callable
-     *
      * @param callable $callback 実行するコールバック
      * @param mixed $variadic $callback に渡される引数（可変引数）
      * @return mixed $callback の返り値
@@ -377,13 +355,10 @@ class Funchand
         });
 
         try {
-            $return = call_user_func_array($callback, $variadic);
-            restore_error_handler();
-            return $return;
+            return call_user_func_array($callback, $variadic);
         }
-        catch (\Exception $ex) {
+        finally {
             restore_error_handler();
-            throw $ex;
         }
     }
 
@@ -395,8 +370,6 @@ class Funchand
      * assertSame(ob_capture(function(){echo 123;}), '123');
      * ```
      *
-     * @package Callable
-     *
      * @param callable $callback 実行するコールバック
      * @param mixed $variadic $callback に渡される引数（可変引数）
      * @return string オフスリーンバッファの文字列
@@ -406,12 +379,69 @@ class Funchand
         ob_start();
         try {
             call_user_func_array($callback, $variadic);
-            return ob_get_clean();
+            return ob_get_contents();
         }
-        catch (\Exception $ex) {
+        finally {
             ob_end_clean();
-            throw $ex;
         }
+    }
+
+    /**
+     * Countable#count, Serializable#serialize などの「ネイティブ由来かメソッド由来か」を判定して返す
+     *
+     * Countable#count, Serializable#serialize のように「インターフェースのメソッド名」と「ネイティブ関数名」が一致している必要がある。
+     *
+     * Example:
+     * ```php
+     * class CountClass implements \Countable
+     * {
+     *     public function count() {
+     *         // count 経由なら 1 を、メソッド経由なら 0 を返す
+     *         return (int) by_builtin($this, 'count');
+     *     }
+     * }
+     * $counter = new CountClass();
+     * assertSame(count($counter), 1);
+     * assertSame($counter->count(), 0);
+     * ```
+     *
+     * のように判定できる。
+     *
+     * @param object|string $class
+     * @param string $function
+     * @return bool ネイティブなら true
+     */
+    public static function by_builtin($class, $function)
+    {
+        $class = is_object($class) ? get_class($class) : $class;
+
+        // 特殊な方法でコールされる名前達(コールスタックの大文字小文字は正規化されるので気にする必要はない)
+        $invoker = [
+            'call_user_func'       => true,
+            'call_user_func_array' => true,
+            'invoke'               => true,
+            'invokeArgs'           => true,
+        ];
+
+        $traces = array_reverse(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3));
+        foreach ($traces as $trace) {
+            if (isset($trace['class'], $trace['function']) && $trace['class'] === $class && $trace['function'] === $function) {
+                // for $object->func()
+                if (isset($trace['file'], $trace['line'])) {
+                    return false;
+                }
+                // for call_user_func([$object, 'func']), (new ReflectionMethod($object, 'func'))->invoke($object)
+                elseif (isset($last) && isset($last['function']) && isset($invoker[$last['function']])) {
+                    return false;
+                }
+                // for func($object)
+                elseif (isset($last) && isset($last['function']) && $last['function'] === $function) {
+                    return true;
+                }
+            }
+            $last = $trace;
+        }
+        throw new \RuntimeException('failed to search backtrace.');
     }
 
     /**
@@ -428,8 +458,6 @@ class Funchand
      * // trim の必須引数は1つ
      * assertSame(parameter_length('trim', true), 1);
      * ```
-     *
-     * @package Callable
      *
      * @param callable $callable 対象 callable
      * @param bool $require_only true を渡すと必須パラメータの数を返す
@@ -472,8 +500,6 @@ class Funchand
     /**
      * 関数の名前空間部分を除いた短い名前を取得する
      *
-     * @package Callable
-     *
      * @param string $function 短くする関数名
      * @return string 短い関数名
      */
@@ -499,8 +525,6 @@ class Funchand
      * $strlen = func_user_func_array('strlen');
      * assertSame($strlen('abc', null), 3);
      * ```
-     *
-     * @package Callable
      *
      * @param callable $callback 呼び出すクロージャ
      * @return \Closure 引数ぴったりで呼び出すクロージャ
@@ -533,8 +557,6 @@ class Funchand
      * function_alias('trim', 'trim_alias');
      * assertSame(trim_alias(' abc '), 'abc');
      * ```
-     *
-     * @package Callable
      *
      * @param callable $original 元となる関数
      * @param string $alias 関数のエイリアス名

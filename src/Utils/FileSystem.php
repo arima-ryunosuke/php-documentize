@@ -1,6 +1,6 @@
 <?php
 
-/** Don't touch this code. This is auto generated. */
+# Don't touch this code. This is auto generated.
 
 namespace ryunosuke\Documentize\Utils;
 
@@ -9,7 +9,22 @@ class FileSystem
     /**
      * ファイル一覧を配列で返す
      *
-     * @package FileSystem
+     * Example:
+     * ```php
+     * // 適当にファイルを用意
+     * $DS = DIRECTORY_SEPARATOR;
+     * $tmp = sys_get_temp_dir() . "{$DS}file_list";
+     * rm_rf($tmp, false);
+     * file_set_contents("$tmp/a.txt", 'a');
+     * file_set_contents("$tmp/dir/b.txt", 'b');
+     * file_set_contents("$tmp/dir/dir/c.txt", 'c');
+     * // ファイル一覧が取得できる
+     * assertEquals(file_list($tmp), [
+     *     "$tmp{$DS}a.txt",
+     *     "$tmp{$DS}dir{$DS}b.txt",
+     *     "$tmp{$DS}dir{$DS}dir{$DS}c.txt",
+     * ]);
+     * ```
      *
      * @param string $dirname 調べるディレクトリ名
      * @param \Closure|array $filter_condition フィルタ条件
@@ -39,7 +54,28 @@ class FileSystem
     /**
      * ディレクトリ階層をツリー構造で返す
      *
-     * @package FileSystem
+     * Example:
+     * ```php
+     * // 適当にファイルを用意
+     * $DS = DIRECTORY_SEPARATOR;
+     * $tmp = sys_get_temp_dir() . "{$DS}file_tree";
+     * rm_rf($tmp, false);
+     * file_set_contents("$tmp/a.txt", 'a');
+     * file_set_contents("$tmp/dir/b.txt", 'b');
+     * file_set_contents("$tmp/dir/dir/c.txt", 'c');
+     * // ファイルツリーが取得できる
+     * assertEquals(file_tree($tmp), [
+     *     'file_tree' => [
+     *         'a.txt' => "$tmp{$DS}a.txt",
+     *         'dir'   => [
+     *             'b.txt' => "$tmp{$DS}dir{$DS}b.txt",
+     *             'dir'   => [
+     *                 'c.txt' => "$tmp{$DS}dir{$DS}dir{$DS}c.txt",
+     *             ],
+     *         ],
+     *     ],
+     * ]);
+     * ```
      *
      * @param string $dirname 調べるディレクトリ名
      * @param \Closure|array $filter_condition フィルタ条件
@@ -94,8 +130,6 @@ class FileSystem
      * assertSame(file_extension('filename.ext', ''), 'filename');
      * ```
      *
-     * @package FileSystem
-     *
      * @param string $filename 調べるファイル名
      * @param string $extension 拡張子。nullや空文字なら拡張子削除
      * @return string 拡張子変換後のファイル名 or 拡張子
@@ -129,8 +163,6 @@ class FileSystem
      * assertSame(file_get_contents(sys_get_temp_dir() . '/not/filename.ext'), 'hoge');
      * ```
      *
-     * @package FileSystem
-     *
      * @param string $filename 書き込むファイル名
      * @param string $data 書き込む内容
      * @param int $umask ディレクトリを掘る際の umask
@@ -154,8 +186,6 @@ class FileSystem
      * ディレクトリを再帰的に掘る
      *
      * 既に存在する場合は何もしない（エラーも出さない）。
-     *
-     * @package FileSystem
      *
      * @param string $dirname ディレクトリ名
      * @param int $umask ディレクトリを掘る際の umask
@@ -189,8 +219,6 @@ class FileSystem
      * assertSame(dirname_r("$tmp/a/b/c/d/e/f", $callback), realpath("$tmp/a/b/file.txt"));
      * ```
      *
-     * @package FileSystem
-     *
      * @param string $path パス名
      * @param callable $callback コールバック
      * @return mixed $callback の返り値。頂上まで辿ったら false
@@ -210,6 +238,74 @@ class FileSystem
     }
 
     /**
+     * fnmatch の AND 版
+     *
+     * $patterns のうちどれか一つでもマッチしなかったら false を返す。
+     * $patterns が空だと例外を投げる。
+     *
+     * Example:
+     * ```php
+     * // すべてにマッチするので true
+     * assertTrue(fnmatch_and(['*aaa*', '*bbb*'], 'aaaXbbbX'));
+     * // aaa にはマッチするが bbb にはマッチしないので false
+     * assertFalse(fnmatch_and(['*aaa*', '*bbb*'], 'aaaX'));
+     * ```
+     *
+     * @param array|string $patterns パターン配列（単一文字列可）
+     * @param string $string 調べる文字列
+     * @param int $flags FNM_***
+     * @return bool すべてにマッチしたら true
+     */
+    public static function fnmatch_and($patterns, $string, $flags = 0)
+    {
+        $patterns = call_user_func(is_iterable, $patterns) ? $patterns : [$patterns];
+        if (empty($patterns)) {
+            throw new \InvalidArgumentException('$patterns must be not empty.');
+        }
+
+        foreach ($patterns as $pattern) {
+            if (!fnmatch($pattern, $string, $flags)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * fnmatch の OR 版
+     *
+     * $patterns のうちどれか一つでもマッチしたら true を返す。
+     * $patterns が空だと例外を投げる。
+     *
+     * Example:
+     * ```php
+     * // aaa にマッチするので true
+     * assertTrue(fnmatch_or(['*aaa*', '*bbb*'], 'aaaX'));
+     * // どれともマッチしないので false
+     * assertFalse(fnmatch_or(['*aaa*', '*bbb*'], 'cccX'));
+     * ```
+     *
+     * @param array|string $patterns パターン配列（単一文字列可）
+     * @param string $string 調べる文字列
+     * @param int $flags FNM_***
+     * @return bool どれかにマッチしたら true
+     */
+    public static function fnmatch_or($patterns, $string, $flags = 0)
+    {
+        $patterns = call_user_func(is_iterable, $patterns) ? $patterns : [$patterns];
+        if (empty($patterns)) {
+            throw new \InvalidArgumentException('$patterns must be not empty.');
+        }
+
+        foreach ($patterns as $pattern) {
+            if (fnmatch($pattern, $string, $flags)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * パスが絶対パスか判定する
      *
      * Example:
@@ -222,8 +318,6 @@ class FileSystem
      *     assertTrue(path_is_absolute('C:\\absolute\\path'));
      * }
      * ```
-     *
-     * @package FileSystem
      *
      * @param string $path パス文字列
      * @return bool 絶対パスなら true
@@ -257,8 +351,6 @@ class FileSystem
      * assertSame(path_resolve('/absolute/path/through', '../current/./path'), "{$DS}absolute{$DS}path{$DS}current{$DS}path");
      * ```
      *
-     * @package FileSystem
-     *
      * @param array $paths パス文字列（可変引数）
      * @return string 絶対パス
      */
@@ -288,8 +380,6 @@ class FileSystem
      * assertSame(path_normalize('/path/through/../something'), "{$DS}path{$DS}something");
      * assertSame(path_normalize('./path/current/./through/../something'), "path{$DS}current{$DS}something");
      * ```
-     *
-     * @package FileSystem
      *
      * @param string $path パス文字列
      * @return string 正規化されたパス
@@ -352,8 +442,6 @@ class FileSystem
      * assertStringEqualsFile("$tmp/dst4", 'hoge');
      * ```
      *
-     * @package FileSystem
-     *
      * @param string $src コピー元パス
      * @param string $dst コピー先パス。末尾/でディレクトリであることを明示できる
      * @return bool 成功した場合に TRUE を、失敗した場合に FALSE を返します
@@ -402,8 +490,6 @@ class FileSystem
      * assertSame(file_exists(sys_get_temp_dir() . '/new'), false);
      * ```
      *
-     * @package FileSystem
-     *
      * @param string $dirname 削除するディレクトリ名
      * @param bool $self 自分自身も含めるか。false を与えると中身だけを消す
      * @return bool 成功した場合に TRUE を、失敗した場合に FALSE を返します
@@ -438,8 +524,6 @@ class FileSystem
      * - 引数が逆
      * - 終了時に削除される
      * - 失敗時に false を返すのではなく例外を投げる
-     *
-     * @package FileSystem
      *
      * @param string $prefix ファイル名プレフィックス
      * @param string $dir 生成ディレクトリ。省略時は sys_get_temp_dir()

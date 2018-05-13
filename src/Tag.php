@@ -2,7 +2,6 @@
 
 namespace ryunosuke\Documentize;
 
-use ryunosuke\Documentize\Utils\Adhoc;
 use ryunosuke\Documentize\Utils\Arrays;
 use ryunosuke\Documentize\Utils\Strings;
 
@@ -206,7 +205,7 @@ class Tag
         // 引数は int|string のような記法も許されるため、個別にパースする必要がある
         // が、辛すぎるので タイプヒントだけ潰してあとは呼び元に任せる
         $parameters = $paramsTag = [];
-        foreach (Adhoc::explode($args, ',', ['[' => ']', '"' => '"', "'" => "'"], '\\') as $param) {
+        foreach (Strings::quoteexplode(',', $args, ['[' => ']', '"' => '"', "'" => "'"], '\\') as $param) {
             $parts = preg_split('#\s+(?=[$.&])#u', trim($param), 2);
             if (isset($parts[1])) {
                 $type = array_shift($parts);
