@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * namespace vendor comment
+ */
 namespace vendor {
 
     trait Ttrait
@@ -23,6 +26,9 @@ namespace vendor {
     }
 }
 
+/**
+ * namespace vendor\Inner comment
+ */
 namespace vendor\Inner {
 
     class Foo
@@ -36,6 +42,7 @@ namespace vendor\Inner {
 
 namespace vendor\subspace {
 
+    /** const doc */
     const FOO = 0;
     function bar() { }
 
@@ -44,6 +51,9 @@ namespace vendor\subspace {
     }
 }
 
+/**
+ * namespace global comment
+ */
 namespace {
 
     use ArrayObject as AO;

@@ -423,6 +423,16 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 array_walk($data[$type], $marshal);
             }
 
+            $nsdescription = array_reduce(PhpFile::cache(null), function ($carry, $filedata) use ($namespace) {
+                if (isset($filedata[$namespace]) && $filedata[$namespace]['@comment']) {
+                    $carry .= $filedata[$namespace]['@comment'] . "\n\n";
+                }
+                return $carry;
+            }, '');
+            $nsdata = $this->parseDoccomment($nsdescription, $namespace, null);
+            $data['description'] = $nsdata['description'];
+            $data['tags'] = $nsdata['tags'];
+
             $mns = [];
             $tmp = &$result;
             $nss = preg_split('#\\\\#', $data['namespace'], -1, PREG_SPLIT_NO_EMPTY);
@@ -463,16 +473,18 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $name = array_pop($parts);
         $ns = implode('\\', $parts);
         return [
-            'category'   => 'namespace',
-            'fqsen'      => "$namespace\\",
-            'namespace'  => $ns,
-            'name'       => $name,
-            'namespaces' => [],
-            'constants'  => [],
-            'functions'  => [],
-            'interfaces' => [],
-            'traits'     => [],
-            'classes'    => [],
+            'category'    => 'namespace',
+            'fqsen'       => "$namespace\\",
+            'namespace'   => $ns,
+            'name'        => $name,
+            'description' => '',
+            'namespaces'  => [],
+            'constants'   => [],
+            'functions'   => [],
+            'interfaces'  => [],
+            'traits'      => [],
+            'classes'     => [],
+            'tags'        => [],
         ];
     }
 
@@ -648,12 +660,22 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function parseConstant(Reflection $refconst, $namespace, $own)
     {
+        // このコンテキストでファイル名は取れないのでループで漁る
+        $doccomment = '';
+        foreach (PhpFile::cache(null) as $filename => $metadata) {
+            if (isset($metadata[$namespace]['@const'][$refconst->getShortName()])) {
+                $doccomment = $metadata[$namespace]['@const'][$refconst->getShortName()];
+                break;
+            }
+        }
+        $docs = $this->parseDoccomment($doccomment, $namespace, $own);
+
         return [
-            'description' => '', // 取りようがない
+            'description' => $docs['description'] ?: $docs['tags']['var'][0]['description'] ?? '',
             'value'       => Vars::var_export2($refconst->getValue(), true),
             'accessible'  => 'public', // 取りようがない
             'types'       => (new Fqsen(gettype($refconst->getValue())))->resolve($this->usings, $namespace, $own),
-            'tags'        => [], // 取りようがない
+            'tags'        => $docs['tags'],
         ];
     }
 

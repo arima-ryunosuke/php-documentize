@@ -98,61 +98,58 @@ class PhpFile
     }
 
     /**
-     * T_WHITESPACE 以外の前のトークンを返す
+     * 指定されたトークン種別が出現するまで読み戻る（T_WHITESPACE 除外）
      *
-     * @return array|false 前のトークン。初期値なら false
+     * @param int|string|array $stop_token ストップトークン。int なら T_*** 定数、 string なら文字種、配列なら要素で OR 動作、null （省略）なら直前のトークン
+     * @return array|false 読み戻る間に読み込んだトークン。開始まで達したなら false。ストップトークンが null だったら単一要素
      */
-    public function prev()
+    public function prev($stop_token = null)
     {
         if ($this->position === 0) {
             return false;
         }
 
+        if ($stop_token !== null && !is_array($stop_token)) {
+            $stop_token = [$stop_token];
+        }
+
+        $result = [];
         for ($i = $this->position - 1; $i >= 0; $i--) {
             if ($this->tokens[$i][0] === T_WHITESPACE) {
                 continue;
             }
-            break;
-        }
-        $this->position = $i;
-        return $this->current();
-    }
 
-    /**
-     * T_WHITESPACE 以外の次のトークンを返す
-     *
-     * @return array|false 次のトークン。終端まで達しているなら false
-     */
-    public function next()
-    {
-        if ($this->position >= $this->length) {
-            return false;
-        }
-
-        for ($i = $this->position + 1; $i < $this->length; $i++) {
-            if ($this->tokens[$i][0] === T_WHITESPACE) {
-                continue;
+            if ($stop_token === null) {
+                $this->position = $i;
+                return $this->current();
             }
-            break;
+
+            $result[] = $this->tokens[$i];
+
+            foreach ($stop_token as $nt) {
+                if ($nt === $this->tokens[$i][0] || $nt === $this->tokens[$i][1]) {
+                    break 2;
+                }
+            }
         }
         $this->position = $i;
-        return $this->current();
+        return array_reverse($result);
     }
 
     /**
-     * 指定されたトークン種別が出現するまで読み飛ばす（T_WHITESPACE 除外）
+     * 指定されたトークン種別が出現するまで読み進む（T_WHITESPACE 除外）
      *
-     * @param int|string|array $next_token ストップトークン。int なら T_*** 定数、 string なら文字種。配列なら要素で OR 動作
-     * @return array|false 読み飛ばすまでに読み込んだトークン。終端まで達しているなら false
+     * @param int|string|array $stop_token ストップトークン。int なら T_*** 定数、 string なら文字種、配列なら要素で OR 動作、null （省略）なら直後のトークン
+     * @return array|false 読み進む間に読み込んだトークン。終端まで達したなら false。ストップトークンが null だったら単一要素
      */
-    public function skip($next_token)
+    public function next($stop_token = null)
     {
         if ($this->position >= $this->length) {
             return false;
         }
 
-        if (!is_array($next_token)) {
-            $next_token = [$next_token];
+        if ($stop_token !== null && !is_array($stop_token)) {
+            $stop_token = [$stop_token];
         }
 
         $result = [];
@@ -161,7 +158,12 @@ class PhpFile
                 continue;
             }
 
-            foreach ($next_token as $nt) {
+            if ($stop_token === null) {
+                $this->position = $i;
+                return $this->current();
+            }
+
+            foreach ($stop_token as $nt) {
                 if ($nt === $this->tokens[$i][0] || $nt === $this->tokens[$i][1]) {
                     break 2;
                 }
@@ -212,11 +214,15 @@ class PhpFile
         $classname = '';
 
         while (true) {
-            $this->skip([T_NAMESPACE, T_CLASS, T_TRAIT, T_INTERFACE, T_USE, T_CONST, T_PRIVATE, T_PROTECTED, T_PUBLIC, T_VAR, T_FUNCTION]);
+            $this->next([T_NAMESPACE, T_CLASS, T_TRAIT, T_INTERFACE, T_USE, T_CONST, T_PRIVATE, T_PROTECTED, T_PUBLIC, T_VAR, T_FUNCTION]);
             $current = $this->current();
             if ($current[0] === T_NAMESPACE) {
                 $classname = '';
-                $namespace = implode('', array_column($this->skip([';', '{']), 1));
+                $namespace = implode('', array_column($this->next([';', '{']), 1));
+                $p = $this->position;
+                $doccomment = $this->prev([T_DOC_COMMENT, '}']);
+                $result[$namespace]['@comment'] = $doccomment[0][0] === T_DOC_COMMENT ? $doccomment[0][1] : '';
+                $this->position = $p;
             }
             elseif ($current[0] === T_CLASS || $current[0] === T_TRAIT || $current[0] === T_INTERFACE) {
                 $next = $this->next();
@@ -224,7 +230,7 @@ class PhpFile
                 $result[$namespace]['@using'][$next[1]] = $classname;
             }
             elseif ($current[0] === T_USE) {
-                $parts = $this->skip([';', '{']);
+                $parts = $this->next([';', '{']);
                 $current = $this->current();
 
                 // おそらくクラス定義の use trait
@@ -244,17 +250,16 @@ class PhpFile
                 elseif ($current[1] === '{') {
                     $ns = ltrim(implode('', array_column($parts, 1)), '\\');
                     do {
-                        $use($ns, $this->skip(['}', ',']), $result[$namespace]['@using']);
+                        $use($ns, $this->next(['}', ',']), $result[$namespace]['@using']);
                     } while ($this->current()[1] === ',');
                 }
             }
             elseif ($current[0] === T_CONST || $current[0] === T_PRIVATE || $current[0] === T_PROTECTED || $current[0] === T_PUBLIC || $current[0] === T_VAR) {
-                $token = $this->current();
-                $mode = $token[0];
-                $start = $token[2];
+                $mode = $current[0];
+                $start = $current[2];
                 $name = '';
                 $end = 0;
-                $parts = $this->skip([';', '{']);
+                $parts = $this->next([';', '{']);
                 foreach ($parts as $n => $part) {
                     if ($part[0] === T_FUNCTION) {
                         // T_FUNCTION からメソッド名までに邪魔者はいない…と思ったんだが参照返しの & がいる可能性があるので T_STRING まで読み飛ばし
@@ -285,12 +290,19 @@ class PhpFile
                     }
                     $result[$namespace][$classname][$name] = [$start, $end];
                 }
+                // 名前空間定数の doccomment はリフレクションで取れないのでパースして取る
+                if ($mode === T_CONST && !$classname && $name) {
+                    $p = $this->position;
+                    $doccomment = $this->prev([T_DOC_COMMENT, ';', '{']);
+                    $this->position = $p;
+                    $result[$namespace]['@const'][$name] = $doccomment[0][0] === T_DOC_COMMENT ? $doccomment[0][1] : '';
+                }
             }
             // ↑は public などのアクセス修飾子で引っ掛けている（プロパティ宣言が T_VARIABLE なのでそうしないと大量に引っかかってしまう）
             // その都合上、 T_FUNCTION も引っかかってしまうので↑で処理しているが、メソッドは修飾省略可なので別途検出しなければならない
             elseif ($current[0] === T_FUNCTION) {
                 // 注意点は↑と同じ。ただしここは読み飛ばしてもいいコンテキストなので skip が使える
-                $this->skip([T_STRING, '{', ';']);
+                $this->next([T_STRING, '{', ';']);
                 if ($this->current()[0] === T_STRING) {
                     $result[$namespace][$classname][$this->current()[1] . '()'] = [null, null];// リフレクションで取ったほうが正確なので設定しない
                 }
