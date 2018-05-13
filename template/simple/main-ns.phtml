@@ -12,17 +12,26 @@
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name"><?= h($namespace ?: '(global)') ?></span></h2>
+	<div class="inner-item">
+		<div class="description"><?= md($elements['description']) ?></div>
+	</div>
 
     <?php if ($elements['namespaces']): ?>
 		<h3>Namespaces</h3>
 		<ul>
             <?php foreach ($elements['namespaces'] as $childspace): ?>
-				<li class="">
-					<div class="ellipsis">
-						<a id="<?= h($childspace['fqsen']) ?>" href="<?= ref($childspace['fqsen'], 'namespace') ?>" class="bold" target="main">
-							<small><?= h($childspace['namespace']) ?>\</small><?= h($childspace['name']) ?>
-						</a>
+				<li class="structure-item">
+					<h4 id="<?= h($childspace['fqsen']) ?>" tabindex="-1" class="structure-title <?= h(isset($childspace['tags']['deprecated'][0]) ? 'strike' : '') ?>">
+						<a href="<?= ref($childspace['fqsen'], 'namespace') ?>"><?= h($childspace['name']) ?></a>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><?= md($childspace['description']) ?></div>
 					</div>
+					<div class="attribute">
+						<span class="label label-default"><?= h(isset($childspace['tags']['license'][0]) ? 'license ' . $childspace['tags']['license'][0]['value'] : '') ?></span>
+						<span class="label label-default"><?= h(isset($childspace['tags']['author'][0]) ? 'author ' . $childspace['tags']['author'][0]['name'] : '') ?></span>
+					</div>
+					<div class="clearfix"></div>
 				</li>
             <?php endforeach ?>
 		</ul>
@@ -68,8 +77,17 @@
                         <?= source($constant['location']) ?>
 					</div>
 					<h4 id="<?= h($constant['fqsen']) ?>" tabindex="-1" class="structure-title <?= h(isset($constant['tags']['deprecated'][0]) ? 'strike' : '') ?>">
-                        <?= h($constant['name']) ?><var><?= h($constant['value'] ? ' = ' . $constant['value'] : '') ?></var>
+						<small><?= render_type($constant['types']) ?></small>
+                        <?= h($constant['name']) ?>
+						<var><?= h($constant['value'] ? ' = ' . $constant['value'] : '') ?></var>
 					</h4>
+					<div class="inner-item">
+						<div class="description"><?= md($constant['description']) ?></div>
+					</div>
+					<div class="attribute">
+						<span class="label label-default"><?= h(isset($constant['tags']['since'][0]) ? 'since ' . $constant['tags']['since'][0]['version'] : '') ?></span>
+						<span class="label label-default"><?= h(isset($constant['tags']['author'][0]) ? 'author ' . $constant['tags']['author'][0]['name'] : '') ?></span>
+					</div>
 				</li>
             <?php endforeach ?>
 		</ul>
@@ -107,6 +125,11 @@
             <?php endforeach ?>
 		</ul>
     <?php endif ?>
+	<div class="attribute">
+		<span class="label label-default"><?= h(isset($elements['tags']['license'][0]) ? 'license ' . $elements['tags']['license'][0]['value'] : '') ?></span>
+		<span class="label label-default"><?= h(isset($elements['tags']['author'][0]) ? 'author ' . $elements['tags']['author'][0]['name'] : '') ?></span>
+	</div>
+	<div class="clearfix"></div>
 </div>
 </body>
 </html>
