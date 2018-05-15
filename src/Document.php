@@ -2,9 +2,6 @@
 
 namespace ryunosuke\Documentize;
 
-use ryunosuke\Documentize\Utils\Arrays;
-use ryunosuke\Documentize\Utils\FileSystem;
-use ryunosuke\Documentize\Utils\Vars;
 use Symfony\Component\Process\Process;
 
 class Document
@@ -57,15 +54,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         class_exists(PhpFile::class, true);
         class_exists(Reflection::class, true);
         class_exists(Tag::class, true);
-        class_exists(\ryunosuke\Documentize\Utils\Arrays::class, true);
-        class_exists(\ryunosuke\Documentize\Utils\Classobj::class, true);
-        class_exists(\ryunosuke\Documentize\Utils\FileSystem::class, true);
-        class_exists(\ryunosuke\Documentize\Utils\Funchand::class, true);
-        class_exists(\ryunosuke\Documentize\Utils\Math::class, true);
-        class_exists(\ryunosuke\Documentize\Utils\Strings::class, true);
-        class_exists(\ryunosuke\Documentize\Utils\Syntax::class, true);
-        class_exists(\ryunosuke\Documentize\Utils\Utility::class, true);
-        class_exists(\ryunosuke\Documentize\Utils\Vars::class, true);
 
         $this->options = array_replace([
             'target'                 => null,
@@ -175,7 +163,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             require_once $this->options['autoloader'];
         }
         if (is_dir($this->options['target'])) {
-            foreach (FileSystem::file_list($this->options['target']) as $file) {
+            foreach (file_list($this->options['target']) as $file) {
                 $this->parseFile($file);
             }
         }
@@ -463,7 +451,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         }
 
         $usings = $provider();
-        FileSystem::file_set_contents($cachename, serialize($usings));
+        file_set_contents($cachename, serialize($usings));
         return $usings;
     }
 
@@ -623,10 +611,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             return false;
         }
 
-        if ($this->options['include'] && !Filesystem::fnmatch_or($this->options['include'], $filename, FNM_NOESCAPE)) {
+        if ($this->options['include'] && !fnmatch_or($this->options['include'], $filename, FNM_NOESCAPE)) {
             return false;
         }
-        if ($this->options['exclude'] && Filesystem::fnmatch_or($this->options['exclude'], $filename, FNM_NOESCAPE)) {
+        if ($this->options['exclude'] && fnmatch_or($this->options['exclude'], $filename, FNM_NOESCAPE)) {
             return false;
         }
 
@@ -672,7 +660,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         return [
             'description' => $docs['description'] ?: $docs['tags']['var'][0]['description'] ?? '',
-            'value'       => Vars::var_export2($refconst->getValue(), true),
+            'value'       => var_export2($refconst->getValue(), true),
             'accessible'  => 'public', // 取りようがない
             'types'       => (new Fqsen(gettype($refconst->getValue())))->resolve($this->usings, $namespace, $own),
             'tags'        => $docs['tags'],
@@ -762,8 +750,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'name'        => $refconst->getShortName(),
                 'location'    => $refconst->getLocation(),
                 'description' => $constdocs['description'] ?: $constdocs['tags']['var'][0]['description'] ?? '',
-                'value'       => Vars::var_export2($refconst->getValue(), true),
-                'virtual'     => $prototypes && !Arrays::in_array_or(['override'], array_column($prototypes, 'kind')),
+                'value'       => var_export2($refconst->getValue(), true),
+                'virtual'     => $prototypes && !in_array_or(['override'], array_column($prototypes, 'kind')),
                 'accessible'  => $refconst->getAccessible(),
                 'prototypes'  => $prototypes,
                 'types'       => $types,
@@ -789,8 +777,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'name'        => $refproperty->getShortName(),
                 'location'    => $refproperty->getLocation(),
                 'description' => $propdocs['description'] ?: $propdocs['tags']['var'][0]['description'] ?? '',
-                'value'       => Vars::var_export2($refproperty->getValue(), true),
-                'virtual'     => $prototypes && !Arrays::in_array_or(['override'], array_column($prototypes, 'kind')),
+                'value'       => var_export2($refproperty->getValue(), true),
+                'virtual'     => $prototypes && !in_array_or(['override'], array_column($prototypes, 'kind')),
                 'magic'       => false,
                 'static'      => $refproperty->isStatic(),
                 'accessible'  => $refproperty->getAccessible(),
@@ -841,7 +829,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'name'        => $refmethod->getShortName(),
                 'location'    => $refmethod->getLocation(),
                 'description' => $rmethod['description'],
-                'virtual'     => $prototypes && !Arrays::in_array_or(['override', 'implement'], array_column($prototypes, 'kind')),
+                'virtual'     => $prototypes && !in_array_or(['override', 'implement'], array_column($prototypes, 'kind')),
                 'magic'       => false,
                 'abstract'    => $refmethod->isAbstract(),
                 'final'       => $refmethod->isFinal(),
@@ -950,10 +938,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function skip($data, $context)
     {
-        if ($this->options['contain'] && !Filesystem::fnmatch_or($this->options['contain'], $data['fqsen'], FNM_NOESCAPE)) {
+        if ($this->options['contain'] && !fnmatch_or($this->options['contain'], $data['fqsen'], FNM_NOESCAPE)) {
             return true;
         }
-        if ($this->options['except'] && Filesystem::fnmatch_or($this->options['except'], $data['fqsen'], FNM_NOESCAPE)) {
+        if ($this->options['except'] && fnmatch_or($this->options['except'], $data['fqsen'], FNM_NOESCAPE)) {
             return true;
         }
         if ($data['tags']['ignore'] ?? false) {

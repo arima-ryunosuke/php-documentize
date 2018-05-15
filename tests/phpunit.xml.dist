@@ -10,16 +10,7 @@
         <whitelist>
             <directory suffix=".php">../src</directory>
             <exclude>
-                <file>../src/Utils/.constant.php</file>
-                <file>../src/Utils/Arrays.php</file>
-                <file>../src/Utils/Classobj.php</file>
-                <file>../src/Utils/FileSystem.php</file>
-                <file>../src/Utils/Funchand.php</file>
-                <file>../src/Utils/Math.php</file>
-                <file>../src/Utils/Strings.php</file>
-                <file>../src/Utils/Syntax.php</file>
-                <file>../src/Utils/Utility.php</file>
-                <file>../src/Utils/Vars.php</file>
+                <directory>../src/functions</directory>
             </exclude>
         </whitelist>
     </filter>

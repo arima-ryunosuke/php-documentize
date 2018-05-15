@@ -2,8 +2,6 @@
 
 namespace ryunosuke\Documentize;
 
-use ryunosuke\Documentize\Utils\Vars;
-
 /**
  * リフレクションを統一的に扱えるようにしたクラス
  *
@@ -638,7 +636,7 @@ class Reflection
                 $declaration .= ' = ' . $this->reflection->getDefaultValueConstantName();
             }
             else {
-                $declaration .= ' = ' . Vars::var_export2($this->reflection->getDefaultValue(), true);
+                $declaration .= ' = ' . var_export2($this->reflection->getDefaultValue(), true);
             }
         }
         return $declaration;

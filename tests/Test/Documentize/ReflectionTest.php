@@ -15,7 +15,6 @@ use NS\UndefinedPropertyClass;
 use ryunosuke\Documentize\PhpFile;
 use ryunosuke\Documentize\Reflection;
 
-
 class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 {
     private $now;

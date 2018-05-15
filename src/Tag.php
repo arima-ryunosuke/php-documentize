@@ -2,9 +2,6 @@
 
 namespace ryunosuke\Documentize;
 
-use ryunosuke\Documentize\Utils\Arrays;
-use ryunosuke\Documentize\Utils\Strings;
-
 /**
  * タグパーサ
  *
@@ -52,8 +49,8 @@ class Tag
             // meta タグで埋め込む
             // 値のみエスケープする。タグ名やキー名をエスケープしない理由は特に無いが、別に悪意あるものは来ないし、敢えてしないことで何かに活用できるかもしれない
             $attrs = array_diff_key($this->attributes, ['tagname' => null, 'inline' => null]);
-            $attrs = Arrays::array_flatten($attrs, '-');
-            $attrs = Arrays::array_sprintf($attrs, function ($v, $k) { return "data-$k='" . htmlspecialchars($v, ENT_QUOTES) . "'"; }, ' ');
+            $attrs = array_flatten($attrs, '-');
+            $attrs = array_sprintf($attrs, function ($v, $k) { return "data-$k='" . htmlspecialchars($v, ENT_QUOTES) . "'"; }, ' ');
             return "<tag_{$this->attributes['tagname']} $attrs>$content</tag_{$this->attributes['tagname']}>";
         };
 
@@ -222,7 +219,7 @@ class Tag
             return [];
         }
 
-        $args = Strings::str_between($matches['remnant'], '(', ')');
+        $args = str_between($matches['remnant'], '(', ')');
         if ($args === false) {
             return [];
         }
@@ -230,7 +227,7 @@ class Tag
         // 引数は int|string のような記法も許されるため、個別にパースする必要がある
         // が、辛すぎるので タイプヒントだけ潰してあとは呼び元に任せる
         $parameters = $paramsTag = [];
-        foreach (array_filter(Strings::quoteexplode(',', $args, ['[' => ']', '"' => '"', "'" => "'"], '\\'), 'strlen') as $param) {
+        foreach (array_filter(quoteexplode(',', $args, ['[' => ']', '"' => '"', "'" => "'"], '\\'), 'strlen') as $param) {
             $parts = preg_split('#\s+(?=[$.&])#u', trim($param), 2);
             if (isset($parts[1])) {
                 $type = array_shift($parts);
@@ -258,7 +255,7 @@ class Tag
         $returnTag = '@return ' . trim($matches['type']);
 
         // インライン phpdoc https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#54-inline-phpdoc
-        $description = trim(Strings::str_subreplace($matches['remnant'], "($args)", [0 => '']));
+        $description = trim(str_subreplace($matches['remnant'], "($args)", [0 => '']));
         if (preg_match('#^\{(.*)\}$#s', $description, $desc)) {
             $description = ltrim(preg_replace('#^ {4}#m', ' * ', trim($desc[1], "\r\n")), ' *');
 

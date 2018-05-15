@@ -3,13 +3,16 @@
 namespace ryunosuke\Documentize\Command;
 
 use ryunosuke\Documentize\Document;
-use ryunosuke\Documentize\Utils\Arrays;
-use ryunosuke\Documentize\Utils\FileSystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use function ryunosuke\Documentize\array_count;
+use function ryunosuke\Documentize\dirname_r;
+use function ryunosuke\Documentize\file_list;
+use function ryunosuke\Documentize\mkdir_p;
+use function ryunosuke\Documentize\path_resolve;
 
 class DocumentizeCommand extends Command
 {
@@ -68,21 +71,21 @@ class DocumentizeCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $src = FileSystem::path_resolve($input->getArgument('source'));
-        $dst = FileSystem::path_resolve($input->getArgument('destination'));
+        $src = path_resolve($input->getArgument('source'));
+        $dst = path_resolve($input->getArgument('destination'));
         $tpl = $input->getOption('template');
-        $tpl = $tpl ? FileSystem::path_resolve($tpl) : __DIR__ . '/../../template/simple/bootstrap.php';
-        $tplcfg = FileSystem::path_resolve($input->getOption('template-config'));
+        $tpl = $tpl ? path_resolve($tpl) : __DIR__ . '/../../template/simple/bootstrap.php';
+        $tplcfg = path_resolve($input->getOption('template-config'));
 
         $cachedir = $input->getOption('cachedir');
         if ($cachedir) {
-            $cachedir = FileSystem::path_resolve($cachedir);
-            FileSystem::mkdir_p($cachedir);
+            $cachedir = path_resolve($cachedir);
+            mkdir_p($cachedir);
         }
 
         $autoloader = $input->getOption('autoload');
         if ($autoloader !== '') {
-            $autoloader = FileSystem::path_resolve($autoloader ?: FileSystem::dirname_r($src, function ($path) {
+            $autoloader = path_resolve($autoloader ?: dirname_r($src, function ($path) {
                 return realpath("$path/vendor/autoload.php");
             }));
         }
@@ -146,7 +149,7 @@ class DocumentizeCommand extends Command
             $output->writeln("<$tag>" . $message . "</>", $map[$log['errorno']][0]);
         }
 
-        FileSystem::mkdir_p($dst);
+        mkdir_p($dst);
         $starttime = time();
         $generatetime = microtime(true);
         if (file_exists($tpl)) {
@@ -163,7 +166,7 @@ class DocumentizeCommand extends Command
         $generatetime = microtime(true) - $generatetime;
 
         if ($input->getOption('stats')) {
-            $filelist = FileSystem::file_list($dst, function ($file) use ($starttime) { return filemtime($file) >= $starttime; });
+            $filelist = file_list($dst, function ($file) use ($starttime) { return filemtime($file) >= $starttime; });
             $gencount = count($filelist);
             $gensize = array_sum(array_map('filesize', $filelist));
 
@@ -177,13 +180,13 @@ class DocumentizeCommand extends Command
             };
             $output->writeln(implode(' ', [
                 'Logs',
-                sprintf('<comment>%s</comment> notices,', number_format(Arrays::array_count($result['logs'], function ($v) {
+                sprintf('<comment>%s</comment> notices,', number_format(array_count($result['logs'], function ($v) {
                     return in_array($v['errorno'], [E_NOTICE, E_USER_NOTICE]);
                 }))),
-                sprintf('<comment>%s</comment> warnings,', number_format(Arrays::array_count($result['logs'], function ($v) {
+                sprintf('<comment>%s</comment> warnings,', number_format(array_count($result['logs'], function ($v) {
                     return in_array($v['errorno'], [E_WARNING, E_USER_WARNING]);
                 }))),
-                sprintf('<comment>%s</comment> errors', number_format(Arrays::array_count($result['logs'], function ($v) {
+                sprintf('<comment>%s</comment> errors', number_format(array_count($result['logs'], function ($v) {
                     return in_array($v['errorno'], [E_ERROR, E_USER_ERROR]);
                 }))),
             ]));

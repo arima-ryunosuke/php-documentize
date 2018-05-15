@@ -13,7 +13,8 @@
       "ryunosuke\\Documentize\\": "src/"
     },
     "files": [
-      "src/Utils/.constant.php"
+      "src/functions/constants.php",
+      "src/functions/functions.php"
     ]
   },
   "autoload-dev": {

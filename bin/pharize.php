@@ -1,7 +1,7 @@
 <?php
 
-use ryunosuke\Documentize\Utils\Arrays;
-use ryunosuke\Documentize\Utils\FileSystem;
+use function \ryunosuke\Documentize\file_list;
+use function \ryunosuke\Documentize\array_convert;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
@@ -19,14 +19,14 @@ $filter = function ($file) {
     return true;
 };
 $files = array_merge(
-    FileSystem::file_list("$root/src"),
-    FileSystem::file_list("$root/template"),
-    FileSystem::file_list("$root/vendor/composer", $filter),
-    FileSystem::file_list("$root/vendor/psr", $filter),
-    FileSystem::file_list("$root/vendor/paragonie", $filter),
-    FileSystem::file_list("$root/vendor/myclabs", $filter),
-    FileSystem::file_list("$root/vendor/erusev", $filter),
-    FileSystem::file_list("$root/vendor/symfony", $filter),
+    file_list("$root/src"),
+    file_list("$root/template"),
+    file_list("$root/vendor/composer", $filter),
+    file_list("$root/vendor/psr", $filter),
+    file_list("$root/vendor/paragonie", $filter),
+    file_list("$root/vendor/myclabs", $filter),
+    file_list("$root/vendor/erusev", $filter),
+    file_list("$root/vendor/symfony", $filter),
     [
         "$root/vendor/autoload.php",
         "$root/bin/documentize",
@@ -34,7 +34,7 @@ $files = array_merge(
 );
 
 $phar = new \Phar($pharpath);
-$phar->buildFromIterator(new ArrayIterator(Arrays::array_convert($files, function ($k, $v) use ($root) {
+$phar->buildFromIterator(new ArrayIterator(array_convert($files, function ($k, $v) use ($root) {
     return str_replace($root, '', $v);
 })));
 $phar->addFromString('bin/documentize', preg_replace('/^#!.*\s*/', '', file_get_contents("$root/bin/documentize")));
