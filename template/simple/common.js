@@ -143,7 +143,8 @@ $(function () {
         }
         else {
             var fqsen = $this.data('type-fqsen');
-            $a.attr('href', fqsen.split('::')[0].split('\\').join('-') + '$typespace.html#' + fqsen);
+            var suffix = fqsen.slice(-1) === '\\' ? '$namespace' : '$typespace';
+            $a.attr('href', fqsen.split('::')[0].split('\\').join('-') + suffix + '.html#' + fqsen);
         }
         $a.text($this.data('description'));
         $this.before($a).hide();
