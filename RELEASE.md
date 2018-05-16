@@ -18,8 +18,14 @@
 
 ## x.y.z
 
-- no-virtual, no-private とかをアノテーションベースにしたい
 - Reflection がとても冗長なのでいろいろキャッシュすればかなり高速化されるはず
+- 「オーバーライドされてない」を virtual と読んだのは大失敗だった。メジャーアップで変更する
+
+## 1.0.3
+
+- [feature] no-virtual, no-private などのアノテーション指定を可能にした
+- [feature] no-constant/no-function を実装
+- [feature] マジックメソッドの並び順の制御
 
 ## 1.0.2
 

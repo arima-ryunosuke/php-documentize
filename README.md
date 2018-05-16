@@ -136,6 +136,9 @@ class MyMagicClass
 対応しておりタグとして認識されますが、組み込みテンプレートには反映されません（単に使っていないだけです）。
 どちらかと言えば IDE 向けのタグでドキュメント化が目的のタグではないような気がするからです。
 
+ただし used-by のみマジックメソッドの並び順制御に使用されます。
+実メソッドがマジックメソッドを used-by していると、そのマジックメソッドはその実メソッドに属するとみなされ、ドキュメント的にすぐ下に配置されます。
+
 #### @ignore
 
 元仕様的にはありませんが、便利なので実装しています（psr-5 ではなく phpdocumentor の仕様のようです）。
@@ -170,7 +173,7 @@ Arguments:
 
 Options:
   -a, --autoload[=AUTOLOAD]              Specify Autoload file
-      --cachedir=CACHEDIR                Specify cache directory [default: "/tmp/rdz-1.0.0"]
+      --cachedir=CACHEDIR                Specify cache directory [default: "/tmp/rdz-1.0.2"]
       --force                            Specify cache recreation
   -r, --recursive                        Specify Recursive flag
   -i, --include=INCLUDE                  Specify Include pattern [default: ["*.php"]] (multiple values allowed)
@@ -180,6 +183,8 @@ Options:
   -t, --template=TEMPLATE                Specify Template script
   -c, --template-config=TEMPLATE-CONFIG  Specify Template config script
       --stats                            Display statistic
+      --no-constant                      
+      --no-function                      
       --no-internal                      
       --no-internal-constant             
       --no-internal-function             
@@ -324,6 +329,9 @@ FQSEN を指定して結果を除外します。
 一部の `--no-*` 指定は従属関係があります。
 例えば `--no-private` 指定は `--no-private-constant --no-private-property --no-private-method` 指定と同義です。
 基本的に `--no-private-*` の第3オクテットが無いオプションはその下位オプションをすべて指定した状態になります。
+
+クラスに関わるもの（ `--no-private-*` `--no-internal-*` など）はアノテーションでも指定できます。
+クラスアノテーションに `@no-private-method` を埋めるとそのクラスについてのみ、 private メソッドが出力されなくなります。
 
 `--no-virtual` について補足しておくと、「自身が宣言・実装を持っていない」ものが virtual とみなされます。
 
