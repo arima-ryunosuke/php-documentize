@@ -64,7 +64,7 @@ class Reflection
             case $this->reflection instanceof \ReflectionClass:
                 return $this->isInterface() ? 'interface' : ($this->isTrait() ? 'trait' : 'class');
             case $this->reflection instanceof \ReflectionClassConstant:
-                return 'constant';
+                return 'classconstant';
             case $this->reflection instanceof \ReflectionProperty:
                 return 'property';
             case $this->reflection instanceof \ReflectionMethod:

@@ -64,6 +64,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             'contain'                => [],
             'except'                 => [],
             'cachedir'               => null,
+            'no-constant'            => false,
+            'no-function'            => false,
             'no-internal-constant'   => false,
             'no-internal-function'   => false,
             'no-internal-type'       => false,
@@ -948,6 +950,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             return true;
         }
         if (($data['tags']['ignoreinherit'] ?? false) && ($data['virtual'] ?? false)) {
+            return true;
+        }
+        if (($this->options["no-$context"] ?? false) && ($data['category'] ?? false) === $context) {
             return true;
         }
         if (($this->options["no-internal-$context"] ?? false) && ($data['tags']['internal'] ?? false)) {

@@ -58,6 +58,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertArrayHasKey('constants', $namespaces['GlobalSpace']);
         $this->assertArrayHasKey('globalConstant', $namespaces['GlobalSpace']['constants']);
         $this->assertArrayHasKey('abc_function', $namespaces['A']['namespaces']['B']['namespaces']['C']['functions']);
+        $this->assertEquals('ABC comment', $namespaces['A']['namespaces']['B']['namespaces']['C']['description']);
 
         $methods = $namespaces['GlobalSpace']['classes']['GlobalClass']['methods'];
         $this->assertEquals("override classMethod1 arg comment\n", $methods['classMethod1']['parameters'][0]['description']);
@@ -93,6 +94,8 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
             'include'                => '*',
             'contain'                => ['IgnoreSpace1', 'IgnoreSpace2', '*normal'],
             'except'                 => ['IgnoreSpace1', '*except'],
+            'no-constant'            => true,
+            'no-function'            => false,
             'no-internal-function'   => true,
             'no-deprecated-function' => true,
             'no-internal-type'       => true,
@@ -126,6 +129,8 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         // nocontain 関数がいるが、 contain により除外される
         $this->assertArrayNotHasKey('IgnoreSpace3', $namespaces);
 
+        // no-constant なので false
+        $this->assertArrayNotHasKey('C', $namespaces['IgnoreSpace2']['constants']);
         // except なので false
         $this->assertArrayNotHasKey('exceptF', $namespaces['IgnoreSpace2']['functions']);
         // @deprecated なので false

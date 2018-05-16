@@ -167,7 +167,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_classConstant()
     {
         $reflection = new Reflection(new \ReflectionClassConstant(MockClass::class, 'mockConstant'));
-        $this->assertSame('constant', $reflection->getCategory());
+        $this->assertSame('classconstant', $reflection->getCategory());
         $this->assertSame('NS\\MockInterface::mockConstant', $reflection->getFqsen());
         $this->assertSame('NS\\MockInterface', $reflection->getNamespaceName());
         $this->assertSame('mockConstant', $reflection->getShortName());

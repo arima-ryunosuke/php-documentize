@@ -144,6 +144,9 @@ namespace GlobalSpace {
     }
 }
 
+/**
+ * ABC comment
+ */
 namespace A\B\C {
 
     function abc_function() { }
