@@ -3,6 +3,7 @@ return function ($namespaces, $dst, $config) {
     $GLOBALS['config'] = array_replace([
         'cachekey'   => time(),
         'title'      => 'No Title',
+        'frontpage'  => '',
         'menusize'   => 30,
         'source-map' => [],
     ], is_file($config) ? require $config : []);

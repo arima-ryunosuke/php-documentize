@@ -47,10 +47,16 @@
 	</style>
 	<script>
         var CACHEKEY = <?= json_encode($GLOBALS['config']['cachekey']) ?>;
+        var FRONTPAGE = <?= json_encode($GLOBALS['config']['frontpage']) ?>;
         document.addEventListener('DOMContentLoaded', function () {
             if (location.hash) {
                 document.getElementsByName('menu')[0].addEventListener('load', function () {
                     this.contentWindow.$.open(window.location.hash.substring(1));
+                });
+            }
+            else if (FRONTPAGE) {
+                document.getElementsByName('menu')[0].addEventListener('load', function () {
+                    this.contentWindow.document.querySelector('#' + FRONTPAGE.replace(/[\\:()]/g, '\\$&')).click();
                 });
             }
             else {
