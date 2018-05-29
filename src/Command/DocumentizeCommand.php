@@ -16,7 +16,7 @@ use function ryunosuke\Documentize\path_resolve;
 
 class DocumentizeCommand extends Command
 {
-    const VERSION = "1.0.2";
+    const VERSION = "1.0.3";
 
     protected function configure()
     {
