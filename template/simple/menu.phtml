@@ -43,28 +43,31 @@ function render_namespace($elements, &$all, $nest = 0)
 						<!-- for lazy load -->
 						<ul class="has-indent holding class-member"><?= '<!--' ?>
                             <?php foreach ($element['constants'] as $constant): ?>
-								<li class="indent <?= h($constant['virtual'] ? 'faint' : '') ?> <?= h(($constant['accessible']) !== 'public' ? 'italic' : '') ?>">
+								<li class="indent <?= h($constant['virtual'] ? 'faint' : '') ?>">
 									<div class="ellipsis">
-										<span class="label label-icon label-constant">C</span>
-										<a id="<?= h($constant['fqsen']) ?>" href="<?= ref($constant['fqsen'], 'typespace') ?>" class="<?= h(isset($constant['tags']['deprecated'][0]) || isset($constant['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($constant['name']) ?></a>
+										<span class="label label-icon label-constant">C</span
+										><span class="glyphicon glyphicon-accessible glyphicon-<?= h($constant['accessible']) ?>"></span
+										><a id="<?= h($constant['fqsen']) ?>" href="<?= ref($constant['fqsen'], 'typespace') ?>" class="<?= h(isset($constant['tags']['deprecated'][0]) || isset($constant['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($constant['name']) ?></a>
 										<small class="ellipsis-text"><?= h(summary($constant['description'])) ?></small>
 									</div>
 								</li>
                             <?php endforeach ?>
                             <?php foreach ($element['properties'] as $property): ?>
-								<li class="indent <?= h($property['virtual'] ? 'faint' : '') ?> <?= h(($property['accessible']) !== 'public' ? 'italic' : '') ?>">
+								<li class="indent <?= h($property['virtual'] ? 'faint' : '') ?>">
 									<div class="ellipsis">
-										<span class="label label-icon label-property">P</span>
-										<a id="<?= h($property['fqsen']) ?>" href="<?= ref($property['fqsen'], 'typespace') ?>" class="<?= h(isset($property['tags']['deprecated'][0]) || isset($property['tags']['internal'][0]) ? 'strike' : '') ?>" target="main">$<?= h($property['name']) ?></a>
+										<span class="label label-icon label-property"><?= ($property['static']) ? 'P' : 'p' ?></span
+										><span class="glyphicon glyphicon-accessible glyphicon-<?= h($property['accessible']) ?> <?= h($property['magic'] ? 'glyphicon-magic' : '') ?>"></span
+										><a id="<?= h($property['fqsen']) ?>" href="<?= ref($property['fqsen'], 'typespace') ?>" class="<?= h(isset($property['tags']['deprecated'][0]) || isset($property['tags']['internal'][0]) ? 'strike' : '') ?>" target="main">$<?= h($property['name']) ?></a>
 										<small class="ellipsis-text"><?= h(summary($property['description'])) ?></small>
 									</div>
 								</li>
                             <?php endforeach ?>
                             <?php foreach ($element['methods'] as $method): ?>
-								<li class="indent <?= h($method['virtual'] ? 'faint' : '') ?> <?= h(($method['accessible']) !== 'public' ? 'italic' : '') ?>">
+								<li class="indent <?= h($method['virtual'] ? 'faint' : '') ?>">
 									<div class="ellipsis">
-										<span class="label label-icon label-method">M</span>
-										<a id="<?= h($method['fqsen']) ?>" href="<?= ref($method['fqsen'], 'typespace') ?>" class="<?= h(isset($method['tags']['deprecated'][0]) || isset($method['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($method['name']) ?></a>
+										<span class="label label-icon label-method"><?= ($method['static']) ? 'M' : 'm' ?></span
+										><span class="glyphicon glyphicon-accessible glyphicon-<?= h($method['accessible']) ?> <?= h($method['magic'] ? 'glyphicon-magic' : '') ?>"></span
+										><a id="<?= h($method['fqsen']) ?>" href="<?= ref($method['fqsen'], 'typespace') ?>" class="<?= h(isset($method['tags']['deprecated'][0]) || isset($method['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($method['name']) ?></a>
 										<small class="ellipsis-text"><?= h(summary($method['description'])) ?></small>
 									</div>
 								</li>

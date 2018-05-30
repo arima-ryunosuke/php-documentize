@@ -404,6 +404,35 @@ td.rest {
     vertical-align: text-top;
 }
 
+.glyphicon-accessible {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.glyphicon-private::before {
+    font-size: 6px;
+    content: "\e033";
+    color: #f05e4e;
+}
+
+.glyphicon-protected::before {
+    font-size: 6px;
+    content: "\e063";
+    color: #ff9418;
+}
+
+.glyphicon-public::before {
+    font-size: 6px;
+    content: "\e135";
+    color: #0a8004;
+}
+
+.glyphicon-magic::before {
+    font-size: 6px;
+    content: "\e165";
+    color: #5f94f3;
+}
+
 .label-icon {
     font-size: 12px;
     display: inline-block;
