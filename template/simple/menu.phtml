@@ -8,7 +8,7 @@
 function render_namespace($elements, &$all, $nest = 0)
 {
     ?>
-	<li class="text-nowrap holding-wrapper <?= h($nest ? 'indent' : '') ?>" data-namespace="<?= h($elements['fqsen']) ?>">
+	<li class="text-nowrap holding-wrapper <?= h($nest ? 'indent' : '') ?>">
 		<div class="nheader ellipsis">
 			<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-namespace">N</span>
 			<a id="<?= h($elements['fqsen']) ?>" href="<?= ref($elements['fqsen'], 'namespace') ?>" class="bold" target="main">

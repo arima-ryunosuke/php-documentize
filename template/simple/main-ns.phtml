@@ -42,7 +42,7 @@
 			<h3><?= ucfirst($typekey) ?></h3>
 			<ul>
                 <?php foreach ($elements[$typekey] as $element): ?>
-					<li class="structure-item" data-parent-id="<?= h($element['fqsen']) ?>">
+					<li class="structure-item">
 						<div class="attribute">
 							<span class="label label-danger"><?= h($element['final'] ? 'final' : '') ?></span>
 							<span class="label label-warning"><?= h($element['abstract'] ? 'abstract' : '') ?></span>
@@ -72,7 +72,7 @@
 		<h3>Constants</h3>
 		<ul>
             <?php foreach ($elements['constants'] as $constant): ?>
-				<li class="structure-item" data-parent-id="<?= h($constant['fqsen']) ?>">
+				<li class="structure-item">
 					<div class="attribute">
                         <?= source($constant['location']) ?>
 					</div>
