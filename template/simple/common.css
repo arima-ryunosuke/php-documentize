@@ -28,7 +28,7 @@ div.nheader {
     z-index: 9990;
 }
 
-a[id]:focus, [tabindex]:focus {
+.focused, a[id]:focus, [tabindex]:focus {
     color: red;
     outline: none;
     background-color: antiquewhite;
