@@ -10,7 +10,7 @@
         <whitelist>
             <directory suffix=".php">../src</directory>
             <exclude>
-                <directory>../src/functions</directory>
+                <file>../src/functions.php</file>
             </exclude>
         </whitelist>
     </filter>

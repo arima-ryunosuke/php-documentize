@@ -4,6 +4,7 @@
 
 namespace ryunosuke\Documentize;
 
+const arrayize = 'ryunosuke\\Documentize\\arrayize';
 if (!isset($excluded_functions['arrayize']) && (!function_exists('ryunosuke\\Documentize\\arrayize') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\arrayize'))->isInternal()))) {
     /**
      * 引数の配列を生成する。
@@ -35,6 +36,8 @@ if (!isset($excluded_functions['arrayize']) && (!function_exists('ryunosuke\\Doc
         return $result;
     }
 }
+
+const is_hasharray = 'ryunosuke\\Documentize\\is_hasharray';
 if (!isset($excluded_functions['is_hasharray']) && (!function_exists('ryunosuke\\Documentize\\is_hasharray') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\is_hasharray'))->isInternal()))) {
     /**
      * 配列が連想配列か調べる
@@ -51,7 +54,7 @@ if (!isset($excluded_functions['is_hasharray']) && (!function_exists('ryunosuke\
      * @param array $array 調べる配列
      * @return bool 連想配列なら true
      */
-    function is_hasharray($array)
+    function is_hasharray(array $array)
     {
         $i = 0;
         foreach ($array as $k => $dummy) {
@@ -62,6 +65,8 @@ if (!isset($excluded_functions['is_hasharray']) && (!function_exists('ryunosuke\
         return false;
     }
 }
+
+const first_key = 'ryunosuke\\Documentize\\first_key';
 if (!isset($excluded_functions['first_key']) && (!function_exists('ryunosuke\\Documentize\\first_key') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\first_key'))->isInternal()))) {
     /**
      * 配列の最初のキーを返す
@@ -78,7 +83,7 @@ if (!isset($excluded_functions['first_key']) && (!function_exists('ryunosuke\\Do
      * @param mixed $default 無かった場合のデフォルト値
      * @return mixed 最初のキー
      */
-    function first_key($array, $default = NULL)
+    function first_key($array, $default = null)
     {
         if (empty($array)) {
             return $default;
@@ -88,6 +93,8 @@ if (!isset($excluded_functions['first_key']) && (!function_exists('ryunosuke\\Do
         return $k;
     }
 }
+
+const first_value = 'ryunosuke\\Documentize\\first_value';
 if (!isset($excluded_functions['first_value']) && (!function_exists('ryunosuke\\Documentize\\first_value') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\first_value'))->isInternal()))) {
     /**
      * 配列の最初の値を返す
@@ -104,7 +111,7 @@ if (!isset($excluded_functions['first_value']) && (!function_exists('ryunosuke\\
      * @param mixed $default 無かった場合のデフォルト値
      * @return mixed 最初の値
      */
-    function first_value($array, $default = NULL)
+    function first_value($array, $default = null)
     {
         if (empty($array)) {
             return $default;
@@ -114,6 +121,8 @@ if (!isset($excluded_functions['first_value']) && (!function_exists('ryunosuke\\
         return $v;
     }
 }
+
+const first_keyvalue = 'ryunosuke\\Documentize\\first_keyvalue';
 if (!isset($excluded_functions['first_keyvalue']) && (!function_exists('ryunosuke\\Documentize\\first_keyvalue') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\first_keyvalue'))->isInternal()))) {
     /**
      * 配列の最初のキー/値ペアをタプルで返す
@@ -130,7 +139,7 @@ if (!isset($excluded_functions['first_keyvalue']) && (!function_exists('ryunosuk
      * @param mixed $default 無かった場合のデフォルト値
      * @return array [最初のキー, 最初の値]
      */
-    function first_keyvalue($array, $default = NULL)
+    function first_keyvalue($array, $default = null)
     {
         foreach ($array as $k => $v) {
             return [$k, $v];
@@ -138,6 +147,8 @@ if (!isset($excluded_functions['first_keyvalue']) && (!function_exists('ryunosuk
         return $default;
     }
 }
+
+const last_key = 'ryunosuke\\Documentize\\last_key';
 if (!isset($excluded_functions['last_key']) && (!function_exists('ryunosuke\\Documentize\\last_key') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\last_key'))->isInternal()))) {
     /**
      * 配列の最後のキーを返す
@@ -154,7 +165,7 @@ if (!isset($excluded_functions['last_key']) && (!function_exists('ryunosuke\\Doc
      * @param mixed $default 無かった場合のデフォルト値
      * @return mixed 最後のキー
      */
-    function last_key($array, $default = NULL)
+    function last_key($array, $default = null)
     {
         if (empty($array)) {
             return $default;
@@ -164,6 +175,8 @@ if (!isset($excluded_functions['last_key']) && (!function_exists('ryunosuke\\Doc
         return $k;
     }
 }
+
+const last_value = 'ryunosuke\\Documentize\\last_value';
 if (!isset($excluded_functions['last_value']) && (!function_exists('ryunosuke\\Documentize\\last_value') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\last_value'))->isInternal()))) {
     /**
      * 配列の最後の値を返す
@@ -180,7 +193,7 @@ if (!isset($excluded_functions['last_value']) && (!function_exists('ryunosuke\\D
      * @param mixed $default 無かった場合のデフォルト値
      * @return mixed 最後の値
      */
-    function last_value($array, $default = NULL)
+    function last_value($array, $default = null)
     {
         if (empty($array)) {
             return $default;
@@ -190,6 +203,8 @@ if (!isset($excluded_functions['last_value']) && (!function_exists('ryunosuke\\D
         return $v;
     }
 }
+
+const last_keyvalue = 'ryunosuke\\Documentize\\last_keyvalue';
 if (!isset($excluded_functions['last_keyvalue']) && (!function_exists('ryunosuke\\Documentize\\last_keyvalue') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\last_keyvalue'))->isInternal()))) {
     /**
      * 配列の最後のキー/値ペアをタプルで返す
@@ -206,7 +221,7 @@ if (!isset($excluded_functions['last_keyvalue']) && (!function_exists('ryunosuke
      * @param mixed $default 無かった場合のデフォルト値
      * @return array [最後のキー, 最後の値]
      */
-    function last_keyvalue($array, $default = NULL)
+    function last_keyvalue($array, $default = null)
     {
         /** @noinspection PhpStatementHasEmptyBodyInspection */
         foreach ($array as $k => $v) {
@@ -220,6 +235,8 @@ if (!isset($excluded_functions['last_keyvalue']) && (!function_exists('ryunosuke
         return $default;
     }
 }
+
+const prev_key = 'ryunosuke\\Documentize\\prev_key';
 if (!isset($excluded_functions['prev_key']) && (!function_exists('ryunosuke\\Documentize\\prev_key') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\prev_key'))->isInternal()))) {
     /**
      * 配列の指定キーの前のキーを返す
@@ -255,6 +272,8 @@ if (!isset($excluded_functions['prev_key']) && (!function_exists('ryunosuke\\Doc
         return false;
     }
 }
+
+const next_key = 'ryunosuke\\Documentize\\next_key';
 if (!isset($excluded_functions['next_key']) && (!function_exists('ryunosuke\\Documentize\\next_key') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\next_key'))->isInternal()))) {
     /**
      * 配列の指定キーの次のキーを返す
@@ -282,7 +301,7 @@ if (!isset($excluded_functions['next_key']) && (!function_exists('ryunosuke\\Doc
      * @param string|int|null $key 調べるキー
      * @return string|int|bool|null $key の次のキー
      */
-    function next_key($array, $key = NULL)
+    function next_key($array, $key = null)
     {
         $keynull = $key === null;
         $key = (string) $key;
@@ -308,6 +327,8 @@ if (!isset($excluded_functions['next_key']) && (!function_exists('ryunosuke\\Doc
         }
     }
 }
+
+const in_array_and = 'ryunosuke\\Documentize\\in_array_and';
 if (!isset($excluded_functions['in_array_and']) && (!function_exists('ryunosuke\\Documentize\\in_array_and') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\in_array_and'))->isInternal()))) {
     /**
      * in_array の複数版（AND）
@@ -344,6 +365,8 @@ if (!isset($excluded_functions['in_array_and']) && (!function_exists('ryunosuke\
         return true;
     }
 }
+
+const in_array_or = 'ryunosuke\\Documentize\\in_array_or';
 if (!isset($excluded_functions['in_array_or']) && (!function_exists('ryunosuke\\Documentize\\in_array_or') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\in_array_or'))->isInternal()))) {
     /**
      * in_array の複数版（OR）
@@ -380,6 +403,84 @@ if (!isset($excluded_functions['in_array_or']) && (!function_exists('ryunosuke\\
         return false;
     }
 }
+
+const kvsort = 'ryunosuke\\Documentize\\kvsort';
+if (!isset($excluded_functions['kvsort']) && (!function_exists('ryunosuke\\Documentize\\kvsort') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\kvsort'))->isInternal()))) {
+    /**
+     * 比較関数にキーも渡ってくる安定ソート
+     *
+     * 比較関数は ($avalue, $bvalue, $akey, $bkey) という引数を取る。
+     * 「値で比較して同値だったらキーも見たい」という状況はまれによくあるはず。
+     * さらに安定ソートであり、同値だとしても元の並び順は維持される。
+     *
+     * $comparator は省略できる。省略した場合、型に基づいてよしなにソートする。
+     * （が、比較のたびに型チェックが入るので指定したほうが高速に動く）
+     *
+     * ただし、標準のソート関数とは異なり、参照渡しではなくソートして返り値で返す。
+     * また、いわゆる asort であり、キー・値は常に維持される。
+     *
+     * Example:
+     * ```php
+     * $array = [
+     *     'a'  => 3,
+     *     'b'  => 1,
+     *     'c'  => 2,
+     *     'x1' => 9,
+     *     'x2' => 9,
+     *     'x3' => 9,
+     * ];
+     * // 普通のソート
+     * assertSame(kvsort($array), [
+     *     'b'  => 1,
+     *     'c'  => 2,
+     *     'a'  => 3,
+     *     'x1' => 9,
+     *     'x2' => 9,
+     *     'x3' => 9,
+     * ]);
+     * // キーを使用したソート
+     * assertSame(kvsort($array, function($av, $bv, $ak, $bk){return strcmp($bk, $ak);}), [
+     *     'x3' => 9,
+     *     'x2' => 9,
+     *     'x1' => 9,
+     *     'c'  => 2,
+     *     'b'  => 1,
+     *     'a'  => 3,
+     * ]);
+     * ```
+     *
+     * @param array|\Traversable|string $array 対象配列
+     * @param callable|int $comparator 比較関数。SORT_XXX も使える
+     * @return array ソートされた配列
+     */
+    function kvsort($array, $comparator = null)
+    {
+        if ($comparator === null || is_int($comparator)) {
+            $sort_flg = $comparator;
+            $comparator = function ($av, $bv, $ak, $bk) use ($sort_flg) {
+                return call_user_func(varcmp, $av, $bv, $sort_flg);
+            };
+        }
+
+        $n = 0;
+        $tmp = [];
+        foreach ($array as $k => $v) {
+            $tmp[$k] = [$n++, $k, $v];
+        }
+
+        uasort($tmp, function ($a, $b) use ($comparator) {
+            return $comparator($a[2], $b[2], $a[1], $b[1]) ?: ($a[0] - $b[0]);
+        });
+
+        foreach ($tmp as $k => $v) {
+            $tmp[$k] = $v[2];
+        }
+
+        return $tmp;
+    }
+}
+
+const array_add = 'ryunosuke\\Documentize\\array_add';
 if (!isset($excluded_functions['array_add']) && (!function_exists('ryunosuke\\Documentize\\array_add') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_add'))->isInternal()))) {
     /**
      * 配列の+演算子の関数版
@@ -404,6 +505,8 @@ if (!isset($excluded_functions['array_add']) && (!function_exists('ryunosuke\\Do
         return $array;
     }
 }
+
+const array_implode = 'ryunosuke\\Documentize\\array_implode';
 if (!isset($excluded_functions['array_implode']) && (!function_exists('ryunosuke\\Documentize\\array_implode') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_implode'))->isInternal()))) {
     /**
      * 配列の各要素の間に要素を差し込む
@@ -446,6 +549,8 @@ if (!isset($excluded_functions['array_implode']) && (!function_exists('ryunosuke
         return $result;
     }
 }
+
+const array_sprintf = 'ryunosuke\\Documentize\\array_sprintf';
 if (!isset($excluded_functions['array_sprintf']) && (!function_exists('ryunosuke\\Documentize\\array_sprintf') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_sprintf'))->isInternal()))) {
     /**
      * キーと値で sprintf する
@@ -473,7 +578,7 @@ if (!isset($excluded_functions['array_sprintf']) && (!function_exists('ryunosuke
      * @param string $glue 結合文字列。未指定時は implode しない
      * @return array|string sprintf された配列
      */
-    function array_sprintf($array, $format, $glue = NULL)
+    function array_sprintf($array, $format, $glue = null)
     {
         if (is_callable($format)) {
             $callback = call_user_func(func_user_func_array, $format);
@@ -494,6 +599,8 @@ if (!isset($excluded_functions['array_sprintf']) && (!function_exists('ryunosuke
         return $result;
     }
 }
+
+const array_strpad = 'ryunosuke\\Documentize\\array_strpad';
 if (!isset($excluded_functions['array_strpad']) && (!function_exists('ryunosuke\\Documentize\\array_strpad') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_strpad'))->isInternal()))) {
     /**
      * 配列のキー・要素に文字列を付加する
@@ -536,6 +643,8 @@ if (!isset($excluded_functions['array_strpad']) && (!function_exists('ryunosuke\
         return $result;
     }
 }
+
+const array_pos = 'ryunosuke\\Documentize\\array_pos';
 if (!isset($excluded_functions['array_pos']) && (!function_exists('ryunosuke\\Documentize\\array_pos') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_pos'))->isInternal()))) {
     /**
      * 配列・連想配列を問わず「N番目(0ベース)」の要素を返す
@@ -579,6 +688,8 @@ if (!isset($excluded_functions['array_pos']) && (!function_exists('ryunosuke\\Do
         throw new \OutOfBoundsException("$position is not found.");
     }
 }
+
+const array_of = 'ryunosuke\\Documentize\\array_of';
 if (!isset($excluded_functions['array_of']) && (!function_exists('ryunosuke\\Documentize\\array_of') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_of'))->isInternal()))) {
     /**
      * 配列を与えると指定キーの値を返すクロージャを返す
@@ -599,7 +710,7 @@ if (!isset($excluded_functions['array_of']) && (!function_exists('ryunosuke\\Doc
      * @param mixed $default デフォルト値
      * @return \Closure $key の値を返すクロージャ
      */
-    function array_of($key, $default = NULL)
+    function array_of($key, $default = null)
     {
         $nodefault = func_num_args() === 1;
         return function (array $array) use ($key, $default, $nodefault) {
@@ -612,6 +723,8 @@ if (!isset($excluded_functions['array_of']) && (!function_exists('ryunosuke\\Doc
         };
     }
 }
+
+const array_get = 'ryunosuke\\Documentize\\array_get';
 if (!isset($excluded_functions['array_get']) && (!function_exists('ryunosuke\\Documentize\\array_get') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_get'))->isInternal()))) {
     /**
      * デフォルト値付きの配列値取得
@@ -641,7 +754,7 @@ if (!isset($excluded_functions['array_get']) && (!function_exists('ryunosuke\\Do
      * @param mixed $default 無かった場合のデフォルト値
      * @return mixed 指定したキーの値
      */
-    function array_get($array, $key, $default = NULL)
+    function array_get($array, $key, $default = null)
     {
         if (is_array($key)) {
             $result = [];
@@ -667,6 +780,8 @@ if (!isset($excluded_functions['array_get']) && (!function_exists('ryunosuke\\Do
         return $default;
     }
 }
+
+const array_set = 'ryunosuke\\Documentize\\array_set';
 if (!isset($excluded_functions['array_set']) && (!function_exists('ryunosuke\\Documentize\\array_set') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_set'))->isInternal()))) {
     /**
      * キー指定の配列値設定
@@ -695,7 +810,7 @@ if (!isset($excluded_functions['array_set']) && (!function_exists('ryunosuke\\Do
      * @param bool $require_return 返り値が不要なら false を渡す
      * @return string|int 設定したキー
      */
-    function array_set(&$array, $value, $key = NULL, $require_return = true)
+    function array_set(&$array, $value, $key = null, $require_return = true)
     {
         if (is_array($key)) {
             $k = array_shift($key);
@@ -722,6 +837,8 @@ if (!isset($excluded_functions['array_set']) && (!function_exists('ryunosuke\\Do
         return $key;
     }
 }
+
+const array_unset = 'ryunosuke\\Documentize\\array_unset';
 if (!isset($excluded_functions['array_unset']) && (!function_exists('ryunosuke\\Documentize\\array_unset') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_unset'))->isInternal()))) {
     /**
      * 伏せると同時にその値を返す
@@ -731,6 +848,9 @@ if (!isset($excluded_functions['array_unset']) && (!function_exists('ryunosuke\\
      *
      * 配列を与えた場合の返り値は与えた配列の順番・キーが活きる。
      * これを利用すると list の展開の利便性が上がったり、連想配列で返すことができる。
+     *
+     * 同様に、$key にクロージャを与えると、その返り値が true 相当のものを伏せて配列で返す。
+     * callable ではなくクロージャのみ対応する。
      *
      * Example:
      * ```php
@@ -749,14 +869,19 @@ if (!isset($excluded_functions['array_unset']) && (!function_exists('ryunosuke\\
      * $array = ['a' => 'A', 'b' => 'B', 'c' => 'C'];
      * // 配列のキーは返されるキーを表す。順番も維持される
      * assertSame(array_unset($array, ['x2' => 'b', 'x1' => 'a']), ['x2' => 'B', 'x1' => 'A']);
+     *
+     * $array = ['hoge' => 'HOGE', 'fuga' => 'FUGA', 'piyo' => 'PIYO'];
+     * // 値に "G" を含むものを返す。その要素は伏せられている
+     * assertSame(array_unset($array, function($v){return strpos($v, 'G') !== false;}), ['hoge' => 'HOGE', 'fuga' => 'FUGA']);
+     * assertSame($array, ['piyo' => 'PIYO']);
      * ```
      *
      * @param array $array 配列
-     * @param string|int|array $key 伏せたいキー。配列を与えると全て伏せる
+     * @param string|int|array|callable $key 伏せたいキー。配列を与えると全て伏せる。クロージャの場合は true 相当を返す
      * @param mixed $default 無かった場合のデフォルト値
      * @return mixed 指定したキーの値
      */
-    function array_unset(&$array, $key, $default = NULL)
+    function array_unset(&$array, $key, $default = null)
     {
         if (is_array($key)) {
             $result = [];
@@ -764,6 +889,20 @@ if (!isset($excluded_functions['array_unset']) && (!function_exists('ryunosuke\\
                 if (array_key_exists($ak, $array)) {
                     $result[$rk] = $array[$ak];
                     unset($array[$ak]);
+                }
+            }
+            if (!$result) {
+                return $default;
+            }
+            return $result;
+        }
+
+        if ($key instanceof \Closure) {
+            $result = [];
+            foreach ($array as $k => $v) {
+                if ($key($v, $k)) {
+                    $result[$k] = $v;
+                    unset($array[$k]);
                 }
             }
             if (!$result) {
@@ -780,6 +919,8 @@ if (!isset($excluded_functions['array_unset']) && (!function_exists('ryunosuke\\
         return $default;
     }
 }
+
+const array_dive = 'ryunosuke\\Documentize\\array_dive';
 if (!isset($excluded_functions['array_dive']) && (!function_exists('ryunosuke\\Documentize\\array_dive') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_dive'))->isInternal()))) {
     /**
      * パス形式で配列値を取得
@@ -807,7 +948,7 @@ if (!isset($excluded_functions['array_dive']) && (!function_exists('ryunosuke\\D
      * @param string $delimiter パスの区切り文字。大抵は '.' か '/'
      * @return mixed パスが示す配列の値
      */
-    function array_dive($array, $path, $default = NULL, $delimiter = '.')
+    function array_dive($array, $path, $default = null, $delimiter = '.')
     {
         $keys = is_array($path) ? $path : explode($delimiter, $path);
         foreach ($keys as $key) {
@@ -819,6 +960,66 @@ if (!isset($excluded_functions['array_dive']) && (!function_exists('ryunosuke\\D
         return $array;
     }
 }
+
+const array_keys_exist = 'ryunosuke\\Documentize\\array_keys_exist';
+if (!isset($excluded_functions['array_keys_exist']) && (!function_exists('ryunosuke\\Documentize\\array_keys_exist') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_keys_exist'))->isInternal()))) {
+    /**
+     * array_key_exists の複数版
+     *
+     * 指定キーが全て存在するなら true を返す。
+     * 配列ではなく単一文字列を与えても動作する（array_key_exists と全く同じ動作になる）。
+     *
+     * $keys に空を与えると例外を投げる。
+     * $keys に配列を与えるとキーで潜ってチェックする（Example 参照）。
+     *
+     * Example:
+     * ```php
+     * // すべて含むので true
+     * assertTrue(array_keys_exist(['a', 'b', 'c'], ['a' => 'A', 'b' => 'B', 'c' => 'C']));
+     * // N は含まないので false
+     * assertFalse(array_keys_exist(['a', 'b', 'N'], ['a' => 'A', 'b' => 'B', 'c' => 'C']));
+     * // 配列を与えると潜る（日本語で言えば「a というキーと、x というキーとその中に x1, x2 というキーがあるか？」）
+     * assertTrue(array_keys_exist(['a', 'x' => ['x1', 'x2']], ['a' => 'A', 'x' => ['x1' => 'X1', 'x2' => 'X2']]));
+     * ```
+     *
+     * @param array|string $keys 調べるキー
+     * @param array|\ArrayAccess $array 調べる配列
+     * @return bool 指定キーが全て存在するなら true
+     */
+    function array_keys_exist($keys, $array)
+    {
+        $keys = (array) $keys;
+        if (empty($keys)) {
+            throw new \InvalidArgumentException('$keys is empty.');
+        }
+
+        $is_arrayaccess = $array instanceof \ArrayAccess;
+
+        foreach ($keys as $k => $key) {
+            if (is_array($key)) {
+                // まずそのキーをチェックして
+                if (!call_user_func(array_keys_exist, $k, $array)) {
+                    return false;
+                }
+                // あるなら再帰する
+                if (!call_user_func(array_keys_exist, $key, $array[$k])) {
+                    return false;
+                }
+            }
+            elseif ($is_arrayaccess) {
+                if (!isset($array[$key])) {
+                    return false;
+                }
+            }
+            elseif (!array_key_exists($key, $array)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+const array_exists = 'ryunosuke\\Documentize\\array_exists';
 if (!isset($excluded_functions['array_exists']) && (!function_exists('ryunosuke\\Documentize\\array_exists') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_exists'))->isInternal()))) {
     /**
      * array_search のクロージャ版のようなもの
@@ -848,6 +1049,8 @@ if (!isset($excluded_functions['array_exists']) && (!function_exists('ryunosuke\
         return false;
     }
 }
+
+const array_find = 'ryunosuke\\Documentize\\array_find';
 if (!isset($excluded_functions['array_find']) && (!function_exists('ryunosuke\\Documentize\\array_find') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_find'))->isInternal()))) {
     /**
      * array_search のクロージャ版のようなもの
@@ -889,6 +1092,8 @@ if (!isset($excluded_functions['array_find']) && (!function_exists('ryunosuke\\D
         return false;
     }
 }
+
+const array_grep_key = 'ryunosuke\\Documentize\\array_grep_key';
 if (!isset($excluded_functions['array_grep_key']) && (!function_exists('ryunosuke\\Documentize\\array_grep_key') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_grep_key'))->isInternal()))) {
     /**
      * キーを正規表現でフィルタする
@@ -916,6 +1121,8 @@ if (!isset($excluded_functions['array_grep_key']) && (!function_exists('ryunosuk
         return $result;
     }
 }
+
+const array_map_key = 'ryunosuke\\Documentize\\array_map_key';
 if (!isset($excluded_functions['array_map_key']) && (!function_exists('ryunosuke\\Documentize\\array_map_key') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_map_key'))->isInternal()))) {
     /**
      * キーをマップして変換する
@@ -944,6 +1151,8 @@ if (!isset($excluded_functions['array_map_key']) && (!function_exists('ryunosuke
         return $result;
     }
 }
+
+const array_filter_not = 'ryunosuke\\Documentize\\array_filter_not';
 if (!isset($excluded_functions['array_filter_not']) && (!function_exists('ryunosuke\\Documentize\\array_filter_not') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_filter_not'))->isInternal()))) {
     /**
      * array_filter の否定版
@@ -964,6 +1173,8 @@ if (!isset($excluded_functions['array_filter_not']) && (!function_exists('ryunos
         return array_filter($array, call_user_func(not_func, $callback));
     }
 }
+
+const array_filter_key = 'ryunosuke\\Documentize\\array_filter_key';
 if (!isset($excluded_functions['array_filter_key']) && (!function_exists('ryunosuke\\Documentize\\array_filter_key') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_filter_key'))->isInternal()))) {
     /**
      * キーを主軸とした array_filter
@@ -992,6 +1203,8 @@ if (!isset($excluded_functions['array_filter_key']) && (!function_exists('ryunos
         return $result;
     }
 }
+
+const array_filter_eval = 'ryunosuke\\Documentize\\array_filter_eval';
 if (!isset($excluded_functions['array_filter_eval']) && (!function_exists('ryunosuke\\Documentize\\array_filter_eval') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_filter_eval'))->isInternal()))) {
     /**
      * eval で評価して array_filter する
@@ -1013,6 +1226,8 @@ if (!isset($excluded_functions['array_filter_eval']) && (!function_exists('ryuno
         return call_user_func(array_filter_key, $array, call_user_func(eval_func, $expression, 'k', 'v'));
     }
 }
+
+const array_where = 'ryunosuke\\Documentize\\array_where';
 if (!isset($excluded_functions['array_where']) && (!function_exists('ryunosuke\\Documentize\\array_where') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_where'))->isInternal()))) {
     /**
      * 指定キーの要素で array_filter する
@@ -1052,7 +1267,7 @@ if (!isset($excluded_functions['array_where']) && (!function_exists('ryunosuke\\
      * @param callable $callback 評価クロージャ
      * @return array $where が真を返した新しい配列
      */
-    function array_where($array, $column = NULL, $callback = NULL)
+    function array_where($array, $column = null, $callback = null)
     {
         $is_array = is_array($column);
         if ($is_array) {
@@ -1080,6 +1295,8 @@ if (!isset($excluded_functions['array_where']) && (!function_exists('ryunosuke\\
         return $result;
     }
 }
+
+const array_map_filter = 'ryunosuke\\Documentize\\array_map_filter';
 if (!isset($excluded_functions['array_map_filter']) && (!function_exists('ryunosuke\\Documentize\\array_map_filter') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_map_filter'))->isInternal()))) {
     /**
      * array_map + array_filter する
@@ -1113,6 +1330,8 @@ if (!isset($excluded_functions['array_map_filter']) && (!function_exists('ryunos
         return $result;
     }
 }
+
+const array_map_method = 'ryunosuke\\Documentize\\array_map_method';
 if (!isset($excluded_functions['array_map_method']) && (!function_exists('ryunosuke\\Documentize\\array_map_method') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_map_method'))->isInternal()))) {
     /**
      * メソッドを指定できるようにした array_map
@@ -1153,6 +1372,8 @@ if (!isset($excluded_functions['array_map_method']) && (!function_exists('ryunos
         }, $array);
     }
 }
+
+const array_maps = 'ryunosuke\\Documentize\\array_maps';
 if (!isset($excluded_functions['array_maps']) && (!function_exists('ryunosuke\\Documentize\\array_maps') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_maps'))->isInternal()))) {
     /**
      * 複数コールバックを指定できる array_map
@@ -1206,6 +1427,8 @@ if (!isset($excluded_functions['array_maps']) && (!function_exists('ryunosuke\\D
         return $result;
     }
 }
+
+const array_nmap = 'ryunosuke\\Documentize\\array_nmap';
 if (!isset($excluded_functions['array_nmap']) && (!function_exists('ryunosuke\\Documentize\\array_nmap') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_nmap'))->isInternal()))) {
     /**
      * 要素値を $callback の n 番目(0ベース)に適用して array_map する
@@ -1279,6 +1502,8 @@ if (!isset($excluded_functions['array_nmap']) && (!function_exists('ryunosuke\\D
         return $result;
     }
 }
+
+const array_lmap = 'ryunosuke\\Documentize\\array_lmap';
 if (!isset($excluded_functions['array_lmap']) && (!function_exists('ryunosuke\\Documentize\\array_lmap') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_lmap'))->isInternal()))) {
     /**
      * 要素値を $callback の最左に適用して array_map する
@@ -1299,6 +1524,8 @@ if (!isset($excluded_functions['array_lmap']) && (!function_exists('ryunosuke\\D
         return call_user_func_array(array_nmap, call_user_func(array_insert, func_get_args(), 0, 2));
     }
 }
+
+const array_rmap = 'ryunosuke\\Documentize\\array_rmap';
 if (!isset($excluded_functions['array_rmap']) && (!function_exists('ryunosuke\\Documentize\\array_rmap') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_rmap'))->isInternal()))) {
     /**
      * 要素値を $callback の最右に適用して array_map する
@@ -1319,6 +1546,8 @@ if (!isset($excluded_functions['array_rmap']) && (!function_exists('ryunosuke\\D
         return call_user_func_array(array_nmap, call_user_func(array_insert, func_get_args(), func_num_args() - 2, 2));
     }
 }
+
+const array_each = 'ryunosuke\\Documentize\\array_each';
 if (!isset($excluded_functions['array_each']) && (!function_exists('ryunosuke\\Documentize\\array_each') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_each'))->isInternal()))) {
     /**
      * array_reduce の参照版（のようなもの）
@@ -1333,6 +1562,11 @@ if (!isset($excluded_functions['array_each']) && (!function_exists('ryunosuke\\D
      * 返り値ではなく参照引数なので return する必要はない（ワンライナーが書きやすくなる）。
      * 返り値が空くのでループ制御に用いる。
      * 今のところ $callback が false を返すとそこで break するのみ。
+     *
+     * 第3引数を省略した場合、**クロージャの第1引数のデフォルト値が使われる**。
+     * これは特筆すべき動作で、不格好な第3引数を完全に省略することができる（サンプルコードを参照）。
+     * ただし「php の文法違反（今のところエラーにはならないし、全てにデフォルト値をつければ一応回避可能）」「リフレクションを使う（ほんの少し遅くなる）」などの弊害が有るので推奨はしない。
+     * （ただ、「意図していることをコードで表す」といった観点ではこの記法の方が正しいとも思う）。
      *
      * Example:
      * ```php
@@ -1355,6 +1589,17 @@ if (!isset($excluded_functions['array_each']) && (!function_exists('ryunosuke\\D
      *     2 => 4,
      *     3 => 9,
      * ]);
+     *
+     * // 下記は完全に同じ（第3引数の代わりにデフォルト引数を使っている）
+     * assertSame(
+     *     array_each([1, 2, 3], function(&$carry = [], $v) {
+     *         $carry[$v] = $v * $v;
+     *     }),
+     *     array_each([1, 2, 3], function(&$carry, $v) {
+     *         $carry[$v] = $v * $v;
+     *     }, [])
+     *     // 個人的に↑のようなぶら下がり引数があまり好きではない（クロージャを最後の引数にしたい）
+     * );
      * ```
      *
      * @param array|\Traversable $array 対象配列
@@ -1362,8 +1607,17 @@ if (!isset($excluded_functions['array_each']) && (!function_exists('ryunosuke\\D
      * @param mixed $default ループの最初や空の場合に適用される値
      * @return mixed each した結果
      */
-    function array_each($array, $callback, $default = NULL)
+    function array_each($array, $callback, $default = null)
     {
+        if (func_num_args() === 2) {
+            /** @var \ReflectionFunction $ref */
+            $ref = call_user_func(reflect_callable, $callback);
+            $params = $ref->getParameters();
+            if ($params[0]->isDefaultValueAvailable()) {
+                $default = $params[0]->getDefaultValue();
+            }
+        }
+
         foreach ($array as $k => $v) {
             $return = $callback($default, $v, $k);
             if ($return === false) {
@@ -1373,6 +1627,8 @@ if (!isset($excluded_functions['array_each']) && (!function_exists('ryunosuke\\D
         return $default;
     }
 }
+
+const array_depth = 'ryunosuke\\Documentize\\array_depth';
 if (!isset($excluded_functions['array_depth']) && (!function_exists('ryunosuke\\Documentize\\array_depth') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_depth'))->isInternal()))) {
     /**
      * 配列の次元数を返す
@@ -1404,6 +1660,8 @@ if (!isset($excluded_functions['array_depth']) && (!function_exists('ryunosuke\\
         return 1 + max(array_map(__METHOD__, $arrays));
     }
 }
+
+const array_insert = 'ryunosuke\\Documentize\\array_insert';
 if (!isset($excluded_functions['array_insert']) && (!function_exists('ryunosuke\\Documentize\\array_insert') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_insert'))->isInternal()))) {
     /**
      * 配列・連想配列を問わず任意の位置に値を挿入する
@@ -1425,7 +1683,7 @@ if (!isset($excluded_functions['array_insert']) && (!function_exists('ryunosuke\
      * @param int|null $position 挿入位置
      * @return array 挿入された新しい配列
      */
-    function array_insert($array, $value, $position = NULL)
+    function array_insert($array, $value, $position = null)
     {
         if (!is_array($value)) {
             $value = [$value];
@@ -1437,6 +1695,8 @@ if (!isset($excluded_functions['array_insert']) && (!function_exists('ryunosuke\
         return array_merge($sarray, $value, $array);
     }
 }
+
+const array_assort = 'ryunosuke\\Documentize\\array_assort';
 if (!isset($excluded_functions['array_assort']) && (!function_exists('ryunosuke\\Documentize\\array_assort') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_assort'))->isInternal()))) {
     /**
      * 配列をコールバックに従って分類する
@@ -1475,6 +1735,8 @@ if (!isset($excluded_functions['array_assort']) && (!function_exists('ryunosuke\
         return $result;
     }
 }
+
+const array_count = 'ryunosuke\\Documentize\\array_count';
 if (!isset($excluded_functions['array_count']) && (!function_exists('ryunosuke\\Documentize\\array_count') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_count'))->isInternal()))) {
     /**
      * 配列をコールバックに従ってカウントする
@@ -1526,6 +1788,8 @@ if (!isset($excluded_functions['array_count']) && (!function_exists('ryunosuke\\
         return $result;
     }
 }
+
+const array_group = 'ryunosuke\\Documentize\\array_group';
 if (!isset($excluded_functions['array_group']) && (!function_exists('ryunosuke\\Documentize\\array_group') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_group'))->isInternal()))) {
     /**
      * 配列をコールバックの返り値でグループ化する
@@ -1556,7 +1820,7 @@ if (!isset($excluded_functions['array_group']) && (!function_exists('ryunosuke\\
      * @param bool $preserve_keys キーを保存するか。 false の場合数値キーは振り直される
      * @return array グルーピングされた配列
      */
-    function array_group($array, $callback = NULL, $preserve_keys = false)
+    function array_group($array, $callback = null, $preserve_keys = false)
     {
         $callback = call_user_func(func_user_func_array, $callback);
 
@@ -1582,6 +1846,8 @@ if (!isset($excluded_functions['array_group']) && (!function_exists('ryunosuke\\
         return $result;
     }
 }
+
+const array_all = 'ryunosuke\\Documentize\\array_all';
 if (!isset($excluded_functions['array_all']) && (!function_exists('ryunosuke\\Documentize\\array_all') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_all'))->isInternal()))) {
     /**
      * 全要素が true になるなら true を返す（1つでも false なら false を返す）
@@ -1600,7 +1866,7 @@ if (!isset($excluded_functions['array_all']) && (!function_exists('ryunosuke\\Do
      * @param bool|mixed $default 空配列の場合のデフォルト値
      * @return bool 全要素が true なら true
      */
-    function array_all($array, $callback = NULL, $default = true)
+    function array_all($array, $callback = null, $default = true)
     {
         if (empty($array)) {
             return $default;
@@ -1616,6 +1882,8 @@ if (!isset($excluded_functions['array_all']) && (!function_exists('ryunosuke\\Do
         return true;
     }
 }
+
+const array_any = 'ryunosuke\\Documentize\\array_any';
 if (!isset($excluded_functions['array_any']) && (!function_exists('ryunosuke\\Documentize\\array_any') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_any'))->isInternal()))) {
     /**
      * 全要素が false になるなら false を返す（1つでも true なら true を返す）
@@ -1634,7 +1902,7 @@ if (!isset($excluded_functions['array_any']) && (!function_exists('ryunosuke\\Do
      * @param bool|mixed $default 空配列の場合のデフォルト値
      * @return bool 全要素が false なら false
      */
-    function array_any($array, $callback = NULL, $default = false)
+    function array_any($array, $callback = null, $default = false)
     {
         if (empty($array)) {
             return $default;
@@ -1650,6 +1918,8 @@ if (!isset($excluded_functions['array_any']) && (!function_exists('ryunosuke\\Do
         return false;
     }
 }
+
+const array_order = 'ryunosuke\\Documentize\\array_order';
 if (!isset($excluded_functions['array_order']) && (!function_exists('ryunosuke\\Documentize\\array_order') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_order'))->isInternal()))) {
     /**
      * 配列を $orders に従って並べ替える
@@ -1683,7 +1953,7 @@ if (!isset($excluded_functions['array_order']) && (!function_exists('ryunosuke\\
      * @param bool $preserve_keys キーを保存するか。 false の場合数値キーは振り直される
      * @return array 並び替えられた配列
      */
-    function array_order($array, $orders, $preserve_keys = false)
+    function array_order(array $array, $orders, $preserve_keys = false)
     {
         if (count($array) <= 1) {
             return $array;
@@ -1792,6 +2062,8 @@ if (!isset($excluded_functions['array_order']) && (!function_exists('ryunosuke\\
         }
     }
 }
+
+const array_shuffle = 'ryunosuke\\Documentize\\array_shuffle';
 if (!isset($excluded_functions['array_shuffle']) && (!function_exists('ryunosuke\\Documentize\\array_shuffle') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_shuffle'))->isInternal()))) {
     /**
      * shuffle のキーが保存される＋参照渡しではない版
@@ -1816,6 +2088,8 @@ if (!isset($excluded_functions['array_shuffle']) && (!function_exists('ryunosuke
         return $result;
     }
 }
+
+const array_shrink_key = 'ryunosuke\\Documentize\\array_shrink_key';
 if (!isset($excluded_functions['array_shrink_key']) && (!function_exists('ryunosuke\\Documentize\\array_shrink_key') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_shrink_key'))->isInternal()))) {
     /**
      * 値の優先順位を逆にした array_intersect_key
@@ -1836,13 +2110,15 @@ if (!isset($excluded_functions['array_shrink_key']) && (!function_exists('ryunos
      * @param array $variadic 比較する配列
      * @return array 新しい配列
      */
-    function array_shrink_key($array, ...$variadic)
+    function array_shrink_key(array $array, ...$variadic)
     {
         $args = func_get_args();
         array_unshift($args, call_user_func_array('array_replace', $args));
         return call_user_func_array('array_intersect_key', $args);
     }
 }
+
+const array_lookup = 'ryunosuke\\Documentize\\array_lookup';
 if (!isset($excluded_functions['array_lookup']) && (!function_exists('ryunosuke\\Documentize\\array_lookup') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_lookup'))->isInternal()))) {
     /**
      * キー保存可能な array_column
@@ -1865,7 +2141,7 @@ if (!isset($excluded_functions['array_lookup']) && (!function_exists('ryunosuke\
      * @param string|null $index_key キーとなるキー
      * @return array 新しい配列
      */
-    function array_lookup($array, $column_key = NULL, $index_key = NULL)
+    function array_lookup($array, $column_key = null, $index_key = null)
     {
         if (func_num_args() === 3) {
             return array_column($array, $column_key, $index_key);
@@ -1892,6 +2168,8 @@ if (!isset($excluded_functions['array_lookup']) && (!function_exists('ryunosuke\
         return $result;
     }
 }
+
+const array_columns = 'ryunosuke\\Documentize\\array_columns';
 if (!isset($excluded_functions['array_columns']) && (!function_exists('ryunosuke\\Documentize\\array_columns') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_columns'))->isInternal()))) {
     /**
      * 全要素に対して array_column する
@@ -1913,7 +2191,7 @@ if (!isset($excluded_functions['array_columns']) && (!function_exists('ryunosuke
      * @param mixed $index_key 新しい配列のキーとなるキー名
      * @return array 新しい配列
      */
-    function array_columns($array, $column_keys = NULL, $index_key = NULL)
+    function array_columns($array, $column_keys = null, $index_key = null)
     {
         if (count($array) === 0 && $column_keys === null) {
             throw new \InvalidArgumentException("can't auto detect keys.");
@@ -1930,6 +2208,8 @@ if (!isset($excluded_functions['array_columns']) && (!function_exists('ryunosuke
         return $result;
     }
 }
+
+const array_uncolumns = 'ryunosuke\\Documentize\\array_uncolumns';
 if (!isset($excluded_functions['array_uncolumns']) && (!function_exists('ryunosuke\\Documentize\\array_uncolumns') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_uncolumns'))->isInternal()))) {
     /**
      * array_columns のほぼ逆で [キー => [要素]] 配列から連想配列の配列を生成する
@@ -1949,7 +2229,7 @@ if (!isset($excluded_functions['array_uncolumns']) && (!function_exists('ryunosu
      * @param array $template 抽出要素とそのデフォルト値
      * @return array 新しい配列
      */
-    function array_uncolumns($array, $template = NULL)
+    function array_uncolumns($array, $template = null)
     {
         // 指定されていないなら生のまま
         if (func_num_args() === 1) {
@@ -1972,6 +2252,8 @@ if (!isset($excluded_functions['array_uncolumns']) && (!function_exists('ryunosu
         return $result;
     }
 }
+
+const array_convert = 'ryunosuke\\Documentize\\array_convert';
 if (!isset($excluded_functions['array_convert']) && (!function_exists('ryunosuke\\Documentize\\array_convert') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_convert'))->isInternal()))) {
     /**
      * 配列の各要素に再帰的にコールバックを適用して変換する
@@ -2097,6 +2379,8 @@ if (!isset($excluded_functions['array_convert']) && (!function_exists('ryunosuke
         return $result;
     }
 }
+
+const array_flatten = 'ryunosuke\\Documentize\\array_flatten';
 if (!isset($excluded_functions['array_flatten']) && (!function_exists('ryunosuke\\Documentize\\array_flatten') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_flatten'))->isInternal()))) {
     /**
      * 多階層配列をフラットに展開する
@@ -2144,7 +2428,7 @@ if (!isset($excluded_functions['array_flatten']) && (!function_exists('ryunosuke
      * @param string|null $delimiter キーの区切り文字。 null を与えると連番になる
      * @return array フラット化された配列
      */
-    function array_flatten($array, $delimiter = NULL)
+    function array_flatten($array, $delimiter = null)
     {
         // 要素追加について、 array_set だと目に見えて速度低下したのでベタに if else で分岐する
         $core = function ($array, $delimiter) use (&$core) {
@@ -2175,6 +2459,8 @@ if (!isset($excluded_functions['array_flatten']) && (!function_exists('ryunosuke
         return $core($array, $delimiter);
     }
 }
+
+const array_nest = 'ryunosuke\\Documentize\\array_nest';
 if (!isset($excluded_functions['array_nest']) && (!function_exists('ryunosuke\\Documentize\\array_nest') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\array_nest'))->isInternal()))) {
     /**
      * シンプルな [キー => 値] な配列から階層配列を生成する
@@ -2252,6 +2538,8 @@ if (!isset($excluded_functions['array_nest']) && (!function_exists('ryunosuke\\D
         return $result;
     }
 }
+
+const stdclass = 'ryunosuke\\Documentize\\stdclass';
 if (!isset($excluded_functions['stdclass']) && (!function_exists('ryunosuke\\Documentize\\stdclass') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\stdclass'))->isInternal()))) {
     /**
      * 初期フィールド値を与えて stdClass を生成する
@@ -2283,6 +2571,8 @@ if (!isset($excluded_functions['stdclass']) && (!function_exists('ryunosuke\\Doc
         return $stdclass;
     }
 }
+
+const detect_namespace = 'ryunosuke\\Documentize\\detect_namespace';
 if (!isset($excluded_functions['detect_namespace']) && (!function_exists('ryunosuke\\Documentize\\detect_namespace') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\detect_namespace'))->isInternal()))) {
     /**
      * ディレクトリ構造から名前空間を推測して返す
@@ -2336,6 +2626,8 @@ if (!isset($excluded_functions['detect_namespace']) && (!function_exists('ryunos
         }) ?: call_user_func(throws, new \InvalidArgumentException('can not detect namespace. invalid output path or not specify namespace.'));
     }
 }
+
+const class_loader = 'ryunosuke\\Documentize\\class_loader';
 if (!isset($excluded_functions['class_loader']) && (!function_exists('ryunosuke\\Documentize\\class_loader') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\class_loader'))->isInternal()))) {
     /**
      * composer のクラスローダを返す
@@ -2350,7 +2642,7 @@ if (!isset($excluded_functions['class_loader']) && (!function_exists('ryunosuke\
      * @param string $startdir 高速化用の検索開始ディレクトリを指定するが、どちらかと言えばテスト用
      * @return \Composer\Autoload\ClassLoader クラスローダ
      */
-    function class_loader($startdir = NULL)
+    function class_loader($startdir = null)
     {
         $file = call_user_func(cache, 'path', function () use ($startdir) {
             $dir = $startdir ?: __DIR__;
@@ -2369,6 +2661,8 @@ if (!isset($excluded_functions['class_loader']) && (!function_exists('ryunosuke\
         return require $file;
     }
 }
+
+const class_namespace = 'ryunosuke\\Documentize\\class_namespace';
 if (!isset($excluded_functions['class_namespace']) && (!function_exists('ryunosuke\\Documentize\\class_namespace') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\class_namespace'))->isInternal()))) {
     /**
      * クラスの名前空間部分を取得する
@@ -2392,6 +2686,8 @@ if (!isset($excluded_functions['class_namespace']) && (!function_exists('ryunosu
         return ltrim(implode('\\', $parts), '\\');
     }
 }
+
+const class_shorten = 'ryunosuke\\Documentize\\class_shorten';
 if (!isset($excluded_functions['class_shorten']) && (!function_exists('ryunosuke\\Documentize\\class_shorten') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\class_shorten'))->isInternal()))) {
     /**
      * クラスの名前空間部分を除いた短い名前を取得する
@@ -2414,6 +2710,8 @@ if (!isset($excluded_functions['class_shorten']) && (!function_exists('ryunosuke
         return array_pop($parts);
     }
 }
+
+const class_replace = 'ryunosuke\\Documentize\\class_replace';
 if (!isset($excluded_functions['class_replace']) && (!function_exists('ryunosuke\\Documentize\\class_replace') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\class_replace'))->isInternal()))) {
     /**
      * 既存（未読み込みに限る）クラスを強制的に置換する
@@ -2439,7 +2737,7 @@ if (!isset($excluded_functions['class_replace']) && (!function_exists('ryunosuke
      * @param \Closure $register 置換クラスを定義 or 返すクロージャ。「返せる」のは php7.0 以降のみ
      * @param string $dirname 一時ファイル書き出しディレクトリ。指定すると実質的にキャッシュとして振る舞う
      */
-    function class_replace($class, $register, $dirname = NULL)
+    function class_replace($class, $register, $dirname = null)
     {
         $class = ltrim($class, '\\');
 
@@ -2478,6 +2776,8 @@ if (!isset($excluded_functions['class_replace']) && (!function_exists('ryunosuke
         class_alias($newclass, $class);
     }
 }
+
+const file_list = 'ryunosuke\\Documentize\\file_list';
 if (!isset($excluded_functions['file_list']) && (!function_exists('ryunosuke\\Documentize\\file_list') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\file_list'))->isInternal()))) {
     /**
      * ファイル一覧を配列で返す
@@ -2503,7 +2803,7 @@ if (!isset($excluded_functions['file_list']) && (!function_exists('ryunosuke\\Do
      * @param \Closure|array $filter_condition フィルタ条件
      * @return array|false ファイルの配列
      */
-    function file_list($dirname, $filter_condition = NULL)
+    function file_list($dirname, $filter_condition = null)
     {
         $dirname = realpath($dirname);
         if (!file_exists($dirname)) {
@@ -2524,6 +2824,8 @@ if (!isset($excluded_functions['file_list']) && (!function_exists('ryunosuke\\Do
         return $result;
     }
 }
+
+const file_tree = 'ryunosuke\\Documentize\\file_tree';
 if (!isset($excluded_functions['file_tree']) && (!function_exists('ryunosuke\\Documentize\\file_tree') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\file_tree'))->isInternal()))) {
     /**
      * ディレクトリ階層をツリー構造で返す
@@ -2555,7 +2857,7 @@ if (!isset($excluded_functions['file_tree']) && (!function_exists('ryunosuke\\Do
      * @param \Closure|array $filter_condition フィルタ条件
      * @return array|false ツリー構造の配列
      */
-    function file_tree($dirname, $filter_condition = NULL)
+    function file_tree($dirname, $filter_condition = null)
     {
         $dirname = realpath($dirname);
         if (!file_exists($dirname)) {
@@ -2592,6 +2894,8 @@ if (!isset($excluded_functions['file_tree']) && (!function_exists('ryunosuke\\Do
         return $result;
     }
 }
+
+const file_extension = 'ryunosuke\\Documentize\\file_extension';
 if (!isset($excluded_functions['file_extension']) && (!function_exists('ryunosuke\\Documentize\\file_extension') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\file_extension'))->isInternal()))) {
     /**
      * ファイルの拡張子を変更する。引数を省略すると拡張子を返す
@@ -2629,6 +2933,8 @@ if (!isset($excluded_functions['file_extension']) && (!function_exists('ryunosuk
         return $pathinfo['dirname'] . DIRECTORY_SEPARATOR . $basename;
     }
 }
+
+const file_set_contents = 'ryunosuke\\Documentize\\file_set_contents';
 if (!isset($excluded_functions['file_set_contents']) && (!function_exists('ryunosuke\\Documentize\\file_set_contents') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\file_set_contents'))->isInternal()))) {
     /**
      * ディレクトリも掘る file_put_contents
@@ -2644,7 +2950,7 @@ if (!isset($excluded_functions['file_set_contents']) && (!function_exists('ryuno
      * @param int $umask ディレクトリを掘る際の umask
      * @return int 書き込まれたバイト数
      */
-    function file_set_contents($filename, $data, $umask = 2)
+    function file_set_contents($filename, $data, $umask = 0002)
     {
         if (func_num_args() === 2) {
             $umask = umask();
@@ -2658,6 +2964,8 @@ if (!isset($excluded_functions['file_set_contents']) && (!function_exists('ryuno
         return file_put_contents($filename, $data);
     }
 }
+
+const mkdir_p = 'ryunosuke\\Documentize\\mkdir_p';
 if (!isset($excluded_functions['mkdir_p']) && (!function_exists('ryunosuke\\Documentize\\mkdir_p') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\mkdir_p'))->isInternal()))) {
     /**
      * ディレクトリを再帰的に掘る
@@ -2668,7 +2976,7 @@ if (!isset($excluded_functions['mkdir_p']) && (!function_exists('ryunosuke\\Docu
      * @param int $umask ディレクトリを掘る際の umask
      * @return bool 作成したら true
      */
-    function mkdir_p($dirname, $umask = 2)
+    function mkdir_p($dirname, $umask = 0002)
     {
         if (func_num_args() === 1) {
             $umask = umask();
@@ -2681,6 +2989,8 @@ if (!isset($excluded_functions['mkdir_p']) && (!function_exists('ryunosuke\\Docu
         return mkdir($dirname, 0777 & (~$umask), true);
     }
 }
+
+const dirname_r = 'ryunosuke\\Documentize\\dirname_r';
 if (!isset($excluded_functions['dirname_r']) && (!function_exists('ryunosuke\\Documentize\\dirname_r') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\dirname_r'))->isInternal()))) {
     /**
      * コールバックが true 相当を返すまで親ディレクトリを辿り続ける
@@ -2715,6 +3025,8 @@ if (!isset($excluded_functions['dirname_r']) && (!function_exists('ryunosuke\\Do
         return call_user_func(dirname_r, $dirname, $callback);
     }
 }
+
+const fnmatch_and = 'ryunosuke\\Documentize\\fnmatch_and';
 if (!isset($excluded_functions['fnmatch_and']) && (!function_exists('ryunosuke\\Documentize\\fnmatch_and') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\fnmatch_and'))->isInternal()))) {
     /**
      * fnmatch の AND 版
@@ -2750,6 +3062,8 @@ if (!isset($excluded_functions['fnmatch_and']) && (!function_exists('ryunosuke\\
         return true;
     }
 }
+
+const fnmatch_or = 'ryunosuke\\Documentize\\fnmatch_or';
 if (!isset($excluded_functions['fnmatch_or']) && (!function_exists('ryunosuke\\Documentize\\fnmatch_or') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\fnmatch_or'))->isInternal()))) {
     /**
      * fnmatch の OR 版
@@ -2785,6 +3099,8 @@ if (!isset($excluded_functions['fnmatch_or']) && (!function_exists('ryunosuke\\D
         return false;
     }
 }
+
+const path_is_absolute = 'ryunosuke\\Documentize\\path_is_absolute';
 if (!isset($excluded_functions['path_is_absolute']) && (!function_exists('ryunosuke\\Documentize\\path_is_absolute') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\path_is_absolute'))->isInternal()))) {
     /**
      * パスが絶対パスか判定する
@@ -2818,6 +3134,8 @@ if (!isset($excluded_functions['path_is_absolute']) && (!function_exists('ryunos
         return false;
     }
 }
+
+const path_resolve = 'ryunosuke\\Documentize\\path_resolve';
 if (!isset($excluded_functions['path_resolve']) && (!function_exists('ryunosuke\\Documentize\\path_resolve') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\path_resolve'))->isInternal()))) {
     /**
      * パスを絶対パスに変換して正規化する
@@ -2849,6 +3167,8 @@ if (!isset($excluded_functions['path_resolve']) && (!function_exists('ryunosuke\
         return call_user_func(path_normalize, $path);
     }
 }
+
+const path_normalize = 'ryunosuke\\Documentize\\path_normalize';
 if (!isset($excluded_functions['path_normalize']) && (!function_exists('ryunosuke\\Documentize\\path_normalize') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\path_normalize'))->isInternal()))) {
     /**
      * パスを正規化する
@@ -2894,6 +3214,8 @@ if (!isset($excluded_functions['path_normalize']) && (!function_exists('ryunosuk
         return implode(DIRECTORY_SEPARATOR, $result);
     }
 }
+
+const cp_rf = 'ryunosuke\\Documentize\\cp_rf';
 if (!isset($excluded_functions['cp_rf']) && (!function_exists('ryunosuke\\Documentize\\cp_rf') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\cp_rf'))->isInternal()))) {
     /**
      * ディレクトリのコピー
@@ -2964,6 +3286,8 @@ if (!isset($excluded_functions['cp_rf']) && (!function_exists('ryunosuke\\Docume
         return file_exists($dst);
     }
 }
+
+const rm_rf = 'ryunosuke\\Documentize\\rm_rf';
 if (!isset($excluded_functions['rm_rf']) && (!function_exists('ryunosuke\\Documentize\\rm_rf') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\rm_rf'))->isInternal()))) {
     /**
      * 中身があっても消せる rmdir
@@ -3002,6 +3326,8 @@ if (!isset($excluded_functions['rm_rf']) && (!function_exists('ryunosuke\\Docume
         }
     }
 }
+
+const tmpname = 'ryunosuke\\Documentize\\tmpname';
 if (!isset($excluded_functions['tmpname']) && (!function_exists('ryunosuke\\Documentize\\tmpname') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\tmpname'))->isInternal()))) {
     /**
      * 終了時に削除される一時ファイル名を生成する
@@ -3015,7 +3341,7 @@ if (!isset($excluded_functions['tmpname']) && (!function_exists('ryunosuke\\Docu
      * @param string $dir 生成ディレクトリ。省略時は sys_get_temp_dir()
      * @return string 一時ファイル名
      */
-    function tmpname($prefix = 'rft', $dir = NULL)
+    function tmpname($prefix = 'rft', $dir = null)
     {
         // デフォルト付きで tempnam を呼ぶ
         $dir = $dir ?: sys_get_temp_dir();
@@ -3047,6 +3373,8 @@ if (!isset($excluded_functions['tmpname']) && (!function_exists('ryunosuke\\Docu
         return $tempfile;
     }
 }
+
+const delegate = 'ryunosuke\\Documentize\\delegate';
 if (!isset($excluded_functions['delegate']) && (!function_exists('ryunosuke\\Documentize\\delegate') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\delegate'))->isInternal()))) {
     /**
      * 指定 callable を指定クロージャで実行するクロージャを返す
@@ -3058,14 +3386,17 @@ if (!isset($excluded_functions['delegate']) && (!function_exists('ryunosuke\\Doc
      * @param int $arity 引数の数
      * @return \Closure $callable を実行するクロージャ
      */
-    function delegate($invoker, $callable, $arity = NULL)
+    function delegate($invoker, $callable, $arity = null)
     {
+        // 「delegate 経由で作成されたクロージャ」であることをマーキングするための use 変数
+        $__rfunc_delegate_marker = true;
+
         if ($arity === null) {
             $arity = call_user_func(parameter_length, $callable, true, true);
         }
 
         if (is_infinite($arity)) {
-            return eval('return function (...$_) use ($invoker, $callable) {
+            return eval('return function (...$_) use ($__rfunc_delegate_marker, $invoker, $callable) {
                 return $invoker($callable, func_get_args());
             };');
         }
@@ -3073,37 +3404,39 @@ if (!isset($excluded_functions['delegate']) && (!function_exists('ryunosuke\\Doc
         $arity = abs($arity);
         switch ($arity) {
             case 0:
-                return function () use ($invoker, $callable) {
+                return function () use ($__rfunc_delegate_marker, $invoker, $callable) {
                     return $invoker($callable, func_get_args());
                 };
             case 1:
-                return function ($_1) use ($invoker, $callable) {
+                return function ($_1) use ($__rfunc_delegate_marker, $invoker, $callable) {
                     return $invoker($callable, func_get_args());
                 };
             case 2:
-                return function ($_1, $_2) use ($invoker, $callable) {
+                return function ($_1, $_2) use ($__rfunc_delegate_marker, $invoker, $callable) {
                     return $invoker($callable, func_get_args());
                 };
             case 3:
-                return function ($_1, $_2, $_3) use ($invoker, $callable) {
+                return function ($_1, $_2, $_3) use ($__rfunc_delegate_marker, $invoker, $callable) {
                     return $invoker($callable, func_get_args());
                 };
             case 4:
-                return function ($_1, $_2, $_3, $_4) use ($invoker, $callable) {
+                return function ($_1, $_2, $_3, $_4) use ($__rfunc_delegate_marker, $invoker, $callable) {
                     return $invoker($callable, func_get_args());
                 };
             case 5:
-                return function ($_1, $_2, $_3, $_4, $_5) use ($invoker, $callable) {
+                return function ($_1, $_2, $_3, $_4, $_5) use ($__rfunc_delegate_marker, $invoker, $callable) {
                     return $invoker($callable, func_get_args());
                 };
             default:
                 $argstring = call_user_func(array_rmap, range(1, $arity), strcat, '$_');
-                return eval('return function (' . implode(', ', $argstring) . ') use ($invoker, $callable) {
+                return eval('return function (' . implode(', ', $argstring) . ') use ($__rfunc_delegate_marker, $invoker, $callable) {
                     return $invoker($callable, func_get_args());
                 };');
         }
     }
 }
+
+const nbind = 'ryunosuke\\Documentize\\nbind';
 if (!isset($excluded_functions['nbind']) && (!function_exists('ryunosuke\\Documentize\\nbind') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\nbind'))->isInternal()))) {
     /**
      * $callable の指定位置に引数を束縛したクロージャを返す
@@ -3126,6 +3459,8 @@ if (!isset($excluded_functions['nbind']) && (!function_exists('ryunosuke\\Docume
         }, $callable, call_user_func(parameter_length, $callable, true) - count($variadic));
     }
 }
+
+const lbind = 'ryunosuke\\Documentize\\lbind';
 if (!isset($excluded_functions['lbind']) && (!function_exists('ryunosuke\\Documentize\\lbind') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\lbind'))->isInternal()))) {
     /**
      * $callable の最左に引数を束縛した callable を返す
@@ -3145,6 +3480,8 @@ if (!isset($excluded_functions['lbind']) && (!function_exists('ryunosuke\\Docume
         return call_user_func_array(nbind, call_user_func(array_insert, func_get_args(), 0, 1));
     }
 }
+
+const rbind = 'ryunosuke\\Documentize\\rbind';
 if (!isset($excluded_functions['rbind']) && (!function_exists('ryunosuke\\Documentize\\rbind') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\rbind'))->isInternal()))) {
     /**
      * $callable の最右に引数を束縛した callable を返す
@@ -3164,6 +3501,8 @@ if (!isset($excluded_functions['rbind']) && (!function_exists('ryunosuke\\Docume
         return call_user_func_array(nbind, call_user_func(array_insert, func_get_args(), null, 1));
     }
 }
+
+const composite = 'ryunosuke\\Documentize\\composite';
 if (!isset($excluded_functions['composite']) && (!function_exists('ryunosuke\\Documentize\\composite') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\composite'))->isInternal()))) {
     /**
      * 合成関数を返す
@@ -3235,6 +3574,8 @@ if (!isset($excluded_functions['composite']) && (!function_exists('ryunosuke\\Do
         }, $first);
     }
 }
+
+const return_arg = 'ryunosuke\\Documentize\\return_arg';
 if (!isset($excluded_functions['return_arg']) && (!function_exists('ryunosuke\\Documentize\\return_arg') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\return_arg'))->isInternal()))) {
     /**
      * $n 番目の引数（0 ベース）をそのまま返すクロージャを返す
@@ -3261,6 +3602,8 @@ if (!isset($excluded_functions['return_arg']) && (!function_exists('ryunosuke\\D
         return $cache[$n];
     }
 }
+
+const not_func = 'ryunosuke\\Documentize\\not_func';
 if (!isset($excluded_functions['not_func']) && (!function_exists('ryunosuke\\Documentize\\not_func') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\not_func'))->isInternal()))) {
     /**
      * 返り値の真偽値を逆転した新しいクロージャを返す
@@ -3282,6 +3625,8 @@ if (!isset($excluded_functions['not_func']) && (!function_exists('ryunosuke\\Doc
         }, $callable);
     }
 }
+
+const eval_func = 'ryunosuke\\Documentize\\eval_func';
 if (!isset($excluded_functions['eval_func']) && (!function_exists('ryunosuke\\Documentize\\eval_func') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\eval_func'))->isInternal()))) {
     /**
      * 指定コードで eval するクロージャを返す
@@ -3310,6 +3655,8 @@ if (!isset($excluded_functions['eval_func']) && (!function_exists('ryunosuke\\Do
         }, $expression, count($eargs));
     }
 }
+
+const reflect_callable = 'ryunosuke\\Documentize\\reflect_callable';
 if (!isset($excluded_functions['reflect_callable']) && (!function_exists('ryunosuke\\Documentize\\reflect_callable') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\reflect_callable'))->isInternal()))) {
     /**
      * callable から ReflectionFunctionAbstract を生成する
@@ -3344,6 +3691,8 @@ if (!isset($excluded_functions['reflect_callable']) && (!function_exists('ryunos
         }
     }
 }
+
+const closurize = 'ryunosuke\\Documentize\\closurize';
 if (!isset($excluded_functions['closurize']) && (!function_exists('ryunosuke\\Documentize\\closurize') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\closurize'))->isInternal()))) {
     /**
      * callable を Closure に変換する
@@ -3379,6 +3728,8 @@ if (!isset($excluded_functions['closurize']) && (!function_exists('ryunosuke\\Do
         return $ref->getClosure();
     }
 }
+
+const call_safely = 'ryunosuke\\Documentize\\call_safely';
 if (!isset($excluded_functions['call_safely']) && (!function_exists('ryunosuke\\Documentize\\call_safely') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\call_safely'))->isInternal()))) {
     /**
      * エラーを例外に変換するブロックでコールバックを実行する
@@ -3414,6 +3765,8 @@ if (!isset($excluded_functions['call_safely']) && (!function_exists('ryunosuke\\
         }
     }
 }
+
+const ob_capture = 'ryunosuke\\Documentize\\ob_capture';
 if (!isset($excluded_functions['ob_capture']) && (!function_exists('ryunosuke\\Documentize\\ob_capture') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\ob_capture'))->isInternal()))) {
     /**
      * ob_start ～ ob_get_clean のブロックでコールバックを実行する
@@ -3439,6 +3792,8 @@ if (!isset($excluded_functions['ob_capture']) && (!function_exists('ryunosuke\\D
         }
     }
 }
+
+const by_builtin = 'ryunosuke\\Documentize\\by_builtin';
 if (!isset($excluded_functions['by_builtin']) && (!function_exists('ryunosuke\\Documentize\\by_builtin') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\by_builtin'))->isInternal()))) {
     /**
      * Countable#count, Serializable#serialize などの「ネイティブ由来かメソッド由来か」を判定して返す
@@ -3498,6 +3853,8 @@ if (!isset($excluded_functions['by_builtin']) && (!function_exists('ryunosuke\\D
         throw new \RuntimeException('failed to search backtrace.');
     }
 }
+
+const parameter_length = 'ryunosuke\\Documentize\\parameter_length';
 if (!isset($excluded_functions['parameter_length']) && (!function_exists('ryunosuke\\Documentize\\parameter_length') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\parameter_length'))->isInternal()))) {
     /**
      * callable の引数の数を返す
@@ -3552,6 +3909,8 @@ if (!isset($excluded_functions['parameter_length']) && (!function_exists('ryunos
         return $cache[(int) $require_only . (int) $thought_variadic];
     }
 }
+
+const function_shorten = 'ryunosuke\\Documentize\\function_shorten';
 if (!isset($excluded_functions['function_shorten']) && (!function_exists('ryunosuke\\Documentize\\function_shorten') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\function_shorten'))->isInternal()))) {
     /**
      * 関数の名前空間部分を除いた短い名前を取得する
@@ -3565,6 +3924,8 @@ if (!isset($excluded_functions['function_shorten']) && (!function_exists('ryunos
         return array_pop($parts);
     }
 }
+
+const func_user_func_array = 'ryunosuke\\Documentize\\func_user_func_array';
 if (!isset($excluded_functions['func_user_func_array']) && (!function_exists('ryunosuke\\Documentize\\func_user_func_array') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\func_user_func_array'))->isInternal()))) {
     /**
      * パラメータ定義数に応じて呼び出し引数を可変にしてコールする
@@ -3588,9 +3949,20 @@ if (!isset($excluded_functions['func_user_func_array']) && (!function_exists('ry
      */
     function func_user_func_array($callback)
     {
+        // null は第1引数を返す特殊仕様
         if ($callback === null) {
             return function ($v) { return $v; };
         }
+        // クロージャはユーザ定義しかありえないので調べる必要がない
+        if ($callback instanceof \Closure) {
+            // が、組み込みをバイパスする delegate はクロージャなのでそれだけは除外
+            $uses = call_user_func(reflect_callable, $callback)->getStaticVariables();
+            if (!isset($uses['__rfunc_delegate_marker'])) {
+                return $callback;
+            }
+        }
+
+        // 上記以外は「引数ぴったりで削ぎ落としてコールするクロージャ」を返す
         $plength = call_user_func(parameter_length, $callback, true, true);
         return call_user_func(delegate, function ($callback, $args) use ($plength) {
             if (is_infinite($plength)) {
@@ -3600,6 +3972,8 @@ if (!isset($excluded_functions['func_user_func_array']) && (!function_exists('ry
         }, $callback, $plength);
     }
 }
+
+const function_alias = 'ryunosuke\\Documentize\\function_alias';
 if (!isset($excluded_functions['function_alias']) && (!function_exists('ryunosuke\\Documentize\\function_alias') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\function_alias'))->isInternal()))) {
     /**
      * 関数のエイリアスを作成する
@@ -3691,6 +4065,8 @@ CODE;
         }
     }
 }
+
+const minimum = 'ryunosuke\\Documentize\\minimum';
 if (!isset($excluded_functions['minimum']) && (!function_exists('ryunosuke\\Documentize\\minimum') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\minimum'))->isInternal()))) {
     /**
      * 引数の最小値を返す
@@ -3712,6 +4088,8 @@ if (!isset($excluded_functions['minimum']) && (!function_exists('ryunosuke\\Docu
         return min($args);
     }
 }
+
+const maximum = 'ryunosuke\\Documentize\\maximum';
 if (!isset($excluded_functions['maximum']) && (!function_exists('ryunosuke\\Documentize\\maximum') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\maximum'))->isInternal()))) {
     /**
      * 引数の最大値を返す
@@ -3733,6 +4111,8 @@ if (!isset($excluded_functions['maximum']) && (!function_exists('ryunosuke\\Docu
         return max($args);
     }
 }
+
+const mode = 'ryunosuke\\Documentize\\mode';
 if (!isset($excluded_functions['mode']) && (!function_exists('ryunosuke\\Documentize\\mode') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\mode'))->isInternal()))) {
     /**
      * 引数の最頻値を返す
@@ -3771,6 +4151,8 @@ if (!isset($excluded_functions['mode']) && (!function_exists('ryunosuke\\Documen
         return $args[key($counts)];
     }
 }
+
+const mean = 'ryunosuke\\Documentize\\mean';
 if (!isset($excluded_functions['mean']) && (!function_exists('ryunosuke\\Documentize\\mean') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\mean'))->isInternal()))) {
     /**
      * 引数の相加平均値を返す
@@ -3795,6 +4177,8 @@ if (!isset($excluded_functions['mean']) && (!function_exists('ryunosuke\\Documen
         return array_sum($args) / count($args);
     }
 }
+
+const median = 'ryunosuke\\Documentize\\median';
 if (!isset($excluded_functions['median']) && (!function_exists('ryunosuke\\Documentize\\median') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\median'))->isInternal()))) {
     /**
      * 引数の中央値を返す
@@ -3832,6 +4216,8 @@ if (!isset($excluded_functions['median']) && (!function_exists('ryunosuke\\Docum
         }
     }
 }
+
+const average = 'ryunosuke\\Documentize\\average';
 if (!isset($excluded_functions['average']) && (!function_exists('ryunosuke\\Documentize\\average') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\average'))->isInternal()))) {
     /**
      * 引数の意味平均値を返す
@@ -3851,6 +4237,8 @@ if (!isset($excluded_functions['average']) && (!function_exists('ryunosuke\\Docu
         throw new \DomainException('not implement yet.');
     }
 }
+
+const sum = 'ryunosuke\\Documentize\\sum';
 if (!isset($excluded_functions['sum']) && (!function_exists('ryunosuke\\Documentize\\sum') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\sum'))->isInternal()))) {
     /**
      * 引数の合計値を返す
@@ -3874,6 +4262,8 @@ if (!isset($excluded_functions['sum']) && (!function_exists('ryunosuke\\Document
         return array_sum($args);
     }
 }
+
+const random_at = 'ryunosuke\\Documentize\\random_at';
 if (!isset($excluded_functions['random_at']) && (!function_exists('ryunosuke\\Documentize\\random_at') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\random_at'))->isInternal()))) {
     /**
      * 引数をランダムで返す
@@ -3894,6 +4284,8 @@ if (!isset($excluded_functions['random_at']) && (!function_exists('ryunosuke\\Do
         return $args[mt_rand(0, count($args) - 1)];
     }
 }
+
+const probability = 'ryunosuke\\Documentize\\probability';
 if (!isset($excluded_functions['probability']) && (!function_exists('ryunosuke\\Documentize\\probability') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\probability'))->isInternal()))) {
     /**
      * 一定確率で true を返す
@@ -3930,6 +4322,8 @@ if (!isset($excluded_functions['probability']) && (!function_exists('ryunosuke\\
         return $probability > mt_rand(0, $divisor - 1);
     }
 }
+
+const strcat = 'ryunosuke\\Documentize\\strcat';
 if (!isset($excluded_functions['strcat']) && (!function_exists('ryunosuke\\Documentize\\strcat') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\strcat'))->isInternal()))) {
     /**
      * 文字列結合の関数版
@@ -3947,6 +4341,40 @@ if (!isset($excluded_functions['strcat']) && (!function_exists('ryunosuke\\Docum
         return implode('', $variadic);
     }
 }
+
+const concat = 'ryunosuke\\Documentize\\concat';
+if (!isset($excluded_functions['concat']) && (!function_exists('ryunosuke\\Documentize\\concat') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\concat'))->isInternal()))) {
+    /**
+     * strcat の空文字回避版
+     *
+     * 基本は strcat と同じ。ただし、**引数の内1つでも空文字を含むなら空文字を返す**。
+     *
+     * 「プレフィックスやサフィックスを付けたいんだけど、空文字の場合はそのままで居て欲しい」という状況はまれによくあるはず。
+     * コードで言えば `strlen($string) ? 'prefix-' . $string : '';` のようなもの。
+     * 可変引数なので 端的に言えば mysql の CONCAT みたいな動作になる（あっちは NULL だが）。
+     *
+     * ```php
+     * assertSame(concat('prefix-', 'middle', '-suffix'), 'prefix-middle-suffix');
+     * assertSame(concat('prefix-', '', '-suffix'), '');
+     * ```
+     *
+     * @param mixed $variadic 結合する文字列（可変引数）
+     * @return string 結合した文字列
+     */
+    function concat(...$variadic)
+    {
+        $result = '';
+        foreach ($variadic as $s) {
+            if (strlen($s) === 0) {
+                return '';
+            }
+            $result .= $s;
+        }
+        return $result;
+    }
+}
+
+const split_noempty = 'ryunosuke\\Documentize\\split_noempty';
 if (!isset($excluded_functions['split_noempty']) && (!function_exists('ryunosuke\\Documentize\\split_noempty') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\split_noempty'))->isInternal()))) {
     /**
      * 空文字を除外する文字列分割
@@ -3985,6 +4413,8 @@ if (!isset($excluded_functions['split_noempty']) && (!function_exists('ryunosuke
         return $parts;
     }
 }
+
+const multiexplode = 'ryunosuke\\Documentize\\multiexplode';
 if (!isset($excluded_functions['multiexplode']) && (!function_exists('ryunosuke\\Documentize\\multiexplode') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\multiexplode'))->isInternal()))) {
     /**
      * explode の配列対応と $limit の挙動を変えたもの
@@ -4009,7 +4439,7 @@ if (!isset($excluded_functions['multiexplode']) && (!function_exists('ryunosuke\
      * @param int $limit 分割数
      * @return array 分割された配列
      */
-    function multiexplode($delimiter, $string, $limit = 9223372036854775807)
+    function multiexplode($delimiter, $string, $limit = \PHP_INT_MAX)
     {
         if (is_array($delimiter)) {
             $representative = reset($delimiter);
@@ -4028,6 +4458,8 @@ if (!isset($excluded_functions['multiexplode']) && (!function_exists('ryunosuke\
         return explode($delimiter, $string, $limit);
     }
 }
+
+const quoteexplode = 'ryunosuke\\Documentize\\quoteexplode';
 if (!isset($excluded_functions['quoteexplode']) && (!function_exists('ryunosuke\\Documentize\\quoteexplode') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\quoteexplode'))->isInternal()))) {
     /**
      * エスケープやクオートに対応した explode
@@ -4058,7 +4490,7 @@ if (!isset($excluded_functions['quoteexplode']) && (!function_exists('ryunosuke\
      * @param string $escape エスケープ文字
      * @return array 分割された配列
      */
-    function quoteexplode($delimiter, $string, $enclosures = '\'"', $escape = '\\')
+    function quoteexplode($delimiter, $string, $enclosures = "'\"", $escape = '\\')
     {
         if (is_string($enclosures)) {
             $chars = str_split($enclosures);
@@ -4094,6 +4526,8 @@ if (!isset($excluded_functions['quoteexplode']) && (!function_exists('ryunosuke\
         return $result;
     }
 }
+
+const str_equals = 'ryunosuke\\Documentize\\str_equals';
 if (!isset($excluded_functions['str_equals']) && (!function_exists('ryunosuke\\Documentize\\str_equals') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\str_equals'))->isInternal()))) {
     /**
      * 文字列比較の関数版
@@ -4134,6 +4568,8 @@ if (!isset($excluded_functions['str_equals']) && (!function_exists('ryunosuke\\D
         return $str1 === $str2;
     }
 }
+
+const str_contains = 'ryunosuke\\Documentize\\str_contains';
 if (!isset($excluded_functions['str_contains']) && (!function_exists('ryunosuke\\Documentize\\str_contains') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\str_contains'))->isInternal()))) {
     /**
      * 指定文字列を含むか返す
@@ -4177,6 +4613,8 @@ if (!isset($excluded_functions['str_contains']) && (!function_exists('ryunosuke\
         return !!$and_flag;
     }
 }
+
+const str_putcsv = 'ryunosuke\\Documentize\\str_putcsv';
 if (!isset($excluded_functions['str_putcsv']) && (!function_exists('ryunosuke\\Documentize\\str_putcsv') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\str_putcsv'))->isInternal()))) {
     /**
      * fputcsv の文字列版（str_getcsv の put 版）
@@ -4207,7 +4645,7 @@ if (!isset($excluded_functions['str_putcsv']) && (!function_exists('ryunosuke\\D
      * @param string $escape エスケープ文字
      * @return string CSV 文字列
      */
-    function str_putcsv($array, $delimiter = ',', $enclosure = '"', $escape = '\\')
+    function str_putcsv($array, $delimiter = ',', $enclosure = '"', $escape = "\\")
     {
         $fp = fopen('php://memory', 'rw+');
         try {
@@ -4227,6 +4665,8 @@ if (!isset($excluded_functions['str_putcsv']) && (!function_exists('ryunosuke\\D
         }
     }
 }
+
+const str_subreplace = 'ryunosuke\\Documentize\\str_subreplace';
 if (!isset($excluded_functions['str_subreplace']) && (!function_exists('ryunosuke\\Documentize\\str_subreplace') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\str_subreplace'))->isInternal()))) {
     /**
      * 指定文字列を置換する
@@ -4304,6 +4744,8 @@ if (!isset($excluded_functions['str_subreplace']) && (!function_exists('ryunosuk
         return $subject;
     }
 }
+
+const str_between = 'ryunosuke\\Documentize\\str_between';
 if (!isset($excluded_functions['str_between']) && (!function_exists('ryunosuke\\Documentize\\str_between') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\str_between'))->isInternal()))) {
     /**
      * 指定文字で囲まれた文字列を取得する
@@ -4379,6 +4821,8 @@ if (!isset($excluded_functions['str_between']) && (!function_exists('ryunosuke\\
         return false;
     }
 }
+
+const starts_with = 'ryunosuke\\Documentize\\starts_with';
 if (!isset($excluded_functions['starts_with']) && (!function_exists('ryunosuke\\Documentize\\starts_with') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\starts_with'))->isInternal()))) {
     /**
      * 指定文字列で始まるか調べる
@@ -4404,6 +4848,8 @@ if (!isset($excluded_functions['starts_with']) && (!function_exists('ryunosuke\\
         return call_user_func(str_equals, substr($string, 0, strlen($with)), $with, $case_insensitivity);
     }
 }
+
+const ends_with = 'ryunosuke\\Documentize\\ends_with';
 if (!isset($excluded_functions['ends_with']) && (!function_exists('ryunosuke\\Documentize\\ends_with') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\ends_with'))->isInternal()))) {
     /**
      * 指定文字列で終わるか調べる
@@ -4429,6 +4875,8 @@ if (!isset($excluded_functions['ends_with']) && (!function_exists('ryunosuke\\Do
         return call_user_func(str_equals, substr($string, -strlen($with)), $with, $case_insensitivity);
     }
 }
+
+const camel_case = 'ryunosuke\\Documentize\\camel_case';
 if (!isset($excluded_functions['camel_case']) && (!function_exists('ryunosuke\\Documentize\\camel_case') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\camel_case'))->isInternal()))) {
     /**
      * camelCase に変換する
@@ -4447,6 +4895,8 @@ if (!isset($excluded_functions['camel_case']) && (!function_exists('ryunosuke\\D
         return lcfirst(call_user_func(pascal_case, $string, $delimiter));
     }
 }
+
+const pascal_case = 'ryunosuke\\Documentize\\pascal_case';
 if (!isset($excluded_functions['pascal_case']) && (!function_exists('ryunosuke\\Documentize\\pascal_case') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\pascal_case'))->isInternal()))) {
     /**
      * PascalCase に変換する
@@ -4465,6 +4915,8 @@ if (!isset($excluded_functions['pascal_case']) && (!function_exists('ryunosuke\\
         return strtr(ucwords(strtr($string, [$delimiter => ' '])), [' ' => '']);
     }
 }
+
+const snake_case = 'ryunosuke\\Documentize\\snake_case';
 if (!isset($excluded_functions['snake_case']) && (!function_exists('ryunosuke\\Documentize\\snake_case') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\snake_case'))->isInternal()))) {
     /**
      * snake_case に変換する
@@ -4483,6 +4935,8 @@ if (!isset($excluded_functions['snake_case']) && (!function_exists('ryunosuke\\D
         return ltrim(strtolower(preg_replace('/[A-Z]/', $delimiter . '\0', $string)), $delimiter);
     }
 }
+
+const chain_case = 'ryunosuke\\Documentize\\chain_case';
 if (!isset($excluded_functions['chain_case']) && (!function_exists('ryunosuke\\Documentize\\chain_case') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\chain_case'))->isInternal()))) {
     /**
      * chain-case に変換する
@@ -4501,6 +4955,8 @@ if (!isset($excluded_functions['chain_case']) && (!function_exists('ryunosuke\\D
         return call_user_func(snake_case, $string, $delimiter);
     }
 }
+
+const random_string = 'ryunosuke\\Documentize\\random_string';
 if (!isset($excluded_functions['random_string']) && (!function_exists('ryunosuke\\Documentize\\random_string') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\random_string'))->isInternal()))) {
     /**
      * 安全な乱数文字列を生成する
@@ -4530,6 +4986,8 @@ if (!isset($excluded_functions['random_string']) && (!function_exists('ryunosuke
         return $string;
     }
 }
+
+const kvsprintf = 'ryunosuke\\Documentize\\kvsprintf';
 if (!isset($excluded_functions['kvsprintf']) && (!function_exists('ryunosuke\\Documentize\\kvsprintf') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\kvsprintf'))->isInternal()))) {
     /**
      * 連想配列を指定できるようにした vsprintf
@@ -4545,7 +5003,7 @@ if (!isset($excluded_functions['kvsprintf']) && (!function_exists('ryunosuke\\Do
      * @param array $array フォーマット引数
      * @return string フォーマットされた文字列
      */
-    function kvsprintf($format, $array)
+    function kvsprintf($format, array $array)
     {
         $keys = array_flip(array_keys($array));
         $vals = array_values($array);
@@ -4567,6 +5025,8 @@ if (!isset($excluded_functions['kvsprintf']) && (!function_exists('ryunosuke\\Do
         return vsprintf($format, $vals);
     }
 }
+
+const preg_capture = 'ryunosuke\\Documentize\\preg_capture';
 if (!isset($excluded_functions['preg_capture']) && (!function_exists('ryunosuke\\Documentize\\preg_capture') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\preg_capture'))->isInternal()))) {
     /**
      * キャプチャを主軸においた preg_match
@@ -4607,6 +5067,8 @@ if (!isset($excluded_functions['preg_capture']) && (!function_exists('ryunosuke\
         return $default;
     }
 }
+
+const preg_splice = 'ryunosuke\\Documentize\\preg_splice';
 if (!isset($excluded_functions['preg_splice']) && (!function_exists('ryunosuke\\Documentize\\preg_splice') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\preg_splice'))->isInternal()))) {
     /**
      * キャプチャも行える preg_replace
@@ -4651,6 +5113,8 @@ if (!isset($excluded_functions['preg_splice']) && (!function_exists('ryunosuke\\
         return $subject;
     }
 }
+
+const render_string = 'ryunosuke\\Documentize\\render_string';
 if (!isset($excluded_functions['render_string']) && (!function_exists('ryunosuke\\Documentize\\render_string') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\render_string'))->isInternal()))) {
     /**
      * "hoge {$hoge}" 形式のレンダリング
@@ -4724,6 +5188,8 @@ if (!isset($excluded_functions['render_string']) && (!function_exists('ryunosuke
         }
     }
 }
+
+const render_file = 'ryunosuke\\Documentize\\render_file';
 if (!isset($excluded_functions['render_file']) && (!function_exists('ryunosuke\\Documentize\\render_file') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\render_file'))->isInternal()))) {
     /**
      * "hoge {$hoge}" 形式のレンダリングのファイル版
@@ -4739,6 +5205,8 @@ if (!isset($excluded_functions['render_file']) && (!function_exists('ryunosuke\\
         return call_user_func(render_string, file_get_contents($template_file), $array);
     }
 }
+
+const returns = 'ryunosuke\\Documentize\\returns';
 if (!isset($excluded_functions['returns']) && (!function_exists('ryunosuke\\Documentize\\returns') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\returns'))->isInternal()))) {
     /**
      * 引数をそのまま返す
@@ -4759,6 +5227,8 @@ if (!isset($excluded_functions['returns']) && (!function_exists('ryunosuke\\Docu
         return $v;
     }
 }
+
+const optional = 'ryunosuke\\Documentize\\optional';
 if (!isset($excluded_functions['optional']) && (!function_exists('ryunosuke\\Documentize\\optional') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\optional'))->isInternal()))) {
     /**
      * オブジェクトならそれを、オブジェクトでないなら NullObject を返す
@@ -4798,7 +5268,7 @@ if (!isset($excluded_functions['optional']) && (!function_exists('ryunosuke\\Doc
      * @param string $expected 期待するクラス名。指定した場合は is_a される
      * @return mixed $object がオブジェクトならそのまま返し、違うなら NullObject を返す
      */
-    function optional($object, $expected = NULL)
+    function optional($object, $expected = null)
     {
         if (is_object($object)) {
             if ($expected === null || is_a($object, $expected)) {
@@ -4808,32 +5278,35 @@ if (!isset($excluded_functions['optional']) && (!function_exists('ryunosuke\\Doc
 
         static $nullobject = null;
         if ($nullobject === null) {
-            // @formatter:off
-            $declare = <<<'NO'
-            class NULLObject implements \ArrayAccess, \IteratorAggregate
-            {
-                public function __isset($name) { return false; }
-                public function __get($name) { return null; }
-                public function __set($name, $value) { throw new \DomainException('called NullObject#' . __FUNCTION__); }
-                public function __unset($name) { throw new \DomainException('called NullObject#' . __FUNCTION__); }
-                public function __call($name, $arguments) { return null; }
-                public function __invoke() { return null; }
-                public function __toString() { return ''; }
-                public function offsetExists($offset) { return false; }
-                public function offsetGet($offset) { return null; }
-                public function offsetSet($offset, $value) { throw new \DomainException('called NullObject#' . __FUNCTION__); }
-                public function offsetUnset($offset) { throw new \DomainException('called NullObject#' . __FUNCTION__); }
-                public function getIterator() { return new \ArrayIterator([]); }
+            // php 7 になったら匿名クラスを使う
+            if (!class_exists('NullObject', false)) {
+                eval(<<<'NO'
+                class NullObject implements \ArrayAccess, \IteratorAggregate
+                {
+                    public function __isset($name) { return false; }
+                    public function __get($name) { return null; }
+                    public function __set($name, $value) { throw new \DomainException('called NullObject#' . __FUNCTION__); }
+                    public function __unset($name) { throw new \DomainException('called NullObject#' . __FUNCTION__); }
+                    public function __call($name, $arguments) { return null; }
+                    public function __invoke() { return null; }
+                    public function __toString() { return ''; }
+                    public function offsetExists($offset) { return false; }
+                    public function offsetGet($offset) { return null; }
+                    public function offsetSet($offset, $value) { throw new \DomainException('called NullObject#' . __FUNCTION__); }
+                    public function offsetUnset($offset) { throw new \DomainException('called NullObject#' . __FUNCTION__); }
+                    public function getIterator() { return new \ArrayIterator([]); }
+                }
+NO
+                );
             }
-            return new NULLObject();
-NO;
-
-            $nullobject = eval("$declare;");
-            // @formatter:on
+            /** @noinspection PhpUndefinedClassInspection */
+            $nullobject = new \NullObject();
         }
         return $nullobject;
     }
 }
+
+const throws = 'ryunosuke\\Documentize\\throws';
 if (!isset($excluded_functions['throws']) && (!function_exists('ryunosuke\\Documentize\\throws') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\throws'))->isInternal()))) {
     /**
      * throw の関数版
@@ -4857,6 +5330,40 @@ if (!isset($excluded_functions['throws']) && (!function_exists('ryunosuke\\Docum
         throw $ex;
     }
 }
+
+const throw_if = 'ryunosuke\\Documentize\\throw_if';
+if (!isset($excluded_functions['throw_if']) && (!function_exists('ryunosuke\\Documentize\\throw_if') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\throw_if'))->isInternal()))) {
+    /**
+     * 条件付き throw
+     *
+     * 第1引数が true 相当のときに例外を投げる。
+     *
+     * Example:
+     * ```php
+     * // 投げない
+     * throw_if(false, new \Exception());
+     * // 投げる
+     * try{throw_if(true, new \Exception());}catch(\Exception $ex){}
+     * // クラス指定で投げる
+     * try{throw_if(true, \Exception::class, 'message', 123);}catch(\Exception $ex){}
+     * ```
+     *
+     * @param bool|mixed $flag true 相当値を与えると例外を投げる
+     * @param \Exception|string $ex 投げる例外。クラス名の場合は中で new する
+     * @param array $ex_args $ex にクラス名を与えたときの引数（可変引数）
+     */
+    function throw_if($flag, $ex, ...$ex_args)
+    {
+        if ($flag) {
+            if (is_string($ex)) {
+                $ex = new $ex(...$ex_args);
+            }
+            throw $ex;
+        }
+    }
+}
+
+const ifelse = 'ryunosuke\\Documentize\\ifelse';
 if (!isset($excluded_functions['ifelse']) && (!function_exists('ryunosuke\\Documentize\\ifelse') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\ifelse'))->isInternal()))) {
     /**
      * if ～ else 構文の関数版
@@ -4885,7 +5392,7 @@ if (!isset($excluded_functions['ifelse']) && (!function_exists('ryunosuke\\Docum
      * @param mixed $else 偽の場合の値。省略時は $actual
      * @return mixed $then or $else
      */
-    function ifelse($actual, $expected, $then, $else = NULL)
+    function ifelse($actual, $expected, $then, $else = null)
     {
         // $else 省略時は $actual を返す
         if (func_num_args() === 3) {
@@ -4898,6 +5405,8 @@ if (!isset($excluded_functions['ifelse']) && (!function_exists('ryunosuke\\Docum
         return $expected === $actual ? $then : $else;
     }
 }
+
+const try_catch = 'ryunosuke\\Documentize\\try_catch';
 if (!isset($excluded_functions['try_catch']) && (!function_exists('ryunosuke\\Documentize\\try_catch') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\try_catch'))->isInternal()))) {
     /**
      * try ～ catch 構文の関数版
@@ -4919,11 +5428,13 @@ if (!isset($excluded_functions['try_catch']) && (!function_exists('ryunosuke\\Do
      * @param array $variadic $try に渡る引数
      * @return \Exception|mixed 例外が飛ばなかったら $try ブロックの返り値、飛んだなら $catch の返り値（デフォルトで例外オブジェクト）
      */
-    function try_catch($try, $catch = NULL, ...$variadic)
+    function try_catch($try, $catch = null, ...$variadic)
     {
         return call_user_func(try_catch_finally, $try, $catch, null, ...$variadic);
     }
 }
+
+const try_finally = 'ryunosuke\\Documentize\\try_finally';
 if (!isset($excluded_functions['try_finally']) && (!function_exists('ryunosuke\\Documentize\\try_finally') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\try_finally'))->isInternal()))) {
     /**
      * try ～ finally 構文の関数版
@@ -4949,11 +5460,13 @@ if (!isset($excluded_functions['try_finally']) && (!function_exists('ryunosuke\\
      * @param array $variadic $try に渡る引数
      * @return \Exception|mixed 例外が飛ばなかったら $try ブロックの返り値、飛んだなら $catch の返り値（デフォルトで例外オブジェクト）
      */
-    function try_finally($try, $finally = NULL, ...$variadic)
+    function try_finally($try, $finally = null, ...$variadic)
     {
         return call_user_func(try_catch_finally, $try, throws, $finally, ...$variadic);
     }
 }
+
+const try_catch_finally = 'ryunosuke\\Documentize\\try_catch_finally';
 if (!isset($excluded_functions['try_catch_finally']) && (!function_exists('ryunosuke\\Documentize\\try_catch_finally') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\try_catch_finally'))->isInternal()))) {
     /**
      * try ～ catch ～ finally 構文の関数版
@@ -4980,7 +5493,7 @@ if (!isset($excluded_functions['try_catch_finally']) && (!function_exists('ryuno
      * @param array $variadic $try に渡る引数
      * @return \Exception|mixed 例外が飛ばなかったら $try ブロックの返り値、飛んだなら $catch の返り値（デフォルトで例外オブジェクト）
      */
-    function try_catch_finally($try, $catch = NULL, $finally = NULL, ...$variadic)
+    function try_catch_finally($try, $catch = null, $finally = null, ...$variadic)
     {
         if ($catch === null) {
             $catch = function ($v) { return $v; };
@@ -5004,6 +5517,8 @@ if (!isset($excluded_functions['try_catch_finally']) && (!function_exists('ryuno
         }
     }
 }
+
+const cache = 'ryunosuke\\Documentize\\cache';
 if (!isset($excluded_functions['cache']) && (!function_exists('ryunosuke\\Documentize\\cache') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\cache'))->isInternal()))) {
     /**
      * シンプルにキャッシュする
@@ -5035,7 +5550,7 @@ if (!isset($excluded_functions['cache']) && (!function_exists('ryunosuke\\Docume
      * @param bool $use_internal 内部キャッシュオブジェクトを使うか
      * @return mixed キャッシュ
      */
-    function cache($key, $provider, $namespace = NULL, $use_internal = true)
+    function cache($key, $provider, $namespace = null, $use_internal = true)
     {
         if ($namespace === null) {
             $namespace = __FILE__;
@@ -5064,6 +5579,151 @@ if (!isset($excluded_functions['cache']) && (!function_exists('ryunosuke\\Docume
         return $cache[$namespace][$key];
     }
 }
+
+const arguments = 'ryunosuke\\Documentize\\arguments';
+if (!isset($excluded_functions['arguments']) && (!function_exists('ryunosuke\\Documentize\\arguments') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\arguments'))->isInternal()))) {
+    /**
+     * コマンドライン引数をパースして引数とオプションを返す
+     *
+     * 少しリッチな {@link http://php.net/manual/function.getopt.php getopt} として使える（shell 由来のオプション構文(a:b::)はどうも馴染みにくい）。
+     * ただし「値が必須なオプション」はサポートしない。
+     * もっとも、オプションとして空文字が来ることはほぼ無いのでデフォルト値を空文字にすることで対応可能。
+     *
+     * $rule に従って `--noval filename --opt optval` のような文字列・配列をパースする。
+     * $rule 配列の仕様は下記。
+     *
+     * - キーは「オプション名」を指定する。ただし・・・
+     *     - 数値キーは「引数」を意味する
+     *     - スペースの後に「ショート名」を与えられる
+     * - 値は「デフォルト値」を指定する。ただし・・・
+     *     - `[]` は「複数値オプション」を意味する（配列にしない限り同オプションの多重指定は許されない）
+     *     - `null` は「値なしオプション」を意味する（スイッチングオプション）
+     *
+     * 上記の仕様でパースして「引数は数値連番、オプションはオプション名をキーとした配列」を返す。
+     * なお、いわゆる「引数」はどこに来ても良い（前オプション、後オプションの区別がない）。
+     *
+     * $argv には配列や文字列が与えられるが、ほとんどテスト用に近く、普通は未指定で $argv を使うはず。
+     *
+     * Example:
+     * ```php
+     * // いくつか織り交ぜたスタンダードな例
+     * $rule = [
+     *     'opt'       => 'def',    // 基本的には「デフォルト値」を表す
+     *     'longopt l' => '',       // スペース区切りで「ショート名」を意味する
+     *     1           => 'defarg', // 数値キーは「引数」を意味する
+     * ];
+     * assertSame(arguments($rule, '--opt optval arg1 -l longval'), [
+     *     'opt'     => 'optval',  // optval と指定している
+     *     'longopt' => 'longval', // ショート名指定でも本来の名前で返ってくる
+     *     'arg1',   // いわゆるコマンドライン引数（optval は opt に飲まれるので含まれない）
+     *     'defarg', // いわゆるコマンドライン引数（与えられていないが、ルールの 1 => 'defarg' が活きている）
+     * ]);
+     *
+     * // 「値なしオプション」と「複数値オプション」の例
+     * $rule = [
+     *     'noval1 l'  => null, // null は「値なしオプション」を意味する（指定されていれば true されていなければ false を返す）
+     *     'noval2 m'  => null, // 同上
+     *     'noval3 n'  => null, // 同上
+     *     'opts o' => [],      // 配列を与えると「複数値オプション」を表す
+     * ];
+     * assertSame(arguments($rule, '--opts o1 -ln arg1 -o o2 arg2 --opts o3'), [
+     *     'noval1' => true,  // -ln で同時指定されているので true
+     *     'noval2' => false, // -ln で同時指定されてないので false
+     *     'noval3' => true,  // -ln の同時指定されているので true
+     *     'opts'   => ['o1', 'o2', 'o3'], // ロング、ショート混在でも OK
+     *     'arg1', // 一見 -ln のオプション値に見えるが、 noval は値なしなので引数として得られる
+     *     'arg2', // 前オプション、後オプションの区別はないのでどこに居ようと引数として得られる
+     * ]);
+     * ```
+     *
+     * @param array $rule オプションルール
+     * @param array|string|null $argv パースするコマンドライン引数。未指定時は $argv が使用される
+     * @return array コマンドライン引数＋オプション
+     */
+    function arguments($rule, $argv = null)
+    {
+        if ($argv === null) {
+            $argv = array_slice($_SERVER['argv'], 1); // @codeCoverageIgnore
+        }
+        if (is_string($argv)) {
+            $argv = preg_split('#\s+#', $argv, -1, PREG_SPLIT_NO_EMPTY);
+        }
+        $argv = array_values($argv);
+
+        $shortmap = [];
+        $argsdefaults = [];
+        $optsdefaults = [];
+        foreach ($rule as $name => $default) {
+            if (is_int($name)) {
+                $argsdefaults[$name] = $default;
+                continue;
+            }
+            list($longname, $shortname) = preg_split('#\s+#', $name, -1, PREG_SPLIT_NO_EMPTY) + [1 => null];
+            if ($shortname !== null) {
+                if (array_key_exists($shortname, $shortmap)) {
+                    throw new \InvalidArgumentException("duplicated short option name '$shortname'");
+                }
+                $shortmap[$shortname] = $longname;
+            }
+            if (array_key_exists($longname, $optsdefaults)) {
+                throw new \InvalidArgumentException("duplicated option name '$shortname'");
+            }
+            $optsdefaults[$longname] = $default;
+        }
+
+        $n = 0;
+        $already = [];
+        $result = array_map(function ($v) { return $v === null ? false : $v; }, $optsdefaults);
+        while (($token = array_shift($argv)) !== null) {
+            if (strlen($token) >= 2 && $token[0] === '-') {
+                if ($token[1] === '-') {
+                    $optname = substr($token, 2);
+                }
+                else {
+                    $shortname = substr($token, 1);
+                    if (strlen($shortname) > 1) {
+                        array_unshift($argv, '-' . substr($shortname, 1));
+                        $shortname = substr($shortname, 0, 1);
+                    }
+                    if (!isset($shortmap[$shortname])) {
+                        throw new \InvalidArgumentException("undefined short option name '$shortname'.");
+                    }
+                    $optname = $shortmap[$shortname];
+                }
+
+                if (!array_key_exists($optname, $optsdefaults)) {
+                    throw new \InvalidArgumentException("undefined option name '$optname'.");
+                }
+                if (isset($already[$optname]) && !is_array($result[$optname])) {
+                    throw new \InvalidArgumentException("'$optname' is specified already.");
+                }
+                $already[$optname] = true;
+
+                if ($optsdefaults[$optname] === null) {
+                    $result[$optname] = true;
+                }
+                else {
+                    if (!isset($argv[0]) || strpos($argv[0], '-') === 0) {
+                        throw new \InvalidArgumentException("'$optname' requires value.");
+                    }
+                    if (is_array($result[$optname])) {
+                        $result[$optname][] = array_shift($argv);
+                    }
+                    else {
+                        $result[$optname] = array_shift($argv);
+                    }
+                }
+            }
+            else {
+                $result[$n++] = $token;
+            }
+        }
+
+        return $result + $argsdefaults;
+    }
+}
+
+const error = 'ryunosuke\\Documentize\\error';
 if (!isset($excluded_functions['error']) && (!function_exists('ryunosuke\\Documentize\\error') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\error'))->isInternal()))) {
     /**
      * エラー出力する
@@ -5079,7 +5739,7 @@ if (!isset($excluded_functions['error']) && (!function_exists('ryunosuke\\Docume
      * @param resource|string|mixed $destination 出力先
      * @return int 書き込んだバイト数
      */
-    function error($message, $destination = NULL)
+    function error($message, $destination = null)
     {
         static $persistences = [];
 
@@ -5126,6 +5786,40 @@ if (!isset($excluded_functions['error']) && (!function_exists('ryunosuke\\Docume
         return strlen($line);
     }
 }
+
+const timer = 'ryunosuke\\Documentize\\timer';
+if (!isset($excluded_functions['timer']) && (!function_exists('ryunosuke\\Documentize\\timer') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\timer'))->isInternal()))) {
+    /**
+     * 処理時間を計測する
+     *
+     * 第1引数 $callable を $count 回回してその処理時間を返す。
+     *
+     * Example:
+     * ```php
+     * // 0.01 秒を 10 回回すので 0.1 秒は超える
+     * assertGreaterThan(0.1, timer(function(){usleep(10 * 1000);}, 10));
+     * ```
+     *
+     * @param callable $callable 処理クロージャ
+     * @param int $count ループ回数
+     * @return float 処理時間
+     */
+    function timer(callable $callable, $count = 1)
+    {
+        $count = (int) $count;
+        if ($count < 1) {
+            throw new \InvalidArgumentException("\$count must be greater than 0 (specified $count).");
+        }
+
+        $t = microtime(true);
+        for ($i = 0; $i < $count; $i++) {
+            $callable();
+        }
+        return microtime(true) - $t;
+    }
+}
+
+const benchmark = 'ryunosuke\\Documentize\\benchmark';
 if (!isset($excluded_functions['benchmark']) && (!function_exists('ryunosuke\\Documentize\\benchmark') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\benchmark'))->isInternal()))) {
     /**
      * 簡易ベンチマークを取る
@@ -5178,9 +5872,22 @@ if (!isset($excluded_functions['benchmark']) && (!function_exists('ryunosuke\\Do
             throw new \InvalidArgumentException('benchset is empty.');
         }
 
+        // 5.6 で ... 呼び出しで zval が書き換わる不具合？があったのでループで引数配列を生成（異なる zval を返す）
+        $copy = function ($array) {
+            $result = [];
+            foreach ($array as $k => $v) {
+                $result[$k] = $v;
+            }
+            return $result;
+        };
+
         // ウォームアップ兼検証（大量に実行してエラーの嵐になる可能性があるのでウォームアップの時点でエラーがないかチェックする）
-        $assertions = call_user_func(call_safely, function ($benchset, $args) {
-            return call_user_func(array_lmap, $benchset, 'call_user_func_array', $args);
+        $assertions = call_user_func(call_safely, function ($benchset, $args) use ($copy) {
+            $result = [];
+            foreach ($benchset as $name => $caller) {
+                $result[$name] = $caller(...$copy($args));
+            }
+            return $result;
         }, $benchset, $args);
 
         // 返り値の検証（ベンチマークという性質上、基本的に戻り値が一致しないのはおかしい）
@@ -5199,8 +5906,9 @@ if (!isset($excluded_functions['benchmark']) && (!function_exists('ryunosuke\\Do
         $counts = [];
         foreach ($benchset as $name => $caller) {
             $end = microtime(true) + $millisec / 1000;
+            $avg = $copy($args);
             for ($n = 0; microtime(true) <= $end; $n++) {
-                call_user_func_array($caller, $args);
+                $caller(...$avg);
             }
             $counts[$name] = $n;
         }
@@ -5254,6 +5962,8 @@ RESULT;
         return $result;
     }
 }
+
+const stringify = 'ryunosuke\\Documentize\\stringify';
 if (!isset($excluded_functions['stringify']) && (!function_exists('ryunosuke\\Documentize\\stringify') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\stringify'))->isInternal()))) {
     /**
      * 値を何とかして文字列化する
@@ -5290,6 +6000,8 @@ if (!isset($excluded_functions['stringify']) && (!function_exists('ryunosuke\\Do
         }
     }
 }
+
+const numberify = 'ryunosuke\\Documentize\\numberify';
 if (!isset($excluded_functions['numberify']) && (!function_exists('ryunosuke\\Documentize\\numberify') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\numberify'))->isInternal()))) {
     /**
      * 値を何とかして数値化する
@@ -5366,6 +6078,144 @@ if (!isset($excluded_functions['numberify']) && (!function_exists('ryunosuke\\Do
         return (int) $number;
     }
 }
+
+const numval = 'ryunosuke\\Documentize\\numval';
+if (!isset($excluded_functions['numval']) && (!function_exists('ryunosuke\\Documentize\\numval') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\numval'))->isInternal()))) {
+    /**
+     * 値を数値化する
+     *
+     * int か float ならそのまま返す。
+     * 文字列の場合、一言で言えば「.を含むなら float、含まないなら int」を返す。
+     * int でも float でも stringable でもない場合は実装依存（ただの int キャスト）。
+     *
+     * Example:
+     * ```php
+     * assertSame(numval(3.14), 3.14);   // int や float はそのまま返す
+     * assertSame(numval('3.14'), 3.14); // . を含む文字列は float を返す
+     * assertSame(numval('11', 8), 9);   // 基数が指定できる
+     * ```
+     *
+     * @param mixed $var 数値化する値
+     * @param int $base 基数。int 的な値のときしか意味をなさない
+     * @return int|float 数値化した値
+     */
+    function numval($var, $base = 10)
+    {
+        if (is_int($var) || is_float($var)) {
+            return $var;
+        }
+        if (is_object($var)) {
+            $var = (string) $var;
+        }
+        if (is_string($var) && strpos($var, '.') !== false) {
+            return (float) $var;
+        }
+        return intval($var, $base);
+    }
+}
+
+const arrayval = 'ryunosuke\\Documentize\\arrayval';
+if (!isset($excluded_functions['arrayval']) && (!function_exists('ryunosuke\\Documentize\\arrayval') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\arrayval'))->isInternal()))) {
+    /**
+     * array キャストの関数版
+     *
+     * intval とか strval とかの array 版。
+     * ただキャストするだけだが、関数なのでコールバックとして使える。
+     *
+     * $recursive を true にすると再帰的に適用する（デフォルト）。
+     * 入れ子オブジェクトを配列化するときなどに使える。
+     *
+     * Example:
+     * ```php
+     * // キャストなので基本的には配列化される
+     * assertSame(arrayval(123), [123]);
+     * assertSame(arrayval('str'), ['str']);
+     * assertSame(arrayval([123]), [123]); // 配列は配列のまま
+     *
+     * // $recursive = false にしない限り再帰的に適用される
+     * $stdclass = stdclass(['key' => 'val']);
+     * assertSame(arrayval([$stdclass], true), [['key' => 'val']]); // true なので中身も配列化される
+     * assertSame(arrayval([$stdclass], false), [$stdclass]);       // false なので中身は変わらない
+     * ```
+     *
+     * @param mixed $var array 化する値
+     * @param bool $recursive 再帰的に行うなら true
+     * @return array array 化した配列
+     */
+    function arrayval($var, $recursive = true)
+    {
+        if (!$recursive || call_user_func(is_primitive, $var)) {
+            return (array) $var;
+        }
+
+        // return json_decode(json_encode($var), true);
+
+        $result = [];
+        foreach ($var as $k => $v) {
+            if (!call_user_func(is_primitive, $v)) {
+                $v = call_user_func(arrayval, $v, true);
+            }
+            $result[$k] = $v;
+        }
+        return $result;
+    }
+}
+
+const is_empty = 'ryunosuke\\Documentize\\is_empty';
+if (!isset($excluded_functions['is_empty']) && (!function_exists('ryunosuke\\Documentize\\is_empty') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\is_empty'))->isInternal()))) {
+    /**
+     * 値が空か検査する
+     *
+     * `empty` とほぼ同じ。ただし
+     *
+     * - string: "0"
+     * - あらゆる object
+     *
+     * は false 判定する。
+     *
+     * なお、関数の仕様上、未定義変数を true 判定することはできない。
+     * 未定義変数をチェックしたい状況は大抵の場合コードが悪いが `$array['key1']['key2']` を調べたいことはある。
+     * そういう時には使えない（?? する必要がある）。
+     *
+     * 「 `if ($var) {}` で十分なんだけど "0" が…」という状況はまれによくあるはず。
+     *
+     * Example:
+     * ```php
+     * // この辺は empty と全く同じ
+     * assertTrue(is_empty(null));
+     * assertTrue(is_empty(false));
+     * assertTrue(is_empty(0));
+     * assertTrue(is_empty(''));
+     * // この辺だけが異なる
+     * assertFalse(is_empty('0'));
+     * assertFalse(is_empty(new \SimpleXMLElement('<foo></foo>')));
+     * ```
+     *
+     * @param mixed $var 判定する値
+     * @return bool 空なら true
+     */
+    function is_empty($var)
+    {
+        // empty で空でない判定ならそれで良い
+        if (!empty($var)) {
+            return false;
+        }
+
+        // "0" は false
+        if ($var === '0') {
+            return false;
+        }
+
+        // object は false
+        if (is_object($var)) {
+            return false;
+        }
+
+        return true;
+    }
+}
+
+const is_primitive = 'ryunosuke\\Documentize\\is_primitive';
 if (!isset($excluded_functions['is_primitive']) && (!function_exists('ryunosuke\\Documentize\\is_primitive') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\is_primitive'))->isInternal()))) {
     /**
      * 値が複合型でないか検査する
@@ -5395,6 +6245,8 @@ if (!isset($excluded_functions['is_primitive']) && (!function_exists('ryunosuke\
         return is_scalar($var) || is_null($var) || is_resource($var);
     }
 }
+
+const is_recursive = 'ryunosuke\\Documentize\\is_recursive';
 if (!isset($excluded_functions['is_recursive']) && (!function_exists('ryunosuke\\Documentize\\is_recursive') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\is_recursive'))->isInternal()))) {
     /**
      * 変数が再帰参照を含むか調べる
@@ -5444,6 +6296,8 @@ if (!isset($excluded_functions['is_recursive']) && (!function_exists('ryunosuke\
         return $core($var, []);
     }
 }
+
+const is_iterable = 'ryunosuke\\Documentize\\is_iterable';
 if (!isset($excluded_functions['is_iterable']) && (!function_exists('ryunosuke\\Documentize\\is_iterable') || (!true && (new \ReflectionFunction('ryunosuke\\Documentize\\is_iterable'))->isInternal()))) {
     /**
      * 変数が foreach で回せるか調べる
@@ -5469,6 +6323,8 @@ if (!isset($excluded_functions['is_iterable']) && (!function_exists('ryunosuke\\
         return is_array($var) || $var instanceof \Traversable;
     }
 }
+
+const is_countable = 'ryunosuke\\Documentize\\is_countable';
 if (!isset($excluded_functions['is_countable']) && (!function_exists('ryunosuke\\Documentize\\is_countable') || (!true && (new \ReflectionFunction('ryunosuke\\Documentize\\is_countable'))->isInternal()))) {
     /**
      * 変数が count でカウントできるか調べる
@@ -5492,6 +6348,73 @@ if (!isset($excluded_functions['is_countable']) && (!function_exists('ryunosuke\
         return is_array($var) || $var instanceof \Countable;
     }
 }
+
+const varcmp = 'ryunosuke\\Documentize\\varcmp';
+if (!isset($excluded_functions['varcmp']) && (!function_exists('ryunosuke\\Documentize\\varcmp') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\varcmp'))->isInternal()))) {
+    /**
+     * php7 の `<=>` の関数版
+     *
+     * 引数で大文字小文字とか自然順とか型モードとかが指定できる。
+     *
+     * Example:
+     * ```php
+     * // 'a' と 'z' なら 'z' の方が大きい
+     * assertTrue(varcmp('z', 'a') > 0);
+     * assertTrue(varcmp('a', 'z') < 0);
+     * assertTrue(varcmp('a', 'a') === 0);
+     *
+     * // 'a' と 'Z' なら 'a' の方が大きい…が SORT_FLAG_CASE なので 'Z' のほうが大きい
+     * assertTrue(varcmp('Z', 'a', SORT_FLAG_CASE) > 0);
+     * assertTrue(varcmp('a', 'Z', SORT_FLAG_CASE) < 0);
+     * assertTrue(varcmp('a', 'A', SORT_FLAG_CASE) === 0);
+     *
+     * // '2' と '12' なら '2' の方が大きい…が SORT_NATURAL なので '12' のほうが大きい
+     * assertTrue(varcmp('12', '2', SORT_NATURAL) > 0);
+     * assertTrue(varcmp('2', '12', SORT_NATURAL) < 0);
+     * ```
+     *
+     * @param mixed $a 比較する値1
+     * @param mixed $b 比較する値2
+     * @param int $mode 比較モード（SORT_XXX）。省略すると型でよしなに選択
+     * @return int 等しいなら 0、 $a のほうが大きいなら > 0、 $bのほうが大きいなら < 0
+     */
+    function varcmp($a, $b, $mode = null)
+    {
+        // null が来たらよしなにする（なるべく型に寄せるが SORT_REGULAR はキモいので避ける）
+        if ($mode === null || $mode === SORT_FLAG_CASE) {
+            if ((is_int($a) || is_float($a)) && (is_int($b) || is_float($b))) {
+                $mode = SORT_NUMERIC;
+            }
+            elseif (is_string($a) && is_string($b)) {
+                $mode = SORT_STRING | $mode; // SORT_FLAG_CASE が単品で来てるかもしれないので混ぜる
+            }
+        }
+
+        $flag_case = $mode & SORT_FLAG_CASE;
+        $mode = $mode & ~SORT_FLAG_CASE;
+
+        if ($mode === SORT_NUMERIC) {
+            return $a - $b;
+        }
+        if ($mode === SORT_STRING) {
+            if ($flag_case) {
+                return strcasecmp($a, $b);
+            }
+            return strcmp($a, $b);
+        }
+        if ($mode === SORT_NATURAL) {
+            if ($flag_case) {
+                return strnatcasecmp($a, $b);
+            }
+            return strnatcmp($a, $b);
+        }
+
+        // for SORT_REGULAR
+        return $a == $b ? 0 : ($a > $b ? 1 : -1);
+    }
+}
+
+const var_type = 'ryunosuke\\Documentize\\var_type';
 if (!isset($excluded_functions['var_type']) && (!function_exists('ryunosuke\\Documentize\\var_type') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\var_type'))->isInternal()))) {
     /**
      * 値の型を取得する（gettype + get_class）
@@ -5522,6 +6445,91 @@ if (!isset($excluded_functions['var_type']) && (!function_exists('ryunosuke\\Doc
         return gettype($var);
     }
 }
+
+const var_apply = 'ryunosuke\\Documentize\\var_apply';
+if (!isset($excluded_functions['var_apply']) && (!function_exists('ryunosuke\\Documentize\\var_apply') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\var_apply'))->isInternal()))) {
+    /**
+     * 値にコールバックを適用する
+     *
+     * 普通のスカラー値であれば `$callback($var)` と全く同じ。
+     * この関数は「$var が配列だったら中身に適用して返す（再帰）」という点で上記とは異なる。
+     *
+     * 「配列が与えられたら要素に適用して配列で返す、配列じゃないなら直に適用してそれを返す」という状況はまれによくあるはず。
+     *
+     * Example:
+     * ```php
+     * // 素の値は素の呼び出しと同じ
+     * assertSame(var_apply(' x ', 'trim'), 'x');
+     * // 配列は中身に適用して配列で返す（再帰）
+     * assertSame(var_apply([' x ', ' y ', [' z ']], 'trim'), ['x', 'y', ['z']]);
+     * // 第3引数以降は残り引数を意味する
+     * assertSame(var_apply(['!x!', '!y!'], 'trim', '!'), ['x', 'y']);
+     * // 「まれによくある」の具体例
+     * assertSame(var_apply(['<x>', ['<y>']], 'htmlspecialchars', ENT_QUOTES, 'utf-8'), ['&lt;x&gt;', ['&lt;y&gt;']]);
+     * ```
+     *
+     * @param mixed $var $callback を適用する値
+     * @param callable $callback 値変換コールバック
+     * @param array $args $callback の残り引数（可変引数）
+     * @return mixed|array $callback が適用された値。元が配列なら配列で返す
+     */
+    function var_apply($var, $callback, ...$args)
+    {
+        $iterable = call_user_func(is_iterable, $var);
+        if ($iterable) {
+            $result = [];
+            foreach ($var as $k => $v) {
+                $result[$k] = call_user_func(var_apply, $v, $callback, ...$args);
+            }
+            return $result;
+        }
+
+        return $callback($var, ...$args);
+    }
+}
+
+const var_applys = 'ryunosuke\\Documentize\\var_applys';
+if (!isset($excluded_functions['var_applys']) && (!function_exists('ryunosuke\\Documentize\\var_applys') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\var_applys'))->isInternal()))) {
+    /**
+     * 配列にコールバックを適用する
+     *
+     * 配列であれば `$callback($var)` と全く同じ。
+     * この関数は「$var がスカラー値だったら配列化して適用してスカラーで返す」という点で上記とは異なる。
+     *
+     * 「配列を受け取って配列を返す関数があるが、手元にスカラー値しか無い」という状況はまれによくあるはず。
+     *
+     * Example:
+     * ```php
+     * // 配列を受け取って中身を大文字化して返すクロージャ
+     * $upper = function($array){return array_map('strtoupper', $array);};
+     * // 普通はこうやって使うが・・・
+     * assertSame($upper(['a', 'b', 'c']), ['A', 'B', 'C']);
+     * // 手元に配列ではなくスカラー値しか無いときはこうせざるをえない
+     * assertSame($upper(['a'])[0], 'A');
+     * // var_applys を使うと配列でもスカラーでも統一的に記述することができる
+     * assertSame(var_applys(['a', 'b', 'c'], $upper), ['A', 'B', 'C']);
+     * assertSame(var_applys('a', $upper), 'A');
+     * # 要するに「大文字化したい」だけなわけだが、$upper が配列を前提としているので、「大文字化」部分を得るには配列化しなければならなくなっている
+     * # 「strtoupper だけ切り出せばよいのでは？」と思うかもしれないが、「（外部ライブラリなどで）手元に配列しか受け取ってくれない処理しかない」状況がまれによくある
+     * ```
+     *
+     * @param mixed $var $callback を適用する値
+     * @param callable $callback 値変換コールバック
+     * @param array $args $callback の残り引数（可変引数）
+     * @return mixed|array $callback が適用された値。元が配列なら配列で返す
+     */
+    function var_applys($var, $callback, ...$args)
+    {
+        $iterable = call_user_func(is_iterable, $var);
+        if (!$iterable) {
+            $var = [$var];
+        }
+        $var = $callback($var, ...$args);
+        return $iterable ? $var : $var[0];
+    }
+}
+
+const var_export2 = 'ryunosuke\\Documentize\\var_export2';
 if (!isset($excluded_functions['var_export2']) && (!function_exists('ryunosuke\\Documentize\\var_export2') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\var_export2'))->isInternal()))) {
     /**
      * 組み込みの var_export をいい感じにしたもの
@@ -5665,6 +6673,8 @@ if (!isset($excluded_functions['var_export2']) && (!function_exists('ryunosuke\\
         echo $result;
     }
 }
+
+const var_html = 'ryunosuke\\Documentize\\var_html';
 if (!isset($excluded_functions['var_html']) && (!function_exists('ryunosuke\\Documentize\\var_html') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\var_html'))->isInternal()))) {
     /**
      * var_export2 を html コンテキストに特化させたもの
@@ -5697,6 +6707,8 @@ if (!isset($excluded_functions['var_html']) && (!function_exists('ryunosuke\\Doc
         echo $result;
     }
 }
+
+const hashvar = 'ryunosuke\\Documentize\\hashvar';
 if (!isset($excluded_functions['hashvar']) && (!function_exists('ryunosuke\\Documentize\\hashvar') || (!false && (new \ReflectionFunction('ryunosuke\\Documentize\\hashvar'))->isInternal()))) {
     /**
      * 変数指定をできるようにした compact
@@ -5785,3 +6797,4 @@ if (!isset($excluded_functions['hashvar']) && (!function_exists('ryunosuke\\Docu
         throw new \DomainException('syntax error.'); // @codeCoverageIgnore
     }
 }
+
