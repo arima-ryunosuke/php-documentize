@@ -869,7 +869,23 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'tags'        => $mmethod['tags'],
             ];
         }
-        return $result;
+
+        // used-by 用に配列を詰め替える
+        $result2 = [];
+        foreach ($result as $k => $v) {
+            if (!isset($result2[$k])) {
+                $result2[$k] = $v;
+            }
+            foreach ($v['tags']['used-by'] ?? [] as $used_by) {
+                list(, , , $member) = Fqsen::parse($used_by['type']['fqsen']);
+                $member = rtrim($member, '()');
+                if (isset($result[$member])) {
+                    $result2[$member] = $result[$member];
+                }
+            }
+        }
+
+        return $result2;
     }
 
     private function parseDoccomment($doccomment, $namespace, $own)

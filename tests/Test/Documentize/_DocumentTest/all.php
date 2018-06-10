@@ -138,6 +138,11 @@ namespace GlobalSpace {
         public function noprototypeMethod() { }
 
         /**
+         * @used-by magicMethod()
+         */
+        public function usedByMethod() { }
+
+        /**
          * @inheritdoc GlobalTrait::traitMethod
          */
         public function getIterator() { }

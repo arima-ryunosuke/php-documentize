@@ -106,10 +106,13 @@ class Tag
         ];
     }
 
-    private function _parseTypeDescription($tagValue, $usings, $namespace, $own)
+    private function _parseTypeDescription($addOwn, $tagValue, $usings, $namespace, $own)
     {
         // @tagname ["Type"] [<description>]
         $value = preg_split('#\s+#', $tagValue, 2);
+        if ($addOwn) {
+            $value[0] = $this->_addOwn($value[0], $own);
+        }
         return [
             'type'        => (new Fqsen($value[0]))->resolve($usings, $namespace, $own)[0],
             'description' => $value[1] ?? '',
@@ -358,7 +361,7 @@ class Tag
 
     protected function parseThrows($tagValue, $usings, $namespace, $own)
     {
-        return $this->_parseTypeDescription($tagValue, $usings, $namespace, $own);
+        return $this->_parseTypeDescription(false, $tagValue, $usings, $namespace, $own);
     }
 
     protected function parseTodo($tagValue)
@@ -368,12 +371,12 @@ class Tag
 
     protected function parseUses($tagValue, $usings, $namespace, $own)
     {
-        return $this->_parseTypeDescription($tagValue, $usings, $namespace, $own);
+        return $this->_parseTypeDescription(true, $tagValue, $usings, $namespace, $own);
     }
 
     protected function parseUsedBy($tagValue, $usings, $namespace, $own)
     {
-        return $this->_parseTypeDescription($tagValue, $usings, $namespace, $own);
+        return $this->_parseTypeDescription(true, $tagValue, $usings, $namespace, $own);
     }
 
     protected function parseVar($tagValue, $usings, $namespace, $own)

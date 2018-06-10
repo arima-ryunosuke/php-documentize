@@ -66,6 +66,9 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertEquals("classMethod2 arg comment\n", $methods['classMethod2']['parameters'][0]['description']);
         $this->assertEquals("classMethod2 return comment", $methods['classMethod2']['return']['description']);
 
+        $uses = array_intersect_key($methods, ['usedByMethod' => true, 'magicMethod' => true]);
+        $this->assertSame(['usedByMethod', 'magicMethod'], array_keys($uses));
+
         /// なんかテストしたいことがあったらここに随時記述（↑の通り全項目の細かいテストはやらん）
 
         $this->assertException('is not found', function () {
