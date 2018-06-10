@@ -380,25 +380,25 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $result = [];
         ksort($namespaces);
         foreach ($namespaces as $namespace => $data) {
-            if ($this->skip($data, null)) {
+            if ($this->skip($data, null, null)) {
                 continue;
             }
             foreach (['constants' => 'constant', 'functions' => 'function'] as $key => $name) {
                 foreach ($data[$key] as $n => $e) {
-                    if ($this->skip($e, $name)) {
+                    if ($this->skip($e, null, $name)) {
                         unset($data[$key][$n]);
                     }
                 }
             }
             foreach (['interfaces' => 'type', 'traits' => 'type', 'classes' => 'type'] as $key => $name) {
                 foreach ($data[$key] as $n => $e) {
-                    if ($this->skip($e, $name)) {
+                    if ($this->skip($e, null, $name)) {
                         unset($data[$key][$n]);
                         continue;
                     }
                     foreach (['constants' => 'constant', 'properties' => 'property', 'methods' => 'method'] as $key2 => $name2) {
                         foreach ($e[$key2] as $n2 => $e2) {
-                            if ($this->skip($e2, $name2)) {
+                            if ($this->skip($e2, $e, $name2)) {
                                 unset($data[$key][$n][$key2][$n2]);
                             }
                         }
@@ -938,7 +938,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         }
     }
 
-    private function skip($data, $context)
+    private function skip($data, $parentData, $category)
     {
         if ($this->options['contain'] && !fnmatch_or($this->options['contain'], $data['fqsen'], FNM_NOESCAPE)) {
             return true;
@@ -952,29 +952,32 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         if (($data['tags']['ignoreinherit'] ?? false) && ($data['virtual'] ?? false)) {
             return true;
         }
-        if (($this->options["no-$context"] ?? false) && ($data['category'] ?? false) === $context) {
+        if (($this->options["no-$category"] ?? false) && ($data['category'] ?? false) === $category) {
             return true;
         }
-        if (($this->options["no-internal-$context"] ?? false) && ($data['tags']['internal'] ?? false)) {
-            return true;
+        foreach (['internal', 'deprecated'] as $tag) {
+            if (($this->options["no-$tag-$category"] ?? false) && ($data['tags'][$tag] ?? false)) {
+                return true;
+            }
+            if ((($parentData['tags']["no-$tag"] ?? false) || ($parentData['tags']["no-$tag-$category"] ?? false)) && ($data['tags'][$tag] ?? false)) {
+                return true;
+            }
         }
-        if (($this->options["no-deprecated-$context"] ?? false) && ($data['tags']['deprecated'] ?? false)) {
-            return true;
+        foreach (['virtual', 'magic'] as $type) {
+            if (($this->options["no-$type-$category"] ?? false) && ($data[$type] ?? false)) {
+                return true;
+            }
+            if ((($parentData['tags']["no-$type"] ?? false) || ($parentData['tags']["no-$type-$category"] ?? false)) && ($data[$type] ?? false)) {
+                return true;
+            }
         }
-        if (($this->options["no-virtual-$context"] ?? false) && ($data['virtual'] ?? false)) {
-            return true;
-        }
-        if (($this->options["no-magic-$context"] ?? false) && ($data['magic'] ?? false)) {
-            return true;
-        }
-        if (($this->options["no-private-$context"] ?? false) && ($data['accessible'] ?? '') === 'private') {
-            return true;
-        }
-        if (($this->options["no-protected-$context"] ?? false) && ($data['accessible'] ?? '') === 'protected') {
-            return true;
-        }
-        if (($this->options["no-public-$context"] ?? false) && ($data['accessible'] ?? '') === 'public') {
-            return true;
+        foreach (['private', 'protected', 'public'] as $accessible) {
+            if (($this->options["no-$accessible-$category"] ?? false) && ($data['accessible'] ?? '') === $accessible) {
+                return true;
+            }
+            if ((($parentData['tags']["no-$accessible"] ?? false) || ($parentData['tags']["no-$accessible-$category"] ?? false)) && ($data['accessible'] ?? '') === $accessible) {
+                return true;
+            }
         }
         return false;
     }
