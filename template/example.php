@@ -243,6 +243,18 @@ namespace NS {
          * @return mixed 返り値です
          */
         public function ignoreinheritMethod($arg1) { }
+
+        /**
+         * used-by でマジックメソッドを指定したメソッド
+         *
+         * used-by するとドキュメント内の位置が変わります。
+         *
+         * @used-by magicMethod4()
+         *
+         * @param string $arg1 引数1です
+         * @return mixed 返り値です
+         */
+        public function usedByMethod($arg1) { }
     }
 
     /**
@@ -393,6 +405,7 @@ namespace NS {
      * |  1 | row1col1   | row1col2
      * |  2 | row2col1   | row2col2
      *
+     * @no-virtual-method
      * @see Rclass これは see タグの説明です（内部リンク）
      * @see https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md これは see タグの説明です（外部リンク）
      * @deprecated 3.4.5 これは deprecated タグの説明です
