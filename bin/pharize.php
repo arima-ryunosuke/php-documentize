@@ -25,7 +25,7 @@ $files = array_merge(
     file_list("$root/vendor/psr", $filter),
     file_list("$root/vendor/paragonie", $filter),
     file_list("$root/vendor/myclabs", $filter),
-    file_list("$root/vendor/erusev", $filter),
+    file_list("$root/vendor/cebe", $filter),
     file_list("$root/vendor/symfony", $filter),
     [
         "$root/vendor/autoload.php",

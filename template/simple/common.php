@@ -8,10 +8,8 @@ function md($text)
 {
     static $parser = null;
     if ($parser === null) {
-        $parser = new \Parsedown();
-        $parser->setBreaksEnabled(true);
-        $parser->setMarkupEscaped(false);
-        $parser->setUrlsLinked(false);
+        $parser = new \cebe\markdown\GithubMarkdown();
+        $parser->enableNewlines = true;
     }
     return $parser->parse($text);
 }
