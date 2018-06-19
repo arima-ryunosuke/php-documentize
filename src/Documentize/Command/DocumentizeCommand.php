@@ -16,8 +16,6 @@ use function ryunosuke\Documentize\path_resolve;
 
 class DocumentizeCommand extends Command
 {
-    const VERSION = "1.0.3";
-
     protected function configure()
     {
         $this->setName('generate')->setDescription('generate document from phpdoc.');
@@ -25,7 +23,7 @@ class DocumentizeCommand extends Command
             new InputArgument('source', InputArgument::REQUIRED, 'Specify Source path'),
             new InputArgument('destination', InputArgument::REQUIRED, 'Specify Destination path'),
             new InputOption('autoload', 'a', InputOption::VALUE_OPTIONAL, 'Specify Autoload file'),
-            new InputOption('cachedir', null, InputOption::VALUE_REQUIRED, 'Specify cache directory', sys_get_temp_dir() . '/rdz-' . self::VERSION),
+            new InputOption('cachedir', null, InputOption::VALUE_REQUIRED, 'Specify cache directory', sys_get_temp_dir() . '/rdz'),
             new InputOption('force', null, InputOption::VALUE_NONE, 'Specify cache recreation'),
             new InputOption('recursive', 'r', InputOption::VALUE_NONE, 'Specify Recursive flag'),
             new InputOption('include', 'i', InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Specify Include pattern', ['*.php']),
@@ -81,7 +79,9 @@ class DocumentizeCommand extends Command
 
         $cachedir = $input->getOption('cachedir');
         if ($cachedir) {
-            $cachedir = path_resolve($cachedir);
+            $pharpath = \Phar::running(false);
+            $hash = $pharpath ? md5_file($pharpath) : md5(implode(',', array_map('md5_file', file_list(dirname(__DIR__)))));
+            $cachedir = path_resolve("$cachedir/$hash");
             mkdir_p($cachedir);
         }
 
