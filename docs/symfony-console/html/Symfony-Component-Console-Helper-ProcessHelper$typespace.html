@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Helper\ProcessHelper)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProcessHelper.php#L19-L141" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Helper\ProcessHelper</span></h2>
 
-	<div class="description"><p>The ProcessHelper class provides helpers to run external processes.</p></div>
+	<div class="description"><p>The ProcessHelper class provides helpers to run external processes.</p>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -113,7 +119,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::$helperSet" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$helperSet						<var> = null</var>
@@ -147,40 +153,47 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProcessHelper.php#L26-L72" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::run()" tabindex="-1" class="structure-title ">
                         run						<small>($output, $cmd, $error = null, $callback = null, $verbosity = Symfony\Component\Console\Output\OutputInterface::VERBOSITY_VERY_VERBOSE)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Runs an external process.</p></div>
+						<div class="description"><p>Runs an external process.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
 				<td class="rest">$output</td>
-				<td class="desc"><p>An OutputInterface instance</p></td>
+				<td class="desc"><p>An OutputInterface instance</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array<span class="type-separator"></span><wbr><a href="Symfony-Component-Process-Process$typespace.html#Symfony\Component\Process\Process" class="fqsen "><small>Symfony\Component\Process\</small><wbr>Process</a></td>
 				<td class="rest">$cmd</td>
-				<td class="desc"><p>An instance of Process or an array of arguments to escape and run or a command to run</p></td>
+				<td class="desc"><p>An instance of Process or an array of arguments to escape and run or a command to run</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$error = null</td>
-				<td class="desc"><p>An error message that must be displayed if something went wrong</p></td>
+				<td class="desc"><p>An error message that must be displayed if something went wrong</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">callable<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$callback = null</td>
-				<td class="desc"><p>A PHP callback to run whenever there is some<br />
-output available on STDOUT or STDERR</p></td>
+				<td class="desc"><p>A PHP callback to run whenever there is some</p>
+<pre><code>                                   output available on STDOUT or STDERR
+</code></pre>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$verbosity = Symfony\Component\Console\Output\OutputInterface::VERBOSITY_VERY_VERBOSE</td>
-				<td class="desc"><p>The threshold for verbosity</p></td>
+				<td class="desc"><p>The threshold for verbosity</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -189,7 +202,8 @@ output available on STDOUT or STDERR</p></td>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Process-Process$typespace.html#Symfony\Component\Process\Process" class="fqsen "><small>Symfony\Component\Process\</small><wbr>Process</a></td>
-			<td class="desc"><p>The process that ran</p></td>
+			<td class="desc"><p>The process that ran</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -212,37 +226,43 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProcessHelper.php#L74-L101" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::mustRun()" tabindex="-1" class="structure-title ">
                         mustRun						<small>($output, $cmd, $error = null, $callback = null)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Runs the process.</p>
 <p>This is identical to run() except that an exception is thrown if the process<br />
-exits with a non-zero exit code.</p></div>
+exits with a non-zero exit code.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
 				<td class="rest">$output</td>
-				<td class="desc"><p>An OutputInterface instance</p></td>
+				<td class="desc"><p>An OutputInterface instance</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr><a href="Symfony-Component-Process-Process$typespace.html#Symfony\Component\Process\Process" class="fqsen "><small>Symfony\Component\Process\</small><wbr>Process</a></td>
 				<td class="rest">$cmd</td>
-				<td class="desc"><p>An instance of Process or a command to run</p></td>
+				<td class="desc"><p>An instance of Process or a command to run</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$error = null</td>
-				<td class="desc"><p>An error message that must be displayed if something went wrong</p></td>
+				<td class="desc"><p>An error message that must be displayed if something went wrong</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">callable<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$callback = null</td>
-				<td class="desc"><p>A PHP callback to run whenever there is some<br />
-output available on STDOUT or STDERR</p></td>
+				<td class="desc"><p>A PHP callback to run whenever there is some</p>
+<pre><code>                             output available on STDOUT or STDERR
+</code></pre>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -251,7 +271,8 @@ output available on STDOUT or STDERR</p></td>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Process-Process$typespace.html#Symfony\Component\Process\Process" class="fqsen "><small>Symfony\Component\Process\</small><wbr>Process</a></td>
-			<td class="desc"><p>The process that ran</p></td>
+			<td class="desc"><p>The process that ran</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -293,29 +314,33 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProcessHelper.php#L103-L127" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::wrapCallback()" tabindex="-1" class="structure-title ">
                         wrapCallback						<small>($output, $process, $callback = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Wraps a Process callback to add debugging output.</p></div>
+						<div class="description"><p>Wraps a Process callback to add debugging output.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
 				<td class="rest">$output</td>
-				<td class="desc"><p>An OutputInterface interface</p></td>
+				<td class="desc"><p>An OutputInterface interface</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Process-Process$typespace.html#Symfony\Component\Process\Process" class="fqsen "><small>Symfony\Component\Process\</small><wbr>Process</a></td>
 				<td class="rest">$process</td>
-				<td class="desc"><p>The Process</p></td>
+				<td class="desc"><p>The Process</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">callable<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$callback = null</td>
-				<td class="desc"><p>A PHP callable</p></td>
+				<td class="desc"><p>A PHP callable</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -347,7 +372,7 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProcessHelper.php#L129-L132" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::escapeString()" tabindex="-1" class="structure-title ">
                         escapeString						<small>($str)</small>
 					</h4>
@@ -391,12 +416,13 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProcessHelper.php#L134-L140" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::getName()" tabindex="-1" class="structure-title ">
                         getName						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the canonical name of this helper.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the canonical name of this helper.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -407,7 +433,8 @@ output available on STDOUT or STDERR</p></td>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The canonical name</p></td>
+			<td class="desc"><p>The canonical name</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -440,12 +467,13 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L25-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::setHelperSet()" tabindex="-1" class="structure-title ">
                         setHelperSet						<small>($helperSet = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the helper set associated with this helper.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the helper set associated with this helper.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -494,12 +522,13 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L33-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::getHelperSet()" tabindex="-1" class="structure-title ">
                         getHelperSet						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the helper set associated with this helper.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the helper set associated with this helper.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -510,7 +539,8 @@ output available on STDOUT or STDERR</p></td>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
-			<td class="desc"><p>A HelperSet instance</p></td>
+			<td class="desc"><p>A HelperSet instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -543,19 +573,21 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L41-L55" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::strlen()" tabindex="-1" class="structure-title ">
                         strlen						<small>($string)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the length of a string, using mb_strwidth if it is available.</p></div>
+						<div class="description"><p>Returns the length of a string, using mb_strwidth if it is available.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$string</td>
-				<td class="desc"><p>The string to check its length</p></td>
+				<td class="desc"><p>The string to check its length</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -564,7 +596,8 @@ output available on STDOUT or STDERR</p></td>
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The length of the string</p></td>
+			<td class="desc"><p>The length of the string</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -597,29 +630,33 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L57-L73" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::substr()" tabindex="-1" class="structure-title ">
                         substr						<small>($string, $from, $length = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the subset of a string, using mb_substr if it is available.</p></div>
+						<div class="description"><p>Returns the subset of a string, using mb_substr if it is available.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$string</td>
-				<td class="desc"><p>String to subset</p></td>
+				<td class="desc"><p>String to subset</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$from</td>
-				<td class="desc"><p>Start offset</p></td>
+				<td class="desc"><p>Start offset</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$length = null</td>
-				<td class="desc"><p>Length to read</p></td>
+				<td class="desc"><p>Length to read</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -628,7 +665,8 @@ output available on STDOUT or STDERR</p></td>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The string subset</p></td>
+			<td class="desc"><p>The string subset</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -661,7 +699,7 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L75-L102" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::formatTime()" tabindex="-1" class="structure-title ">
                         formatTime						<small>($secs)</small>
 					</h4>
@@ -715,7 +753,7 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L104-L119" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::formatMemory()" tabindex="-1" class="structure-title ">
                         formatMemory						<small>($memory)</small>
 					</h4>
@@ -769,7 +807,7 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L121-L124" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::strlenWithoutDecoration()" tabindex="-1" class="structure-title ">
                         strlenWithoutDecoration						<small>($formatter, $string)</small>
 					</h4>
@@ -828,7 +866,7 @@ output available on STDOUT or STDERR</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L126-L137" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProcessHelper::removeDecoration()" tabindex="-1" class="structure-title ">
                         removeDecoration						<small>($formatter, $string)</small>
 					</h4>

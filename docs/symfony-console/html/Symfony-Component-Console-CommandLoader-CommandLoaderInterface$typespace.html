@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\CommandLoader\CommandLoaderInterface)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,7 +54,7 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/CommandLoaderInterface.php#L8-L37" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>interface <span class="category-name">Symfony\Component\Console\CommandLoader\CommandLoaderInterface</span></h2>
 
@@ -89,12 +94,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/CommandLoaderInterface.php#L13-L22" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\CommandLoaderInterface::get()" tabindex="-1" class="structure-title ">
                         get						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Loads a command.</p></div>
+						<div class="description"><p>Loads a command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -142,12 +148,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/CommandLoaderInterface.php#L24-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\CommandLoaderInterface::has()" tabindex="-1" class="structure-title ">
                         has						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Checks if a command exists.</p></div>
+						<div class="description"><p>Checks if a command exists.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -186,7 +193,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/CommandLoaderInterface.php#L33-L36" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\CommandLoaderInterface::getNames()" tabindex="-1" class="structure-title ">
                         getNames						<small>()</small>
 					</h4>
@@ -202,7 +209,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string[]</td>
-			<td class="desc"><p>All registered command names</p></td>
+			<td class="desc"><p>All registered command names</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

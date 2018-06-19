@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
+    </head>
+<body>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	All Fqsen (for search Ctrl+F5)
+</h1>
+<div class="main-wrapper">
+    <h2>namespace <span class="category-name">\</span></h2>
+<div class="description"><p>サンプルドキュメント生成用の叩き台です（グローバル）</p>
+</div>
+    
+	<h2>constant <span class="category-name">GLOBAL_CONSTANT</span></h2>
+<div class="description"><p>グローバルの定数です</p>
+</div>
+    
+	<h2>function <span class="category-name">global_function()</span></h2>
+<div class="description"><p>グローバルに定義された関数です</p>
+<p>これは関数の説明です。</p>
+</div>
+    
+	<h2>class <span class="category-name">Gclass</span></h2>
+<div class="description"><p>グローバルに定義されたクラスです</p>
+<p>これはクラスの説明です。</p>
+</div>
+    <h2>classconstant <span class="category-name">Gclass::CLASS_CONSTANT</span></h2>
+<div class="description"><p>インターフェースの定数です</p>
+</div>
+    <h2>property <span class="category-name">Gclass::$class_property</span></h2>
+<div class="description"><p>クラスのプロパティです</p>
+</div>
+    <h2>method <span class="category-name">Gclass::classMethod()</span></h2>
+<div class="description"><p>クラスのメソッドです</p>
+</div>
+    
+	<h2>trait <span class="category-name">Gtrait</span></h2>
+<div class="description"><p>グローバルに定義されたトレイトです</p>
+<p>これはトレイトの説明です。</p>
+</div>
+    <h2>property <span class="category-name">Gtrait::$trait_property</span></h2>
+<div class="description"><p>トレイトのプロパティです</p>
+</div>
+    <h2>method <span class="category-name">Gtrait::traitMethod()</span></h2>
+<div class="description"><p>トレイトのメソッドです</p>
+</div>
+    
+	<h2>interface <span class="category-name">Ginterface</span></h2>
+<div class="description"><p>グローバルに定義されたインターフェースです</p>
+<p>これはインターフェースの説明です。</p>
+</div>
+    <h2>classconstant <span class="category-name">Ginterface::INTERFACE_CONSTANT</span></h2>
+<div class="description"><p>インターフェースの定数です</p>
+</div>
+    <h2>method <span class="category-name">Ginterface::interfaceMethod()</span></h2>
+<div class="description"><p>インターフェースのメソッドです</p>
+<p>これはインターフェースメソッドの説明です。</p>
+</div>
+    
+    <h2>namespace <span class="category-name">NS\</span></h2>
+<div class="description"><p>サンプルドキュメント生成用の叩き台です（名前空間）</p>
+</div>
+    
+	<h2>constant <span class="category-name">NS\NAMESPACE_CONSTANT</span></h2>
+<div class="description"><p>名前空間の定数です</p>
+</div>
+    
+	<h2>function <span class="category-name">NS\namespace_function()</span></h2>
+<div class="description"><p>名前空間に定義された関数です</p>
+<p>これは関数の説明です。</p>
+</div>
+    	<h2>function <span class="category-name">NS\package_function()</span></h2>
+<div class="description"><p>色々なタグを試すための名前空間関数です</p>
+<p>色々なタグを使っています。</p>
+</div>
+    
+	<h2>class <span class="category-name">NS\Nclass</span></h2>
+<div class="description"><p>名前空間に定義されたクラスです</p>
+<p>これはクラスの説明です。</p>
+</div>
+    <h2>classconstant <span class="category-name">NS\Nclass::CLASS_CONSTANT</span></h2>
+<div class="description"><p>インターフェースの定数です</p>
+</div>
+    <h2>property <span class="category-name">NS\Nclass::$class_property</span></h2>
+<div class="description"><p>クラスのプロパティです</p>
+</div>
+    <h2>method <span class="category-name">NS\Nclass::classMethod()</span></h2>
+<div class="description"><p>クラスのメソッドです</p>
+</div>
+    	<h2>class <span class="category-name">NS\Mclass</span></h2>
+<div class="description"><p>マジック/プロパティメソッドのサンプル用クラスです</p>
+</div>
+    <h2>property <span class="category-name">NS\Mclass::$magicProperty1</span></h2>
+<div class="description"><p>これはただのマジックプロパティです</p>
+</div>
+    <h2>property <span class="category-name">NS\Mclass::$magicProperty2</span></h2>
+<div class="description"><p>これはインライン phpdoc を使用したマジックプロパティです</p>
+<p>このように詳細な doccomment が記述できますが、 var タグで事足りることが多いためほとんど用途はありません。<br />
+ただ、下記のようにタグを貼る際は有用です。</p>
+</div>
+    <h2>method <span class="category-name">NS\Mclass::actualMethod()</span></h2>
+<div class="description"><p>これは実際に定義されているメソッドです</p>
+</div>
+    <h2>method <span class="category-name">NS\Mclass::ignoreinheritMethod()</span></h2>
+<div class="description"><p>ignoreinherit のメソッドです</p>
+<p>ignoreinherit しているので、自身のメソッドとしてはドキュメント化されますが、 継承先である Rclass では出現しません。</p>
+</div>
+    <h2>method <span class="category-name">NS\Mclass::usedByMethod()</span></h2>
+<div class="description"><p>used-by でマジックメソッドを指定したメソッド</p>
+<p>used-by するとドキュメント内の位置が変わります。</p>
+</div>
+    <h2>method <span class="category-name">NS\Mclass::magicMethod4()</span></h2>
+<div class="description"><p>これは拡張構文を使用したマジックメソッドです</p>
+<p>関数・メソッドと同じ形式でマジックメソッドに @param や @return を書くことが出来ます。<br />
+同様に @see や @throws も書けます。</p>
+<p>普通のメソッドと似たような感じで method タグの上部に記述できるので自然な形になります。<br />
+インラインのようなインデントの辛みもありません。<br />
+ただし、完全に独自構文です。psr-5 と互換性は全くありませんし、見た目が受け入れられない人もいると思います。</p>
+</div>
+    <h2>method <span class="category-name">NS\Mclass::magicMethod1()</span></h2>
+<div class="description"><p>これはただのマジックメソッドです</p>
+</div>
+    <h2>method <span class="category-name">NS\Mclass::magicMethod2()</span></h2>
+<div class="description"><p>これはマジックメソッドです。タイプヒントにパイプが使えます</p>
+</div>
+    <h2>method <span class="category-name">NS\Mclass::magicMethod3()</span></h2>
+<div class="description"><p>これはインライン phpdoc を使用したマジックメソッドです</p>
+<p>関数・メソッドと同じ形式でマジックメソッドに @param や @return を書くことが出来ます。<br />
+同様に @see や @throws も書けます。</p>
+<p>ただし、インデントが必要です。インデントがないと親の @ 指定と区別がつかないからです。<br />
+phpstorm などの IDE では doccomment 内のフォーマットもサポートしているので注意が必要です。<br />
+（実際、このコメントの上下に @formatter:off/on を入れています。でないとインデントが消されてしまうからです）</p>
+<p>この機能は破棄された psr-5 を仮実装したものです。psr-5 の状況によっては形式などが変わるかもしれません。</p>
+</div>
+    	<h2>class <span class="category-name">NS\Rclass</span></h2>
+<div class="description"><p>これは継承関係を説明するためのクラスです</p>
+<p>基本的に継承されたメソッドは全て自身のものとしてドキュメント化されます。</p>
+<p>inheritdoc タグを使うと親のドキュメントを継承することが出来ます。<br />
+継承関係がなくても inheritdoc FQSEN 形式を使用すると参照先を強制的に指定して継承することが出来ます。</p>
+</div>
+    <h2>classconstant <span class="category-name">NS\Rclass::INTERFACE_CONSTANT</span></h2>
+<div class="description"><p>インターフェースの定数です</p>
+</div>
+    <h2>property <span class="category-name">NS\Rclass::$class_property</span></h2>
+<div class="description"><p>クラスのプロパティです</p>
+</div>
+    <h2>property <span class="category-name">NS\Rclass::$trait_property</span></h2>
+<div class="description"><p>トレイトのプロパティです</p>
+</div>
+    <h2>method <span class="category-name">NS\Rclass::interfaceMethod()</span></h2>
+<div class="description"><p>インターフェースのメソッドです</p>
+<p>これはインターフェースメソッドの説明です。</p>
+</div>
+    <h2>method <span class="category-name">NS\Rclass::actualMethod()</span></h2>
+<div class="description"><p>これはオーバーライドしたメソッドです</p>
+<p>概要・説明はこのように自身のものが記載され、引数・返り値は継承元のものがドキュメント化されます。<br />
+説明を記述しなかった場合は親の説明を完全に継承します。</p>
+</div>
+    <h2>method <span class="category-name">NS\Rclass::inheritMethod()</span></h2>
+<div class="description"><p>これはドキュメントの継承元を指定したメソッドです</p>
+<p>inheritdoc で参照先を指定しているので、</p>
+<ul>
+<li>引数・返り値は参照先のもの</li>
+<li>php の言語構造の継承とは無関係</li>
+</ul>
+<p>という動作になります。<br />
+結果としていま記述されているこのコメントは残り、 @param 指定などがないにも関わらず引数・返り値はドキュメント化されているはずです。</p>
+</div>
+    <h2>method <span class="category-name">NS\Rclass::inheritMethod1()</span></h2>
+<div class="description"><p>これは一部のみ継承するメソッドです</p>
+<p>$arg0, $arg2 は親に無い引数ですが、自身に記述されているので、マージされて使用されます。<br />
+param type $arg1 hogehoge とすることで親の引数の一部のみを書き換えることも出来ます。<br />
+return はこのメソッド自身に記述されているので上書きされて使用されます。</p>
+</div>
+    <h2>method <span class="category-name">NS\Rclass::inheritMethod2()</span></h2>
+<div class="description"><p>これは inheritdoc しているメソッドへの inheritdoc です</p>
+<p>参照は再帰的に行われるので最終的に inheritdoc ではない実際に記述が為されているメソッドがドキュメント化されます。</p>
+<p>以下に継承元ドキュメントが表示されます。<br />
+<blockquote><tag_inheritdoc data-type-category='method' data-type-fqsen='NS\Rclass::inheritMethod()' data-type-array='0' data-description=''>これはドキュメントの継承元を指定したメソッドです</p>
+<p>inheritdoc で参照先を指定しているので、</p>
+<ul>
+<li>引数・返り値は参照先のもの</li>
+<li>php の言語構造の継承とは無関係</li>
+</ul>
+<p>という動作になります。<br />
+結果としていま記述されているこのコメントは残り、 @param 指定などがないにも関わらず引数・返り値はドキュメント化されているはずです。</tag_inheritdoc></blockquote><br />
+継承元ドキュメントはここまでです。</p>
+</div>
+    <h2>method <span class="category-name">NS\Rclass::inheritMethod3()</span></h2>
+<div class="description"><p>これは {inheritdoc FQSEN 文言指定} かつ文言指定メソッドです</p>
+<p>{inheritdoc FQSEN 文言指定} とすると元ドキュメントではなく文言指定で文字列を埋め込めます。</p>
+<p><tag_inheritdoc data-type-category='method' data-type-fqsen='NS\Rclass::inheritMethod()' data-type-array='0' data-description='継承しつつ文言指定ができます'>継承しつつ文言指定ができます</tag_inheritdoc></p>
+</div>
+    <h2>method <span class="category-name">NS\Rclass::usedByMethod()</span></h2>
+<div class="description"><p>used-by でマジックメソッドを指定したメソッド</p>
+<p>used-by するとドキュメント内の位置が変わります。</p>
+</div>
+    <h2>method <span class="category-name">NS\Rclass::traitMethod()</span></h2>
+<div class="description"><p>トレイトのメソッドです</p>
+</div>
+    	<h2>class <span class="category-name">NS\Tclass</span></h2>
+<div class="description"><p>色々なタグを試すためのクラスです</p>
+<p>色々なタグを使っています。<br />
+以下は markdown の確認用です。</p>
+<h1>見出し1</h1>
+<h2>見出し2</h2>
+<h3>見出し3</h3>
+<h4>見出し4</h4>
+<h5>見出し5</h5>
+<h6>見出し6</h6>
+<h6>テキスト</h6>
+<p><del>打ち消し</del><br />
+<strong>強調</strong><br />
+**エスケープ**</p>
+<blockquote><p>引用<br />
+&gt;&gt; 引用</p>
+</blockquote>
+<h6>箇条書き</h6>
+<ul>
+<li>list 1<ul>
+<li>list 1-1</li>
+<li>list 1-2</li>
+</ul>
+</li>
+<li>list 2</li>
+<li>list 3</li>
+</ul>
+<ol>
+<li>list 1<ol>
+<li>list 1-1</li>
+<li>list 1-2</li>
+</ol>
+</li>
+<li>list 2</li>
+<li>list 3</li>
+</ol>
+<h6>コード</h6>
+<p>インライン <code>$hoge = 123;</code> コード</p>
+<pre><code class="language-php">// コードブロック
+$hoge = 123;
+echo $hoge;
+</code></pre>
+<h6>テーブル</h6>
+<table>
+<thead>
+<tr><th align="right">No</th><th align="left">col1(left)</th><th align="center">col2(center)</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1</td><td align="left">row1col1</td><td align="center">row1col2</td></tr>
+<tr><td align="right">2</td><td align="left">row2col1</td><td align="center">row2col2</td></tr>
+</tbody>
+</table>
+</div>
+    <h2>classconstant <span class="category-name">NS\Tclass::INTERFACE_CONSTANT</span></h2>
+<div class="description"><p>インターフェースの定数です</p>
+</div>
+    <h2>property <span class="category-name">NS\Tclass::$tagProperty</span></h2>
+<div class="description"><p>これはプロパティ用のタグの例示用メソッドです</p>
+<p>とは言えプロパティ専用のタグはほとんど無いため、 var のためだけに存在しています。</p>
+</div>
+    <h2>property <span class="category-name">NS\Tclass::$class_property</span></h2>
+<div class="description"><p>クラスのプロパティです</p>
+</div>
+    <h2>method <span class="category-name">NS\Tclass::tagMethod()</span></h2>
+<div class="description"><p>これはメソッド用の<tag_link data-kind='uri' data-type='https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#7-tags' data-description='タグ'>タグ</tag_link>の例示用メソッドです</p>
+<p>右側に属性ラベルが表示されたり、メソッドに打ち消し線が引かれていたりするはずです。<br />
+また、 link/source タグを使うと</p>
+<ul>
+<li><tag_link data-kind='uri' data-type='https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md' data-description='こんな感じに外部リンク'>こんな感じに外部リンク</tag_link>が貼れたり</li>
+<li><tag_link data-kind='fqsen' data-type-category='method' data-type-fqsen='NS\Rclass::actualMethod()' data-type-array='0' data-description='こんな感じに要素リンク'>こんな感じに要素リンク</tag_link>が貼れたり</li>
+<li><tag_source data-fqsen='NS\Rclass::actualMethod()' data-description='こんな感じにソースへリンク'>こんな感じにソースへリンク</tag_source>が貼れたり</li>
+</ul>
+<p>します。ただしこれは生成側との協力が必要です。</p>
+<p>あとこれはタグではないですが、コメント中にコードブロックを埋め込むことが出来ます。</p>
+<p>Example:</p>
+<pre><code class="language-php">// これは doccomment 内のコードブロックです
+$sample1 = 123;
+// ハイライト表示されます
+$sample2 = [1, 2, 3];
+$sample3 = [
+    'a' =&gt; 'A',
+    'b' =&gt; 'B',
+    'c' =&gt; 'C',
+];
+</code></pre>
+<p>ただこれは生成側の処理です。掻き集める側はそもそも markdown を認識しません（結果としてコードブロックも得られない）。<br />
+基本的に Description はただのテキストです。</p>
+</div>
+    <h2>method <span class="category-name">NS\Tclass::inheritMethod()</span></h2>
+<div class="description"><p>これはドキュメントの継承元を指定したメソッドです</p>
+<p>inheritdoc で参照先を指定しているので、</p>
+<ul>
+<li>引数・返り値は参照先のもの</li>
+<li>php の言語構造の継承とは無関係</li>
+</ul>
+<p>という動作になります。<br />
+結果としていま記述されているこのコメントは残り、 @param 指定などがないにも関わらず引数・返り値はドキュメント化されているはずです。</p>
+</div>
+    
+	<h2>trait <span class="category-name">NS\Ntrait</span></h2>
+<div class="description"><p>名前空間に定義されたトレイトです</p>
+<p>これはトレイトの説明です。</p>
+</div>
+    <h2>property <span class="category-name">NS\Ntrait::$trait_property</span></h2>
+<div class="description"><p>トレイトのプロパティです</p>
+</div>
+    <h2>method <span class="category-name">NS\Ntrait::traitMethod()</span></h2>
+<div class="description"><p>トレイトのメソッドです</p>
+</div>
+    
+	<h2>interface <span class="category-name">NS\Ninterface</span></h2>
+<div class="description"><p>名前空間に定義されたインターフェースです</p>
+<p>これはインターフェースの説明です。</p>
+</div>
+    <h2>classconstant <span class="category-name">NS\Ninterface::INTERFACE_CONSTANT</span></h2>
+<div class="description"><p>インターフェースの定数です</p>
+</div>
+    <h2>method <span class="category-name">NS\Ninterface::interfaceMethod()</span></h2>
+<div class="description"><p>インターフェースのメソッドです</p>
+<p>これはインターフェースメソッドの説明です。</p>
+</div>
+    
+<h2>namespace <span class="category-name">NS\NSS\</span></h2>
+<div class="description"><p>サンプルドキュメント生成用の叩き台です（ネスト）</p>
+</div>
+    
+
+	<h2>function <span class="category-name">NS\NSS\fff()</span></h2>
+<div class="description"><p>これはネストされた名前空間用です。実質的な意味はありません</p>
+</div>
+    
+	<h2>class <span class="category-name">NS\NSS\C</span></h2>
+<div class="description"><p>これはネストされた名前空間用です。実質的な意味はありません</p>
+</div>
+    <h2>method <span class="category-name">NS\NSS\C::m()</span></h2>
+<div class="description"></div>
+    
+
+
+            </div>
+</body>
+</html>

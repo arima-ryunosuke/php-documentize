@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Exception\LogicException)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,7 +54,7 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Exception/LogicException.php#L14-L19" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Exception\LogicException</span></h2>
 
@@ -106,7 +111,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://hosting-service/#L-L#L-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::$message" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$message						<var> = &#039;&#039;</var>
@@ -131,7 +136,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://hosting-service/#L-L#L-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::$code" tabindex="-1" class="structure-title">
 						<small>integer</small>
 						$code						<var></var>
@@ -156,7 +161,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://hosting-service/#L-L#L-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::$file" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$file						<var> = null</var>
@@ -181,7 +186,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://hosting-service/#L-L#L-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::$line" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$line						<var> = null</var>
@@ -215,7 +220,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::__clone()" tabindex="-1" class="structure-title ">
                         __clone						<small>()</small>
 					</h4>
@@ -264,7 +269,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($message, $code, $previous)</small>
 					</h4>
@@ -328,7 +333,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::__wakeup()" tabindex="-1" class="structure-title ">
                         __wakeup						<small>()</small>
 					</h4>
@@ -377,7 +382,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::getMessage()" tabindex="-1" class="structure-title ">
                         getMessage						<small>()</small>
 					</h4>
@@ -426,7 +431,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::getCode()" tabindex="-1" class="structure-title ">
                         getCode						<small>()</small>
 					</h4>
@@ -475,7 +480,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::getFile()" tabindex="-1" class="structure-title ">
                         getFile						<small>()</small>
 					</h4>
@@ -524,7 +529,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::getLine()" tabindex="-1" class="structure-title ">
                         getLine						<small>()</small>
 					</h4>
@@ -573,7 +578,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::getTrace()" tabindex="-1" class="structure-title ">
                         getTrace						<small>()</small>
 					</h4>
@@ -622,7 +627,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::getPrevious()" tabindex="-1" class="structure-title ">
                         getPrevious						<small>()</small>
 					</h4>
@@ -671,7 +676,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::getTraceAsString()" tabindex="-1" class="structure-title ">
                         getTraceAsString						<small>()</small>
 					</h4>
@@ -720,7 +725,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\LogicException::__toString()" tabindex="-1" class="structure-title ">
                         __toString						<small>()</small>
 					</h4>

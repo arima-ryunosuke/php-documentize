@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Descriptor\XmlDescriptor)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L20-L251" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Descriptor\XmlDescriptor</span></h2>
 
-	<div class="description"><p>XML descriptor.</p></div>
+	<div class="description"><p>XML descriptor.</p>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -104,7 +110,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/Descriptor.php#L29-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::$output" tabindex="-1" class="structure-title">
 						<small><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></small>
 						$output						<var> = null</var>
@@ -138,7 +144,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L29-L48" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::getInputDefinitionDocument()" tabindex="-1" class="structure-title ">
                         getInputDefinitionDocument						<small>($definition)</small>
 					</h4>
@@ -182,7 +188,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L50-L81" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::getCommandDocument()" tabindex="-1" class="structure-title ">
                         getCommandDocument						<small>($command)</small>
 					</h4>
@@ -226,7 +232,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L83-L128" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::getApplicationDocument()" tabindex="-1" class="structure-title ">
                         getApplicationDocument						<small>($application, $namespace = null)</small>
 					</h4>
@@ -275,12 +281,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L130-L136" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::describeInputArgument()" tabindex="-1" class="structure-title ">
                         describeInputArgument						<small>($argument, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an InputArgument instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an InputArgument instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -334,12 +341,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L138-L144" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::describeInputOption()" tabindex="-1" class="structure-title ">
                         describeInputOption						<small>($option, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an InputOption instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an InputOption instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -393,12 +401,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L146-L152" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::describeInputDefinition()" tabindex="-1" class="structure-title ">
                         describeInputDefinition						<small>($definition, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an InputDefinition instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an InputDefinition instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -452,12 +461,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L154-L160" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::describeCommand()" tabindex="-1" class="structure-title ">
                         describeCommand						<small>($command, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes a Command instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes a Command instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -511,12 +521,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L162-L168" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::describeApplication()" tabindex="-1" class="structure-title ">
                         describeApplication						<small>($application, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an Application instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an Application instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -570,12 +581,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L170-L178" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::appendDocument()" tabindex="-1" class="structure-title ">
                         appendDocument						<small>($parentNode, $importedParent)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Appends document children to parent node.</p></div>
+						<div class="description"><p>Appends document children to parent node.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -619,12 +631,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L180-L189" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::writeDocument()" tabindex="-1" class="structure-title ">
                         writeDocument						<small>($dom)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes DOM document.</p></div>
+						<div class="description"><p>Writes DOM document.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -663,7 +676,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L191-L213" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::getInputArgumentDocument()" tabindex="-1" class="structure-title ">
                         getInputArgumentDocument						<small>($argument)</small>
 					</h4>
@@ -707,7 +720,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/XmlDescriptor.php#L215-L250" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::getInputOptionDocument()" tabindex="-1" class="structure-title ">
                         getInputOptionDocument						<small>($option)</small>
 					</h4>
@@ -751,12 +764,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/Descriptor.php#L34-L60" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::describe()" tabindex="-1" class="structure-title ">
                         describe						<small>($output, $object, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an object if supported.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an object if supported.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -815,12 +829,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/Descriptor.php#L62-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\XmlDescriptor::write()" tabindex="-1" class="structure-title ">
                         write						<small>($content, $decorated = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes content to output.</p></div>
+						<div class="description"><p>Writes content to output.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

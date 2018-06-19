@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Exception\CommandNotFoundException)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Exception/CommandNotFoundException.php#L14-L43" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Exception\CommandNotFoundException</span></h2>
 
-	<div class="description"><p>Represents an incorrect command name typed in the console.</p></div>
+	<div class="description"><p>Represents an incorrect command name typed in the console.</p>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -114,7 +120,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Exception/CommandNotFoundException.php#L21-L21" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::$alternatives" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$alternatives						<var> = null</var>
@@ -129,7 +135,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://hosting-service/#L-L#L-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::$message" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$message						<var> = &#039;&#039;</var>
@@ -154,7 +160,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://hosting-service/#L-L#L-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::$code" tabindex="-1" class="structure-title">
 						<small>integer</small>
 						$code						<var></var>
@@ -179,7 +185,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://hosting-service/#L-L#L-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::$file" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$file						<var> = null</var>
@@ -204,7 +210,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://hosting-service/#L-L#L-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::$line" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$line						<var> = null</var>
@@ -238,7 +244,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Exception/CommandNotFoundException.php#L23-L34" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($message, $alternatives = [], $code = 0, $previous = null)</small>
 					</h4>
@@ -250,22 +256,26 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc"><p>Exception message to throw</p></td>
+				<td class="desc"><p>Exception message to throw</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$alternatives = []</td>
-				<td class="desc"><p>List of similar defined names</p></td>
+				<td class="desc"><p>List of similar defined names</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$code = 0</td>
-				<td class="desc"><p>Exception code</p></td>
+				<td class="desc"><p>Exception code</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type"><a href="http://php.net/manual/ja/class.exception.php" class="fqsen" target="_blank">\Exception</a></td>
 				<td class="rest">$previous = null</td>
-				<td class="desc"><p>Previous exception used for the exception chaining</p></td>
+				<td class="desc"><p>Previous exception used for the exception chaining</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -307,7 +317,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Exception/CommandNotFoundException.php#L36-L42" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::getAlternatives()" tabindex="-1" class="structure-title ">
                         getAlternatives						<small>()</small>
 					</h4>
@@ -323,7 +333,8 @@
 		<tbody>
 		<tr>
 			<td class="type">array</td>
-			<td class="desc"><p>A list of similar defined names</p></td>
+			<td class="desc"><p>A list of similar defined names</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -346,7 +357,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::__clone()" tabindex="-1" class="structure-title ">
                         __clone						<small>()</small>
 					</h4>
@@ -395,7 +406,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::__wakeup()" tabindex="-1" class="structure-title ">
                         __wakeup						<small>()</small>
 					</h4>
@@ -444,7 +455,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::getMessage()" tabindex="-1" class="structure-title ">
                         getMessage						<small>()</small>
 					</h4>
@@ -493,7 +504,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::getCode()" tabindex="-1" class="structure-title ">
                         getCode						<small>()</small>
 					</h4>
@@ -542,7 +553,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::getFile()" tabindex="-1" class="structure-title ">
                         getFile						<small>()</small>
 					</h4>
@@ -591,7 +602,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::getLine()" tabindex="-1" class="structure-title ">
                         getLine						<small>()</small>
 					</h4>
@@ -640,7 +651,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::getTrace()" tabindex="-1" class="structure-title ">
                         getTrace						<small>()</small>
 					</h4>
@@ -689,7 +700,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::getPrevious()" tabindex="-1" class="structure-title ">
                         getPrevious						<small>()</small>
 					</h4>
@@ -738,7 +749,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::getTraceAsString()" tabindex="-1" class="structure-title ">
                         getTraceAsString						<small>()</small>
 					</h4>
@@ -787,7 +798,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://hosting-service/#L0-L#L0-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Exception\CommandNotFoundException::__toString()" tabindex="-1" class="structure-title ">
                         __toString						<small>()</small>
 					</h4>

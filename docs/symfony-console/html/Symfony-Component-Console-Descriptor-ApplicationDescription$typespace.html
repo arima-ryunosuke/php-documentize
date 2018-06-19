@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Descriptor\ApplicationDescription)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,7 +54,7 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L18-L152" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Descriptor\ApplicationDescription</span></h2>
 
@@ -66,7 +71,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::GLOBAL_NAMESPACE" tabindex="-1" class="structure-title">
 						<small>string</small>
                         GLOBAL_NAMESPACE						<var> = &#039;_global&#039;</var>
@@ -86,7 +91,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::$application" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$application						<var> = null</var>
@@ -101,7 +106,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L28-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::$namespace" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$namespace						<var> = null</var>
@@ -116,7 +121,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::$showHidden" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$showHidden						<var> = null</var>
@@ -131,7 +136,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L31-L34" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::$namespaces" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$namespaces						<var> = null</var>
@@ -146,7 +151,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L36-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::$commands" tabindex="-1" class="structure-title">
 						<small><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a>[]</small>
 						$commands						<var> = null</var>
@@ -161,7 +166,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L41-L44" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::$aliases" tabindex="-1" class="structure-title">
 						<small><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a>[]</small>
 						$aliases						<var> = null</var>
@@ -185,7 +190,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L46-L56" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($application, $namespace = null, $showHidden = false)</small>
 					</h4>
@@ -239,7 +244,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L58-L68" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::getNamespaces()" tabindex="-1" class="structure-title ">
                         getNamespaces						<small>()</small>
 					</h4>
@@ -278,7 +283,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L70-L80" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::getCommands()" tabindex="-1" class="structure-title ">
                         getCommands						<small>()</small>
 					</h4>
@@ -317,7 +322,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L82-L96" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::getCommand()" tabindex="-1" class="structure-title ">
                         getCommand						<small>($name)</small>
 					</h4>
@@ -370,7 +375,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L98-L124" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::inspectApplication()" tabindex="-1" class="structure-title ">
                         inspectApplication						<small>()</small>
 					</h4>
@@ -409,7 +414,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/ApplicationDescription.php#L126-L151" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\ApplicationDescription::sortCommands()" tabindex="-1" class="structure-title ">
                         sortCommands						<small>($commands)</small>
 					</h4>

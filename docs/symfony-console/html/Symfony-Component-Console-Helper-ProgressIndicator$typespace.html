@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Helper\ProgressIndicator)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,7 +54,7 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L18-L271" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Helper\ProgressIndicator</span></h2>
 
@@ -70,7 +75,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$output" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$output						<var> = null</var>
@@ -85,7 +90,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$startTime" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$startTime						<var> = null</var>
@@ -100,7 +105,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$format" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$format						<var> = null</var>
@@ -115,7 +120,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$message" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$message						<var> = null</var>
@@ -130,7 +135,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$indicatorValues" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$indicatorValues						<var> = null</var>
@@ -145,7 +150,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L28-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$indicatorCurrent" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$indicatorCurrent						<var> = null</var>
@@ -160,7 +165,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$indicatorChangeInterval" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$indicatorChangeInterval						<var> = null</var>
@@ -175,7 +180,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$indicatorUpdateTime" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$indicatorUpdateTime						<var> = null</var>
@@ -190,7 +195,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$started" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$started						<var> = false</var>
@@ -205,7 +210,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L33-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$formatters" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$formatters						<var> = null</var>
@@ -220,7 +225,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L34-L34" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::$formats" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$formats						<var> = null</var>
@@ -244,7 +249,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L36-L64" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($output, $format = null, $indicatorChangeInterval = 100, $indicatorValues = null)</small>
 					</h4>
@@ -261,17 +266,20 @@
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$format = null</td>
-				<td class="desc"><p>Indicator format</p></td>
+				<td class="desc"><p>Indicator format</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$indicatorChangeInterval = 100</td>
-				<td class="desc"><p>Change interval in milliseconds</p></td>
+				<td class="desc"><p>Change interval in milliseconds</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$indicatorValues = null</td>
-				<td class="desc"><p>Animated indicator characters</p></td>
+				<td class="desc"><p>Animated indicator characters</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -303,12 +311,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L66-L76" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::setMessage()" tabindex="-1" class="structure-title ">
                         setMessage						<small>($message)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the current indicator message.</p></div>
+						<div class="description"><p>Sets the current indicator message.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -347,12 +356,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L78-L96" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::start()" tabindex="-1" class="structure-title ">
                         start						<small>($message)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Starts the indicator output.</p></div>
+						<div class="description"><p>Starts the indicator output.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -391,12 +401,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L98-L121" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::advance()" tabindex="-1" class="structure-title ">
                         advance						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Advances the indicator.</p></div>
+						<div class="description"><p>Advances the indicator.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -430,12 +441,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L123-L138" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::finish()" tabindex="-1" class="structure-title ">
                         finish						<small>($message)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Finish the indicator with message.</p></div>
+						<div class="description"><p>Finish the indicator with message.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -474,19 +486,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L140-L154" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::getFormatDefinition()" tabindex="-1" class="structure-title ">
                         getFormatDefinition						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the format for a given name.</p></div>
+						<div class="description"><p>Gets the format for a given name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The format name</p></td>
+				<td class="desc"><p>The format name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -495,7 +509,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>null</td>
-			<td class="desc"><p>A format string</p></td>
+			<td class="desc"><p>A format string</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -518,25 +533,28 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L156-L171" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::setPlaceholderFormatterDefinition()" tabindex="-1" class="structure-title ">
                         setPlaceholderFormatterDefinition						<small>($name, $callable)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets a placeholder formatter for a given name.</p>
-<p>This method also allow you to override an existing placeholder.</p></div>
+<p>This method also allow you to override an existing placeholder.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The placeholder name (including the delimiter char like %)</p></td>
+				<td class="desc"><p>The placeholder name (including the delimiter char like %)</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">callable</td>
 				<td class="rest">$callable</td>
-				<td class="desc"><p>A PHP callable</p></td>
+				<td class="desc"><p>A PHP callable</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -568,19 +586,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L173-L187" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::getPlaceholderFormatterDefinition()" tabindex="-1" class="structure-title ">
                         getPlaceholderFormatterDefinition						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the placeholder formatter for a given name.</p></div>
+						<div class="description"><p>Gets the placeholder formatter for a given name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The placeholder name (including the delimiter char like %)</p></td>
+				<td class="desc"><p>The placeholder name (including the delimiter char like %)</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -589,7 +609,8 @@
 		<tbody>
 		<tr>
 			<td class="type">callable<span class="type-separator"></span><wbr>null</td>
-			<td class="desc"><p>A PHP callable</p></td>
+			<td class="desc"><p>A PHP callable</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -612,7 +633,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L189-L204" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::display()" tabindex="-1" class="structure-title ">
                         display						<small>()</small>
 					</h4>
@@ -651,7 +672,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L206-L218" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::determineBestFormat()" tabindex="-1" class="structure-title ">
                         determineBestFormat						<small>()</small>
 					</h4>
@@ -690,19 +711,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L220-L233" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::overwrite()" tabindex="-1" class="structure-title ">
                         overwrite						<small>($message)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Overwrites a previous message to the output.</p></div>
+						<div class="description"><p>Overwrites a previous message to the output.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc"><p>The message</p></td>
+				<td class="desc"><p>The message</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -734,7 +757,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L235-L238" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::getCurrentTimeInMilliseconds()" tabindex="-1" class="structure-title ">
                         getCurrentTimeInMilliseconds						<small>()</small>
 					</h4>
@@ -773,7 +796,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L240-L256" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::initPlaceholderFormatters()" tabindex="-1" class="structure-title ">
                         initPlaceholderFormatters						<small>()</small>
 					</h4>
@@ -812,7 +835,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/ProgressIndicator.php#L258-L270" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\ProgressIndicator::initFormats()" tabindex="-1" class="structure-title ">
                         initFormats						<small>()</small>
 					</h4>

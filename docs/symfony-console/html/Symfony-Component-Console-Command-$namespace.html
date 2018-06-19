@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -38,6 +38,11 @@
 <h1 class="ellipsis">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Command\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">Symfony\Component\Console\Command\</span></h2>
@@ -61,7 +66,8 @@
 							<a href="Symfony-Component-Console-Command-LockableTrait$typespace.html#Symfony\Component\Console\Command\LockableTrait">LockableTrait</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Basic lock feature for commands.</p></div>
+							<div class="description"><p>Basic lock feature for commands.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -85,7 +91,8 @@
 							<a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command">Command</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Base class for all commands.</p></div>
+							<div class="description"><p>Base class for all commands.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -106,7 +113,8 @@
 							<a href="Symfony-Component-Console-Command-HelpCommand$typespace.html#Symfony\Component\Console\Command\HelpCommand">HelpCommand</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>HelpCommand displays the help for a given command.</p></div>
+							<div class="description"><p>HelpCommand displays the help for a given command.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -127,7 +135,8 @@
 							<a href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand">ListCommand</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>ListCommand displays the list of all available commands for the application.</p></div>
+							<div class="description"><p>ListCommand displays the list of all available commands for the application.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>

@@ -68,6 +68,10 @@ var $window = $(window);
 
 hljs.initHighlightingOnLoad();
 
+// frame switching
+$('.frame-switch a:eq(0)').attr('href', '../' + window.location.hash);
+$('.frame-switch a:eq(1)').attr('href', window.location.href);
+
 if (window.name === 'main') {
     $.open(window.location.hash.substring(1));
     $window.on('hashchange', function () {
@@ -152,6 +156,17 @@ $(function () {
             var suffix = fqsen.slice(-1) === '\\' ? '$namespace' : '$typespace';
             $a.attr('href', fqsen.split('::')[0].split('\\').join('-') + suffix + '.html#' + fqsen);
         }
+        $a.text($this.data('description'));
+        $this.before($a).hide();
+    });
+    // source tag
+    $('tag_source').each(function () {
+        var $this = $(this);
+        var $a = $('<a/>');
+        var fqsen = $this.data('fqsen');
+        var href = $this.closest('.structure-item').find('[data-fqsen="' + $.escape(fqsen) + '"]>.source-link').attr('href');
+        $a.attr('href', href);
+        $a.attr('target', '_blank');
         $a.text($this.data('description'));
         $this.before($a).hide();
     });

@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Formatter\OutputFormatterStyleInterface)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterStyleInterface.php#L14-L62" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>interface <span class="category-name">Symfony\Component\Console\Formatter\OutputFormatterStyleInterface</span></h2>
 
-	<div class="description"><p>Formatter style interface for defining styles.</p></div>
+	<div class="description"><p>Formatter style interface for defining styles.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -87,19 +93,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterStyleInterface.php#L21-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::setForeground()" tabindex="-1" class="structure-title ">
                         setForeground						<small>($color = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets style foreground color.</p></div>
+						<div class="description"><p>Sets style foreground color.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$color = null</td>
-				<td class="desc"><p>The color name</p></td>
+				<td class="desc"><p>The color name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -131,19 +139,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterStyleInterface.php#L28-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::setBackground()" tabindex="-1" class="structure-title ">
                         setBackground						<small>($color = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets style background color.</p></div>
+						<div class="description"><p>Sets style background color.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$color = null</td>
-				<td class="desc"><p>The color name</p></td>
+				<td class="desc"><p>The color name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -175,19 +185,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterStyleInterface.php#L35-L40" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::setOption()" tabindex="-1" class="structure-title ">
                         setOption						<small>($option)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets some specific style option.</p></div>
+						<div class="description"><p>Sets some specific style option.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$option</td>
-				<td class="desc"><p>The option name</p></td>
+				<td class="desc"><p>The option name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -219,19 +231,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterStyleInterface.php#L42-L47" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::unsetOption()" tabindex="-1" class="structure-title ">
                         unsetOption						<small>($option)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Unsets some specific style option.</p></div>
+						<div class="description"><p>Unsets some specific style option.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$option</td>
-				<td class="desc"><p>The option name</p></td>
+				<td class="desc"><p>The option name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -263,12 +277,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterStyleInterface.php#L49-L52" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::setOptions()" tabindex="-1" class="structure-title ">
                         setOptions						<small>($options)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets multiple style options at once.</p></div>
+						<div class="description"><p>Sets multiple style options at once.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -307,19 +322,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterStyleInterface.php#L54-L61" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::apply()" tabindex="-1" class="structure-title ">
                         apply						<small>($text)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Applies the style to a given text.</p></div>
+						<div class="description"><p>Applies the style to a given text.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$text</td>
-				<td class="desc"><p>The text to style</p></td>
+				<td class="desc"><p>The text to style</p>
+</td>
 			</tr>
         		</tbody>
 	</table>

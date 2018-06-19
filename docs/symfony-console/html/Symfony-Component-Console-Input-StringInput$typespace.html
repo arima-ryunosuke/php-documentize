@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Input\StringInput)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,13 +54,15 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/StringInput.php#L16-L72" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Input\StringInput</span></h2>
 
 	<div class="description"><p>StringInput represents an input provided as a string.</p>
 <p>Usage:</p>
-<pre><code>$input = new StringInput('foo --bar="foobar"');</code></pre></div>
+<pre><code>$input = new StringInput('foo --bar="foobar"');
+</code></pre>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -111,7 +118,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/StringInput.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::REGEX_STRING" tabindex="-1" class="structure-title">
 						<small>string</small>
                         REGEX_STRING						<var> = &#039;([^\\s]+?)(?:\\s|(?&lt;!\\\\)&quot;|(?&lt;!\\\\)\&#039;|$)&#039;</var>
@@ -125,7 +132,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/StringInput.php#L28-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::REGEX_QUOTED_STRING" tabindex="-1" class="structure-title">
 						<small>string</small>
                         REGEX_QUOTED_STRING						<var> = &#039;(?:&quot;([^&quot;\\\\]*(?:\\\\.[^&quot;\\\\]*)*)&quot;|\&#039;([^\&#039;\\\\]*(?:\\\\.[^\&#039;\\\\]*)*)\&#039;)&#039;</var>
@@ -145,7 +152,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::$definition" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$definition						<var> = null</var>
@@ -170,7 +177,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::$stream" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$stream						<var> = null</var>
@@ -195,7 +202,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L32-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::$options" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$options						<var> = []</var>
@@ -220,7 +227,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L33-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::$arguments" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$arguments						<var> = []</var>
@@ -245,7 +252,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L34-L34" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::$interactive" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$interactive						<var> = true</var>
@@ -279,7 +286,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/StringInput.php#L30-L38" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($input)</small>
 					</h4>
@@ -291,7 +298,8 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$input</td>
-				<td class="desc"><p>A string representing the parameters from the CLI</p></td>
+				<td class="desc"><p>A string representing the parameters from the CLI</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -333,19 +341,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/StringInput.php#L40-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::tokenize()" tabindex="-1" class="structure-title ">
                         tokenize						<small>($input)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Tokenizes a string.</p></div>
+						<div class="description"><p>Tokenizes a string.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$input</td>
-				<td class="desc"><p>The input to tokenize</p></td>
+				<td class="desc"><p>The input to tokenize</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -354,7 +364,8 @@
 		<tbody>
 		<tr>
 			<td class="type">array</td>
-			<td class="desc"><p>An array of tokens</p></td>
+			<td class="desc"><p>An array of tokens</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -386,7 +397,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L64-L67" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::setTokens()" tabindex="-1" class="structure-title ">
                         setTokens						<small>($tokens)</small>
 					</h4>
@@ -440,12 +451,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L69-L89" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::parse()" tabindex="-1" class="structure-title ">
                         parse						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Processes command line arguments.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Processes command line arguments.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -489,19 +501,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L91-L110" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::parseShortOption()" tabindex="-1" class="structure-title ">
                         parseShortOption						<small>($token)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Parses a short option.</p></div>
+						<div class="description"><p>Parses a short option.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$token</td>
-				<td class="desc"><p>The current token</p></td>
+				<td class="desc"><p>The current token</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -543,19 +557,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L112-L136" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::parseShortOptionSet()" tabindex="-1" class="structure-title ">
                         parseShortOptionSet						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Parses a short option set.</p></div>
+						<div class="description"><p>Parses a short option set.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The current token</p></td>
+				<td class="desc"><p>The current token</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -606,19 +622,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L138-L160" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::parseLongOption()" tabindex="-1" class="structure-title ">
                         parseLongOption						<small>($token)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Parses a long option.</p></div>
+						<div class="description"><p>Parses a long option.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$token</td>
-				<td class="desc"><p>The current token</p></td>
+				<td class="desc"><p>The current token</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -660,19 +678,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L162-L192" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::parseArgument()" tabindex="-1" class="structure-title ">
                         parseArgument						<small>($token)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Parses an argument.</p></div>
+						<div class="description"><p>Parses an argument.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$token</td>
-				<td class="desc"><p>The current token</p></td>
+				<td class="desc"><p>The current token</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -723,24 +743,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L194-L209" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::addShortOption()" tabindex="-1" class="structure-title ">
                         addShortOption						<small>($shortcut, $value)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Adds a short option value.</p></div>
+						<div class="description"><p>Adds a short option value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$shortcut</td>
-				<td class="desc"><p>The short option key</p></td>
+				<td class="desc"><p>The short option key</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$value</td>
-				<td class="desc"><p>The value for the option</p></td>
+				<td class="desc"><p>The value for the option</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -791,24 +814,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L211-L257" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::addLongOption()" tabindex="-1" class="structure-title ">
                         addLongOption						<small>($name, $value)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Adds a long option value.</p></div>
+						<div class="description"><p>Adds a long option value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The long option key</p></td>
+				<td class="desc"><p>The long option key</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$value</td>
-				<td class="desc"><p>The value for the option</p></td>
+				<td class="desc"><p>The value for the option</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -859,12 +885,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L259-L271" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::getFirstArgument()" tabindex="-1" class="structure-title ">
                         getFirstArgument						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the first argument from the raw parameters (not parsed).</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the first argument from the raw parameters (not parsed).</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -875,7 +902,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>null</td>
-			<td class="desc"><p>The value of the first argument or null otherwise</p></td>
+			<td class="desc"><p>The value of the first argument or null otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -908,29 +936,31 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L273-L296" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::hasParameterOption()" tabindex="-1" class="structure-title ">
                         hasParameterOption						<small>($values, $onlyParams = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns true if the raw parameters (not parsed) contain a value.
-
-This method is to be used to introspect the input parameters
-before they have been validated. It must be used carefully.
-Does not necessarily return the correct result for short options
-when multiple flags are combined in the same option.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns true if the raw parameters (not parsed) contain a value.</p>
+<p>This method is to be used to introspect the input parameters<br />
+before they have been validated. It must be used carefully.<br />
+Does not necessarily return the correct result for short options<br />
+when multiple flags are combined in the same option.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$values</td>
-				<td class="desc"><p>The values to look for in the raw parameters (can be an array)</p></td>
+				<td class="desc"><p>The values to look for in the raw parameters (can be an array)</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$onlyParams = false</td>
-				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p></td>
+				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -939,7 +969,8 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the value is contained in the raw parameters</p></td>
+			<td class="desc"><p>true if the value is contained in the raw parameters</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -972,34 +1003,37 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L298-L327" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::getParameterOption()" tabindex="-1" class="structure-title ">
                         getParameterOption						<small>($values, $default = false, $onlyParams = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the value of a raw option (not parsed).
-
-This method is to be used to introspect the input parameters
-before they have been validated. It must be used carefully.
-Does not necessarily return the correct result for short options
-when multiple flags are combined in the same option.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the value of a raw option (not parsed).</p>
+<p>This method is to be used to introspect the input parameters<br />
+before they have been validated. It must be used carefully.<br />
+Does not necessarily return the correct result for short options<br />
+when multiple flags are combined in the same option.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$values</td>
-				<td class="desc"><p>The value(s) to look for in the raw parameters (can be an array)</p></td>
+				<td class="desc"><p>The value(s) to look for in the raw parameters (can be an array)</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = false</td>
-				<td class="desc"><p>The default value to return if no result is found</p></td>
+				<td class="desc"><p>The default value to return if no result is found</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$onlyParams = false</td>
-				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p></td>
+				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1008,7 +1042,8 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The option value</p></td>
+			<td class="desc"><p>The option value</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1041,12 +1076,13 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/ArgvInput.php#L329-L349" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::__toString()" tabindex="-1" class="structure-title ">
                         __toString						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns a stringified representation of the args passed to the command.</p></div>
+						<div class="description"><p>Returns a stringified representation of the args passed to the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1090,12 +1126,13 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L46-L56" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::bind()" tabindex="-1" class="structure-title ">
                         bind						<small>($definition)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Binds the current Input instance with the given arguments and options.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Binds the current Input instance with the given arguments and options.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1144,12 +1181,13 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L63-L78" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::validate()" tabindex="-1" class="structure-title ">
                         validate						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Validates the input.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Validates the input.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1202,12 +1240,13 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L80-L86" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::isInteractive()" tabindex="-1" class="structure-title ">
                         isInteractive						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Is this input means interactive?</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Is this input means interactive?</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1251,19 +1290,21 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L88-L94" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::setInteractive()" tabindex="-1" class="structure-title ">
                         setInteractive						<small>($interactive)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the input interactivity.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the input interactivity.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$interactive</td>
-				<td class="desc"><p>If the input should be interactive</p></td>
+				<td class="desc"><p>If the input should be interactive</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1305,12 +1346,13 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L96-L102" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::getArguments()" tabindex="-1" class="structure-title ">
                         getArguments						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns all the given arguments merged with the default values.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns all the given arguments merged with the default values.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1354,19 +1396,21 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L104-L114" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::getArgument()" tabindex="-1" class="structure-title ">
                         getArgument						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the argument value for a given argument name.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the argument value for a given argument name.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The argument name</p></td>
+				<td class="desc"><p>The argument name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1375,7 +1419,8 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The argument value</p></td>
+			<td class="desc"><p>The argument value</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1417,24 +1462,27 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L116-L126" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::setArgument()" tabindex="-1" class="structure-title ">
                         setArgument						<small>($name, $value)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets an argument value by name.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets an argument value by name.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The argument name</p></td>
+				<td class="desc"><p>The argument name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$value</td>
-				<td class="desc"><p>The argument value</p></td>
+				<td class="desc"><p>The argument value</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1485,19 +1533,21 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L128-L134" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::hasArgument()" tabindex="-1" class="structure-title ">
                         hasArgument						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns true if an InputArgument object exists by name or position.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns true if an InputArgument object exists by name or position.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>int</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The InputArgument name or position</p></td>
+				<td class="desc"><p>The InputArgument name or position</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1506,7 +1556,8 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the InputArgument object exists, false otherwise</p></td>
+			<td class="desc"><p>true if the InputArgument object exists, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1539,12 +1590,13 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L136-L142" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::getOptions()" tabindex="-1" class="structure-title ">
                         getOptions						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns all the given options merged with the default values.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns all the given options merged with the default values.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1588,19 +1640,21 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L144-L154" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::getOption()" tabindex="-1" class="structure-title ">
                         getOption						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the option value for a given option name.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the option value for a given option name.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The option name</p></td>
+				<td class="desc"><p>The option name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1609,7 +1663,8 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The option value</p></td>
+			<td class="desc"><p>The option value</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1651,24 +1706,27 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L156-L166" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::setOption()" tabindex="-1" class="structure-title ">
                         setOption						<small>($name, $value)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets an option value by name.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets an option value by name.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The option name</p></td>
+				<td class="desc"><p>The option name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>bool</td>
 				<td class="rest">$value</td>
-				<td class="desc"><p>The option value</p></td>
+				<td class="desc"><p>The option value</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1719,19 +1777,21 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L168-L174" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::hasOption()" tabindex="-1" class="structure-title ">
                         hasOption						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns true if an InputOption object exists by name.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns true if an InputOption object exists by name.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The InputOption name</p></td>
+				<td class="desc"><p>The InputOption name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1740,7 +1800,8 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the InputOption object exists, false otherwise</p></td>
+			<td class="desc"><p>true if the InputOption object exists, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1773,12 +1834,13 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L176-L186" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::escapeToken()" tabindex="-1" class="structure-title ">
                         escapeToken						<small>($token)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Escapes a token through escapeshellarg if it contains unsafe chars.</p></div>
+						<div class="description"><p>Escapes a token through escapeshellarg if it contains unsafe chars.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1827,21 +1889,22 @@ when multiple flags are combined in the same option.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L188-L194" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::setStream()" tabindex="-1" class="structure-title ">
                         setStream						<small>($stream)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the input stream to read from when interacting with the user.
-
-This is mainly useful for testing purpose.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the input stream to read from when interacting with the user.</p>
+<p>This is mainly useful for testing purpose.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">resource</td>
 				<td class="rest">$stream</td>
-				<td class="desc"><p>The input stream</p></td>
+				<td class="desc"><p>The input stream</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1883,12 +1946,13 @@ This is mainly useful for testing purpose.</tag_inheritdoc></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/Input.php#L196-L202" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StringInput::getStream()" tabindex="-1" class="structure-title ">
                         getStream						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the input stream.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the input stream.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

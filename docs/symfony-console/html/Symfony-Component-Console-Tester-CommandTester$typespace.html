@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Tester\CommandTester)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L20-L156" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Tester\CommandTester</span></h2>
 
-	<div class="description"><p>Eases the testing of console commands.</p></div>
+	<div class="description"><p>Eases the testing of console commands.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -70,7 +76,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L28-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::$command" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$command						<var> = null</var>
@@ -85,7 +91,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::$input" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$input						<var> = null</var>
@@ -100,7 +106,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::$output" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$output						<var> = null</var>
@@ -115,7 +121,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::$inputs" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$inputs						<var> = []</var>
@@ -130,7 +136,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L32-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::$statusCode" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$statusCode						<var> = null</var>
@@ -154,7 +160,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L34-L37" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($command)</small>
 					</h4>
@@ -198,7 +204,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L39-L80" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::execute()" tabindex="-1" class="structure-title ">
                         execute						<small>($input, $options = [])</small>
 					</h4>
@@ -209,19 +215,22 @@
 <li>interactive: Sets the input interactive flag</li>
 <li>decorated:   Sets the output decorated flag</li>
 <li>verbosity:   Sets the output verbosity flag</li>
-</ul></div>
+</ul>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$input</td>
-				<td class="desc"><p>An array of command arguments and options</p></td>
+				<td class="desc"><p>An array of command arguments and options</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$options = []</td>
-				<td class="desc"><p>An array of execution options</p></td>
+				<td class="desc"><p>An array of execution options</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -230,7 +239,8 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The command exit code</p></td>
+			<td class="desc"><p>The command exit code</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -253,19 +263,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L82-L100" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::getDisplay()" tabindex="-1" class="structure-title ">
                         getDisplay						<small>($normalize = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the display returned by the last execution of the command.</p></div>
+						<div class="description"><p>Gets the display returned by the last execution of the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$normalize = false</td>
-				<td class="desc"><p>Whether to normalize end of lines to \n or not</p></td>
+				<td class="desc"><p>Whether to normalize end of lines to \n or not</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -274,7 +286,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The display</p></td>
+			<td class="desc"><p>The display</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -297,12 +310,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L102-L110" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::getInput()" tabindex="-1" class="structure-title ">
                         getInput						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the input instance used by the last execution of the command.</p></div>
+						<div class="description"><p>Gets the input instance used by the last execution of the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -313,7 +327,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
-			<td class="desc"><p>The current input instance</p></td>
+			<td class="desc"><p>The current input instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -336,12 +351,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L112-L120" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::getOutput()" tabindex="-1" class="structure-title ">
                         getOutput						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the output instance used by the last execution of the command.</p></div>
+						<div class="description"><p>Gets the output instance used by the last execution of the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -352,7 +368,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
-			<td class="desc"><p>The current output instance</p></td>
+			<td class="desc"><p>The current output instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -375,12 +392,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L122-L130" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::getStatusCode()" tabindex="-1" class="structure-title ">
                         getStatusCode						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the status code returned by the last execution of the application.</p></div>
+						<div class="description"><p>Gets the status code returned by the last execution of the application.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -391,7 +409,8 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The status code</p></td>
+			<td class="desc"><p>The status code</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -414,20 +433,23 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L132-L145" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::setInputs()" tabindex="-1" class="structure-title ">
                         setInputs						<small>($inputs)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the user inputs.</p></div>
+						<div class="description"><p>Sets the user inputs.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$inputs</td>
-				<td class="desc"><p>An array of strings representing each input<br />
-passed to the command input stream</p></td>
+				<td class="desc"><p>An array of strings representing each input</p>
+<pre><code>                 passed to the command input stream
+</code></pre>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -459,7 +481,7 @@ passed to the command input stream</p></td>
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/CommandTester.php#L147-L155" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\CommandTester::createStream()" tabindex="-1" class="structure-title ">
                         createStream						<small>($inputs)</small>
 					</h4>

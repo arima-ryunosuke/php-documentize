@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Question\ChoiceQuestion)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L16-L189" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Question\ChoiceQuestion</span></h2>
 
-	<div class="description"><p>Represents a choice question.</p></div>
+	<div class="description"><p>Represents a choice question.</p>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -91,7 +97,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::$choices" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$choices						<var> = null</var>
@@ -106,7 +112,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::$multiselect" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$multiselect						<var> = false</var>
@@ -121,7 +127,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::$prompt" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$prompt						<var> = &#039; &gt; &#039;</var>
@@ -136,7 +142,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::$errorMessage" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$errorMessage						<var> = &#039;Value &quot;%s&quot; is invalid&#039;</var>
@@ -160,7 +166,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L28-L44" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($question, $choices, $default = null)</small>
 					</h4>
@@ -172,17 +178,20 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$question</td>
-				<td class="desc"><p>The question to ask to the user</p></td>
+				<td class="desc"><p>The question to ask to the user</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$choices</td>
-				<td class="desc"><p>The list of available choices</p></td>
+				<td class="desc"><p>The list of available choices</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc"><p>The default answer to return</p></td>
+				<td class="desc"><p>The default answer to return</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -224,12 +233,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L46-L54" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::getChoices()" tabindex="-1" class="structure-title ">
                         getChoices						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns available choices.</p></div>
+						<div class="description"><p>Returns available choices.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -263,13 +273,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L56-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::setMultiselect()" tabindex="-1" class="structure-title ">
                         setMultiselect						<small>($multiselect)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets multiselect option.</p>
-<p>When multiselect is set to true, multiple choices can be answered.</p></div>
+<p>When multiselect is set to true, multiple choices can be answered.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -308,12 +319,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L73-L81" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::isMultiselect()" tabindex="-1" class="structure-title ">
                         isMultiselect						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether the choices are multiselect.</p></div>
+						<div class="description"><p>Returns whether the choices are multiselect.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -347,12 +359,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L83-L91" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::getPrompt()" tabindex="-1" class="structure-title ">
                         getPrompt						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the prompt for choices.</p></div>
+						<div class="description"><p>Gets the prompt for choices.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -386,12 +399,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L93-L105" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::setPrompt()" tabindex="-1" class="structure-title ">
                         setPrompt						<small>($prompt)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the prompt for choices.</p></div>
+						<div class="description"><p>Sets the prompt for choices.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -430,13 +444,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L107-L122" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::setErrorMessage()" tabindex="-1" class="structure-title ">
                         setErrorMessage						<small>($errorMessage)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets the error message for invalid values.</p>
-<p>The error message has a string placeholder (%s) for the invalid value.</p></div>
+<p>The error message has a string placeholder (%s) for the invalid value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -475,12 +490,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ChoiceQuestion.php#L124-L188" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::getDefaultValidator()" tabindex="-1" class="structure-title ">
                         getDefaultValidator						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the default answer validator.</p></div>
+						<div class="description"><p>Returns the default answer validator.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -514,12 +530,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L43-L51" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::getQuestion()" tabindex="-1" class="structure-title ">
                         getQuestion						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the question.</p></div>
+						<div class="description"><p>Returns the question.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -563,12 +580,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L53-L61" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::getDefault()" tabindex="-1" class="structure-title ">
                         getDefault						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the default answer.</p></div>
+						<div class="description"><p>Returns the default answer.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -612,12 +630,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L63-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::isHidden()" tabindex="-1" class="structure-title ">
                         isHidden						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether the user response must be hidden.</p></div>
+						<div class="description"><p>Returns whether the user response must be hidden.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -661,12 +680,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L73-L91" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::setHidden()" tabindex="-1" class="structure-title ">
                         setHidden						<small>($hidden)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets whether the user response must be hidden or not.</p></div>
+						<div class="description"><p>Sets whether the user response must be hidden or not.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -724,12 +744,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L93-L101" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::isHiddenFallback()" tabindex="-1" class="structure-title ">
                         isHiddenFallback						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>In case the response can not be hidden, whether to fallback on non-hidden question or not.</p></div>
+						<div class="description"><p>In case the response can not be hidden, whether to fallback on non-hidden question or not.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -773,12 +794,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L103-L115" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::setHiddenFallback()" tabindex="-1" class="structure-title ">
                         setHiddenFallback						<small>($fallback)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets whether to fallback on non-hidden question if the response can not be hidden.</p></div>
+						<div class="description"><p>Sets whether to fallback on non-hidden question if the response can not be hidden.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -827,12 +849,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L117-L125" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::getAutocompleterValues()" tabindex="-1" class="structure-title ">
                         getAutocompleterValues						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets values for the autocompleter.</p></div>
+						<div class="description"><p>Gets values for the autocompleter.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -876,12 +899,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L127-L154" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::setAutocompleterValues()" tabindex="-1" class="structure-title ">
                         setAutocompleterValues						<small>($values)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets values for the autocompleter.</p></div>
+						<div class="description"><p>Sets values for the autocompleter.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -943,12 +967,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L156-L168" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::setValidator()" tabindex="-1" class="structure-title ">
                         setValidator						<small>($validator = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets a validator for the question.</p></div>
+						<div class="description"><p>Sets a validator for the question.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -997,12 +1022,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L170-L178" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::getValidator()" tabindex="-1" class="structure-title ">
                         getValidator						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the validator for the question.</p></div>
+						<div class="description"><p>Gets the validator for the question.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1046,13 +1072,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L180-L200" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::setMaxAttempts()" tabindex="-1" class="structure-title ">
                         setMaxAttempts						<small>($attempts)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets the maximum number of attempts.</p>
-<p>Null means an unlimited number of attempts.</p></div>
+<p>Null means an unlimited number of attempts.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1110,13 +1137,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L202-L212" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::getMaxAttempts()" tabindex="-1" class="structure-title ">
                         getMaxAttempts						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Gets the maximum number of attempts.</p>
-<p>Null means an unlimited number of attempts.</p></div>
+<p>Null means an unlimited number of attempts.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1160,13 +1188,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L214-L228" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::setNormalizer()" tabindex="-1" class="structure-title ">
                         setNormalizer						<small>($normalizer)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets a normalizer for the response.</p>
-<p>The normalizer can be a callable (a string), a closure or a class implementing __invoke.</p></div>
+<p>The normalizer can be a callable (a string), a closure or a class implementing __invoke.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1215,13 +1244,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L230-L240" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::getNormalizer()" tabindex="-1" class="structure-title ">
                         getNormalizer						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Gets the normalizer for the response.</p>
-<p>The normalizer can ba a callable (a string), a closure or a class implementing __invoke.</p></div>
+<p>The normalizer can ba a callable (a string), a closure or a class implementing __invoke.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1265,7 +1295,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L242-L245" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\ChoiceQuestion::isAssoc()" tabindex="-1" class="structure-title ">
                         isAssoc						<small>($array)</small>
 					</h4>

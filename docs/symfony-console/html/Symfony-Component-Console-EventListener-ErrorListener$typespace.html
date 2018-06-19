@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\EventListener\ErrorListener)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,7 +54,7 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/EventListener/ErrorListener.php#L21-L91" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\EventListener\ErrorListener</span></h2>
 
@@ -79,7 +84,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/EventListener/ErrorListener.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\EventListener\ErrorListener::$logger" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$logger						<var> = null</var>
@@ -103,7 +108,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/EventListener/ErrorListener.php#L29-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\EventListener\ErrorListener::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($logger = null)</small>
 					</h4>
@@ -147,7 +152,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/EventListener/ErrorListener.php#L34-L47" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\EventListener\ErrorListener::onConsoleError()" tabindex="-1" class="structure-title ">
                         onConsoleError						<small>($event)</small>
 					</h4>
@@ -191,7 +196,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/EventListener/ErrorListener.php#L49-L66" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\EventListener\ErrorListener::onConsoleTerminate()" tabindex="-1" class="structure-title ">
                         onConsoleTerminate						<small>($event)</small>
 					</h4>
@@ -235,7 +240,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/EventListener/ErrorListener.php#L68-L74" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\EventListener\ErrorListener::getSubscribedEvents()" tabindex="-1" class="structure-title ">
                         getSubscribedEvents						<small>()</small>
 					</h4>
@@ -284,7 +289,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/EventListener/ErrorListener.php#L76-L90" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\EventListener\ErrorListener::getInputString()" tabindex="-1" class="structure-title ">
                         getInputString						<small>($event)</small>
 					</h4>

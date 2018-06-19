@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Command\Command)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L25-L656" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Command\Command</span></h2>
 
-	<div class="description"><p>Base class for all commands.</p></div>
+	<div class="description"><p>Base class for all commands.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -82,13 +88,14 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L32-L35" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$defaultName" tabindex="-1" class="structure-title">
 						<small>string<span class="type-separator"></span><wbr>null</small>
 						$defaultName						<var> = null</var>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>The default command name</p></div>
+						<div class="description"><p>The default command name</p>
+</div>
                                                 					</div>
 				</li>
             				<li class="structure-item">
@@ -97,7 +104,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L37-L37" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$application" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$application						<var> = null</var>
@@ -112,7 +119,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L38-L38" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$name" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$name						<var> = null</var>
@@ -127,7 +134,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L39-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$processTitle" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$processTitle						<var> = null</var>
@@ -142,7 +149,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L40-L40" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$aliases" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$aliases						<var> = []</var>
@@ -157,7 +164,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L41-L41" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$definition" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$definition						<var> = null</var>
@@ -172,7 +179,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L42-L42" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$hidden" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$hidden						<var> = false</var>
@@ -187,7 +194,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L43-L43" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$help" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$help						<var> = null</var>
@@ -202,7 +209,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L44-L44" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$description" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$description						<var> = null</var>
@@ -217,7 +224,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L45-L45" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$ignoreValidationErrors" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$ignoreValidationErrors						<var> = false</var>
@@ -232,7 +239,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L46-L46" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$applicationDefinitionMerged" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$applicationDefinitionMerged						<var> = false</var>
@@ -247,7 +254,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L47-L47" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$applicationDefinitionMergedWithArgs" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$applicationDefinitionMergedWithArgs						<var> = false</var>
@@ -262,7 +269,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L48-L48" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$code" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$code						<var> = null</var>
@@ -277,7 +284,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L49-L49" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$synopsis" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$synopsis						<var> = []</var>
@@ -292,7 +299,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L50-L50" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$usages" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$usages						<var> = []</var>
@@ -307,7 +314,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L51-L51" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::$helperSet" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$helperSet						<var> = null</var>
@@ -331,7 +338,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L53-L62" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getDefaultName()" tabindex="-1" class="structure-title ">
                         getDefaultName						<small>()</small>
 					</h4>
@@ -347,7 +354,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>null</td>
-			<td class="desc"><p>The default command name or null when no default name is set</p></td>
+			<td class="desc"><p>The default command name or null when no default name is set</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -370,7 +378,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L64-L78" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($name = null)</small>
 					</h4>
@@ -382,7 +390,8 @@
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$name = null</td>
-				<td class="desc"><p>The name of the command; passing null means it must be set in configure()</p></td>
+				<td class="desc"><p>The name of the command; passing null means it must be set in configure()</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -423,13 +432,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L80-L88" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::ignoreValidationErrors()" tabindex="-1" class="structure-title ">
                         ignoreValidationErrors						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Ignores validation errors.</p>
-<p>This is mainly useful for the help command.</p></div>
+<p>This is mainly useful for the help command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -463,7 +473,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L90-L98" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setApplication()" tabindex="-1" class="structure-title ">
                         setApplication						<small>($application = null)</small>
 					</h4>
@@ -507,7 +517,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L100-L103" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setHelperSet()" tabindex="-1" class="structure-title ">
                         setHelperSet						<small>($helperSet)</small>
 					</h4>
@@ -551,12 +561,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L105-L113" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getHelperSet()" tabindex="-1" class="structure-title ">
                         getHelperSet						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the helper set.</p></div>
+						<div class="description"><p>Gets the helper set.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -567,7 +578,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
-			<td class="desc"><p>A HelperSet instance</p></td>
+			<td class="desc"><p>A HelperSet instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -590,12 +602,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L115-L123" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getApplication()" tabindex="-1" class="structure-title ">
                         getApplication						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the application instance for this command.</p></div>
+						<div class="description"><p>Gets the application instance for this command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -606,7 +619,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Application$typespace.html#Symfony\Component\Console\Application" class="fqsen "><small>Symfony\Component\Console\</small><wbr>Application</a></td>
-			<td class="desc"><p>An Application instance</p></td>
+			<td class="desc"><p>An Application instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -629,14 +643,15 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L125-L136" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::isEnabled()" tabindex="-1" class="structure-title ">
                         isEnabled						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Checks whether the command is enabled or not in the current environment.</p>
 <p>Override this to check for x or y and return false if the command can not<br />
-run properly under the current conditions.</p></div>
+run properly under the current conditions.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -670,12 +685,13 @@ run properly under the current conditions.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L138-L143" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::configure()" tabindex="-1" class="structure-title ">
                         configure						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Configures the current command.</p></div>
+						<div class="description"><p>Configures the current command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -709,7 +725,7 @@ run properly under the current conditions.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L145-L162" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::execute()" tabindex="-1" class="structure-title ">
                         execute						<small>($input, $output)</small>
 					</h4>
@@ -718,7 +734,8 @@ run properly under the current conditions.</p></div>
 <p>This method is not abstract because you can use this class<br />
 as a concrete class. In this case, instead of defining the<br />
 execute() method, you set the code to execute by passing<br />
-a Closure to the setCode() method.</p></div>
+a Closure to the setCode() method.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -739,7 +756,8 @@ a Closure to the setCode() method.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">null<span class="type-separator"></span><wbr>int</td>
-			<td class="desc"><p>null or 0 if everything went fine, or an error code</p></td>
+			<td class="desc"><p>null or 0 if everything went fine, or an error code</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -781,7 +799,7 @@ a Closure to the setCode() method.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L164-L173" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::interact()" tabindex="-1" class="structure-title ">
                         interact						<small>($input, $output)</small>
 					</h4>
@@ -789,7 +807,8 @@ a Closure to the setCode() method.</p></div>
 						<div class="description"><p>Interacts with the user.</p>
 <p>This method is executed before the InputDefinition is validated.<br />
 This means that this is the only place where the command can<br />
-interactively ask for values of missing required arguments.</p></div>
+interactively ask for values of missing required arguments.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -833,14 +852,15 @@ interactively ask for values of missing required arguments.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L175-L183" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::initialize()" tabindex="-1" class="structure-title ">
                         initialize						<small>($input, $output)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Initializes the command just after the input has been validated.</p>
 <p>This is mainly useful when a lot of commands extends one main command<br />
-where some things need to be initialized based on the input arguments and options.</p></div>
+where some things need to be initialized based on the input arguments and options.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -884,7 +904,7 @@ where some things need to be initialized based on the input arguments and option
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L185-L255" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::run()" tabindex="-1" class="structure-title ">
                         run						<small>($input, $output)</small>
 					</h4>
@@ -892,7 +912,8 @@ where some things need to be initialized based on the input arguments and option
 						<div class="description"><p>Runs the command.</p>
 <p>The code to execute is either defined directly with the<br />
 setCode() method or by overriding the execute() method<br />
-in a sub-class.</p></div>
+in a sub-class.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -913,7 +934,8 @@ in a sub-class.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The command exit code</p></td>
+			<td class="desc"><p>The command exit code</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -960,21 +982,23 @@ in a sub-class.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L257-L291" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setCode()" tabindex="-1" class="structure-title ">
                         setCode						<small>($code)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets the code to execute when running this command.</p>
 <p>If this method is used, it overrides the code defined<br />
-in the execute() method.</p></div>
+in the execute() method.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">callable</td>
 				<td class="rest">$code</td>
-				<td class="desc"><p>A callable(InputInterface $input, OutputInterface $output)</p></td>
+				<td class="desc"><p>A callable(InputInterface $input, OutputInterface $output)</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1025,20 +1049,22 @@ in the execute() method.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L293-L318" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::mergeApplicationDefinition()" tabindex="-1" class="structure-title ">
                         mergeApplicationDefinition						<small>($mergeArgs = true)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Merges the application definition with the command definition.</p>
-<p>This method is not part of public API and should not be used directly.</p></div>
+<p>This method is not part of public API and should not be used directly.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$mergeArgs = true</td>
-				<td class="desc"><p>Whether to merge or not the Application definition arguments to Command definition arguments</p></td>
+				<td class="desc"><p>Whether to merge or not the Application definition arguments to Command definition arguments</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1070,19 +1096,21 @@ in the execute() method.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L320-L338" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setDefinition()" tabindex="-1" class="structure-title ">
                         setDefinition						<small>($definition)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets an array of argument and option instances.</p></div>
+						<div class="description"><p>Sets an array of argument and option instances.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
 				<td class="rest">$definition</td>
-				<td class="desc"><p>An array of argument and option instances or a definition instance</p></td>
+				<td class="desc"><p>An array of argument and option instances or a definition instance</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1114,12 +1142,13 @@ in the execute() method.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L340-L348" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getDefinition()" tabindex="-1" class="structure-title ">
                         getDefinition						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the InputDefinition attached to this Command.</p></div>
+						<div class="description"><p>Gets the InputDefinition attached to this Command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1130,7 +1159,8 @@ in the execute() method.</p></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
-			<td class="desc"><p>An InputDefinition instance</p></td>
+			<td class="desc"><p>An InputDefinition instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1153,7 +1183,7 @@ in the execute() method.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L350-L363" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getNativeDefinition()" tabindex="-1" class="structure-title ">
                         getNativeDefinition						<small>()</small>
 					</h4>
@@ -1161,7 +1191,8 @@ in the execute() method.</p></div>
 						<div class="description"><p>Gets the InputDefinition to be used to create representations of this Command.</p>
 <p>Can be overridden to provide the original command representation when it would otherwise<br />
 be changed by merging with the application InputDefinition.</p>
-<p>This method is not part of public API and should not be used directly.</p></div>
+<p>This method is not part of public API and should not be used directly.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1172,7 +1203,8 @@ be changed by merging with the application InputDefinition.</p>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputDefinition</a></td>
-			<td class="desc"><p>An InputDefinition instance</p></td>
+			<td class="desc"><p>An InputDefinition instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1195,34 +1227,39 @@ be changed by merging with the application InputDefinition.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L365-L380" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::addArgument()" tabindex="-1" class="structure-title ">
                         addArgument						<small>($name, $mode = null, $description = &#039;&#039;, $default = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Adds an argument.</p></div>
+						<div class="description"><p>Adds an argument.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The argument name</p></td>
+				<td class="desc"><p>The argument name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$mode = null</td>
-				<td class="desc"><p>The argument mode: InputArgument::REQUIRED or InputArgument::OPTIONAL</p></td>
+				<td class="desc"><p>The argument mode: InputArgument::REQUIRED or InputArgument::OPTIONAL</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$description = &#039;&#039;</td>
-				<td class="desc"><p>A description text</p></td>
+				<td class="desc"><p>A description text</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc"><p>The default value (for InputArgument::OPTIONAL mode only)</p></td>
+				<td class="desc"><p>The default value (for InputArgument::OPTIONAL mode only)</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1254,39 +1291,45 @@ be changed by merging with the application InputDefinition.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L382-L398" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::addOption()" tabindex="-1" class="structure-title ">
                         addOption						<small>($name, $shortcut = null, $mode = null, $description = &#039;&#039;, $default = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Adds an option.</p></div>
+						<div class="description"><p>Adds an option.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The option name</p></td>
+				<td class="desc"><p>The option name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$shortcut = null</td>
-				<td class="desc"><p>The shortcut (can be null)</p></td>
+				<td class="desc"><p>The shortcut (can be null)</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$mode = null</td>
-				<td class="desc"><p>The option mode: One of the InputOption::VALUE_* constants</p></td>
+				<td class="desc"><p>The option mode: One of the InputOption::VALUE_* constants</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$description = &#039;&#039;</td>
-				<td class="desc"><p>A description text</p></td>
+				<td class="desc"><p>A description text</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc"><p>The default value (must be null for InputOption::VALUE_NONE)</p></td>
+				<td class="desc"><p>The default value (must be null for InputOption::VALUE_NONE)</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1318,7 +1361,7 @@ be changed by merging with the application InputDefinition.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L400-L421" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setName()" tabindex="-1" class="structure-title ">
                         setName						<small>($name)</small>
 					</h4>
@@ -1326,14 +1369,17 @@ be changed by merging with the application InputDefinition.</p>
 						<div class="description"><p>Sets the name of the command.</p>
 <p>This method can set both the namespace and the name if<br />
 you separate them by a colon (:)</p>
-<pre><code>$command-&gt;setName('foo:bar');</code></pre></div>
+<pre><code>$command-&gt;setName('foo:bar');
+</code></pre>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The command name</p></td>
+				<td class="desc"><p>The command name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1374,7 +1420,7 @@ you separate them by a colon (:)</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L423-L440" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setProcessTitle()" tabindex="-1" class="structure-title ">
                         setProcessTitle						<small>($title)</small>
 					</h4>
@@ -1382,14 +1428,16 @@ you separate them by a colon (:)</p>
 						<div class="description"><p>Sets the process title of the command.</p>
 <p>This feature should be used only when creating a long process command,<br />
 like a daemon.</p>
-<p>PHP 5.5+ or the proctitle PECL library is required</p></div>
+<p>PHP 5.5+ or the proctitle PECL library is required</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$title</td>
-				<td class="desc"><p>The process title</p></td>
+				<td class="desc"><p>The process title</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1421,12 +1469,13 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L442-L450" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getName()" tabindex="-1" class="structure-title ">
                         getName						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the command name.</p></div>
+						<div class="description"><p>Returns the command name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1437,7 +1486,8 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The command name</p></td>
+			<td class="desc"><p>The command name</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1460,7 +1510,7 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L452-L462" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setHidden()" tabindex="-1" class="structure-title ">
                         setHidden						<small>($hidden)</small>
 					</h4>
@@ -1472,7 +1522,8 @@ like a daemon.</p>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$hidden</td>
-				<td class="desc"><p>Whether or not the command should be hidden from the list of commands</p></td>
+				<td class="desc"><p>Whether or not the command should be hidden from the list of commands</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1481,7 +1532,8 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
-			<td class="desc"><p>The current instance</p></td>
+			<td class="desc"><p>The current instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1504,7 +1556,7 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L464-L470" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::isHidden()" tabindex="-1" class="structure-title ">
                         isHidden						<small>()</small>
 					</h4>
@@ -1520,7 +1572,8 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>whether the command should be publicly shown or not</p></td>
+			<td class="desc"><p>whether the command should be publicly shown or not</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1543,19 +1596,21 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L472-L484" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setDescription()" tabindex="-1" class="structure-title ">
                         setDescription						<small>($description)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the description for the command.</p></div>
+						<div class="description"><p>Sets the description for the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$description</td>
-				<td class="desc"><p>The description for the command</p></td>
+				<td class="desc"><p>The description for the command</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1587,12 +1642,13 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L486-L494" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getDescription()" tabindex="-1" class="structure-title ">
                         getDescription						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the description for the command.</p></div>
+						<div class="description"><p>Returns the description for the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1603,7 +1659,8 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The description for the command</p></td>
+			<td class="desc"><p>The description for the command</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1626,19 +1683,21 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L496-L508" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setHelp()" tabindex="-1" class="structure-title ">
                         setHelp						<small>($help)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the help for the command.</p></div>
+						<div class="description"><p>Sets the help for the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$help</td>
-				<td class="desc"><p>The help for the command</p></td>
+				<td class="desc"><p>The help for the command</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1670,12 +1729,13 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L510-L518" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getHelp()" tabindex="-1" class="structure-title ">
                         getHelp						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the help for the command.</p></div>
+						<div class="description"><p>Returns the help for the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1686,7 +1746,8 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The help for the command</p></td>
+			<td class="desc"><p>The help for the command</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1709,13 +1770,14 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L520-L540" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getProcessedHelp()" tabindex="-1" class="structure-title ">
                         getProcessedHelp						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Returns the processed help for the command replacing the %command.name% and<br />
-%command.full_name% patterns with the real values dynamically.</p></div>
+%command.full_name% patterns with the real values dynamically.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1726,7 +1788,8 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The processed help for the command</p></td>
+			<td class="desc"><p>The processed help for the command</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1749,19 +1812,21 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L542-L564" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::setAliases()" tabindex="-1" class="structure-title ">
                         setAliases						<small>($aliases)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the aliases for the command.</p></div>
+						<div class="description"><p>Sets the aliases for the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string[]</td>
 				<td class="rest">$aliases</td>
-				<td class="desc"><p>An array of aliases for the command</p></td>
+				<td class="desc"><p>An array of aliases for the command</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1802,12 +1867,13 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L566-L574" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getAliases()" tabindex="-1" class="structure-title ">
                         getAliases						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the aliases for the command.</p></div>
+						<div class="description"><p>Returns the aliases for the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1818,7 +1884,8 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">array</td>
-			<td class="desc"><p>An array of aliases for the command</p></td>
+			<td class="desc"><p>An array of aliases for the command</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1841,19 +1908,21 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L576-L592" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getSynopsis()" tabindex="-1" class="structure-title ">
                         getSynopsis						<small>($short = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the synopsis for the command.</p></div>
+						<div class="description"><p>Returns the synopsis for the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$short = false</td>
-				<td class="desc"><p>Whether to show the short version of the synopsis (with options folded) or not</p></td>
+				<td class="desc"><p>Whether to show the short version of the synopsis (with options folded) or not</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1862,7 +1931,8 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The synopsis</p></td>
+			<td class="desc"><p>The synopsis</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1885,19 +1955,21 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L594-L610" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::addUsage()" tabindex="-1" class="structure-title ">
                         addUsage						<small>($usage)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Add a command usage example.</p></div>
+						<div class="description"><p>Add a command usage example.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$usage</td>
-				<td class="desc"><p>The usage, it'll be prefixed with the command name</p></td>
+				<td class="desc"><p>The usage, it'll be prefixed with the command name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1929,12 +2001,13 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L612-L620" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getUsages()" tabindex="-1" class="structure-title ">
                         getUsages						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns alternative usages of the command.</p></div>
+						<div class="description"><p>Returns alternative usages of the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1968,19 +2041,21 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L622-L639" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::getHelper()" tabindex="-1" class="structure-title ">
                         getHelper						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets a helper instance by name.</p></div>
+						<div class="description"><p>Gets a helper instance by name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The helper name</p></td>
+				<td class="desc"><p>The helper name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1989,7 +2064,8 @@ like a daemon.</p>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The helper value</p></td>
+			<td class="desc"><p>The helper value</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -2025,13 +2101,14 @@ like a daemon.</p>
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Command/Command.php#L641-L655" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Command\Command::validateName()" tabindex="-1" class="structure-title ">
                         validateName						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Validates a command name.</p>
-<p>It must be non-empty and parts can optionally be separated by &quot;:&quot;.</p></div>
+<p>It must be non-empty and parts can optionally be separated by ":".</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

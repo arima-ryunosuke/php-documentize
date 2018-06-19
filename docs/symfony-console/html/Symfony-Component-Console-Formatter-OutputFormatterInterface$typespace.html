@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Formatter\OutputFormatterInterface)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterInterface.php#L14-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>interface <span class="category-name">Symfony\Component\Console\Formatter\OutputFormatterInterface</span></h2>
 
-	<div class="description"><p>Formatter interface for console output.</p></div>
+	<div class="description"><p>Formatter interface for console output.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -87,19 +93,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterInterface.php#L21-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterInterface::setDecorated()" tabindex="-1" class="structure-title ">
                         setDecorated						<small>($decorated)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the decorated flag.</p></div>
+						<div class="description"><p>Sets the decorated flag.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated</td>
-				<td class="desc"><p>Whether to decorate the messages or not</p></td>
+				<td class="desc"><p>Whether to decorate the messages or not</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -131,12 +139,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterInterface.php#L28-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterInterface::isDecorated()" tabindex="-1" class="structure-title ">
                         isDecorated						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the decorated flag.</p></div>
+						<div class="description"><p>Gets the decorated flag.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -147,7 +156,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the output will decorate messages, false otherwise</p></td>
+			<td class="desc"><p>true if the output will decorate messages, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -170,24 +180,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterInterface.php#L35-L41" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterInterface::setStyle()" tabindex="-1" class="structure-title ">
                         setStyle						<small>($name, $style)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets a new style.</p></div>
+						<div class="description"><p>Sets a new style.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The style name</p></td>
+				<td class="desc"><p>The style name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterStyleInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterStyleInterface</a></td>
 				<td class="rest">$style</td>
-				<td class="desc"><p>The style instance</p></td>
+				<td class="desc"><p>The style instance</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -219,12 +232,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterInterface.php#L43-L50" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterInterface::hasStyle()" tabindex="-1" class="structure-title ">
                         hasStyle						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Checks if output formatter has style with specified name.</p></div>
+						<div class="description"><p>Checks if output formatter has style with specified name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -263,12 +277,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterInterface.php#L52-L61" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterInterface::getStyle()" tabindex="-1" class="structure-title ">
                         getStyle						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets style options from style with specified name.</p></div>
+						<div class="description"><p>Gets style options from style with specified name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -316,19 +331,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatterInterface.php#L63-L70" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatterInterface::format()" tabindex="-1" class="structure-title ">
                         format						<small>($message)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Formats a message according to the given styles.</p></div>
+						<div class="description"><p>Formats a message according to the given styles.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc"><p>The message to style</p></td>
+				<td class="desc"><p>The message to style</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -337,7 +354,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The styled message</p></td>
+			<td class="desc"><p>The styled message</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

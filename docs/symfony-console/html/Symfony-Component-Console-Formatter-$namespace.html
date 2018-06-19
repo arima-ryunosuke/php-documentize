@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -38,6 +38,11 @@
 <h1 class="ellipsis">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Formatter\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">Symfony\Component\Console\Formatter\</span></h2>
@@ -61,7 +66,8 @@
 							<a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface">OutputFormatterInterface</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Formatter interface for console output.</p></div>
+							<div class="description"><p>Formatter interface for console output.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -82,7 +88,8 @@
 							<a href="Symfony-Component-Console-Formatter-OutputFormatterStyleInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleInterface">OutputFormatterStyleInterface</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Formatter style interface for defining styles.</p></div>
+							<div class="description"><p>Formatter style interface for defining styles.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -106,7 +113,8 @@
 							<a href="Symfony-Component-Console-Formatter-OutputFormatter$typespace.html#Symfony\Component\Console\Formatter\OutputFormatter">OutputFormatter</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Formatter class for console output.</p></div>
+							<div class="description"><p>Formatter class for console output.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -127,7 +135,8 @@
 							<a href="Symfony-Component-Console-Formatter-OutputFormatterStyle$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyle">OutputFormatterStyle</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Formatter style class for defining styles.</p></div>
+							<div class="description"><p>Formatter style class for defining styles.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>

@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Output\NullOutput)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,12 +54,14 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L17-L123" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Output\NullOutput</span></h2>
 
 	<div class="description"><p>NullOutput suppresses all output.</p>
-<pre><code>$output = new NullOutput();</code></pre></div>
+<pre><code>$output = new NullOutput();
+</code></pre>
+</div>
 
 	<h3>Construction</h3>
         	<table class="table">
@@ -76,7 +83,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::VERBOSITY_QUIET" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_QUIET						<var> = 16</var>
@@ -100,7 +107,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::VERBOSITY_NORMAL" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_NORMAL						<var> = 32</var>
@@ -124,7 +131,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::VERBOSITY_VERBOSE" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_VERBOSE						<var> = 64</var>
@@ -148,7 +155,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::VERBOSITY_VERY_VERBOSE" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_VERY_VERBOSE						<var> = 128</var>
@@ -172,7 +179,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::VERBOSITY_DEBUG" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_DEBUG						<var> = 256</var>
@@ -196,7 +203,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::OUTPUT_NORMAL" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         OUTPUT_NORMAL						<var> = 1</var>
@@ -220,7 +227,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::OUTPUT_RAW" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         OUTPUT_RAW						<var> = 2</var>
@@ -244,7 +251,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::OUTPUT_PLAIN" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         OUTPUT_PLAIN						<var> = 4</var>
@@ -281,12 +288,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L27-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::setFormatter()" tabindex="-1" class="structure-title ">
                         setFormatter						<small>($formatter)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -335,12 +343,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L35-L42" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::getFormatter()" tabindex="-1" class="structure-title ">
                         getFormatter						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -384,19 +393,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L44-L50" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::setDecorated()" tabindex="-1" class="structure-title ">
                         setDecorated						<small>($decorated)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated</td>
-				<td class="desc"><p>Whether to decorate the messages</p></td>
+				<td class="desc"><p>Whether to decorate the messages</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -438,12 +449,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L52-L58" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::isDecorated()" tabindex="-1" class="structure-title ">
                         isDecorated						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -454,7 +466,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the output will decorate messages, false otherwise</p></td>
+			<td class="desc"><p>true if the output will decorate messages, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -487,19 +500,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L60-L66" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::setVerbosity()" tabindex="-1" class="structure-title ">
                         setVerbosity						<small>($level)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$level</td>
-				<td class="desc"><p>The level of verbosity (one of the VERBOSITY constants)</p></td>
+				<td class="desc"><p>The level of verbosity (one of the VERBOSITY constants)</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -541,12 +556,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L68-L74" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::getVerbosity()" tabindex="-1" class="structure-title ">
                         getVerbosity						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -557,7 +573,8 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The current level of verbosity (one of the VERBOSITY constants)</p></td>
+			<td class="desc"><p>The current level of verbosity (one of the VERBOSITY constants)</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -590,12 +607,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L76-L82" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::isQuiet()" tabindex="-1" class="structure-title ">
                         isQuiet						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -606,7 +624,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if verbosity is set to VERBOSITY_QUIET, false otherwise</p></td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_QUIET, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -639,12 +658,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L84-L90" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::isVerbose()" tabindex="-1" class="structure-title ">
                         isVerbose						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -655,7 +675,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</p></td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -688,12 +709,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L92-L98" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::isVeryVerbose()" tabindex="-1" class="structure-title ">
                         isVeryVerbose						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -704,7 +726,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</p></td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -737,12 +760,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L100-L106" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::isDebug()" tabindex="-1" class="structure-title ">
                         isDebug						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -753,7 +777,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if verbosity is set to VERBOSITY_DEBUG, false otherwise</p></td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_DEBUG, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -786,24 +811,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L108-L114" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::writeln()" tabindex="-1" class="structure-title ">
                         writeln						<small>($messages, $options = 0)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc"><p>The message as an array of lines of a single string</p></td>
+				<td class="desc"><p>The message as an array of lines of a single string</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -845,29 +873,33 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/NullOutput.php#L116-L122" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\NullOutput::write()" tabindex="-1" class="structure-title ">
                         write						<small>($messages, $newline = false, $options = 0)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc"><p>The message as an array of lines or a single string</p></td>
+				<td class="desc"><p>The message as an array of lines or a single string</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$newline = false</td>
-				<td class="desc"><p>Whether to add a newline</p></td>
+				<td class="desc"><p>Whether to add a newline</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p>
+</td>
 			</tr>
         		</tbody>
 	</table>

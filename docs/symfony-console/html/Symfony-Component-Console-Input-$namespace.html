@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -38,6 +38,11 @@
 <h1 class="ellipsis">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Input\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">Symfony\Component\Console\Input\</span></h2>
@@ -62,7 +67,8 @@
 						</h4>
 						<div class="inner-item">
 							<div class="description"><p>InputAwareInterface should be implemented by classes that depends on the<br />
-Console Input.</p></div>
+Console Input.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -83,7 +89,8 @@ Console Input.</p></div>
 							<a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface">InputInterface</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>InputInterface is the interface implemented by all input classes.</p></div>
+							<div class="description"><p>InputInterface is the interface implemented by all input classes.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -105,7 +112,8 @@ Console Input.</p></div>
 						</h4>
 						<div class="inner-item">
 							<div class="description"><p>StreamableInputInterface is the interface implemented by all input classes<br />
-that have an input stream.</p></div>
+that have an input stream.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -135,7 +143,8 @@ that have an input stream.</p></div>
 <li><code>ArgvInput</code>: The input comes from the CLI arguments (argv)</li>
 <li><code>StringInput</code>: The input is provided as a string</li>
 <li><code>ArrayInput</code>: The input is provided as an array</li>
-</ul></div>
+</ul>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -158,15 +167,18 @@ that have an input stream.</p></div>
 						<div class="inner-item">
 							<div class="description"><p>ArgvInput represents an input coming from the CLI arguments.</p>
 <p>Usage:</p>
-<pre><code>$input = new ArgvInput();</code></pre>
+<pre><code>$input = new ArgvInput();
+</code></pre>
 <p>By default, the <code>$_SERVER['argv']</code> array is used for the input values.</p>
 <p>This can be overridden by explicitly passing the input values in the constructor:</p>
-<pre><code>$input = new ArgvInput($_SERVER['argv']);</code></pre>
+<pre><code>$input = new ArgvInput($_SERVER['argv']);
+</code></pre>
 <p>If you pass it yourself, don't forget that the first element of the array<br />
 is the name of the running application.</p>
 <p>When passing an argument to the constructor, be sure that it respects<br />
 the same rules as the argv one. It's almost always better to use the<br />
-<code>StringInput</code> when you want to provide your own input.</p></div>
+<code>StringInput</code> when you want to provide your own input.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -189,7 +201,9 @@ the same rules as the argv one. It's almost always better to use the<br />
 						<div class="inner-item">
 							<div class="description"><p>ArrayInput represents an input provided as an array.</p>
 <p>Usage:</p>
-<pre><code>$input = new ArrayInput(array('name' =&gt; 'foo', '--bar' =&gt; 'foobar'));</code></pre></div>
+<pre><code>$input = new ArrayInput(array('name' =&gt; 'foo', '--bar' =&gt; 'foobar'));
+</code></pre>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -210,7 +224,8 @@ the same rules as the argv one. It's almost always better to use the<br />
 							<a href="Symfony-Component-Console-Input-InputArgument$typespace.html#Symfony\Component\Console\Input\InputArgument">InputArgument</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Represents a command line argument.</p></div>
+							<div class="description"><p>Represents a command line argument.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -236,7 +251,9 @@ the same rules as the argv one. It's almost always better to use the<br />
 <pre><code>$definition = new InputDefinition(array(
   new InputArgument('name', InputArgument::REQUIRED),
   new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
-));</code></pre></div>
+));
+</code></pre>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -257,7 +274,8 @@ the same rules as the argv one. It's almost always better to use the<br />
 							<a href="Symfony-Component-Console-Input-InputOption$typespace.html#Symfony\Component\Console\Input\InputOption">InputOption</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Represents a command line option.</p></div>
+							<div class="description"><p>Represents a command line option.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -280,7 +298,9 @@ the same rules as the argv one. It's almost always better to use the<br />
 						<div class="inner-item">
 							<div class="description"><p>StringInput represents an input provided as a string.</p>
 <p>Usage:</p>
-<pre><code>$input = new StringInput('foo --bar="foobar"');</code></pre></div>
+<pre><code>$input = new StringInput('foo --bar="foobar"');
+</code></pre>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>

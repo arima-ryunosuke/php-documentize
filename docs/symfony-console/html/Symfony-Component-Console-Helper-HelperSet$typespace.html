@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Helper\HelperSet)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info">iterateable</span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L17-L108" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Helper\HelperSet</span></h2>
 
-	<div class="description"><p>HelperSet represents a set of helpers to be used with a command.</p></div>
+	<div class="description"><p>HelperSet represents a set of helpers to be used with a command.</p>
+</div>
 
 	<h3>Construction</h3>
         	<table class="table">
@@ -83,7 +89,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L24-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\HelperSet::$helpers" tabindex="-1" class="structure-title">
 						<small><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper</a>[]</small>
 						$helpers						<var> = []</var>
@@ -98,7 +104,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L28-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\HelperSet::$command" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$command						<var> = null</var>
@@ -122,7 +128,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L30-L38" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\HelperSet::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($helpers = [])</small>
 					</h4>
@@ -134,7 +140,8 @@
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr><a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>Helper</a>[]</td>
 				<td class="rest">$helpers = []</td>
-				<td class="desc"><p>An array of helper</p></td>
+				<td class="desc"><p>An array of helper</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -166,24 +173,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L40-L54" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\HelperSet::set()" tabindex="-1" class="structure-title ">
                         set						<small>($helper, $alias = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets a helper.</p></div>
+						<div class="description"><p>Sets a helper.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperInterface</a></td>
 				<td class="rest">$helper</td>
-				<td class="desc"><p>The helper instance</p></td>
+				<td class="desc"><p>The helper instance</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$alias = null</td>
-				<td class="desc"><p>An alias</p></td>
+				<td class="desc"><p>An alias</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -215,19 +225,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L56-L66" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\HelperSet::has()" tabindex="-1" class="structure-title ">
                         has						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if the helper if defined.</p></div>
+						<div class="description"><p>Returns true if the helper if defined.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The helper name</p></td>
+				<td class="desc"><p>The helper name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -236,7 +248,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the helper is defined, false otherwise</p></td>
+			<td class="desc"><p>true if the helper is defined, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -259,19 +272,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L68-L84" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\HelperSet::get()" tabindex="-1" class="structure-title ">
                         get						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets a helper value.</p></div>
+						<div class="description"><p>Gets a helper value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The helper name</p></td>
+				<td class="desc"><p>The helper name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -280,7 +295,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperInterface</a></td>
-			<td class="desc"><p>The helper instance</p></td>
+			<td class="desc"><p>The helper instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -312,7 +328,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L86-L89" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\HelperSet::setCommand()" tabindex="-1" class="structure-title ">
                         setCommand						<small>($command = null)</small>
 					</h4>
@@ -356,12 +372,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L91-L99" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\HelperSet::getCommand()" tabindex="-1" class="structure-title ">
                         getCommand						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the command associated with this helper set.</p></div>
+						<div class="description"><p>Gets the command associated with this helper set.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -372,7 +389,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a></td>
-			<td class="desc"><p>A Command instance</p></td>
+			<td class="desc"><p>A Command instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -395,7 +413,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/HelperSet.php#L101-L107" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\HelperSet::getIterator()" tabindex="-1" class="structure-title ">
                         getIterator						<small>()</small>
 					</h4>

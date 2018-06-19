@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Event\ConsoleExceptionEvent)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated">deprecated </span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleExceptionEvent.php#L20-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Event\ConsoleExceptionEvent</span></h2>
 
-	<div class="description"><p>Allows to handle exception thrown in a command.</p></div>
+	<div class="description"><p>Allows to handle exception thrown in a command.</p>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -104,7 +110,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleExceptionEvent.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::$exception" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$exception						<var> = null</var>
@@ -119,7 +125,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleExceptionEvent.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::$exitCode" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$exitCode						<var> = null</var>
@@ -134,7 +140,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleEvent.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::$command" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$command						<var> = null</var>
@@ -168,7 +174,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleExceptionEvent.php#L32-L38" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($command = null, $input, $output, $exception, $exitCode)</small>
 					</h4>
@@ -242,12 +248,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleExceptionEvent.php#L40-L48" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::getException()" tabindex="-1" class="structure-title ">
                         getException						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the thrown exception.</p></div>
+						<div class="description"><p>Returns the thrown exception.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -258,7 +265,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="http://php.net/manual/ja/class.exception.php" class="fqsen" target="_blank">\Exception</a></td>
-			<td class="desc"><p>The thrown exception</p></td>
+			<td class="desc"><p>The thrown exception</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -281,20 +289,22 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleExceptionEvent.php#L50-L60" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::setException()" tabindex="-1" class="structure-title ">
                         setException						<small>($exception)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Replaces the thrown exception.</p>
-<p>This exception will be thrown if no response is set in the event.</p></div>
+<p>This exception will be thrown if no response is set in the event.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type"><a href="http://php.net/manual/ja/class.exception.php" class="fqsen" target="_blank">\Exception</a></td>
 				<td class="rest">$exception</td>
-				<td class="desc"><p>The thrown exception</p></td>
+				<td class="desc"><p>The thrown exception</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -326,12 +336,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleExceptionEvent.php#L62-L70" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::getExitCode()" tabindex="-1" class="structure-title ">
                         getExitCode						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the exit code.</p></div>
+						<div class="description"><p>Gets the exit code.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -342,7 +353,8 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The command exit code</p></td>
+			<td class="desc"><p>The command exit code</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -365,12 +377,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleEvent.php#L38-L46" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::getCommand()" tabindex="-1" class="structure-title ">
                         getCommand						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the command that is executed.</p></div>
+						<div class="description"><p>Gets the command that is executed.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -381,7 +394,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a><span class="type-separator"></span><wbr>null</td>
-			<td class="desc"><p>A Command instance</p></td>
+			<td class="desc"><p>A Command instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -414,12 +428,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleEvent.php#L48-L56" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::getInput()" tabindex="-1" class="structure-title ">
                         getInput						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the input instance.</p></div>
+						<div class="description"><p>Gets the input instance.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -430,7 +445,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
-			<td class="desc"><p>An InputInterface instance</p></td>
+			<td class="desc"><p>An InputInterface instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -463,12 +479,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleEvent.php#L58-L66" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::getOutput()" tabindex="-1" class="structure-title ">
                         getOutput						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the output instance.</p></div>
+						<div class="description"><p>Gets the output instance.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -479,7 +496,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
-			<td class="desc"><p>An OutputInterface instance</p></td>
+			<td class="desc"><p>An OutputInterface instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -512,12 +530,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/event-dispatcher/blob/v3.4.11/Event.php#L35-L45" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::isPropagationStopped()" tabindex="-1" class="structure-title ">
                         isPropagationStopped						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether further event listeners should be triggered.</p></div>
+						<div class="description"><p>Returns whether further event listeners should be triggered.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -528,7 +547,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>Whether propagation was already stopped for this event</p></td>
+			<td class="desc"><p>Whether propagation was already stopped for this event</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -571,7 +591,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/event-dispatcher/blob/v3.4.11/Event.php#L47-L57" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleExceptionEvent::stopPropagation()" tabindex="-1" class="structure-title ">
                         stopPropagation						<small>()</small>
 					</h4>
@@ -579,7 +599,8 @@
 						<div class="description"><p>Stops the propagation of the event to further event listeners.</p>
 <p>If multiple event listeners are connected to the same event, no<br />
 further event listener will be triggered once any trigger calls<br />
-stopPropagation().</p></div>
+stopPropagation().</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

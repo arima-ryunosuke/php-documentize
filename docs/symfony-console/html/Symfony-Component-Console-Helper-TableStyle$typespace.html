@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Helper\TableStyle)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L17-L258" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Helper\TableStyle</span></h2>
 
-	<div class="description"><p>Defines the styles for a Table.</p></div>
+	<div class="description"><p>Defines the styles for a Table.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -70,7 +76,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::$paddingChar" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$paddingChar						<var> = &#039; &#039;</var>
@@ -85,7 +91,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::$horizontalBorderChar" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$horizontalBorderChar						<var> = &#039;-&#039;</var>
@@ -100,7 +106,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::$verticalBorderChar" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$verticalBorderChar						<var> = &#039;|&#039;</var>
@@ -115,7 +121,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L28-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::$crossingChar" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$crossingChar						<var> = &#039;+&#039;</var>
@@ -130,7 +136,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::$cellHeaderFormat" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$cellHeaderFormat						<var> = &#039;&lt;info&gt;%s&lt;/info&gt;&#039;</var>
@@ -145,7 +151,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::$cellRowFormat" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$cellRowFormat						<var> = &#039;%s&#039;</var>
@@ -160,7 +166,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::$cellRowContentFormat" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$cellRowContentFormat						<var> = &#039; %s &#039;</var>
@@ -175,7 +181,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L32-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::$borderFormat" tabindex="-1" class="structure-title">
 						<small>string</small>
 						$borderFormat						<var> = &#039;%s&#039;</var>
@@ -190,7 +196,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L33-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::$padType" tabindex="-1" class="structure-title">
 						<small>integer</small>
 						$padType						<var> = 1</var>
@@ -214,12 +220,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L35-L51" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::setPaddingChar()" tabindex="-1" class="structure-title ">
                         setPaddingChar						<small>($paddingChar)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets padding character, used for cell padding.</p></div>
+						<div class="description"><p>Sets padding character, used for cell padding.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -258,12 +265,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L53-L61" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::getPaddingChar()" tabindex="-1" class="structure-title ">
                         getPaddingChar						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets padding character, used for cell padding.</p></div>
+						<div class="description"><p>Gets padding character, used for cell padding.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -297,12 +305,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L63-L75" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::setHorizontalBorderChar()" tabindex="-1" class="structure-title ">
                         setHorizontalBorderChar						<small>($horizontalBorderChar)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets horizontal border character.</p></div>
+						<div class="description"><p>Sets horizontal border character.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -341,12 +350,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L77-L85" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::getHorizontalBorderChar()" tabindex="-1" class="structure-title ">
                         getHorizontalBorderChar						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets horizontal border character.</p></div>
+						<div class="description"><p>Gets horizontal border character.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -380,12 +390,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L87-L99" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::setVerticalBorderChar()" tabindex="-1" class="structure-title ">
                         setVerticalBorderChar						<small>($verticalBorderChar)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets vertical border character.</p></div>
+						<div class="description"><p>Sets vertical border character.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -424,12 +435,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L101-L109" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::getVerticalBorderChar()" tabindex="-1" class="structure-title ">
                         getVerticalBorderChar						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets vertical border character.</p></div>
+						<div class="description"><p>Gets vertical border character.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -463,12 +475,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L111-L123" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::setCrossingChar()" tabindex="-1" class="structure-title ">
                         setCrossingChar						<small>($crossingChar)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets crossing character.</p></div>
+						<div class="description"><p>Sets crossing character.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -507,12 +520,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L125-L133" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::getCrossingChar()" tabindex="-1" class="structure-title ">
                         getCrossingChar						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets crossing character.</p></div>
+						<div class="description"><p>Gets crossing character.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -523,7 +537,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>$crossingChar</p></td>
+			<td class="desc"><p>$crossingChar</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -546,12 +561,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L135-L147" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::setCellHeaderFormat()" tabindex="-1" class="structure-title ">
                         setCellHeaderFormat						<small>($cellHeaderFormat)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets header cell format.</p></div>
+						<div class="description"><p>Sets header cell format.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -590,12 +606,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L149-L157" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::getCellHeaderFormat()" tabindex="-1" class="structure-title ">
                         getCellHeaderFormat						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets header cell format.</p></div>
+						<div class="description"><p>Gets header cell format.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -629,12 +646,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L159-L171" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::setCellRowFormat()" tabindex="-1" class="structure-title ">
                         setCellRowFormat						<small>($cellRowFormat)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets row cell format.</p></div>
+						<div class="description"><p>Sets row cell format.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -673,12 +691,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L173-L181" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::getCellRowFormat()" tabindex="-1" class="structure-title ">
                         getCellRowFormat						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets row cell format.</p></div>
+						<div class="description"><p>Gets row cell format.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -712,12 +731,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L183-L195" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::setCellRowContentFormat()" tabindex="-1" class="structure-title ">
                         setCellRowContentFormat						<small>($cellRowContentFormat)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets row cell content format.</p></div>
+						<div class="description"><p>Sets row cell content format.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -756,12 +776,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L197-L205" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::getCellRowContentFormat()" tabindex="-1" class="structure-title ">
                         getCellRowContentFormat						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets row cell content format.</p></div>
+						<div class="description"><p>Gets row cell content format.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -795,12 +816,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L207-L219" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::setBorderFormat()" tabindex="-1" class="structure-title ">
                         setBorderFormat						<small>($borderFormat)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets table border format.</p></div>
+						<div class="description"><p>Sets table border format.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -839,12 +861,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L221-L229" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::getBorderFormat()" tabindex="-1" class="structure-title ">
                         getBorderFormat						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets table border format.</p></div>
+						<div class="description"><p>Gets table border format.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -878,19 +901,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L231-L247" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::setPadType()" tabindex="-1" class="structure-title ">
                         setPadType						<small>($padType)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets cell padding type.</p></div>
+						<div class="description"><p>Sets cell padding type.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$padType</td>
-				<td class="desc"><p>STR<em>PAD</em>*</p></td>
+				<td class="desc"><p>STR<em>PAD</em>*</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -922,12 +947,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/TableStyle.php#L249-L257" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\TableStyle::getPadType()" tabindex="-1" class="structure-title ">
                         getPadType						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets cell padding type.</p></div>
+						<div class="description"><p>Gets cell padding type.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

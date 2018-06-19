@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -38,11 +38,17 @@
 <h1 class="ellipsis">
 	Structure
 	<small class="ellipsis-text">(NS\NSS\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">NS\NSS\</span></h2>
 	<div class="inner-item">
-		<div class="description"><p>サンプルドキュメント生成用の叩き台です（ネスト）</p></div>
+		<div class="description"><p>サンプルドキュメント生成用の叩き台です（ネスト）</p>
+</div>
 	</div>
 
     
@@ -55,13 +61,14 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L499-L505" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L502-L508" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="NS\NSS\C" tabindex="-1" class="structure-title ">
 							<a href="NS-NSS-C$typespace.html#NS\NSS\C">C</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>これはネストされた名前空間用です。実質的な意味はありません</p></div>
+							<div class="description"><p>これはネストされた名前空間用です。実質的な意味はありません</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -80,13 +87,14 @@
 						<span class="label label-default"></span>
 						<span class="label label-default"></span>
 						<span class="label label-deprecated"></span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L494-L497" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L497-L500" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
 					<h4 id="NS\NSS\fff()" tabindex="-1" class="structure-title ">
                         fff						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>これはネストされた名前空間用です。実質的な意味はありません</p></div>
+						<div class="description"><p>これはネストされた名前空間用です。実質的な意味はありません</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

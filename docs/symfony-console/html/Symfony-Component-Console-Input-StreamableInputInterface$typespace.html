@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Input\StreamableInputInterface)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,12 +54,13 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/StreamableInputInterface.php#L14-L37" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>interface <span class="category-name">Symfony\Component\Console\Input\StreamableInputInterface</span></h2>
 
 	<div class="description"><p>StreamableInputInterface is the interface implemented by all input classes<br />
-that have an input stream.</p></div>
+that have an input stream.</p>
+</div>
 
 	<h3>Construction</h3>
         	<table class="table">
@@ -116,20 +122,22 @@ that have an input stream.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/StreamableInputInterface.php#L22-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::setStream()" tabindex="-1" class="structure-title ">
                         setStream						<small>($stream)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets the input stream to read from when interacting with the user.</p>
-<p>This is mainly useful for testing purpose.</p></div>
+<p>This is mainly useful for testing purpose.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">resource</td>
 				<td class="rest">$stream</td>
-				<td class="desc"><p>The input stream</p></td>
+				<td class="desc"><p>The input stream</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -161,12 +169,13 @@ that have an input stream.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/StreamableInputInterface.php#L31-L36" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::getStream()" tabindex="-1" class="structure-title ">
                         getStream						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the input stream.</p></div>
+						<div class="description"><p>Returns the input stream.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -200,12 +209,13 @@ that have an input stream.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L24-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::getFirstArgument()" tabindex="-1" class="structure-title ">
                         getFirstArgument						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the first argument from the raw parameters (not parsed).</p></div>
+						<div class="description"><p>Returns the first argument from the raw parameters (not parsed).</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -216,7 +226,8 @@ that have an input stream.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>null</td>
-			<td class="desc"><p>The value of the first argument or null otherwise</p></td>
+			<td class="desc"><p>The value of the first argument or null otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -249,7 +260,7 @@ that have an input stream.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L31-L44" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::hasParameterOption()" tabindex="-1" class="structure-title ">
                         hasParameterOption						<small>($values, $onlyParams = false)</small>
 					</h4>
@@ -258,19 +269,22 @@ that have an input stream.</p></div>
 <p>This method is to be used to introspect the input parameters<br />
 before they have been validated. It must be used carefully.<br />
 Does not necessarily return the correct result for short options<br />
-when multiple flags are combined in the same option.</p></div>
+when multiple flags are combined in the same option.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$values</td>
-				<td class="desc"><p>The values to look for in the raw parameters (can be an array)</p></td>
+				<td class="desc"><p>The values to look for in the raw parameters (can be an array)</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$onlyParams = false</td>
-				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p></td>
+				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -279,7 +293,8 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the value is contained in the raw parameters</p></td>
+			<td class="desc"><p>true if the value is contained in the raw parameters</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -312,7 +327,7 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L46-L60" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::getParameterOption()" tabindex="-1" class="structure-title ">
                         getParameterOption						<small>($values, $default = false, $onlyParams = false)</small>
 					</h4>
@@ -321,24 +336,28 @@ when multiple flags are combined in the same option.</p></div>
 <p>This method is to be used to introspect the input parameters<br />
 before they have been validated. It must be used carefully.<br />
 Does not necessarily return the correct result for short options<br />
-when multiple flags are combined in the same option.</p></div>
+when multiple flags are combined in the same option.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$values</td>
-				<td class="desc"><p>The value(s) to look for in the raw parameters (can be an array)</p></td>
+				<td class="desc"><p>The value(s) to look for in the raw parameters (can be an array)</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = false</td>
-				<td class="desc"><p>The default value to return if no result is found</p></td>
+				<td class="desc"><p>The default value to return if no result is found</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$onlyParams = false</td>
-				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p></td>
+				<td class="desc"><p>Only check real parameters, skip those following an end of options (--) signal</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -347,7 +366,8 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The option value</p></td>
+			<td class="desc"><p>The option value</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -380,12 +400,13 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L62-L65" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::bind()" tabindex="-1" class="structure-title ">
                         bind						<small>($definition)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Binds the current Input instance with the given arguments and options.</p></div>
+						<div class="description"><p>Binds the current Input instance with the given arguments and options.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -434,12 +455,13 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L67-L72" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::validate()" tabindex="-1" class="structure-title ">
                         validate						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Validates the input.</p></div>
+						<div class="description"><p>Validates the input.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -492,12 +514,13 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L74-L79" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::getArguments()" tabindex="-1" class="structure-title ">
                         getArguments						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns all the given arguments merged with the default values.</p></div>
+						<div class="description"><p>Returns all the given arguments merged with the default values.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -541,19 +564,21 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L81-L90" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::getArgument()" tabindex="-1" class="structure-title ">
                         getArgument						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the argument value for a given argument name.</p></div>
+						<div class="description"><p>Returns the argument value for a given argument name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The argument name</p></td>
+				<td class="desc"><p>The argument name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -562,7 +587,8 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The argument value</p></td>
+			<td class="desc"><p>The argument value</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -604,24 +630,27 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L92-L100" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::setArgument()" tabindex="-1" class="structure-title ">
                         setArgument						<small>($name, $value)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets an argument value by name.</p></div>
+						<div class="description"><p>Sets an argument value by name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The argument name</p></td>
+				<td class="desc"><p>The argument name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$value</td>
-				<td class="desc"><p>The argument value</p></td>
+				<td class="desc"><p>The argument value</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -672,19 +701,21 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L102-L109" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::hasArgument()" tabindex="-1" class="structure-title ">
                         hasArgument						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if an InputArgument object exists by name or position.</p></div>
+						<div class="description"><p>Returns true if an InputArgument object exists by name or position.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>int</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The InputArgument name or position</p></td>
+				<td class="desc"><p>The InputArgument name or position</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -693,7 +724,8 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the InputArgument object exists, false otherwise</p></td>
+			<td class="desc"><p>true if the InputArgument object exists, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -726,12 +758,13 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L111-L116" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::getOptions()" tabindex="-1" class="structure-title ">
                         getOptions						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns all the given options merged with the default values.</p></div>
+						<div class="description"><p>Returns all the given options merged with the default values.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -775,19 +808,21 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L118-L127" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::getOption()" tabindex="-1" class="structure-title ">
                         getOption						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the option value for a given option name.</p></div>
+						<div class="description"><p>Returns the option value for a given option name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The option name</p></td>
+				<td class="desc"><p>The option name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -796,7 +831,8 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The option value</p></td>
+			<td class="desc"><p>The option value</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -838,24 +874,27 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L129-L137" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::setOption()" tabindex="-1" class="structure-title ">
                         setOption						<small>($name, $value)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets an option value by name.</p></div>
+						<div class="description"><p>Sets an option value by name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The option name</p></td>
+				<td class="desc"><p>The option name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>bool</td>
 				<td class="rest">$value</td>
-				<td class="desc"><p>The option value</p></td>
+				<td class="desc"><p>The option value</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -906,19 +945,21 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L139-L146" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::hasOption()" tabindex="-1" class="structure-title ">
                         hasOption						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if an InputOption object exists by name.</p></div>
+						<div class="description"><p>Returns true if an InputOption object exists by name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The InputOption name</p></td>
+				<td class="desc"><p>The InputOption name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -927,7 +968,8 @@ when multiple flags are combined in the same option.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the InputOption object exists, false otherwise</p></td>
+			<td class="desc"><p>true if the InputOption object exists, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -960,12 +1002,13 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L148-L153" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::isInteractive()" tabindex="-1" class="structure-title ">
                         isInteractive						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Is this input means interactive?</p></div>
+						<div class="description"><p>Is this input means interactive?</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1009,19 +1052,21 @@ when multiple flags are combined in the same option.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputInterface.php#L155-L160" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\StreamableInputInterface::setInteractive()" tabindex="-1" class="structure-title ">
                         setInteractive						<small>($interactive)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the input interactivity.</p></div>
+						<div class="description"><p>Sets the input interactivity.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$interactive</td>
-				<td class="desc"><p>If the input should be interactive</p></td>
+				<td class="desc"><p>If the input should be interactive</p>
+</td>
 			</tr>
         		</tbody>
 	</table>

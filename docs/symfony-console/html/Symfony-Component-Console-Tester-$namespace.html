@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -38,6 +38,11 @@
 <h1 class="ellipsis">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Tester\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">Symfony\Component\Console\Tester\</span></h2>
@@ -64,7 +69,9 @@
 							<div class="description"><p>Eases the testing of console applications.</p>
 <p>When testing an application, don't forget to disable the auto exit flag:</p>
 <pre><code>$application = new Application();
-$application-&gt;setAutoExit(false);</code></pre></div>
+$application-&gt;setAutoExit(false);
+</code></pre>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -85,7 +92,8 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 							<a href="Symfony-Component-Console-Tester-CommandTester$typespace.html#Symfony\Component\Console\Tester\CommandTester">CommandTester</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Eases the testing of console commands.</p></div>
+							<div class="description"><p>Eases the testing of console commands.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>

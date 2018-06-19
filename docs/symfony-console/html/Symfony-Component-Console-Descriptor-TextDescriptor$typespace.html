@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Descriptor\TextDescriptor)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L22-L342" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Descriptor\TextDescriptor</span></h2>
 
-	<div class="description"><p>Text descriptor.</p></div>
+	<div class="description"><p>Text descriptor.</p>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -104,7 +110,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/Descriptor.php#L29-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::$output" tabindex="-1" class="structure-title">
 						<small><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></small>
 						$output						<var> = null</var>
@@ -138,12 +144,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L31-L52" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::describeInputArgument()" tabindex="-1" class="structure-title ">
                         describeInputArgument						<small>($argument, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an InputArgument instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an InputArgument instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -197,12 +204,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L54-L90" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::describeInputOption()" tabindex="-1" class="structure-title ">
                         describeInputOption						<small>($option, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an InputOption instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an InputOption instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -256,12 +264,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L92-L132" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::describeInputDefinition()" tabindex="-1" class="structure-title ">
                         describeInputDefinition						<small>($definition, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an InputDefinition instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an InputDefinition instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -315,12 +324,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L134-L164" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::describeCommand()" tabindex="-1" class="structure-title ">
                         describeCommand						<small>($command, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes a Command instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes a Command instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -374,12 +384,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L166-L240" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::describeApplication()" tabindex="-1" class="structure-title ">
                         describeApplication						<small>($application, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an Application instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an Application instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -433,12 +444,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L242-L251" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::writeText()" tabindex="-1" class="structure-title ">
                         writeText						<small>($content, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -482,12 +494,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L253-L268" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::getCommandAliasesText()" tabindex="-1" class="structure-title ">
                         getCommandAliasesText						<small>($command)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Formats command aliases to show them in the command description.</p></div>
+						<div class="description"><p>Formats command aliases to show them in the command description.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -526,12 +539,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L270-L294" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::formatDefaultValue()" tabindex="-1" class="structure-title ">
                         formatDefaultValue						<small>($default)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Formats input option/argument default value.</p></div>
+						<div class="description"><p>Formats input option/argument default value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -570,7 +584,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L296-L317" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::getColumnWidth()" tabindex="-1" class="structure-title ">
                         getColumnWidth						<small>($commands)</small>
 					</h4>
@@ -614,7 +628,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/TextDescriptor.php#L319-L341" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::calculateTotalWidthForOptions()" tabindex="-1" class="structure-title ">
                         calculateTotalWidthForOptions						<small>($options)</small>
 					</h4>
@@ -658,12 +672,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/Descriptor.php#L34-L60" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::describe()" tabindex="-1" class="structure-title ">
                         describe						<small>($output, $object, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an object if supported.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an object if supported.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -722,12 +737,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/Descriptor.php#L62-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\TextDescriptor::write()" tabindex="-1" class="structure-title ">
                         write						<small>($content, $decorated = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes content to output.</p></div>
+						<div class="description"><p>Writes content to output.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

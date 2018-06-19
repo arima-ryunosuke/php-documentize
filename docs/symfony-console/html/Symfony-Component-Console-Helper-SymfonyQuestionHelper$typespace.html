@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Helper\SymfonyQuestionHelper)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/SymfonyQuestionHelper.php#L23-L124" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Helper\SymfonyQuestionHelper</span></h2>
 
-	<div class="description"><p>Symfony Style Guide compliant question helper.</p></div>
+	<div class="description"><p>Symfony Style Guide compliant question helper.</p>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -117,7 +123,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::$helperSet" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$helperSet						<var> = null</var>
@@ -151,13 +157,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/SymfonyQuestionHelper.php#L30-L54" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::ask()" tabindex="-1" class="structure-title ">
                         ask						<small>($input, $output, $question)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Asks a question to the user.</tag_inheritdoc>
-<p>To be removed in 4.0</p></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Asks a question to the user.</tag_inheritdoc></p>
+<p>To be removed in 4.0</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -183,7 +190,8 @@
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The user answer</p></td>
+			<td class="desc"><p>The user answer</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -225,12 +233,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/SymfonyQuestionHelper.php#L56-L108" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::writePrompt()" tabindex="-1" class="structure-title ">
                         writePrompt						<small>($output, $question)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Outputs the question prompt.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Outputs the question prompt.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -284,12 +293,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/SymfonyQuestionHelper.php#L110-L123" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::writeError()" tabindex="-1" class="structure-title ">
                         writeError						<small>($output, $error)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Outputs an error message.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Outputs an error message.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -343,20 +353,22 @@
 						<span class="label label-deprecated">deprecated </span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L74-L95" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::setInputStream()" tabindex="-1" class="structure-title strike">
                         setInputStream						<small>($stream)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets the input stream to read from when interacting with the user.</p>
-<p>This is mainly useful for testing purpose.</p></div>
+<p>This is mainly useful for testing purpose.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">resource</td>
 				<td class="rest">$stream</td>
-				<td class="desc"><p>The input stream</p></td>
+				<td class="desc"><p>The input stream</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -407,12 +419,13 @@
 						<span class="label label-deprecated">deprecated </span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L97-L112" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::getInputStream()" tabindex="-1" class="structure-title strike">
                         getInputStream						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the helper's input stream.</p></div>
+						<div class="description"><p>Returns the helper's input stream.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -456,12 +469,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L114-L120" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::getName()" tabindex="-1" class="structure-title ">
                         getName						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns the canonical name of this helper.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the canonical name of this helper.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -472,7 +486,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The canonical name</p></td>
+			<td class="desc"><p>The canonical name</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -505,12 +520,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L122-L128" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::disableStty()" tabindex="-1" class="structure-title ">
                         disableStty						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Prevents usage of stty.</p></div>
+						<div class="description"><p>Prevents usage of stty.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -554,12 +570,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L130-L174" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::doAsk()" tabindex="-1" class="structure-title ">
                         doAsk						<small>($output, $question)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Asks the question to the user.</p></div>
+						<div class="description"><p>Asks the question to the user.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -622,12 +639,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L214-L331" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::autocomplete()" tabindex="-1" class="structure-title ">
                         autocomplete						<small>($output, $question, $inputStream, $autocomplete)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Autocompletes a question.</p></div>
+						<div class="description"><p>Autocompletes a question.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -691,24 +709,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L333-L392" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::getHiddenResponse()" tabindex="-1" class="structure-title ">
                         getHiddenResponse						<small>($output, $inputStream)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets a hidden response from user.</p></div>
+						<div class="description"><p>Gets a hidden response from user.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
 				<td class="rest">$output</td>
-				<td class="desc"><p>An Output instance</p></td>
+				<td class="desc"><p>An Output instance</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">resource</td>
 				<td class="rest">$inputStream</td>
-				<td class="desc"><p>The handler resource</p></td>
+				<td class="desc"><p>The handler resource</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -717,7 +738,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The answer</p></td>
+			<td class="desc"><p>The answer</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -759,29 +781,33 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L394-L423" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::validateAttempts()" tabindex="-1" class="structure-title ">
                         validateAttempts						<small>($interviewer, $output, $question)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Validates an attempt.</p></div>
+						<div class="description"><p>Validates an attempt.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">callable</td>
 				<td class="rest">$interviewer</td>
-				<td class="desc"><p>A callable that will ask for a question and return the result</p></td>
+				<td class="desc"><p>A callable that will ask for a question and return the result</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
 				<td class="rest">$output</td>
-				<td class="desc"><p>An Output instance</p></td>
+				<td class="desc"><p>An Output instance</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></td>
 				<td class="rest">$question</td>
-				<td class="desc"><p>A Question instance</p></td>
+				<td class="desc"><p>A Question instance</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -790,7 +816,8 @@
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The validated response</p></td>
+			<td class="desc"><p>The validated response</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -832,12 +859,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L425-L450" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::getShell()" tabindex="-1" class="structure-title ">
                         getShell						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns a valid unix shell.</p></div>
+						<div class="description"><p>Returns a valid unix shell.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -848,7 +876,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string<span class="type-separator"></span><wbr>bool</td>
-			<td class="desc"><p>The valid shell name, false in case no valid shell is found</p></td>
+			<td class="desc"><p>The valid shell name, false in case no valid shell is found</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -881,12 +910,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/QuestionHelper.php#L452-L466" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::hasSttyAvailable()" tabindex="-1" class="structure-title ">
                         hasSttyAvailable						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether Stty is available or not.</p></div>
+						<div class="description"><p>Returns whether Stty is available or not.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -930,12 +960,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L25-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::setHelperSet()" tabindex="-1" class="structure-title ">
                         setHelperSet						<small>($helperSet = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the helper set associated with this helper.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the helper set associated with this helper.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -984,12 +1015,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L33-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::getHelperSet()" tabindex="-1" class="structure-title ">
                         getHelperSet						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the helper set associated with this helper.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the helper set associated with this helper.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1000,7 +1032,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></td>
-			<td class="desc"><p>A HelperSet instance</p></td>
+			<td class="desc"><p>A HelperSet instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1033,19 +1066,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L41-L55" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::strlen()" tabindex="-1" class="structure-title ">
                         strlen						<small>($string)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the length of a string, using mb_strwidth if it is available.</p></div>
+						<div class="description"><p>Returns the length of a string, using mb_strwidth if it is available.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$string</td>
-				<td class="desc"><p>The string to check its length</p></td>
+				<td class="desc"><p>The string to check its length</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1054,7 +1089,8 @@
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The length of the string</p></td>
+			<td class="desc"><p>The length of the string</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1087,29 +1123,33 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L57-L73" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::substr()" tabindex="-1" class="structure-title ">
                         substr						<small>($string, $from, $length = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the subset of a string, using mb_substr if it is available.</p></div>
+						<div class="description"><p>Returns the subset of a string, using mb_substr if it is available.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$string</td>
-				<td class="desc"><p>String to subset</p></td>
+				<td class="desc"><p>String to subset</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$from</td>
-				<td class="desc"><p>Start offset</p></td>
+				<td class="desc"><p>Start offset</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$length = null</td>
-				<td class="desc"><p>Length to read</p></td>
+				<td class="desc"><p>Length to read</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1118,7 +1158,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The string subset</p></td>
+			<td class="desc"><p>The string subset</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1151,7 +1192,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L75-L102" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::formatTime()" tabindex="-1" class="structure-title ">
                         formatTime						<small>($secs)</small>
 					</h4>
@@ -1205,7 +1246,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L104-L119" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::formatMemory()" tabindex="-1" class="structure-title ">
                         formatMemory						<small>($memory)</small>
 					</h4>
@@ -1259,7 +1300,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L121-L124" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::strlenWithoutDecoration()" tabindex="-1" class="structure-title ">
                         strlenWithoutDecoration						<small>($formatter, $string)</small>
 					</h4>
@@ -1318,7 +1359,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Helper.php#L126-L137" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\SymfonyQuestionHelper::removeDecoration()" tabindex="-1" class="structure-title ">
                         removeDecoration						<small>($formatter, $string)</small>
 					</h4>

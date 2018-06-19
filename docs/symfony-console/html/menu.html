@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -37,6 +37,7 @@
 <h1>
 	Namespace
 	<input type="search" id="search" class="form-control" autocomplete="off" placeholder="search">
+	<a href="fqsens.html" class="all-fqsen" target="main">all</a>
 </h1>
 <div class="main-wrapper">
     	<ul class="namespaces">
@@ -72,7 +73,7 @@
                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-trait">T</span>
-							<a id="Symfony\Component\Console\Command\LockableTrait" href="Symfony-Component-Console-Command-LockableTrait$typespace.html#Symfony\Component\Console\Command\LockableTrait" class="" target="main">LockableTrait</a>
+							<a id="Symfony\Component\Console\Command\LockableTrait" href="Symfony-Component-Console-Command-LockableTrait$typespace.html#Symfony\Component\Console\Command\LockableTrait" class="bold " target="main">LockableTrait</a>
 							<small class="ellipsis-text">Basic lock feature for commands.</small>
 						</div>
 						<!-- for lazy load -->
@@ -105,7 +106,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Command\Command" href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="" target="main">Command</a>
+							<a id="Symfony\Component\Console\Command\Command" href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="bold " target="main">Command</a>
 							<small class="ellipsis-text">Base class for all commands.</small>
 						</div>
 						<!-- for lazy load -->
@@ -538,7 +539,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Command\HelpCommand" href="Symfony-Component-Console-Command-HelpCommand$typespace.html#Symfony\Component\Console\Command\HelpCommand" class="" target="main">HelpCommand</a>
+							<a id="Symfony\Component\Console\Command\HelpCommand" href="Symfony-Component-Console-Command-HelpCommand$typespace.html#Symfony\Component\Console\Command\HelpCommand" class="bold " target="main">HelpCommand</a>
 							<small class="ellipsis-text">HelpCommand displays the help for a given command.</small>
 						</div>
 						<!-- for lazy load -->
@@ -867,7 +868,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Command\ListCommand" href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="" target="main">ListCommand</a>
+							<a id="Symfony\Component\Console\Command\ListCommand" href="Symfony-Component-Console-Command-ListCommand$typespace.html#Symfony\Component\Console\Command\ListCommand" class="bold " target="main">ListCommand</a>
 							<small class="ellipsis-text">ListCommand displays the list of all available commands for the application.</small>
 						</div>
 						<!-- for lazy load -->
@@ -1197,7 +1198,7 @@
                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\CommandLoader\CommandLoaderInterface" href="Symfony-Component-Console-CommandLoader-CommandLoaderInterface$typespace.html#Symfony\Component\Console\CommandLoader\CommandLoaderInterface" class="" target="main">CommandLoaderInterface</a>
+							<a id="Symfony\Component\Console\CommandLoader\CommandLoaderInterface" href="Symfony-Component-Console-CommandLoader-CommandLoaderInterface$typespace.html#Symfony\Component\Console\CommandLoader\CommandLoaderInterface" class="bold " target="main">CommandLoaderInterface</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -1230,7 +1231,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" href="Symfony-Component-Console-CommandLoader-ContainerCommandLoader$typespace.html#Symfony\Component\Console\CommandLoader\ContainerCommandLoader" class="" target="main">ContainerCommandLoader</a>
+							<a id="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" href="Symfony-Component-Console-CommandLoader-ContainerCommandLoader$typespace.html#Symfony\Component\Console\CommandLoader\ContainerCommandLoader" class="bold " target="main">ContainerCommandLoader</a>
 							<small class="ellipsis-text">Loads commands from a PSR-11 container.</small>
 						</div>
 						<!-- for lazy load -->
@@ -1287,7 +1288,7 @@
                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\CommandLoader\FactoryCommandLoader" href="Symfony-Component-Console-CommandLoader-FactoryCommandLoader$typespace.html#Symfony\Component\Console\CommandLoader\FactoryCommandLoader" class="" target="main">FactoryCommandLoader</a>
+							<a id="Symfony\Component\Console\CommandLoader\FactoryCommandLoader" href="Symfony-Component-Console-CommandLoader-FactoryCommandLoader$typespace.html#Symfony\Component\Console\CommandLoader\FactoryCommandLoader" class="bold " target="main">FactoryCommandLoader</a>
 							<small class="ellipsis-text">A simple command loader using factories to instantiate commands lazily.</small>
 						</div>
 						<!-- for lazy load -->
@@ -1345,7 +1346,7 @@
                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass" href="Symfony-Component-Console-DependencyInjection-AddConsoleCommandPass$typespace.html#Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass" class="" target="main">AddConsoleCommandPass</a>
+							<a id="Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass" href="Symfony-Component-Console-DependencyInjection-AddConsoleCommandPass$typespace.html#Symfony\Component\Console\DependencyInjection\AddConsoleCommandPass" class="bold " target="main">AddConsoleCommandPass</a>
 							<small class="ellipsis-text">Registers console commands.</small>
 						</div>
 						<!-- for lazy load -->
@@ -1395,7 +1396,7 @@
                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Descriptor\DescriptorInterface" href="Symfony-Component-Console-Descriptor-DescriptorInterface$typespace.html#Symfony\Component\Console\Descriptor\DescriptorInterface" class="" target="main">DescriptorInterface</a>
+							<a id="Symfony\Component\Console\Descriptor\DescriptorInterface" href="Symfony-Component-Console-Descriptor-DescriptorInterface$typespace.html#Symfony\Component\Console\Descriptor\DescriptorInterface" class="bold " target="main">DescriptorInterface</a>
 							<small class="ellipsis-text">Descriptor interface.</small>
 						</div>
 						<!-- for lazy load -->
@@ -1412,7 +1413,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Descriptor\ApplicationDescription" href="Symfony-Component-Console-Descriptor-ApplicationDescription$typespace.html#Symfony\Component\Console\Descriptor\ApplicationDescription" class="strike" target="main">ApplicationDescription</a>
+							<a id="Symfony\Component\Console\Descriptor\ApplicationDescription" href="Symfony-Component-Console-Descriptor-ApplicationDescription$typespace.html#Symfony\Component\Console\Descriptor\ApplicationDescription" class="bold strike" target="main">ApplicationDescription</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -1525,7 +1526,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Descriptor\Descriptor" href="Symfony-Component-Console-Descriptor-Descriptor$typespace.html#Symfony\Component\Console\Descriptor\Descriptor" class="strike" target="main">Descriptor</a>
+							<a id="Symfony\Component\Console\Descriptor\Descriptor" href="Symfony-Component-Console-Descriptor-Descriptor$typespace.html#Symfony\Component\Console\Descriptor\Descriptor" class="bold strike" target="main">Descriptor</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -1598,7 +1599,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Descriptor\JsonDescriptor" href="Symfony-Component-Console-Descriptor-JsonDescriptor$typespace.html#Symfony\Component\Console\Descriptor\JsonDescriptor" class="strike" target="main">JsonDescriptor</a>
+							<a id="Symfony\Component\Console\Descriptor\JsonDescriptor" href="Symfony-Component-Console-Descriptor-JsonDescriptor$typespace.html#Symfony\Component\Console\Descriptor\JsonDescriptor" class="bold strike" target="main">JsonDescriptor</a>
 							<small class="ellipsis-text">JSON descriptor.</small>
 						</div>
 						<!-- for lazy load -->
@@ -1711,7 +1712,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Descriptor\MarkdownDescriptor" href="Symfony-Component-Console-Descriptor-MarkdownDescriptor$typespace.html#Symfony\Component\Console\Descriptor\MarkdownDescriptor" class="strike" target="main">MarkdownDescriptor</a>
+							<a id="Symfony\Component\Console\Descriptor\MarkdownDescriptor" href="Symfony-Component-Console-Descriptor-MarkdownDescriptor$typespace.html#Symfony\Component\Console\Descriptor\MarkdownDescriptor" class="bold strike" target="main">MarkdownDescriptor</a>
 							<small class="ellipsis-text">Markdown descriptor.</small>
 						</div>
 						<!-- for lazy load -->
@@ -1792,7 +1793,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Descriptor\TextDescriptor" href="Symfony-Component-Console-Descriptor-TextDescriptor$typespace.html#Symfony\Component\Console\Descriptor\TextDescriptor" class="strike" target="main">TextDescriptor</a>
+							<a id="Symfony\Component\Console\Descriptor\TextDescriptor" href="Symfony-Component-Console-Descriptor-TextDescriptor$typespace.html#Symfony\Component\Console\Descriptor\TextDescriptor" class="bold strike" target="main">TextDescriptor</a>
 							<small class="ellipsis-text">Text descriptor.</small>
 						</div>
 						<!-- for lazy load -->
@@ -1905,7 +1906,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Descriptor\XmlDescriptor" href="Symfony-Component-Console-Descriptor-XmlDescriptor$typespace.html#Symfony\Component\Console\Descriptor\XmlDescriptor" class="strike" target="main">XmlDescriptor</a>
+							<a id="Symfony\Component\Console\Descriptor\XmlDescriptor" href="Symfony-Component-Console-Descriptor-XmlDescriptor$typespace.html#Symfony\Component\Console\Descriptor\XmlDescriptor" class="bold strike" target="main">XmlDescriptor</a>
 							<small class="ellipsis-text">XML descriptor.</small>
 						</div>
 						<!-- for lazy load -->
@@ -2043,7 +2044,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Event\ConsoleEvent" href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent" class="" target="main">ConsoleEvent</a>
+							<a id="Symfony\Component\Console\Event\ConsoleEvent" href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent" class="bold " target="main">ConsoleEvent</a>
 							<small class="ellipsis-text">Allows to inspect input and output of a command.</small>
 						</div>
 						<!-- for lazy load -->
@@ -2124,7 +2125,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Event\ConsoleCommandEvent" href="Symfony-Component-Console-Event-ConsoleCommandEvent$typespace.html#Symfony\Component\Console\Event\ConsoleCommandEvent" class="" target="main">ConsoleCommandEvent</a>
+							<a id="Symfony\Component\Console\Event\ConsoleCommandEvent" href="Symfony-Component-Console-Event-ConsoleCommandEvent$typespace.html#Symfony\Component\Console\Event\ConsoleCommandEvent" class="bold " target="main">ConsoleCommandEvent</a>
 							<small class="ellipsis-text">Allows to do things before the command is executed, like skipping the command or changing the input.</small>
 						</div>
 						<!-- for lazy load -->
@@ -2229,7 +2230,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Event\ConsoleErrorEvent" href="Symfony-Component-Console-Event-ConsoleErrorEvent$typespace.html#Symfony\Component\Console\Event\ConsoleErrorEvent" class="" target="main">ConsoleErrorEvent</a>
+							<a id="Symfony\Component\Console\Event\ConsoleErrorEvent" href="Symfony-Component-Console-Event-ConsoleErrorEvent$typespace.html#Symfony\Component\Console\Event\ConsoleErrorEvent" class="bold " target="main">ConsoleErrorEvent</a>
 							<small class="ellipsis-text">Allows to handle throwables thrown while running a command.</small>
 						</div>
 						<!-- for lazy load -->
@@ -2342,7 +2343,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Event\ConsoleExceptionEvent" href="Symfony-Component-Console-Event-ConsoleExceptionEvent$typespace.html#Symfony\Component\Console\Event\ConsoleExceptionEvent" class="strike" target="main">ConsoleExceptionEvent</a>
+							<a id="Symfony\Component\Console\Event\ConsoleExceptionEvent" href="Symfony-Component-Console-Event-ConsoleExceptionEvent$typespace.html#Symfony\Component\Console\Event\ConsoleExceptionEvent" class="bold strike" target="main">ConsoleExceptionEvent</a>
 							<small class="ellipsis-text">Allows to handle exception thrown in a command.</small>
 						</div>
 						<!-- for lazy load -->
@@ -2447,7 +2448,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Event\ConsoleTerminateEvent" href="Symfony-Component-Console-Event-ConsoleTerminateEvent$typespace.html#Symfony\Component\Console\Event\ConsoleTerminateEvent" class="" target="main">ConsoleTerminateEvent</a>
+							<a id="Symfony\Component\Console\Event\ConsoleTerminateEvent" href="Symfony-Component-Console-Event-ConsoleTerminateEvent$typespace.html#Symfony\Component\Console\Event\ConsoleTerminateEvent" class="bold " target="main">ConsoleTerminateEvent</a>
 							<small class="ellipsis-text">Allows to manipulate the exit code of a command after its execution.</small>
 						</div>
 						<!-- for lazy load -->
@@ -2545,7 +2546,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\EventListener\ErrorListener" href="Symfony-Component-Console-EventListener-ErrorListener$typespace.html#Symfony\Component\Console\EventListener\ErrorListener" class="" target="main">ErrorListener</a>
+							<a id="Symfony\Component\Console\EventListener\ErrorListener" href="Symfony-Component-Console-EventListener-ErrorListener$typespace.html#Symfony\Component\Console\EventListener\ErrorListener" class="bold " target="main">ErrorListener</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -2611,7 +2612,7 @@
                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Exception\ExceptionInterface" href="Symfony-Component-Console-Exception-ExceptionInterface$typespace.html#Symfony\Component\Console\Exception\ExceptionInterface" class="" target="main">ExceptionInterface</a>
+							<a id="Symfony\Component\Console\Exception\ExceptionInterface" href="Symfony-Component-Console-Exception-ExceptionInterface$typespace.html#Symfony\Component\Console\Exception\ExceptionInterface" class="bold " target="main">ExceptionInterface</a>
 							<small class="ellipsis-text">ExceptionInterface.</small>
 						</div>
 						<!-- for lazy load -->
@@ -2620,7 +2621,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Exception\CommandNotFoundException" href="Symfony-Component-Console-Exception-CommandNotFoundException$typespace.html#Symfony\Component\Console\Exception\CommandNotFoundException" class="" target="main">CommandNotFoundException</a>
+							<a id="Symfony\Component\Console\Exception\CommandNotFoundException" href="Symfony-Component-Console-Exception-CommandNotFoundException$typespace.html#Symfony\Component\Console\Exception\CommandNotFoundException" class="bold " target="main">CommandNotFoundException</a>
 							<small class="ellipsis-text">Represents an incorrect command name typed in the console.</small>
 						</div>
 						<!-- for lazy load -->
@@ -2765,7 +2766,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Exception\InvalidArgumentException" href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="" target="main">InvalidArgumentException</a>
+							<a id="Symfony\Component\Console\Exception\InvalidArgumentException" href="Symfony-Component-Console-Exception-InvalidArgumentException$typespace.html#Symfony\Component\Console\Exception\InvalidArgumentException" class="bold " target="main">InvalidArgumentException</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -2894,7 +2895,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Exception\InvalidOptionException" href="Symfony-Component-Console-Exception-InvalidOptionException$typespace.html#Symfony\Component\Console\Exception\InvalidOptionException" class="" target="main">InvalidOptionException</a>
+							<a id="Symfony\Component\Console\Exception\InvalidOptionException" href="Symfony-Component-Console-Exception-InvalidOptionException$typespace.html#Symfony\Component\Console\Exception\InvalidOptionException" class="bold " target="main">InvalidOptionException</a>
 							<small class="ellipsis-text">Represents an incorrect option name typed in the console.</small>
 						</div>
 						<!-- for lazy load -->
@@ -3023,7 +3024,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Exception\LogicException" href="Symfony-Component-Console-Exception-LogicException$typespace.html#Symfony\Component\Console\Exception\LogicException" class="" target="main">LogicException</a>
+							<a id="Symfony\Component\Console\Exception\LogicException" href="Symfony-Component-Console-Exception-LogicException$typespace.html#Symfony\Component\Console\Exception\LogicException" class="bold " target="main">LogicException</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -3152,7 +3153,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Exception\RuntimeException" href="Symfony-Component-Console-Exception-RuntimeException$typespace.html#Symfony\Component\Console\Exception\RuntimeException" class="" target="main">RuntimeException</a>
+							<a id="Symfony\Component\Console\Exception\RuntimeException" href="Symfony-Component-Console-Exception-RuntimeException$typespace.html#Symfony\Component\Console\Exception\RuntimeException" class="bold " target="main">RuntimeException</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -3290,7 +3291,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Formatter\OutputFormatterInterface" href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="" target="main">OutputFormatterInterface</a>
+							<a id="Symfony\Component\Console\Formatter\OutputFormatterInterface" href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="bold " target="main">OutputFormatterInterface</a>
 							<small class="ellipsis-text">Formatter interface for console output.</small>
 						</div>
 						<!-- for lazy load -->
@@ -3347,7 +3348,7 @@
                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" href="Symfony-Component-Console-Formatter-OutputFormatterStyleInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" class="" target="main">OutputFormatterStyleInterface</a>
+							<a id="Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" href="Symfony-Component-Console-Formatter-OutputFormatterStyleInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" class="bold " target="main">OutputFormatterStyleInterface</a>
 							<small class="ellipsis-text">Formatter style interface for defining styles.</small>
 						</div>
 						<!-- for lazy load -->
@@ -3404,7 +3405,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Formatter\OutputFormatter" href="Symfony-Component-Console-Formatter-OutputFormatter$typespace.html#Symfony\Component\Console\Formatter\OutputFormatter" class="" target="main">OutputFormatter</a>
+							<a id="Symfony\Component\Console\Formatter\OutputFormatter" href="Symfony-Component-Console-Formatter-OutputFormatter$typespace.html#Symfony\Component\Console\Formatter\OutputFormatter" class="bold " target="main">OutputFormatter</a>
 							<small class="ellipsis-text">Formatter class for console output.</small>
 						</div>
 						<!-- for lazy load -->
@@ -3533,7 +3534,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Formatter\OutputFormatterStyle" href="Symfony-Component-Console-Formatter-OutputFormatterStyle$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyle" class="" target="main">OutputFormatterStyle</a>
+							<a id="Symfony\Component\Console\Formatter\OutputFormatterStyle" href="Symfony-Component-Console-Formatter-OutputFormatterStyle$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyle" class="bold " target="main">OutputFormatterStyle</a>
 							<small class="ellipsis-text">Formatter style class for defining styles.</small>
 						</div>
 						<!-- for lazy load -->
@@ -3646,7 +3647,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Formatter\OutputFormatterStyleStack" href="Symfony-Component-Console-Formatter-OutputFormatterStyleStack$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleStack" class="" target="main">OutputFormatterStyleStack</a>
+							<a id="Symfony\Component\Console\Formatter\OutputFormatterStyleStack" href="Symfony-Component-Console-Formatter-OutputFormatterStyleStack$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleStack" class="bold " target="main">OutputFormatterStyleStack</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -3736,7 +3737,7 @@
                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Helper\HelperInterface" href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface" class="" target="main">HelperInterface</a>
+							<a id="Symfony\Component\Console\Helper\HelperInterface" href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface" class="bold " target="main">HelperInterface</a>
 							<small class="ellipsis-text">HelperInterface is the interface all helpers must implement.</small>
 						</div>
 						<!-- for lazy load -->
@@ -3769,7 +3770,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\Helper" href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper" class="" target="main">Helper</a>
+							<a id="Symfony\Component\Console\Helper\Helper" href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper" class="bold " target="main">Helper</a>
 							<small class="ellipsis-text">Helper is the base class for all helper classes.</small>
 						</div>
 						<!-- for lazy load -->
@@ -3858,7 +3859,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\DebugFormatterHelper" href="Symfony-Component-Console-Helper-DebugFormatterHelper$typespace.html#Symfony\Component\Console\Helper\DebugFormatterHelper" class="" target="main">DebugFormatterHelper</a>
+							<a id="Symfony\Component\Console\Helper\DebugFormatterHelper" href="Symfony-Component-Console-Helper-DebugFormatterHelper$typespace.html#Symfony\Component\Console\Helper\DebugFormatterHelper" class="bold " target="main">DebugFormatterHelper</a>
 							<small class="ellipsis-text">Helps outputting debug information when running an external program from a command.</small>
 						</div>
 						<!-- for lazy load -->
@@ -4003,7 +4004,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\DescriptorHelper" href="Symfony-Component-Console-Helper-DescriptorHelper$typespace.html#Symfony\Component\Console\Helper\DescriptorHelper" class="" target="main">DescriptorHelper</a>
+							<a id="Symfony\Component\Console\Helper\DescriptorHelper" href="Symfony-Component-Console-Helper-DescriptorHelper$typespace.html#Symfony\Component\Console\Helper\DescriptorHelper" class="bold " target="main">DescriptorHelper</a>
 							<small class="ellipsis-text">This class adds helper method to describe objects in various formats.</small>
 						</div>
 						<!-- for lazy load -->
@@ -4124,7 +4125,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\FormatterHelper" href="Symfony-Component-Console-Helper-FormatterHelper$typespace.html#Symfony\Component\Console\Helper\FormatterHelper" class="" target="main">FormatterHelper</a>
+							<a id="Symfony\Component\Console\Helper\FormatterHelper" href="Symfony-Component-Console-Helper-FormatterHelper$typespace.html#Symfony\Component\Console\Helper\FormatterHelper" class="bold " target="main">FormatterHelper</a>
 							<small class="ellipsis-text">The Formatter class provides helpers to format messages.</small>
 						</div>
 						<!-- for lazy load -->
@@ -4237,7 +4238,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\HelperSet" href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="" target="main">HelperSet</a>
+							<a id="Symfony\Component\Console\Helper\HelperSet" href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="bold " target="main">HelperSet</a>
 							<small class="ellipsis-text">HelperSet represents a set of helpers to be used with a command.</small>
 						</div>
 						<!-- for lazy load -->
@@ -4318,7 +4319,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\InputAwareHelper" href="Symfony-Component-Console-Helper-InputAwareHelper$typespace.html#Symfony\Component\Console\Helper\InputAwareHelper" class="" target="main">InputAwareHelper</a>
+							<a id="Symfony\Component\Console\Helper\InputAwareHelper" href="Symfony-Component-Console-Helper-InputAwareHelper$typespace.html#Symfony\Component\Console\Helper\InputAwareHelper" class="bold " target="main">InputAwareHelper</a>
 							<small class="ellipsis-text">An implementation of InputAwareInterface for Helpers.</small>
 						</div>
 						<!-- for lazy load -->
@@ -4423,7 +4424,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\ProcessHelper" href="Symfony-Component-Console-Helper-ProcessHelper$typespace.html#Symfony\Component\Console\Helper\ProcessHelper" class="" target="main">ProcessHelper</a>
+							<a id="Symfony\Component\Console\Helper\ProcessHelper" href="Symfony-Component-Console-Helper-ProcessHelper$typespace.html#Symfony\Component\Console\Helper\ProcessHelper" class="bold " target="main">ProcessHelper</a>
 							<small class="ellipsis-text">The ProcessHelper class provides helpers to run external processes.</small>
 						</div>
 						<!-- for lazy load -->
@@ -4544,7 +4545,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\ProgressBar" href="Symfony-Component-Console-Helper-ProgressBar$typespace.html#Symfony\Component\Console\Helper\ProgressBar" class="" target="main">ProgressBar</a>
+							<a id="Symfony\Component\Console\Helper\ProgressBar" href="Symfony-Component-Console-Helper-ProgressBar$typespace.html#Symfony\Component\Console\Helper\ProgressBar" class="bold " target="main">ProgressBar</a>
 							<small class="ellipsis-text">The ProgressBar provides helpers to display progress output.</small>
 						</div>
 						<!-- for lazy load -->
@@ -5001,7 +5002,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\ProgressIndicator" href="Symfony-Component-Console-Helper-ProgressIndicator$typespace.html#Symfony\Component\Console\Helper\ProgressIndicator" class="" target="main">ProgressIndicator</a>
+							<a id="Symfony\Component\Console\Helper\ProgressIndicator" href="Symfony-Component-Console-Helper-ProgressIndicator$typespace.html#Symfony\Component\Console\Helper\ProgressIndicator" class="bold " target="main">ProgressIndicator</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -5210,7 +5211,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\QuestionHelper" href="Symfony-Component-Console-Helper-QuestionHelper$typespace.html#Symfony\Component\Console\Helper\QuestionHelper" class="" target="main">QuestionHelper</a>
+							<a id="Symfony\Component\Console\Helper\QuestionHelper" href="Symfony-Component-Console-Helper-QuestionHelper$typespace.html#Symfony\Component\Console\Helper\QuestionHelper" class="bold " target="main">QuestionHelper</a>
 							<small class="ellipsis-text">The QuestionHelper class provides helpers to interact with the user.</small>
 						</div>
 						<!-- for lazy load -->
@@ -5419,7 +5420,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\SymfonyQuestionHelper" href="Symfony-Component-Console-Helper-SymfonyQuestionHelper$typespace.html#Symfony\Component\Console\Helper\SymfonyQuestionHelper" class="" target="main">SymfonyQuestionHelper</a>
+							<a id="Symfony\Component\Console\Helper\SymfonyQuestionHelper" href="Symfony-Component-Console-Helper-SymfonyQuestionHelper$typespace.html#Symfony\Component\Console\Helper\SymfonyQuestionHelper" class="bold " target="main">SymfonyQuestionHelper</a>
 							<small class="ellipsis-text">Symfony Style Guide compliant question helper.</small>
 						</div>
 						<!-- for lazy load -->
@@ -5604,7 +5605,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\Table" href="Symfony-Component-Console-Helper-Table$typespace.html#Symfony\Component\Console\Helper\Table" class="" target="main">Table</a>
+							<a id="Symfony\Component\Console\Helper\Table" href="Symfony-Component-Console-Helper-Table$typespace.html#Symfony\Component\Console\Helper\Table" class="bold " target="main">Table</a>
 							<small class="ellipsis-text">Provides helpers to display a table.</small>
 						</div>
 						<!-- for lazy load -->
@@ -5941,7 +5942,7 @@
                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\TableCell" href="Symfony-Component-Console-Helper-TableCell$typespace.html#Symfony\Component\Console\Helper\TableCell" class="" target="main">TableCell</a>
+							<a id="Symfony\Component\Console\Helper\TableCell" href="Symfony-Component-Console-Helper-TableCell$typespace.html#Symfony\Component\Console\Helper\TableCell" class="bold " target="main">TableCell</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -5998,7 +5999,7 @@
                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\TableSeparator" href="Symfony-Component-Console-Helper-TableSeparator$typespace.html#Symfony\Component\Console\Helper\TableSeparator" class="" target="main">TableSeparator</a>
+							<a id="Symfony\Component\Console\Helper\TableSeparator" href="Symfony-Component-Console-Helper-TableSeparator$typespace.html#Symfony\Component\Console\Helper\TableSeparator" class="bold " target="main">TableSeparator</a>
 							<small class="ellipsis-text">Marks a row as being a separator.</small>
 						</div>
 						<!-- for lazy load -->
@@ -6039,7 +6040,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Helper\TableStyle" href="Symfony-Component-Console-Helper-TableStyle$typespace.html#Symfony\Component\Console\Helper\TableStyle" class="" target="main">TableStyle</a>
+							<a id="Symfony\Component\Console\Helper\TableStyle" href="Symfony-Component-Console-Helper-TableStyle$typespace.html#Symfony\Component\Console\Helper\TableStyle" class="bold " target="main">TableStyle</a>
 							<small class="ellipsis-text">Defines the styles for a Table.</small>
 						</div>
 						<!-- for lazy load -->
@@ -6273,7 +6274,7 @@
                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Input\InputAwareInterface" href="Symfony-Component-Console-Input-InputAwareInterface$typespace.html#Symfony\Component\Console\Input\InputAwareInterface" class="" target="main">InputAwareInterface</a>
+							<a id="Symfony\Component\Console\Input\InputAwareInterface" href="Symfony-Component-Console-Input-InputAwareInterface$typespace.html#Symfony\Component\Console\Input\InputAwareInterface" class="bold " target="main">InputAwareInterface</a>
 							<small class="ellipsis-text">InputAwareInterface should be implemented by classes that depends on the</small>
 						</div>
 						<!-- for lazy load -->
@@ -6290,7 +6291,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Input\InputInterface" href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="" target="main">InputInterface</a>
+							<a id="Symfony\Component\Console\Input\InputInterface" href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="bold " target="main">InputInterface</a>
 							<small class="ellipsis-text">InputInterface is the interface implemented by all input classes.</small>
 						</div>
 						<!-- for lazy load -->
@@ -6419,7 +6420,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Input\StreamableInputInterface" href="Symfony-Component-Console-Input-StreamableInputInterface$typespace.html#Symfony\Component\Console\Input\StreamableInputInterface" class="" target="main">StreamableInputInterface</a>
+							<a id="Symfony\Component\Console\Input\StreamableInputInterface" href="Symfony-Component-Console-Input-StreamableInputInterface$typespace.html#Symfony\Component\Console\Input\StreamableInputInterface" class="bold " target="main">StreamableInputInterface</a>
 							<small class="ellipsis-text">StreamableInputInterface is the interface implemented by all input classes</small>
 						</div>
 						<!-- for lazy load -->
@@ -6564,7 +6565,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Input\Input" href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input" class="" target="main">Input</a>
+							<a id="Symfony\Component\Console\Input\Input" href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input" class="bold " target="main">Input</a>
 							<small class="ellipsis-text">Input is the base class for all concrete Input classes.</small>
 						</div>
 						<!-- for lazy load -->
@@ -6773,7 +6774,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Input\ArgvInput" href="Symfony-Component-Console-Input-ArgvInput$typespace.html#Symfony\Component\Console\Input\ArgvInput" class="" target="main">ArgvInput</a>
+							<a id="Symfony\Component\Console\Input\ArgvInput" href="Symfony-Component-Console-Input-ArgvInput$typespace.html#Symfony\Component\Console\Input\ArgvInput" class="bold " target="main">ArgvInput</a>
 							<small class="ellipsis-text">ArgvInput represents an input coming from the CLI arguments.</small>
 						</div>
 						<!-- for lazy load -->
@@ -7062,7 +7063,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Input\ArrayInput" href="Symfony-Component-Console-Input-ArrayInput$typespace.html#Symfony\Component\Console\Input\ArrayInput" class="" target="main">ArrayInput</a>
+							<a id="Symfony\Component\Console\Input\ArrayInput" href="Symfony-Component-Console-Input-ArrayInput$typespace.html#Symfony\Component\Console\Input\ArrayInput" class="bold " target="main">ArrayInput</a>
 							<small class="ellipsis-text">ArrayInput represents an input provided as an array.</small>
 						</div>
 						<!-- for lazy load -->
@@ -7311,7 +7312,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Input\InputArgument" href="Symfony-Component-Console-Input-InputArgument$typespace.html#Symfony\Component\Console\Input\InputArgument" class="" target="main">InputArgument</a>
+							<a id="Symfony\Component\Console\Input\InputArgument" href="Symfony-Component-Console-Input-InputArgument$typespace.html#Symfony\Component\Console\Input\InputArgument" class="bold " target="main">InputArgument</a>
 							<small class="ellipsis-text">Represents a command line argument.</small>
 						</div>
 						<!-- for lazy load -->
@@ -7432,7 +7433,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Input\InputDefinition" href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="" target="main">InputDefinition</a>
+							<a id="Symfony\Component\Console\Input\InputDefinition" href="Symfony-Component-Console-Input-InputDefinition$typespace.html#Symfony\Component\Console\Input\InputDefinition" class="bold " target="main">InputDefinition</a>
 							<small class="ellipsis-text">A InputDefinition represents a set of valid command line arguments and options.</small>
 						</div>
 						<!-- for lazy load -->
@@ -7665,7 +7666,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Input\InputOption" href="Symfony-Component-Console-Input-InputOption$typespace.html#Symfony\Component\Console\Input\InputOption" class="" target="main">InputOption</a>
+							<a id="Symfony\Component\Console\Input\InputOption" href="Symfony-Component-Console-Input-InputOption$typespace.html#Symfony\Component\Console\Input\InputOption" class="bold " target="main">InputOption</a>
 							<small class="ellipsis-text">Represents a command line option.</small>
 						</div>
 						<!-- for lazy load -->
@@ -7834,7 +7835,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Input\StringInput" href="Symfony-Component-Console-Input-StringInput$typespace.html#Symfony\Component\Console\Input\StringInput" class="" target="main">StringInput</a>
+							<a id="Symfony\Component\Console\Input\StringInput" href="Symfony-Component-Console-Input-StringInput$typespace.html#Symfony\Component\Console\Input\StringInput" class="bold " target="main">StringInput</a>
 							<small class="ellipsis-text">StringInput represents an input provided as a string.</small>
 						</div>
 						<!-- for lazy load -->
@@ -8140,7 +8141,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Logger\ConsoleLogger" href="Symfony-Component-Console-Logger-ConsoleLogger$typespace.html#Symfony\Component\Console\Logger\ConsoleLogger" class="" target="main">ConsoleLogger</a>
+							<a id="Symfony\Component\Console\Logger\ConsoleLogger" href="Symfony-Component-Console-Logger-ConsoleLogger$typespace.html#Symfony\Component\Console\Logger\ConsoleLogger" class="bold " target="main">ConsoleLogger</a>
 							<small class="ellipsis-text">PSR-3 compliant console logger.</small>
 						</div>
 						<!-- for lazy load -->
@@ -8302,7 +8303,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Output\OutputInterface" href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="" target="main">OutputInterface</a>
+							<a id="Symfony\Component\Console\Output\OutputInterface" href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="bold " target="main">OutputInterface</a>
 							<small class="ellipsis-text">OutputInterface is the interface implemented by all Output classes.</small>
 						</div>
 						<!-- for lazy load -->
@@ -8471,7 +8472,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Output\ConsoleOutputInterface" href="Symfony-Component-Console-Output-ConsoleOutputInterface$typespace.html#Symfony\Component\Console\Output\ConsoleOutputInterface" class="" target="main">ConsoleOutputInterface</a>
+							<a id="Symfony\Component\Console\Output\ConsoleOutputInterface" href="Symfony-Component-Console-Output-ConsoleOutputInterface$typespace.html#Symfony\Component\Console\Output\ConsoleOutputInterface" class="bold " target="main">ConsoleOutputInterface</a>
 							<small class="ellipsis-text">ConsoleOutputInterface is the interface implemented by ConsoleOutput class.</small>
 						</div>
 						<!-- for lazy load -->
@@ -8656,7 +8657,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Output\Output" href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output" class="" target="main">Output</a>
+							<a id="Symfony\Component\Console\Output\Output" href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output" class="bold " target="main">Output</a>
 							<small class="ellipsis-text">Base class for output classes.</small>
 						</div>
 						<!-- for lazy load -->
@@ -8857,7 +8858,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Output\BufferedOutput" href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput" class="" target="main">BufferedOutput</a>
+							<a id="Symfony\Component\Console\Output\BufferedOutput" href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput" class="bold " target="main">BufferedOutput</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->
@@ -9058,7 +9059,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Output\StreamOutput" href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput" class="" target="main">StreamOutput</a>
+							<a id="Symfony\Component\Console\Output\StreamOutput" href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput" class="bold " target="main">StreamOutput</a>
 							<small class="ellipsis-text">StreamOutput writes the output to a given stream.</small>
 						</div>
 						<!-- for lazy load -->
@@ -9267,7 +9268,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Output\ConsoleOutput" href="Symfony-Component-Console-Output-ConsoleOutput$typespace.html#Symfony\Component\Console\Output\ConsoleOutput" class="" target="main">ConsoleOutput</a>
+							<a id="Symfony\Component\Console\Output\ConsoleOutput" href="Symfony-Component-Console-Output-ConsoleOutput$typespace.html#Symfony\Component\Console\Output\ConsoleOutput" class="bold " target="main">ConsoleOutput</a>
 							<small class="ellipsis-text">ConsoleOutput is the default class for all CLI output. It uses STDOUT and STDERR.</small>
 						</div>
 						<!-- for lazy load -->
@@ -9532,7 +9533,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Output\NullOutput" href="Symfony-Component-Console-Output-NullOutput$typespace.html#Symfony\Component\Console\Output\NullOutput" class="" target="main">NullOutput</a>
+							<a id="Symfony\Component\Console\Output\NullOutput" href="Symfony-Component-Console-Output-NullOutput$typespace.html#Symfony\Component\Console\Output\NullOutput" class="bold " target="main">NullOutput</a>
 							<small class="ellipsis-text">NullOutput suppresses all output.</small>
 						</div>
 						<!-- for lazy load -->
@@ -9710,7 +9711,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Question\Question" href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="" target="main">Question</a>
+							<a id="Symfony\Component\Console\Question\Question" href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="bold " target="main">Question</a>
 							<small class="ellipsis-text">Represents a Question.</small>
 						</div>
 						<!-- for lazy load -->
@@ -9911,7 +9912,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Question\ChoiceQuestion" href="Symfony-Component-Console-Question-ChoiceQuestion$typespace.html#Symfony\Component\Console\Question\ChoiceQuestion" class="" target="main">ChoiceQuestion</a>
+							<a id="Symfony\Component\Console\Question\ChoiceQuestion" href="Symfony-Component-Console-Question-ChoiceQuestion$typespace.html#Symfony\Component\Console\Question\ChoiceQuestion" class="bold " target="main">ChoiceQuestion</a>
 							<small class="ellipsis-text">Represents a choice question.</small>
 						</div>
 						<!-- for lazy load -->
@@ -10136,7 +10137,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Question\ConfirmationQuestion" href="Symfony-Component-Console-Question-ConfirmationQuestion$typespace.html#Symfony\Component\Console\Question\ConfirmationQuestion" class="" target="main">ConfirmationQuestion</a>
+							<a id="Symfony\Component\Console\Question\ConfirmationQuestion" href="Symfony-Component-Console-Question-ConfirmationQuestion$typespace.html#Symfony\Component\Console\Question\ConfirmationQuestion" class="bold " target="main">ConfirmationQuestion</a>
 							<small class="ellipsis-text">Represents a yes/no question.</small>
 						</div>
 						<!-- for lazy load -->
@@ -10298,7 +10299,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-interface">I</span>
-							<a id="Symfony\Component\Console\Style\StyleInterface" href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface" class="" target="main">StyleInterface</a>
+							<a id="Symfony\Component\Console\Style\StyleInterface" href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface" class="bold " target="main">StyleInterface</a>
 							<small class="ellipsis-text">Output style helpers.</small>
 						</div>
 						<!-- for lazy load -->
@@ -10451,7 +10452,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Style\OutputStyle" href="Symfony-Component-Console-Style-OutputStyle$typespace.html#Symfony\Component\Console\Style\OutputStyle" class="" target="main">OutputStyle</a>
+							<a id="Symfony\Component\Console\Style\OutputStyle" href="Symfony-Component-Console-Style-OutputStyle$typespace.html#Symfony\Component\Console\Style\OutputStyle" class="bold " target="main">OutputStyle</a>
 							<small class="ellipsis-text">Decorates output to add console style guide helpers.</small>
 						</div>
 						<!-- for lazy load -->
@@ -10796,7 +10797,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Style\SymfonyStyle" href="Symfony-Component-Console-Style-SymfonyStyle$typespace.html#Symfony\Component\Console\Style\SymfonyStyle" class="" target="main">SymfonyStyle</a>
+							<a id="Symfony\Component\Console\Style\SymfonyStyle" href="Symfony-Component-Console-Style-SymfonyStyle$typespace.html#Symfony\Component\Console\Style\SymfonyStyle" class="bold " target="main">SymfonyStyle</a>
 							<small class="ellipsis-text">Output decorator helpers for the Symfony Style Guide.</small>
 						</div>
 						<!-- for lazy load -->
@@ -11262,7 +11263,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Tester\ApplicationTester" href="Symfony-Component-Console-Tester-ApplicationTester$typespace.html#Symfony\Component\Console\Tester\ApplicationTester" class="" target="main">ApplicationTester</a>
+							<a id="Symfony\Component\Console\Tester\ApplicationTester" href="Symfony-Component-Console-Tester-ApplicationTester$typespace.html#Symfony\Component\Console\Tester\ApplicationTester" class="bold " target="main">ApplicationTester</a>
 							<small class="ellipsis-text">Eases the testing of console applications.</small>
 						</div>
 						<!-- for lazy load -->
@@ -11367,7 +11368,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Tester\CommandTester" href="Symfony-Component-Console-Tester-CommandTester$typespace.html#Symfony\Component\Console\Tester\CommandTester" class="" target="main">CommandTester</a>
+							<a id="Symfony\Component\Console\Tester\CommandTester" href="Symfony-Component-Console-Tester-CommandTester$typespace.html#Symfony\Component\Console\Tester\CommandTester" class="bold " target="main">CommandTester</a>
 							<small class="ellipsis-text">Eases the testing of console commands.</small>
 						</div>
 						<!-- for lazy load -->
@@ -11482,7 +11483,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Application" href="Symfony-Component-Console-Application$typespace.html#Symfony\Component\Console\Application" class="" target="main">Application</a>
+							<a id="Symfony\Component\Console\Application" href="Symfony-Component-Console-Application$typespace.html#Symfony\Component\Console\Application" class="bold " target="main">Application</a>
 							<small class="ellipsis-text">An Application is the container for a collection of commands.</small>
 						</div>
 						<!-- for lazy load -->
@@ -11995,7 +11996,7 @@
                                                                                                                                                                                                                                                                                 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\ConsoleEvents" href="Symfony-Component-Console-ConsoleEvents$typespace.html#Symfony\Component\Console\ConsoleEvents" class="" target="main">ConsoleEvents</a>
+							<a id="Symfony\Component\Console\ConsoleEvents" href="Symfony-Component-Console-ConsoleEvents$typespace.html#Symfony\Component\Console\ConsoleEvents" class="bold " target="main">ConsoleEvents</a>
 							<small class="ellipsis-text">Contains all events dispatched by an Application.</small>
 						</div>
 						<!-- for lazy load -->
@@ -12036,7 +12037,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                     					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-class">C</span>
-							<a id="Symfony\Component\Console\Terminal" href="Symfony-Component-Console-Terminal$typespace.html#Symfony\Component\Console\Terminal" class="" target="main">Terminal</a>
+							<a id="Symfony\Component\Console\Terminal" href="Symfony-Component-Console-Terminal$typespace.html#Symfony\Component\Console\Terminal" class="bold " target="main">Terminal</a>
 							<small class="ellipsis-text"></small>
 						</div>
 						<!-- for lazy load -->

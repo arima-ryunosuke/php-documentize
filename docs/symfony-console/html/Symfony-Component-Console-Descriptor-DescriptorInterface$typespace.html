@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Descriptor\DescriptorInterface)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/DescriptorInterface.php#L16-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>interface <span class="category-name">Symfony\Component\Console\Descriptor\DescriptorInterface</span></h2>
 
-	<div class="description"><p>Descriptor interface.</p></div>
+	<div class="description"><p>Descriptor interface.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -95,12 +101,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/DescriptorInterface.php#L23-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\DescriptorInterface::describe()" tabindex="-1" class="structure-title ">
                         describe						<small>($output, $object, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Describes an object if supported.</p></div>
+						<div class="description"><p>Describes an object if supported.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

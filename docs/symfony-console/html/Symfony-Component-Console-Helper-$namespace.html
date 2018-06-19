@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -38,6 +38,11 @@
 <h1 class="ellipsis">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Helper\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">Symfony\Component\Console\Helper\</span></h2>
@@ -61,7 +66,8 @@
 							<a href="Symfony-Component-Console-Helper-HelperInterface$typespace.html#Symfony\Component\Console\Helper\HelperInterface">HelperInterface</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>HelperInterface is the interface all helpers must implement.</p></div>
+							<div class="description"><p>HelperInterface is the interface all helpers must implement.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -85,7 +91,8 @@
 							<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper">Helper</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Helper is the base class for all helper classes.</p></div>
+							<div class="description"><p>Helper is the base class for all helper classes.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -107,7 +114,8 @@
 						</h4>
 						<div class="inner-item">
 							<div class="description"><p>Helps outputting debug information when running an external program from a command.</p>
-<p>An external program can be a Process, an HTTP request, or anything else.</p></div>
+<p>An external program can be a Process, an HTTP request, or anything else.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -128,7 +136,8 @@
 							<a href="Symfony-Component-Console-Helper-DescriptorHelper$typespace.html#Symfony\Component\Console\Helper\DescriptorHelper">DescriptorHelper</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>This class adds helper method to describe objects in various formats.</p></div>
+							<div class="description"><p>This class adds helper method to describe objects in various formats.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -149,7 +158,8 @@
 							<a href="Symfony-Component-Console-Helper-FormatterHelper$typespace.html#Symfony\Component\Console\Helper\FormatterHelper">FormatterHelper</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>The Formatter class provides helpers to format messages.</p></div>
+							<div class="description"><p>The Formatter class provides helpers to format messages.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -170,7 +180,8 @@
 							<a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet">HelperSet</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>HelperSet represents a set of helpers to be used with a command.</p></div>
+							<div class="description"><p>HelperSet represents a set of helpers to be used with a command.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -191,7 +202,8 @@
 							<a href="Symfony-Component-Console-Helper-InputAwareHelper$typespace.html#Symfony\Component\Console\Helper\InputAwareHelper">InputAwareHelper</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>An implementation of InputAwareInterface for Helpers.</p></div>
+							<div class="description"><p>An implementation of InputAwareInterface for Helpers.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -212,7 +224,8 @@
 							<a href="Symfony-Component-Console-Helper-ProcessHelper$typespace.html#Symfony\Component\Console\Helper\ProcessHelper">ProcessHelper</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>The ProcessHelper class provides helpers to run external processes.</p></div>
+							<div class="description"><p>The ProcessHelper class provides helpers to run external processes.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -233,7 +246,8 @@
 							<a href="Symfony-Component-Console-Helper-ProgressBar$typespace.html#Symfony\Component\Console\Helper\ProgressBar">ProgressBar</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>The ProgressBar provides helpers to display progress output.</p></div>
+							<div class="description"><p>The ProgressBar provides helpers to display progress output.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -275,7 +289,8 @@
 							<a href="Symfony-Component-Console-Helper-QuestionHelper$typespace.html#Symfony\Component\Console\Helper\QuestionHelper">QuestionHelper</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>The QuestionHelper class provides helpers to interact with the user.</p></div>
+							<div class="description"><p>The QuestionHelper class provides helpers to interact with the user.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -296,7 +311,8 @@
 							<a href="Symfony-Component-Console-Helper-SymfonyQuestionHelper$typespace.html#Symfony\Component\Console\Helper\SymfonyQuestionHelper">SymfonyQuestionHelper</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Symfony Style Guide compliant question helper.</p></div>
+							<div class="description"><p>Symfony Style Guide compliant question helper.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -317,7 +333,8 @@
 							<a href="Symfony-Component-Console-Helper-Table$typespace.html#Symfony\Component\Console\Helper\Table">Table</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Provides helpers to display a table.</p></div>
+							<div class="description"><p>Provides helpers to display a table.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -359,7 +376,8 @@
 							<a href="Symfony-Component-Console-Helper-TableSeparator$typespace.html#Symfony\Component\Console\Helper\TableSeparator">TableSeparator</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Marks a row as being a separator.</p></div>
+							<div class="description"><p>Marks a row as being a separator.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -380,7 +398,8 @@
 							<a href="Symfony-Component-Console-Helper-TableStyle$typespace.html#Symfony\Component\Console\Helper\TableStyle">TableStyle</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Defines the styles for a Table.</p></div>
+							<div class="description"><p>Defines the styles for a Table.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>

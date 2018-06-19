@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Helper\Table)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L17-L702" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Helper\Table</span></h2>
 
-	<div class="description"><p>Provides helpers to display a table.</p></div>
+	<div class="description"><p>Provides helpers to display a table.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -70,13 +76,14 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L27-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::$headers" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$headers						<var> = []</var>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Table headers.</p></div>
+						<div class="description"><p>Table headers.</p>
+</div>
                                                 					</div>
 				</li>
             				<li class="structure-item">
@@ -85,13 +92,14 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L32-L35" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::$rows" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$rows						<var> = []</var>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Table rows.</p></div>
+						<div class="description"><p>Table rows.</p>
+</div>
                                                 					</div>
 				</li>
             				<li class="structure-item">
@@ -100,13 +108,14 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L37-L40" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::$effectiveColumnWidths" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$effectiveColumnWidths						<var> = []</var>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Column widths cache.</p></div>
+						<div class="description"><p>Column widths cache.</p>
+</div>
                                                 					</div>
 				</li>
             				<li class="structure-item">
@@ -115,13 +124,14 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L42-L47" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::$numberOfColumns" tabindex="-1" class="structure-title">
 						<small>int</small>
 						$numberOfColumns						<var> = null</var>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Number of columns cache.</p></div>
+						<div class="description"><p>Number of columns cache.</p>
+</div>
                                                 					</div>
 				</li>
             				<li class="structure-item">
@@ -130,7 +140,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L49-L52" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::$output" tabindex="-1" class="structure-title">
 						<small><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></small>
 						$output						<var> = null</var>
@@ -145,7 +155,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L54-L57" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::$style" tabindex="-1" class="structure-title">
 						<small><a href="Symfony-Component-Console-Helper-TableStyle$typespace.html#Symfony\Component\Console\Helper\TableStyle" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>TableStyle</a></small>
 						$style						<var> = null</var>
@@ -160,7 +170,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L59-L62" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::$columnStyles" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$columnStyles						<var> = []</var>
@@ -175,13 +185,14 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L64-L69" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::$columnWidths" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$columnWidths						<var> = []</var>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>User set column widths.</p></div>
+						<div class="description"><p>User set column widths.</p>
+</div>
                                                 					</div>
 				</li>
             				<li class="structure-item">
@@ -190,7 +201,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L71-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::$styles" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$styles						<var> = null</var>
@@ -214,7 +225,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L73-L82" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($output)</small>
 					</h4>
@@ -258,24 +269,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L84-L97" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::setStyleDefinition()" tabindex="-1" class="structure-title ">
                         setStyleDefinition						<small>($name, $style)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets a style definition.</p></div>
+						<div class="description"><p>Sets a style definition.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The style name</p></td>
+				<td class="desc"><p>The style name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Helper-TableStyle$typespace.html#Symfony\Component\Console\Helper\TableStyle" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>TableStyle</a></td>
 				<td class="rest">$style</td>
-				<td class="desc"><p>A TableStyle instance</p></td>
+				<td class="desc"><p>A TableStyle instance</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -307,19 +321,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L99-L117" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::getStyleDefinition()" tabindex="-1" class="structure-title ">
                         getStyleDefinition						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets a style definition by name.</p></div>
+						<div class="description"><p>Gets a style definition by name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The style name</p></td>
+				<td class="desc"><p>The style name</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -351,19 +367,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L119-L131" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::setStyle()" tabindex="-1" class="structure-title ">
                         setStyle						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets table style.</p></div>
+						<div class="description"><p>Sets table style.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Helper-TableStyle$typespace.html#Symfony\Component\Console\Helper\TableStyle" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>TableStyle</a><span class="type-separator"></span><wbr>string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The style name or a TableStyle instance</p></td>
+				<td class="desc"><p>The style name or a TableStyle instance</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -395,12 +413,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L133-L141" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::getStyle()" tabindex="-1" class="structure-title ">
                         getStyle						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the current table style.</p></div>
+						<div class="description"><p>Gets the current table style.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -434,24 +453,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L143-L158" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::setColumnStyle()" tabindex="-1" class="structure-title ">
                         setColumnStyle						<small>($columnIndex, $name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets table column style.</p></div>
+						<div class="description"><p>Sets table column style.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$columnIndex</td>
-				<td class="desc"><p>Column index</p></td>
+				<td class="desc"><p>Column index</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Helper-TableStyle$typespace.html#Symfony\Component\Console\Helper\TableStyle" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>TableStyle</a><span class="type-separator"></span><wbr>string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The style name or a TableStyle instance</p></td>
+				<td class="desc"><p>The style name or a TableStyle instance</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -483,20 +505,22 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L160-L176" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::getColumnStyle()" tabindex="-1" class="structure-title ">
                         getColumnStyle						<small>($columnIndex)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Gets the current style for a column.</p>
-<p>If style was not set, it returns the global table style.</p></div>
+<p>If style was not set, it returns the global table style.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$columnIndex</td>
-				<td class="desc"><p>Column index</p></td>
+				<td class="desc"><p>Column index</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -528,24 +552,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L178-L191" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::setColumnWidth()" tabindex="-1" class="structure-title ">
                         setColumnWidth						<small>($columnIndex, $width)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the minimum width of a column.</p></div>
+						<div class="description"><p>Sets the minimum width of a column.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$columnIndex</td>
-				<td class="desc"><p>Column index</p></td>
+				<td class="desc"><p>Column index</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$width</td>
-				<td class="desc"><p>Minimum column width in characters</p></td>
+				<td class="desc"><p>Minimum column width in characters</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -577,12 +604,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L193-L208" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::setColumnWidths()" tabindex="-1" class="structure-title ">
                         setColumnWidths						<small>($widths)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the minimum width of all columns.</p></div>
+						<div class="description"><p>Sets the minimum width of all columns.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -621,7 +649,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L210-L220" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::setHeaders()" tabindex="-1" class="structure-title ">
                         setHeaders						<small>($headers)</small>
 					</h4>
@@ -665,7 +693,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L222-L227" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::setRows()" tabindex="-1" class="structure-title ">
                         setRows						<small>($rows)</small>
 					</h4>
@@ -709,7 +737,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L229-L236" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::addRows()" tabindex="-1" class="structure-title ">
                         addRows						<small>($rows)</small>
 					</h4>
@@ -753,7 +781,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L238-L253" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::addRow()" tabindex="-1" class="structure-title ">
                         addRow						<small>($row)</small>
 					</h4>
@@ -797,7 +825,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L255-L260" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::setRow()" tabindex="-1" class="structure-title ">
                         setRow						<small>($column, $row)</small>
 					</h4>
@@ -846,7 +874,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L262-L303" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::render()" tabindex="-1" class="structure-title ">
                         render						<small>()</small>
 					</h4>
@@ -861,7 +889,8 @@
 | 9971-5-0210-0 | A Tale of Two Cities  | Charles Dickens  |<br />
 | 960-425-059-0 | The Lord of the Rings | J. R. R. Tolkien |<br />
 +---------------+-----------------------+------------------+<br />
-</code></p></div>
+</code></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -895,13 +924,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L305-L326" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::renderRowSeparator()" tabindex="-1" class="structure-title ">
                         renderRowSeparator						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Renders horizontal header separator.</p>
-<p>Example: <code>+-----+-----------+-------+</code></p></div>
+<p>Example: <code>+-----+-----------+-------+</code></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -935,12 +965,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L328-L334" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::renderColumnSeparator()" tabindex="-1" class="structure-title ">
                         renderColumnSeparator						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Renders vertical column separator.</p></div>
+						<div class="description"><p>Renders vertical column separator.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -974,13 +1005,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L336-L356" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::renderRow()" tabindex="-1" class="structure-title ">
                         renderRow						<small>($row, $cellFormat)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Renders table row.</p>
-<p>Example: <code>| 9971-5-0210-0 | A Tale of Two Cities  | Charles Dickens  |</code></p></div>
+<p>Example: <code>| 9971-5-0210-0 | A Tale of Two Cities  | Charles Dickens  |</code></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1024,12 +1056,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L358-L391" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::renderCell()" tabindex="-1" class="structure-title ">
                         renderCell						<small>($row, $column, $cellFormat)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Renders table cell with padding.</p></div>
+						<div class="description"><p>Renders table cell with padding.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1078,12 +1111,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L393-L412" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::calculateNumberOfColumns()" tabindex="-1" class="structure-title ">
                         calculateNumberOfColumns						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Calculate number of columns for this table.</p></div>
+						<div class="description"><p>Calculate number of columns for this table.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1117,7 +1151,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L414-L448" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::buildTableRows()" tabindex="-1" class="structure-title ">
                         buildTableRows						<small>($rows)</small>
 					</h4>
@@ -1161,12 +1195,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L450-L509" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::fillNextRows()" tabindex="-1" class="structure-title ">
                         fillNextRows						<small>($rows, $line)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>fill rows that contains rowspan &gt; 1.</p></div>
+						<div class="description"><p>fill rows that contains rowspan &gt; 1.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1219,12 +1254,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L511-L530" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::fillCells()" tabindex="-1" class="structure-title ">
                         fillCells						<small>($row)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>fill cells for a row that contains colspan &gt; 1.</p></div>
+						<div class="description"><p>fill cells for a row that contains colspan &gt; 1.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1263,7 +1299,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L532-L549" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::copyRow()" tabindex="-1" class="structure-title ">
                         copyRow						<small>($rows, $line)</small>
 					</h4>
@@ -1312,12 +1348,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L551-L564" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::getNumberOfColumns()" tabindex="-1" class="structure-title ">
                         getNumberOfColumns						<small>($row)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets number of columns by row.</p></div>
+						<div class="description"><p>Gets number of columns by row.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1356,12 +1393,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L566-L582" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::getRowColumns()" tabindex="-1" class="structure-title ">
                         getRowColumns						<small>($row)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets list of columns for the given row.</p></div>
+						<div class="description"><p>Gets list of columns for the given row.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1400,12 +1438,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L584-L614" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::calculateColumnsWidth()" tabindex="-1" class="structure-title ">
                         calculateColumnsWidth						<small>($rows)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Calculates columns widths.</p></div>
+						<div class="description"><p>Calculates columns widths.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1444,12 +1483,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L616-L624" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::getColumnSeparatorWidth()" tabindex="-1" class="structure-title ">
                         getColumnSeparatorWidth						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets column width.</p></div>
+						<div class="description"><p>Gets column width.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1483,12 +1523,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L626-L646" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::getCellWidth()" tabindex="-1" class="structure-title ">
                         getCellWidth						<small>($row, $column)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets cell width.</p></div>
+						<div class="description"><p>Gets cell width.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1532,12 +1573,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L648-L655" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::cleanup()" tabindex="-1" class="structure-title ">
                         cleanup						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Called after rendering to cleanup cache data.</p></div>
+						<div class="description"><p>Called after rendering to cleanup cache data.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1571,7 +1613,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L657-L688" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::initStyles()" tabindex="-1" class="structure-title ">
                         initStyles						<small>()</small>
 					</h4>
@@ -1610,7 +1652,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/Table.php#L690-L701" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Helper\Table::resolveStyle()" tabindex="-1" class="structure-title ">
                         resolveStyle						<small>($name)</small>
 					</h4>

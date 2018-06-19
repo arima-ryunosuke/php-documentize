@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -38,6 +38,11 @@
 <h1 class="ellipsis">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Style\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">Symfony\Component\Console\Style\</span></h2>
@@ -61,7 +66,8 @@
 							<a href="Symfony-Component-Console-Style-StyleInterface$typespace.html#Symfony\Component\Console\Style\StyleInterface">StyleInterface</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Output style helpers.</p></div>
+							<div class="description"><p>Output style helpers.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -85,7 +91,8 @@
 							<a href="Symfony-Component-Console-Style-OutputStyle$typespace.html#Symfony\Component\Console\Style\OutputStyle">OutputStyle</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Decorates output to add console style guide helpers.</p></div>
+							<div class="description"><p>Decorates output to add console style guide helpers.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -106,7 +113,8 @@
 							<a href="Symfony-Component-Console-Style-SymfonyStyle$typespace.html#Symfony\Component\Console\Style\SymfonyStyle">SymfonyStyle</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>Output decorator helpers for the Symfony Style Guide.</p></div>
+							<div class="description"><p>Output decorator helpers for the Symfony Style Guide.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>

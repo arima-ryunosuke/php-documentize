@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Tester\ApplicationTester)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,14 +54,16 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L21-L176" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Tester\ApplicationTester</span></h2>
 
 	<div class="description"><p>Eases the testing of console applications.</p>
 <p>When testing an application, don't forget to disable the auto exit flag:</p>
 <pre><code>$application = new Application();
-$application-&gt;setAutoExit(false);</code></pre></div>
+$application-&gt;setAutoExit(false);
+</code></pre>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -73,7 +80,7 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L33-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::$application" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$application						<var> = null</var>
@@ -88,7 +95,7 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L34-L34" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::$input" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$input						<var> = null</var>
@@ -103,7 +110,7 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L35-L35" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::$statusCode" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$statusCode						<var> = null</var>
@@ -118,7 +125,7 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L36-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::$output" tabindex="-1" class="structure-title">
 						<small><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></small>
 						$output						<var> = null</var>
@@ -133,7 +140,7 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L40-L40" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::$captureStreamsIndependently" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$captureStreamsIndependently						<var> = false</var>
@@ -157,7 +164,7 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L42-L45" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($application)</small>
 					</h4>
@@ -201,7 +208,7 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L47-L101" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::run()" tabindex="-1" class="structure-title ">
                         run						<small>($input, $options = [])</small>
 					</h4>
@@ -213,19 +220,22 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 <li>decorated:                 Sets the output decorated flag</li>
 <li>verbosity:                 Sets the output verbosity flag</li>
 <li>capture_stderr_separately: Make output of stdOut and stdErr separately available</li>
-</ul></div>
+</ul>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$input</td>
-				<td class="desc"><p>An array of arguments and options</p></td>
+				<td class="desc"><p>An array of arguments and options</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$options = []</td>
-				<td class="desc"><p>An array of options</p></td>
+				<td class="desc"><p>An array of options</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -234,7 +244,8 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The command exit code</p></td>
+			<td class="desc"><p>The command exit code</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -257,19 +268,21 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L103-L121" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::getDisplay()" tabindex="-1" class="structure-title ">
                         getDisplay						<small>($normalize = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the display returned by the last execution of the application.</p></div>
+						<div class="description"><p>Gets the display returned by the last execution of the application.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$normalize = false</td>
-				<td class="desc"><p>Whether to normalize end of lines to \n or not</p></td>
+				<td class="desc"><p>Whether to normalize end of lines to \n or not</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -278,7 +291,8 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The display</p></td>
+			<td class="desc"><p>The display</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -301,19 +315,21 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L123-L145" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::getErrorOutput()" tabindex="-1" class="structure-title ">
                         getErrorOutput						<small>($normalize = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the output written to STDERR by the application.</p></div>
+						<div class="description"><p>Gets the output written to STDERR by the application.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$normalize = false</td>
-				<td class="desc"><p>Whether to normalize end of lines to \n or not</p></td>
+				<td class="desc"><p>Whether to normalize end of lines to \n or not</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -345,12 +361,13 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L147-L155" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::getInput()" tabindex="-1" class="structure-title ">
                         getInput						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the input instance used by the last execution of the application.</p></div>
+						<div class="description"><p>Gets the input instance used by the last execution of the application.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -361,7 +378,8 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
-			<td class="desc"><p>The current input instance</p></td>
+			<td class="desc"><p>The current input instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -384,12 +402,13 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L157-L165" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::getOutput()" tabindex="-1" class="structure-title ">
                         getOutput						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the output instance used by the last execution of the application.</p></div>
+						<div class="description"><p>Gets the output instance used by the last execution of the application.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -400,7 +419,8 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
-			<td class="desc"><p>The current output instance</p></td>
+			<td class="desc"><p>The current output instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -423,12 +443,13 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Tester/ApplicationTester.php#L167-L175" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Tester\ApplicationTester::getStatusCode()" tabindex="-1" class="structure-title ">
                         getStatusCode						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the status code returned by the last execution of the application.</p></div>
+						<div class="description"><p>Gets the status code returned by the last execution of the application.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -439,7 +460,8 @@ $application-&gt;setAutoExit(false);</code></pre></div>
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The status code</p></td>
+			<td class="desc"><p>The status code</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

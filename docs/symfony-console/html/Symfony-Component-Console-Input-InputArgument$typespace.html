@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Input\InputArgument)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L17-L129" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Input\InputArgument</span></h2>
 
-	<div class="description"><p>Represents a command line argument.</p></div>
+	<div class="description"><p>Represents a command line argument.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -66,7 +72,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::REQUIRED" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         REQUIRED						<var> = 1</var>
@@ -80,7 +86,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::OPTIONAL" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         OPTIONAL						<var> = 2</var>
@@ -94,7 +100,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::IS_ARRAY" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         IS_ARRAY						<var> = 4</var>
@@ -114,7 +120,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L28-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::$name" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$name						<var> = null</var>
@@ -129,7 +135,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::$mode" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$mode						<var> = null</var>
@@ -144,7 +150,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::$default" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$default						<var> = null</var>
@@ -159,7 +165,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::$description" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$description						<var> = null</var>
@@ -183,7 +189,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L33-L54" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($name, $mode = null, $description = &#039;&#039;, $default = null)</small>
 					</h4>
@@ -195,22 +201,26 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The argument name</p></td>
+				<td class="desc"><p>The argument name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$mode = null</td>
-				<td class="desc"><p>The argument mode: self::REQUIRED or self::OPTIONAL</p></td>
+				<td class="desc"><p>The argument mode: self::REQUIRED or self::OPTIONAL</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$description = &#039;&#039;</td>
-				<td class="desc"><p>A description text</p></td>
+				<td class="desc"><p>A description text</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc"><p>The default value (for self::OPTIONAL mode only)</p></td>
+				<td class="desc"><p>The default value (for self::OPTIONAL mode only)</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -251,12 +261,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L56-L64" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::getName()" tabindex="-1" class="structure-title ">
                         getName						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the argument name.</p></div>
+						<div class="description"><p>Returns the argument name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -267,7 +278,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The argument name</p></td>
+			<td class="desc"><p>The argument name</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -290,12 +302,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L66-L74" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::isRequired()" tabindex="-1" class="structure-title ">
                         isRequired						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if the argument is required.</p></div>
+						<div class="description"><p>Returns true if the argument is required.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -306,7 +319,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if parameter mode is self::REQUIRED, false otherwise</p></td>
+			<td class="desc"><p>true if parameter mode is self::REQUIRED, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -329,12 +343,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L76-L84" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::isArray()" tabindex="-1" class="structure-title ">
                         isArray						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if the argument can take multiple values.</p></div>
+						<div class="description"><p>Returns true if the argument can take multiple values.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -345,7 +360,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if mode is self::IS_ARRAY, false otherwise</p></td>
+			<td class="desc"><p>true if mode is self::IS_ARRAY, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -368,19 +384,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L86-L108" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::setDefault()" tabindex="-1" class="structure-title ">
                         setDefault						<small>($default = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the default value.</p></div>
+						<div class="description"><p>Sets the default value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc"><p>The default value</p></td>
+				<td class="desc"><p>The default value</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -421,12 +439,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L110-L118" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::getDefault()" tabindex="-1" class="structure-title ">
                         getDefault						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the default value.</p></div>
+						<div class="description"><p>Returns the default value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -437,7 +456,8 @@
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The default value</p></td>
+			<td class="desc"><p>The default value</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -460,12 +480,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputArgument.php#L120-L128" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputArgument::getDescription()" tabindex="-1" class="structure-title ">
                         getDescription						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the description text.</p></div>
+						<div class="description"><p>Returns the description text.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -476,7 +497,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The description text</p></td>
+			<td class="desc"><p>The description text</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

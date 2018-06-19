@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\CommandLoader\FactoryCommandLoader)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/FactoryCommandLoader.php#L16-L62" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\CommandLoader\FactoryCommandLoader</span></h2>
 
-	<div class="description"><p>A simple command loader using factories to instantiate commands lazily.</p></div>
+	<div class="description"><p>A simple command loader using factories to instantiate commands lazily.</p>
+</div>
 
 	<h3>Construction</h3>
         	<table class="table">
@@ -79,7 +85,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/FactoryCommandLoader.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\FactoryCommandLoader::$factories" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$factories						<var> = null</var>
@@ -103,7 +109,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/FactoryCommandLoader.php#L25-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\FactoryCommandLoader::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($factories)</small>
 					</h4>
@@ -115,7 +121,8 @@
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr>callable[]</td>
 				<td class="rest">$factories</td>
-				<td class="desc"><p>Indexed by command names</p></td>
+				<td class="desc"><p>Indexed by command names</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -147,12 +154,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/FactoryCommandLoader.php#L33-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\FactoryCommandLoader::has()" tabindex="-1" class="structure-title ">
                         has						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Checks if a command exists.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Checks if a command exists.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -201,12 +209,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/FactoryCommandLoader.php#L41-L53" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\FactoryCommandLoader::get()" tabindex="-1" class="structure-title ">
                         get						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Loads a command.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Loads a command.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -264,12 +273,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/FactoryCommandLoader.php#L55-L61" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\FactoryCommandLoader::getNames()" tabindex="-1" class="structure-title ">
                         getNames						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -280,7 +290,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string[]</td>
-			<td class="desc"><p>All registered command names</p></td>
+			<td class="desc"><p>All registered command names</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

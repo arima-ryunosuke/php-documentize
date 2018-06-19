@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Formatter\OutputFormatter)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L16-L242" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Formatter\OutputFormatter</span></h2>
 
-	<div class="description"><p>Formatter class for console output.</p></div>
+	<div class="description"><p>Formatter class for console output.</p>
+</div>
 
 	<h3>Construction</h3>
         	<table class="table">
@@ -79,7 +85,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::$decorated" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$decorated						<var> = null</var>
@@ -94,7 +100,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::$styles" tabindex="-1" class="structure-title">
 						<small>array</small>
 						$styles						<var> = []</var>
@@ -109,7 +115,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::$styleStack" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$styleStack						<var> = null</var>
@@ -133,19 +139,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L27-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::escape()" tabindex="-1" class="structure-title ">
                         escape						<small>($text)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Escapes &quot;&lt;&quot; special char in given text.</p></div>
+						<div class="description"><p>Escapes "&lt;" special char in given text.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$text</td>
-				<td class="desc"><p>Text to escape</p></td>
+				<td class="desc"><p>Text to escape</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -154,7 +162,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>Escaped text</p></td>
+			<td class="desc"><p>Escaped text</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -177,19 +186,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L41-L60" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::escapeTrailingBackslash()" tabindex="-1" class="structure-title ">
                         escapeTrailingBackslash						<small>($text)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Escapes trailing &quot;\&quot; in given text.</p></div>
+						<div class="description"><p>Escapes trailing "\" in given text.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$text</td>
-				<td class="desc"><p>Text to escape</p></td>
+				<td class="desc"><p>Text to escape</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -198,7 +209,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>Escaped text</p></td>
+			<td class="desc"><p>Escaped text</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -221,24 +233,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L62-L82" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($decorated = false, $styles = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Initializes console output formatter.</p></div>
+						<div class="description"><p>Initializes console output formatter.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated = false</td>
-				<td class="desc"><p>Whether this formatter should actually decorate strings</p></td>
+				<td class="desc"><p>Whether this formatter should actually decorate strings</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">array<span class="type-separator"></span><wbr><a href="Symfony-Component-Console-Formatter-OutputFormatterStyleInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterStyleInterface</a>[]</td>
 				<td class="rest">$styles = []</td>
-				<td class="desc"><p>Array of &quot;name =&gt; FormatterStyle&quot; instances</p></td>
+				<td class="desc"><p>Array of "name =&gt; FormatterStyle" instances</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -270,19 +285,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L84-L90" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::setDecorated()" tabindex="-1" class="structure-title ">
                         setDecorated						<small>($decorated)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated</td>
-				<td class="desc"><p>Whether to decorate the messages or not</p></td>
+				<td class="desc"><p>Whether to decorate the messages or not</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -324,12 +341,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L92-L98" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::isDecorated()" tabindex="-1" class="structure-title ">
                         isDecorated						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -340,7 +358,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the output will decorate messages, false otherwise</p></td>
+			<td class="desc"><p>true if the output will decorate messages, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -373,24 +392,27 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L100-L106" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::setStyle()" tabindex="-1" class="structure-title ">
                         setStyle						<small>($name, $style)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets a new style.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets a new style.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The style name</p></td>
+				<td class="desc"><p>The style name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterStyleInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyleInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterStyleInterface</a></td>
 				<td class="rest">$style</td>
-				<td class="desc"><p>The style instance</p></td>
+				<td class="desc"><p>The style instance</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -432,12 +454,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L108-L114" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::hasStyle()" tabindex="-1" class="structure-title ">
                         hasStyle						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Checks if output formatter has style with specified name.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Checks if output formatter has style with specified name.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -486,12 +509,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L116-L126" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::getStyle()" tabindex="-1" class="structure-title ">
                         getStyle						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets style options from style with specified name.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets style options from style with specified name.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -549,19 +573,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L128-L176" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::format()" tabindex="-1" class="structure-title ">
                         format						<small>($message)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Formats a message according to the given styles.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Formats a message according to the given styles.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc"><p>The message to style</p></td>
+				<td class="desc"><p>The message to style</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -570,7 +596,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The styled message</p></td>
+			<td class="desc"><p>The styled message</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -603,7 +630,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L178-L184" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::getStyleStack()" tabindex="-1" class="structure-title ">
                         getStyleStack						<small>()</small>
 					</h4>
@@ -642,12 +669,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L186-L229" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::createStyleFromString()" tabindex="-1" class="structure-title ">
                         createStyleFromString						<small>($string)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Tries to create new style instance from string.</p></div>
+						<div class="description"><p>Tries to create new style instance from string.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -663,7 +691,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterStyle$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterStyle" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterStyle</a><span class="type-separator"></span><wbr>false</td>
-			<td class="desc"><p>false if string is not format string</p></td>
+			<td class="desc"><p>false if string is not format string</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -686,19 +715,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Formatter/OutputFormatter.php#L231-L241" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Formatter\OutputFormatter::applyCurrentStyle()" tabindex="-1" class="structure-title ">
                         applyCurrentStyle						<small>($text)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Applies current style from stack to text, if must be applied.</p></div>
+						<div class="description"><p>Applies current style from stack to text, if must be applied.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$text</td>
-				<td class="desc"><p>Input text</p></td>
+				<td class="desc"><p>Input text</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -707,7 +738,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>Styled text</p></td>
+			<td class="desc"><p>Styled text</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

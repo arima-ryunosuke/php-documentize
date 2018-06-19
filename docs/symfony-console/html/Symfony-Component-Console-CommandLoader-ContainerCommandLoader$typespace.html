@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\CommandLoader\ContainerCommandLoader)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/ContainerCommandLoader.php#L8-L55" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\CommandLoader\ContainerCommandLoader</span></h2>
 
-	<div class="description"><p>Loads commands from a PSR-11 container.</p></div>
+	<div class="description"><p>Loads commands from a PSR-11 container.</p>
+</div>
 
 	<h3>Construction</h3>
         	<table class="table">
@@ -79,7 +85,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/ContainerCommandLoader.php#L15-L15" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\ContainerCommandLoader::$container" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$container						<var> = null</var>
@@ -94,7 +100,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/ContainerCommandLoader.php#L16-L16" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\ContainerCommandLoader::$commandMap" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$commandMap						<var> = null</var>
@@ -118,7 +124,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/ContainerCommandLoader.php#L18-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\ContainerCommandLoader::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($container, $commandMap)</small>
 					</h4>
@@ -130,12 +136,14 @@
         			<tr>
 				<td class="type"><a href="Psr-Container-ContainerInterface$typespace.html#Psr\Container\ContainerInterface" class="fqsen "><small>Psr\Container\</small><wbr>ContainerInterface</a></td>
 				<td class="rest">$container</td>
-				<td class="desc"><p>A container from which to load command services</p></td>
+				<td class="desc"><p>A container from which to load command services</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">$commandMap</td>
-				<td class="desc"><p>An array with command names as keys and service ids as values</p></td>
+				<td class="desc"><p>An array with command names as keys and service ids as values</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -167,12 +175,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/ContainerCommandLoader.php#L28-L38" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\ContainerCommandLoader::get()" tabindex="-1" class="structure-title ">
                         get						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Loads a command.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Loads a command.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -230,12 +239,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/ContainerCommandLoader.php#L40-L46" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\ContainerCommandLoader::has()" tabindex="-1" class="structure-title ">
                         has						<small>($name)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Checks if a command exists.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Checks if a command exists.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -284,12 +294,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/CommandLoader/ContainerCommandLoader.php#L48-L54" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\CommandLoader\ContainerCommandLoader::getNames()" tabindex="-1" class="structure-title ">
                         getNames						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -300,7 +311,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string[]</td>
-			<td class="desc"><p>All registered command names</p></td>
+			<td class="desc"><p>All registered command names</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>

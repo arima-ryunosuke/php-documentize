@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -38,6 +38,11 @@
 <h1 class="ellipsis">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Output\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">Symfony\Component\Console\Output\</span></h2>
@@ -61,7 +66,8 @@
 							<a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface">OutputInterface</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>OutputInterface is the interface implemented by all Output classes.</p></div>
+							<div class="description"><p>OutputInterface is the interface implemented by all Output classes.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -83,7 +89,8 @@
 						</h4>
 						<div class="inner-item">
 							<div class="description"><p>ConsoleOutputInterface is the interface implemented by ConsoleOutput class.<br />
-This adds information about stderr output stream.</p></div>
+This adds information about stderr output stream.</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -115,7 +122,8 @@ This adds information about stderr output stream.</p></div>
 <li>very verbose: -vv (highly extended output)</li>
 <li>debug: -vvv (all debug output)</li>
 <li>quiet: -q (no output)</li>
-</ul></div>
+</ul>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -161,7 +169,8 @@ This adds information about stderr output stream.</p></div>
 <p>Usage:</p>
 <p>$output = new StreamOutput(fopen('php://stdout', 'w'));</p>
 <p>As <code>StreamOutput</code> can use any stream, you can also use a file:</p>
-<p>$output = new StreamOutput(fopen('/path/to/output.log', 'a', false));</p></div>
+<p>$output = new StreamOutput(fopen('/path/to/output.log', 'a', false));</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -184,10 +193,13 @@ This adds information about stderr output stream.</p></div>
 						<div class="inner-item">
 							<div class="description"><p>ConsoleOutput is the default class for all CLI output. It uses STDOUT and STDERR.</p>
 <p>This class is a convenient wrapper around <code>StreamOutput</code> for both STDOUT and STDERR.</p>
-<pre><code>$output = new ConsoleOutput();</code></pre>
+<pre><code>$output = new ConsoleOutput();
+</code></pre>
 <p>This is equivalent to:</p>
 <pre><code>$output = new StreamOutput(fopen('php://stdout', 'w'));
-$stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
+$stdErr = new StreamOutput(fopen('php://stderr', 'w'));
+</code></pre>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -209,7 +221,9 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 						</h4>
 						<div class="inner-item">
 							<div class="description"><p>NullOutput suppresses all output.</p>
-<pre><code>$output = new NullOutput();</code></pre></div>
+<pre><code>$output = new NullOutput();
+</code></pre>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>

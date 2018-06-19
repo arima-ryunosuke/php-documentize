@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -38,11 +38,17 @@
 <h1 class="ellipsis">
 	Structure
 	<small class="ellipsis-text">(NS\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<h2>namespace <span class="category-name">NS\</span></h2>
 	<div class="inner-item">
-		<div class="description"><p>サンプルドキュメント生成用の叩き台です（名前空間）</p></div>
+		<div class="description"><p>サンプルドキュメント生成用の叩き台です（名前空間）</p>
+</div>
 	</div>
 
     		<h3>Namespaces</h3>
@@ -52,7 +58,8 @@
 						<a href="NS-NSS-$namespace.html#NS\NSS\">NSS</a>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>サンプルドキュメント生成用の叩き台です（ネスト）</p></div>
+						<div class="description"><p>サンプルドキュメント生成用の叩き台です（ネスト）</p>
+</div>
 					</div>
 					<div class="attribute">
 						<span class="label label-default"></span>
@@ -71,14 +78,15 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L109-L128" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L111-L130" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="NS\Ninterface" tabindex="-1" class="structure-title ">
 							<a href="NS-Ninterface$typespace.html#NS\Ninterface">Ninterface</a>
 						</h4>
 						<div class="inner-item">
 							<div class="description"><p>名前空間に定義されたインターフェースです</p>
-<p>これはインターフェースの説明です。</p></div>
+<p>これはインターフェースの説明です。</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -96,14 +104,15 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L130-L147" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L132-L149" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="NS\Ntrait" tabindex="-1" class="structure-title ">
 							<a href="NS-Ntrait$typespace.html#NS\Ntrait">Ntrait</a>
 						</h4>
 						<div class="inner-item">
 							<div class="description"><p>名前空間に定義されたトレイトです</p>
-<p>これはトレイトの説明です。</p></div>
+<p>これはトレイトの説明です。</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -121,14 +130,15 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L149-L169" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L151-L171" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="NS\Nclass" tabindex="-1" class="structure-title ">
 							<a href="NS-Nclass$typespace.html#NS\Nclass">Nclass</a>
 						</h4>
 						<div class="inner-item">
 							<div class="description"><p>名前空間に定義されたクラスです</p>
-<p>これはクラスの説明です。</p></div>
+<p>これはクラスの説明です。</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -143,13 +153,14 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L173-L258" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L175-L260" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="NS\Mclass" tabindex="-1" class="structure-title ">
 							<a href="NS-Mclass$typespace.html#NS\Mclass">Mclass</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"><p>マジック/プロパティメソッドのサンプル用クラスです</p></div>
+							<div class="description"><p>マジック/プロパティメソッドのサンプル用クラスです</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -164,7 +175,7 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L260-L336" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L262-L338" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="NS\Rclass" tabindex="-1" class="structure-title ">
 							<a href="NS-Rclass$typespace.html#NS\Rclass">Rclass</a>
@@ -173,7 +184,8 @@
 							<div class="description"><p>これは継承関係を説明するためのクラスです</p>
 <p>基本的に継承されたメソッドは全て自身のものとしてドキュメント化されます。</p>
 <p>inheritdoc タグを使うと親のドキュメントを継承することが出来ます。<br />
-継承関係がなくても inheritdoc FQSEN 形式を使用すると参照先を強制的に指定して継承することが出来ます。</p></div>
+継承関係がなくても inheritdoc FQSEN 形式を使用すると参照先を強制的に指定して継承することが出来ます。</p>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
@@ -188,7 +200,7 @@
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated">deprecated 3.4.5</span>
-                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L350-L484" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L352-L487" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
 						<h4 id="NS\Tclass" tabindex="-1" class="structure-title strike">
 							<a href="NS-Tclass$typespace.html#NS\Tclass">Tclass</a>
@@ -207,28 +219,25 @@
 <p><del>打ち消し</del><br />
 <strong>強調</strong><br />
 **エスケープ**</p>
-<blockquote>
-<p>引用</p>
-<blockquote>
-<p>引用</p>
-</blockquote>
+<blockquote><p>引用<br />
+&gt;&gt; 引用</p>
 </blockquote>
 <h6>箇条書き</h6>
 <ul>
-<li>list 1
-<ul>
+<li>list 1<ul>
 <li>list 1-1</li>
 <li>list 1-2</li>
-</ul></li>
+</ul>
+</li>
 <li>list 2</li>
 <li>list 3</li>
 </ul>
 <ol>
-<li>list 1
-<ol>
+<li>list 1<ol>
 <li>list 1-1</li>
 <li>list 1-2</li>
-</ol></li>
+</ol>
+</li>
 <li>list 2</li>
 <li>list 3</li>
 </ol>
@@ -236,29 +245,19 @@
 <p>インライン <code>$hoge = 123;</code> コード</p>
 <pre><code class="language-php">// コードブロック
 $hoge = 123;
-echo $hoge;</code></pre>
+echo $hoge;
+</code></pre>
 <h6>テーブル</h6>
 <table>
 <thead>
-<tr>
-<th style="text-align: right;">No</th>
-<th style="text-align: left;">col1(left)</th>
-<th style="text-align: center;">col2(center)</th>
-</tr>
+<tr><th align="right">No</th><th align="left">col1(left)</th><th align="center">col2(center)</th></tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">row1col1</td>
-<td style="text-align: center;">row1col2</td>
-</tr>
-<tr>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">row2col1</td>
-<td style="text-align: center;">row2col2</td>
-</tr>
+<tr><td align="right">1</td><td align="left">row1col1</td><td align="center">row1col2</td></tr>
+<tr><td align="right">2</td><td align="left">row2col1</td><td align="center">row2col2</td></tr>
 </tbody>
-</table></div>
+</table>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default">license MIT</span>
@@ -272,14 +271,15 @@ echo $hoge;</code></pre>
 		<ul>
             				<li class="structure-item">
 					<div class="attribute">
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L96-L96" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L98-L98" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
 					<h4 id="NS\NAMESPACE_CONSTANT" tabindex="-1" class="structure-title ">
 						<small>string</small>
                         NAMESPACE_CONSTANT						<var> = &#039;namespace constant&#039;</var>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>名前空間の定数です</p></div>
+						<div class="description"><p>名前空間の定数です</p>
+</div>
 					</div>
 					<div class="attribute">
 						<span class="label label-default"></span>
@@ -296,26 +296,29 @@ echo $hoge;</code></pre>
 						<span class="label label-default"></span>
 						<span class="label label-default"></span>
 						<span class="label label-deprecated"></span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L98-L107" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L100-L109" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
 					<h4 id="NS\namespace_function()" tabindex="-1" class="structure-title ">
                         namespace_function						<small>($format, ...$args)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>名前空間に定義された関数です</p>
-<p>これは関数の説明です。</p></div>
+<p>これは関数の説明です。</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$format</td>
-				<td class="desc"><p>引数1です</p></td>
+				<td class="desc"><p>引数1です</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">array</td>
 				<td class="rest">...$args</td>
-				<td class="desc"><p>可変引数です</p></td>
+				<td class="desc"><p>可変引数です</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -324,7 +327,8 @@ echo $hoge;</code></pre>
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>返り値です</p></td>
+			<td class="desc"><p>返り値です</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -342,14 +346,15 @@ echo $hoge;</code></pre>
 						<span class="label label-default"></span>
 						<span class="label label-default"></span>
 						<span class="label label-deprecated">deprecated 1.2.3</span>
-                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L338-L348" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                        			<a href="https://github.com/arima-ryunosuke/php-documentize/blob/master/template/example.php#L340-L350" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
 					<h4 id="NS\package_function()" tabindex="-1" class="structure-title strike">
                         package_function						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>色々なタグを試すための名前空間関数です</p>
-<p>色々なタグを使っています。</p></div>
+<p>色々なタグを使っています。</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

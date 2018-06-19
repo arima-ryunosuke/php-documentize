@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Output\ConsoleOutput)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,16 +54,19 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L16-L152" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Output\ConsoleOutput</span></h2>
 
 	<div class="description"><p>ConsoleOutput is the default class for all CLI output. It uses STDOUT and STDERR.</p>
 <p>This class is a convenient wrapper around <code>StreamOutput</code> for both STDOUT and STDERR.</p>
-<pre><code>$output = new ConsoleOutput();</code></pre>
+<pre><code>$output = new ConsoleOutput();
+</code></pre>
 <p>This is equivalent to:</p>
 <pre><code>$output = new StreamOutput(fopen('php://stdout', 'w'));
-$stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
+$stdErr = new StreamOutput(fopen('php://stderr', 'w'));
+</code></pre>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -114,7 +122,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L23-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::VERBOSITY_QUIET" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_QUIET						<var> = 16</var>
@@ -138,7 +146,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::VERBOSITY_NORMAL" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_NORMAL						<var> = 32</var>
@@ -162,7 +170,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::VERBOSITY_VERBOSE" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_VERBOSE						<var> = 64</var>
@@ -186,7 +194,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::VERBOSITY_VERY_VERBOSE" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_VERY_VERBOSE						<var> = 128</var>
@@ -210,7 +218,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::VERBOSITY_DEBUG" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VERBOSITY_DEBUG						<var> = 256</var>
@@ -234,7 +242,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::OUTPUT_NORMAL" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         OUTPUT_NORMAL						<var> = 1</var>
@@ -258,7 +266,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::OUTPUT_RAW" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         OUTPUT_RAW						<var> = 2</var>
@@ -282,7 +290,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/OutputInterface.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::OUTPUT_PLAIN" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         OUTPUT_PLAIN						<var> = 4</var>
@@ -312,7 +320,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L32-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::$stderr" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$stderr						<var> = null</var>
@@ -336,7 +344,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L34-L49" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($verbosity = self::VERBOSITY_NORMAL, $decorated = null, $formatter = null)</small>
 					</h4>
@@ -348,17 +356,20 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$verbosity = self::VERBOSITY_NORMAL</td>
-				<td class="desc"><p>The verbosity level (one of the VERBOSITY constants in OutputInterface)</p></td>
+				<td class="desc"><p>The verbosity level (one of the VERBOSITY constants in OutputInterface)</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">bool<span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$decorated = null</td>
-				<td class="desc"><p>Whether to decorate messages (null for auto-guessing)</p></td>
+				<td class="desc"><p>Whether to decorate messages (null for auto-guessing)</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type"><a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a><span class="type-separator"></span><wbr>null</td>
 				<td class="rest">$formatter = null</td>
-				<td class="desc"><p>Output formatter instance (null to use default OutputFormatter)</p></td>
+				<td class="desc"><p>Output formatter instance (null to use default OutputFormatter)</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -400,19 +411,21 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L51-L58" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::setDecorated()" tabindex="-1" class="structure-title ">
                         setDecorated						<small>($decorated)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$decorated</td>
-				<td class="desc"><p>Whether to decorate the messages</p></td>
+				<td class="desc"><p>Whether to decorate the messages</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -454,12 +467,13 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L60-L67" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::setFormatter()" tabindex="-1" class="structure-title ">
                         setFormatter						<small>($formatter)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -508,19 +522,21 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L69-L76" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::setVerbosity()" tabindex="-1" class="structure-title ">
                         setVerbosity						<small>($level)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$level</td>
-				<td class="desc"><p>The level of verbosity (one of the VERBOSITY constants)</p></td>
+				<td class="desc"><p>The level of verbosity (one of the VERBOSITY constants)</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -562,12 +578,13 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L78-L84" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::getErrorOutput()" tabindex="-1" class="structure-title ">
                         getErrorOutput						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the OutputInterface for errors.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the OutputInterface for errors.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -611,12 +628,13 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L86-L92" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::setErrorOutput()" tabindex="-1" class="structure-title ">
                         setErrorOutput						<small>($error)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -665,13 +683,14 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));</code></pre></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L94-L103" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::hasStdoutSupport()" tabindex="-1" class="structure-title ">
                         hasStdoutSupport						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Returns true if current environment supports writing console output to<br />
-STDOUT.</p></div>
+STDOUT.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -705,13 +724,14 @@ STDOUT.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L105-L114" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::hasStderrSupport()" tabindex="-1" class="structure-title ">
                         hasStderrSupport						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Returns true if current environment supports writing console output to<br />
-STDERR.</p></div>
+STDERR.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -745,13 +765,14 @@ STDERR.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L116-L131" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::isRunningOS400()" tabindex="-1" class="structure-title ">
                         isRunningOS400						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Checks if current executing environment is IBM iSeries (OS400), which<br />
-doesn't properly convert character-encodings between ASCII to EBCDIC.</p></div>
+doesn't properly convert character-encodings between ASCII to EBCDIC.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -785,7 +806,7 @@ doesn't properly convert character-encodings between ASCII to EBCDIC.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L133-L143" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::openOutputStream()" tabindex="-1" class="structure-title ">
                         openOutputStream						<small>()</small>
 					</h4>
@@ -824,7 +845,7 @@ doesn't properly convert character-encodings between ASCII to EBCDIC.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L145-L151" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::openErrorStream()" tabindex="-1" class="structure-title ">
                         openErrorStream						<small>()</small>
 					</h4>
@@ -863,12 +884,13 @@ doesn't properly convert character-encodings between ASCII to EBCDIC.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/StreamOutput.php#L58-L66" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::getStream()" tabindex="-1" class="structure-title ">
                         getStream						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the stream attached to this StreamOutput instance.</p></div>
+						<div class="description"><p>Gets the stream attached to this StreamOutput instance.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -879,7 +901,8 @@ doesn't properly convert character-encodings between ASCII to EBCDIC.</p></div>
 		<tbody>
 		<tr>
 			<td class="type">resource</td>
-			<td class="desc"><p>A stream resource</p></td>
+			<td class="desc"><p>A stream resource</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -912,24 +935,27 @@ doesn't properly convert character-encodings between ASCII to EBCDIC.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/StreamOutput.php#L68-L79" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::doWrite()" tabindex="-1" class="structure-title ">
                         doWrite						<small>($message, $newline)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$message</td>
-				<td class="desc"><p>A message to write to the output</p></td>
+				<td class="desc"><p>A message to write to the output</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$newline</td>
-				<td class="desc"><p>Whether to add a newline or not</p></td>
+				<td class="desc"><p>Whether to add a newline or not</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -971,7 +997,7 @@ doesn't properly convert character-encodings between ASCII to EBCDIC.</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/StreamOutput.php#L81-L115" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::hasColorSupport()" tabindex="-1" class="structure-title ">
                         hasColorSupport						<small>()</small>
 					</h4>
@@ -981,7 +1007,8 @@ doesn't properly convert character-encodings between ASCII to EBCDIC.</p></div>
 <p>This is tricky on Windows, because Cygwin, Msys2 etc emulate pseudo<br />
 terminals via named pipes, so we can only check the environment.</p>
 <p>Reference: Composer\XdebugHandler\Process::supportsColor<br />
-https://github.com/composer/xdebug-handler</p></div>
+<a href="https://github.com/composer/xdebug-handler">https://github.com/composer/xdebug-handler</a></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -992,7 +1019,8 @@ https://github.com/composer/xdebug-handler</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the stream supports colorization, false otherwise</p></td>
+			<td class="desc"><p>true if the stream supports colorization, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1025,12 +1053,13 @@ https://github.com/composer/xdebug-handler</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/Output.php#L55-L61" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::getFormatter()" tabindex="-1" class="structure-title ">
                         getFormatter						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1074,12 +1103,13 @@ https://github.com/composer/xdebug-handler</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/Output.php#L71-L77" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::isDecorated()" tabindex="-1" class="structure-title ">
                         isDecorated						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1090,7 +1120,8 @@ https://github.com/composer/xdebug-handler</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if the output will decorate messages, false otherwise</p></td>
+			<td class="desc"><p>true if the output will decorate messages, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1123,12 +1154,13 @@ https://github.com/composer/xdebug-handler</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/Output.php#L87-L93" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::getVerbosity()" tabindex="-1" class="structure-title ">
                         getVerbosity						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1139,7 +1171,8 @@ https://github.com/composer/xdebug-handler</p></div>
 		<tbody>
 		<tr>
 			<td class="type">int</td>
-			<td class="desc"><p>The current level of verbosity (one of the VERBOSITY constants)</p></td>
+			<td class="desc"><p>The current level of verbosity (one of the VERBOSITY constants)</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1172,12 +1205,13 @@ https://github.com/composer/xdebug-handler</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/Output.php#L95-L101" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::isQuiet()" tabindex="-1" class="structure-title ">
                         isQuiet						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1188,7 +1222,8 @@ https://github.com/composer/xdebug-handler</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if verbosity is set to VERBOSITY_QUIET, false otherwise</p></td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_QUIET, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1221,12 +1256,13 @@ https://github.com/composer/xdebug-handler</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/Output.php#L103-L109" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::isVerbose()" tabindex="-1" class="structure-title ">
                         isVerbose						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1237,7 +1273,8 @@ https://github.com/composer/xdebug-handler</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</p></td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERBOSE, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1270,12 +1307,13 @@ https://github.com/composer/xdebug-handler</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/Output.php#L111-L117" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::isVeryVerbose()" tabindex="-1" class="structure-title ">
                         isVeryVerbose						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1286,7 +1324,8 @@ https://github.com/composer/xdebug-handler</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</p></td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1319,12 +1358,13 @@ https://github.com/composer/xdebug-handler</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/Output.php#L119-L125" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::isDebug()" tabindex="-1" class="structure-title ">
                         isDebug						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -1335,7 +1375,8 @@ https://github.com/composer/xdebug-handler</p></div>
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if verbosity is set to VERBOSITY_DEBUG, false otherwise</p></td>
+			<td class="desc"><p>true if verbosity is set to VERBOSITY_DEBUG, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -1368,24 +1409,27 @@ https://github.com/composer/xdebug-handler</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/Output.php#L127-L133" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::writeln()" tabindex="-1" class="structure-title ">
                         writeln						<small>($messages, $options = 0)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc"><p>The message as an array of lines of a single string</p></td>
+				<td class="desc"><p>The message as an array of lines of a single string</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -1427,29 +1471,33 @@ https://github.com/composer/xdebug-handler</p></div>
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/Output.php#L135-L166" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Output\ConsoleOutput::write()" tabindex="-1" class="structure-title ">
                         write						<small>($messages, $newline = false, $options = 0)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$messages</td>
-				<td class="desc"><p>The message as an array of lines or a single string</p></td>
+				<td class="desc"><p>The message as an array of lines or a single string</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">bool</td>
 				<td class="rest">$newline = false</td>
-				<td class="desc"><p>Whether to add a newline</p></td>
+				<td class="desc"><p>Whether to add a newline</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$options = 0</td>
-				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p></td>
+				<td class="desc"><p>A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL</p>
+</td>
 			</tr>
         		</tbody>
 	</table>

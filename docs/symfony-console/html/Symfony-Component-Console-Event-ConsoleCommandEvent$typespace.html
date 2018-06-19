@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Event\ConsoleCommandEvent)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleCommandEvent.php#L14-L60" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Event\ConsoleCommandEvent</span></h2>
 
-	<div class="description"><p>Allows to do things before the command is executed, like skipping the command or changing the input.</p></div>
+	<div class="description"><p>Allows to do things before the command is executed, like skipping the command or changing the input.</p>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -100,13 +106,14 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleCommandEvent.php#L21-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::RETURN_CODE_DISABLED" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         RETURN_CODE_DISABLED						<var> = 113</var>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>The return code for skipped commands, this will also be passed into the terminate event.</p></div>
+						<div class="description"><p>The return code for skipped commands, this will also be passed into the terminate event.</p>
+</div>
 
                                                 					</div>
 				</li>
@@ -120,13 +127,14 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleCommandEvent.php#L26-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::$commandShouldRun" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$commandShouldRun						<var> = true</var>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Indicates if the command should be run or skipped.</p></div>
+						<div class="description"><p>Indicates if the command should be run or skipped.</p>
+</div>
                                                 					</div>
 				</li>
             				<li class="structure-item">
@@ -135,7 +143,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleEvent.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::$command" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$command						<var> = null</var>
@@ -169,12 +177,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleCommandEvent.php#L31-L39" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::disableCommand()" tabindex="-1" class="structure-title ">
                         disableCommand						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Disables the command, so it won't be run.</p></div>
+						<div class="description"><p>Disables the command, so it won't be run.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -208,12 +217,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleCommandEvent.php#L41-L49" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::enableCommand()" tabindex="-1" class="structure-title ">
                         enableCommand						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Enables the command.</p></div>
+						<div class="description"><p>Enables the command.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -247,12 +257,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleCommandEvent.php#L51-L59" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::commandShouldRun()" tabindex="-1" class="structure-title ">
                         commandShouldRun						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if the command is runnable, false otherwise.</p></div>
+						<div class="description"><p>Returns true if the command is runnable, false otherwise.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -286,7 +297,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleEvent.php#L31-L36" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($command = null, $input, $output)</small>
 					</h4>
@@ -350,12 +361,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleEvent.php#L38-L46" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::getCommand()" tabindex="-1" class="structure-title ">
                         getCommand						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the command that is executed.</p></div>
+						<div class="description"><p>Gets the command that is executed.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -366,7 +378,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a><span class="type-separator"></span><wbr>null</td>
-			<td class="desc"><p>A Command instance</p></td>
+			<td class="desc"><p>A Command instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -399,12 +412,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleEvent.php#L48-L56" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::getInput()" tabindex="-1" class="structure-title ">
                         getInput						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the input instance.</p></div>
+						<div class="description"><p>Gets the input instance.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -415,7 +429,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></td>
-			<td class="desc"><p>An InputInterface instance</p></td>
+			<td class="desc"><p>An InputInterface instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -448,12 +463,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Event/ConsoleEvent.php#L58-L66" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::getOutput()" tabindex="-1" class="structure-title ">
                         getOutput						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the output instance.</p></div>
+						<div class="description"><p>Gets the output instance.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -464,7 +480,8 @@
 		<tbody>
 		<tr>
 			<td class="type"><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></td>
-			<td class="desc"><p>An OutputInterface instance</p></td>
+			<td class="desc"><p>An OutputInterface instance</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -497,12 +514,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/event-dispatcher/blob/v3.4.11/Event.php#L35-L45" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::isPropagationStopped()" tabindex="-1" class="structure-title ">
                         isPropagationStopped						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether further event listeners should be triggered.</p></div>
+						<div class="description"><p>Returns whether further event listeners should be triggered.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -513,7 +531,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>Whether propagation was already stopped for this event</p></td>
+			<td class="desc"><p>Whether propagation was already stopped for this event</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -556,7 +575,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/event-dispatcher/blob/v3.4.11/Event.php#L47-L57" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Event\ConsoleCommandEvent::stopPropagation()" tabindex="-1" class="structure-title ">
                         stopPropagation						<small>()</small>
 					</h4>
@@ -564,7 +583,8 @@
 						<div class="description"><p>Stops the propagation of the event to further event listeners.</p>
 <p>If multiple event listeners are connected to the same event, no<br />
 further event listener will be triggered once any trigger calls<br />
-stopPropagation().</p></div>
+stopPropagation().</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

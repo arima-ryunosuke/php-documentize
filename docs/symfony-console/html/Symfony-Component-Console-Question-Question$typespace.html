@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Question\Question)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L17-L246" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Question\Question</span></h2>
 
-	<div class="description"><p>Represents a Question.</p></div>
+	<div class="description"><p>Represents a Question.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -82,7 +88,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::$question" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$question						<var> = null</var>
@@ -97,7 +103,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::$attempts" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$attempts						<var> = null</var>
@@ -112,7 +118,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::$hidden" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$hidden						<var> = false</var>
@@ -127,7 +133,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::$hiddenFallback" tabindex="-1" class="structure-title">
 						<small>boolean</small>
 						$hiddenFallback						<var> = true</var>
@@ -142,7 +148,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L28-L28" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::$autocompleterValues" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$autocompleterValues						<var> = null</var>
@@ -157,7 +163,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::$validator" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$validator						<var> = null</var>
@@ -172,7 +178,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::$default" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$default						<var> = null</var>
@@ -187,7 +193,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::$normalizer" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$normalizer						<var> = null</var>
@@ -211,7 +217,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L33-L41" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($question, $default = null)</small>
 					</h4>
@@ -223,12 +229,14 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$question</td>
-				<td class="desc"><p>The question to ask to the user</p></td>
+				<td class="desc"><p>The question to ask to the user</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc"><p>The default answer to return if the user enters nothing</p></td>
+				<td class="desc"><p>The default answer to return if the user enters nothing</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -260,12 +268,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L43-L51" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::getQuestion()" tabindex="-1" class="structure-title ">
                         getQuestion						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the question.</p></div>
+						<div class="description"><p>Returns the question.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -299,12 +308,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L53-L61" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::getDefault()" tabindex="-1" class="structure-title ">
                         getDefault						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the default answer.</p></div>
+						<div class="description"><p>Returns the default answer.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -338,12 +348,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L63-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::isHidden()" tabindex="-1" class="structure-title ">
                         isHidden						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns whether the user response must be hidden.</p></div>
+						<div class="description"><p>Returns whether the user response must be hidden.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -377,12 +388,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L73-L91" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::setHidden()" tabindex="-1" class="structure-title ">
                         setHidden						<small>($hidden)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets whether the user response must be hidden or not.</p></div>
+						<div class="description"><p>Sets whether the user response must be hidden or not.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -430,12 +442,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L93-L101" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::isHiddenFallback()" tabindex="-1" class="structure-title ">
                         isHiddenFallback						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>In case the response can not be hidden, whether to fallback on non-hidden question or not.</p></div>
+						<div class="description"><p>In case the response can not be hidden, whether to fallback on non-hidden question or not.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -469,12 +482,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L103-L115" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::setHiddenFallback()" tabindex="-1" class="structure-title ">
                         setHiddenFallback						<small>($fallback)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets whether to fallback on non-hidden question if the response can not be hidden.</p></div>
+						<div class="description"><p>Sets whether to fallback on non-hidden question if the response can not be hidden.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -513,12 +527,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L117-L125" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::getAutocompleterValues()" tabindex="-1" class="structure-title ">
                         getAutocompleterValues						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets values for the autocompleter.</p></div>
+						<div class="description"><p>Gets values for the autocompleter.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -552,12 +567,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L127-L154" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::setAutocompleterValues()" tabindex="-1" class="structure-title ">
                         setAutocompleterValues						<small>($values)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets values for the autocompleter.</p></div>
+						<div class="description"><p>Sets values for the autocompleter.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -609,12 +625,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L156-L168" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::setValidator()" tabindex="-1" class="structure-title ">
                         setValidator						<small>($validator = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets a validator for the question.</p></div>
+						<div class="description"><p>Sets a validator for the question.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -653,12 +670,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L170-L178" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::getValidator()" tabindex="-1" class="structure-title ">
                         getValidator						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Gets the validator for the question.</p></div>
+						<div class="description"><p>Gets the validator for the question.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -692,13 +710,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L180-L200" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::setMaxAttempts()" tabindex="-1" class="structure-title ">
                         setMaxAttempts						<small>($attempts)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets the maximum number of attempts.</p>
-<p>Null means an unlimited number of attempts.</p></div>
+<p>Null means an unlimited number of attempts.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -746,13 +765,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L202-L212" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::getMaxAttempts()" tabindex="-1" class="structure-title ">
                         getMaxAttempts						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Gets the maximum number of attempts.</p>
-<p>Null means an unlimited number of attempts.</p></div>
+<p>Null means an unlimited number of attempts.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -786,13 +806,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L214-L228" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::setNormalizer()" tabindex="-1" class="structure-title ">
                         setNormalizer						<small>($normalizer)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Sets a normalizer for the response.</p>
-<p>The normalizer can be a callable (a string), a closure or a class implementing __invoke.</p></div>
+<p>The normalizer can be a callable (a string), a closure or a class implementing __invoke.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -831,13 +852,14 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L230-L240" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::getNormalizer()" tabindex="-1" class="structure-title ">
                         getNormalizer						<small>()</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Gets the normalizer for the response.</p>
-<p>The normalizer can ba a callable (a string), a closure or a class implementing __invoke.</p></div>
+<p>The normalizer can ba a callable (a string), a closure or a class implementing __invoke.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -871,7 +893,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/Question.php#L242-L245" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Question\Question::isAssoc()" tabindex="-1" class="structure-title ">
                         isAssoc						<small>($array)</small>
 					</h4>

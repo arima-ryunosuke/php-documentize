@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Descriptor\JsonDescriptor)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L20-L168" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Descriptor\JsonDescriptor</span></h2>
 
-	<div class="description"><p>JSON descriptor.</p></div>
+	<div class="description"><p>JSON descriptor.</p>
+</div>
 
 	<h3>Construction</h3>
     	<table class="table">
@@ -104,7 +110,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/Descriptor.php#L29-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::$output" tabindex="-1" class="structure-title">
 						<small><a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></small>
 						$output						<var> = null</var>
@@ -138,12 +144,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L29-L35" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::describeInputArgument()" tabindex="-1" class="structure-title ">
                         describeInputArgument						<small>($argument, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an InputArgument instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an InputArgument instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -197,12 +204,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L37-L43" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::describeInputOption()" tabindex="-1" class="structure-title ">
                         describeInputOption						<small>($option, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an InputOption instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an InputOption instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -256,12 +264,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L45-L51" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::describeInputDefinition()" tabindex="-1" class="structure-title ">
                         describeInputDefinition						<small>($definition, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an InputDefinition instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an InputDefinition instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -315,12 +324,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L53-L59" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::describeCommand()" tabindex="-1" class="structure-title ">
                         describeCommand						<small>($command, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes a Command instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes a Command instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -374,12 +384,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L61-L91" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::describeApplication()" tabindex="-1" class="structure-title ">
                         describeApplication						<small>($application, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an Application instance.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an Application instance.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -433,12 +444,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L93-L101" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::writeData()" tabindex="-1" class="structure-title ">
                         writeData						<small>($data, $options)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes data as json.</p></div>
+						<div class="description"><p>Writes data as json.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -482,7 +494,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L103-L115" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::getInputArgumentData()" tabindex="-1" class="structure-title ">
                         getInputArgumentData						<small>($argument)</small>
 					</h4>
@@ -526,7 +538,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L117-L131" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::getInputOptionData()" tabindex="-1" class="structure-title ">
                         getInputOptionData						<small>($option)</small>
 					</h4>
@@ -570,7 +582,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L133-L149" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::getInputDefinitionData()" tabindex="-1" class="structure-title ">
                         getInputDefinitionData						<small>($definition)</small>
 					</h4>
@@ -614,7 +626,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/JsonDescriptor.php#L151-L167" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::getCommandData()" tabindex="-1" class="structure-title ">
                         getCommandData						<small>($command)</small>
 					</h4>
@@ -658,12 +670,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/Descriptor.php#L34-L60" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::describe()" tabindex="-1" class="structure-title ">
                         describe						<small>($output, $object, $options = [])</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><tag_inheritdoc data-type='' data-description=''>Describes an object if supported.</tag_inheritdoc></div>
+						<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Describes an object if supported.</tag_inheritdoc></p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -722,12 +735,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-protected">protected</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Descriptor/Descriptor.php#L62-L71" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Descriptor\JsonDescriptor::write()" tabindex="-1" class="structure-title ">
                         write						<small>($content, $decorated = false)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Writes content to output.</p></div>
+						<div class="description"><p>Writes content to output.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>

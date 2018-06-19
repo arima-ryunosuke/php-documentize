@@ -26,7 +26,7 @@
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -40,6 +40,11 @@
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Input\InputOption)</small>
 	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
 </h1>
 <div class="main-wrapper">
 	<div class="attribute">
@@ -49,11 +54,12 @@
 		<span class="label label-info"></span>
 		<span class="label label-deprecated"></span>
         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L17-L208" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            	</div>
+                    	</div>
 
 	<h2>class <span class="category-name">Symfony\Component\Console\Input\InputOption</span></h2>
 
-	<div class="description"><p>Represents a command line option.</p></div>
+	<div class="description"><p>Represents a command line option.</p>
+</div>
 
 	<h3>Construction</h3>
                 
@@ -66,7 +72,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L24-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::VALUE_NONE" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VALUE_NONE						<var> = 1</var>
@@ -80,7 +86,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L25-L25" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::VALUE_REQUIRED" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VALUE_REQUIRED						<var> = 2</var>
@@ -94,7 +100,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L26-L26" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::VALUE_OPTIONAL" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VALUE_OPTIONAL						<var> = 4</var>
@@ -108,7 +114,7 @@
 					<div class="attribute">
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L27-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::VALUE_IS_ARRAY" tabindex="-1" class="structure-title">
 						<small>integer</small>
                         VALUE_IS_ARRAY						<var> = 8</var>
@@ -128,7 +134,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L29-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::$name" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$name						<var> = null</var>
@@ -143,7 +149,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L30-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::$shortcut" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$shortcut						<var> = null</var>
@@ -158,7 +164,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L31-L31" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::$mode" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$mode						<var> = null</var>
@@ -173,7 +179,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L32-L32" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::$default" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$default						<var> = null</var>
@@ -188,7 +194,7 @@
 						<span class="label label-primary"></span>
 						<span class="label label-private">private</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L33-L33" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::$description" tabindex="-1" class="structure-title">
 						<small>NULL</small>
 						$description						<var> = null</var>
@@ -212,7 +218,7 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L35-L87" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::__construct()" tabindex="-1" class="structure-title ">
                         __construct						<small>($name, $shortcut = null, $mode = null, $description = &#039;&#039;, $default = null)</small>
 					</h4>
@@ -224,27 +230,32 @@
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$name</td>
-				<td class="desc"><p>The option name</p></td>
+				<td class="desc"><p>The option name</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string<span class="type-separator"></span><wbr>array</td>
 				<td class="rest">$shortcut = null</td>
-				<td class="desc"><p>The shortcuts, can be null, a string of shortcuts delimited by | or an array of shortcuts</p></td>
+				<td class="desc"><p>The shortcuts, can be null, a string of shortcuts delimited by | or an array of shortcuts</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">int</td>
 				<td class="rest">$mode = null</td>
-				<td class="desc"><p>The option mode: One of the VALUE_* constants</p></td>
+				<td class="desc"><p>The option mode: One of the VALUE_* constants</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
 				<td class="rest">$description = &#039;&#039;</td>
-				<td class="desc"><p>A description text</p></td>
+				<td class="desc"><p>A description text</p>
+</td>
 			</tr>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc"><p>The default value (must be null for self::VALUE_NONE)</p></td>
+				<td class="desc"><p>The default value (must be null for self::VALUE_NONE)</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -285,12 +296,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L89-L97" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::getShortcut()" tabindex="-1" class="structure-title ">
                         getShortcut						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the option shortcut.</p></div>
+						<div class="description"><p>Returns the option shortcut.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -301,7 +313,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The shortcut</p></td>
+			<td class="desc"><p>The shortcut</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -324,12 +337,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L99-L107" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::getName()" tabindex="-1" class="structure-title ">
                         getName						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the option name.</p></div>
+						<div class="description"><p>Returns the option name.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -340,7 +354,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The name</p></td>
+			<td class="desc"><p>The name</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -363,12 +378,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L109-L117" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::acceptValue()" tabindex="-1" class="structure-title ">
                         acceptValue						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if the option accepts a value.</p></div>
+						<div class="description"><p>Returns true if the option accepts a value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -379,7 +395,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if value mode is not self::VALUE_NONE, false otherwise</p></td>
+			<td class="desc"><p>true if value mode is not self::VALUE_NONE, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -402,12 +419,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L119-L127" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::isValueRequired()" tabindex="-1" class="structure-title ">
                         isValueRequired						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if the option requires a value.</p></div>
+						<div class="description"><p>Returns true if the option requires a value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -418,7 +436,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if value mode is self::VALUE_REQUIRED, false otherwise</p></td>
+			<td class="desc"><p>true if value mode is self::VALUE_REQUIRED, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -441,12 +460,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L129-L137" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::isValueOptional()" tabindex="-1" class="structure-title ">
                         isValueOptional						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if the option takes an optional value.</p></div>
+						<div class="description"><p>Returns true if the option takes an optional value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -457,7 +477,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if value mode is self::VALUE_OPTIONAL, false otherwise</p></td>
+			<td class="desc"><p>true if value mode is self::VALUE_OPTIONAL, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -480,12 +501,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L139-L147" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::isArray()" tabindex="-1" class="structure-title ">
                         isArray						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns true if the option can take multiple values.</p></div>
+						<div class="description"><p>Returns true if the option can take multiple values.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -496,7 +518,8 @@
 		<tbody>
 		<tr>
 			<td class="type">bool</td>
-			<td class="desc"><p>true if mode is self::VALUE_IS_ARRAY, false otherwise</p></td>
+			<td class="desc"><p>true if mode is self::VALUE_IS_ARRAY, false otherwise</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -519,19 +542,21 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L149-L171" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::setDefault()" tabindex="-1" class="structure-title ">
                         setDefault						<small>($default = null)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Sets the default value.</p></div>
+						<div class="description"><p>Sets the default value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
         			<tr>
 				<td class="type">mixed</td>
 				<td class="rest">$default = null</td>
-				<td class="desc"><p>The default value</p></td>
+				<td class="desc"><p>The default value</p>
+</td>
 			</tr>
         		</tbody>
 	</table>
@@ -572,12 +597,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L173-L181" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::getDefault()" tabindex="-1" class="structure-title ">
                         getDefault						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the default value.</p></div>
+						<div class="description"><p>Returns the default value.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -588,7 +614,8 @@
 		<tbody>
 		<tr>
 			<td class="type">mixed</td>
-			<td class="desc"><p>The default value</p></td>
+			<td class="desc"><p>The default value</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -611,12 +638,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L183-L191" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::getDescription()" tabindex="-1" class="structure-title ">
                         getDescription						<small>()</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Returns the description text.</p></div>
+						<div class="description"><p>Returns the description text.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
@@ -627,7 +655,8 @@
 		<tbody>
 		<tr>
 			<td class="type">string</td>
-			<td class="desc"><p>The description text</p></td>
+			<td class="desc"><p>The description text</p>
+</td>
 			<td class="rest"></td>
 		</tr>
 		</tbody>
@@ -650,12 +679,13 @@
 						<span class="label label-deprecated"></span>
 						<span class="label label-public">public</span>
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Input/InputOption.php#L193-L207" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            					</div>
+                                    					</div>
 					<h4 id="Symfony\Component\Console\Input\InputOption::equals()" tabindex="-1" class="structure-title ">
                         equals						<small>($option)</small>
 					</h4>
 					<div class="inner-item">
-						<div class="description"><p>Checks whether the given option equals this one.</p></div>
+						<div class="description"><p>Checks whether the given option equals this one.</p>
+</div>
                         	<table class="table">
 		<caption>Parameters</caption>
 		<tbody>
