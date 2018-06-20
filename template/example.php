@@ -15,6 +15,8 @@ namespace {
      *
      * これは関数の説明です。
      *
+     * @see \implode()
+     *
      * @param string $format 引数1です
      * @param array $args 可変引数です。
      *     これは改行も含めた少し長めの引数概要です。
@@ -434,10 +436,11 @@ namespace NS {
          * これはメソッド用の{@link https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#7-tags タグ}の例示用メソッドです
          *
          * 右側に属性ラベルが表示されたり、メソッドに打ち消し線が引かれていたりするはずです。
-         * また、 link タグを使うと
+         * また、 link/source タグを使うと
          *
          * - {@link https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md こんな感じに外部リンク}が貼れたり
-         * - {@link Rclass::actualMethod こんな感じに要素リンク}が貼れたり
+         * - {@link Rclass::actualMethod() こんな感じに要素リンク}が貼れたり
+         * - {@source Rclass::actualMethod() こんな感じにソースへリンク}が貼れたり
          *
          * します。ただしこれは生成側との協力が必要です。
          *
