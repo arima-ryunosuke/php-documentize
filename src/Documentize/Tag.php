@@ -45,23 +45,27 @@ class Tag
             return null;
         }
 
-        $render = function ($content) {
+        $render = function ($attribute, $content) {
             // meta タグで埋め込む
             // 値のみエスケープする。タグ名やキー名をエスケープしない理由は特に無いが、別に悪意あるものは来ないし、敢えてしないことで何かに活用できるかもしれない
-            $attrs = array_diff_key($this->attributes, ['tagname' => null, 'inline' => null]);
+            $attrs = array_diff_key($attribute, ['tagname' => null, 'inline' => null]);
             $attrs = array_flatten($attrs, '-');
             $attrs = array_sprintf($attrs, function ($v, $k) { return "data-$k='" . htmlspecialchars($v, ENT_QUOTES) . "'"; }, ' ');
-            return "<tag_{$this->attributes['tagname']} $attrs>$content</tag_{$this->attributes['tagname']}>";
+            return "<tag_{$attribute['tagname']} $attrs>$content</tag_{$attribute['tagname']}>";
         };
 
         switch ($this->attributes['tagname']) {
             // inheritdoc だけは特別扱い
             case 'inheritdoc':
-                return $render('HereIsInheritdoc');
+                return $render($this->attributes, 'HereIsInheritdoc');
             case 'link':
-                return $render($this->attributes['description']);
+                return $render($this->attributes, $this->attributes['description']);
+            case 'source':
+                $attributes = $this->attributes;
+                unset($attributes['location']); // ローカルパスが格納されているのでインラインでは伏せる
+                return $render($attributes, $this->attributes['description']);
             default:
-                return $render('');
+                return $render($this->attributes, '');
         }
     }
 
@@ -357,6 +361,26 @@ class Tag
     protected function parseSince($tagValue)
     {
         return $this->_parseVersion($tagValue);
+    }
+
+    protected function parseSource($tagValue, $usings, $namespace, $own)
+    {
+        // @source ["Type"] [<description>]
+        $value = preg_split('#\s+#', $tagValue, 2);
+        $tname = $this->_addOwn($value[0], $own);
+        $fqsen = (new Fqsen($tname))->resolve($usings, $namespace, $own)[0];
+        // このタグは特別扱いでいきなり new Reflection するので tyr catch が必要（でないと見つからないクラスで即死する）
+        $ref = null;
+        try {
+            $ref = new Reflection($fqsen['fqsen']);
+        }
+        catch (\Exception $ex) {
+        }
+        return [
+            'fqsen'       => $fqsen['fqsen'],
+            'location'    => optional($ref)->getLocation(),
+            'description' => $value[1] ?? $value[0],
+        ];
     }
 
     protected function parseThrows($tagValue, $usings, $namespace, $own)

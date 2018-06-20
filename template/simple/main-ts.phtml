@@ -20,6 +20,9 @@
 		<span class="label label-info"><?= h($element['iterateable'] ? 'iterateable' : '') ?></span>
 		<span class="label label-deprecated"><?= h(isset($element['tags']['deprecated'][0]) ? 'deprecated ' . $element['tags']['deprecated'][0]['start'] : '') ?></span>
         <?= source($element['location']) ?>
+        <?php foreach ($element['tags']['source'] ?? [] as $source): ?>
+			<span class="display-none" data-fqsen="<?= h($source['fqsen']) ?>"><?= source($source['location']) ?></span>
+        <?php endforeach ?>
 	</div>
 
 	<h2><?= h($type) ?> <span class="category-name"><?= h($element['fqsen']) ?></span></h2>
@@ -43,6 +46,9 @@
 					<div class="attribute">
 						<span class="label label-<?= h($constant['accessible']) ?>"><?= h($constant['accessible']) ?></span>
                         <?= source($constant['location']) ?>
+                        <?php foreach ($constant['tags']['source'] ?? [] as $source): ?>
+							<span class="display-none" data-fqsen="<?= h($source['fqsen']) ?>"><?= source($source['location']) ?></span>
+                        <?php endforeach ?>
 					</div>
 					<h4 id="<?= h($constant['fqsen']) ?>" tabindex="-1" class="structure-title">
 						<small><?= render_type($constant['types']) ?></small>
@@ -70,6 +76,9 @@
 						<span class="label label-primary"><?= h($property['magic'] ? 'magic' : '') ?></span>
 						<span class="label label-<?= h($property['accessible']) ?>"><?= h($property['accessible']) ?></span>
                         <?= source($property['location']) ?>
+                        <?php foreach ($property['tags']['source'] ?? [] as $source): ?>
+							<span class="display-none" data-fqsen="<?= h($source['fqsen']) ?>"><?= source($source['location']) ?></span>
+                        <?php endforeach ?>
 					</div>
 					<h4 id="<?= h($property['fqsen']) ?>" tabindex="-1" class="structure-title">
 						<small><?= render_type($property['types']) ?></small>
@@ -101,6 +110,9 @@
 						<span class="label label-deprecated"><?= h(isset($method['tags']['deprecated'][0]) ? 'deprecated ' . $method['tags']['deprecated'][0]['start'] : '') ?></span>
 						<span class="label label-<?= h($method['accessible']) ?>"><?= h($method['accessible']) ?></span>
                         <?= source($method['location']) ?>
+                        <?php foreach ($method['tags']['source'] ?? [] as $source): ?>
+							<span class="display-none" data-fqsen="<?= h($source['fqsen']) ?>"><?= source($source['location']) ?></span>
+                        <?php endforeach ?>
 					</div>
 					<h4 id="<?= h($method['fqsen']) ?>" tabindex="-1" class="structure-title <?= isset($method['tags']['deprecated'][0]) ? 'strike' : '' ?>">
                         <?= h($method['name']) ?>

@@ -75,6 +75,9 @@
 				<li class="structure-item">
 					<div class="attribute">
                         <?= source($constant['location']) ?>
+                        <?php foreach ($constant['tags']['source'] ?? [] as $source): ?>
+							<span class="display-none" data-fqsen="<?= h($source['fqsen']) ?>"><?= source($source['location']) ?></span>
+                        <?php endforeach ?>
 					</div>
 					<h4 id="<?= h($constant['fqsen']) ?>" tabindex="-1" class="structure-title <?= h(isset($constant['tags']['deprecated'][0]) ? 'strike' : '') ?>">
 						<small><?= render_type($constant['types']) ?></small>
@@ -104,6 +107,9 @@
 						<span class="label label-default"><?= h(isset($function['tags']['version'][0]) ? 'version ' . $function['tags']['version'][0]['version'] : '') ?></span>
 						<span class="label label-deprecated"><?= h(isset($function['tags']['deprecated'][0]) ? 'deprecated ' . $function['tags']['deprecated'][0]['start'] : '') ?></span>
                         <?= source($function['location']) ?>
+                        <?php foreach ($function['tags']['source'] ?? [] as $source): ?>
+							<span class="display-none" data-fqsen="<?= h($source['fqsen']) ?>"><?= source($source['location']) ?></span>
+                        <?php endforeach ?>
 					</div>
 					<h4 id="<?= h($function['fqsen']) ?>" tabindex="-1" class="structure-title <?= h(isset($function['tags']['deprecated'][0]) ? 'strike' : '') ?>">
                         <?= h($function['name']) ?>
