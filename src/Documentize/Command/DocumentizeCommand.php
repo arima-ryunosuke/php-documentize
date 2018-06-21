@@ -76,7 +76,7 @@ class DocumentizeCommand extends Command
         $src = path_resolve($input->getArgument('source'));
         $dst = path_resolve($input->getArgument('destination'));
         $tpl = $input->getOption('template');
-        $tpl = $tpl ? path_resolve($tpl) : __DIR__ . '/../../template/simple/bootstrap.php';
+        $tpl = $tpl ? path_resolve($tpl) : __DIR__ . '/../../../template/simple/bootstrap.php';
         $tplcfg = path_resolve($input->getOption('template-config'));
 
         $cachedir = $input->getOption('cachedir');

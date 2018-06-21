@@ -10,7 +10,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "ryunosuke\\Documentize\\": "src/"
+      "ryunosuke\\Documentize\\": "src/Documentize/"
     },
     "files": [
       "src/functions.php"

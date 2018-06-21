@@ -21,7 +21,7 @@ class Document
         $process = new Process([
             PHP_BINARY,
             '-r',
-            'require_once ' . var_export(__DIR__ . '/../vendor/autoload.php', true) . ';
+            'require_once ' . var_export(__DIR__ . '/../../vendor/autoload.php', true) . ';
 $document = new \\ryunosuke\\Documentize\\Document(unserialize(stream_get_contents(STDIN)));
 $gathertime = microtime(true);
 $readcount = count(get_included_files());
