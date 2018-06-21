@@ -623,10 +623,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         require_once $filename;
         $readfiles[$filename] = true;
 
-        $usings = array_map(function ($v) { return $v['@using'] ?? []; }, $this->cache("$filename.parsed", filemtime($filename), function () use ($filename) {
-            return PhpFile::cache($filename);
-        }));
+        $filecache = $this->cache("$filename.parsed", filemtime($filename), function () use ($filename) { return PhpFile::cache($filename); });
+        PhpFile::cache($filename, $filecache);
 
+        $usings = array_map(function ($v) { return $v['@using'] ?? []; }, $filecache);
         foreach ($usings as $ns => $using) {
             if (!isset($this->usings[$ns])) {
                 $this->usings[$ns] = [];

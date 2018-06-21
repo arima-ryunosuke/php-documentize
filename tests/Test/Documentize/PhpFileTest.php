@@ -18,6 +18,7 @@ class PhpFileTest extends \ryunosuke\Test\AbstractUnitTestCase
     {
         $this->assertSame((new PhpFile(__FILE__))->gather(), PhpFile::cache(__FILE__));
         $this->assertSame((new PhpFile(__FILE__))->gather(), PhpFile::cache(null)[__FILE__]);
+        $this->assertSame('forced setting', PhpFile::cache(__FILE__, 'forced setting'));
     }
 
     function test_iterate()

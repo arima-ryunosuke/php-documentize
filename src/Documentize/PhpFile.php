@@ -40,15 +40,16 @@ class PhpFile
         }
     }
 
-    public static function cache($filename)
+    public static function cache($filename, $content = null)
     {
         if ($filename === null) {
             return self::$cache;
         }
 
         $filename = realpath($filename);
-        if (!isset(self::$cache[$filename])) {
-            self::$cache[$filename] = (new self($filename))->gather();
+        // $content が指定されているなら強制的に設定する（別途キャッシュで読み込まれてこのメソッドを経由しないことがあるため）
+        if (!isset(self::$cache[$filename]) || $content) {
+            self::$cache[$filename] = $content ?: (new self($filename))->gather();
         }
         return self::$cache[$filename];
     }
