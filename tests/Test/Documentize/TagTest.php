@@ -38,6 +38,17 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
         ]);
     }
 
+    function test_getDependedFqsens()
+    {
+        // fqsen を持たないタグは空
+        $tag = new Tag('@todo noinline', [], null, null, null);
+        $this->assertEquals([], $tag->getDependedFqsens());
+
+        // fqsen を持つタグはそれを
+        $tag = new Tag('@param int|string', [], null, null, null);
+        $this->assertEquals(['int', 'string'], $tag->getDependedFqsens());
+    }
+
     function test_getInlineText()
     {
         // インラインでなければ null
@@ -696,8 +707,8 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'description' => __METHOD__,
             'location'    => [
                 'path'  => __FILE__,
-                'start' => 689,
-                'end'   => 721,
+                'start' => 700,
+                'end'   => 732,
             ],
         ]);
         $this->assertTag(new Tag("@source $__method__ this is description.", [], null, null, null), [
@@ -707,8 +718,8 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'description' => "this is description.",
             'location'    => [
                 'path'  => __FILE__,
-                'start' => 689,
-                'end'   => 721,
+                'start' => 700,
+                'end'   => 732,
             ],
         ]);
         $this->assertTag(@new Tag("@source NotFound this is description.", [], null, null, null), [

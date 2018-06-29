@@ -9,11 +9,19 @@ namespace ryunosuke\Documentize;
  */
 class Tag
 {
+    /// パースに必要な依存情報。内部的なもので引数で引き回すのも冗長なのでメンバーとしてもたせる
+    private $usings, $namespace, $own, $last;
+
     /** @var array タグの属性 */
     private $attributes;
 
+    /** @var array 関連する FQSEN */
+    private $fqsens = [];
+
     public function __construct($tagtext, $usings, $namespace, $own, $last)
     {
+        list($this->usings, $this->namespace, $this->own, $this->last) = [$usings, $namespace, $own, $last];
+
         $inline = false;
         if (preg_match('#^\{(.*)\}$#', $tagtext, $m)) {
             $tagtext = $m[1];
@@ -30,13 +38,18 @@ class Tag
         ];
         $method = "parse" . strtr(ucwords($tagName, '-'), ['-' => '']);
         if (method_exists($this, $method)) {
-            $this->attributes += $this->$method($tagValue, $usings, $namespace, $own, $last);
+            $this->attributes += $this->$method($tagValue);
         }
     }
 
     public function toArray()
     {
         return $this->attributes;
+    }
+
+    public function getDependedFqsens()
+    {
+        return $this->fqsens;
     }
 
     public function getInlineText()
@@ -69,16 +82,18 @@ class Tag
         }
     }
 
-    private function _addOwn($fqsen, $own)
+    private function _resolveFqsen($fqsen, $addOwn)
     {
         // see タグなどはスコープを省略できる。その場合は自身とみなされる
-        if (strpos($fqsen, '::') === false && $own) {
+        if ($addOwn && $this->own && strpos($fqsen, '::') === false) {
             // ただしプロパティ・メソッドのみ（phpstorm も対応していない。 hoge と書かれていても hoge か self::hoge か判断できないから？）
             if ($fqsen[0] === '$' || preg_match('#\\(\\)$#', $fqsen)) {
                 $fqsen = '$this::' . $fqsen;
             }
         }
-        return $fqsen;
+        $result = (new Fqsen($fqsen))->resolve($this->usings, $this->namespace, $this->own);
+        $this->fqsens = array_merge($this->fqsens, array_column($result, 'fqsen'));
+        return $result;
     }
 
     private function _validUri($value)
@@ -110,15 +125,12 @@ class Tag
         ];
     }
 
-    private function _parseTypeDescription($addOwn, $tagValue, $usings, $namespace, $own)
+    private function _parseTypeDescription($addOwn, $tagValue)
     {
         // @tagname ["Type"] [<description>]
         $value = preg_split('#\s+#', $tagValue, 2);
-        if ($addOwn) {
-            $value[0] = $this->_addOwn($value[0], $own);
-        }
         return [
-            'type'        => (new Fqsen($value[0]))->resolve($usings, $namespace, $own)[0],
+            'type'        => $this->_resolveFqsen($value[0], $addOwn)[0],
             'description' => $value[1] ?? '',
         ];
     }
@@ -184,12 +196,12 @@ class Tag
         return $this->_parseNovalue();
     }
 
-    protected function parseInheritdoc($tagValue, $usings, $namespace, $own)
+    protected function parseInheritdoc($tagValue)
     {
         // @inheritdoc ["FQSEN"] [<description>]
         $value = preg_split('#\s+#', $tagValue, 2);
         return [
-            'type'        => strlen($tagValue) ? (new Fqsen($this->_addOwn($value[0], $own)))->resolve($usings, $namespace, $own)[0] : null,
+            'type'        => strlen($tagValue) ? $this->_resolveFqsen($value[0], true)[0] : null,
             'description' => $value[1] ?? '',
         ];
     }
@@ -211,13 +223,13 @@ class Tag
         ];
     }
 
-    protected function parseLink($tagValue, $usings, $namespace, $own)
+    protected function parseLink($tagValue)
     {
         // インライン用法が異なるだけで @see と同じ
-        return $this->parseSee($tagValue, $usings, $namespace, $own);
+        return $this->parseSee($tagValue);
     }
 
-    protected function parseMethod($tagValue, $usings, $namespace, $own, $last)
+    protected function parseMethod($tagValue)
     {
         // @method [return type] [name]([type] [parameter], [...]) [description]
 
@@ -248,8 +260,8 @@ class Tag
             $paramsTag[] = "@param $type " . preg_replace('#[^$0-9a-z]#i', '', explode('=', $parameter)[0]);
         }
 
-        if (($last[1] ?? null) === '*') {
-            $last = strtr($last, ['@**' => '/**', '*@' => '*/']);
+        if (($this->last[1] ?? null) === '*') {
+            $last = strtr($this->last, ['@**' => '/**', '*@' => '*/']);
             return [
                 'static'     => !!$matches['static'],
                 'name'       => $matches['name'],
@@ -295,12 +307,12 @@ class Tag
         ];
     }
 
-    protected function parseParam($tagValue, $usings, $namespace, $own)
+    protected function parseParam($tagValue)
     {
         // @param ["Type"] [name] [<description>]
         $value = preg_split('#\s+#', $tagValue, 3);
         return [
-            'type'        => (new Fqsen($value[0]))->resolve($usings, $namespace, $own),
+            'type'        => $this->_resolveFqsen($value[0], false),
             'name'        => ltrim($value[1] ?? '', '$.'),
             'description' => $value[2] ?? '',
         ];
@@ -336,24 +348,24 @@ class Tag
         ];
     }
 
-    protected function parseReturn($tagValue, $usings, $namespace, $own)
+    protected function parseReturn($tagValue)
     {
         // @return ["Type"] [<description>]
         $value = preg_split('#\s+#', $tagValue, 2);
         return [
-            'type'        => (new Fqsen($value[0]))->resolve($usings, $namespace, $own),
+            'type'        => $this->_resolveFqsen($value[0], false),
             'description' => $value[1] ?? '',
         ];
     }
 
-    protected function parseSee($tagValue, $usings, $namespace, $own)
+    protected function parseSee($tagValue)
     {
         // @see [URI | "FQSEN"] [<description>]
         $value = preg_split('#\s+#', $tagValue, 2);
         $uri = $this->_validUri($value[0]);
         return [
             'kind'        => $uri ? 'uri' : 'fqsen',
-            'type'        => $uri ?: (new Fqsen($this->_addOwn($value[0], $own)))->resolve($usings, $namespace, $own)[0],
+            'type'        => $uri ?: $this->_resolveFqsen($value[0], true)[0],
             'description' => $value[1] ?? $value[0],
         ];
     }
@@ -363,12 +375,11 @@ class Tag
         return $this->_parseVersion($tagValue);
     }
 
-    protected function parseSource($tagValue, $usings, $namespace, $own)
+    protected function parseSource($tagValue)
     {
         // @source ["Type"] [<description>]
         $value = preg_split('#\s+#', $tagValue, 2);
-        $tname = $this->_addOwn($value[0], $own);
-        $fqsen = (new Fqsen($tname))->resolve($usings, $namespace, $own)[0];
+        $fqsen = $this->_resolveFqsen($value[0], true)[0];
         // このタグは特別扱いでいきなり new Reflection するので tyr catch が必要（でないと見つからないクラスで即死する）
         $ref = null;
         try {
@@ -383,9 +394,9 @@ class Tag
         ];
     }
 
-    protected function parseThrows($tagValue, $usings, $namespace, $own)
+    protected function parseThrows($tagValue)
     {
-        return $this->_parseTypeDescription(false, $tagValue, $usings, $namespace, $own);
+        return $this->_parseTypeDescription(false, $tagValue);
     }
 
     protected function parseTodo($tagValue)
@@ -393,17 +404,17 @@ class Tag
         return $this->_parseDescription($tagValue);
     }
 
-    protected function parseUses($tagValue, $usings, $namespace, $own)
+    protected function parseUses($tagValue)
     {
-        return $this->_parseTypeDescription(true, $tagValue, $usings, $namespace, $own);
+        return $this->_parseTypeDescription(true, $tagValue);
     }
 
-    protected function parseUsedBy($tagValue, $usings, $namespace, $own)
+    protected function parseUsedBy($tagValue)
     {
-        return $this->_parseTypeDescription(true, $tagValue, $usings, $namespace, $own);
+        return $this->_parseTypeDescription(true, $tagValue);
     }
 
-    protected function parseVar($tagValue, $usings, $namespace, $own)
+    protected function parseVar($tagValue)
     {
         // @var ["Type"] [element_name] [<description>]
         // プロパティでの使用を想定しているが、本来の @var タグは「その要素名」まで含めて指定する
@@ -418,7 +429,7 @@ class Tag
             $description = $parts[1] ?? '';
         }
         return [
-            'type'        => (new Fqsen($value[0]))->resolve($usings, $namespace, $own),
+            'type'        => $this->_resolveFqsen($value[0], false),
             'name'        => $name,
             'description' => $description ?? '',
         ];
