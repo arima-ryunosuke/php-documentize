@@ -13,6 +13,11 @@ class ChildClass
 
     /**
      * {@inheritdoc Invalid::invalid()}
+     *
+     * @see \UndefinedClass
+     * @see \ChildClass::unknownConst
+     * @see \ChildClass::$unknownProperty
+     * @see \ChildClass::unknownMethod()
      */
     function method() { }
 }

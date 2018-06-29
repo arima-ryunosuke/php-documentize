@@ -29,7 +29,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_parse()
     {
         $this->assertSame([
-            'type',
+            'class',
             '',
             'ArrayObject',
             null,
@@ -46,14 +46,22 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
             'property',
             '',
             'ArrayObject',
-            '$propertyName',
+            'propertyName',
         ], Fqsen::parse('ArrayObject::$propertyName'));
 
         $this->assertSame([
             'method',
             '',
             'ArrayObject',
-            'methodName()',
+            'methodName',
+        ], Fqsen::parse('ArrayObject::methodName()'));
+
+        // 定数がない場合に限り()なしでもメソッドをみなされる
+        $this->assertSame([
+            'method',
+            '',
+            'ArrayObject',
+            'methodName',
         ], Fqsen::parse('ArrayObject::methodName'));
 
         $this->assertSame([
@@ -64,7 +72,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
         ], Fqsen::parse('\\vendor\\Type'));
 
         $this->assertSame([
-            'type',
+            'class',
             __NAMESPACE__,
             'FqsenTest',
             null,
@@ -248,18 +256,5 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'array'    => 0,
             ]
         ], $fqsen->resolve([], __NAMESPACE__, null));
-    }
-
-    function test_resolve_unknown()
-    {
-        $fqsen = new Fqsen('Unknown');
-        $this->assertEquals([
-            [
-                'category' => 'type',
-                'fqsen'    => 'Unknown',
-                'array'    => 0,
-            ]
-        ], @$fqsen->resolve([], __NAMESPACE__, null));
-        $this->assertContains("'Unknown' is unknown type", error_get_last()['message']);
     }
 }

@@ -24,10 +24,10 @@ class Reflection
                 $reflection = ["$ns\\$cname" => $member];
             }
             elseif ($category === 'property') {
-                $reflection = new \ReflectionProperty("$ns\\$cname", ltrim($member, '$'));
+                $reflection = new \ReflectionProperty("$ns\\$cname", $member);
             }
             elseif ($category === 'method') {
-                $reflection = new \ReflectionMethod("$ns\\$cname", rtrim($member, '()'));
+                $reflection = new \ReflectionMethod("$ns\\$cname", $member);
             }
             else {
                 $reflection = new \ReflectionClass("$ns\\$cname");

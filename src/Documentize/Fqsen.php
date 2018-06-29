@@ -69,30 +69,31 @@ class Fqsen
      */
     public static function parse($fqsen)
     {
-        $category = 'type';
+        $category = null;
         $typename = trim($fqsen);
         $member = null;
         $parts = explode('::', $typename);
         if (isset($parts[1])) {
-            $typename = $parts[0];
-            $member = preg_replace('#\(.*\)$#', '', $parts[1], 1, $mc);
             // 定義されているなら定数
-            if ($mc === 0 && defined("$typename::$member")) {
+            if (defined($typename)) {
                 $category = 'constant';
+                $member = $parts[1];
             }
             // $ 付きはプロパティ
-            elseif ($member[0] === '$') {
+            elseif ($parts[1][0] === '$') {
                 $category = 'property';
+                $member = ltrim($parts[1], '$');
             }
             // それ以外はメソッド
             else {
                 $category = 'method';
-                $member .= '()';
+                $member = rtrim($parts[1], '()');
             }
+            $typename = $parts[0];
         }
 
         // 名前空間なのかクラスなのかの厳密な区別は存在しない。存在チェックするしかない
-        if ($member || self::detectType($typename)) {
+        if ($member || $category = self::detectType($typename)) {
             $parts = explode('\\', $typename);
             $typename = array_pop($parts);
             $namespace = implode('\\', $parts);
@@ -143,7 +144,6 @@ class Fqsen
 
         $result = [];
         foreach (array_filter(array_unique($types), 'strlen') as $type) {
-            $detected = false;
             // Type[][] などの [] の数を配列階層数とする（ただし、パースに邪魔なので、置換して回数を数えておきそれを階層数とする）
             $fqsen = str_replace('[]', '', trim($type), $count);
             list($class, $member) = explode('::', $fqsen) + [1 => ''];
@@ -154,12 +154,10 @@ class Fqsen
             ];
             // array, callable などの組み込み型
             if (isset(self::BUILTIN_TYPES[strtolower($class)])) {
-                $detected = true;
                 $default['category'] = 'pseudo';
             }
             // $this, static などの自身を表す型
             elseif (isset(self::OWN_WORDS[strtolower($class)])) {
-                $detected = true;
                 $default['fqsen'] = $own;
             }
 
@@ -179,7 +177,6 @@ class Fqsen
             }
             // 型が導けるならそれを使う
             if ($dtype = self::detectType($class)) {
-                $detected = true;
                 $refclass = new \ReflectionClass($class);
                 $default['category'] = $dtype;
                 $default['fqsen'] = ($refclass->isInternal() ? '\\' : '') . $refclass->getName();
@@ -199,10 +196,6 @@ class Fqsen
                     $default['category'] = 'method';
                     $default['fqsen'] .= '::' . $member . '()';
                 }
-            }
-
-            if (!$detected) {
-                trigger_error("'$fqsen' is unknown type ($own)");
             }
 
             $result[] = $default;

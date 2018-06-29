@@ -6,11 +6,29 @@ use Symfony\Component\Process\Process;
 
 class Document
 {
+    const GLOBAL_MULTIPLES = [
+        'constant' => 'constants',
+        'function' => 'functions',
+    ];
+    const TYPE_MULTIPLES   = [
+        'class'     => 'classes',
+        'trait'     => 'traits',
+        'interface' => 'interfaces',
+    ];
+    const MEMBER_MULTIPLES = [
+        'constant' => 'constants',
+        'property' => 'properties',
+        'method'   => 'methods',
+    ];
+
     /** @var array 動作オプション */
     private $options = [];
 
     /** @var array 名前空間ごとの use 節マッピング */
     private $usings = [];
+
+    /** @var array 掻き集めてる最中の fqsen */
+    private $fqsens = [];
 
     /** @var string 掻き集めてるディレクトリ */
     private $targetdir, $targethash;
@@ -133,6 +151,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
      */
     public function gather(&$logs = [])
     {
+        $this->fqsens = [];
         $logs = [];
 
         // ロガーの代わりにエラーハンドラを使用する
@@ -241,9 +260,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 return;
             }
             list(, $ns, $cname, $member) = Fqsen::parse(rtrim($tfqsen, '()'));
-            $member = rtrim(ltrim($member, '$'), '()');
             $OK = false;
-            foreach (['interfaces', 'traits', 'classes'] as $type) {
+            foreach (self::TYPE_MULTIPLES as $type) {
                 if ($mtype === 'type') {
                     if (!isset($namespaces[$ns][$type][$cname])) {
                         continue;
@@ -311,8 +329,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             }
         };
         foreach ($namespaces as $namespace => &$elements) {
-            foreach (['interfaces', 'traits', 'classes'] as $type) {
-                foreach (['constants', 'properties', 'methods'] as $mtype) {
+            foreach (self::TYPE_MULTIPLES as $type) {
+                foreach (self::MEMBER_MULTIPLES as $mtype) {
                     foreach ($elements[$type] as &$typeArray) {
                         $inheritdoc($typeArray, 'type');
                         foreach ($typeArray[$mtype] as &$member) {
@@ -327,8 +345,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $marshal = static function (&$typeArray) use ($hierarchies, &$namespaces) {
             $lookup = static function ($fqsen) use (&$namespaces) {
                 list($category, $ns, $cname, $member) = Fqsen::parse($fqsen);
-                $member = rtrim(ltrim($member, '$'), '()');
-                foreach (['constant' => 'constants', 'property' => 'properties', 'method' => 'methods'] as $cate => $key) {
+                foreach (self::MEMBER_MULTIPLES as $cate => $key) {
                     if ($category === $cate) {
                         return null
                             ?? $namespaces[$ns]['interfaces'][$cname][$key][$member]
@@ -354,7 +371,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 }
             };
 
-            foreach (['constants', 'properties', 'methods'] as $mtype) {
+            foreach (self::MEMBER_MULTIPLES as $mtype) {
                 foreach ($typeArray[$mtype] as &$member) {
                     foreach ($member['prototypes'] as &$prototype) {
                         $prototype['description'] = $lookup($prototype['fqsen'])['description'] ?? '';
@@ -383,20 +400,20 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             if ($this->skip($data, null, null)) {
                 continue;
             }
-            foreach (['constants' => 'constant', 'functions' => 'function'] as $key => $name) {
+            foreach (self::GLOBAL_MULTIPLES as $name => $key) {
                 foreach ($data[$key] as $n => $e) {
                     if ($this->skip($e, null, $name)) {
                         unset($data[$key][$n]);
                     }
                 }
             }
-            foreach (['interfaces' => 'type', 'traits' => 'type', 'classes' => 'type'] as $key => $name) {
+            foreach (self::TYPE_MULTIPLES as $key) {
                 foreach ($data[$key] as $n => $e) {
-                    if ($this->skip($e, null, $name)) {
+                    if ($this->skip($e, null, 'type')) {
                         unset($data[$key][$n]);
                         continue;
                     }
-                    foreach (['constants' => 'constant', 'properties' => 'property', 'methods' => 'method'] as $key2 => $name2) {
+                    foreach (self::MEMBER_MULTIPLES as $name2 => $key2) {
                         foreach ($e[$key2] as $n2 => $e2) {
                             if ($this->skip($e2, $e, $name2)) {
                                 unset($data[$key][$n][$key2][$n2]);
@@ -409,7 +426,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             // 環境によって関数の定義順がバラけるようなので functions だけは定義順でソート
             uasort($data['functions'], function ($a, $b) { return $a['location']['start'] - $b['location']['start']; });
 
-            foreach (['interfaces', 'traits', 'classes'] as $type) {
+            foreach (self::TYPE_MULTIPLES as $type) {
                 array_walk($data[$type], $marshal);
             }
 
@@ -434,6 +451,37 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 $tmp = &$tmp[$ns]['namespaces'];
             }
             $tmp[$data['name']] = $data;
+        }
+
+        // 5パス目。過程で見つからなかった FQSEN を報告
+        foreach ($this->fqsens as $type => $fqsens) {
+            foreach ($fqsens as $fqsen) {
+                if (isset(Fqsen::BUILTIN_TYPES[strtolower($fqsen)])) {
+                    continue;
+                }
+                list($category, $ns, $cname, $m) = Fqsen::parse($fqsen);
+                if ($ttype = Fqsen::detectType("$ns\\$cname")) {
+                    $ref = new \ReflectionClass("$ns\\$cname");
+                    if (!$ref->isInternal()) {
+                        if ($m === null) {
+                            $category = self::TYPE_MULTIPLES[$ttype];
+                            if (!isset($namespaces[$ns][$category][$cname])) {
+                                trigger_error("'$fqsen' is unknown type in ($type)");
+                            }
+                        }
+                        else {
+                            $category2 = self::MEMBER_MULTIPLES[$category];
+                            $category = self::TYPE_MULTIPLES[$ttype];
+                            if (!isset($namespaces[$ns][$category][$cname][$category2][$m])) {
+                                trigger_error("'$fqsen' is unknown member in ($type)");
+                            }
+                        }
+                    }
+                }
+                elseif ($category !== 'namespace' && $category !== 'constant' && $category !== 'function') {
+                    trigger_error("'$fqsen' is undefined type in ($type)");
+                }
+            }
         }
 
         restore_error_handler();
@@ -878,7 +926,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             }
             foreach ($v['tags']['used-by'] ?? [] as $used_by) {
                 list(, , , $member) = Fqsen::parse($used_by['type']['fqsen']);
-                $member = rtrim($member, '()');
                 if (isset($result[$member])) {
                     $result2[$member] = $result[$member];
                 }
@@ -896,6 +943,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         $doccomment = preg_replace_callback('#\{@.+?\}#', function ($m) use (&$tags, $namespace, $own) {
             $tag = new Tag($m[0], $this->usings, $namespace, $own, null);
+            $this->fqsens[$own] = array_merge($this->fqsens[$own] ?? [], $tag->getDependedFqsens());
             $tagvalues = $tag->toArray();
             $tags[$tagvalues['tagname']][] = $tagvalues;
             return $tag->getInlineText();
@@ -904,6 +952,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $last = null;
         foreach (preg_grep('#^@#', preg_split('#(?=^@)#m', $doccomment)) as $tagstr) {
             $tag = new Tag($tagstr, $this->usings, $namespace, $own, $last);
+            $this->fqsens[$own] = array_merge($this->fqsens[$own] ?? [], $tag->getDependedFqsens());
             $tagvalues = $tag->toArray();
             $tags[$tagvalues['tagname']][] = $tagvalues;
             $last = $tagstr;
