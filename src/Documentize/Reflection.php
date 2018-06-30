@@ -21,7 +21,7 @@ class Reflection
         if (is_string($reflection)) {
             list($category, $ns, $cname, $member) = Fqsen::parse($reflection);
             if ($category === 'constant') {
-                $reflection = ["$ns\\$cname" => $member];
+                $reflection = new \ReflectionClassConstant("$ns\\$cname", $member);
             }
             elseif ($category === 'property') {
                 $reflection = new \ReflectionProperty("$ns\\$cname", $member);

@@ -86,8 +86,8 @@ class Tag
     {
         // see タグなどはスコープを省略できる。その場合は自身とみなされる
         if ($addOwn && $this->own && strpos($fqsen, '::') === false) {
-            // ただしプロパティ・メソッドのみ（phpstorm も対応していない。 hoge と書かれていても hoge か self::hoge か判断できないから？）
-            if ($fqsen[0] === '$' || preg_match('#\\(\\)$#', $fqsen)) {
+            // プロパティ・メソッドは判別できるが、定数は不可。のですべて大文字は定数とみなす
+            if ($fqsen[0] === '$' || preg_match('#\\(\\)$#', $fqsen) || preg_match('#^[A-Z_0-9]+$#', $fqsen)) {
                 $fqsen = '$this::' . $fqsen;
             }
         }

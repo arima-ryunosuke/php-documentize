@@ -131,7 +131,6 @@ class DocumentizeCommand extends Command
         ];
 
         $output->writeln(sprintf("Gather and parse files from <info>%s</info>", $src));
-
         $result = Document::gatherIsolative($options, $errors);
         if ($result === false) {
             $output->writeln("<fg=red>$errors</>");
@@ -153,6 +152,7 @@ class DocumentizeCommand extends Command
             $output->writeln("<$tag>" . $message . "</>", $map[$log['errorno']][0]);
         }
 
+        $output->writeln(sprintf("Generate files to <info>%s</info>", $dst));
         mkdir_p($dst);
         $starttime = time();
         $generatetime = microtime(true);
@@ -160,7 +160,7 @@ class DocumentizeCommand extends Command
             $generator = (require $tpl)($namespaces, $dst, $tplcfg);
             if ($generator instanceof \Generator) {
                 foreach ($generator as $out) {
-                    $output->writeln(sprintf("Create file to <info>%s</info>", $out), OutputInterface::VERBOSITY_VERBOSE);
+                    $output->writeln(sprintf("Create file to <info>%s</info>", $out), OutputInterface::VERBOSITY_VERY_VERBOSE);
                 }
             }
         }

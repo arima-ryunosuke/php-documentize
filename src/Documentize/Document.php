@@ -431,7 +431,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             }
 
             $nsdescription = array_reduce(PhpFile::cache(null), function ($carry, $filedata) use ($namespace) {
-                if (isset($filedata[$namespace]) && $filedata[$namespace]['@comment']) {
+                if ($filedata[$namespace]['@comment'] ?? '') {
                     $carry .= $filedata[$namespace]['@comment'] . "\n\n";
                 }
                 return $carry;

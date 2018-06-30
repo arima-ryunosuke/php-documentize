@@ -33,7 +33,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
     {
         $this->assertSame('constant', (new Reflection(['NS\\MockConstant' => 1]))->getCategory());
         $this->assertSame('class', (new Reflection(MockClass::class))->getCategory());
-        $this->assertSame('constant', (new Reflection(MockClass::class . '::mockConstant'))->getCategory());
+        $this->assertSame('classconstant', (new Reflection(MockClass::class . '::mockConstant'))->getCategory());
         $this->assertSame('property', (new Reflection(MockClass::class . '::$mockProperty'))->getCategory());
         $this->assertSame('method', (new Reflection(MockClass::class . '::mockMethod()'))->getCategory());
     }
