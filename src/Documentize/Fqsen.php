@@ -69,42 +69,53 @@ class Fqsen
      */
     public static function parse($fqsen)
     {
-        $category = null;
-        $typename = trim($fqsen);
-        $member = null;
-        $parts = explode('::', $typename);
-        if (isset($parts[1])) {
-            // 定義されているなら定数
-            if (defined($typename)) {
+        $regex = "
+            (?<namespace>[^:()$]+\\\\)?
+            (?<localname>[^:()$]+)
+            (?:::
+              (?<pmark>\\$)?(?<member>[^:()$]+)
+            )?
+            (?<fmark>\\(.*\\))?
+        ";
+        $match = preg_capture("#^$regex\$#ux", $fqsen, [
+            'namespace' => '',   // 名前空間
+            'localname' => '',   // ローカル名
+            'member'    => null, // メンバー名
+            'pmark'     => null, // プロパティを表す $
+            'fmark'     => null, // callble を表す ()
+        ]);
+
+        // \\ で終わるものは超特別扱いで名前空間とする
+        if (ends_with($match['localname'], '\\')) {
+            $category = 'namespace';
+        }
+        // member が無いならグローバルのなにか
+        elseif (strlen($match['member']) === 0) {
+            if ($match['fmark']) {
+                $category = 'function';
+            }
+            // ClassName と CONST_NAME を判断する術はない。敢えて言うなら「すべて大文字」は定数
+            elseif (preg_match('#^[A-Z_0-9]+$#', $match['localname'])) {
                 $category = 'constant';
-                $member = $parts[1];
             }
-            // $ 付きはプロパティ
-            elseif ($parts[1][0] === '$') {
+            else {
+                $category = 'class';
+            }
+        }
+        // member が有るならクラスメンバーのなにか
+        else {
+            if ($match['pmark']) {
                 $category = 'property';
-                $member = ltrim($parts[1], '$');
             }
-            // それ以外はメソッド
+            // method と CLASS_CONST を判断する術はない。敢えて言うなら「すべて大文字」は定数
+            elseif (!$match['fmark'] || preg_match('#^[A-Z_0-9]+$#', $match['member'])) {
+                $category = 'constant';
+            }
             else {
                 $category = 'method';
-                $member = rtrim($parts[1], '()');
             }
-            $typename = $parts[0];
         }
-
-        // 名前空間なのかクラスなのかの厳密な区別は存在しない。存在チェックするしかない
-        if ($member || $category = self::detectType($typename)) {
-            $parts = explode('\\', $typename);
-            $typename = array_pop($parts);
-            $namespace = implode('\\', $parts);
-        }
-        else {
-            $category = 'namespace';
-            $namespace = $typename;
-            $typename = null;
-        }
-
-        return [$category, $namespace, $typename, $member];
+        return [$category, rtrim($match['namespace'], '\\'), ltrim($match['localname'], '\\'), $match['member']];
     }
 
     public function __construct($type = null)
@@ -195,6 +206,17 @@ class Fqsen
                 else {
                     $default['category'] = 'method';
                     $default['fqsen'] .= '::' . $member . '()';
+                }
+            }
+            elseif (!isset(self::BUILTIN_TYPES[strtolower($fqsen)])) {
+                $fqsen = preg_replace('#\(.*\)$#', '', $fqsen, 1, $mc);
+                if ($mc === 0 && defined($fqsen)) {
+                    $default['category'] = 'constant';
+                    $default['fqsen'] = $fqsen;
+                }
+                elseif (function_exists($fqsen)) {
+                    $default['category'] = 'function';
+                    $default['fqsen'] = $fqsen . '()';
                 }
             }
 

@@ -29,6 +29,27 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_parse()
     {
         $this->assertSame([
+            'constant',
+            '',
+            'SORT_STRING',
+            null,
+        ], Fqsen::parse('SORT_STRING'));
+
+        $this->assertSame([
+            'function',
+            '',
+            'implode',
+            null,
+        ], Fqsen::parse('implode()'));
+
+        $this->assertSame([
+            'class',
+            '',
+            'ArrayObject',
+            null,
+        ], Fqsen::parse('\\ArrayObject'));
+
+        $this->assertSame([
             'class',
             '',
             'ArrayObject',
@@ -56,20 +77,12 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
             'methodName',
         ], Fqsen::parse('ArrayObject::methodName()'));
 
-        // 定数がない場合に限り()なしでもメソッドをみなされる
-        $this->assertSame([
-            'method',
-            '',
-            'ArrayObject',
-            'methodName',
-        ], Fqsen::parse('ArrayObject::methodName'));
-
         $this->assertSame([
             'namespace',
-            '\\vendor\\Type',
+            '\\vendor',
+            'Type\\',
             null,
-            null,
-        ], Fqsen::parse('\\vendor\\Type'));
+        ], Fqsen::parse('\\vendor\\Type\\'));
 
         $this->assertSame([
             'class',
@@ -95,6 +108,39 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'array'    => 0,
             ],
         ], $fqsen->resolve([], null, null));
+    }
+
+    function test_resolve_constant()
+    {
+        $fqsen = new Fqsen('SORT_STRING');
+        $this->assertEquals([
+            [
+                'category' => 'constant',
+                'fqsen'    => 'SORT_STRING',
+                'array'    => 0,
+            ]
+        ], $fqsen->resolve([], __NAMESPACE__, null));
+
+        $fqsen = new Fqsen('NULL');
+        $this->assertEquals([
+            [
+                'category' => 'pseudo',
+                'fqsen'    => 'NULL',
+                'array'    => 0,
+            ]
+        ], $fqsen->resolve([], __NAMESPACE__, null));
+    }
+
+    function test_resolve_function()
+    {
+        $fqsen = new Fqsen('implode');
+        $this->assertEquals([
+            [
+                'category' => 'function',
+                'fqsen'    => 'implode()',
+                'array'    => 0,
+            ]
+        ], $fqsen->resolve([], __NAMESPACE__, null));
     }
 
     function test_resolve_builtin()
