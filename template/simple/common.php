@@ -81,7 +81,7 @@ function render_head()
                 return this.dataset.src + '?' + cachekey;
             });
 
-            $(document).on('click', 'a[href]:not(.cachekey)', function () {
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
                 this.classList.add('cachekey');
                 this.href = this.href.replace('.html', '.html?' + cachekey);
             });
@@ -271,7 +271,12 @@ function render_link($fqsen, $self = null)
             }
         }
         else {
-            ?><a href="http://php.net/manual/<?= $lang ?>/class.<?= h($type) ?>.php" class="fqsen" target="_blank"><?= h($fqsen) ?></a><?php
+            if (preg_match('#\\(\\)$#', $fqsen)) {
+                ?><a href="http://php.net/manual/<?= $lang ?>/function.<?= h(str_replace('_', '-', rtrim($type, '()'))) ?>.php" class="fqsen" target="_blank"><?= h($fqsen) ?></a><?php
+            }
+            else {
+                ?><a href="http://php.net/manual/<?= $lang ?>/class.<?= h($type) ?>.php" class="fqsen" target="_blank"><?= h($fqsen) ?></a><?php
+            }
         }
     }
     else {
