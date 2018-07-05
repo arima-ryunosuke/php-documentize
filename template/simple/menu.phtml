@@ -37,7 +37,7 @@ function render_namespace($elements, &$all, $nest = 0)
 					<li class="indent text-nowrap holding-wrapper holding-class">
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-<?= h($typename) ?>"><?= ucfirst($typename[0]) ?></span>
-							<a id="<?= h($element['fqsen']) ?>" href="<?= ref($element['fqsen'], 'typespace') ?>" class="<?= h(isset($element['tags']['deprecated'][0]) || isset($element['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($element['name']) ?></a>
+							<a id="<?= h($element['fqsen']) ?>" href="<?= ref($element['fqsen'], 'typespace') ?>" class="bold <?= h(isset($element['tags']['deprecated'][0]) || isset($element['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($element['name']) ?></a>
 							<small class="ellipsis-text"><?= h(summary($element['description'])) ?></small>
 						</div>
 						<!-- for lazy load -->

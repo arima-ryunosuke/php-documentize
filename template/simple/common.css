@@ -238,6 +238,10 @@ ul > li {
     padding: 2px;
 }
 
+h1 a, h1 a:hover, h1 a:focus {
+    color: #ff9c9c;
+}
+
 .typeahead.dropdown-menu {
     z-index: 10002;
     left: 0 !important;
@@ -316,6 +320,8 @@ ul > li {
 
 .description code {
     font-size: 12px;
+    overflow-x: auto;
+    white-space: pre;
 }
 
 .using li {
