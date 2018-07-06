@@ -1,0 +1,52 @@
+<?php include_once __DIR__ . '/common.php' ?>
+<!DOCTYPE html>
+<html>
+<head><?= render_head() ?></head>
+<body>
+<?php /** @var $namespaces */ ?>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis">
+	All Fqsen (for search Ctrl+F)
+</h1>
+<?php
+function renderNamespace($namespaces)
+{
+    ?>
+    <?php foreach ($namespaces as $namespace): ?>
+    <?php renderFqsen($namespace, 'namespace') ?>
+    <?php renderNamespace($namespace['namespaces']) ?>
+
+    <?php foreach ($namespace['constants'] as $constant): ?><?php renderFqsen($constant, 'constfunc') ?><?php endforeach ?>
+    <?php foreach ($namespace['functions'] as $function): ?><?php renderFqsen($function, 'constfunc') ?><?php endforeach ?>
+    <?php foreach ($namespace['classes'] as $type): ?><?php renderType($type) ?><?php endforeach ?>
+    <?php foreach ($namespace['traits'] as $type): ?><?php renderType($type) ?><?php endforeach ?>
+    <?php foreach ($namespace['interfaces'] as $type): ?><?php renderType($type) ?><?php endforeach ?>
+
+<?php endforeach ?>
+    <?php
+}
+
+function renderType($type)
+{
+    ?>
+    <?php renderFqsen($type, 'typespace') ?>
+    <?php foreach ($type['constants'] as $constant): ?><?php renderFqsen($constant, 'typespace') ?><?php endforeach ?>
+    <?php foreach ($type['properties'] as $property): ?><?php renderFqsen($property, 'typespace') ?><?php endforeach ?>
+    <?php foreach ($type['methods'] as $method): ?><?php renderFqsen($method, 'typespace') ?><?php endforeach ?>
+    <?php
+}
+
+function renderFqsen($fqsen, $type)
+{
+    ?>
+	<h2><?= h($fqsen['category']) ?><a href="<?= ref($fqsen['fqsen'], $type) ?>"> <?= h($fqsen['fqsen']) ?></a></h2>
+	<div class="description"><?= md($fqsen['description']) ?></div>
+    <?php
+}
+
+?>
+<div class="main-wrapper">
+    <?php renderNamespace($namespaces) ?>
+</div>
+</body>
+</html>

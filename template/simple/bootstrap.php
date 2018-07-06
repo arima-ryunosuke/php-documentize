@@ -29,6 +29,7 @@ return function ($namespaces, $dst, $config) {
     yield $perform("$indir/common.js", [], "$outdir/common.js");
     yield $perform("$indir/index.phtml", [], "$outdir/../index.html");
     yield $perform("$indir/menu.phtml", ['namespaces' => $namespaces], "$outdir/menu.html");
+    yield $perform("$indir/fqsens.phtml", ['namespaces' => $namespaces], "$outdir/fqsens.html");
 
     // 名前空間単位
     $gen = function ($namespaces) use (&$gen, $outdir, $indir, $perform) {
