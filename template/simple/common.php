@@ -18,8 +18,19 @@ function source($location)
 {
     foreach ($GLOBALS['config']['source-map'] as $regex => $url) {
         if ($url instanceof \Closure) {
-            $path = $url($location);
-            $replaced = !!$path;
+            if (is_int($regex)) {
+                $path = $url($location);
+                if (!$path) {
+                    continue;
+                }
+                ?>
+				<a href="<?= h($path) ?>" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                <?php
+                return;
+            }
+            else {
+                $path = preg_replace_callback("#$regex#", $url, str_replace('\\', '/', $location['path']), 1, $replaced);
+            }
         }
         else {
             $path = preg_replace("#$regex#", $url, str_replace('\\', '/', $location['path']), 1, $replaced);
