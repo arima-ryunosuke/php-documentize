@@ -218,7 +218,6 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $document->gather($logs);
         $logs = array_column($logs, 'message');
         $this->assertContains("Undefined variable: t", $logs);
-        $this->assertContains("Use of undefined constant UNDEFINED - assumed 'UNDEFINED'", $logs);
         $this->assertContains("ChildClass uses inheritdoc, but Invalid is not found.", $logs);
         $this->assertContains("ChildClass::method() uses inheritdoc, but Invalid::invalid() is not found.", $logs);
         $this->assertContains("'\UndefinedClass' is undefined type in (ChildClass)", $logs);
