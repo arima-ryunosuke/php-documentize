@@ -17,6 +17,16 @@ function render_namespace($elements, &$all, $nest = 0)
                 <?php endif ?>
                 <?= h($elements['name'] ?: '(global)') ?>
 			</a>
+			<span>(<?= array_sum([
+                    count($elements['namespaces']),
+                    count($elements['interfaces']),
+                    count($elements['traits']),
+                    count($elements['classes']),
+                    count($elements['constants']),
+                    count($elements['functions']),
+                ]) ?>)
+			</span>
+			<small class="ellipsis-text"><?= h(summary($elements['description'])) ?></small>
 		</div>
 		<ul class="has-indent holding">
             <?php foreach ($elements['namespaces'] as $element): ?>
@@ -38,6 +48,11 @@ function render_namespace($elements, &$all, $nest = 0)
 						<div class="nheader ellipsis">
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-<?= h($typename) ?>"><?= ucfirst($typename[0]) ?></span>
 							<a id="<?= h($element['fqsen']) ?>" href="<?= ref($element['fqsen'], 'typespace') ?>" class="bold <?= h(isset($element['tags']['deprecated'][0]) || isset($element['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($element['name']) ?></a>
+							<span>(<?= array_sum([
+                                    count($element['constants']),
+                                    count($element['properties']),
+                                    count($element['methods']),
+                                ]) ?>)</span>
 							<small class="ellipsis-text"><?= h(summary($element['description'])) ?></small>
 						</div>
 						<!-- for lazy load -->
