@@ -380,13 +380,8 @@ class Tag
         // @source ["Type"] [<description>]
         $value = preg_split('#\s+#', $tagValue, 2);
         $fqsen = $this->_resolveFqsen($value[0], true)[0];
-        // このタグは特別扱いでいきなり new Reflection するので tyr catch が必要（でないと見つからないクラスで即死する）
-        $ref = null;
-        try {
-            $ref = Reflection::instance($fqsen['fqsen']);
-        }
-        catch (\Exception $ex) {
-        }
+        // このタグは特別扱いでいきなり new Reflection するので try catch が必要（でないと見つからないクラスで即死する）
+        $ref = try_null([Reflection::class, 'instance'], $fqsen['fqsen']);
         return [
             'fqsen'       => $fqsen['fqsen'],
             'location'    => optional($ref)->getLocation(),

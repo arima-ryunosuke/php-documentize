@@ -19,27 +19,6 @@ class PhpFile
     /** @var int 現在位置 */
     private $position;
 
-    /**
-     * 与えられたコードを実行する
-     *
-     * eval のエラーが分かりにくいので見やすくするのが主目的でそれ以上の意味は持ってないし持たせない。
-     * 現スコープのローカル変数が使えなかったりするので普通に eval した方がいい場面もある（一応引数で渡せるが）。
-     *
-     * @param string $phpcode 実行する php コード
-     * @param array $scope 元スコープの変数を渡す想定の配列
-     * @return mixed eval の実行結果
-     */
-    public static function evaluate($phpcode, $scope = [])
-    {
-        try {
-            extract($scope);
-            return eval($phpcode);
-        }
-        catch (\ParseError $pe) {
-            throw new \RuntimeException("eval failed. " . $phpcode, 0, $pe);
-        }
-    }
-
     public static function cache($filename, $content = null)
     {
         if ($filename === null) {
@@ -56,19 +35,10 @@ class PhpFile
 
     public function __construct($filename_or_code)
     {
-        // 直接入れてもいいが token_get_all の結果は微妙に扱いづらいので少し調整する（string/array だったり、名前変換の必要があったり）
-        /** @noinspection PhpUndefinedConstantInspection */
-        $this->tokens = array_map(function ($token) {
-            if (is_array($token)) {
-                // for debug
-                //$token[] = token_name($token[0]);
-                return $token;
-            }
-            else {
-                // string -> [TOKEN, CHAR, LINE]
-                return [null, $token, 0];
-            }
-        }, token_get_all(file_exists($filename_or_code) ? file_get_contents($filename_or_code) : $filename_or_code, TOKEN_PARSE));
+        $this->tokens = parse_php('?>' . (file_exists($filename_or_code) ? file_get_contents($filename_or_code) : $filename_or_code), [
+            'flags' => TOKEN_PARSE,
+            'cache' => false,
+        ]);
         $this->length = count($this->tokens);
         $this->position = 0;
     }

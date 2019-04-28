@@ -128,6 +128,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $this->targethash = sha1($this->targetdir);
         }
 
+        if ($this->options['cachedir']) {
+            cachedir($this->options['cachedir'] . '/rfc');
+        }
+
         // rsync を真似ようとしたが思ったより複雑だったのでシンプルに「すべて * をプレフィックス」という仕様にする
         $this->options['include'] = array_map(function ($v) { return "*$v"; }, (array) $this->options['include']);
         $this->options['exclude'] = array_map(function ($v) { return "*$v"; }, (array) $this->options['exclude']);
@@ -436,11 +440,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             }
 
             $nsdescription = array_reduce(PhpFile::cache(null), function ($carry, $filedata) use ($namespace) {
-                if ($filedata[$namespace]['@comment'] ?? '') {
-                    $carry .= $filedata[$namespace]['@comment'] . "\n\n";
-                }
-                return $carry;
-            }, '');
+                return $carry . concat($filedata[$namespace]['@comment'] ?? '', "\n\n");
+            });
             $nsdata = $this->parseDoccomment($nsdescription, $namespace, null);
             $data['description'] = $nsdata['description'];
             $data['tags'] = $nsdata['tags'];
@@ -515,9 +516,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function defaultNS($namespace)
     {
-        $parts = explode('\\', $namespace);
-        $name = array_pop($parts);
-        $ns = implode('\\', $parts);
+        list($ns, $name) = namespace_split($namespace);
         return [
             'category'    => 'namespace',
             'fqsen'       => "$namespace\\",
@@ -586,11 +585,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             ];
             $result++;
         }
-        $categories = [
-            'interface' => 'interfaces',
-            'trait'     => 'traits',
-            'class'     => 'classes',
-        ];
         foreach ([$interfaces, $traits, $classes] as $types) {
             foreach ($types as $name) {
                 $ref = Reflection::instance($name);
@@ -626,7 +620,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     $data['methods'][$n] = $e;
                 }
 
-                $category = $categories[$data['category']];
+                $category = self::TYPE_MULTIPLES[$data['category']];
                 $namespaces[$ref->getNamespaceName()] = $namespaces[$ref->getNamespaceName()] ?? $this->defaultNS($ref->getNamespaceName());
                 $namespaces[$ref->getNamespaceName()][$category][$ref->getShortName()] = $data;
                 $result++;
@@ -687,7 +681,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $filecache = $this->cache("$filename.parsed", filemtime($filename), function () use ($filename) { return PhpFile::cache($filename); });
         PhpFile::cache($filename, $filecache);
 
-        $usings = array_map(function ($v) { return $v['@using'] ?? []; }, $filecache);
+        $usings = array_lookup($filecache, '@using');
         foreach ($usings as $ns => $using) {
             if (!isset($this->usings[$ns])) {
                 $this->usings[$ns] = [];

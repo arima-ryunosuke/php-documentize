@@ -42,14 +42,8 @@ class Reflection
             }
         }
         if (is_array($reflection)) {
-            $value = reset($reflection);
-            $name = key($reflection);
-            $ns = '';
-            $parts = explode('\\', $name);
-            if (count($parts) > 1) {
-                $name = array_pop($parts);
-                $ns = implode('\\', $parts);
-            }
+            list($name, $value) = first_keyvalue($reflection);
+            list($ns, $name) = namespace_split($name);
             $reflection = new \stdClass();
             $reflection->name = $name;
             $reflection->namespace = $ns;
@@ -225,16 +219,12 @@ class Reflection
                 $fn = $this->reflection->getFileName();
                 return file_exists($fn) ? filemtime($fn) : null;
             case $this->reflection instanceof \ReflectionClass:
-                return max(array_map(function (\ReflectionClass $rc) {
-                        $fn = $rc->getFileName();
-                        return file_exists($fn) ? filemtime($fn) : null;
-                    }, array_merge(
-                            [$this->reflection],
-                            array_map(function ($parent) { return new \ReflectionClass($parent); }, class_parents($this->reflection->getName())),
-                            $this->reflection->getInterfaces(),
-                            $this->reflection->getTraits()
-                        )
-                    )
+                return max(array_maps(array_merge(
+                        [$this->getFqsen()],
+                        $this->getParents(),
+                        $this->getImplements(),
+                        $this->getUses()
+                    ), [self::class, 'instance'], '@getFileName', 'filemtime')
                 );
         }
         throw new \DomainException();
@@ -272,23 +262,17 @@ class Reflection
 
     public function getParents()
     {
-        return array_values(array_map(function ($n) {
-            return (new \ReflectionClass($n))->isInternal() ? "\\$n" : $n;
-        }, class_parents($this->getFqsen())));
+        return array_values(array_maps(class_parents($this->getFqsen()), [self::class, 'instance'], '@getFqsen'));
     }
 
     public function getImplements()
     {
-        return array_values(array_map(function ($n) {
-            return (new \ReflectionClass($n))->isInternal() ? "\\$n" : $n;
-        }, class_implements($this->getFqsen())));
+        return array_values(array_maps(class_implements($this->getFqsen()), [self::class, 'instance'], '@getFqsen'));
     }
 
     public function getUses()
     {
-        return array_values(array_map(function ($n) {
-            return (new \ReflectionClass($n))->isInternal() ? "\\$n" : $n;
-        }, class_uses($this->getFqsen())));
+        return array_values(array_maps(class_uses($this->getFqsen()), [self::class, 'instance'], '@getFqsen'));
     }
 
     public function isFinal()
@@ -405,13 +389,9 @@ class Reflection
     {
         $doccomment = $this->getDocComment();
         $lines = preg_split('#\\R#u', $doccomment);
-        $line = 0;
-        foreach ($lines as $n => $row) {
-            if (preg_match($pattern, $row)) {
-                $line = $n;
-                break;
-            }
-        }
+        $line = array_find($lines, function ($v) use ($pattern) {
+            return preg_match($pattern, $v);
+        });
         // $line == 0 は考慮しない（無いならないで構わない）
         // マジック系はオマケのようなものだし、@magic の記述場所へリンクできたところで嬉しくもなんともないはず（そこに実装がないんだから）
         $offset = $this->reflection->getStartLine() - count($lines);
@@ -443,7 +423,7 @@ class Reflection
         static $count = 0;
         $prefix = '_' . str_replace('\\', '_', $this->getFqsen()) . '___magicmethod_' . $count++;
         $funcname = "{$prefix}{$name}";
-        PhpFile::evaluate($doccomment . "function $funcname($parameter){}");
+        evaluate($doccomment . "function $funcname($parameter){}", [], null);
         return self::instance("$funcname()");
     }
 

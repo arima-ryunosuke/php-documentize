@@ -186,17 +186,16 @@ class DocumentizeCommand extends Command
                 }
                 return $count;
             };
+            $logcount = array_count($result['logs'], [
+                'notice'  => function ($v) { return in_array($v['errorno'], [E_NOTICE, E_USER_NOTICE]); },
+                'warning' => function ($v) { return in_array($v['errorno'], [E_WARNING, E_USER_WARNING]); },
+                'error'   => function ($v) { return in_array($v['errorno'], [E_ERROR, E_USER_ERROR]); },
+            ]);
             $output->writeln(implode(' ', [
                 'Logs',
-                sprintf('<comment>%s</comment> notices,', number_format(array_count($result['logs'], function ($v) {
-                    return in_array($v['errorno'], [E_NOTICE, E_USER_NOTICE]);
-                }))),
-                sprintf('<comment>%s</comment> warnings,', number_format(array_count($result['logs'], function ($v) {
-                    return in_array($v['errorno'], [E_WARNING, E_USER_WARNING]);
-                }))),
-                sprintf('<comment>%s</comment> errors', number_format(array_count($result['logs'], function ($v) {
-                    return in_array($v['errorno'], [E_ERROR, E_USER_ERROR]);
-                }))),
+                sprintf('<comment>%s</comment> notices,', number_format($logcount['notice'])),
+                sprintf('<comment>%s</comment> warnings,', number_format($logcount['warning'])),
+                sprintf('<comment>%s</comment> errors', number_format($logcount['error'])),
             ]));
             $output->writeln(implode(' ', [
                 'Found',

@@ -1,0 +1,7 @@
+{
+  "require": {
+    "symfony/console": "3.4.11",
+    "symfony/event-dispatcher": "3.4.11",
+    "symfony/dependency-injection": "3.4.11"
+  }
+}
