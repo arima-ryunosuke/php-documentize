@@ -179,7 +179,7 @@ Arguments:
 
 Options:
   -a, --autoload[=AUTOLOAD]              Specify Autoload file
-      --cachedir=CACHEDIR                Specify cache directory [default: "/tmp/rdz-1.0.2"]
+      --cachedir=CACHEDIR                Specify cache directory [default: "/tmp/rdz"]
       --force                            Specify cache recreation
   -r, --recursive                        Specify Recursive flag
   -i, --include=INCLUDE                  Specify Include pattern [default: ["*.php"]] (multiple values allowed)
@@ -195,31 +195,33 @@ Options:
       --no-internal-constant             
       --no-internal-function             
       --no-internal-type                 
+      --no-internal-classconstant        
       --no-internal-property             
       --no-internal-method               
       --no-deprecated                    
       --no-deprecated-constant           
       --no-deprecated-function           
       --no-deprecated-type               
+      --no-deprecated-classconstant      
       --no-deprecated-property           
       --no-deprecated-method             
       --no-magic                         
       --no-magic-property                
       --no-magic-method                  
       --no-virtual                       
-      --no-virtual-constant              
+      --no-virtual-classconstant         
       --no-virtual-property              
       --no-virtual-method                
       --no-private                       
-      --no-private-constant              
+      --no-private-classconstant         
       --no-private-property              
       --no-private-method                
       --no-protected                     
-      --no-protected-constant            
+      --no-protected-classconstant       
       --no-protected-property            
       --no-protected-method              
       --no-public                        
-      --no-public-constant               
+      --no-public-classconstant          
       --no-public-property               
       --no-public-method                 
   -h, --help                             Display this help message
@@ -273,6 +275,14 @@ composer 管理されていれば大抵の場合は「ドキュメントを生�
 
 動作は fnmatch によるワイルドカードマッチです。パターンの先頭には `*` が自動で付与されます。
 つまり、 `/FileName.php` を指定すると `hoge/FileName.php` や `fuga/FileName.php` なども対象になります。
+
+`.md` を指定するとマークダウンも対象になり、出力に組み込まれます。
+出力に組み込まれるので単にパースするだけと違い、
+
+- タグの解決が行われる
+- 出力デザインを統一
+
+ができます。
 
 ### --exclude(-e)
 
@@ -333,7 +343,7 @@ FQSEN を指定して結果を除外します。
 例えば `--no-private-method` を指定すると private メソッドが含まれなくなります。
 
 一部の `--no-*` 指定は従属関係があります。
-例えば `--no-private` 指定は `--no-private-constant --no-private-property --no-private-method` 指定と同義です。
+例えば `--no-private` 指定は `--no-private-classconstant --no-private-property --no-private-method` 指定と同義です。
 基本的に `--no-private-*` の第3オクテットが無いオプションはその下位オプションをすべて指定した状態になります。
 
 クラスに関わるもの（ `--no-private-*` `--no-internal-*` など）はアノテーションでも指定できます。
@@ -372,7 +382,7 @@ FQSEN を指定して結果を除外します。
         'namespaces'  => [
             'subns' => [
                 // 全く同じ構造の再帰構造です
-                ...
+                /* ... */
             ],
         ],
         // 名前空間に直接定義されている定数配列です
@@ -409,9 +419,9 @@ FQSEN を指定して結果を除外します。
                     ],
                 ],
                 // 定数のタグです
-                'tags'       => [
+                'tags'        => [
                     // [タグ名][連番][タグごとに異なる属性] で格納されます
-                    ...
+                    /* ... */
                 ],
             ],
         ],
@@ -476,34 +486,34 @@ FQSEN を指定して結果を除外します。
                 // 関数のタグです
                 'tags'        => [
                     // [タグ名][連番][タグごとに異なる属性] で格納されます
-                    ...
+                    /* ... */
                 ],
             ],
         ],
         // 名前空間に定義されているクラスです
         'classes'     => [
             // クラス名がキーになります。クラス分繰り返されます
-            'ClassName'   => [
+            'ClassName' => [
                 // クラスの名前空間属性です
-                'category'    => 'class',
-                'fqsen'       => 'NS\\ClassName',
-                'namespace'   => 'NS',
-                'name'        => 'ClassName',
+                'category'       => 'class',
+                'fqsen'          => 'NS\\ClassName',
+                'namespace'      => 'NS',
+                'name'           => 'ClassName',
                 // クラスの定義場所です
-                'location'    => [
+                'location'       => [
                     'path'  => '/source.example.php',
                     'start' => 1,
                     'end'   => 99,
                 ],
                 // クラスの説明です
-                'description' => '名前空間に定義されたクラスです
+                'description'    => '名前空間に定義されたクラスです',
                 // クラスの属性を表す真偽値です
-                'final'       => false,
-                'abstract'    => false,
-                'cloneable'   => true,
-                'iterateable' => false,
+                'final'          => false,
+                'abstract'       => false,
+                'cloneable'      => true,
+                'iterateable'    => false,
                 // このクラスが属する階層構造です
-                'hierarchy'   => [
+                'hierarchy'      => [
                     // このクラスが属するクラスツリー配列です。属するツリー分繰り返されます
                     'NS\\Ninterface' => [
                         'NS\\Rclass' => [/* ツリー構造です */],
@@ -511,37 +521,37 @@ FQSEN を指定して結果を除外します。
                     ],
                 ],
                 // このクラスが継承しているクラスです
-                'parents'     => [
+                'parents'        => [
                     // 下記が継承ツリーを辿れる分繰り返されます
                     [
                         // FQSEN（Fully Qualified Structural Element Name）です
-                        'fqsen'        => 'vendor\\package\\Parents',
-                        // FQSEN の C を表します（[namespace|constant|function|type|class|trait|interface|method|property]）
-                        'category'     => 'class',
+                        'fqsen'       => 'vendor\\package\\Parents',
+                        // FQSEN の C を表します（[namespace|constant|function|type|class|trait|interface|constant|method|property]）
+                        'category'    => 'class',
                         // クラスの説明です
-                        'description'  => 'クラスの説明です',
+                        'description' => 'クラスの説明です',
                     ],
                 ],
                 // このクラスが実装しているインターフェースです
-                'implements'  => [
+                'implements'     => [
                     // 実装・使用・継承の違いで構造は parents と同じです
-                    ...
+                    /* ... */
                 ],
                 // このクラスが使用しているトレイトです
-                'uses'        => [
+                'uses'           => [
                     // 実装・使用・継承の違いで構造は parents と同じです
-                    ...
+                    /* ... */
                 ],
                 // クラスに定義されている定数配列です
-                'constants'   => [
+                'classconstants' => [
                     // 定数名がキーになります。定数分繰り返されます
                     'CONSTNAME' => [
                         // 名前空間に属する定数と同じなので省略します
-                        ...
+                        /* ... */
                     ],
                 ],
                 // クラスに定義されているプロパティ配列です
-                'properties'  => [
+                'properties'     => [
                     // プロパティ名がキーになります。プロパティ分繰り返されます
                     'propertname' => [
                         // プロパティの名前空間属性です
@@ -572,13 +582,13 @@ FQSEN を指定して結果を除外します。
                             // FQSEN（Fully Qualified Structural Element Name）です
                             'fqsen'       => 'vendor\\package\\Parents::methodname',
                             // FQSEN の説明です
-                            'description' => '...',
+                            'description' => '/* ... */',
                         ],
                         // プロパティの型配列です
                         'types'       => [
                             // 下記が可能性のある型分繰り返されます
                             [
-                                'category  => 'type',
+                                'category' => 'type',
                                 'fqsen'    => 'string',
                                 'array'    => 0,
                             ],
@@ -586,12 +596,12 @@ FQSEN を指定して結果を除外します。
                         // プロパティのタグです
                         'tags'        => [
                             // [タグ名][連番][タグごとに異なる属性] で格納されます
-                            ...
+                            /* ... */
                         ],
                     ],
                 ],
                 // クラスに定義されているメソッド配列です
-                'methods'     => [
+                'methods'        => [
                     // メソッド名がキーになります。メソッド分繰り返されます
                     'methodname' => [
                         'category'    => 'method',
@@ -621,40 +631,40 @@ FQSEN を指定して結果を除外します。
                             // FQSEN（Fully Qualified Structural Element Name）です
                             'fqsen'       => 'vendor\\package\\Parents::methodname',
                             // FQSEN の説明です
-                            'description' => '...',
+                            'description' => '/* ... */',
                         ],
                         // メソッドの引数配列です
                         'parameters'  => [
                             // 関数と同じなので省略します
-                            ...
+                            /* ... */
                         ],
                         // メソッドの返り値です
                         'return'      => [
                             // 関数と同じなので省略します
-                            ...
+                            /* ... */
                         ],
                         'tags'        => [
                             // [タグ名][連番][タグごとに異なる属性] で格納されます
-                            ...
+                            /* ... */
                         ],
                     ],
                 ],
                 // クラスのタグです
-                'tags'        => [
+                'tags'           => [
                     // [タグ名][連番][タグごとに異なる属性] で格納されます
-                    ...
+                    /* ... */
                 ],
             ],
         ],
         // 名前空間に定義されているインターフェースです
         'interfaces'  => [
             // 一部の属性が必ず false だったりしますが項目自体は classes とまったく同じです
-            ...
+            /* ... */
         ],
         // 名前空間に定義されているトレイトです
         'traits'      => [
             // 一部の属性が必ず false だったりしますが項目自体は classes とまったく同じです
-            ...
+            /* ... */
         ],
     ],
 ]
