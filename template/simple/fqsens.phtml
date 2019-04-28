@@ -35,7 +35,7 @@ function renderType($type)
 {
     ?>
     <?php renderFqsen($type, 'typespace') ?>
-    <?php foreach ($type['constants'] as $constant): ?><?php renderFqsen($constant, 'typespace') ?><?php endforeach ?>
+    <?php foreach ($type['classconstants'] as $constant): ?><?php renderFqsen($constant, 'typespace') ?><?php endforeach ?>
     <?php foreach ($type['properties'] as $property): ?><?php renderFqsen($property, 'typespace') ?><?php endforeach ?>
     <?php foreach ($type['methods'] as $method): ?><?php renderFqsen($method, 'typespace') ?><?php endforeach ?>
     <?php

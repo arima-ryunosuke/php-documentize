@@ -44,9 +44,9 @@
 	<div class="hierarchy"><?= render_hierarchy($element['hierarchy'], $element['fqsen']) ?></div>
 
 	<h3>Constants</h3>
-    <?php if ($element['constants']): ?>
+    <?php if ($element['classconstants']): ?>
 		<ul>
-            <?php foreach ($element['constants'] as $constant): ?>
+            <?php foreach ($element['classconstants'] as $constant): ?>
 				<li class="structure-item">
 					<div class="attribute">
 						<span class="label label-<?= h($constant['accessible']) ?>"><?= h($constant['accessible']) ?></span>

@@ -35,7 +35,7 @@ function render_namespace($elements, &$all, $nest = 0)
             <?php foreach (['interfaces' => 'interface', 'traits' => 'trait', 'classes' => 'class'] as $typekey => $typename): ?>
                 <?php foreach ($elements[$typekey] as $element): ?>
                     <?php $all[] = $element['fqsen']; ?>
-                    <?php foreach ($element['constants'] as $e): ?>
+                    <?php foreach ($element['classconstants'] as $e): ?>
                         <?php $all[] = $e['fqsen']; ?>
                     <?php endforeach ?>
                     <?php foreach ($element['properties'] as $e): ?>
@@ -49,7 +49,7 @@ function render_namespace($elements, &$all, $nest = 0)
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-<?= h($typename) ?>"><?= ucfirst($typename[0]) ?></span>
 							<a id="<?= h($element['fqsen']) ?>" href="<?= ref($element['fqsen'], 'typespace') ?>" class="bold <?= h(isset($element['tags']['deprecated'][0]) || isset($element['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($element['name']) ?></a>
 							<span>(<?= array_sum([
-                                    count($element['constants']),
+                                    count($element['classconstants']),
                                     count($element['properties']),
                                     count($element['methods']),
                                 ]) ?>)</span>
@@ -57,7 +57,7 @@ function render_namespace($elements, &$all, $nest = 0)
 						</div>
 						<!-- for lazy load -->
 						<ul class="has-indent holding class-member"><?= '<!--' ?>
-                            <?php foreach ($element['constants'] as $constant): ?>
+                            <?php foreach ($element['classconstants'] as $constant): ?>
 								<li class="indent <?= h($constant['virtual'] ? 'faint' : '') ?>">
 									<div class="ellipsis">
 										<span class="label label-icon label-constant">C</span

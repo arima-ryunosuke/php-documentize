@@ -93,36 +93,38 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_gather_skip1()
     {
         $document = new Document([
-            'target'                 => __DIR__ . '/_DocumentTest/ignore.php',
-            'include'                => '*',
-            'contain'                => ['IgnoreSpace1', 'IgnoreSpace2', '*normal'],
-            'except'                 => ['IgnoreSpace1', '*except'],
-            'no-constant'            => true,
-            'no-function'            => false,
-            'no-internal-function'   => true,
-            'no-deprecated-function' => true,
-            'no-internal-type'       => true,
-            'no-deprecated-type'     => true,
-            'no-internal-constant'   => true,
-            'no-deprecated-constant' => true,
-            'no-virtual-constant'    => true,
-            'no-private-constant'    => true,
-            'no-protected-constant'  => true,
-            'no-public-constant'     => true,
-            'no-magic-property'      => true,
-            'no-internal-property'   => true,
-            'no-deprecated-property' => true,
-            'no-virtual-property'    => true,
-            'no-private-property'    => true,
-            'no-protected-property'  => true,
-            'no-public-property'     => true,
-            'no-magic-method'        => true,
-            'no-internal-method'     => true,
-            'no-deprecated-method'   => true,
-            'no-virtual-method'      => true,
-            'no-private-method'      => true,
-            'no-protected-method'    => true,
-            'no-public-method'       => true,
+            'target'                      => __DIR__ . '/_DocumentTest/ignore.php',
+            'include'                     => '*',
+            'contain'                     => ['IgnoreSpace1', 'IgnoreSpace2', '*normal'],
+            'except'                      => ['IgnoreSpace1', '*except'],
+            'no-constant'                 => true,
+            'no-function'                 => false,
+            'no-internal-function'        => true,
+            'no-deprecated-function'      => true,
+            'no-internal-type'            => true,
+            'no-deprecated-type'          => true,
+            'no-internal-constant'        => true,
+            'no-internal-classconstant'   => true,
+            'no-deprecated-constant'      => true,
+            'no-deprecated-classconstant' => true,
+            'no-virtual-classconstant'    => true,
+            'no-private-classconstant'    => true,
+            'no-protected-classconstant'  => true,
+            'no-public-classconstant'     => true,
+            'no-magic-property'           => true,
+            'no-internal-property'        => true,
+            'no-deprecated-property'      => true,
+            'no-virtual-property'         => true,
+            'no-private-property'         => true,
+            'no-protected-property'       => true,
+            'no-public-property'          => true,
+            'no-magic-method'             => true,
+            'no-internal-method'          => true,
+            'no-deprecated-method'        => true,
+            'no-virtual-method'           => true,
+            'no-private-method'           => true,
+            'no-protected-method'         => true,
+            'no-public-method'            => true,
         ]);
         $namespaces = $document->gather();
 
@@ -156,14 +158,14 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         // こいつは居る
         $this->assertArrayHasKey('normalC', $namespaces['IgnoreSpace2']['classes']);
         // すべて何らかの形で無視されるので定数の数は 0
-        $this->assertCount(0, $namespaces['IgnoreSpace2']['classes']['C']['constants']);
+        $this->assertCount(0, $namespaces['IgnoreSpace2']['classes']['C']['classconstants']);
         // すべて何らかの形で無視されるのでプロパティの数は 0
         $this->assertCount(0, $namespaces['IgnoreSpace2']['classes']['C']['properties']);
         // すべて何らかの形で無視されるのでメソッドの数は 0
         $this->assertCount(0, $namespaces['IgnoreSpace2']['classes']['C']['methods']);
 
         // すべて何らかの形で無視されるので定数の数は 0
-        $this->assertCount(0, $namespaces['IgnoreSpace2']['classes']['C2']['constants']);
+        $this->assertCount(0, $namespaces['IgnoreSpace2']['classes']['C2']['classconstants']);
         // すべて何らかの形で無視されるのでプロパティの数は 0
         $this->assertCount(0, $namespaces['IgnoreSpace2']['classes']['C2']['properties']);
         // すべて何らかの形で無視されるのでメソッドの数は 0

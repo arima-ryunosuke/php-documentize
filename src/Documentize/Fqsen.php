@@ -109,7 +109,7 @@ class Fqsen
             }
             // method と CLASS_CONST を判断する術はない。敢えて言うなら「すべて大文字」は定数
             elseif (!$match['fmark'] || preg_match('#^[A-Z_0-9]+$#', $match['member'])) {
-                $category = 'constant';
+                $category = 'classconstant';
             }
             else {
                 $category = 'method';
@@ -196,7 +196,7 @@ class Fqsen
             if ($member) {
                 $member = preg_replace('#\(.*\)$#', '', $member, 1, $mc);
                 if ($mc === 0 && defined("{$default['fqsen']}::$member")) {
-                    $default['category'] = 'constant';
+                    $default['category'] = 'classconstant';
                     $default['fqsen'] .= '::' . $member;
                 }
                 elseif ($member[0] === '$') {

@@ -16,9 +16,9 @@ class Document
         'interface' => 'interfaces',
     ];
     const MEMBER_MULTIPLES = [
-        'constant' => 'constants',
-        'property' => 'properties',
-        'method'   => 'methods',
+        'classconstant' => 'classconstants',
+        'property'      => 'properties',
+        'method'        => 'methods',
     ];
 
     /** @var array 動作オプション */
@@ -74,40 +74,42 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         class_exists(Tag::class, true);
 
         $this->options = array_replace([
-            'target'                 => null,
-            'autoloader'             => null,
-            'recursive'              => false,
-            'include'                => [],
-            'exclude'                => [],
-            'contain'                => [],
-            'except'                 => [],
-            'cachedir'               => null,
-            'no-constant'            => false,
-            'no-function'            => false,
-            'no-internal-constant'   => false,
-            'no-internal-function'   => false,
-            'no-internal-type'       => false,
-            'no-internal-property'   => false,
-            'no-internal-method'     => false,
-            'no-deprecated-constant' => false,
-            'no-deprecated-function' => false,
-            'no-deprecated-type'     => false,
-            'no-deprecated-property' => false,
-            'no-deprecated-method'   => false,
-            'no-magic-property'      => false,
-            'no-magic-method'        => false,
-            'no-virtual-constant'    => false,
-            'no-virtual-property'    => false,
-            'no-virtual-method'      => false,
-            'no-private-constant'    => false,
-            'no-private-property'    => false,
-            'no-private-method'      => false,
-            'no-protected-constant'  => false,
-            'no-protected-property'  => false,
-            'no-protected-method'    => false,
-            'no-public-constant'     => false,
-            'no-public-property'     => false,
-            'no-public-method'       => false,
+            'target'                      => null,
+            'autoloader'                  => null,
+            'recursive'                   => false,
+            'include'                     => [],
+            'exclude'                     => [],
+            'contain'                     => [],
+            'except'                      => [],
+            'cachedir'                    => null,
+            'no-constant'                 => false,
+            'no-function'                 => false,
+            'no-internal-constant'        => false,
+            'no-internal-function'        => false,
+            'no-internal-type'            => false,
+            'no-internal-classconstant'   => false,
+            'no-internal-property'        => false,
+            'no-internal-method'          => false,
+            'no-deprecated-constant'      => false,
+            'no-deprecated-function'      => false,
+            'no-deprecated-type'          => false,
+            'no-deprecated-classconstant' => false,
+            'no-deprecated-property'      => false,
+            'no-deprecated-method'        => false,
+            'no-magic-property'           => false,
+            'no-magic-method'             => false,
+            'no-virtual-classconstant'    => false,
+            'no-virtual-property'         => false,
+            'no-virtual-method'           => false,
+            'no-private-classconstant'    => false,
+            'no-private-property'         => false,
+            'no-private-method'           => false,
+            'no-protected-classconstant'  => false,
+            'no-protected-property'       => false,
+            'no-protected-method'         => false,
+            'no-public-classconstant'     => false,
+            'no-public-property'          => false,
+            'no-public-method'            => false,
         ], $options);
 
         if (!file_exists($this->options['target'])) {
@@ -599,11 +601,11 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 });
                 $this->parseTag($data['tags']);
 
-                foreach ($this->cache($ref->getFqsen() . '.constants', $lasttime, function () use ($ref) {
+                foreach ($this->cache($ref->getFqsen() . '.classconstants', $lasttime, function () use ($ref) {
                     return $this->parseClassConstant($ref);
                 }) as $n => $e) {
                     $this->parseTag($e['tags']);
-                    $data['constants'][$n] = $e;
+                    $data['classconstants'][$n] = $e;
                 }
                 foreach ($this->cache($ref->getFqsen() . '.properties', $lasttime, function () use ($ref, $data) {
                     return $this->parseProperty($ref, $data['tags']['property'] ?? []);
@@ -761,24 +763,24 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $classdocs = $this->parseDoccomment($refclass->getDocComment(), $refclass->getNamespaceName(), $refclass->getFqsen());
 
         $result = [
-            'category'    => $refclass->getCategory(),
-            'fqsen'       => $refclass->getFqsen(),
-            'namespace'   => $refclass->getNamespaceName(),
-            'name'        => $refclass->getShortName(),
-            'location'    => $refclass->getLocation(),
-            'description' => $classdocs['description'],
-            'final'       => $refclass->isFinal(),
-            'abstract'    => $refclass->isAbstract(),
-            'cloneable'   => false, // $refclass->isCloneable(), # php has bug called __destruct
-            'iterateable' => $refclass->isIterateable(),
-            'hierarchy'   => [],
-            'parents'     => $refclass->getParents(),
-            'implements'  => $refclass->getImplements(),
-            'uses'        => $refclass->getUses(),
-            'constants'   => [],
-            'properties'  => [],
-            'methods'     => [],
-            'tags'        => $classdocs['tags'],
+            'category'       => $refclass->getCategory(),
+            'fqsen'          => $refclass->getFqsen(),
+            'namespace'      => $refclass->getNamespaceName(),
+            'name'           => $refclass->getShortName(),
+            'location'       => $refclass->getLocation(),
+            'description'    => $classdocs['description'],
+            'final'          => $refclass->isFinal(),
+            'abstract'       => $refclass->isAbstract(),
+            'cloneable'      => false, // $refclass->isCloneable(), # php has bug called __destruct
+            'iterateable'    => $refclass->isIterateable(),
+            'hierarchy'      => [],
+            'parents'        => $refclass->getParents(),
+            'implements'     => $refclass->getImplements(),
+            'uses'           => $refclass->getUses(),
+            'classconstants' => [],
+            'properties'     => [],
+            'methods'        => [],
+            'tags'           => $classdocs['tags'],
         ];
 
         return $result;
