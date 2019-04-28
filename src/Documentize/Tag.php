@@ -383,7 +383,7 @@ class Tag
         // このタグは特別扱いでいきなり new Reflection するので tyr catch が必要（でないと見つからないクラスで即死する）
         $ref = null;
         try {
-            $ref = new Reflection($fqsen['fqsen']);
+            $ref = Reflection::instance($fqsen['fqsen']);
         }
         catch (\Exception $ex) {
         }

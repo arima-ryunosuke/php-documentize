@@ -188,9 +188,8 @@ class Fqsen
             }
             // 型が導けるならそれを使う
             if ($dtype = self::detectType($class)) {
-                $refclass = new \ReflectionClass($class);
                 $default['category'] = $dtype;
-                $default['fqsen'] = ($refclass->isInternal() ? '\\' : '') . $refclass->getName();
+                $default['fqsen'] = Reflection::instance($class)->getFqsen();
             }
 
             if ($member) {

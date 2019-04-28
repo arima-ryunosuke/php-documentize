@@ -10,17 +10,25 @@ namespace ryunosuke\Documentize;
  */
 class Reflection
 {
-    /** @var \ReflectionFunction|\ReflectionClass|\ReflectionClassConstant|\ReflectionProperty|\ReflectionMethod|\ReflectionParameter */
+    /** @var \ReflectionFunction|\ReflectionClass|\ReflectionClassConstant|\ReflectionProperty|\ReflectionMethod|\ReflectionParameter|\ReflectionType */
     private $reflection;
 
     /** @var self 例えば P <- C で C は P のメソッドを持ち、その実態は P であるが、メソッドのコンテキストで C を得たいこともある */
     private $context;
 
-    public function __construct($reflection, $context = null)
+    public static function instance($source, $context = null)
+    {
+        return new self($source, $context);
+    }
+
+    private function __construct($reflection, $context = null)
     {
         if (is_string($reflection)) {
             list($category, $ns, $cname, $member) = Fqsen::parse($reflection);
-            if ($category === 'classconstant') {
+            if ($category === 'function') {
+                $reflection = new \ReflectionFunction("$ns\\$cname");
+            }
+            elseif ($category === 'classconstant') {
                 $reflection = new \ReflectionClassConstant("$ns\\$cname", $member);
             }
             elseif ($category === 'property') {
@@ -30,7 +38,7 @@ class Reflection
                 $reflection = new \ReflectionMethod("$ns\\$cname", $member);
             }
             else {
-                $reflection = new \ReflectionClass("$ns\\$cname");
+                $reflection = new \ReflectionClass($reflection);
             }
         }
         if (is_array($reflection)) {
@@ -48,8 +56,10 @@ class Reflection
             $reflection->value = $value;
         }
         $this->reflection = $reflection;
-        $this->context = $context;
-        if (!$context && method_exists($this->reflection, 'getDeclaringClass')) {
+        if ($context) {
+            $this->context = new self($context);
+        }
+        elseif (method_exists($this->reflection, 'getDeclaringClass')) {
             $this->context = new self($this->reflection->getDeclaringClass());
         }
     }
@@ -88,6 +98,8 @@ class Reflection
                 return $this->getNamespaceName() . '::$' . $this->getShortName();
             case $this->reflection instanceof \ReflectionMethod:
                 return $this->getNamespaceName() . '::' . $this->getShortName() . '()';
+            case $this->reflection instanceof \ReflectionNamedType:
+                return $this->reflection->isBuiltin() ? strval($this->reflection) : $this->reflection->getName();
         }
         throw new \DomainException();
     }
@@ -128,6 +140,14 @@ class Reflection
     public function getFileName()
     {
         switch (true) {
+            case $this->reflection instanceof \stdClass:
+                $caches = PhpFile::cache(null);
+                foreach ($caches as $fn => $cache) {
+                    if (isset($cache[$this->getNamespaceName()][''][$this->getShortName()])) {
+                        return $fn;
+                    }
+                }
+                return '';
             case $this->reflection instanceof \ReflectionFunction:
             case $this->reflection instanceof \ReflectionClass:
                 return $this->reflection->getFileName();
@@ -143,21 +163,12 @@ class Reflection
     {
         switch (true) {
             case $this->reflection instanceof \stdClass:
-                // 定数は逆引きできないので順繰りに探さなければならない
-                $caches = PhpFile::cache(null);
-                $filename = '';
-                $lines = [];
-                foreach ($caches as $fn => $cache) {
-                    if (isset($cache[$this->getNamespaceName()][''][$this->getShortName()])) {
-                        $filename = $fn;
-                        $lines = $cache[$this->getNamespaceName()][''][$this->getShortName()];
-                        break;
-                    }
-                }
+                $filename = $this->getFileName();
+                $lines = PhpFile::cache($filename)[$this->getNamespaceName()][''][$this->getShortName()] ?? [null, null];
                 return [
                     'path'  => $filename,
-                    'start' => $lines[0] ?? null,
-                    'end'   => $lines[1] ?? null,
+                    'start' => $lines[0],
+                    'end'   => $lines[1],
                 ];
             case $this->reflection instanceof \ReflectionClassConstant:
                 $filename = $this->getFileName();
@@ -195,6 +206,8 @@ class Reflection
     public function getDocComment()
     {
         switch (true) {
+            case $this->reflection instanceof \stdClass:
+                return PhpFile::cache($this->getFileName())[$this->getNamespaceName()]['@const'][$this->getShortName()] ?? '';
             case $this->reflection instanceof \ReflectionFunction:
             case $this->reflection instanceof \ReflectionClass:
             case $this->reflection instanceof \ReflectionClassConstant:
@@ -232,7 +245,7 @@ class Reflection
     {
         switch (true) {
             case $this->reflection instanceof \ReflectionClassConstant:
-                return new self($this->reflection->getDeclaringClass());
+                return self::instance($this->reflection->getDeclaringClass());
             case $this->reflection instanceof \ReflectionProperty:
                 $filename = $this->context->getFileName();
                 if (isset(PhpFile::cache($filename)[$this->context->getNamespaceName()][$this->context->getFqsen()]['$' . $this->getShortName()])) {
@@ -242,7 +255,7 @@ class Reflection
                 if (isset($tmem[$this->getShortName()])) {
                     return reset($tmem[$this->getShortName()])->context;
                 }
-                return new self($this->reflection->getDeclaringClass());
+                return self::instance($this->reflection->getDeclaringClass());
             case $this->reflection instanceof \ReflectionMethod:
                 $filename = $this->context->getFileName();
                 if (isset(PhpFile::cache($filename)[$this->context->getNamespaceName()][$this->context->getFqsen()][$this->getShortName() . '()'])) {
@@ -252,7 +265,7 @@ class Reflection
                 if (isset($tmem[$this->getShortName()])) {
                     return $tmem[$this->getShortName()]->context;
                 }
-                return new self($this->reflection->getDeclaringClass());
+                return self::instance($this->reflection->getDeclaringClass());
         }
         throw new \DomainException();
     }
@@ -323,6 +336,11 @@ class Reflection
         return $this->reflection->isPublic();
     }
 
+    public function isInternal()
+    {
+        return $this->reflection->isInternal();
+    }
+
     public function getAccessible()
     {
         return $this->isPrivate() ? 'private' : ($this->isProtected() ? 'protected' : 'public');
@@ -334,7 +352,7 @@ class Reflection
         $tproperties = [];
         foreach ($this->reflection->getTraits() as $trait) {
             foreach ($trait->getProperties() as $tproperty) {
-                $tproperties[$tproperty->getName()][] = new self($tproperty, new self($trait));
+                $tproperties[$tproperty->getName()][] = self::instance($tproperty, $trait);
             }
         }
         return $tproperties;
@@ -343,11 +361,11 @@ class Reflection
     /** @return $this[] */
     public function getTraitMethods()
     {
-        $tmethods = array_map(function ($v) { return new self(new \ReflectionMethod($v)); }, $this->reflection->getTraitAliases());
+        $tmethods = array_map(function ($v) { return self::instance($v); }, $this->reflection->getTraitAliases());
 
         foreach ($this->reflection->getTraits() as $trait) {
             foreach ($trait->getMethods() as $tmethod) {
-                $tmethods[$tmethod->getName()] = new self($tmethod, new self($trait));
+                $tmethods[$tmethod->getName()] = self::instance($tmethod, $trait);
             }
         }
         return $tmethods;
@@ -358,7 +376,7 @@ class Reflection
     {
         $result = [];
         foreach ($this->reflection->getReflectionConstants() as $constant) {
-            $result[$constant->getName()] = new self($constant, $this);
+            $result[$constant->getName()] = self::instance($constant, $this->reflection);
         }
         return $result;
     }
@@ -368,7 +386,7 @@ class Reflection
     {
         $result = [];
         foreach ($this->reflection->getProperties() as $property) {
-            $result[$property->getName()] = new self($property, $this);
+            $result[$property->getName()] = self::instance($property, $this->reflection);
         }
         return $result;
     }
@@ -378,7 +396,7 @@ class Reflection
     {
         $result = [];
         foreach ($this->reflection->getMethods() as $method) {
-            $result[$method->getName()] = new self($method, $this);
+            $result[$method->getName()] = self::instance($method, $this->reflection);
         }
         return $result;
     }
@@ -426,7 +444,7 @@ class Reflection
         $prefix = '_' . str_replace('\\', '_', $this->getFqsen()) . '___magicmethod_' . $count++;
         $funcname = "{$prefix}{$name}";
         PhpFile::evaluate($doccomment . "function $funcname($parameter){}");
-        return new self(new \ReflectionFunction($funcname));
+        return self::instance("$funcname()");
     }
 
     /** @return $this */
@@ -439,7 +457,7 @@ class Reflection
                 if (!$result) {
                     return null;
                 }
-                return new self($result);
+                return self::instance($result);
             // メソッドのプロトタイプが最上位を返すので定数・プロパティもそれに合わせる
             case $this->reflection instanceof \ReflectionClassConstant:
                 $class = $this->reflection->getDeclaringClass();
@@ -455,7 +473,7 @@ class Reflection
                 if (!$result) {
                     return null;
                 }
-                return new self($result);
+                return self::instance($result);
             // 上記の通り。ただし、プロパティはトレイトも見なければならない
             case $this->reflection instanceof \ReflectionProperty:
                 $class = $this->reflection->getDeclaringClass();
@@ -478,7 +496,7 @@ class Reflection
                 if (!$result) {
                     return null;
                 }
-                return new self($result);
+                return self::instance($result);
             // メソッドは getPrototype が用意されているが、継承階層の一番を上を返すのみでトレイトはサポートされていない
             case $this->reflection instanceof \ReflectionMethod:
                 try {
@@ -489,17 +507,17 @@ class Reflection
                             if ($class->hasMethod($this->getShortName())) {
                                 $method = $class->getMethod($this->getShortName());
                                 if (!$method->isPrivate()) {
-                                    return new self($method);
+                                    return self::instance($method);
                                 }
                             }
                         }
                     }
-                    return new self($this->reflection->getPrototype());
+                    return self::instance($this->reflection->getPrototype());
                 }
                 catch (\Exception $ex) {
                     foreach ($this->reflection->getDeclaringClass()->getTraits() as $trait) {
                         if ($trait->hasMethod($this->getShortName())) {
-                            return new self($trait->getMethod($this->getShortName()));
+                            return self::instance($trait->getMethod($this->getShortName()));
                         }
                     }
                     return null;
@@ -607,20 +625,22 @@ class Reflection
     {
         $result = [];
         foreach ($this->reflection->getParameters() as $parameter) {
-            $result[$parameter->getName()] = new self($parameter, $this);
+            $result[$parameter->getName()] = new self($parameter);
         }
         return $result;
     }
 
-    /** @return \ReflectionType */
+    /** @return $this */
     public function getType()
     {
+        static $void;
+        $void = $void ?? (new \ReflectionFunction(function (): void { }))->getReturnType();
         switch (true) {
             case $this->reflection instanceof \ReflectionFunction:
             case $this->reflection instanceof \ReflectionMethod:
-                return $this->reflection->getReturnType();
+                return new self($this->reflection->getReturnType() ?: $void);
             case $this->reflection instanceof \ReflectionParameter:
-                return $this->reflection->getType();
+                return new self($this->reflection->getType() ?: $void);
         }
         throw new \DomainException();
     }

@@ -8,11 +8,11 @@ namespace {
             static $count = 0;
             $count++;
             eval("function func_$count(){}");
-
-            return new class()
-            {
-            };
         }
+
+        return new class()
+        {
+        };
     }
 
     extern();

@@ -237,7 +237,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     $tfqsen = $doctag['type']['fqsen'];
                 }
                 else {
-                    $ref = new Reflection($target['fqsen']);
+                    $ref = Reflection::instance($target['fqsen']);
                     $pt = $ref->getProtoType();
                     if (!$pt) {
                         if ($doctag['inline']) {
@@ -251,7 +251,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             }
             elseif (($mtype === 'properties' || $mtype === 'methods') && !$target['magic'] && !$target['tags'] && !trim($target['description'])) {
                 $doctag = ['inline' => false];
-                $ref = new Reflection($target['fqsen']);
+                $ref = Reflection::instance($target['fqsen']);
                 $pt = $ref->getProtoType();
                 if (!$pt) {
                     return;
@@ -463,7 +463,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 }
                 list($category, $ns, $cname, $m) = Fqsen::parse($fqsen);
                 if ($ttype = Fqsen::detectType("$ns\\$cname")) {
-                    $ref = new \ReflectionClass("$ns\\$cname");
+                    $ref = Reflection::instance("$ns\\$cname");
                     if (!$ref->isInternal()) {
                         if ($m === null) {
                             $category = self::TYPE_MULTIPLES[$ttype];
@@ -532,7 +532,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = 0;
         foreach ($constants as $name => $value) {
-            $ref = new Reflection([$name => $value]);
+            $ref = Reflection::instance([$name => $value]);
 
             $data = $this->parseConstant($ref, $ref->getNamespaceName(), null);
             $this->parseTag($data['tags']);
@@ -553,7 +553,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $result++;
         }
         foreach ($functions as $name) {
-            $ref = new Reflection(new \ReflectionFunction($name));
+            $ref = Reflection::instance("$name()");
             if (!file_exists($ref->getFileName())) {
                 continue;
             }
@@ -587,7 +587,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         ];
         foreach ([$interfaces, $traits, $classes] as $types) {
             foreach ($types as $name) {
-                $ref = new Reflection(new \ReflectionClass($name));
+                $ref = Reflection::instance($name);
                 if (!file_exists($ref->getFileName())) {
                     continue;
                 }
@@ -687,7 +687,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         if ($this->options['recursive']) {
             array_walk_recursive($usings, function ($class) {
                 if (Fqsen::detectType($class)) {
-                    $ref = new \ReflectionClass($class);
+                    $ref = Reflection::instance($class);
                     if (!$ref->isInternal()) {
                         $this->parseFile($ref->getFileName());
                     }
@@ -700,15 +700,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function parseConstant(Reflection $refconst, $namespace, $own)
     {
-        // このコンテキストでファイル名は取れないのでループで漁る
-        $doccomment = '';
-        foreach (PhpFile::cache(null) as $filename => $metadata) {
-            if (isset($metadata[$namespace]['@const'][$refconst->getShortName()])) {
-                $doccomment = $metadata[$namespace]['@const'][$refconst->getShortName()];
-                break;
-            }
-        }
-        $docs = $this->parseDoccomment($doccomment, $namespace, $own);
+        $docs = $this->parseDoccomment($refconst->getDocComment(), $namespace, $own);
 
         return [
             'description' => $docs['description'] ?: $docs['tags']['var'][0]['description'] ?? '',
@@ -731,12 +723,12 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         ];
 
         $merge = static function (array $types, $type, $usings, $namespace, $own) {
-            /** @var \ReflectionType $type */
-            $stype = (string) $type;
-            if (!$stype) {
+            /** @var Reflection $type */
+            $stype = $type->getFqsen();
+            if ($stype === 'void') {
                 return $types;
             }
-            $fqsen = new Fqsen(($type->isBuiltin() ? '' : '\\') . $stype);
+            $fqsen = new Fqsen($stype);
             return array_values(array_unique(array_merge($fqsen->resolve($usings, $namespace, $own), $types), SORT_REGULAR));
         };
 
@@ -981,7 +973,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 if (isset($tag['type']['fqsen'])) {
                     list($cate, $ns, $type) = Fqsen::parse($tag['type']['fqsen']);
                     if ($cate !== 'namespace' && Fqsen::detectType("$ns\\$type")) {
-                        $ref = new \ReflectionClass("$ns\\$type");
+                        $ref = Reflection::instance("$ns\\$type");
                         if (!$ref->isInternal()) {
                             $this->parseFile($ref->getFileName());
                         }
@@ -995,7 +987,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             foreach ($tags[$multiple] ?? [] as $tag) {
                 foreach ($tag['type'] as $type) {
                     if (Fqsen::detectType($type['fqsen'])) {
-                        $ref = new \ReflectionClass($type['fqsen']);
+                        $ref = Reflection::instance($type['fqsen']);
                         if (!$ref->isInternal()) {
                             $this->parseFile($ref->getFileName());
                         }
