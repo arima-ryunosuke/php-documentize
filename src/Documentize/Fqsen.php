@@ -40,6 +40,25 @@ class Fqsen
     private $types = [];
 
     /**
+     * 定数が定義されているか調べる
+     *
+     * @param string $constname 定数名
+     * @return bool 定数が存在するなら true
+     */
+    public static function definedConst($constname)
+    {
+        try {
+            // defined は private const などの不可視定数に対して呼ぶと即死する
+            return defined($constname);
+        }
+        catch (\Throwable $t) {
+            // 即死するのは private/protected な定数だけで、存在しなかったり public なら defined は機能する
+            // つまり、ここに到達した時点で「存在する」とみなすことができる（でなければ例外は飛ばない）
+            return true;
+        }
+    }
+
+    /**
      * 型の種別を返す
      *
      * @param string $type 型名
@@ -94,8 +113,8 @@ class Fqsen
             if ($match['fmark']) {
                 $category = 'function';
             }
-            // ClassName と CONST_NAME を判断する術はない。敢えて言うなら「すべて大文字」は定数
-            elseif (preg_match('#^[A-Z_0-9]+$#', $match['localname'])) {
+            // ClassName と CONST_NAME を判断する術はない。定義されているか、敢えて言うならすべて大文字なら定数
+            elseif (self::definedConst($fqsen) || preg_match('#^[A-Z_0-9]+$#', $match['localname'])) {
                 $category = 'constant';
             }
             else {
@@ -107,8 +126,8 @@ class Fqsen
             if ($match['pmark']) {
                 $category = 'property';
             }
-            // method と CLASS_CONST を判断する術はない。敢えて言うなら「すべて大文字」は定数
-            elseif (!$match['fmark'] || preg_match('#^[A-Z_0-9]+$#', $match['member'])) {
+            // Const と Method を判断する術はない（厳密には Method の FQSEN は () が必須だが付いていないプロダクトがあまりにも多い）
+            elseif (self::definedConst($fqsen) || (!$match['fmark'] && preg_match('#^[A-Z_0-9]+$#', $match['member']))) {
                 $category = 'classconstant';
             }
             else {
@@ -194,7 +213,7 @@ class Fqsen
 
             if ($member) {
                 $member = preg_replace('#\(.*\)$#', '', $member, 1, $mc);
-                if ($mc === 0 && defined("{$default['fqsen']}::$member")) {
+                if ($mc === 0 && self::definedConst("{$default['fqsen']}::$member")) {
                     $default['category'] = 'classconstant';
                     $default['fqsen'] .= '::' . $member;
                 }
@@ -209,7 +228,7 @@ class Fqsen
             }
             elseif (!isset(self::BUILTIN_TYPES[strtolower($fqsen)])) {
                 $fqsen = preg_replace('#\(.*\)$#', '', $fqsen, 1, $mc);
-                if ($mc === 0 && defined($fqsen)) {
+                if ($mc === 0 && self::definedConst($fqsen)) {
                     $default['category'] = 'constant';
                     $default['fqsen'] = $fqsen;
                 }

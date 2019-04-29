@@ -12,6 +12,19 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function dummy_method() { }
 
+    function test_defined()
+    {
+        $object = new class
+        {
+            protected const PRIVATE_CONST = 1;
+            public const    PUBLIC_CONST  = 1;
+        };
+        $class = get_class($object);
+        $this->assertTrue(Fqsen::definedConst("$class::PRIVATE_CONST"));
+        $this->assertTrue(Fqsen::definedConst("$class::PUBLIC_CONST"));
+        $this->assertFalse(Fqsen::definedConst("$class::UNDEFINED"));
+    }
+
     function test_detectType()
     {
         eval('trait Traitable{}');
