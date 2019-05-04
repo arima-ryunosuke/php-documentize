@@ -284,7 +284,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     $parent = &$namespaces[$ns][$type][$cname][$mtype][$member];
                 }
                 // 親が @inheritdoc している可能性もあるので再帰する
-                $inheritdoc($parent, $mtype);
+                    $inheritdoc($parent, $mtype);
 
                 // インラインは置換ではなく埋め込み。インラインでないなら完全置換
                 if ($doctag['inline']) {
@@ -990,12 +990,15 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         $tags = [];
 
-        $doccomment = preg_replace_callback('#\{@.+?\}#', function ($m) use (&$tags, $namespace, $own) {
-            $tag = new Tag($m[0], $this->usings, $namespace, $own, null);
+        $doccomment = preg_replace_callback('#(.*?)([<\{]@.+?[>\}])#', function ($m) use (&$tags, $namespace, $own) {
+            if (str_contains($m[1], ["    ", "\t"])) {
+                return $m[0];
+            }
+            $tag = new Tag($m[2], $this->usings, $namespace, $own, null);
             $this->fqsens[$own] = array_merge($this->fqsens[$own] ?? [], $tag->getDependedFqsens());
             $tagvalues = $tag->toArray();
             $tags[$tagvalues['tagname']][] = $tagvalues;
-            return $tag->getInlineText();
+            return $m[1] . $tag->getInlineText();
         }, $doccomment);
 
         $last = null;

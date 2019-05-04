@@ -22,20 +22,43 @@ class Tag
     {
         list($this->usings, $this->namespace, $this->own, $this->last) = [$usings, $namespace, $own, $last];
 
-        $inline = false;
-        if (preg_match('#^\{(.*)\}$#', $tagtext, $m)) {
-            $tagtext = $m[1];
-            $inline = true;
+        // <@tag> は特殊なインラインタグ
+        if (preg_match('#^<@([^\s]*)(.*)>$#', $tagtext, $m)) {
+            $aliases = [
+                'see'  => 'link',       // <@see> は「see しない link」として振る舞う
+                'uses' => 'inheritdoc', // <@uses> は「inheritdoc + link」として振る舞う
+            ];
+            $tagName = strtolower($m[1]);
+            $tagValue = trim($m[2]);
+
+            $this->attributes = [
+                'tagname' => $aliases[$tagName] ?? $m[1],
+                'inline'  => $tagName,
+            ];
+        }
+        // {@tag} は普通のインラインタグ
+        elseif (preg_match('#^\{(.*)\}$#', $tagtext, $m)) {
+            $parts = preg_split('#\s+#', $m[1], 2);
+            $tagName = strtolower(ltrim(trim($parts[0]), '@'));
+            $tagValue = $parts[1] ?? null;
+
+            $this->attributes = [
+                'tagname' => $tagName,
+                'inline'  => $tagName,
+            ];
+        }
+        // それ以外 @tag は普通のタグ
+        else {
+            $parts = preg_split('#\s+#', $tagtext, 2);
+            $tagName = strtolower(ltrim(trim($parts[0]), '@'));
+            $tagValue = $parts[1] ?? null;
+
+            $this->attributes = [
+                'tagname' => $tagName,
+                'inline'  => false,
+            ];
         }
 
-        $parts = preg_split('#\s+#', $tagtext, 2);
-        $tagName = ltrim(trim($parts[0]), '@');
-        $tagValue = $parts[1] ?? null;
-
-        $this->attributes = [
-            'tagname' => strtolower($tagName),
-            'inline'  => $inline,
-        ];
         $method = "parse" . strtr(ucwords($tagName, '-'), ['-' => '']);
         if (method_exists($this, $method)) {
             $this->attributes += $this->$method($tagValue);
@@ -58,27 +81,35 @@ class Tag
             return null;
         }
 
-        $render = function ($attribute, $content) {
+        $render = function ($tagname, $attribute, $content) {
             // meta タグで埋め込む
             // 値のみエスケープする。タグ名やキー名をエスケープしない理由は特に無いが、別に悪意あるものは来ないし、敢えてしないことで何かに活用できるかもしれない
             $attrs = array_diff_key($attribute, ['tagname' => null, 'inline' => null]);
             $attrs = array_flatten($attrs, '-');
             $attrs = array_sprintf($attrs, function ($v, $k) { return "data-$k='" . htmlspecialchars($v, ENT_QUOTES) . "'"; }, ' ');
-            return "<tag_{$attribute['tagname']} $attrs>$content</tag_{$attribute['tagname']}>";
+            return "<tag_$tagname $attrs>$content</tag_$tagname>";
         };
 
-        switch ($this->attributes['tagname']) {
+        switch ($this->attributes['inline']) {
             // inheritdoc だけは特別扱い
             case 'inheritdoc':
-                return $render($this->attributes, 'HereIsInheritdoc');
+                return $render('inheritdoc', $this->attributes, 'HereIsInheritdoc');
+            case 'uses':
+            case 'see':
             case 'link':
-                return $render($this->attributes, $this->attributes['description']);
+                $attributes = $this->attributes;
+                $attributes['description'] = $attributes['description'] ?: $attributes['type']['fqsen'] ?? '';
+                if ($this->attributes['inline'] === 'uses') {
+                    $attributes['description'] = str_lchop($attributes['description'], $this->own . '::');
+                }
+                return $render('link', $attributes, $attributes['description']);
             case 'source':
                 $attributes = $this->attributes;
                 unset($attributes['location']); // ローカルパスが格納されているのでインラインでは伏せる
-                return $render($attributes, $this->attributes['description']);
+                $attributes['description'] = $attributes['description'] ?: $attributes['fqsen'];
+                return $render('source', $attributes, $attributes['description']);
             default:
-                return $render($this->attributes, '');
+                return $render($this->attributes['inline'], $this->attributes, '');
         }
     }
 
@@ -130,7 +161,7 @@ class Tag
         // @tagname ["Type"] [<description>]
         $value = preg_split('#\s+#', $tagValue, 2);
         return [
-            'type'        => $this->_resolveFqsen($value[0], $addOwn)[0],
+            'type'        => strlen($value[0]) ? $this->_resolveFqsen($value[0], $addOwn)[0] : null,
             'description' => $value[1] ?? '',
         ];
     }
@@ -198,12 +229,7 @@ class Tag
 
     protected function parseInheritdoc($tagValue)
     {
-        // @inheritdoc ["FQSEN"] [<description>]
-        $value = preg_split('#\s+#', $tagValue, 2);
-        return [
-            'type'        => strlen($tagValue) ? $this->_resolveFqsen($value[0], true)[0] : null,
-            'description' => $value[1] ?? '',
-        ];
+        return $this->_parseTypeDescription(true, $tagValue);
     }
 
     protected function parseInternal($tagValue)
@@ -366,7 +392,7 @@ class Tag
         return [
             'kind'        => $uri ? 'uri' : 'fqsen',
             'type'        => $uri ?: $this->_resolveFqsen($value[0], true)[0],
-            'description' => $value[1] ?? $value[0],
+            'description' => $value[1] ?? '',
         ];
     }
 
@@ -385,7 +411,7 @@ class Tag
         return [
             'fqsen'       => $fqsen['fqsen'],
             'location'    => optional($ref)->getLocation(),
-            'description' => $value[1] ?? $value[0],
+            'description' => $value[1] ?? '',
         ];
     }
 

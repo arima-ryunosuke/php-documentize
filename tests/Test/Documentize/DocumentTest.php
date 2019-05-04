@@ -285,6 +285,17 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
  * this is description1.
  * this is description2.
  * there is inline tag.{@inlinetag}
+ * there is special tag.<@specialtag>
+ *
+ * @property hoge() {
+ *     {@internaltag1}
+ *     text <@internaltag2> text
+ * }
+ *
+ * @method fuga() {
+ *     {@internaltag1}
+ *     text <@internaltag2> text
+ * }
  *
  * @tagname1 tagvalue1
  * @tagname2 tagvalue21
@@ -296,9 +307,10 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
 this is description1.
 this is description2.
 there is inline tag.<tag_inlinetag ></tag_inlinetag>
+there is special tag.<tag_specialtag ></tag_specialtag>
 
 ", $comment['description']);
 
-        $this->assertEquals(['inline1', 'inline2', 'inlinetag', 'tagname1', 'tagname2'], array_keys($comment['tags']));
+        $this->assertEquals(['inline1', 'inline2', 'inlinetag', 'specialtag', 'property', 'method', 'tagname1', 'tagname2'], array_keys($comment['tags']));
     }
 }

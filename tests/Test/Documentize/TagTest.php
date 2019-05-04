@@ -22,7 +22,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
         $this->assertTag(new Tag('{@version 1.2.3 description}', [], null, null, null), [
             'tagname'     => 'version',
-            'inline'      => true,
+            'inline'      => 'version',
             'version'     => '1.2.3',
             'description' => 'description',
         ]);
@@ -34,7 +34,30 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
         $this->assertTag(new Tag('{@hoge}', [], null, null, null), [
             'tagname' => 'hoge',
-            'inline'  => true,
+            'inline'  => 'hoge',
+        ]);
+
+        $this->assertTag(new Tag('<@see hoge() description>', [], null, null, null), [
+            'tagname'     => 'link',
+            'inline'      => 'see',
+            'kind'        => 'fqsen',
+            'type'        => [
+                'category' => 'type',
+                'fqsen'    => 'hoge()',
+                'array'    => 0,
+            ],
+            'description' => 'description',
+        ]);
+
+        $this->assertTag(new Tag('<@uses hoge() description>', [], null, null, null), [
+            'tagname'     => 'inheritdoc',
+            'inline'      => 'uses',
+            'type'        => [
+                'category' => 'type',
+                'fqsen'    => 'hoge()',
+                'array'    => 0,
+            ],
+            'description' => 'description',
         ]);
     }
 
@@ -59,14 +82,20 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
         $tag = new Tag('{@todo noinline}', [], null, null, null);
         $this->assertEquals("<tag_todo data-description='noinline'></tag_todo>", $tag->getInlineText());
 
+        // 特殊なインライン
+        $tag = new Tag('<@see stdclass>', [], null, null, null);
+        $this->assertEquals("<tag_link data-kind='fqsen' data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description='\\stdClass'>\\stdClass</tag_link>", $tag->getInlineText());
+        $tag = new Tag('<@uses stdclass>', [], null, null, null);
+        $this->assertEquals("<tag_link data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description='\\stdClass'>\\stdClass</tag_link>", $tag->getInlineText());
+
         // link
         $tag = new Tag('{@link stdclass}', [], null, null, null);
-        $this->assertEquals("<tag_link data-kind='fqsen' data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description='stdclass'>stdclass</tag_link>", $tag->getInlineText());
+        $this->assertEquals("<tag_link data-kind='fqsen' data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description='\\stdClass'>\\stdClass</tag_link>", $tag->getInlineText());
 
         // source
         $__method__ = __METHOD__;
         $tag = new Tag("{@source $__method__}", [], null, null, null);
-        $this->assertEquals("<tag_source data-fqsen='$__method__()' data-description='$__method__'>$__method__</tag_source>", $tag->getInlineText());
+        $this->assertEquals("<tag_source data-fqsen='$__method__()' data-description='$__method__()'>$__method__()</tag_source>", $tag->getInlineText());
 
         // inheritdoc
         $tag = new Tag('{@inheritdoc stdclass}', [], null, null, null);
@@ -644,7 +673,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'inline'      => false,
             'kind'        => 'uri',
             'type'        => 'http://example.com',
-            'description' => 'http://example.com',
+            'description' => '',
         ]);
 
         $this->assertTag(new Tag('@see example.com', [], null, null, null), [
@@ -652,7 +681,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
             'inline'      => false,
             'kind'        => 'uri',
             'type'        => 'example.com',
-            'description' => 'example.com',
+            'description' => '',
         ]);
 
         $this->assertTag(new Tag('@see $property', [], null, 'ClassName', null), [
@@ -664,7 +693,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'fqsen'    => 'ClassName::$property',
                 'array'    => 0,
             ],
-            'description' => '$property',
+            'description' => '',
         ]);
 
         $this->assertTag(new Tag('@see method()', [], null, 'ClassName', null), [
@@ -676,7 +705,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'fqsen'    => 'ClassName::method()',
                 'array'    => 0,
             ],
-            'description' => 'method()',
+            'description' => '',
         ]);
     }
 
@@ -699,27 +728,30 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_parseSource()
     {
-        $__method__ = __METHOD__;
-        $this->assertTag(new Tag("@source $__method__", [], null, null, null), [
+        $method = __METHOD__;
+        $rmethod = \ryunosuke\Documentize\reflect_callable($method);
+        $sline = $rmethod->getStartLine();
+        $eline = $rmethod->getEndLine();
+        $this->assertTag(new Tag("@source $method", [], null, null, null), [
             'tagname'     => 'source',
             'inline'      => false,
-            'fqsen'       => "$__method__()",
-            'description' => __METHOD__,
+            'fqsen'       => "$method()",
+            'description' => '',
             'location'    => [
                 'path'  => __FILE__,
-                'start' => 700,
-                'end'   => 732,
+                'start' => $sline,
+                'end'   => $eline,
             ],
         ]);
-        $this->assertTag(new Tag("@source $__method__ this is description.", [], null, null, null), [
+        $this->assertTag(new Tag("@source $method this is description.", [], null, null, null), [
             'tagname'     => 'source',
             'inline'      => false,
-            'fqsen'       => "$__method__()",
+            'fqsen'       => "$method()",
             'description' => "this is description.",
             'location'    => [
                 'path'  => __FILE__,
-                'start' => 700,
-                'end'   => 732,
+                'start' => $sline,
+                'end'   => $eline,
             ],
         ]);
         $this->assertTag(@new Tag("@source NotFound this is description.", [], null, null, null), [
