@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head><?= render_head() ?></head>
-<body>
+<body class="fqsen">
 <?php /** @var $namespaces */ ?>
 <a id="anchor" href="./" style="display: none"></a>
 <h1 class="ellipsis fixed">
@@ -44,7 +44,7 @@ function renderType($type)
 function renderFqsen($fqsen, $type)
 {
     ?>
-	<h2><?= h($fqsen['category']) ?><a href="<?= ref($fqsen['fqsen'], $type) ?>"> <?= h($fqsen['fqsen']) ?></a></h2>
+	<h4 class="fqsen-title"><?= h($fqsen['category']) ?><a href="<?= ref($fqsen['fqsen'], $type) ?>"> <?= h($fqsen['fqsen']) ?></a></h4>
 	<div class="description"><?= md($fqsen['description']) ?></div>
     <?php
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head><?= render_head() ?></head>
-<body>
+<body class="menu">
 <?php
 /** @var $namespaces */
 /** @var $markdowns */
@@ -147,7 +147,7 @@ function render_namespace($elements, &$all, $nest = 0)
 <h1 class="fixed">
 	Namespace
 	<input type="search" id="search" class="form-control" autocomplete="off" placeholder="search">
-	<a href="fqsens.html" class="all-fqsen" target="main">all</a>
+	<small><a href="fqsens.html" class="all-fqsen" target="main">all</a></small>
 </h1>
 <div class="main-wrapper">
     <?php $all = []; ?>
