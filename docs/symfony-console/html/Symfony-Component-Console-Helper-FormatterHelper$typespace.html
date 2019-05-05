@@ -3,7 +3,7 @@
 <head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/foundation.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
 	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -34,9 +34,9 @@
         })();
 	</script>
     </head>
-<body>
+<body class="typespace">
 <a id="anchor" href="./" style="display: none"></a>
-<h1 class="ellipsis">
+<h1 class="ellipsis fixed">
 	<span class="pull-left">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Helper\FormatterHelper)</small>
@@ -156,7 +156,7 @@
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/FormatterHelper.php#L23-L35" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
                                     					</div>
 					<h4 id="Symfony\Component\Console\Helper\FormatterHelper::formatSection()" tabindex="-1" class="structure-title ">
-                        formatSection						<small>($section, $message, $style = &#039;info&#039;)</small>
+                        formatSection						<small>($section, $message, $style = &quot;info&quot;)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Formats a message within a section.</p>
@@ -178,7 +178,7 @@
 			</tr>
         			<tr>
 				<td class="type">string</td>
-				<td class="rest">$style = &#039;info&#039;</td>
+				<td class="rest">$style = &quot;info&quot;</td>
 				<td class="desc"><p>The style to apply to the section</p>
 </td>
 			</tr>
@@ -274,7 +274,7 @@
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/FormatterHelper.php#L75-L97" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
                                     					</div>
 					<h4 id="Symfony\Component\Console\Helper\FormatterHelper::truncate()" tabindex="-1" class="structure-title ">
-                        truncate						<small>($message, $length, $suffix = &#039;...&#039;)</small>
+                        truncate						<small>($message, $length, $suffix = &quot;...&quot;)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Truncates a message to the given length.</p>
@@ -294,7 +294,7 @@
 			</tr>
         			<tr>
 				<td class="type">string</td>
-				<td class="rest">$suffix = &#039;...&#039;</td>
+				<td class="rest">$suffix = &quot;...&quot;</td>
 				<td class="desc"></td>
 			</tr>
         		</tbody>

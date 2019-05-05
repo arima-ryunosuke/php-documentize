@@ -3,7 +3,7 @@
 <head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/foundation.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
 	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -34,9 +34,9 @@
         })();
 	</script>
     </head>
-<body>
+<body class="typespace">
 <a id="anchor" href="./" style="display: none"></a>
-<h1 class="ellipsis">
+<h1 class="ellipsis fixed">
 	<span class="pull-left">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Question\ConfirmationQuestion)</small>
@@ -124,7 +124,7 @@
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Question/ConfirmationQuestion.php#L23-L34" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
                                     					</div>
 					<h4 id="Symfony\Component\Console\Question\ConfirmationQuestion::__construct()" tabindex="-1" class="structure-title ">
-                        __construct						<small>($question, $default = true, $trueAnswerRegex = &#039;/^y/i&#039;)</small>
+                        __construct						<small>($question, $default = true, $trueAnswerRegex = &quot;/^y/i&quot;)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"></div>
@@ -145,7 +145,7 @@
 			</tr>
         			<tr>
 				<td class="type">string</td>
-				<td class="rest">$trueAnswerRegex = &#039;/^y/i&#039;</td>
+				<td class="rest">$trueAnswerRegex = &quot;/^y/i&quot;</td>
 				<td class="desc"><p>A regex to match the "yes" answer</p>
 </td>
 			</tr>

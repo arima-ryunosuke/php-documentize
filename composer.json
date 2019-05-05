@@ -55,8 +55,9 @@
     ],
     "example": [
       "cd example && composer install --no-dev",
-      "@php documentize.phar generate example/example/example.php docs/example         --stats --force --autoload example/vendor/autoload.php --template-config example/config.php",
-      "bin/documentize generate example/vendor/symfony/console/   docs/symfony-console --stats --force --autoload example/vendor/autoload.php --template-config example/config.php -e '/Tests/*'"
+      "rm -rf docs",
+      "@php documentize.phar generate example/example             docs/example         --stats --force --autoload example/vendor/autoload.php --template-config example/config.php -i '*.php' -i '*.md'",
+      "bin/documentize generate example/vendor/symfony/console/   docs/symfony-console --stats --force --autoload example/vendor/autoload.php --template-config example/config.php -i '*.php' -i '*.md' -e '/Tests/*'"
     ]
   }
 }

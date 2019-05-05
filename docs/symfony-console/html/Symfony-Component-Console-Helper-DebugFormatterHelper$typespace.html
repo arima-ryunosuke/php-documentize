@@ -3,7 +3,7 @@
 <head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/foundation.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
 	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -34,9 +34,9 @@
         })();
 	</script>
     </head>
-<body>
+<body class="typespace">
 <a id="anchor" href="./" style="display: none"></a>
-<h1 class="ellipsis">
+<h1 class="ellipsis fixed">
 	<span class="pull-left">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\Helper\DebugFormatterHelper)</small>
@@ -124,7 +124,7 @@
                                     					</div>
 					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::$colors" tabindex="-1" class="structure-title">
 						<small>array</small>
-						$colors						<var> = [&#039;black&#039;, &#039;red&#039;, &#039;green&#039;, &#039;yellow&#039;, &#039;blue&#039;, &#039;magenta&#039;, &#039;cyan&#039;, &#039;white&#039;, &#039;default&#039;]</var>
+						$colors						<var> = [&quot;black&quot;, &quot;red&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;blue&quot;, &quot;magenta&quot;, &quot;cyan&quot;, &quot;white&quot;, &quot;default&quot;]</var>
 					</h4>
 					<div class="inner-item">
 						<div class="description"></div>
@@ -202,7 +202,7 @@
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/DebugFormatterHelper.php#L27-L41" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
                                     					</div>
 					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::start()" tabindex="-1" class="structure-title ">
-                        start						<small>($id, $message, $prefix = &#039;RUN&#039;)</small>
+                        start						<small>($id, $message, $prefix = &quot;RUN&quot;)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Starts a debug formatting session.</p>
@@ -224,7 +224,7 @@
 			</tr>
         			<tr>
 				<td class="type">string</td>
-				<td class="rest">$prefix = &#039;RUN&#039;</td>
+				<td class="rest">$prefix = &quot;RUN&quot;</td>
 				<td class="desc"><p>The prefix to use</p>
 </td>
 			</tr>
@@ -260,7 +260,7 @@
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/DebugFormatterHelper.php#L43-L83" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
                                     					</div>
 					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::progress()" tabindex="-1" class="structure-title ">
-                        progress						<small>($id, $buffer, $error = false, $prefix = &#039;OUT&#039;, $errorPrefix = &#039;ERR&#039;)</small>
+                        progress						<small>($id, $buffer, $error = false, $prefix = &quot;OUT&quot;, $errorPrefix = &quot;ERR&quot;)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Adds progress to a formatting session.</p>
@@ -288,13 +288,13 @@
 			</tr>
         			<tr>
 				<td class="type">string</td>
-				<td class="rest">$prefix = &#039;OUT&#039;</td>
+				<td class="rest">$prefix = &quot;OUT&quot;</td>
 				<td class="desc"><p>The prefix for output</p>
 </td>
 			</tr>
         			<tr>
 				<td class="type">string</td>
-				<td class="rest">$errorPrefix = &#039;ERR&#039;</td>
+				<td class="rest">$errorPrefix = &quot;ERR&quot;</td>
 				<td class="desc"><p>The prefix for error output</p>
 </td>
 			</tr>
@@ -330,7 +330,7 @@
                         			<a href="https://github.com/symfony/console/blob/v3.4.11/Helper/DebugFormatterHelper.php#L85-L108" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
                                     					</div>
 					<h4 id="Symfony\Component\Console\Helper\DebugFormatterHelper::stop()" tabindex="-1" class="structure-title ">
-                        stop						<small>($id, $message, $successful, $prefix = &#039;RES&#039;)</small>
+                        stop						<small>($id, $message, $successful, $prefix = &quot;RES&quot;)</small>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>Stops a formatting session.</p>
@@ -358,7 +358,7 @@
 			</tr>
         			<tr>
 				<td class="type">string</td>
-				<td class="rest">$prefix = &#039;RES&#039;</td>
+				<td class="rest">$prefix = &quot;RES&quot;</td>
 				<td class="desc"><p>The prefix for the end output</p>
 </td>
 			</tr>

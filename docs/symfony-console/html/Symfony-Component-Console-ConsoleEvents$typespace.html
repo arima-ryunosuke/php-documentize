@@ -3,7 +3,7 @@
 <head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/zenburn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/foundation.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
 	<link rel="stylesheet" type="text/css" data-href="common.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -34,9 +34,9 @@
         })();
 	</script>
     </head>
-<body>
+<body class="typespace">
 <a id="anchor" href="./" style="display: none"></a>
-<h1 class="ellipsis">
+<h1 class="ellipsis fixed">
 	<span class="pull-left">
 	Structure
 	<small class="ellipsis-text">(Symfony\Component\Console\ConsoleEvents)</small>
@@ -76,7 +76,7 @@
                                     					</div>
 					<h4 id="Symfony\Component\Console\ConsoleEvents::COMMAND" tabindex="-1" class="structure-title">
 						<small>string</small>
-                        COMMAND						<var> = &#039;console.command&#039;</var>
+                        COMMAND						<var> = &quot;console.command&quot;</var>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>The COMMAND event allows you to attach listeners before any command is<br />
@@ -93,7 +93,7 @@ before they are handled to the command.</p>
                                     					</div>
 					<h4 id="Symfony\Component\Console\ConsoleEvents::TERMINATE" tabindex="-1" class="structure-title">
 						<small>string</small>
-                        TERMINATE						<var> = &#039;console.terminate&#039;</var>
+                        TERMINATE						<var> = &quot;console.terminate&quot;</var>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>The TERMINATE event allows you to attach listeners after a command is<br />
@@ -109,7 +109,7 @@ executed by the console.</p>
                                     					</div>
 					<h4 id="Symfony\Component\Console\ConsoleEvents::EXCEPTION" tabindex="-1" class="structure-title">
 						<small>string</small>
-                        EXCEPTION						<var> = &#039;console.exception&#039;</var>
+                        EXCEPTION						<var> = &quot;console.exception&quot;</var>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>The EXCEPTION event occurs when an uncaught exception appears<br />
@@ -127,7 +127,7 @@ to modify the thrown exception.</p>
                                     					</div>
 					<h4 id="Symfony\Component\Console\ConsoleEvents::ERROR" tabindex="-1" class="structure-title">
 						<small>string</small>
-                        ERROR						<var> = &#039;console.error&#039;</var>
+                        ERROR						<var> = &quot;console.error&quot;</var>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><p>The ERROR event occurs when an uncaught exception or error appears.</p>
