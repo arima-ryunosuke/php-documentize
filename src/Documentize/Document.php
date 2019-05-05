@@ -284,7 +284,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     $parent = &$namespaces[$ns][$type][$cname][$mtype][$member];
                 }
                 // 親が @inheritdoc している可能性もあるので再帰する
+                if ($parent !== $target) {
                     $inheritdoc($parent, $mtype);
+                }
 
                 // インラインは置換ではなく埋め込み。インラインでないなら完全置換
                 if ($doctag['inline']) {
