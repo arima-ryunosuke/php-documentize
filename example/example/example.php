@@ -223,6 +223,19 @@ namespace NS {
      *  * @throws \RuntimeException
      *  *@
      * @method void magicMethod4($arg)
+     * @method string magicMethod5($arg1) {
+     *     これはインライン phpdoc を使用したマジックメソッドです
+     *
+     *     <@see Mclass::actualMethod()>を使用してインラインかつ link 的な挙動を示すことができます。
+     *     <@uses Mclass::actualMethod()>を使用してインラインかつ inheritdoc 的な挙動を示すことができます。
+     *
+     *     このメソッドは &#64;see しているにもかかわらず see 参照が出ていません。&lt;inline see&gt; では link に読み換えられるからです。
+     *     このメソッドは &#64;inheritdoc していないにも関わらず引数が継承されています。&lt;inline uses&gt; では自動で inheritdoc が付与されるからです。
+     *
+     *     これは phpstorm などの IDE ジャンプで特に有用です。
+     *     例えば &#123;&#64;see&#125; としても phpstorm が反応しません（インライン未対応？）。 link は標準ではないためそもそも反応しません。
+     *     &#64;uses に関しては個人的な用途です（link + inheritdoc を同時にしたいことが多々ある）。
+     * }
      */
     // @formatter:on
     class Mclass
@@ -367,7 +380,7 @@ namespace NS {
      *
      * ###### 見出し6
      *
-     * ###### テキスト
+     * テキスト
      *
      * ~~打ち消し~~
      * **強調**
