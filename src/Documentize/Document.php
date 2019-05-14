@@ -33,6 +33,9 @@ class Document
     /** @var string 掻き集めてるディレクトリ */
     private $targetdir, $targethash;
 
+    /** @var array 掻き集めてる最中の markdown（フィールドで抱えるのは最高に気持ち悪いのでリファクタ対象） */
+    private $markdowns = [];
+
     public static function gatherIsolative($options, &$logs = null)
     {
         $outfile = tempnam(sys_get_temp_dir(), 'rdz');
@@ -43,9 +46,9 @@ class Document
 $document = new \\ryunosuke\\Documentize\\Document(unserialize(stream_get_contents(STDIN)));
 $gathertime = microtime(true);
 $readcount = count(get_included_files());
-$namespaces = $document->gather($logs);
+$dataarray = $document->gather($logs);
 file_put_contents(' . var_export($outfile, true) . ', serialize([
-    "namespaces" => $namespaces,
+    "result"     => $dataarray,
     "logs"       => $logs,
     "memory"     => memory_get_peak_usage(true),
     "time"       => microtime(true) - $gathertime,
@@ -146,10 +149,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
      * 具体的には markdown パースしたりシンタックスハイライトしたり活きた Tag オブジェクトを持ったり等。
      * それらは生成側の仕事であり、「集めるもの」の仕事ではないというスタンス。
      *
-     * @todo いろいろ拡張していたらいつのまにか参照地獄になっていたので綺麗に書き直す
-     *
      * @param array $logs 掻き集めてる最中のログが格納される
      * @return array 名前空間単位のメタ情報
+     * @todo いろいろ拡張していたらいつのまにか参照地獄になっていたので綺麗に書き直す
+     *
      */
     public function gather(&$logs = [])
     {
@@ -488,7 +491,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         restore_error_handler();
 
-        return $result;
+        return [
+            'namespaces' => $result,
+            'markdowns'  => $this->markdowns,
+        ];
     }
 
     private function cache($id, $originaltime, $provider)
@@ -668,6 +674,11 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         }
         if ($this->options['exclude'] && fnmatch_or($this->options['exclude'], $filename, FNM_NOESCAPE)) {
             return false;
+        }
+
+        if (in_array(strtolower(pathinfo($filename, PATHINFO_EXTENSION)), ['md', 'markdown'], true)) {
+            $this->parseMarkdown($filename);
+            return true;
         }
 
         require_once $filename;
@@ -927,6 +938,56 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         }
 
         return $result2;
+    }
+
+    private function parseMarkdown($filename)
+    {
+        $localname = ltrim(str_replace('\\', '/', str_lchop($filename, $this->targetdir)), '/');
+        $filehash = sha1($localname);
+
+        $parser = new class extends \cebe\markdown\GithubMarkdown
+        {
+            private $id = 0;
+
+            protected function renderHeadline($block)
+            {
+                $this->id++;
+                $tag = 'h' . $block['level'];
+                /** @noinspection PhpUndefinedFieldInspection */
+                return "<$tag id='header-{$this->filehash}-{$this->id}'>" . $this->renderAbsy($block['content']) . "</$tag>\n";
+            }
+        };
+        /** @noinspection PhpUndefinedFieldInspection */
+        $parser->filehash = $filehash;
+        $parser->enableNewlines = true;
+        $html = $parser->parse(file_get_contents($filename));
+
+        $dom = new \DOMDocument('1.0');
+        $dom->loadHTML('<html><head><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>' . $html . '</html>');
+        $h1 = [];
+        $id = 0;
+        foreach ($dom->getElementsByTagName('*') as $node) {
+            /** @var \DOMNode $node */
+            if (preg_match('#^h(\\d)$#', $node->nodeName, $m)) {
+                $id++;
+                list($tag, $level) = $m;
+                $nexttag = 'h' . ($level + 1);
+                ($$tag)[] = ['id' => "header-$filehash-$id", 'content' => $node->textContent, $nexttag => []];
+                $$nexttag = &$$tag[count($$tag) - 1][$nexttag];
+            }
+        }
+
+        $html = preg_replace_callback('#(.*?)([<\{]@.+?[>\}])#', function ($m) use ($filename) {
+            $tag = new Tag($m[2], $this->usings, null, null, null);
+            $this->fqsens[$filename] = array_merge($this->fqsens[$filename] ?? [], $tag->getDependedFqsens());
+            return $m[1] . $tag->getInlineText();
+        }, $html);
+
+        $this->markdowns[$localname] = [
+            'hash'  => $filehash,
+            'index' => $h1,
+            'html'  => $html,
+        ];
     }
 
     private function parseDoccomment($doccomment, $namespace, $own)

@@ -16,7 +16,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
             'contain'    => '*',
             'recursive'  => true,
         ]);
-        $namespaces = $result['namespaces'];
+        $namespaces = $result['result']['namespaces'];
 
         $this->assertArrayHasKey('GlobalSpace', $namespaces);
         $this->assertArrayHasKey('constants', $namespaces['GlobalSpace']);
@@ -50,7 +50,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
             'contain'    => '*',
             'recursive'  => true,
         ]);
-        $namespaces = $document->gather();
+        $namespaces = $document->gather()['namespaces'];
 
         $this->assertEquals(123, defined('LOADED'));
 
@@ -86,7 +86,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
             'include' => '*',
             'contain' => '*'
         ]);
-        $namespaces = $document->gather();
+        $namespaces = $document->gather()['namespaces'];
         $this->assertEquals('class', $namespaces['']['classes']['SubDirClass1']['category']);
     }
 
@@ -126,7 +126,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
             'no-protected-method'         => true,
             'no-public-method'            => true,
         ]);
-        $namespaces = $document->gather();
+        $namespaces = $document->gather()['namespaces'];
 
         // 色々いるが、 contain により除外される
         $this->assertArrayNotHasKey('', $namespaces);
@@ -179,7 +179,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
             'include' => '*',
             'contain' => '*',
         ]);
-        $namespaces = $document->gather();
+        $namespaces = $document->gather()['namespaces'];
 
         // こいつは居る
         $this->assertArrayHasKey('IgnoreInheritT', $namespaces['Ignore']['traits']);
@@ -202,7 +202,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
             'no-internal-method'   => true,
             'no-deprecated-method' => true,
         ]);
-        $namespaces = $document->gather();
+        $namespaces = $document->gather()['namespaces'];
 
         // マジックプロパティにも @deprecated や @internal が効いているので 0
         $this->assertCount(0, $namespaces['']['classes']['C']['properties']);
@@ -226,6 +226,26 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertContains("'ChildClass::unknownConst()' is unknown member in (ChildClass)", $logs);
         $this->assertContains("'ChildClass::\$unknownProperty' is unknown member in (ChildClass)", $logs);
         $this->assertContains("'ChildClass::unknownMethod()' is unknown member in (ChildClass)", $logs);
+    }
+
+    function test_gatherMarkdown()
+    {
+        $document = new Document([
+            'target'  => __DIR__ . '/_DocumentTest/test.md',
+        ]);
+        $markdowns = $document->gather()['markdowns'];
+
+        $this->assertArrayHasKey('test.md', $markdowns);
+
+        $this->assertArrayHasKey('hash', $markdowns['test.md']);
+        $this->assertEquals(40, strlen($markdowns['test.md']['hash']));
+
+        $this->assertArrayHasKey('index', $markdowns['test.md']);
+        $this->assertEquals('header-e192bb1a18afdb8d546a8a7f9d813e97e9e23eea-1', $markdowns['test.md']['index'][0]['id']);
+        $this->assertContains('h1', $markdowns['test.md']['index'][0]['content']);
+
+        $this->assertArrayHasKey('html', $markdowns['test.md']);
+        $this->assertContains('<tag_link', $markdowns['test.md']['html']);
     }
 
     function test_parseFile()

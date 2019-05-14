@@ -35,8 +35,6 @@ div.nheader {
 }
 
 h1 {
-    position: fixed;
-    top: 0;
     margin-top: 0;
     font-size: 20px;
     font-weight: bold;
@@ -44,6 +42,11 @@ h1 {
     background: #336699;
     color: #fff;
     width: 100%;
+}
+
+h1.fixed {
+    position: fixed;
+    top: 0;
     z-index: 10000;
 }
 
@@ -290,34 +293,42 @@ h1 a, h1 a:hover, h1 a:focus {
     font-weight: bold;
 }
 
+.markdown li,
 .description li {
     margin-left: 2.0rem;
 }
 
+.markdown ul > li,
 .description ul > li {
     list-style: disc;
 }
 
+.markdown ol > li,
 .description ol > li {
     list-style: decimal;
 }
 
+.markdown ol > li > ol > li,
 .description ol > li > ol > li {
     list-style: lower-alpha;
 }
 
+.markdown ol > li > ol > li > ol > li,
 .description ol > li > ol > li > ol > li {
     list-style: lower-roman;
 }
 
+.markdown table.table,
 .description table.table {
     table-layout: auto;
 }
 
+.markdown table.table > thead,
 .description table.table > thead {
     white-space: nowrap;
 }
 
+.markdown code,
 .description code {
     font-size: 12px;
     overflow-x: auto;

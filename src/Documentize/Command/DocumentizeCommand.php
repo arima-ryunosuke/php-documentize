@@ -140,7 +140,7 @@ class DocumentizeCommand extends Command
             $output->writeln("<fg=red>$errors</>");
             return;
         }
-        $namespaces = $result['namespaces'];
+        $gathered = $result['result'];
 
         foreach (array_unique($result['logs'], SORT_REGULAR) as $log) {
             $map = [
@@ -161,7 +161,7 @@ class DocumentizeCommand extends Command
         $starttime = time();
         $generatetime = microtime(true);
         if (file_exists($tpl)) {
-            $generator = (require $tpl)($namespaces, $dst, $tplcfg);
+            $generator = (require $tpl)($gathered, $dst, $tplcfg);
             if ($generator instanceof \Generator) {
                 foreach ($generator as $out) {
                     $output->writeln(sprintf("Create file to <info>%s</info>", $out), OutputInterface::VERBOSITY_VERY_VERBOSE);
@@ -200,13 +200,14 @@ class DocumentizeCommand extends Command
             ]));
             $output->writeln(implode(' ', [
                 'Found',
-                sprintf('<info>%s</info> constants,', number_format($counter(['namespaces' => $namespaces], 'constants'))),
-                sprintf('<info>%s</info> functions,', number_format($counter(['namespaces' => $namespaces], 'functions'))),
-                sprintf('<info>%s</info> interfaces,', number_format($counter(['namespaces' => $namespaces], 'interfaces'))),
-                sprintf('<info>%s</info> traits,', number_format($counter(['namespaces' => $namespaces], 'traits'))),
-                sprintf('<info>%s</info> classes', number_format($counter(['namespaces' => $namespaces], 'classes'))),
+                sprintf('<info>%s</info> markdowns,', number_format(count($gathered['markdowns']))),
+                sprintf('<info>%s</info> constants,', number_format($counter($gathered, 'constants'))),
+                sprintf('<info>%s</info> functions,', number_format($counter($gathered, 'functions'))),
+                sprintf('<info>%s</info> interfaces,', number_format($counter($gathered, 'interfaces'))),
+                sprintf('<info>%s</info> traits,', number_format($counter($gathered, 'traits'))),
+                sprintf('<info>%s</info> classes', number_format($counter($gathered, 'classes'))),
                 'in',
-                sprintf('<comment>%s</comment> namespaces', number_format(count($namespaces) + $counter(['namespaces' => $namespaces], 'namespaces'))),
+                sprintf('<comment>%s</comment> namespaces', number_format(count($gathered['namespaces']) + $counter($gathered, 'namespaces'))),
             ]));
             $output->writeln(sprintf('Gathering time <comment>%s</comment> seconds', number_format($result['time'], 3)));
             $output->writeln(sprintf('Input php count <comment>%s</comment> files', number_format($result['read'])));
