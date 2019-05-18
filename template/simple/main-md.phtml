@@ -1,0 +1,21 @@
+<?php include_once __DIR__ . '/common.php' ?>
+<!DOCTYPE html>
+<html>
+<head><?= render_head() ?></head>
+<body class="markdown">
+<?php /** @var $filename */ ?>
+<?php /** @var $html */ ?>
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis fixed">
+    <?= h(basename($filename)) ?>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+    <?= $html ?>
+</div>
+</body>
+</html>

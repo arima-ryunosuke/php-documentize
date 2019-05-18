@@ -31,33 +31,32 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test___construct()
     {
-        $this->assertSame('constant', (new Reflection(['NS\\MockConstant' => 1]))->getCategory());
-        $this->assertSame('class', (new Reflection(MockClass::class))->getCategory());
-        $this->assertSame('classconstant', (new Reflection(MockClass::class . '::mockConstant'))->getCategory());
-        $this->assertSame('property', (new Reflection(MockClass::class . '::$mockProperty'))->getCategory());
-        $this->assertSame('method', (new Reflection(MockClass::class . '::mockMethod()'))->getCategory());
+        $this->assertSame('constant', (Reflection::instance(['NS\\MockConstant' => 1]))->getCategory());
+        $this->assertSame('class', (Reflection::instance(MockClass::class))->getCategory());
+        $this->assertSame('classconstant', (Reflection::instance(MockClass::class . '::mockConstant'))->getCategory());
+        $this->assertSame('property', (Reflection::instance(MockClass::class . '::$mockProperty'))->getCategory());
+        $this->assertSame('method', (Reflection::instance(MockClass::class . '::mockMethod()'))->getCategory());
     }
 
     function test_constant()
     {
-        $reflection = new Reflection(['NS\\MockConstant' => 1]);
+        $reflection = Reflection::instance(['NS\\MockConstant' => 1]);
         $this->assertSame('constant', $reflection->getCategory());
         $this->assertSame('NS\\MockConstant', $reflection->getFqsen());
         $this->assertSame('NS', $reflection->getNamespaceName());
         $this->assertSame('MockConstant', $reflection->getShortName());
         $this->assertSame([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 5,
-            'end'   => 5,
+            'start' => 6,
+            'end'   => 6,
         ], $reflection->getLocation());
-        $this->assertException(new \DomainException(), [$reflection, 'getFileName']);
-        $this->assertException(new \DomainException(), [$reflection, 'getDocComment']);
+        $this->assertSame('/** constcomment */', $reflection->getDocComment());
         $this->assertSame(1, $reflection->getValue());
     }
 
     function test_function()
     {
-        $reflection = new Reflection(new \ReflectionFunction('NS\\MockFunction'));
+        $reflection = Reflection::instance('NS\\MockFunction()');
         $this->assertSame('function', $reflection->getCategory());
         $this->assertSame('NS\\MockFunction()', $reflection->getFqsen());
         $this->assertSame('NS', $reflection->getNamespaceName());
@@ -65,18 +64,18 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame(realpath(__DIR__ . '/_ReflectionTest/all.php'), $reflection->getFileName());
         $this->assertSame([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 7,
-            'end'   => 8,
+            'start' => 8,
+            'end'   => 9,
         ], $reflection->getLocation());
         $this->assertSame('/** funccomment */', $reflection->getDocComment());
         $this->assertSame($this->now, $reflection->getLastModified());
         $this->assertCount(3, $reflection->getParameters());
-        $this->assertInstanceOf(\ReflectionType::class, $reflection->getType());
+        $this->assertSame('int', $reflection->getType()->getFqsen());
     }
 
     function test_interface()
     {
-        $reflection = new Reflection(new \ReflectionClass(\NS\MockInterface::class));
+        $reflection = Reflection::instance(\NS\MockInterface::class);
         $this->assertSame('interface', $reflection->getCategory());
         $this->assertSame('NS\\MockInterface', $reflection->getFqsen());
         $this->assertSame('NS', $reflection->getNamespaceName());
@@ -84,8 +83,8 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame(realpath(__DIR__ . '/_ReflectionTest/all.php'), $reflection->getFileName());
         $this->assertSame([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 10,
-            'end'   => 18,
+            'start' => 11,
+            'end'   => 19,
         ], $reflection->getLocation());
         $this->assertSame('/** interfacecomment */', $reflection->getDocComment());
         $this->assertSame($this->now, $reflection->getLastModified());
@@ -106,7 +105,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_trait()
     {
-        $reflection = new Reflection(new \ReflectionClass(\NS\MockTrait::class));
+        $reflection = Reflection::instance(\NS\MockTrait::class);
         $this->assertSame('trait', $reflection->getCategory());
         $this->assertSame('NS\\MockTrait', $reflection->getFqsen());
         $this->assertSame('NS', $reflection->getNamespaceName());
@@ -114,8 +113,8 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame(realpath(__DIR__ . '/_ReflectionTest/all.php'), $reflection->getFileName());
         $this->assertSame([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 20,
-            'end'   => 28,
+            'start' => 21,
+            'end'   => 29,
         ], $reflection->getLocation());
         $this->assertSame('/** traitcomment */', $reflection->getDocComment());
         $this->assertSame($this->now, $reflection->getLastModified());
@@ -136,7 +135,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_class()
     {
-        $reflection = new Reflection(new \ReflectionClass(\NS\MockClass::class));
+        $reflection = Reflection::instance(\NS\MockClass::class);
         $this->assertSame('class', $reflection->getCategory());
         $this->assertSame('NS\\MockClass', $reflection->getFqsen());
         $this->assertSame('NS', $reflection->getNamespaceName());
@@ -144,8 +143,8 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame(realpath(__DIR__ . '/_ReflectionTest/all.php'), $reflection->getFileName());
         $this->assertSame([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 34,
-            'end'   => 44,
+            'start' => 35,
+            'end'   => 45,
         ], $reflection->getLocation());
         $this->assertSame('/** classcomment */', $reflection->getDocComment());
         $this->assertSame($this->now, $reflection->getLastModified());
@@ -166,7 +165,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_classConstant()
     {
-        $reflection = new Reflection(new \ReflectionClassConstant(MockClass::class, 'mockConstant'));
+        $reflection = Reflection::instance(MockClass::class . '::mockConstant');
         $this->assertSame('classconstant', $reflection->getCategory());
         $this->assertSame('NS\\MockInterface::mockConstant', $reflection->getFqsen());
         $this->assertSame('NS\\MockInterface', $reflection->getNamespaceName());
@@ -174,8 +173,8 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame(realpath(__DIR__ . '/_ReflectionTest/all.php'), $reflection->getFileName());
         $this->assertSame([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 13,
-            'end'   => 14,
+            'start' => 14,
+            'end'   => 15,
         ], $reflection->getLocation());
         $this->assertSame('/** interfaceconstcomment */', $reflection->getDocComment());
         $this->assertSame(false, $reflection->isPrivate());
@@ -189,7 +188,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_property()
     {
-        $reflection = new Reflection(new \ReflectionProperty(MockClass::class, 'mockProperty'));
+        $reflection = Reflection::instance(MockClass::class . '::$mockProperty');
         $this->assertSame('property', $reflection->getCategory());
         $this->assertSame('NS\\MockClass::$mockProperty', $reflection->getFqsen());
         $this->assertSame('NS\\MockClass', $reflection->getNamespaceName());
@@ -197,16 +196,16 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame(realpath(__DIR__ . '/_ReflectionTest/all.php'), $reflection->getFileName());
         $this->assertSame([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 39,
-            'end'   => 40,
+            'start' => 40,
+            'end'   => 41,
         ], $reflection->getLocation());
         $this->assertSame('/** classpropertycomment */', $reflection->getDocComment());
         $this->assertSame(false, $reflection->isPrivate());
         $this->assertSame(true, $reflection->isProtected());
         $this->assertSame(false, $reflection->isPublic());
         $this->assertSame('protected', $reflection->getAccessible());
-        $this->assertEquals(new Reflection(new \ReflectionClass(MockClass::class)), $reflection->getDeclaringClass());
-        $this->assertEquals(new Reflection(new \ReflectionProperty(MockTrait::class, 'mockProperty')), $reflection->getProtoType());
+        $this->assertEquals(Reflection::instance(MockClass::class), $reflection->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(MockTrait::class . '::$mockProperty'), $reflection->getProtoType());
         $this->assertEquals([
             [
                 'kind'  => 'override',
@@ -218,7 +217,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_method()
     {
-        $reflection = new Reflection(new \ReflectionMethod(MockClass::class, 'mockMethod'));
+        $reflection = Reflection::instance(MockClass::class . '::mockMethod()');
         $this->assertSame('method', $reflection->getCategory());
         $this->assertSame('NS\\MockClass::mockMethod()', $reflection->getFqsen());
         $this->assertSame('NS\\MockClass', $reflection->getNamespaceName());
@@ -226,16 +225,16 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame(realpath(__DIR__ . '/_ReflectionTest/all.php'), $reflection->getFileName());
         $this->assertSame([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 42,
-            'end'   => 43,
+            'start' => 43,
+            'end'   => 44,
         ], $reflection->getLocation());
         $this->assertSame('/** classmethodcomment */', $reflection->getDocComment());
         $this->assertSame(false, $reflection->isPrivate());
         $this->assertSame(false, $reflection->isProtected());
         $this->assertSame(true, $reflection->isPublic());
         $this->assertSame('public', $reflection->getAccessible());
-        $this->assertEquals(new Reflection(new \ReflectionClass(MockClass::class)), $reflection->getDeclaringClass());
-        $this->assertEquals(new Reflection(new \ReflectionMethod(MockInterface::class, 'mockMethod')), $reflection->getProtoType());
+        $this->assertEquals(Reflection::instance(MockClass::class), $reflection->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(MockInterface::class . '::mockMethod()'), $reflection->getProtoType());
         $this->assertEquals([
             [
                 'kind'  => 'implement',
@@ -247,12 +246,14 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
             ],
         ], $reflection->getProtoTypes());
         $this->assertCount(0, $reflection->getParameters());
-        $this->assertSame('NS\\MockClass', (string) $reflection->getType());
+        $this->assertSame('NS\\MockClass', $reflection->getType()->getFqsen());
     }
 
     function test_parameter()
     {
-        $reflection = new Reflection(new \ReflectionParameter('NS\\MockFunction', 0));
+        $reffunc = Reflection::instance('NS\\MockFunction()');
+
+        $reflection = $reffunc->getParameters()['defc'];
         $this->assertException(new \DomainException(), [$reflection, 'getCategory']);
         $this->assertException(new \DomainException(), [$reflection, 'getFqsen']);
         $this->assertException(new \DomainException(), [$reflection, 'getNamespaceName']);
@@ -261,22 +262,22 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertException(new \DomainException(), [$reflection, 'getDocComment']);
         $this->assertException(new \DomainException(), [$reflection, 'getProtoType']);
         $this->assertException(new \DomainException(), [$reflection, 'getProtoTypes']);
-        $this->assertInstanceOf(\ReflectionType::class, $reflection->getType());
+        $this->assertSame('int', $reflection->getType()->getFqsen());
         $this->assertSame('$defc = PHP_VERSION_ID', $reflection->getDeclaration());
 
-        $reflection = new Reflection(new \ReflectionParameter('NS\\MockFunction', 1));
+        $reflection = $reffunc->getParameters()['defa'];
         $this->assertSame('$defa = [1, 2, 3]', $reflection->getDeclaration());
 
-        $reflection = new Reflection(new \ReflectionParameter('NS\\MockFunction', 2));
+        $reflection = $reffunc->getParameters()['params'];
         $this->assertSame('...$params', $reflection->getDeclaration());
     }
 
     function test_prototype()
     {
-        $reflection = new Reflection(new \ReflectionClass(PrototypeParentClass::class));
+        $reflection = Reflection::instance(PrototypeParentClass::class);
         $this->assertEquals(null, $reflection->getProtoType());
 
-        $reflection = new Reflection(new \ReflectionClass(PrototypeChildClass::class));
+        $reflection = Reflection::instance(PrototypeChildClass::class);
 
         $this->assertEquals('NS\\PrototypeParentClass', $reflection->getProtoType()->getFqsen());
 
@@ -301,7 +302,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_prototypes()
     {
-        $reflection = new Reflection(new \ReflectionClass(PrototypeChildClass::class));
+        $reflection = Reflection::instance(PrototypeChildClass::class);
 
         $constants = $reflection->getConstants();
         $this->assertEquals([
@@ -368,16 +369,16 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_propertyValue()
     {
-        $reflection = new Reflection(new \ReflectionProperty(StaticPropertyClass::class, 'staticProperty'));
+        $reflection = Reflection::instance(StaticPropertyClass::class . '::$staticProperty');
         $this->assertEquals(1, $reflection->getValue());
 
-        $reflection = new Reflection(new \ReflectionProperty(UndefinedPropertyClass::class, 'undefinedProperty'));
+        $reflection = Reflection::instance(UndefinedPropertyClass::class . '::$undefinedProperty');
         $this->assertEquals(null, @$reflection->getValue());
     }
 
     function test_internal()
     {
-        $reflection = (new Reflection(new \ReflectionClass(\Exception::class)));
+        $reflection = (Reflection::instance(\Exception::class));
 
         $this->assertSame('', $reflection->getNamespaceName());
         $this->assertSame('Exception', $reflection->getShortName());
@@ -396,7 +397,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_getMagicMethod()
     {
-        $reflection = (new Reflection(new \ReflectionClass(MockClass::class)))->getMagicMethod('test', '', '$a, &$r, ...$v');
+        $reflection = (Reflection::instance(MockClass::class))->getMagicMethod('test', '', '$a, &$r, ...$v');
         $params = $reflection->getParameters();
         $this->assertSame('$a', $params['a']->getDeclaration());
         $this->assertSame('&$r', $params['r']->getDeclaration());
@@ -405,46 +406,46 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_getMagicLocation()
     {
-        $reflection = new Reflection(new \ReflectionClass(MagicClass::class));
-        $this->assertArraySubset([
-            'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 108,
-            'end'   => 108,
-        ], $reflection->getMagicPropertyLocation('magicProperty'));
+        $reflection = Reflection::instance(MagicClass::class);
         $this->assertArraySubset([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
             'start' => 109,
             'end'   => 109,
+        ], $reflection->getMagicPropertyLocation('magicProperty'));
+        $this->assertArraySubset([
+            'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
+            'start' => 110,
+            'end'   => 110,
         ], $reflection->getMagicMethodLocation('magicMethod'));
     }
 
     function test_getDeclaringClass()
     {
-        $reflection = new Reflection(new \ReflectionClass(PrototypeChildClass::class));
+        $reflection = Reflection::instance(PrototypeChildClass::class);
 
         $constants = $reflection->getConstants();
-        $this->assertEquals(new Reflection(PrototypeChildClass::class), $constants['parentConstant']->getDeclaringClass());
-        $this->assertEquals(new Reflection(PrototypeChildClass::class), $constants['childConstant']->getDeclaringClass());
-        $this->assertEquals(new Reflection(PrototypeInterface::class), $constants['interfaceConstant']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeChildClass::class), $constants['parentConstant']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeChildClass::class), $constants['childConstant']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeInterface::class), $constants['interfaceConstant']->getDeclaringClass());
 
         $properties = $reflection->getProperties();
-        $this->assertEquals(new Reflection(PrototypeChildClass::class), $properties['overrideProperty']->getDeclaringClass());
-        $this->assertEquals(new Reflection(PrototypeChildClass::class), $properties['childProperty']->getDeclaringClass());
-        $this->assertEquals(new Reflection(PrototypeParentClass::class), $properties['parentProperty']->getDeclaringClass());
-        $this->assertEquals(new Reflection(PrototypeTrait::class), $properties['traitProperty']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeChildClass::class), $properties['overrideProperty']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeChildClass::class), $properties['childProperty']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeParentClass::class), $properties['parentProperty']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeTrait::class), $properties['traitProperty']->getDeclaringClass());
 
         $methods = $reflection->getMethods();
-        $this->assertEquals(new Reflection(PrototypeChildClass::class), $methods['interfaceMethod']->getDeclaringClass());
-        $this->assertEquals(new Reflection(PrototypeChildClass::class), $methods['overrideMethod']->getDeclaringClass());
-        $this->assertEquals(new Reflection(PrototypeChildClass::class), $methods['childMethod']->getDeclaringClass());
-        $this->assertEquals(new Reflection(PrototypeParentClass::class), $methods['parentMethod']->getDeclaringClass());
-        $this->assertEquals(new Reflection(PrototypeTrait::class), $methods['traitMethod']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeChildClass::class), $methods['interfaceMethod']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeChildClass::class), $methods['overrideMethod']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeChildClass::class), $methods['childMethod']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeParentClass::class), $methods['parentMethod']->getDeclaringClass());
+        $this->assertEquals(Reflection::instance(PrototypeTrait::class), $methods['traitMethod']->getDeclaringClass());
     }
 
     function test_getLocation_misc()
     {
         eval('class abcdefg{const a=1;var $b;}');
-        $reflection = (new Reflection(new \ReflectionClass('abcdefg')));
+        $reflection = (Reflection::instance('abcdefg'));
         $this->assertArraySubset([
             'start' => null,
             'end'   => null,
@@ -457,7 +458,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     function test_misc()
     {
-        $reflection = new Reflection(new \ReflectionType());
+        $reflection = Reflection::instance(new \ReflectionExtension('Reflection'));
         $this->assertException(new \DomainException(), [$reflection, 'getCategory']);
         $this->assertException(new \DomainException(), [$reflection, 'getFqsen']);
         $this->assertException(new \DomainException(), [$reflection, 'getNamespaceName']);

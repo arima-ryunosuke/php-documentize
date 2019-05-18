@@ -6,14 +6,6 @@ use ryunosuke\Documentize\PhpFile;
 
 class PhpFileTest extends \ryunosuke\Test\AbstractUnitTestCase
 {
-    function test_evaluate()
-    {
-        $x = 123;
-        $this->assertEquals(246, PhpFile::evaluate('return $x * 2;', get_defined_vars()));
-
-        $this->assertException("eval failed. invalid code", [PhpFile::class, 'evaluate'], 'invalid code');
-    }
-
     function test_cache()
     {
         $this->assertSame((new PhpFile(__FILE__))->gather(), PhpFile::cache(__FILE__));
@@ -43,7 +35,8 @@ PHPCODE
         $this->assertSame($phpfile, $phpfile->reset());
 
         $this->assertEquals(false, $phpfile->prev());
-
+        $phpfile->next();
+        $phpfile->next();
         $this->assertEquals("<?php\n", $phpfile->current()[1]);
         $this->assertEquals("namespace|{|use|\|ArrayObject|as|AO|;", implode('|', array_column($phpfile->next(T_CLASS), 1)));
         $this->assertEquals("C", $phpfile->next()[1]);

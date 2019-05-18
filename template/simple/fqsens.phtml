@@ -5,7 +5,7 @@
 <body>
 <?php /** @var $namespaces */ ?>
 <a id="anchor" href="./" style="display: none"></a>
-<h1 class="ellipsis">
+<h1 class="ellipsis fixed">
 	All Fqsen (for search Ctrl+F)
 	<span class="pull-right">
 		<small class="frame-switch">
@@ -35,7 +35,7 @@ function renderType($type)
 {
     ?>
     <?php renderFqsen($type, 'typespace') ?>
-    <?php foreach ($type['constants'] as $constant): ?><?php renderFqsen($constant, 'typespace') ?><?php endforeach ?>
+    <?php foreach ($type['classconstants'] as $constant): ?><?php renderFqsen($constant, 'typespace') ?><?php endforeach ?>
     <?php foreach ($type['properties'] as $property): ?><?php renderFqsen($property, 'typespace') ?><?php endforeach ?>
     <?php foreach ($type['methods'] as $method): ?><?php renderFqsen($method, 'typespace') ?><?php endforeach ?>
     <?php

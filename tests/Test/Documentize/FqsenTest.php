@@ -57,7 +57,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
         ], Fqsen::parse('\\ArrayObject'));
 
         $this->assertSame([
-            'constant',
+            'classconstant',
             '',
             'ArrayObject',
             'STD_PROP_LIST',
@@ -163,7 +163,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
         $fqsen->add(__CLASS__ . '::dummy_method');
         $this->assertEquals([
             [
-                'category' => 'constant',
+                'category' => 'classconstant',
                 'fqsen'    => 'ryunosuke\Test\Documentize\FqsenTest::DUMMY_CONSTANT',
                 'array'    => 0,
             ],

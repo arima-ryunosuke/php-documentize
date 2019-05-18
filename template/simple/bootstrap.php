@@ -1,5 +1,5 @@
 <?php
-return function ($namespaces, $dst, $config) {
+return function ($dataarray, $dst, $config) {
     $GLOBALS['config'] = array_replace([
         'cachekey'   => time(),
         'title'      => 'No Title',
@@ -28,8 +28,14 @@ return function ($namespaces, $dst, $config) {
     yield $perform("$indir/common.css", [], "$outdir/common.css");
     yield $perform("$indir/common.js", [], "$outdir/common.js");
     yield $perform("$indir/index.phtml", [], "$outdir/../index.html");
-    yield $perform("$indir/menu.phtml", ['namespaces' => $namespaces], "$outdir/menu.html");
-    yield $perform("$indir/fqsens.phtml", ['namespaces' => $namespaces], "$outdir/fqsens.html");
+    yield $perform("$indir/menu.phtml", $dataarray, "$outdir/menu.html");
+    yield $perform("$indir/fqsens.phtml", $dataarray, "$outdir/fqsens.html");
+
+    // マークダウン
+    foreach ($dataarray['markdowns'] as $filename => $markdown) {
+        $outfile = $outdir . '/' . str_replace('/', '-', $filename);
+        yield $perform("$indir/main-md.phtml", ['filename' => $filename, 'html' => $markdown['html']], "$outfile.html");
+    }
 
     // 名前空間単位
     $gen = function ($namespaces) use (&$gen, $outdir, $indir, $perform) {
@@ -47,5 +53,5 @@ return function ($namespaces, $dst, $config) {
             }
         }
     };
-    yield from $gen($namespaces);
+    yield from $gen($dataarray['namespaces']);
 };

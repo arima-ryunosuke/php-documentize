@@ -60,7 +60,7 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
             '-vvv'        => true,
         ]);
         $this->assertContains('Gather and parse files from', $output);
-        $this->assertContains('Found 0 constants, 0 functions, 0 interfaces, 0 traits, 1 classes in 1 namespaces', $output);
+        $this->assertContains('Found 0 markdowns, 0 constants, 0 functions, 0 interfaces, 0 traits, 1 classes in 1 namespaces', $output);
         $this->assertContains('Input php count 1 files', $output);
     }
 

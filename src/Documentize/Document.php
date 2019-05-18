@@ -16,9 +16,9 @@ class Document
         'interface' => 'interfaces',
     ];
     const MEMBER_MULTIPLES = [
-        'constant' => 'constants',
-        'property' => 'properties',
-        'method'   => 'methods',
+        'classconstant' => 'classconstants',
+        'property'      => 'properties',
+        'method'        => 'methods',
     ];
 
     /** @var array 動作オプション */
@@ -33,6 +33,9 @@ class Document
     /** @var string 掻き集めてるディレクトリ */
     private $targetdir, $targethash;
 
+    /** @var array 掻き集めてる最中の markdown（フィールドで抱えるのは最高に気持ち悪いのでリファクタ対象） */
+    private $markdowns = [];
+
     public static function gatherIsolative($options, &$logs = null)
     {
         $outfile = tempnam(sys_get_temp_dir(), 'rdz');
@@ -43,9 +46,9 @@ class Document
 $document = new \\ryunosuke\\Documentize\\Document(unserialize(stream_get_contents(STDIN)));
 $gathertime = microtime(true);
 $readcount = count(get_included_files());
-$namespaces = $document->gather($logs);
+$dataarray = $document->gather($logs);
 file_put_contents(' . var_export($outfile, true) . ', serialize([
-    "namespaces" => $namespaces,
+    "result"     => $dataarray,
     "logs"       => $logs,
     "memory"     => memory_get_peak_usage(true),
     "time"       => microtime(true) - $gathertime,
@@ -74,40 +77,42 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         class_exists(Tag::class, true);
 
         $this->options = array_replace([
-            'target'                 => null,
-            'autoloader'             => null,
-            'recursive'              => false,
-            'include'                => [],
-            'exclude'                => [],
-            'contain'                => [],
-            'except'                 => [],
-            'cachedir'               => null,
-            'no-constant'            => false,
-            'no-function'            => false,
-            'no-internal-constant'   => false,
-            'no-internal-function'   => false,
-            'no-internal-type'       => false,
-            'no-internal-property'   => false,
-            'no-internal-method'     => false,
-            'no-deprecated-constant' => false,
-            'no-deprecated-function' => false,
-            'no-deprecated-type'     => false,
-            'no-deprecated-property' => false,
-            'no-deprecated-method'   => false,
-            'no-magic-property'      => false,
-            'no-magic-method'        => false,
-            'no-virtual-constant'    => false,
-            'no-virtual-property'    => false,
-            'no-virtual-method'      => false,
-            'no-private-constant'    => false,
-            'no-private-property'    => false,
-            'no-private-method'      => false,
-            'no-protected-constant'  => false,
-            'no-protected-property'  => false,
-            'no-protected-method'    => false,
-            'no-public-constant'     => false,
-            'no-public-property'     => false,
-            'no-public-method'       => false,
+            'target'                      => null,
+            'autoloader'                  => null,
+            'recursive'                   => false,
+            'include'                     => [],
+            'exclude'                     => [],
+            'contain'                     => [],
+            'except'                      => [],
+            'cachedir'                    => null,
+            'no-constant'                 => false,
+            'no-function'                 => false,
+            'no-internal-constant'        => false,
+            'no-internal-function'        => false,
+            'no-internal-type'            => false,
+            'no-internal-classconstant'   => false,
+            'no-internal-property'        => false,
+            'no-internal-method'          => false,
+            'no-deprecated-constant'      => false,
+            'no-deprecated-function'      => false,
+            'no-deprecated-type'          => false,
+            'no-deprecated-classconstant' => false,
+            'no-deprecated-property'      => false,
+            'no-deprecated-method'        => false,
+            'no-magic-property'           => false,
+            'no-magic-method'             => false,
+            'no-virtual-classconstant'    => false,
+            'no-virtual-property'         => false,
+            'no-virtual-method'           => false,
+            'no-private-classconstant'    => false,
+            'no-private-property'         => false,
+            'no-private-method'           => false,
+            'no-protected-classconstant'  => false,
+            'no-protected-property'       => false,
+            'no-protected-method'         => false,
+            'no-public-classconstant'     => false,
+            'no-public-property'          => false,
+            'no-public-method'            => false,
         ], $options);
 
         if (!file_exists($this->options['target'])) {
@@ -121,6 +126,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         else {
             $this->targetdir = realpath(dirname($this->options['target']));
             $this->targethash = sha1($this->targetdir);
+        }
+
+        if ($this->options['cachedir']) {
+            cachedir($this->options['cachedir'] . '/rfc');
         }
 
         // rsync を真似ようとしたが思ったより複雑だったのでシンプルに「すべて * をプレフィックス」という仕様にする
@@ -144,10 +153,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
      * 具体的には markdown パースしたりシンタックスハイライトしたり活きた Tag オブジェクトを持ったり等。
      * それらは生成側の仕事であり、「集めるもの」の仕事ではないというスタンス。
      *
-     * @todo いろいろ拡張していたらいつのまにか参照地獄になっていたので綺麗に書き直す
-     *
      * @param array $logs 掻き集めてる最中のログが格納される
      * @return array 名前空間単位のメタ情報
+     * @todo いろいろ拡張していたらいつのまにか参照地獄になっていたので綺麗に書き直す
+     *
      */
     public function gather(&$logs = [])
     {
@@ -235,7 +244,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     $tfqsen = $doctag['type']['fqsen'];
                 }
                 else {
-                    $ref = new Reflection($target['fqsen']);
+                    $ref = Reflection::instance($target['fqsen']);
                     $pt = $ref->getProtoType();
                     if (!$pt) {
                         if ($doctag['inline']) {
@@ -249,7 +258,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             }
             elseif (($mtype === 'properties' || $mtype === 'methods') && !$target['magic'] && !$target['tags'] && !trim($target['description'])) {
                 $doctag = ['inline' => false];
-                $ref = new Reflection($target['fqsen']);
+                $ref = Reflection::instance($target['fqsen']);
                 $pt = $ref->getProtoType();
                 if (!$pt) {
                     return;
@@ -431,11 +440,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             }
 
             $nsdescription = array_reduce(PhpFile::cache(null), function ($carry, $filedata) use ($namespace) {
-                if ($filedata[$namespace]['@comment'] ?? '') {
-                    $carry .= $filedata[$namespace]['@comment'] . "\n\n";
-                }
-                return $carry;
-            }, '');
+                return $carry . concat($filedata[$namespace]['@comment'] ?? '', "\n\n");
+            });
             $nsdata = $this->parseDoccomment($nsdescription, $namespace, null);
             $data['description'] = $nsdata['description'];
             $data['tags'] = $nsdata['tags'];
@@ -461,7 +467,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 }
                 list($category, $ns, $cname, $m) = Fqsen::parse($fqsen);
                 if ($ttype = Fqsen::detectType("$ns\\$cname")) {
-                    $ref = new \ReflectionClass("$ns\\$cname");
+                    $ref = Reflection::instance("$ns\\$cname");
                     if (!$ref->isInternal()) {
                         if ($m === null) {
                             $category = self::TYPE_MULTIPLES[$ttype];
@@ -486,7 +492,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         restore_error_handler();
 
-        return $result;
+        return [
+            'namespaces' => $result,
+            'markdowns'  => $this->markdowns,
+        ];
     }
 
     private function cache($id, $originaltime, $provider)
@@ -507,9 +516,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function defaultNS($namespace)
     {
-        $parts = explode('\\', $namespace);
-        $name = array_pop($parts);
-        $ns = implode('\\', $parts);
+        list($ns, $name) = namespace_split($namespace);
         return [
             'category'    => 'namespace',
             'fqsen'       => "$namespace\\",
@@ -530,7 +537,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = 0;
         foreach ($constants as $name => $value) {
-            $ref = new Reflection([$name => $value]);
+            $ref = Reflection::instance([$name => $value]);
 
             $data = $this->parseConstant($ref, $ref->getNamespaceName(), null);
             $this->parseTag($data['tags']);
@@ -551,7 +558,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $result++;
         }
         foreach ($functions as $name) {
-            $ref = new Reflection(new \ReflectionFunction($name));
+            $ref = Reflection::instance("$name()");
             if (!file_exists($ref->getFileName())) {
                 continue;
             }
@@ -578,14 +585,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             ];
             $result++;
         }
-        $categories = [
-            'interface' => 'interfaces',
-            'trait'     => 'traits',
-            'class'     => 'classes',
-        ];
         foreach ([$interfaces, $traits, $classes] as $types) {
             foreach ($types as $name) {
-                $ref = new Reflection(new \ReflectionClass($name));
+                $ref = Reflection::instance($name);
                 if (!file_exists($ref->getFileName())) {
                     continue;
                 }
@@ -599,11 +601,11 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 });
                 $this->parseTag($data['tags']);
 
-                foreach ($this->cache($ref->getFqsen() . '.constants', $lasttime, function () use ($ref) {
+                foreach ($this->cache($ref->getFqsen() . '.classconstants', $lasttime, function () use ($ref) {
                     return $this->parseClassConstant($ref);
                 }) as $n => $e) {
                     $this->parseTag($e['tags']);
-                    $data['constants'][$n] = $e;
+                    $data['classconstants'][$n] = $e;
                 }
                 foreach ($this->cache($ref->getFqsen() . '.properties', $lasttime, function () use ($ref, $data) {
                     return $this->parseProperty($ref, $data['tags']['property'] ?? []);
@@ -618,7 +620,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     $data['methods'][$n] = $e;
                 }
 
-                $category = $categories[$data['category']];
+                $category = self::TYPE_MULTIPLES[$data['category']];
                 $namespaces[$ref->getNamespaceName()] = $namespaces[$ref->getNamespaceName()] ?? $this->defaultNS($ref->getNamespaceName());
                 $namespaces[$ref->getNamespaceName()][$category][$ref->getShortName()] = $data;
                 $result++;
@@ -668,13 +670,18 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             return false;
         }
 
+        if (in_array(strtolower(pathinfo($filename, PATHINFO_EXTENSION)), ['md', 'markdown'], true)) {
+            $this->parseMarkdown($filename);
+            return true;
+        }
+
         require_once $filename;
         $readfiles[$filename] = true;
 
         $filecache = $this->cache("$filename.parsed", filemtime($filename), function () use ($filename) { return PhpFile::cache($filename); });
         PhpFile::cache($filename, $filecache);
 
-        $usings = array_map(function ($v) { return $v['@using'] ?? []; }, $filecache);
+        $usings = array_lookup($filecache, '@using');
         foreach ($usings as $ns => $using) {
             if (!isset($this->usings[$ns])) {
                 $this->usings[$ns] = [];
@@ -685,7 +692,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         if ($this->options['recursive']) {
             array_walk_recursive($usings, function ($class) {
                 if (Fqsen::detectType($class)) {
-                    $ref = new \ReflectionClass($class);
+                    $ref = Reflection::instance($class);
                     if (!$ref->isInternal()) {
                         $this->parseFile($ref->getFileName());
                     }
@@ -698,15 +705,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function parseConstant(Reflection $refconst, $namespace, $own)
     {
-        // このコンテキストでファイル名は取れないのでループで漁る
-        $doccomment = '';
-        foreach (PhpFile::cache(null) as $filename => $metadata) {
-            if (isset($metadata[$namespace]['@const'][$refconst->getShortName()])) {
-                $doccomment = $metadata[$namespace]['@const'][$refconst->getShortName()];
-                break;
-            }
-        }
-        $docs = $this->parseDoccomment($doccomment, $namespace, $own);
+        $docs = $this->parseDoccomment($refconst->getDocComment(), $namespace, $own);
 
         return [
             'description' => $docs['description'] ?: $docs['tags']['var'][0]['description'] ?? '',
@@ -729,12 +728,12 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         ];
 
         $merge = static function (array $types, $type, $usings, $namespace, $own) {
-            /** @var \ReflectionType $type */
-            $stype = (string) $type;
-            if (!$stype) {
+            /** @var Reflection $type */
+            $stype = $type->getFqsen();
+            if ($stype === 'void') {
                 return $types;
             }
-            $fqsen = new Fqsen(($type->isBuiltin() ? '' : '\\') . $stype);
+            $fqsen = new Fqsen($stype);
             return array_values(array_unique(array_merge($fqsen->resolve($usings, $namespace, $own), $types), SORT_REGULAR));
         };
 
@@ -761,24 +760,24 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $classdocs = $this->parseDoccomment($refclass->getDocComment(), $refclass->getNamespaceName(), $refclass->getFqsen());
 
         $result = [
-            'category'    => $refclass->getCategory(),
-            'fqsen'       => $refclass->getFqsen(),
-            'namespace'   => $refclass->getNamespaceName(),
-            'name'        => $refclass->getShortName(),
-            'location'    => $refclass->getLocation(),
-            'description' => $classdocs['description'],
-            'final'       => $refclass->isFinal(),
-            'abstract'    => $refclass->isAbstract(),
-            'cloneable'   => false, // $refclass->isCloneable(), # php has bug called __destruct
-            'iterateable' => $refclass->isIterateable(),
-            'hierarchy'   => [],
-            'parents'     => $refclass->getParents(),
-            'implements'  => $refclass->getImplements(),
-            'uses'        => $refclass->getUses(),
-            'constants'   => [],
-            'properties'  => [],
-            'methods'     => [],
-            'tags'        => $classdocs['tags'],
+            'category'       => $refclass->getCategory(),
+            'fqsen'          => $refclass->getFqsen(),
+            'namespace'      => $refclass->getNamespaceName(),
+            'name'           => $refclass->getShortName(),
+            'location'       => $refclass->getLocation(),
+            'description'    => $classdocs['description'],
+            'final'          => $refclass->isFinal(),
+            'abstract'       => $refclass->isAbstract(),
+            'cloneable'      => false, // $refclass->isCloneable(), # php has bug called __destruct
+            'iterateable'    => $refclass->isIterateable(),
+            'hierarchy'      => [],
+            'parents'        => $refclass->getParents(),
+            'implements'     => $refclass->getImplements(),
+            'uses'           => $refclass->getUses(),
+            'classconstants' => [],
+            'properties'     => [],
+            'methods'        => [],
+            'tags'           => $classdocs['tags'],
         ];
 
         return $result;
@@ -935,6 +934,56 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         return $result2;
     }
 
+    private function parseMarkdown($filename)
+    {
+        $localname = ltrim(str_replace('\\', '/', str_lchop($filename, $this->targetdir)), '/');
+        $filehash = sha1($localname);
+
+        $parser = new class extends \cebe\markdown\GithubMarkdown
+        {
+            private $id = 0;
+
+            protected function renderHeadline($block)
+            {
+                $this->id++;
+                $tag = 'h' . $block['level'];
+                /** @noinspection PhpUndefinedFieldInspection */
+                return "<$tag id='header-{$this->filehash}-{$this->id}'>" . $this->renderAbsy($block['content']) . "</$tag>\n";
+            }
+        };
+        /** @noinspection PhpUndefinedFieldInspection */
+        $parser->filehash = $filehash;
+        $parser->enableNewlines = true;
+        $html = $parser->parse(file_get_contents($filename));
+
+        $dom = new \DOMDocument('1.0');
+        $dom->loadHTML('<html><head><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>' . $html . '</html>');
+        $h1 = [];
+        $id = 0;
+        foreach ($dom->getElementsByTagName('*') as $node) {
+            /** @var \DOMNode $node */
+            if (preg_match('#^h(\\d)$#', $node->nodeName, $m)) {
+                $id++;
+                list($tag, $level) = $m;
+                $nexttag = 'h' . ($level + 1);
+                ($$tag)[] = ['id' => "header-$filehash-$id", 'content' => $node->textContent, $nexttag => []];
+                $$nexttag = &$$tag[count($$tag) - 1][$nexttag];
+            }
+        }
+
+        $html = preg_replace_callback('#(.*?)([<\{]@.+?[>\}])#', function ($m) use ($filename) {
+            $tag = new Tag($m[2], $this->usings, null, null, null);
+            $this->fqsens[$filename] = array_merge($this->fqsens[$filename] ?? [], $tag->getDependedFqsens());
+            return $m[1] . $tag->getInlineText();
+        }, $html);
+
+        $this->markdowns[$localname] = [
+            'hash'  => $filehash,
+            'index' => $h1,
+            'html'  => $html,
+        ];
+    }
+
     private function parseDoccomment($doccomment, $namespace, $own)
     {
         $doccomment = trim(preg_replace('#(^/\\*\\*)|(\s+\\*/$)|(^ +\\* ?)#m', '', $doccomment));
@@ -979,7 +1028,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 if (isset($tag['type']['fqsen'])) {
                     list($cate, $ns, $type) = Fqsen::parse($tag['type']['fqsen']);
                     if ($cate !== 'namespace' && Fqsen::detectType("$ns\\$type")) {
-                        $ref = new \ReflectionClass("$ns\\$type");
+                        $ref = Reflection::instance("$ns\\$type");
                         if (!$ref->isInternal()) {
                             $this->parseFile($ref->getFileName());
                         }
@@ -993,7 +1042,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             foreach ($tags[$multiple] ?? [] as $tag) {
                 foreach ($tag['type'] as $type) {
                     if (Fqsen::detectType($type['fqsen'])) {
-                        $ref = new \ReflectionClass($type['fqsen']);
+                        $ref = Reflection::instance($type['fqsen']);
                         if (!$ref->isInternal()) {
                             $this->parseFile($ref->getFileName());
                         }

@@ -39,31 +39,33 @@ class DocumentizeCommand extends Command
             new InputOption('no-internal-constant', null, InputOption::VALUE_NONE),
             new InputOption('no-internal-function', null, InputOption::VALUE_NONE),
             new InputOption('no-internal-type', null, InputOption::VALUE_NONE),
+            new InputOption('no-internal-classconstant', null, InputOption::VALUE_NONE),
             new InputOption('no-internal-property', null, InputOption::VALUE_NONE),
             new InputOption('no-internal-method', null, InputOption::VALUE_NONE),
             new InputOption('no-deprecated', null, InputOption::VALUE_NONE),
             new InputOption('no-deprecated-constant', null, InputOption::VALUE_NONE),
             new InputOption('no-deprecated-function', null, InputOption::VALUE_NONE),
             new InputOption('no-deprecated-type', null, InputOption::VALUE_NONE),
+            new InputOption('no-deprecated-classconstant', null, InputOption::VALUE_NONE),
             new InputOption('no-deprecated-property', null, InputOption::VALUE_NONE),
             new InputOption('no-deprecated-method', null, InputOption::VALUE_NONE),
             new InputOption('no-magic', null, InputOption::VALUE_NONE),
             new InputOption('no-magic-property', null, InputOption::VALUE_NONE),
             new InputOption('no-magic-method', null, InputOption::VALUE_NONE),
             new InputOption('no-virtual', null, InputOption::VALUE_NONE),
-            new InputOption('no-virtual-constant', null, InputOption::VALUE_NONE),
+            new InputOption('no-virtual-classconstant', null, InputOption::VALUE_NONE),
             new InputOption('no-virtual-property', null, InputOption::VALUE_NONE),
             new InputOption('no-virtual-method', null, InputOption::VALUE_NONE),
             new InputOption('no-private', null, InputOption::VALUE_NONE),
-            new InputOption('no-private-constant', null, InputOption::VALUE_NONE),
+            new InputOption('no-private-classconstant', null, InputOption::VALUE_NONE),
             new InputOption('no-private-property', null, InputOption::VALUE_NONE),
             new InputOption('no-private-method', null, InputOption::VALUE_NONE),
             new InputOption('no-protected', null, InputOption::VALUE_NONE),
-            new InputOption('no-protected-constant', null, InputOption::VALUE_NONE),
+            new InputOption('no-protected-classconstant', null, InputOption::VALUE_NONE),
             new InputOption('no-protected-property', null, InputOption::VALUE_NONE),
             new InputOption('no-protected-method', null, InputOption::VALUE_NONE),
             new InputOption('no-public', null, InputOption::VALUE_NONE),
-            new InputOption('no-public-constant', null, InputOption::VALUE_NONE),
+            new InputOption('no-public-classconstant', null, InputOption::VALUE_NONE),
             new InputOption('no-public-property', null, InputOption::VALUE_NONE),
             new InputOption('no-public-method', null, InputOption::VALUE_NONE),
         ]);
@@ -93,41 +95,43 @@ class DocumentizeCommand extends Command
         }
 
         $options = [
-            'target'                 => $src,
-            'autoloader'             => $autoloader,
-            'cachedir'               => $cachedir,
-            'force'                  => $input->getOption('force'),
-            'recursive'              => $input->getOption('recursive'),
-            'include'                => $input->getOption('include'),
-            'exclude'                => $input->getOption('exclude'),
-            'contain'                => $input->getOption('contain'),
-            'except'                 => $input->getOption('except'),
-            'no-constant'            => $input->getOption('no-constant'),
-            'no-function'            => $input->getOption('no-function'),
-            'no-internal-constant'   => $input->getOption('no-internal') || $input->getOption('no-internal-constant'),
-            'no-internal-function'   => $input->getOption('no-internal') || $input->getOption('no-internal-function'),
-            'no-internal-type'       => $input->getOption('no-internal') || $input->getOption('no-internal-type'),
-            'no-internal-property'   => $input->getOption('no-internal') || $input->getOption('no-internal-property'),
-            'no-internal-method'     => $input->getOption('no-internal') || $input->getOption('no-internal-method'),
-            'no-deprecated-constant' => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-constant'),
-            'no-deprecated-function' => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-function'),
-            'no-deprecated-type'     => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-type'),
-            'no-deprecated-property' => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-property'),
-            'no-deprecated-method'   => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-method'),
-            'no-magic-property'      => $input->getOption('no-magic') || $input->getOption('no-magic-property'),
-            'no-magic-method'        => $input->getOption('no-magic') || $input->getOption('no-magic-method'),
-            'no-virtual-constant'    => $input->getOption('no-virtual') || $input->getOption('no-virtual-constant'),
-            'no-virtual-property'    => $input->getOption('no-virtual') || $input->getOption('no-virtual-property'),
-            'no-virtual-method'      => $input->getOption('no-virtual') || $input->getOption('no-virtual-method'),
-            'no-private-constant'    => $input->getOption('no-private') || $input->getOption('no-private-constant'),
-            'no-private-property'    => $input->getOption('no-private') || $input->getOption('no-private-property'),
-            'no-private-method'      => $input->getOption('no-private') || $input->getOption('no-private-method'),
-            'no-protected-constant'  => $input->getOption('no-protected') || $input->getOption('no-protected-constant'),
-            'no-protected-property'  => $input->getOption('no-protected') || $input->getOption('no-protected-property'),
-            'no-protected-method'    => $input->getOption('no-protected') || $input->getOption('no-protected-method'),
-            'no-public-constant'     => $input->getOption('no-public') || $input->getOption('no-public-constant'),
-            'no-public-property'     => $input->getOption('no-public') || $input->getOption('no-public-property'),
-            'no-public-method'       => $input->getOption('no-public') || $input->getOption('no-public-method'),
+            'target'                      => $src,
+            'autoloader'                  => $autoloader,
+            'cachedir'                    => $cachedir,
+            'force'                       => $input->getOption('force'),
+            'recursive'                   => $input->getOption('recursive'),
+            'include'                     => $input->getOption('include'),
+            'exclude'                     => $input->getOption('exclude'),
+            'contain'                     => $input->getOption('contain'),
+            'except'                      => $input->getOption('except'),
+            'no-constant'                 => $input->getOption('no-constant'),
+            'no-function'                 => $input->getOption('no-function'),
+            'no-internal-constant'        => $input->getOption('no-internal') || $input->getOption('no-internal-constant'),
+            'no-internal-function'        => $input->getOption('no-internal') || $input->getOption('no-internal-function'),
+            'no-internal-type'            => $input->getOption('no-internal') || $input->getOption('no-internal-type'),
+            'no-internal-classconstant'   => $input->getOption('no-internal') || $input->getOption('no-internal-classconstant'),
+            'no-internal-property'        => $input->getOption('no-internal') || $input->getOption('no-internal-property'),
+            'no-internal-method'          => $input->getOption('no-internal') || $input->getOption('no-internal-method'),
+            'no-deprecated-constant'      => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-constant'),
+            'no-deprecated-function'      => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-function'),
+            'no-deprecated-type'          => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-type'),
+            'no-deprecated-classconstant' => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-classconstant'),
+            'no-deprecated-property'      => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-property'),
+            'no-deprecated-method'        => $input->getOption('no-deprecated') || $input->getOption('no-deprecated-method'),
+            'no-magic-property'           => $input->getOption('no-magic') || $input->getOption('no-magic-property'),
+            'no-magic-method'             => $input->getOption('no-magic') || $input->getOption('no-magic-method'),
+            'no-virtual-classconstant'    => $input->getOption('no-virtual') || $input->getOption('no-virtual-classconstant'),
+            'no-virtual-property'         => $input->getOption('no-virtual') || $input->getOption('no-virtual-property'),
+            'no-virtual-method'           => $input->getOption('no-virtual') || $input->getOption('no-virtual-method'),
+            'no-private-classconstant'    => $input->getOption('no-private') || $input->getOption('no-private-classconstant'),
+            'no-private-property'         => $input->getOption('no-private') || $input->getOption('no-private-property'),
+            'no-private-method'           => $input->getOption('no-private') || $input->getOption('no-private-method'),
+            'no-protected-classconstant'  => $input->getOption('no-protected') || $input->getOption('no-protected-classconstant'),
+            'no-protected-property'       => $input->getOption('no-protected') || $input->getOption('no-protected-property'),
+            'no-protected-method'         => $input->getOption('no-protected') || $input->getOption('no-protected-method'),
+            'no-public-classconstant'     => $input->getOption('no-public') || $input->getOption('no-public-classconstant'),
+            'no-public-property'          => $input->getOption('no-public') || $input->getOption('no-public-property'),
+            'no-public-method'            => $input->getOption('no-public') || $input->getOption('no-public-method'),
         ];
 
         $output->writeln(sprintf("Gather and parse files from <info>%s</info>", $src));
@@ -136,7 +140,7 @@ class DocumentizeCommand extends Command
             $output->writeln("<fg=red>$errors</>");
             return;
         }
-        $namespaces = $result['namespaces'];
+        $gathered = $result['result'];
 
         foreach (array_unique($result['logs'], SORT_REGULAR) as $log) {
             $map = [
@@ -157,7 +161,7 @@ class DocumentizeCommand extends Command
         $starttime = time();
         $generatetime = microtime(true);
         if (file_exists($tpl)) {
-            $generator = (require $tpl)($namespaces, $dst, $tplcfg);
+            $generator = (require $tpl)($gathered, $dst, $tplcfg);
             if ($generator instanceof \Generator) {
                 foreach ($generator as $out) {
                     $output->writeln(sprintf("Create file to <info>%s</info>", $out), OutputInterface::VERBOSITY_VERY_VERBOSE);
@@ -182,27 +186,27 @@ class DocumentizeCommand extends Command
                 }
                 return $count;
             };
+            $logcount = array_count($result['logs'], [
+                'notice'  => function ($v) { return in_array($v['errorno'], [E_NOTICE, E_USER_NOTICE]); },
+                'warning' => function ($v) { return in_array($v['errorno'], [E_WARNING, E_USER_WARNING]); },
+                'error'   => function ($v) { return in_array($v['errorno'], [E_ERROR, E_USER_ERROR]); },
+            ]);
             $output->writeln(implode(' ', [
                 'Logs',
-                sprintf('<comment>%s</comment> notices,', number_format(array_count($result['logs'], function ($v) {
-                    return in_array($v['errorno'], [E_NOTICE, E_USER_NOTICE]);
-                }))),
-                sprintf('<comment>%s</comment> warnings,', number_format(array_count($result['logs'], function ($v) {
-                    return in_array($v['errorno'], [E_WARNING, E_USER_WARNING]);
-                }))),
-                sprintf('<comment>%s</comment> errors', number_format(array_count($result['logs'], function ($v) {
-                    return in_array($v['errorno'], [E_ERROR, E_USER_ERROR]);
-                }))),
+                sprintf('<comment>%s</comment> notices,', number_format($logcount['notice'])),
+                sprintf('<comment>%s</comment> warnings,', number_format($logcount['warning'])),
+                sprintf('<comment>%s</comment> errors', number_format($logcount['error'])),
             ]));
             $output->writeln(implode(' ', [
                 'Found',
-                sprintf('<info>%s</info> constants,', number_format($counter(['namespaces' => $namespaces], 'constants'))),
-                sprintf('<info>%s</info> functions,', number_format($counter(['namespaces' => $namespaces], 'functions'))),
-                sprintf('<info>%s</info> interfaces,', number_format($counter(['namespaces' => $namespaces], 'interfaces'))),
-                sprintf('<info>%s</info> traits,', number_format($counter(['namespaces' => $namespaces], 'traits'))),
-                sprintf('<info>%s</info> classes', number_format($counter(['namespaces' => $namespaces], 'classes'))),
+                sprintf('<info>%s</info> markdowns,', number_format(count($gathered['markdowns']))),
+                sprintf('<info>%s</info> constants,', number_format($counter($gathered, 'constants'))),
+                sprintf('<info>%s</info> functions,', number_format($counter($gathered, 'functions'))),
+                sprintf('<info>%s</info> interfaces,', number_format($counter($gathered, 'interfaces'))),
+                sprintf('<info>%s</info> traits,', number_format($counter($gathered, 'traits'))),
+                sprintf('<info>%s</info> classes', number_format($counter($gathered, 'classes'))),
                 'in',
-                sprintf('<comment>%s</comment> namespaces', number_format(count($namespaces) + $counter(['namespaces' => $namespaces], 'namespaces'))),
+                sprintf('<comment>%s</comment> namespaces', number_format(count($gathered['namespaces']) + $counter($gathered, 'namespaces'))),
             ]));
             $output->writeln(sprintf('Gathering time <comment>%s</comment> seconds', number_format($result['time'], 3)));
             $output->writeln(sprintf('Input php count <comment>%s</comment> files', number_format($result['read'])));

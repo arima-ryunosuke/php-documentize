@@ -2,6 +2,7 @@
 
 namespace NS;
 
+/** constcomment */
 const MockConstant = 1;
 
 /** funccomment */

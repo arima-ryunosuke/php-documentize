@@ -3,8 +3,34 @@
 <html>
 <head><?= render_head() ?></head>
 <body>
-<?php /** @var $namespaces */ ?>
 <?php
+/** @var $namespaces */
+/** @var $markdowns */
+?>
+<?php
+
+function render_markdown($filename, $headers, $level = 1)
+{
+    ?>
+    <?php foreach ($headers as $n => $header): ?>
+    <?php
+    $children = $header['h' . ($level + 1)] ?? [];
+    ?>
+	<li class="text-nowrap holding-wrapper indent">
+		<div class="nheader ellipsis">
+			<span class="glyphicon <?= $children ? 'glyphicon-plus switch-holding' : '' ?>"></span>
+			<a id="<?= h($header['id']) ?>" href="<?= h(str_replace('/', '-', $filename)) . ".html#{$header['id']}" ?>" class="bold" target="main">
+                <?= h($header['content']) ?>
+			</a>
+		</div>
+		<ul class="has-indent holding">
+            <?php render_markdown($filename, $children, $level + 1) ?>
+		</ul>
+	</li>
+<?php endforeach ?>
+    <?php
+}
+
 function render_namespace($elements, &$all, $nest = 0)
 {
     ?>
@@ -35,7 +61,7 @@ function render_namespace($elements, &$all, $nest = 0)
             <?php foreach (['interfaces' => 'interface', 'traits' => 'trait', 'classes' => 'class'] as $typekey => $typename): ?>
                 <?php foreach ($elements[$typekey] as $element): ?>
                     <?php $all[] = $element['fqsen']; ?>
-                    <?php foreach ($element['constants'] as $e): ?>
+                    <?php foreach ($element['classconstants'] as $e): ?>
                         <?php $all[] = $e['fqsen']; ?>
                     <?php endforeach ?>
                     <?php foreach ($element['properties'] as $e): ?>
@@ -49,7 +75,7 @@ function render_namespace($elements, &$all, $nest = 0)
 							<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-<?= h($typename) ?>"><?= ucfirst($typename[0]) ?></span>
 							<a id="<?= h($element['fqsen']) ?>" href="<?= ref($element['fqsen'], 'typespace') ?>" class="bold <?= h(isset($element['tags']['deprecated'][0]) || isset($element['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($element['name']) ?></a>
 							<span>(<?= array_sum([
-                                    count($element['constants']),
+                                    count($element['classconstants']),
                                     count($element['properties']),
                                     count($element['methods']),
                                 ]) ?>)</span>
@@ -57,7 +83,7 @@ function render_namespace($elements, &$all, $nest = 0)
 						</div>
 						<!-- for lazy load -->
 						<ul class="has-indent holding class-member"><?= '<!--' ?>
-                            <?php foreach ($element['constants'] as $constant): ?>
+                            <?php foreach ($element['classconstants'] as $constant): ?>
 								<li class="indent <?= h($constant['virtual'] ? 'faint' : '') ?>">
 									<div class="ellipsis">
 										<span class="label label-icon label-constant">C</span
@@ -118,7 +144,7 @@ function render_namespace($elements, &$all, $nest = 0)
 }
 
 ?>
-<h1>
+<h1 class="fixed">
 	Namespace
 	<input type="search" id="search" class="form-control" autocomplete="off" placeholder="search">
 	<a href="fqsens.html" class="all-fqsen" target="main">all</a>
@@ -126,6 +152,19 @@ function render_namespace($elements, &$all, $nest = 0)
 <div class="main-wrapper">
     <?php $all = []; ?>
 	<ul class="namespaces">
+        <?php foreach ($markdowns as $filename => $markdown): ?>
+			<li class="text-nowrap holding-wrapper">
+				<div class="nheader ellipsis">
+					<span class="glyphicon glyphicon-plus switch-holding"></span>
+					<a id="<?= 'file-' . $markdown['hash'] ?>" href="<?= h(str_replace('/', '-', $filename) . ".html#file-" . $markdown['hash']) ?>" class="bold" target="main">
+                        <?= h($filename) ?>
+					</a>
+				</div>
+				<ul class="has-indent holding">
+                    <?php render_markdown($filename, $markdown['index']) ?>
+				</ul>
+			</li>
+        <?php endforeach ?>
         <?php foreach ($namespaces as $elements): ?>
             <?php render_namespace($elements, $all) ?>
         <?php endforeach ?>

@@ -94,8 +94,8 @@ class Fqsen
             if ($match['fmark']) {
                 $category = 'function';
             }
-            // ClassName と CONST_NAME を判断する術はない。敢えて言うなら「すべて大文字」は定数
-            elseif (preg_match('#^[A-Z_0-9]+$#', $match['localname'])) {
+            // ClassName と CONST_NAME を判断する術はない。定義されているか、敢えて言うならすべて大文字なら定数
+            elseif (const_exists($fqsen) || preg_match('#^[A-Z_0-9]+$#', $match['localname'])) {
                 $category = 'constant';
             }
             else {
@@ -107,9 +107,9 @@ class Fqsen
             if ($match['pmark']) {
                 $category = 'property';
             }
-            // method と CLASS_CONST を判断する術はない。敢えて言うなら「すべて大文字」は定数
-            elseif (!$match['fmark'] || preg_match('#^[A-Z_0-9]+$#', $match['member'])) {
-                $category = 'constant';
+            // Const と Method を判断する術はない（厳密には Method の FQSEN は () が必須だが付いていないプロダクトがあまりにも多い）
+            elseif (const_exists($fqsen) || (!$match['fmark'] && preg_match('#^[A-Z_0-9]+$#', $match['member']))) {
+                $category = 'classconstant';
             }
             else {
                 $category = 'method';
@@ -188,15 +188,14 @@ class Fqsen
             }
             // 型が導けるならそれを使う
             if ($dtype = self::detectType($class)) {
-                $refclass = new \ReflectionClass($class);
                 $default['category'] = $dtype;
-                $default['fqsen'] = ($refclass->isInternal() ? '\\' : '') . $refclass->getName();
+                $default['fqsen'] = Reflection::instance($class)->getFqsen();
             }
 
             if ($member) {
                 $member = preg_replace('#\(.*\)$#', '', $member, 1, $mc);
-                if ($mc === 0 && defined("{$default['fqsen']}::$member")) {
-                    $default['category'] = 'constant';
+                if ($mc === 0 && const_exists("{$default['fqsen']}::$member")) {
+                    $default['category'] = 'classconstant';
                     $default['fqsen'] .= '::' . $member;
                 }
                 elseif ($member[0] === '$') {
@@ -210,7 +209,7 @@ class Fqsen
             }
             elseif (!isset(self::BUILTIN_TYPES[strtolower($fqsen)])) {
                 $fqsen = preg_replace('#\(.*\)$#', '', $fqsen, 1, $mc);
-                if ($mc === 0 && defined($fqsen)) {
+                if ($mc === 0 && const_exists($fqsen)) {
                     $default['category'] = 'constant';
                     $default['fqsen'] = $fqsen;
                 }
