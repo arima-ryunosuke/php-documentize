@@ -118,7 +118,7 @@
 					</div>
 					<h4 id="<?= h($function['fqsen']) ?>" tabindex="-1" class="structure-title <?= h(isset($function['tags']['deprecated'][0]) ? 'strike' : '') ?>">
                         <?= h($function['name']) ?>
-						<small>(<?= h(implode(', ', array_column($function['parameters'], 'declaration'))) ?>)</small>
+                        <?= render_declaration($function) ?>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><?= md($function['description']) ?></div>

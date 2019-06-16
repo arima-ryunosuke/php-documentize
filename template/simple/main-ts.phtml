@@ -121,7 +121,7 @@
 					</div>
 					<h4 id="<?= h($method['fqsen']) ?>" tabindex="-1" class="structure-title <?= isset($method['tags']['deprecated'][0]) ? 'strike' : '' ?>">
                         <?= h($method['name']) ?>
-						<small>(<?= h(implode(', ', array_column($method['parameters'], 'declaration'))) ?>)</small>
+                        <?= render_declaration($method) ?>
 					</h4>
 					<div class="inner-item">
 						<div class="description"><?= md($method['description']) ?></div>

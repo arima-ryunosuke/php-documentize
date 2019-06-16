@@ -44,7 +44,13 @@ function renderType($type)
 function renderFqsen($fqsen, $type)
 {
     ?>
-	<h4 class="fqsen-title"><?= h($fqsen['category']) ?><a href="<?= ref($fqsen['fqsen'], $type) ?>"> <?= h($fqsen['fqsen']) ?></a></h4>
+	<h4 class="fqsen-title"><?= h($fqsen['category']) ?>
+		<a href="<?= ref($fqsen['fqsen'], $type) ?>">
+            <?php if ($type === 'namespace'): echo h(strconcat($fqsen['namespace'], '\\') . $fqsen['name']) ?><?php endif ?>
+            <?php if ($type === 'constfunc'): echo h(strconcat($fqsen['namespace'], '\\') . $fqsen['name']) ?><?php endif ?>
+            <?php if ($type === 'typespace'): echo h(strconcat($fqsen['namespace'], '::') . $fqsen['name']) ?><?php endif ?>
+		</a><?= in_array($fqsen['category'], ['function', 'method']) ? render_declaration($fqsen) : '' ?>
+	</h4>
 	<div class="description"><?= md($fqsen['description']) ?></div>
     <?php
 }

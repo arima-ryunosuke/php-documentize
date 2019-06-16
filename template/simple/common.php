@@ -4,6 +4,18 @@ function h($value)
     return htmlspecialchars($value, ENT_QUOTES);
 }
 
+function strconcat(...$variadic)
+{
+    $result = '';
+    foreach ($variadic as $s) {
+        if (strlen($s) === 0) {
+            return '';
+        }
+        $result .= $s;
+    }
+    return $result;
+}
+
 function md($text)
 {
     static $parser = null;
@@ -136,6 +148,13 @@ function render_using($usings, $category)
 		</tbody>
 	</table>
     <?php
+}
+
+function render_declaration($callable)
+{
+	?>
+	<small>(<?= h(implode(', ', array_column($callable['parameters'], 'declaration'))) ?>) : <?= $callable['return']['types'] ? render_type($callable['return']['types']) : 'void' ?></small>
+	<?php
 }
 
 function render_parameter($params)
