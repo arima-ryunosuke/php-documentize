@@ -287,6 +287,9 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
  * there is inline tag.{@inlinetag}
  * there is special tag.<@specialtag>
  *
+ * - list1:    {@inlisttag1}
+ * - list2:    {@inlisttag2}
+ *
  * @property hoge() {
  *     {@internaltag1}
  *     text <@internaltag2> text
@@ -309,8 +312,11 @@ this is description2.
 there is inline tag.<tag_inlinetag ></tag_inlinetag>
 there is special tag.<tag_specialtag ></tag_specialtag>
 
+- list1:    <tag_inlisttag1 ></tag_inlisttag1>
+- list2:    <tag_inlisttag2 ></tag_inlisttag2>
+
 ", $comment['description']);
 
-        $this->assertEquals(['inline1', 'inline2', 'inlinetag', 'specialtag', 'property', 'method', 'tagname1', 'tagname2'], array_keys($comment['tags']));
+        $this->assertEquals(['inline1', 'inline2', 'inlinetag', 'specialtag', 'inlisttag1', 'inlisttag2', 'property', 'method', 'tagname1', 'tagname2'], array_keys($comment['tags']));
     }
 }

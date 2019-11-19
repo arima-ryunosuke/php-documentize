@@ -993,7 +993,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $tags = [];
 
         $doccomment = preg_replace_callback('#(.*?)([<\{]@.+?[>\}])#', function ($m) use (&$tags, $namespace, $own) {
-            if (str_contains($m[1], ["    ", "\t"])) {
+            if (starts_with($m[1], ["    ", "\t"])) {
                 return $m[0];
             }
             $tag = new Tag($m[2], $this->usings, $namespace, $own, null);
