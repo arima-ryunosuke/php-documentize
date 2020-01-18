@@ -34,7 +34,7 @@ function render_markdown($filename, $headers, $level = 1)
 function render_namespace($elements, &$all, $nest = 0)
 {
     ?>
-	<li class="text-nowrap holding-wrapper <?= h($nest ? 'indent' : '') ?>">
+	<li class="text-nowrap holding-wrapper <?= h($nest ? 'indent' : '') ?> holding-namespace">
 		<div class="nheader ellipsis">
 			<span class="glyphicon glyphicon-plus switch-holding"></span><span class="label label-icon label-namespace">N</span>
 			<a id="<?= h($elements['fqsen']) ?>" href="<?= ref($elements['fqsen'], 'namespace') ?>" class="bold" target="main">
@@ -84,9 +84,9 @@ function render_namespace($elements, &$all, $nest = 0)
 						<!-- for lazy load -->
 						<ul class="has-indent holding class-member"><?= '<!--' ?>
                             <?php foreach ($element['classconstants'] as $constant): ?>
-								<li class="indent <?= h($constant['virtual'] ? 'faint' : '') ?>">
+								<li class="indent accessible-<?= h($constant['accessible']) ?> <?= h($constant['virtual'] ? 'faint' : '') ?>">
 									<div class="ellipsis">
-										<span class="label label-icon label-constant">C</span
+										<span class="label label-icon label-class-constant">C</span
 										><span class="glyphicon glyphicon-accessible glyphicon-<?= h($constant['accessible']) ?>"></span
 										><a id="<?= h($constant['fqsen']) ?>" href="<?= ref($constant['fqsen'], 'typespace') ?>" class="<?= h(isset($constant['tags']['deprecated'][0]) || isset($constant['tags']['internal'][0]) ? 'strike' : '') ?>" target="main"><?= h($constant['name']) ?></a>
 										<small class="ellipsis-text"><?= h(summary($constant['description'])) ?></small>
@@ -94,7 +94,7 @@ function render_namespace($elements, &$all, $nest = 0)
 								</li>
                             <?php endforeach ?>
                             <?php foreach ($element['properties'] as $property): ?>
-								<li class="indent <?= h($property['virtual'] ? 'faint' : '') ?>">
+								<li class="indent accessible-<?= h($property['accessible']) ?> <?= h($property['virtual'] ? 'faint' : '') ?>">
 									<div class="ellipsis">
 										<span class="label label-icon label-property"><?= ($property['static']) ? 'P' : 'p' ?></span
 										><span class="glyphicon glyphicon-accessible glyphicon-<?= h($property['accessible']) ?> <?= h($property['magic'] ? 'glyphicon-magic' : '') ?>"></span
@@ -104,7 +104,7 @@ function render_namespace($elements, &$all, $nest = 0)
 								</li>
                             <?php endforeach ?>
                             <?php foreach ($element['methods'] as $method): ?>
-								<li class="indent <?= h($method['virtual'] ? 'faint' : '') ?>">
+								<li class="indent accessible-<?= h($method['accessible']) ?> <?= h($method['virtual'] ? 'faint' : '') ?>">
 									<div class="ellipsis">
 										<span class="label label-icon label-method"><?= ($method['static']) ? 'M' : 'm' ?></span
 										><span class="glyphicon glyphicon-accessible glyphicon-<?= h($method['accessible']) ?> <?= h($method['magic'] ? 'glyphicon-magic' : '') ?>"></span
@@ -145,10 +145,68 @@ function render_namespace($elements, &$all, $nest = 0)
 
 ?>
 <h1 class="fixed">
+	<span class="glyphicon glyphicon-menu-hamburger switch-config"></span>
 	Namespace
 	<input type="search" id="search" class="form-control" autocomplete="off" placeholder="search">
-	<small><a href="fqsens.html" class="all-fqsen" target="main">all</a></small>
 </h1>
+<div class="config display-none">
+	<fieldset>
+		<legend>Manage</legend>
+
+		<h5>Document</h5>
+		<ul class="has-indent">
+			<li><a href="fqsens.html" class="all-fqsen exit-config" target="main">All FQSEN</a></li>
+		</ul>
+
+		<h5>Holding</h5>
+		<ul class="has-indent">
+			<li><a href="javascript:void(0)" class="open-only-namespaces exit-config">Open Only Namespaces</a></li>
+			<li><a href="javascript:void(0)" class="close-only-typespaces exit-config">Close Only Typespaces</a></li>
+			<li><a href="javascript:void(0)" class="open-all-holdings exit-config">Open All</a></li>
+			<li><a href="javascript:void(0)" class="close-all-holdings exit-config">Close All</a></li>
+		</ul>
+
+		<h5>Filter</h5>
+		<ul class="has-indent">
+			<li><label><input type="checkbox" data-filter-target="private">Filter Private</li>
+			<li><label><input type="checkbox" data-filter-target="protected">Filter Protected</li>
+			<li><label><input type="checkbox" data-filter-target="public">Filter Public</li>
+		</ul>
+	</fieldset>
+
+	<fieldset>
+		<legend>Legend</legend>
+
+		<h5>FQSEN</h5>
+		<ul class="has-indent">
+			<li><span class="label label-icon label-namespace">N</span> Namespace</li>
+			<li><span class="label label-icon label-constant">C</span> Constant</li>
+			<li><span class="label label-icon label-function">F</span> Function</li>
+			<li><span class="label label-icon label-class">C</span> Class</li>
+			<li><span class="label label-icon label-interface">I</span> Interface</li>
+			<li><span class="label label-icon label-trait">T</span> Trait</li>
+			<li><span class="label label-icon label-class-constant">C</span> Class Constant</li>
+			<li><span class="label label-icon label-property">p</span> Property</li>
+			<li><span class="label label-icon label-property">P</span> Static Property</li>
+			<li><span class="label label-icon label-method">m</span> Method</li>
+			<li><span class="label label-icon label-method">M</span> Static Method</li>
+		</ul>
+
+		<h5>Accessible</h5>
+		<ul class="has-indent">
+			<li><span class="glyphicon glyphicon-accessible glyphicon-private"></span> Private</li>
+			<li><span class="glyphicon glyphicon-accessible glyphicon-protected"></span> Protected</li>
+			<li><span class="glyphicon glyphicon-accessible glyphicon-public"></span> Public</li>
+			<li><span class="glyphicon glyphicon-accessible glyphicon-magic"></span> Magic Property/Method</li>
+		</ul>
+
+		<h5>Status</h5>
+		<ul class="has-indent">
+			<li><span class="faint">This is Inherit Parent</span></li>
+			<li><span class="strike">This is Deprecated</span></li>
+		</ul>
+	</fieldset>
+</div>
 <div class="main-wrapper">
     <?php $all = []; ?>
 	<ul class="namespaces">
