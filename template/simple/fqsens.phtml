@@ -45,6 +45,7 @@ function renderFqsen($fqsen, $type)
 {
     ?>
 	<h4 class="fqsen-title"><?= h($fqsen['category']) ?>
+		<small><?= in_array($fqsen['category'], ['constant', 'classconstant', 'property']) ? render_type($fqsen['types']) : '' ?></small>
 		<a href="<?= ref($fqsen['fqsen'], $type) ?>">
             <?php if ($type === 'namespace'): echo h(strconcat($fqsen['namespace'], '\\') . $fqsen['name']) ?><?php endif ?>
             <?php if ($type === 'constfunc'): echo h(strconcat($fqsen['namespace'], '\\') . $fqsen['name']) ?><?php endif ?>
