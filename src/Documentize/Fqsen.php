@@ -160,7 +160,7 @@ class Fqsen
             list($class, $member) = explode('::', $fqsen) + [1 => ''];
             $default = [
                 'category' => 'type',
-                'fqsen'    => $class,
+                'fqsen'    => ltrim($class, '\\'),
                 'array'    => $count,
             ];
             // array, callable などの組み込み型

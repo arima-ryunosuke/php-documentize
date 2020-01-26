@@ -222,7 +222,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertContains("Undefined variable: t", $logs);
         $this->assertContains("ChildClass uses inheritdoc, but Invalid is not found.", $logs);
         $this->assertContains("ChildClass::method() uses inheritdoc, but Invalid::invalid() is not found.", $logs);
-        $this->assertContains("'\UndefinedClass' is undefined type in (ChildClass)", $logs);
+        $this->assertContains("'UndefinedClass' is undefined type in (ChildClass)", $logs);
         $this->assertContains("'ChildClass::unknownConst()' is unknown member in (ChildClass)", $logs);
         $this->assertContains("'ChildClass::\$unknownProperty' is unknown member in (ChildClass)", $logs);
         $this->assertContains("'ChildClass::unknownMethod()' is unknown member in (ChildClass)", $logs);
