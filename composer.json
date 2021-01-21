@@ -1,4 +1,9 @@
 {
+  "config": {
+    "platform": {
+      "php": "7.4"
+    }
+  },
   "name": "ryunosuke/documentize",
   "description": "Parse PHPDOC for PSR-5",
   "license": "MIT",
@@ -25,7 +30,7 @@
     "bin/documentize"
   ],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.2",
     "cebe/markdown": "1.2.*",
     "symfony/console": "3.*",
     "symfony/process": "3.*"
