@@ -101,11 +101,13 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'pseudo',
                 'fqsen'    => 'array',
                 'array'    => 0,
+                'nullable' => false,
             ],
             [
                 'category' => 'pseudo',
                 'fqsen'    => 'bool',
                 'array'    => 0,
+                'nullable' => false,
             ],
         ], $fqsen->resolve([], null, null));
     }
@@ -118,6 +120,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'constant',
                 'fqsen'    => 'SORT_STRING',
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([], __NAMESPACE__, null));
 
@@ -127,6 +130,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'pseudo',
                 'fqsen'    => 'NULL',
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([], __NAMESPACE__, null));
     }
@@ -139,6 +143,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'function',
                 'fqsen'    => 'implode()',
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([], __NAMESPACE__, null));
     }
@@ -151,6 +156,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'pseudo',
                 'fqsen'    => 'array',
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -166,16 +172,19 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'classconstant',
                 'fqsen'    => 'ryunosuke\Test\Documentize\FqsenTest::DUMMY_CONSTANT',
                 'array'    => 0,
+                'nullable' => false,
             ],
             [
                 'category' => 'property',
                 'fqsen'    => 'ryunosuke\Test\Documentize\FqsenTest::$dummy_property',
                 'array'    => 0,
+                'nullable' => false,
             ],
             [
                 'category' => 'method',
                 'fqsen'    => 'ryunosuke\Test\Documentize\FqsenTest::dummy_method()',
                 'array'    => 0,
+                'nullable' => false,
             ],
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -188,6 +197,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'type',
                 'fqsen'    => '\\vendor\\MyClass',
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -200,6 +210,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'method',
                 'fqsen'    => '\\vendor\\MyClass::method()',
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -212,6 +223,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => __NAMESPACE__ . '\\FqsenTest',
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -224,6 +236,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'property',
                 'fqsen'    => __NAMESPACE__ . '\\FqsenTest::$property',
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -236,6 +249,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => __CLASS__,
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -248,6 +262,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => __CLASS__,
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Sub' => __NAMESPACE__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -260,6 +275,20 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => __CLASS__,
                 'array'    => 2,
+                'nullable' => false,
+            ]
+        ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
+    }
+
+    function test_resolve_nullable()
+    {
+        $fqsen = new Fqsen('?' . __CLASS__);
+        $this->assertEquals([
+            [
+                'category' => 'class',
+                'fqsen'    => __CLASS__,
+                'array'    => 0,
+                'nullable' => true,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => ['Hoge' => __CLASS__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -274,6 +303,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => __CLASS__,
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => [$sub => __NAMESPACE__]], __NAMESPACE__, '\\vendor\\MyClass'));
     }
@@ -288,6 +318,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => __CLASS__,
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([__NAMESPACE__ => []], 'ryunosuke\\Test', '\\vendor\\MyClass'));
     }
@@ -300,6 +331,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => __CLASS__,
                 'array'    => 0,
+                'nullable' => false,
             ]
         ], $fqsen->resolve([], __NAMESPACE__, null));
     }

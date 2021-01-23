@@ -69,6 +69,7 @@ class Fqsen
      */
     public static function parse($fqsen)
     {
+        $fqsen = ltrim($fqsen, '?');
         $regex = "
             (?<namespace>[^:()$]+\\\\)?
             (?<localname>[^:()$]+)
@@ -155,6 +156,11 @@ class Fqsen
 
         $result = [];
         foreach (array_filter(array_unique($types), 'strlen') as $type) {
+            $nullable = false;
+            if ($type[0] === '?') {
+                $nullable = true;
+                $type = substr($type, 1);
+            }
             // Type[][] などの [] の数を配列階層数とする（ただし、パースに邪魔なので、置換して回数を数えておきそれを階層数とする）
             $fqsen = str_replace('[]', '', trim($type), $count);
             list($class, $member) = explode('::', $fqsen) + [1 => ''];
@@ -162,6 +168,7 @@ class Fqsen
                 'category' => 'type',
                 'fqsen'    => ltrim($class, '\\'),
                 'array'    => $count,
+                'nullable' => $nullable,
             ];
             // array, callable などの組み込み型
             if (isset(self::BUILTIN_TYPES[strtolower($class)])) {

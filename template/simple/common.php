@@ -262,6 +262,9 @@ function render_type($types)
 {
     $last = count($types) - 1;
     foreach ($types as $n => $type) {
+        if ($type['nullable']) {
+            echo '?';
+        }
         if ($type['category'] === 'pseudo') {
             echo h($type['fqsen']);
         }

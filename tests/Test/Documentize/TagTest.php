@@ -45,6 +45,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'type',
                 'fqsen'    => 'hoge()',
                 'array'    => 0,
+                'nullable' => false,
             ],
             'description' => 'description',
         ]);
@@ -56,6 +57,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'type',
                 'fqsen'    => 'hoge()',
                 'array'    => 0,
+                'nullable' => false,
             ],
             'description' => 'description',
         ]);
@@ -84,13 +86,13 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
         // 特殊なインライン
         $tag = new Tag('<@see stdclass>', [], null, null, null);
-        $this->assertEquals("<tag_link data-kind='fqsen' data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description='\\stdClass'>\\stdClass</tag_link>", $tag->getInlineText());
+        $this->assertEquals("<tag_link data-kind='fqsen' data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-type-nullable='' data-description='\\stdClass'>\\stdClass</tag_link>", $tag->getInlineText());
         $tag = new Tag('<@uses stdclass>', [], null, null, null);
-        $this->assertEquals("<tag_link data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description='\\stdClass'>\\stdClass</tag_link>", $tag->getInlineText());
+        $this->assertEquals("<tag_link data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-type-nullable='' data-description='\\stdClass'>\\stdClass</tag_link>", $tag->getInlineText());
 
         // link
         $tag = new Tag('{@link stdclass}', [], null, null, null);
-        $this->assertEquals("<tag_link data-kind='fqsen' data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description='\\stdClass'>\\stdClass</tag_link>", $tag->getInlineText());
+        $this->assertEquals("<tag_link data-kind='fqsen' data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-type-nullable='' data-description='\\stdClass'>\\stdClass</tag_link>", $tag->getInlineText());
 
         // source
         $__method__ = __METHOD__;
@@ -99,7 +101,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
 
         // inheritdoc
         $tag = new Tag('{@inheritdoc stdclass}', [], null, null, null);
-        $this->assertEquals("<tag_inheritdoc data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-description=''>HereIsInheritdoc</tag_inheritdoc>", $tag->getInlineText());
+        $this->assertEquals("<tag_inheritdoc data-type-category='class' data-type-fqsen='\stdClass' data-type-array='0' data-type-nullable='' data-description=''>HereIsInheritdoc</tag_inheritdoc>", $tag->getInlineText());
     }
 
     function test_parseApi()
@@ -213,6 +215,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => '\\ArrayObject',
                 'array'    => 0,
+                'nullable' => false,
             ],
             'description' => ''
         ]);
@@ -224,6 +227,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'method',
                 'fqsen'    => '\\ArrayObject::method()',
                 'array'    => 0,
+                'nullable' => false,
             ],
             'description' => ''
         ]);
@@ -235,6 +239,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'method',
                 'fqsen'    => '\\ArrayObject::method()',
                 'array'    => 0,
+                'nullable' => false,
             ],
             'description' => 'hogera'
         ]);
@@ -286,6 +291,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => '\\ArrayObject',
                 'array'    => 1,
+                'nullable' => false,
             ],
             'description' => 'this is description.',
         ]);
@@ -556,6 +562,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                     'category' => 'class',
                     'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
+                    'nullable' => false,
                 ],
             ],
             'description' => 'this is description.',
@@ -570,11 +577,13 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                     'category' => 'class',
                     'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
+                    'nullable' => false,
                 ],
                 [
                     'category' => 'pseudo',
                     'fqsen'    => 'array',
                     'array'    => 0,
+                    'nullable' => false,
                 ],
             ],
             'description' => '',
@@ -640,6 +649,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                     'category' => 'class',
                     'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
+                    'nullable' => false,
                 ]
             ],
             'description' => 'this is description.',
@@ -656,6 +666,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => '\\ArrayObject',
                 'array'    => 1,
+                'nullable' => false,
             ],
             'description' => 'this is description.',
         ]);
@@ -692,6 +703,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'property',
                 'fqsen'    => 'ClassName::$property',
                 'array'    => 0,
+                'nullable' => false,
             ],
             'description' => '',
         ]);
@@ -704,6 +716,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'method',
                 'fqsen'    => 'ClassName::method()',
                 'array'    => 0,
+                'nullable' => false,
             ],
             'description' => '',
         ]);
@@ -772,6 +785,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'class',
                 'fqsen'    => '\\ArrayObject',
                 'array'    => 1,
+                'nullable' => false,
             ],
             'description' => 'this is description.',
         ]);
@@ -795,6 +809,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'method',
                 'fqsen'    => '\\ArrayObject::method()',
                 'array'    => 0,
+                'nullable' => false,
             ],
             'description' => 'this is description.',
         ]);
@@ -809,6 +824,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                 'category' => 'method',
                 'fqsen'    => '\\ArrayObject::method()',
                 'array'    => 0,
+                'nullable' => false,
             ],
             'description' => 'this is description.',
         ]);
@@ -825,6 +841,7 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                     'category' => 'class',
                     'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
+                    'nullable' => false,
                 ],
             ],
             'description' => 'this is description.',
@@ -838,11 +855,13 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
                     'category' => 'class',
                     'fqsen'    => '\\ArrayObject',
                     'array'    => 1,
+                    'nullable' => false,
                 ],
                 [
                     'category' => 'pseudo',
                     'fqsen'    => 'array',
                     'array'    => 0,
+                    'nullable' => false,
                 ],
             ],
             'description' => '',

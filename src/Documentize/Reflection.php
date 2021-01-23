@@ -93,7 +93,7 @@ class Reflection
             case $this->reflection instanceof \ReflectionMethod:
                 return $this->getNamespaceName() . '::' . $this->getShortName() . '()';
             case $this->reflection instanceof \ReflectionNamedType:
-                return $this->reflection->isBuiltin() ? strval($this->reflection) : $this->reflection->getName();
+                return ($this->reflection->allowsNull() ? '?' : '') . $this->reflection->getName();
         }
         throw new \DomainException();
     }
