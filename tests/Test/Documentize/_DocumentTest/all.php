@@ -100,6 +100,9 @@ namespace GlobalSpace {
          */
         protected $globalProperty = 1;
 
+        /** @var ?int */
+        protected int $typedProperty = 123;
+
         /**
          * self method comment
          *

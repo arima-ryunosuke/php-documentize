@@ -60,6 +60,22 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertArrayHasKey('abc_function', $namespaces['A']['namespaces']['B']['namespaces']['C']['functions']);
         $this->assertEquals('ABC comment', $namespaces['A']['namespaces']['B']['namespaces']['C']['description']);
 
+        $properties = $namespaces['GlobalSpace']['classes']['GlobalClass']['properties'];
+        $this->assertEquals([
+            [
+                'category' => 'pseudo',
+                'fqsen'    => 'int',
+                'array'    => 0,
+                'nullable' => false,
+            ],
+            [
+                'category' => 'pseudo',
+                'fqsen'    => 'int',
+                'array'    => 0,
+                'nullable' => true,
+            ]
+        ], $properties['typedProperty']['types']);
+
         $methods = $namespaces['GlobalSpace']['classes']['GlobalClass']['methods'];
         $this->assertEquals("override classMethod1 arg comment\n", $methods['classMethod1']['parameters'][0]['description']);
         $this->assertEquals("override classMethod1 return comment", $methods['classMethod1']['return']['description']);

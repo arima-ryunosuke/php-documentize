@@ -187,6 +187,10 @@ class PhpFile
         while (true) {
             $this->next([T_NAMESPACE, T_CLASS, T_TRAIT, T_INTERFACE, T_USE, T_CONST, T_PRIVATE, T_PROTECTED, T_PUBLIC, T_VAR, T_FUNCTION]);
             $current = $this->current();
+            if (!$current) {
+                break;
+            }
+
             if ($current[0] === T_NAMESPACE) {
                 $classname = '';
                 $namespace = implode('', array_column($this->next([';', '{']), 1));

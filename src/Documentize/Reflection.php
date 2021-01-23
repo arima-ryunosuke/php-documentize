@@ -619,6 +619,11 @@ class Reflection
             case $this->reflection instanceof \ReflectionFunction:
             case $this->reflection instanceof \ReflectionMethod:
                 return new self($this->reflection->getReturnType() ?: $void);
+            /** @noinspection PhpMissingBreakStatementInspection */
+            case $this->reflection instanceof \ReflectionProperty:
+                if (version_compare(PHP_VERSION, '7.4.0') < 0) {
+                    return new self($void); // @codeCoverageIgnore
+                }
             case $this->reflection instanceof \ReflectionParameter:
                 return new self($this->reflection->getType() ?: $void);
         }

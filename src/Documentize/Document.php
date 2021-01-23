@@ -589,6 +589,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         }
         foreach ([$interfaces, $traits, $classes] as $types) {
             foreach ($types as $name) {
+                if (strpos($name, '@anonymous') !== false) {
+                    continue;
+                }
                 $ref = Reflection::instance($name);
                 if (!file_exists($ref->getFileName())) {
                     continue;
@@ -789,7 +792,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = [];
         foreach ($refclass->getConstants() as $refconst) {
-            /** @var Reflection $decclass なぜかコード補完されない？ */
             $decclass = $refconst->getDeclaringClass();
             $constdocs = $this->parseDoccomment($refconst->getDocComment(), $decclass->getNamespaceName(), $decclass->getFqsen());
             $types = $constdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refconst->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
@@ -814,12 +816,20 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function parseProperty(Reflection $refclass, $magicTags)
     {
+        $merge = static function (array $types, $type, $usings, $namespace, $own) {
+            /** @var Reflection $type */
+            $stype = $type->getFqsen();
+            if ($stype === 'void') {
+                return $types;
+            }
+            $fqsen = new Fqsen($stype);
+            return array_values(array_unique(array_merge($fqsen->resolve($usings, $namespace, $own), $types), SORT_REGULAR));
+        };
+
         $result = [];
         foreach ($refclass->getProperties() as $refproperty) {
-            /** @var Reflection $decclass なぜかコード補完されない？ */
             $decclass = $refproperty->getDeclaringClass();
             $propdocs = $this->parseDoccomment($refproperty->getDocComment(), $decclass->getNamespaceName(), $decclass->getFqsen());
-            $types = $propdocs['tags']['var'][0]['type'] ?? (new Fqsen(gettype($refproperty->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
             $prototypes = $refproperty->getProtoTypes();
             $result[$refproperty->getShortName()] = [
                 'category'    => $refproperty->getCategory(),
@@ -834,7 +844,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'static'      => $refproperty->isStatic(),
                 'accessible'  => $refproperty->getAccessible(),
                 'prototypes'  => $prototypes,
-                'types'       => $types,
+                'types'       => $merge($propdocs['tags']['var'][0]['type'] ?? [], $refproperty->getType(), $this->usings, $refclass->getNamespaceName(), $refclass->getFqsen()) ?: (new Fqsen(gettype($refproperty->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen()),
                 'tags'        => $propdocs['tags'],
             ];
         }
@@ -869,7 +879,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $result = [];
         foreach ($refclass->getMethods() as $refmethod) {
-            /** @var Reflection $decclass なぜかコード補完されない？ */
             $decclass = $refmethod->getDeclaringClass();
             $rmethod = $this->parseFunction($refmethod, $decclass->getNamespaceName(), $decclass->getFqsen());
             $prototypes = $refmethod->getProtoTypes();

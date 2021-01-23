@@ -99,6 +99,13 @@ class StaticPropertyClass
     protected static $staticProperty = MockInterface::mockConstant;
 }
 
+class TypedClass
+{
+    public ?array $typedProperty = [];
+
+    public function typedMethod(?array $arg1): ?string { }
+}
+
 // このような undefined なプロパティがあると巻き添えで取れるはずの static も取れなくなるので↑とは分けてある
 class UndefinedPropertyClass
 {

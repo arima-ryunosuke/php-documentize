@@ -11,6 +11,7 @@ use NS\PrototypeInterface;
 use NS\PrototypeParentClass;
 use NS\PrototypeTrait;
 use NS\StaticPropertyClass;
+use NS\TypedClass;
 use NS\UndefinedPropertyClass;
 use ryunosuke\Documentize\PhpFile;
 use ryunosuke\Documentize\Reflection;
@@ -395,6 +396,18 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame('\\Exception::getMessage()', $method->getFqsen());
     }
 
+    function test_type()
+    {
+        $reflection = (Reflection::instance(TypedClass::class));
+
+        $property = $reflection->getProperties()['typedProperty'];
+        $this->assertSame('?array', $property->getType()->getFqsen());
+
+        $method = $reflection->getMethods()['typedMethod'];
+        $this->assertSame('?string', $method->getType()->getFqsen());
+        $this->assertSame('?array', $method->getParameters()['arg1']->getType()->getFqsen());
+    }
+
     function test_getMagicMethod()
     {
         $reflection = (Reflection::instance(MockClass::class))->getMagicMethod('test', '', '$a, &$r, ...$v');
@@ -409,13 +422,13 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $reflection = Reflection::instance(MagicClass::class);
         $this->assertArraySubset([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 109,
-            'end'   => 109,
+            'start' => 116,
+            'end'   => 116,
         ], $reflection->getMagicPropertyLocation('magicProperty'));
         $this->assertArraySubset([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 110,
-            'end'   => 110,
+            'start' => 117,
+            'end'   => 117,
         ], $reflection->getMagicMethodLocation('magicMethod'));
     }
 
