@@ -439,6 +439,13 @@ namespace NS {
         protected $tagProperty;
 
         /**
+         * 型付きプロパティです
+         *
+         * @var array
+         */
+        protected ?string $typeProperty = null;
+
+        /**
          * このプロパティは @ignore によりドキュメント化されません
          *
          * @ignore
@@ -487,6 +494,8 @@ namespace NS {
          * @author ryunosuke <ryunosuke.arima@gmail.com>
          */
         final public function tagMethod($arg1) { }
+
+        public function typeMethod(?self $arg1, ?string $arg2): ?self {}
 
         /**
          * このメソッドは @ignore によりドキュメント化されません
