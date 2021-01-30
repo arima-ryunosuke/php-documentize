@@ -1486,61 +1486,6 @@ like a daemon.</p>
 	<div class="description"></div>
                 
                 	<h4 class="fqsen-title">class		<small></small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent">
-                                    Symfony\Component\Console\Event::ConsoleEvent		</a>	</h4>
-	<div class="description"><p>Allows to inspect input and output of a command.</p>
-</div>
-            	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::$command">
-                                    Symfony\Component\Console\Event\ConsoleEvent::command		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::$input">
-                                    Symfony\Component\Console\Event\ConsoleEvent::input		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::$output">
-                                    Symfony\Component\Console\Event\ConsoleEvent::output		</a>	</h4>
-	<div class="description"></div>
-        	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::__construct()">
-                                    Symfony\Component\Console\Event\ConsoleEvent::__construct		</a>	<small>($command = null, $input, $output) : void</small>
-		</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::getCommand()">
-                                    Symfony\Component\Console\Event\ConsoleEvent::getCommand		</a>	<small>() : <a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a><span class="type-separator"></span><wbr>null</small>
-		</h4>
-	<div class="description"><p>Gets the command that is executed.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::getInput()">
-                                    Symfony\Component\Console\Event\ConsoleEvent::getInput		</a>	<small>() : <a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></small>
-		</h4>
-	<div class="description"><p>Gets the input instance.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::getOutput()">
-                                    Symfony\Component\Console\Event\ConsoleEvent::getOutput		</a>	<small>() : <a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></small>
-		</h4>
-	<div class="description"><p>Gets the output instance.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::isPropagationStopped()">
-                                    Symfony\Component\Console\Event\ConsoleEvent::isPropagationStopped		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p>Returns whether further event listeners should be triggered.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::stopPropagation()">
-                                    Symfony\Component\Console\Event\ConsoleEvent::stopPropagation		</a>	<small>() : void</small>
-		</h4>
-	<div class="description"><p>Stops the propagation of the event to further event listeners.</p>
-<p>If multiple event listeners are connected to the same event, no<br />
-further event listener will be triggered once any trigger calls<br />
-stopPropagation().</p>
-</div>
-            	<h4 class="fqsen-title">class		<small></small>
 		<a href="Symfony-Component-Console-Event-ConsoleCommandEvent$typespace.html#Symfony\Component\Console\Event\ConsoleCommandEvent">
                                     Symfony\Component\Console\Event::ConsoleCommandEvent		</a>	</h4>
 	<div class="description"><p>Allows to do things before the command is executed, like skipping the command or changing the input.</p>
@@ -1609,6 +1554,61 @@ stopPropagation().</p>
     	<h4 class="fqsen-title">method		<small></small>
 		<a href="Symfony-Component-Console-Event-ConsoleCommandEvent$typespace.html#Symfony\Component\Console\Event\ConsoleCommandEvent::stopPropagation()">
                                     Symfony\Component\Console\Event\ConsoleCommandEvent::stopPropagation		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Stops the propagation of the event to further event listeners.</p>
+<p>If multiple event listeners are connected to the same event, no<br />
+further event listener will be triggered once any trigger calls<br />
+stopPropagation().</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent">
+                                    Symfony\Component\Console\Event::ConsoleEvent		</a>	</h4>
+	<div class="description"><p>Allows to inspect input and output of a command.</p>
+</div>
+            	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::$command">
+                                    Symfony\Component\Console\Event\ConsoleEvent::command		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::$input">
+                                    Symfony\Component\Console\Event\ConsoleEvent::input		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::$output">
+                                    Symfony\Component\Console\Event\ConsoleEvent::output		</a>	</h4>
+	<div class="description"></div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::__construct()">
+                                    Symfony\Component\Console\Event\ConsoleEvent::__construct		</a>	<small>($command = null, $input, $output) : void</small>
+		</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::getCommand()">
+                                    Symfony\Component\Console\Event\ConsoleEvent::getCommand		</a>	<small>() : <a href="Symfony-Component-Console-Command-Command$typespace.html#Symfony\Component\Console\Command\Command" class="fqsen "><small>Symfony\Component\Console\Command\</small><wbr>Command</a><span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Gets the command that is executed.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::getInput()">
+                                    Symfony\Component\Console\Event\ConsoleEvent::getInput		</a>	<small>() : <a href="Symfony-Component-Console-Input-InputInterface$typespace.html#Symfony\Component\Console\Input\InputInterface" class="fqsen "><small>Symfony\Component\Console\Input\</small><wbr>InputInterface</a></small>
+		</h4>
+	<div class="description"><p>Gets the input instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::getOutput()">
+                                    Symfony\Component\Console\Event\ConsoleEvent::getOutput		</a>	<small>() : <a href="Symfony-Component-Console-Output-OutputInterface$typespace.html#Symfony\Component\Console\Output\OutputInterface" class="fqsen "><small>Symfony\Component\Console\Output\</small><wbr>OutputInterface</a></small>
+		</h4>
+	<div class="description"><p>Gets the output instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::isPropagationStopped()">
+                                    Symfony\Component\Console\Event\ConsoleEvent::isPropagationStopped		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Returns whether further event listeners should be triggered.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Event-ConsoleEvent$typespace.html#Symfony\Component\Console\Event\ConsoleEvent::stopPropagation()">
+                                    Symfony\Component\Console\Event\ConsoleEvent::stopPropagation		</a>	<small>() : void</small>
 		</h4>
 	<div class="description"><p>Stops the propagation of the event to further event listeners.</p>
 <p>If multiple event listeners are connected to the same event, no<br />
@@ -2573,65 +2573,6 @@ stopPropagation().</p>
 	<div class="description"></div>
                 
                 	<h4 class="fqsen-title">class		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper">
-                                    Symfony\Component\Console\Helper::Helper		</a>	</h4>
-	<div class="description"><p>Helper is the base class for all helper classes.</p>
-</div>
-            	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::$helperSet">
-                                    Symfony\Component\Console\Helper\Helper::helperSet		</a>	</h4>
-	<div class="description"></div>
-        	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::setHelperSet()">
-                                    Symfony\Component\Console\Helper\Helper::setHelperSet		</a>	<small>($helperSet = null) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the helper set associated with this helper.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::getHelperSet()">
-                                    Symfony\Component\Console\Helper\Helper::getHelperSet		</a>	<small>() : <a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the helper set associated with this helper.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::strlen()">
-                                    Symfony\Component\Console\Helper\Helper::strlen		</a>	<small>($string) : int</small>
-		</h4>
-	<div class="description"><p>Returns the length of a string, using mb_strwidth if it is available.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::substr()">
-                                    Symfony\Component\Console\Helper\Helper::substr		</a>	<small>($string, $from, $length = null) : string</small>
-		</h4>
-	<div class="description"><p>Returns the subset of a string, using mb_substr if it is available.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::formatTime()">
-                                    Symfony\Component\Console\Helper\Helper::formatTime		</a>	<small>($secs) : void</small>
-		</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::formatMemory()">
-                                    Symfony\Component\Console\Helper\Helper::formatMemory		</a>	<small>($memory) : void</small>
-		</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::strlenWithoutDecoration()">
-                                    Symfony\Component\Console\Helper\Helper::strlenWithoutDecoration		</a>	<small>($formatter, $string) : void</small>
-		</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::removeDecoration()">
-                                    Symfony\Component\Console\Helper\Helper::removeDecoration		</a>	<small>($formatter, $string) : void</small>
-		</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::getName()">
-                                    Symfony\Component\Console\Helper\Helper::getName		</a>	<small>() : string</small>
-		</h4>
-	<div class="description"><p>Returns the canonical name of this helper.</p>
-</div>
-            	<h4 class="fqsen-title">class		<small></small>
 		<a href="Symfony-Component-Console-Helper-DebugFormatterHelper$typespace.html#Symfony\Component\Console\Helper\DebugFormatterHelper">
                                     Symfony\Component\Console\Helper::DebugFormatterHelper		</a>	</h4>
 	<div class="description"><p>Helps outputting debug information when running an external program from a command.</p>
@@ -2726,6 +2667,65 @@ stopPropagation().</p>
                                     Symfony\Component\Console\Helper\DebugFormatterHelper::removeDecoration		</a>	<small>($formatter, $string) : void</small>
 		</h4>
 	<div class="description"></div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper">
+                                    Symfony\Component\Console\Helper::Helper		</a>	</h4>
+	<div class="description"><p>Helper is the base class for all helper classes.</p>
+</div>
+            	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::$helperSet">
+                                    Symfony\Component\Console\Helper\Helper::helperSet		</a>	</h4>
+	<div class="description"></div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::setHelperSet()">
+                                    Symfony\Component\Console\Helper\Helper::setHelperSet		</a>	<small>($helperSet = null) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the helper set associated with this helper.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::getHelperSet()">
+                                    Symfony\Component\Console\Helper\Helper::getHelperSet		</a>	<small>() : <a href="Symfony-Component-Console-Helper-HelperSet$typespace.html#Symfony\Component\Console\Helper\HelperSet" class="fqsen "><small>Symfony\Component\Console\Helper\</small><wbr>HelperSet</a></small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the helper set associated with this helper.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::strlen()">
+                                    Symfony\Component\Console\Helper\Helper::strlen		</a>	<small>($string) : int</small>
+		</h4>
+	<div class="description"><p>Returns the length of a string, using mb_strwidth if it is available.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::substr()">
+                                    Symfony\Component\Console\Helper\Helper::substr		</a>	<small>($string, $from, $length = null) : string</small>
+		</h4>
+	<div class="description"><p>Returns the subset of a string, using mb_substr if it is available.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::formatTime()">
+                                    Symfony\Component\Console\Helper\Helper::formatTime		</a>	<small>($secs) : void</small>
+		</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::formatMemory()">
+                                    Symfony\Component\Console\Helper\Helper::formatMemory		</a>	<small>($memory) : void</small>
+		</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::strlenWithoutDecoration()">
+                                    Symfony\Component\Console\Helper\Helper::strlenWithoutDecoration		</a>	<small>($formatter, $string) : void</small>
+		</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::removeDecoration()">
+                                    Symfony\Component\Console\Helper\Helper::removeDecoration		</a>	<small>($formatter, $string) : void</small>
+		</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Helper-Helper$typespace.html#Symfony\Component\Console\Helper\Helper::getName()">
+                                    Symfony\Component\Console\Helper\Helper::getName		</a>	<small>() : string</small>
+		</h4>
+	<div class="description"><p>Returns the canonical name of this helper.</p>
+</div>
             	<h4 class="fqsen-title">class		<small></small>
 		<a href="Symfony-Component-Console-Helper-DescriptorHelper$typespace.html#Symfony\Component\Console\Helper\DescriptorHelper">
                                     Symfony\Component\Console\Helper::DescriptorHelper		</a>	</h4>
@@ -4283,165 +4283,6 @@ Call display() to show the progress bar again.</p>
 	<div class="description"></div>
                 
                 	<h4 class="fqsen-title">class		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input">
-                                    Symfony\Component\Console\Input::Input		</a>	</h4>
-	<div class="description"><p>Input is the base class for all concrete Input classes.</p>
-<p>Three concrete classes are provided by default:</p>
-<ul>
-<li><code>ArgvInput</code>: The input comes from the CLI arguments (argv)</li>
-<li><code>StringInput</code>: The input is provided as a string</li>
-<li><code>ArrayInput</code>: The input is provided as an array</li>
-</ul>
-</div>
-            	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$definition">
-                                    Symfony\Component\Console\Input\Input::definition		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$stream">
-                                    Symfony\Component\Console\Input\Input::stream		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>array</small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$options">
-                                    Symfony\Component\Console\Input\Input::options		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>array</small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$arguments">
-                                    Symfony\Component\Console\Input\Input::arguments		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>boolean</small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$interactive">
-                                    Symfony\Component\Console\Input\Input::interactive		</a>	</h4>
-	<div class="description"></div>
-        	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::__construct()">
-                                    Symfony\Component\Console\Input\Input::__construct		</a>	<small>($definition = null) : void</small>
-		</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::bind()">
-                                    Symfony\Component\Console\Input\Input::bind		</a>	<small>($definition) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Binds the current Input instance with the given arguments and options.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::parse()">
-                                    Symfony\Component\Console\Input\Input::parse		</a>	<small>() : void</small>
-		</h4>
-	<div class="description"><p>Processes command line arguments.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::validate()">
-                                    Symfony\Component\Console\Input\Input::validate		</a>	<small>() : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Validates the input.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::isInteractive()">
-                                    Symfony\Component\Console\Input\Input::isInteractive		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Is this input means interactive?</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setInteractive()">
-                                    Symfony\Component\Console\Input\Input::setInteractive		</a>	<small>($interactive) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the input interactivity.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getArguments()">
-                                    Symfony\Component\Console\Input\Input::getArguments		</a>	<small>() : array</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns all the given arguments merged with the default values.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getArgument()">
-                                    Symfony\Component\Console\Input\Input::getArgument		</a>	<small>($name) : mixed</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the argument value for a given argument name.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setArgument()">
-                                    Symfony\Component\Console\Input\Input::setArgument		</a>	<small>($name, $value) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets an argument value by name.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::hasArgument()">
-                                    Symfony\Component\Console\Input\Input::hasArgument		</a>	<small>($name) : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns true if an InputArgument object exists by name or position.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getOptions()">
-                                    Symfony\Component\Console\Input\Input::getOptions		</a>	<small>() : array</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns all the given options merged with the default values.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getOption()">
-                                    Symfony\Component\Console\Input\Input::getOption		</a>	<small>($name) : mixed</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the option value for a given option name.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setOption()">
-                                    Symfony\Component\Console\Input\Input::setOption		</a>	<small>($name, $value) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets an option value by name.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::hasOption()">
-                                    Symfony\Component\Console\Input\Input::hasOption		</a>	<small>($name) : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns true if an InputOption object exists by name.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::escapeToken()">
-                                    Symfony\Component\Console\Input\Input::escapeToken		</a>	<small>($token) : string</small>
-		</h4>
-	<div class="description"><p>Escapes a token through escapeshellarg if it contains unsafe chars.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setStream()">
-                                    Symfony\Component\Console\Input\Input::setStream		</a>	<small>($stream) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the input stream to read from when interacting with the user.</p>
-<p>This is mainly useful for testing purpose.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getStream()">
-                                    Symfony\Component\Console\Input\Input::getStream		</a>	<small>() : resource<span class="type-separator"></span><wbr>null</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the input stream.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getFirstArgument()">
-                                    Symfony\Component\Console\Input\Input::getFirstArgument		</a>	<small>() : string<span class="type-separator"></span><wbr>null</small>
-		</h4>
-	<div class="description"><p>Returns the first argument from the raw parameters (not parsed).</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::hasParameterOption()">
-                                    Symfony\Component\Console\Input\Input::hasParameterOption		</a>	<small>($values, $onlyParams = false) : bool</small>
-		</h4>
-	<div class="description"><p>Returns true if the raw parameters (not parsed) contain a value.</p>
-<p>This method is to be used to introspect the input parameters<br />
-before they have been validated. It must be used carefully.<br />
-Does not necessarily return the correct result for short options<br />
-when multiple flags are combined in the same option.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getParameterOption()">
-                                    Symfony\Component\Console\Input\Input::getParameterOption		</a>	<small>($values, $default = false, $onlyParams = false) : mixed</small>
-		</h4>
-	<div class="description"><p>Returns the value of a raw option (not parsed).</p>
-<p>This method is to be used to introspect the input parameters<br />
-before they have been validated. It must be used carefully.<br />
-Does not necessarily return the correct result for short options<br />
-when multiple flags are combined in the same option.</p>
-</div>
-            	<h4 class="fqsen-title">class		<small></small>
 		<a href="Symfony-Component-Console-Input-ArgvInput$typespace.html#Symfony\Component\Console\Input\ArgvInput">
                                     Symfony\Component\Console\Input::ArgvInput		</a>	</h4>
 	<div class="description"><p>ArgvInput represents an input coming from the CLI arguments.</p>
@@ -4660,6 +4501,165 @@ when multiple flags are combined in the same option.</tag_inheritdoc></p>
                                     Symfony\Component\Console\Input\ArgvInput::getStream		</a>	<small>() : resource<span class="type-separator"></span><wbr>null</small>
 		</h4>
 	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the input stream.</tag_inheritdoc></p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input">
+                                    Symfony\Component\Console\Input::Input		</a>	</h4>
+	<div class="description"><p>Input is the base class for all concrete Input classes.</p>
+<p>Three concrete classes are provided by default:</p>
+<ul>
+<li><code>ArgvInput</code>: The input comes from the CLI arguments (argv)</li>
+<li><code>StringInput</code>: The input is provided as a string</li>
+<li><code>ArrayInput</code>: The input is provided as an array</li>
+</ul>
+</div>
+            	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$definition">
+                                    Symfony\Component\Console\Input\Input::definition		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$stream">
+                                    Symfony\Component\Console\Input\Input::stream		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$options">
+                                    Symfony\Component\Console\Input\Input::options		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$arguments">
+                                    Symfony\Component\Console\Input\Input::arguments		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>boolean</small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::$interactive">
+                                    Symfony\Component\Console\Input\Input::interactive		</a>	</h4>
+	<div class="description"></div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::__construct()">
+                                    Symfony\Component\Console\Input\Input::__construct		</a>	<small>($definition = null) : void</small>
+		</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::bind()">
+                                    Symfony\Component\Console\Input\Input::bind		</a>	<small>($definition) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Binds the current Input instance with the given arguments and options.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::parse()">
+                                    Symfony\Component\Console\Input\Input::parse		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Processes command line arguments.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::validate()">
+                                    Symfony\Component\Console\Input\Input::validate		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Validates the input.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::isInteractive()">
+                                    Symfony\Component\Console\Input\Input::isInteractive		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Is this input means interactive?</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setInteractive()">
+                                    Symfony\Component\Console\Input\Input::setInteractive		</a>	<small>($interactive) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the input interactivity.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getArguments()">
+                                    Symfony\Component\Console\Input\Input::getArguments		</a>	<small>() : array</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns all the given arguments merged with the default values.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getArgument()">
+                                    Symfony\Component\Console\Input\Input::getArgument		</a>	<small>($name) : mixed</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the argument value for a given argument name.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setArgument()">
+                                    Symfony\Component\Console\Input\Input::setArgument		</a>	<small>($name, $value) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets an argument value by name.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::hasArgument()">
+                                    Symfony\Component\Console\Input\Input::hasArgument		</a>	<small>($name) : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns true if an InputArgument object exists by name or position.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getOptions()">
+                                    Symfony\Component\Console\Input\Input::getOptions		</a>	<small>() : array</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns all the given options merged with the default values.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getOption()">
+                                    Symfony\Component\Console\Input\Input::getOption		</a>	<small>($name) : mixed</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the option value for a given option name.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setOption()">
+                                    Symfony\Component\Console\Input\Input::setOption		</a>	<small>($name, $value) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets an option value by name.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::hasOption()">
+                                    Symfony\Component\Console\Input\Input::hasOption		</a>	<small>($name) : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns true if an InputOption object exists by name.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::escapeToken()">
+                                    Symfony\Component\Console\Input\Input::escapeToken		</a>	<small>($token) : string</small>
+		</h4>
+	<div class="description"><p>Escapes a token through escapeshellarg if it contains unsafe chars.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::setStream()">
+                                    Symfony\Component\Console\Input\Input::setStream		</a>	<small>($stream) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the input stream to read from when interacting with the user.</p>
+<p>This is mainly useful for testing purpose.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getStream()">
+                                    Symfony\Component\Console\Input\Input::getStream		</a>	<small>() : resource<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns the input stream.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getFirstArgument()">
+                                    Symfony\Component\Console\Input\Input::getFirstArgument		</a>	<small>() : string<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Returns the first argument from the raw parameters (not parsed).</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::hasParameterOption()">
+                                    Symfony\Component\Console\Input\Input::hasParameterOption		</a>	<small>($values, $onlyParams = false) : bool</small>
+		</h4>
+	<div class="description"><p>Returns true if the raw parameters (not parsed) contain a value.</p>
+<p>This method is to be used to introspect the input parameters<br />
+before they have been validated. It must be used carefully.<br />
+Does not necessarily return the correct result for short options<br />
+when multiple flags are combined in the same option.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Input-Input$typespace.html#Symfony\Component\Console\Input\Input::getParameterOption()">
+                                    Symfony\Component\Console\Input\Input::getParameterOption		</a>	<small>($values, $default = false, $onlyParams = false) : mixed</small>
+		</h4>
+	<div class="description"><p>Returns the value of a raw option (not parsed).</p>
+<p>This method is to be used to introspect the input parameters<br />
+before they have been validated. It must be used carefully.<br />
+Does not necessarily return the correct result for short options<br />
+when multiple flags are combined in the same option.</p>
 </div>
             	<h4 class="fqsen-title">class		<small></small>
 		<a href="Symfony-Component-Console-Input-ArrayInput$typespace.html#Symfony\Component\Console\Input\ArrayInput">
@@ -5760,6 +5760,135 @@ that are not necessarily wrong.</p>
 	<div class="description"></div>
                 
                 	<h4 class="fqsen-title">class		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput">
+                                    Symfony\Component\Console\Output::BufferedOutput		</a>	</h4>
+	<div class="description"></div>
+        	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_QUIET">
+                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_QUIET		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_NORMAL">
+                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_NORMAL		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_VERBOSE">
+                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_VERBOSE		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_VERY_VERBOSE">
+                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_VERY_VERBOSE		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_DEBUG">
+                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_DEBUG		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::OUTPUT_NORMAL">
+                                    Symfony\Component\Console\Output\BufferedOutput::OUTPUT_NORMAL		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::OUTPUT_RAW">
+                                    Symfony\Component\Console\Output\BufferedOutput::OUTPUT_RAW		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::OUTPUT_PLAIN">
+                                    Symfony\Component\Console\Output\BufferedOutput::OUTPUT_PLAIN		</a>	</h4>
+	<div class="description"></div>
+        	<h4 class="fqsen-title">property		<small>string</small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::$buffer">
+                                    Symfony\Component\Console\Output\BufferedOutput::buffer		</a>	</h4>
+	<div class="description"></div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::fetch()">
+                                    Symfony\Component\Console\Output\BufferedOutput::fetch		</a>	<small>() : string</small>
+		</h4>
+	<div class="description"><p>Empties buffer and returns its content.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::doWrite()">
+                                    Symfony\Component\Console\Output\BufferedOutput::doWrite		</a>	<small>($message, $newline) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::__construct()">
+                                    Symfony\Component\Console\Output\BufferedOutput::__construct		</a>	<small>($verbosity = self::VERBOSITY_NORMAL, $decorated = false, $formatter = null) : void</small>
+		</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::setFormatter()">
+                                    Symfony\Component\Console\Output\BufferedOutput::setFormatter		</a>	<small>($formatter) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::getFormatter()">
+                                    Symfony\Component\Console\Output\BufferedOutput::getFormatter		</a>	<small>() : <a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a></small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::setDecorated()">
+                                    Symfony\Component\Console\Output\BufferedOutput::setDecorated		</a>	<small>($decorated) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isDecorated()">
+                                    Symfony\Component\Console\Output\BufferedOutput::isDecorated		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::setVerbosity()">
+                                    Symfony\Component\Console\Output\BufferedOutput::setVerbosity		</a>	<small>($level) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::getVerbosity()">
+                                    Symfony\Component\Console\Output\BufferedOutput::getVerbosity		</a>	<small>() : int</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isQuiet()">
+                                    Symfony\Component\Console\Output\BufferedOutput::isQuiet		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isVerbose()">
+                                    Symfony\Component\Console\Output\BufferedOutput::isVerbose		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isVeryVerbose()">
+                                    Symfony\Component\Console\Output\BufferedOutput::isVeryVerbose		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isDebug()">
+                                    Symfony\Component\Console\Output\BufferedOutput::isDebug		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::writeln()">
+                                    Symfony\Component\Console\Output\BufferedOutput::writeln		</a>	<small>($messages, $options = 0) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::write()">
+                                    Symfony\Component\Console\Output\BufferedOutput::write		</a>	<small>($messages, $newline = false, $options = 0) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
 		<a href="Symfony-Component-Console-Output-Output$typespace.html#Symfony\Component\Console\Output\Output">
                                     Symfony\Component\Console\Output::Output		</a>	</h4>
 	<div class="description"><p>Base class for output classes.</p>
@@ -5894,280 +6023,6 @@ that are not necessarily wrong.</p>
                                     Symfony\Component\Console\Output\Output::doWrite		</a>	<small>($message, $newline) : void</small>
 		</h4>
 	<div class="description"><p>Writes a message to the output.</p>
-</div>
-            	<h4 class="fqsen-title">class		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput">
-                                    Symfony\Component\Console\Output::BufferedOutput		</a>	</h4>
-	<div class="description"></div>
-        	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_QUIET">
-                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_QUIET		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_NORMAL">
-                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_NORMAL		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_VERBOSE">
-                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_VERBOSE		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_VERY_VERBOSE">
-                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_VERY_VERBOSE		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_DEBUG">
-                                    Symfony\Component\Console\Output\BufferedOutput::VERBOSITY_DEBUG		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::OUTPUT_NORMAL">
-                                    Symfony\Component\Console\Output\BufferedOutput::OUTPUT_NORMAL		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::OUTPUT_RAW">
-                                    Symfony\Component\Console\Output\BufferedOutput::OUTPUT_RAW		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::OUTPUT_PLAIN">
-                                    Symfony\Component\Console\Output\BufferedOutput::OUTPUT_PLAIN		</a>	</h4>
-	<div class="description"></div>
-        	<h4 class="fqsen-title">property		<small>string</small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::$buffer">
-                                    Symfony\Component\Console\Output\BufferedOutput::buffer		</a>	</h4>
-	<div class="description"></div>
-        	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::fetch()">
-                                    Symfony\Component\Console\Output\BufferedOutput::fetch		</a>	<small>() : string</small>
-		</h4>
-	<div class="description"><p>Empties buffer and returns its content.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::doWrite()">
-                                    Symfony\Component\Console\Output\BufferedOutput::doWrite		</a>	<small>($message, $newline) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::__construct()">
-                                    Symfony\Component\Console\Output\BufferedOutput::__construct		</a>	<small>($verbosity = self::VERBOSITY_NORMAL, $decorated = false, $formatter = null) : void</small>
-		</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::setFormatter()">
-                                    Symfony\Component\Console\Output\BufferedOutput::setFormatter		</a>	<small>($formatter) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::getFormatter()">
-                                    Symfony\Component\Console\Output\BufferedOutput::getFormatter		</a>	<small>() : <a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a></small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::setDecorated()">
-                                    Symfony\Component\Console\Output\BufferedOutput::setDecorated		</a>	<small>($decorated) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isDecorated()">
-                                    Symfony\Component\Console\Output\BufferedOutput::isDecorated		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::setVerbosity()">
-                                    Symfony\Component\Console\Output\BufferedOutput::setVerbosity		</a>	<small>($level) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::getVerbosity()">
-                                    Symfony\Component\Console\Output\BufferedOutput::getVerbosity		</a>	<small>() : int</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isQuiet()">
-                                    Symfony\Component\Console\Output\BufferedOutput::isQuiet		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isVerbose()">
-                                    Symfony\Component\Console\Output\BufferedOutput::isVerbose		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isVeryVerbose()">
-                                    Symfony\Component\Console\Output\BufferedOutput::isVeryVerbose		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::isDebug()">
-                                    Symfony\Component\Console\Output\BufferedOutput::isDebug		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::writeln()">
-                                    Symfony\Component\Console\Output\BufferedOutput::writeln		</a>	<small>($messages, $options = 0) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput::write()">
-                                    Symfony\Component\Console\Output\BufferedOutput::write		</a>	<small>($messages, $newline = false, $options = 0) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
-</div>
-            	<h4 class="fqsen-title">class		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput">
-                                    Symfony\Component\Console\Output::StreamOutput		</a>	</h4>
-	<div class="description"><p>StreamOutput writes the output to a given stream.</p>
-<p>Usage:</p>
-<p>$output = new StreamOutput(fopen('php://stdout', 'w'));</p>
-<p>As <code>StreamOutput</code> can use any stream, you can also use a file:</p>
-<p>$output = new StreamOutput(fopen('/path/to/output.log', 'a', false));</p>
-</div>
-        	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_QUIET">
-                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_QUIET		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_NORMAL">
-                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_NORMAL		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_VERBOSE">
-                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_VERBOSE		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_VERY_VERBOSE">
-                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_VERY_VERBOSE		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_DEBUG">
-                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_DEBUG		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::OUTPUT_NORMAL">
-                                    Symfony\Component\Console\Output\StreamOutput::OUTPUT_NORMAL		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::OUTPUT_RAW">
-                                    Symfony\Component\Console\Output\StreamOutput::OUTPUT_RAW		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">classconstant		<small>integer</small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::OUTPUT_PLAIN">
-                                    Symfony\Component\Console\Output\StreamOutput::OUTPUT_PLAIN		</a>	</h4>
-	<div class="description"></div>
-        	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::$stream">
-                                    Symfony\Component\Console\Output\StreamOutput::stream		</a>	</h4>
-	<div class="description"></div>
-        	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::__construct()">
-                                    Symfony\Component\Console\Output\StreamOutput::__construct		</a>	<small>($stream, $verbosity = self::VERBOSITY_NORMAL, $decorated = null, $formatter = null) : void</small>
-		</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::getStream()">
-                                    Symfony\Component\Console\Output\StreamOutput::getStream		</a>	<small>() : resource</small>
-		</h4>
-	<div class="description"><p>Gets the stream attached to this StreamOutput instance.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::doWrite()">
-                                    Symfony\Component\Console\Output\StreamOutput::doWrite		</a>	<small>($message, $newline) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::hasColorSupport()">
-                                    Symfony\Component\Console\Output\StreamOutput::hasColorSupport		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p>Returns true if the stream supports colorization.</p>
-<p>Colorization is disabled if not supported by the stream:</p>
-<p>This is tricky on Windows, because Cygwin, Msys2 etc emulate pseudo<br />
-terminals via named pipes, so we can only check the environment.</p>
-<p>Reference: Composer\XdebugHandler\Process::supportsColor<br />
-<a href="https://github.com/composer/xdebug-handler">https://github.com/composer/xdebug-handler</a></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::setFormatter()">
-                                    Symfony\Component\Console\Output\StreamOutput::setFormatter		</a>	<small>($formatter) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::getFormatter()">
-                                    Symfony\Component\Console\Output\StreamOutput::getFormatter		</a>	<small>() : <a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a></small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::setDecorated()">
-                                    Symfony\Component\Console\Output\StreamOutput::setDecorated		</a>	<small>($decorated) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isDecorated()">
-                                    Symfony\Component\Console\Output\StreamOutput::isDecorated		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::setVerbosity()">
-                                    Symfony\Component\Console\Output\StreamOutput::setVerbosity		</a>	<small>($level) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::getVerbosity()">
-                                    Symfony\Component\Console\Output\StreamOutput::getVerbosity		</a>	<small>() : int</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isQuiet()">
-                                    Symfony\Component\Console\Output\StreamOutput::isQuiet		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isVerbose()">
-                                    Symfony\Component\Console\Output\StreamOutput::isVerbose		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isVeryVerbose()">
-                                    Symfony\Component\Console\Output\StreamOutput::isVeryVerbose		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isDebug()">
-                                    Symfony\Component\Console\Output\StreamOutput::isDebug		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::writeln()">
-                                    Symfony\Component\Console\Output\StreamOutput::writeln		</a>	<small>($messages, $options = 0) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::write()">
-                                    Symfony\Component\Console\Output\StreamOutput::write		</a>	<small>($messages, $newline = false, $options = 0) : void</small>
-		</h4>
-	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
 </div>
             	<h4 class="fqsen-title">class		<small></small>
 		<a href="Symfony-Component-Console-Output-ConsoleOutput$typespace.html#Symfony\Component\Console\Output\ConsoleOutput">
@@ -6357,6 +6212,151 @@ terminals via named pipes, so we can only check the environment.</p>
     	<h4 class="fqsen-title">method		<small></small>
 		<a href="Symfony-Component-Console-Output-ConsoleOutput$typespace.html#Symfony\Component\Console\Output\ConsoleOutput::write()">
                                     Symfony\Component\Console\Output\ConsoleOutput::write		</a>	<small>($messages, $newline = false, $options = 0) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput">
+                                    Symfony\Component\Console\Output::StreamOutput		</a>	</h4>
+	<div class="description"><p>StreamOutput writes the output to a given stream.</p>
+<p>Usage:</p>
+<p>$output = new StreamOutput(fopen('php://stdout', 'w'));</p>
+<p>As <code>StreamOutput</code> can use any stream, you can also use a file:</p>
+<p>$output = new StreamOutput(fopen('/path/to/output.log', 'a', false));</p>
+</div>
+        	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_QUIET">
+                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_QUIET		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_NORMAL">
+                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_NORMAL		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_VERBOSE">
+                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_VERBOSE		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_VERY_VERBOSE">
+                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_VERY_VERBOSE		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::VERBOSITY_DEBUG">
+                                    Symfony\Component\Console\Output\StreamOutput::VERBOSITY_DEBUG		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::OUTPUT_NORMAL">
+                                    Symfony\Component\Console\Output\StreamOutput::OUTPUT_NORMAL		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::OUTPUT_RAW">
+                                    Symfony\Component\Console\Output\StreamOutput::OUTPUT_RAW		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">classconstant		<small>integer</small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::OUTPUT_PLAIN">
+                                    Symfony\Component\Console\Output\StreamOutput::OUTPUT_PLAIN		</a>	</h4>
+	<div class="description"></div>
+        	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::$stream">
+                                    Symfony\Component\Console\Output\StreamOutput::stream		</a>	</h4>
+	<div class="description"></div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::__construct()">
+                                    Symfony\Component\Console\Output\StreamOutput::__construct		</a>	<small>($stream, $verbosity = self::VERBOSITY_NORMAL, $decorated = null, $formatter = null) : void</small>
+		</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::getStream()">
+                                    Symfony\Component\Console\Output\StreamOutput::getStream		</a>	<small>() : resource</small>
+		</h4>
+	<div class="description"><p>Gets the stream attached to this StreamOutput instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::doWrite()">
+                                    Symfony\Component\Console\Output\StreamOutput::doWrite		</a>	<small>($message, $newline) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::hasColorSupport()">
+                                    Symfony\Component\Console\Output\StreamOutput::hasColorSupport		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Returns true if the stream supports colorization.</p>
+<p>Colorization is disabled if not supported by the stream:</p>
+<p>This is tricky on Windows, because Cygwin, Msys2 etc emulate pseudo<br />
+terminals via named pipes, so we can only check the environment.</p>
+<p>Reference: Composer\XdebugHandler\Process::supportsColor<br />
+<a href="https://github.com/composer/xdebug-handler">https://github.com/composer/xdebug-handler</a></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::setFormatter()">
+                                    Symfony\Component\Console\Output\StreamOutput::setFormatter		</a>	<small>($formatter) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''></tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::getFormatter()">
+                                    Symfony\Component\Console\Output\StreamOutput::getFormatter		</a>	<small>() : <a href="Symfony-Component-Console-Formatter-OutputFormatterInterface$typespace.html#Symfony\Component\Console\Formatter\OutputFormatterInterface" class="fqsen "><small>Symfony\Component\Console\Formatter\</small><wbr>OutputFormatterInterface</a></small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns current output formatter instance.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::setDecorated()">
+                                    Symfony\Component\Console\Output\StreamOutput::setDecorated		</a>	<small>($decorated) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the decorated flag.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isDecorated()">
+                                    Symfony\Component\Console\Output\StreamOutput::isDecorated		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the decorated flag.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::setVerbosity()">
+                                    Symfony\Component\Console\Output\StreamOutput::setVerbosity		</a>	<small>($level) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Sets the verbosity of the output.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::getVerbosity()">
+                                    Symfony\Component\Console\Output\StreamOutput::getVerbosity		</a>	<small>() : int</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Gets the current verbosity of the output.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isQuiet()">
+                                    Symfony\Component\Console\Output\StreamOutput::isQuiet		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is quiet (-q).</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isVerbose()">
+                                    Symfony\Component\Console\Output\StreamOutput::isVerbose		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is verbose (-v).</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isVeryVerbose()">
+                                    Symfony\Component\Console\Output\StreamOutput::isVeryVerbose		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is very verbose (-vv).</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::isDebug()">
+                                    Symfony\Component\Console\Output\StreamOutput::isDebug		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Returns whether verbosity is debug (-vvv).</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::writeln()">
+                                    Symfony\Component\Console\Output\StreamOutput::writeln		</a>	<small>($messages, $options = 0) : void</small>
+		</h4>
+	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output and adds a newline at the end.</tag_inheritdoc></p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Output-StreamOutput$typespace.html#Symfony\Component\Console\Output\StreamOutput::write()">
+                                    Symfony\Component\Console\Output\StreamOutput::write		</a>	<small>($messages, $newline = false, $options = 0) : void</small>
 		</h4>
 	<div class="description"><p><tag_inheritdoc data-type='' data-description=''>Writes a message to the output.</tag_inheritdoc></p>
 </div>
@@ -6706,141 +6706,6 @@ This adds information about stderr output stream.</p>
 	<div class="description"></div>
                 
                 	<h4 class="fqsen-title">class		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question">
-                                    Symfony\Component\Console\Question::Question		</a>	</h4>
-	<div class="description"><p>Represents a Question.</p>
-</div>
-            	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$question">
-                                    Symfony\Component\Console\Question\Question::question		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$attempts">
-                                    Symfony\Component\Console\Question\Question::attempts		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>boolean</small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$hidden">
-                                    Symfony\Component\Console\Question\Question::hidden		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>boolean</small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$hiddenFallback">
-                                    Symfony\Component\Console\Question\Question::hiddenFallback		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$autocompleterValues">
-                                    Symfony\Component\Console\Question\Question::autocompleterValues		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$validator">
-                                    Symfony\Component\Console\Question\Question::validator		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$default">
-                                    Symfony\Component\Console\Question\Question::default		</a>	</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">property		<small>NULL</small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$normalizer">
-                                    Symfony\Component\Console\Question\Question::normalizer		</a>	</h4>
-	<div class="description"></div>
-        	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::__construct()">
-                                    Symfony\Component\Console\Question\Question::__construct		</a>	<small>($question, $default = null) : void</small>
-		</h4>
-	<div class="description"></div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getQuestion()">
-                                    Symfony\Component\Console\Question\Question::getQuestion		</a>	<small>() : string</small>
-		</h4>
-	<div class="description"><p>Returns the question.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getDefault()">
-                                    Symfony\Component\Console\Question\Question::getDefault		</a>	<small>() : mixed</small>
-		</h4>
-	<div class="description"><p>Returns the default answer.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::isHidden()">
-                                    Symfony\Component\Console\Question\Question::isHidden		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p>Returns whether the user response must be hidden.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setHidden()">
-                                    Symfony\Component\Console\Question\Question::setHidden		</a>	<small>($hidden) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
-		</h4>
-	<div class="description"><p>Sets whether the user response must be hidden or not.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::isHiddenFallback()">
-                                    Symfony\Component\Console\Question\Question::isHiddenFallback		</a>	<small>() : bool</small>
-		</h4>
-	<div class="description"><p>In case the response can not be hidden, whether to fallback on non-hidden question or not.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setHiddenFallback()">
-                                    Symfony\Component\Console\Question\Question::setHiddenFallback		</a>	<small>($fallback) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
-		</h4>
-	<div class="description"><p>Sets whether to fallback on non-hidden question if the response can not be hidden.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getAutocompleterValues()">
-                                    Symfony\Component\Console\Question\Question::getAutocompleterValues		</a>	<small>() : null<span class="type-separator"></span><wbr>iterable</small>
-		</h4>
-	<div class="description"><p>Gets values for the autocompleter.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setAutocompleterValues()">
-                                    Symfony\Component\Console\Question\Question::setAutocompleterValues		</a>	<small>($values) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
-		</h4>
-	<div class="description"><p>Sets values for the autocompleter.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setValidator()">
-                                    Symfony\Component\Console\Question\Question::setValidator		</a>	<small>($validator = null) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
-		</h4>
-	<div class="description"><p>Sets a validator for the question.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getValidator()">
-                                    Symfony\Component\Console\Question\Question::getValidator		</a>	<small>() : null<span class="type-separator"></span><wbr>callable</small>
-		</h4>
-	<div class="description"><p>Gets the validator for the question.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setMaxAttempts()">
-                                    Symfony\Component\Console\Question\Question::setMaxAttempts		</a>	<small>($attempts) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
-		</h4>
-	<div class="description"><p>Sets the maximum number of attempts.</p>
-<p>Null means an unlimited number of attempts.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getMaxAttempts()">
-                                    Symfony\Component\Console\Question\Question::getMaxAttempts		</a>	<small>() : null<span class="type-separator"></span><wbr>int</small>
-		</h4>
-	<div class="description"><p>Gets the maximum number of attempts.</p>
-<p>Null means an unlimited number of attempts.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setNormalizer()">
-                                    Symfony\Component\Console\Question\Question::setNormalizer		</a>	<small>($normalizer) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
-		</h4>
-	<div class="description"><p>Sets a normalizer for the response.</p>
-<p>The normalizer can be a callable (a string), a closure or a class implementing __invoke.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getNormalizer()">
-                                    Symfony\Component\Console\Question\Question::getNormalizer		</a>	<small>() : callable</small>
-		</h4>
-	<div class="description"><p>Gets the normalizer for the response.</p>
-<p>The normalizer can ba a callable (a string), a closure or a class implementing __invoke.</p>
-</div>
-    	<h4 class="fqsen-title">method		<small></small>
-		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::isAssoc()">
-                                    Symfony\Component\Console\Question\Question::isAssoc		</a>	<small>($array) : void</small>
-		</h4>
-	<div class="description"></div>
-            	<h4 class="fqsen-title">class		<small></small>
 		<a href="Symfony-Component-Console-Question-ChoiceQuestion$typespace.html#Symfony\Component\Console\Question\ChoiceQuestion">
                                     Symfony\Component\Console\Question::ChoiceQuestion		</a>	</h4>
 	<div class="description"><p>Represents a choice question.</p>
@@ -7001,6 +6866,141 @@ This adds information about stderr output stream.</p>
     	<h4 class="fqsen-title">method		<small></small>
 		<a href="Symfony-Component-Console-Question-ChoiceQuestion$typespace.html#Symfony\Component\Console\Question\ChoiceQuestion::isAssoc()">
                                     Symfony\Component\Console\Question\ChoiceQuestion::isAssoc		</a>	<small>($array) : void</small>
+		</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question">
+                                    Symfony\Component\Console\Question::Question		</a>	</h4>
+	<div class="description"><p>Represents a Question.</p>
+</div>
+            	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$question">
+                                    Symfony\Component\Console\Question\Question::question		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$attempts">
+                                    Symfony\Component\Console\Question\Question::attempts		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>boolean</small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$hidden">
+                                    Symfony\Component\Console\Question\Question::hidden		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>boolean</small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$hiddenFallback">
+                                    Symfony\Component\Console\Question\Question::hiddenFallback		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$autocompleterValues">
+                                    Symfony\Component\Console\Question\Question::autocompleterValues		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$validator">
+                                    Symfony\Component\Console\Question\Question::validator		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$default">
+                                    Symfony\Component\Console\Question\Question::default		</a>	</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">property		<small>NULL</small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::$normalizer">
+                                    Symfony\Component\Console\Question\Question::normalizer		</a>	</h4>
+	<div class="description"></div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::__construct()">
+                                    Symfony\Component\Console\Question\Question::__construct		</a>	<small>($question, $default = null) : void</small>
+		</h4>
+	<div class="description"></div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getQuestion()">
+                                    Symfony\Component\Console\Question\Question::getQuestion		</a>	<small>() : string</small>
+		</h4>
+	<div class="description"><p>Returns the question.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getDefault()">
+                                    Symfony\Component\Console\Question\Question::getDefault		</a>	<small>() : mixed</small>
+		</h4>
+	<div class="description"><p>Returns the default answer.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::isHidden()">
+                                    Symfony\Component\Console\Question\Question::isHidden		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Returns whether the user response must be hidden.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setHidden()">
+                                    Symfony\Component\Console\Question\Question::setHidden		</a>	<small>($hidden) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
+		</h4>
+	<div class="description"><p>Sets whether the user response must be hidden or not.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::isHiddenFallback()">
+                                    Symfony\Component\Console\Question\Question::isHiddenFallback		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>In case the response can not be hidden, whether to fallback on non-hidden question or not.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setHiddenFallback()">
+                                    Symfony\Component\Console\Question\Question::setHiddenFallback		</a>	<small>($fallback) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
+		</h4>
+	<div class="description"><p>Sets whether to fallback on non-hidden question if the response can not be hidden.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getAutocompleterValues()">
+                                    Symfony\Component\Console\Question\Question::getAutocompleterValues		</a>	<small>() : null<span class="type-separator"></span><wbr>iterable</small>
+		</h4>
+	<div class="description"><p>Gets values for the autocompleter.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setAutocompleterValues()">
+                                    Symfony\Component\Console\Question\Question::setAutocompleterValues		</a>	<small>($values) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
+		</h4>
+	<div class="description"><p>Sets values for the autocompleter.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setValidator()">
+                                    Symfony\Component\Console\Question\Question::setValidator		</a>	<small>($validator = null) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
+		</h4>
+	<div class="description"><p>Sets a validator for the question.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getValidator()">
+                                    Symfony\Component\Console\Question\Question::getValidator		</a>	<small>() : null<span class="type-separator"></span><wbr>callable</small>
+		</h4>
+	<div class="description"><p>Gets the validator for the question.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setMaxAttempts()">
+                                    Symfony\Component\Console\Question\Question::setMaxAttempts		</a>	<small>($attempts) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
+		</h4>
+	<div class="description"><p>Sets the maximum number of attempts.</p>
+<p>Null means an unlimited number of attempts.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getMaxAttempts()">
+                                    Symfony\Component\Console\Question\Question::getMaxAttempts		</a>	<small>() : null<span class="type-separator"></span><wbr>int</small>
+		</h4>
+	<div class="description"><p>Gets the maximum number of attempts.</p>
+<p>Null means an unlimited number of attempts.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::setNormalizer()">
+                                    Symfony\Component\Console\Question\Question::setNormalizer		</a>	<small>($normalizer) : <a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question" class="fqsen "><small>Symfony\Component\Console\Question\</small><wbr>Question</a></small>
+		</h4>
+	<div class="description"><p>Sets a normalizer for the response.</p>
+<p>The normalizer can be a callable (a string), a closure or a class implementing __invoke.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::getNormalizer()">
+                                    Symfony\Component\Console\Question\Question::getNormalizer		</a>	<small>() : callable</small>
+		</h4>
+	<div class="description"><p>Gets the normalizer for the response.</p>
+<p>The normalizer can ba a callable (a string), a closure or a class implementing __invoke.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Symfony-Component-Console-Question-Question$typespace.html#Symfony\Component\Console\Question\Question::isAssoc()">
+                                    Symfony\Component\Console\Question\Question::isAssoc		</a>	<small>($array) : void</small>
 		</h4>
 	<div class="description"></div>
             	<h4 class="fqsen-title">class		<small></small>

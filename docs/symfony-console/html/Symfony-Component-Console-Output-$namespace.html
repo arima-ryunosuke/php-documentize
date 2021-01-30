@@ -105,6 +105,27 @@ This adds information about stderr output stream.</p>
                 					<li class="structure-item">
 						<div class="attribute">
 							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/BufferedOutput.php#L14-L45" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Symfony\Component\Console\Output\BufferedOutput" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput">BufferedOutput</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default">author Jean-François Simon</span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item">
+						<div class="attribute">
+							<span class="label label-danger"></span>
 							<span class="label label-warning">abstract</span>
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
@@ -139,17 +160,25 @@ This adds information about stderr output stream.</p>
 							<span class="label label-info"></span>
 							<span class="label label-info"></span>
 							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/BufferedOutput.php#L14-L45" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                            			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L16-L152" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
             						</div>
-						<h4 id="Symfony\Component\Console\Output\BufferedOutput" tabindex="-1" class="structure-title ">
-							<a href="Symfony-Component-Console-Output-BufferedOutput$typespace.html#Symfony\Component\Console\Output\BufferedOutput">BufferedOutput</a>
+						<h4 id="Symfony\Component\Console\Output\ConsoleOutput" tabindex="-1" class="structure-title ">
+							<a href="Symfony-Component-Console-Output-ConsoleOutput$typespace.html#Symfony\Component\Console\Output\ConsoleOutput">ConsoleOutput</a>
 						</h4>
 						<div class="inner-item">
-							<div class="description"></div>
+							<div class="description"><p>ConsoleOutput is the default class for all CLI output. It uses STDOUT and STDERR.</p>
+<p>This class is a convenient wrapper around <code>StreamOutput</code> for both STDOUT and STDERR.</p>
+<pre><code>$output = new ConsoleOutput();
+</code></pre>
+<p>This is equivalent to:</p>
+<pre><code>$output = new StreamOutput(fopen('php://stdout', 'w'));
+$stdErr = new StreamOutput(fopen('php://stderr', 'w'));
+</code></pre>
+</div>
 						</div>
 						<div class="attribute">
 							<span class="label label-default"></span>
-							<span class="label label-default">author Jean-François Simon</span>
+							<span class="label label-default">author Fabien Potencier</span>
 						</div>
 						<div class="clearfix"></div>
 					</li>
@@ -171,35 +200,6 @@ This adds information about stderr output stream.</p>
 <p>$output = new StreamOutput(fopen('php://stdout', 'w'));</p>
 <p>As <code>StreamOutput</code> can use any stream, you can also use a file:</p>
 <p>$output = new StreamOutput(fopen('/path/to/output.log', 'a', false));</p>
-</div>
-						</div>
-						<div class="attribute">
-							<span class="label label-default"></span>
-							<span class="label label-default">author Fabien Potencier</span>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-                					<li class="structure-item">
-						<div class="attribute">
-							<span class="label label-danger"></span>
-							<span class="label label-warning"></span>
-							<span class="label label-info"></span>
-							<span class="label label-info"></span>
-							<span class="label label-deprecated"></span>
-                            			<a href="https://github.com/symfony/console/blob/v3.4.11/Output/ConsoleOutput.php#L16-L152" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
-            						</div>
-						<h4 id="Symfony\Component\Console\Output\ConsoleOutput" tabindex="-1" class="structure-title ">
-							<a href="Symfony-Component-Console-Output-ConsoleOutput$typespace.html#Symfony\Component\Console\Output\ConsoleOutput">ConsoleOutput</a>
-						</h4>
-						<div class="inner-item">
-							<div class="description"><p>ConsoleOutput is the default class for all CLI output. It uses STDOUT and STDERR.</p>
-<p>This class is a convenient wrapper around <code>StreamOutput</code> for both STDOUT and STDERR.</p>
-<pre><code>$output = new ConsoleOutput();
-</code></pre>
-<p>This is equivalent to:</p>
-<pre><code>$output = new StreamOutput(fopen('php://stdout', 'w'));
-$stdErr = new StreamOutput(fopen('php://stderr', 'w'));
-</code></pre>
 </div>
 						</div>
 						<div class="attribute">

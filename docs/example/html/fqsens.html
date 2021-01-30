@@ -268,8 +268,8 @@ phpstorm などの IDE では doccomment 内のフォーマットもサポート
                                     NS::magicMethod5		</a>	<small>($arg1) : string</small>
 		</h4>
 	<div class="description"><p>これはインライン phpdoc を使用したマジックメソッドです</p>
-<p><tag_link data-kind='fqsen' data-type-category='method' data-type-fqsen='NS\Mclass::actualMethod()' data-type-array='0' data-description='NS\Mclass::actualMethod()'>NS\Mclass::actualMethod()</tag_link>を使用してインラインかつ link 的な挙動を示すことができます。<br />
-<tag_link data-type-category='method' data-type-fqsen='NS\Mclass::actualMethod()' data-type-array='0' data-description='actualMethod()'>actualMethod()</tag_link>を使用してインラインかつ inheritdoc 的な挙動を示すことができます。</p>
+<p><tag_link data-kind='fqsen' data-type-category='method' data-type-fqsen='NS\Mclass::actualMethod()' data-type-array='0' data-type-nullable='' data-description='NS\Mclass::actualMethod()'>NS\Mclass::actualMethod()</tag_link>を使用してインラインかつ link 的な挙動を示すことができます。<br />
+<tag_link data-type-category='method' data-type-fqsen='NS\Mclass::actualMethod()' data-type-array='0' data-type-nullable='' data-description='actualMethod()'>actualMethod()</tag_link>を使用してインラインかつ inheritdoc 的な挙動を示すことができます。</p>
 <p>このメソッドは &#64;see しているにもかかわらず see 参照が出ていません。&lt;inline see&gt; では link に読み換えられるからです。<br />
 このメソッドは &#64;inheritdoc していないにも関わらず引数が継承されています。&lt;inline uses&gt; では自動で inheritdoc が付与されるからです。</p>
 <p>これは phpstorm などの IDE ジャンプで特に有用です。<br />
@@ -343,7 +343,7 @@ return はこのメソッド自身に記述されているので上書きされ�
 	<div class="description"><p>これは inheritdoc しているメソッドへの inheritdoc です</p>
 <p>参照は再帰的に行われるので最終的に inheritdoc ではない実際に記述が為されているメソッドがドキュメント化されます。</p>
 <p>以下に継承元ドキュメントが表示されます。<br />
-<blockquote><tag_inheritdoc data-type-category='method' data-type-fqsen='NS\Rclass::inheritMethod()' data-type-array='0' data-description=''>これはドキュメントの継承元を指定したメソッドです</p>
+<blockquote><tag_inheritdoc data-type-category='method' data-type-fqsen='NS\Rclass::inheritMethod()' data-type-array='0' data-type-nullable='' data-description=''>これはドキュメントの継承元を指定したメソッドです</p>
 <p>inheritdoc で参照先を指定しているので、</p>
 <ul>
 <li>引数・返り値は参照先のもの</li>
@@ -359,7 +359,7 @@ return はこのメソッド自身に記述されているので上書きされ�
 		</h4>
 	<div class="description"><p>これは {inheritdoc FQSEN 文言指定} かつ文言指定メソッドです</p>
 <p>{inheritdoc FQSEN 文言指定} とすると元ドキュメントではなく文言指定で文字列を埋め込めます。</p>
-<p><tag_inheritdoc data-type-category='method' data-type-fqsen='NS\Rclass::inheritMethod()' data-type-array='0' data-description='継承しつつ文言指定ができます'>継承しつつ文言指定ができます</tag_inheritdoc></p>
+<p><tag_inheritdoc data-type-category='method' data-type-fqsen='NS\Rclass::inheritMethod()' data-type-array='0' data-type-nullable='' data-description='継承しつつ文言指定ができます'>継承しつつ文言指定ができます</tag_inheritdoc></p>
 </div>
     	<h4 class="fqsen-title">method		<small></small>
 		<a href="NS-Rclass$typespace.html#NS\Rclass::usedByMethod()">
@@ -440,6 +440,11 @@ echo $hoge;
 	<div class="description"><p>これはプロパティ用のタグの例示用メソッドです</p>
 <p>とは言えプロパティ専用のタグはほとんど無いため、 var のためだけに存在しています。</p>
 </div>
+    	<h4 class="fqsen-title">property		<small>?string<span class="type-separator"></span><wbr>array</small>
+		<a href="NS-Tclass$typespace.html#NS\Tclass::$typeProperty">
+                                    NS\Tclass::typeProperty		</a>	</h4>
+	<div class="description"><p>型付きプロパティです</p>
+</div>
     	<h4 class="fqsen-title">property		<small>string</small>
 		<a href="NS-Tclass$typespace.html#NS\Tclass::$class_property">
                                     NS\Tclass::class_property		</a>	</h4>
@@ -454,7 +459,7 @@ echo $hoge;
 また、 link/source タグを使うと</p>
 <ul>
 <li><tag_link data-kind='uri' data-type='https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md' data-description='こんな感じに外部リンク'>こんな感じに外部リンク</tag_link>が貼れたり</li>
-<li><tag_link data-kind='fqsen' data-type-category='method' data-type-fqsen='NS\Rclass::actualMethod()' data-type-array='0' data-description='こんな感じに要素リンク'>こんな感じに要素リンク</tag_link>が貼れたり</li>
+<li><tag_link data-kind='fqsen' data-type-category='method' data-type-fqsen='NS\Rclass::actualMethod()' data-type-array='0' data-type-nullable='' data-description='こんな感じに要素リンク'>こんな感じに要素リンク</tag_link>が貼れたり</li>
 <li><tag_source data-fqsen='NS\Rclass::actualMethod()' data-description='こんな感じにソースへリンク'>こんな感じにソースへリンク</tag_source>が貼れたり</li>
 </ul>
 <p>します。ただしこれは生成側との協力が必要です。</p>
@@ -473,6 +478,11 @@ $sample3 = [
 <p>ただこれは生成側の処理です。掻き集める側はそもそも markdown を認識しません（結果としてコードブロックも得られない）。<br />
 基本的に Description はただのテキストです。</p>
 </div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="NS-Tclass$typespace.html#NS\Tclass::typeMethod()">
+                                    NS\Tclass::typeMethod		</a>	<small>($arg1, $arg2) : ?<a href="NS-Tclass$typespace.html#NS\Tclass" class="fqsen "><small>NS\</small><wbr>Tclass</a></small>
+		</h4>
+	<div class="description"></div>
     	<h4 class="fqsen-title">method		<small></small>
 		<a href="NS-Tclass$typespace.html#NS\Tclass::inheritMethod()">
                                     NS\Tclass::inheritMethod		</a>	<small>($arg1) : mixed</small>
