@@ -416,6 +416,8 @@ FQSEN を指定して結果を除外します。
                         'fqsen'    => 'string',
                         // 配列の階層数を表す整数値です（`Type[][]` などで 2 になります）
                         'array'    => 0,
+                        // null 許容フラグです（`?string` などで true になります）
+                        'nullable' => false,
                     ],
                 ],
                 // 定数のタグです
@@ -456,6 +458,8 @@ FQSEN を指定して結果を除外します。
                                 'fqsen'    => 'string',
                                 // 配列の階層数を表す整数値です（`Type[][]` などで 2 になります）
                                 'array'    => 0,
+                                // null 許容フラグです（`?string` などで true になります）
+                                'nullable' => false,
                             ],
                         ],
                         // 引数の名前です
@@ -478,6 +482,8 @@ FQSEN を指定して結果を除外します。
                             'fqsen'    => 'string',
                             // 配列の階層数を表す整数値です（`Type[][]` などで 2 になります）
                             'array'    => 0,
+                            // null 許容フラグです（`?string` などで true になります）
+                            'nullable' => false,
                         ],
                     ],
                     // 返り値の説明です
@@ -591,6 +597,7 @@ FQSEN を指定して結果を除外します。
                                 'category' => 'type',
                                 'fqsen'    => 'string',
                                 'array'    => 0,
+                                'nullable' => false,
                             ],
                         ],
                         // プロパティのタグです
