@@ -2,6 +2,7 @@
   "compression": "GZ",
   "chmod": "0755",
   "files": [
+    "src/functions.stub",
     "vendor/autoload.php"
   ],
   "finder": [

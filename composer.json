@@ -18,13 +18,16 @@
       "ryunosuke\\Documentize\\": "src/Documentize/"
     },
     "files": [
-      "src/functions.php"
+      "src/functions.stub"
     ]
   },
   "autoload-dev": {
     "psr-4": {
       "ryunosuke\\Test\\": "tests/Test/"
-    }
+    },
+    "files": [
+      "tests/functions.php"
+    ]
   },
   "bin": [
     "bin/documentize"
@@ -36,7 +39,7 @@
     "symfony/process": "3.*"
   },
   "require-dev": {
-    "ryunosuke/functions": "1.3.4",
+    "ryunosuke/functions": "1.4.15",
     "phpunit/phpunit": "6.*"
   },
   "scripts": {
@@ -48,7 +51,8 @@
       "@composer example"
     ],
     "export": [
-      "@php bin/export.php"
+      "export-function",
+      "exclude-internal"
     ],
     "test": [
       "vendor/bin/phpunit --configuration=tests/phpunit.xml"
@@ -63,6 +67,12 @@
       "rm -rf docs",
       "@php documentize.phar generate example/example             docs/example         --stats --force --autoload example/vendor/autoload.php --template-config example/config.php -i '*.php' -i '*.md'",
       "bin/documentize generate example/vendor/symfony/console/   docs/symfony-console --stats --force --autoload example/vendor/autoload.php --template-config example/config.php -i '*.php' -i '*.md' -e '/Tests/*'"
+    ],
+    "post-install-cmd": [
+      "@export"
+    ],
+    "post-update-cmd": [
+      "@export"
     ]
   }
 }
