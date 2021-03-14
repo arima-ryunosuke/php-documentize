@@ -49,11 +49,11 @@ PHPCODE
         $this->assertEquals(false, $phpfile->current());
         $this->assertEquals(false, $phpfile->next());
         $this->assertEquals(false, $phpfile->next(T_NAMESPACE));
-        $this->assertEquals([null, '}', 0], $phpfile->prev());
-        $this->assertEquals([null, '}', 0], $phpfile->prev());
-        $this->assertEquals([null, '{', 0], $phpfile->prev());
-        $this->assertEquals([null, '{', 0], $phpfile->current());
-        $this->assertEquals([T_NAMESPACE, 'namespace', 8], $phpfile->prev(T_NAMESPACE)[0]);
+        $this->assertEquals([ord('}'), '}', 13, 157], $phpfile->prev());
+        $this->assertEquals([ord('}'), '}', 12, 155], $phpfile->prev());
+        $this->assertEquals([ord('{'), '{', 12, 154], $phpfile->prev());
+        $this->assertEquals([ord('{'), '{', 12, 154], $phpfile->current());
+        $this->assertEquals([T_NAMESPACE, 'namespace', 8, 67], $phpfile->prev(T_NAMESPACE)[0]);
 
         $this->assertEquals(T_OPEN_TAG, $phpfile->reset()->current()[0]);
     }

@@ -259,10 +259,6 @@ class PhpFile
                     }
                 }
                 if ($name && $end) {
-                    // 締めの ; の行数は得られないので、「startと同一行ならそのまま、異なるなら複数行だろう」という判断で+1する
-                    if ($start < $end) {
-                        $end++;
-                    }
                     $result[$namespace][$classname][$name] = [$start, $end];
                 }
                 // 名前空間定数の doccomment はリフレクションで取れないのでパースして取る
