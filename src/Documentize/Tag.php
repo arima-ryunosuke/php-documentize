@@ -272,7 +272,7 @@ class Tag
         // 引数は int|string のような記法も許されるため、個別にパースする必要がある
         // が、辛すぎるので タイプヒントだけ潰してあとは呼び元に任せる
         $parameters = $paramsTag = [];
-        foreach (array_filter(quoteexplode(',', $args, ['[' => ']', '"' => '"', "'" => "'"], '\\'), 'strlen') as $param) {
+        foreach (array_filter(quoteexplode(',', $args, null, ['[' => ']', '"' => '"', "'" => "'"], '\\'), 'strlen') as $param) {
             $parts = preg_split('#\s+(?=[$.&])#u', trim($param), 2);
             if (isset($parts[1])) {
                 $type = array_shift($parts);

@@ -174,7 +174,7 @@ class DocumentizeCommand extends Command
         $generatetime = microtime(true) - $generatetime;
 
         if ($input->getOption('stats')) {
-            $filelist = file_list($dst, function ($file) use ($starttime) { return filemtime($file) >= $starttime; });
+            $filelist = file_list($dst, ['filter' => function ($file) use ($starttime) { return $file->getMTime() >= $starttime; }]);
             $gencount = count($filelist);
             $gensize = array_sum(array_map('filesize', $filelist));
 

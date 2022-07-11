@@ -15,12 +15,13 @@ use NS\TypedClass;
 use NS\UndefinedPropertyClass;
 use ryunosuke\Documentize\PhpFile;
 use ryunosuke\Documentize\Reflection;
+use function ryunosuke\Documentize\array_pickup;
 
 class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 {
     private $now;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setup();
 
@@ -420,12 +421,12 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_getMagicLocation()
     {
         $reflection = Reflection::instance(MagicClass::class);
-        $this->assertArraySubset([
+        $this->assertEquals([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
             'start' => 116,
             'end'   => 116,
         ], $reflection->getMagicPropertyLocation('magicProperty'));
-        $this->assertArraySubset([
+        $this->assertEquals([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
             'start' => 117,
             'end'   => 117,
@@ -459,14 +460,14 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
     {
         eval('class abcdefg{const a=1;var $b;}');
         $reflection = (Reflection::instance('abcdefg'));
-        $this->assertArraySubset([
+        $this->assertEquals([
             'start' => null,
             'end'   => null,
-        ], $reflection->getConstants()['a']->getLocation());
-        $this->assertArraySubset([
+        ], array_pickup($reflection->getConstants()['a']->getLocation(), ['start', 'end']));
+        $this->assertEquals([
             'start' => null,
             'end'   => null,
-        ], $reflection->getProperties()['b']->getLocation());
+        ], array_pickup($reflection->getProperties()['b']->getLocation(), ['start', 'end']));
     }
 
     function test_misc()

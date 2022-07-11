@@ -53,7 +53,7 @@ class Reflection
         if ($context) {
             $this->context = new self($context);
         }
-        elseif (method_exists($this->reflection, 'getDeclaringClass')) {
+        elseif (method_exists($this->reflection, 'getDeclaringClass') && $this->reflection->getDeclaringClass()) {
             $this->context = new self($this->reflection->getDeclaringClass());
         }
     }

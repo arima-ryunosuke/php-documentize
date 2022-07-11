@@ -22,7 +22,7 @@ abstract class AbstractUnitTestCase extends \PHPUnit\Framework\TestCase
             self::assertInstanceOf(get_class($e), $ex);
             self::assertEquals($e->getCode(), $ex->getCode());
             if (strlen($e->getMessage()) > 0) {
-                self::assertContains($e->getMessage(), $ex->getMessage());
+                self::assertStringContainsString($e->getMessage(), $ex->getMessage());
             }
             return;
         }

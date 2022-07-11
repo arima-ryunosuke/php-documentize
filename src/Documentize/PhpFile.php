@@ -175,7 +175,7 @@ class PhpFile
                 $uses[] = $part[1];
             }
             if ($alias === null) {
-                $alias = end($uses);
+                $alias = last_value(explode('\\', implode('', $uses)));
             }
             $result[$alias] = $ns . ltrim(implode('', $uses), '\\');
         };
@@ -282,6 +282,12 @@ class PhpFile
                 break;
             }
         }
-        return $result;
+        return array_map(function ($namespace) {
+            return array_replace([
+                '@comment' => '',
+                '@using'   => [],
+                '@const'   => [],
+            ], $namespace);
+        }, $result);
     }
 }

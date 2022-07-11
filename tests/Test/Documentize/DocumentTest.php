@@ -34,7 +34,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
             'recursive'  => true,
         ], $logs);
         $this->assertFalse($result);
-        $this->assertContains('err!', $logs);
+        $this->assertStringContainsString('err!', $logs);
     }
 
     function test_gather()
@@ -235,7 +235,12 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         ]);
         $document->gather($logs);
         $logs = array_column($logs, 'message');
-        $this->assertContains("Undefined variable: t", $logs);
+        if (version_compare(PHP_VERSION, 8.0) >= 0) {
+            $this->assertContains('Undefined variable $t', $logs);
+        }
+        else {
+            $this->assertContains("Undefined variable: t", $logs);
+        }
         $this->assertContains("ChildClass uses inheritdoc, but Invalid is not found.", $logs);
         $this->assertContains("ChildClass::method() uses inheritdoc, but Invalid::invalid() is not found.", $logs);
         $this->assertContains("'UndefinedClass' is undefined type in (ChildClass)", $logs);
@@ -258,10 +263,10 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
 
         $this->assertArrayHasKey('index', $markdowns['test.md']);
         $this->assertEquals('header-e192bb1a18afdb8d546a8a7f9d813e97e9e23eea-1', $markdowns['test.md']['index'][0]['id']);
-        $this->assertContains('h1', $markdowns['test.md']['index'][0]['content']);
+        $this->assertStringContainsString('h1', $markdowns['test.md']['index'][0]['content']);
 
         $this->assertArrayHasKey('html', $markdowns['test.md']);
-        $this->assertContains('<tag_link', $markdowns['test.md']['html']);
+        $this->assertStringContainsString('<tag_link', $markdowns['test.md']['html']);
     }
 
     function test_parseFile()

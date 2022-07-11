@@ -9,8 +9,6 @@ $t = $t;
  */
 class ChildClass
 {
-    const undefined = UNDEFINED;
-
     /**
      * {@inheritdoc Invalid::invalid()}
      *

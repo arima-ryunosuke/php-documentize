@@ -19,7 +19,7 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
 
     protected $defaultArgs = [];
 
-    protected function setup()
+    protected function setup(): void
     {
         parent::setUp();
 
@@ -59,9 +59,9 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
             '--stats'     => true,
             '-vvv'        => true,
         ]);
-        $this->assertContains('Gather and parse files from', $output);
-        $this->assertContains('Found 0 markdowns, 0 constants, 0 functions, 0 interfaces, 0 traits, 1 classes in 1 namespaces', $output);
-        $this->assertContains('Input php count 2 files', $output);
+        $this->assertStringContainsString('Gather and parse files from', $output);
+        $this->assertStringContainsString('Found 0 markdowns, 0 constants, 0 functions, 0 interfaces, 0 traits, 1 classes in 1 namespaces', $output);
+        $this->assertStringContainsString('Input php count 2 files', $output);
     }
 
     function test_no_generate()
@@ -74,8 +74,8 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
             'destination' => "$tmpdir/rdz-test",
             '--template'  => "notfoundfile",
         ]);
-        $this->assertContains('is not found', $output);
-        $this->assertContains('no generate', $output);
+        $this->assertStringContainsString('is not found', $output);
+        $this->assertStringContainsString('no generate', $output);
     }
 
     function test_fatal()
@@ -87,6 +87,6 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
             'destination' => "$tmpdir/rdz-test",
         ]);
         $output .= ob_get_clean();
-        $this->assertContains('Uncaught InvalidArgumentException', $output);
+        $this->assertStringContainsString('Uncaught InvalidArgumentException', $output);
     }
 }
