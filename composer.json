@@ -33,14 +33,14 @@
     "bin/documentize"
   ],
   "require": {
-    "php": ">=7.2",
+    "php": ">=7.4",
     "cebe/markdown": "1.2.*",
     "symfony/console": "3.*",
     "symfony/process": "3.*"
   },
   "require-dev": {
-    "ryunosuke/functions": "1.4.15",
-    "phpunit/phpunit": "6.*"
+    "ryunosuke/functions": "1.5.*",
+    "phpunit/phpunit": "8.*"
   },
   "scripts": {
     "build": [
