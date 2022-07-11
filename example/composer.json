@@ -1,4 +1,9 @@
 {
+  "config": {
+    "platform": {
+      "php": "7.4"
+    }
+  },
   "require": {
     "symfony/console": "3.4.11",
     "symfony/event-dispatcher": "3.4.11",
