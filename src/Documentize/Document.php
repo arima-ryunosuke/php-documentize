@@ -464,9 +464,6 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         // 5パス目。過程で見つからなかった FQSEN を報告
         foreach ($this->fqsens as $type => $fqsens) {
             foreach ($fqsens as $fqsen) {
-                if (isset(Fqsen::BUILTIN_TYPES[strtolower($fqsen)])) {
-                    continue;
-                }
                 list($category, $ns, $cname, $m) = Fqsen::parse($fqsen);
                 if ($ttype = Fqsen::detectType("$ns\\$cname")) {
                     $ref = Reflection::instance("$ns\\$cname");
@@ -486,7 +483,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                         }
                     }
                 }
-                elseif ($category !== 'namespace' && $category !== 'constant' && $category !== 'function') {
+                elseif ($category !== 'pseudo' && $category !== 'namespace' && $category !== 'constant' && $category !== 'function') {
                     trigger_error("'$fqsen' is undefined type in ($type)");
                 }
             }

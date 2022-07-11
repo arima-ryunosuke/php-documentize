@@ -70,6 +70,13 @@ class Fqsen
     public static function parse($fqsen)
     {
         $fqsen = ltrim($fqsen, '?');
+        $fqsen = strstr($fqsen . '<', '<', true);
+        $fqsen = strstr($fqsen . '{', '{', true);
+
+        if (isset(self::BUILTIN_TYPES[strtolower($fqsen)])) {
+            return ['pseudo', '', $fqsen, 'todo'];
+        }
+
         $regex = "
             (?<namespace>[^:()$]+\\\\)?
             (?<localname>[^:()$]+)
@@ -151,7 +158,7 @@ class Fqsen
     {
         // 配列化したりパイプをバラしたりして正規化
         $types = array_reduce($this->types, static function ($carry, $item) {
-            return array_merge($carry, explode('|', $item));
+            return array_merge($carry, quoteexplode('|', $item, null, ['<' => '>', '{' => '}']));
         }, []);
 
         $result = [];
@@ -163,6 +170,8 @@ class Fqsen
             }
             // Type[][] などの [] の数を配列階層数とする（ただし、パースに邪魔なので、置換して回数を数えておきそれを階層数とする）
             $fqsen = str_replace('[]', '', trim($type), $count);
+            $fqsen = strstr($fqsen . '<', '<', true);
+            $fqsen = strstr($fqsen . '{', '{', true);
             list($class, $member) = explode('::', $fqsen) + [1 => ''];
             $default = [
                 'category' => 'type',
