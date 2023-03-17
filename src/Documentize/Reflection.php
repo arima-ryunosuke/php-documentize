@@ -633,8 +633,8 @@ class Reflection
     public function getDeclaration()
     {
         $declaration = '';
-        $declaration .= $this->reflection->isVariadic() ? '...' : '';
         $declaration .= $this->reflection->isPassedByReference() ? '&' : '';
+        $declaration .= $this->reflection->isVariadic() ? '...' : '';
         $declaration .= '$' . $this->reflection->getName();
         if ($this->reflection->isDefaultValueAvailable()) {
             if ($this->reflection->isDefaultValueConstant()) {

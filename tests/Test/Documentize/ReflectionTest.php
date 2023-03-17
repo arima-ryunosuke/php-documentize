@@ -271,7 +271,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame('$defa = [1, 2, 3]', $reflection->getDeclaration());
 
         $reflection = $reffunc->getParameters()['params'];
-        $this->assertSame('...$params', $reflection->getDeclaration());
+        $this->assertSame('&...$params', $reflection->getDeclaration());
     }
 
     function test_prototype()

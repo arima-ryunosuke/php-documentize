@@ -6,7 +6,7 @@ namespace NS;
 const MockConstant = 1;
 
 /** funccomment */
-function MockFunction(int $defc = \PHP_VERSION_ID, array $defa = [1, 2, 3], string ...$params): int { }
+function MockFunction(int $defc = \PHP_VERSION_ID, array $defa = [1, 2, 3], string &...$params): int { }
 
 /** interfacecomment */
 interface MockInterface
