@@ -399,8 +399,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     $type = $lookup($fqsen);
                     $fqsen = [
                         'fqsen'       => $fqsen,
-                        'category'    => $type['category'],
-                        'description' => $type['description'],
+                        'category'    => $type['category'] ?? null,
+                        'description' => $type['description'] ?? null,
                     ];
                 });
             }

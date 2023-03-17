@@ -21,7 +21,7 @@ class PhpFile
 
     public static function cache($filename, $content = null)
     {
-        if ($filename === null) {
+        if ("$filename" === "") {
             return self::$cache;
         }
 
