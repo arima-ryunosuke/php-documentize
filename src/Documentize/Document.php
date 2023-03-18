@@ -314,13 +314,16 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     // dummy. プロパティで継承したい要素があるならここに記述
                 }
                 elseif ($mtype === 'methods') {
-                    // メソッドは引数と返り値を継承（空の場合のみ）
+                    // メソッドは引数と返り値を継承
                     $parentparams = array_column($parent['parameters'], null, 'name');
                     foreach ($target['parameters'] as $n => $parameter) {
                         if (isset($parentparams[$parameter['name']]) && !$parameter['description']) {
+                            // 引数は反変なので型をマージ
+                            $parentparams[$parameter['name']]['types'] = array_values(array_unique(array_merge($parameter['types'], $parentparams[$parameter['name']]['types']), SORT_REGULAR));
                             $target['parameters'][$n] = $parentparams[$parameter['name']];
                         }
                     }
+                    // return は共変なので完全上書き
                     if (!$target['return']['types']) {
                         $target['return'] = $parent['return'];
                     }
