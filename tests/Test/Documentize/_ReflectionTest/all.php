@@ -101,6 +101,10 @@ class StaticPropertyClass
 
 class TypedClass
 {
+    protected static array $nodefaultStaticProperty;
+
+    public array $nodefaultProperty;
+
     public ?array $typedProperty = [];
 
     public function typedMethod(?array $arg1): ?string { }
@@ -110,6 +114,8 @@ class TypedClass
 class UndefinedPropertyClass
 {
     protected $undefinedProperty = self::CONSTANT;
+
+    protected array $nodefaultProperty = self::CONSTANT;
 }
 
 /**

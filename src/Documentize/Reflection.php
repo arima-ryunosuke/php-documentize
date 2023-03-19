@@ -647,6 +647,39 @@ class Reflection
         return $declaration;
     }
 
+    public function hasValue()
+    {
+        switch (true) {
+            case $this->reflection instanceof \ReflectionProperty:
+                // この静的変数はキャッシュも兼ねるが、一番の目的は「notice が大量に出ないように」すること
+                static $values = [];
+                $key = $this->getFqsen();
+                if (!array_key_exists($key, $values)) {
+                    // 以下の処理はオートローダが起動することがあり、クラスが読み込めないなら fatal になるし、勝手定義の場合は undefined Error になる
+                    // 捕捉できないものもあるが、気休め程度に Throwable をキャッチしてログる
+                    set_error_handler(function ($errno, $errstr) { throw new \ErrorException($errstr, 0, $errno); });
+                    try {
+                        $values[$key] = true;
+                        if ($this->isStatic()) {
+                            $this->reflection->setAccessible(true);
+                            $values[$key] = $this->reflection->isInitialized();
+                        }
+                        else {
+                            $defaults = $this->context->reflection->getDefaultProperties();
+                            $values[$key] = array_key_exists($this->getShortName(), $defaults);
+                        }
+                        restore_error_handler();
+                    }
+                    catch (\Throwable $t) {
+                        restore_error_handler();
+                        trigger_error($t->getMessage() . " in " . $this->getFileName());
+                    }
+                }
+                return $values[$key];
+        }
+        throw new \DomainException();
+    }
+
     public function getValue()
     {
         switch (true) {
@@ -663,20 +696,25 @@ class Reflection
                     // 捕捉できないものもあるが、気休め程度に Throwable をキャッチしてログる
                     set_error_handler(function ($errno, $errstr) { throw new \ErrorException($errstr, 0, $errno); });
                     try {
+                        $values[$key] = null;
                         // static は getDefaultProperties で取れない（http://php.net/manual/ja/reflectionclass.getdefaultproperties.php）
                         if ($this->isStatic()) {
                             $this->reflection->setAccessible(true);
-                            $values[$key] = $this->reflection->getValue();
+                            if ($this->reflection->isInitialized()) {
+                                $values[$key] = $this->reflection->getValue();
+                            }
                         }
                         else {
-                            $values[$key] = $this->context->reflection->getDefaultProperties()[$this->getShortName()];
+                            $defaults = $this->context->reflection->getDefaultProperties();
+                            if (array_key_exists($this->getShortName(), $defaults)) {
+                                $values[$key] = $defaults[$this->getShortName()];
+                            }
                         }
                         restore_error_handler();
                     }
                     catch (\Throwable $t) {
                         restore_error_handler();
                         trigger_error($t->getMessage() . " in " . $this->getFileName());
-                        $values[$key] = null;
                     }
                 }
                 return $values[$key];

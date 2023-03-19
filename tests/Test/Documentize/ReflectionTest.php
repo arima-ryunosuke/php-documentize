@@ -376,6 +376,12 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
 
         $reflection = Reflection::instance(UndefinedPropertyClass::class . '::$undefinedProperty');
         $this->assertEquals(null, @$reflection->getValue());
+
+        $reflection = Reflection::instance(TypedClass::class . '::$nodefaultStaticProperty');
+        $this->assertEquals(null, $reflection->getValue());
+
+        $reflection = Reflection::instance(TypedClass::class . '::$nodefaultProperty');
+        $this->assertEquals(null, $reflection->getValue());
     }
 
     function test_internal()
@@ -401,12 +407,22 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
     {
         $reflection = (Reflection::instance(TypedClass::class));
 
+        $property = $reflection->getProperties()['nodefaultStaticProperty'];
+        $this->assertSame(false, $property->hasValue());
+
+        $property = $reflection->getProperties()['nodefaultProperty'];
+        $this->assertSame(false, $property->hasValue());
+
         $property = $reflection->getProperties()['typedProperty'];
+        $this->assertSame(true, $property->hasValue());
         $this->assertSame('?array', $property->getType()->getFqsen());
 
         $method = $reflection->getMethods()['typedMethod'];
         $this->assertSame('?string', $method->getType()->getFqsen());
         $this->assertSame('?array', $method->getParameters()['arg1']->getType()->getFqsen());
+
+        $reflection = Reflection::instance(UndefinedPropertyClass::class . '::$nodefaultProperty');
+        $this->assertEquals(true, @$reflection->hasValue());
     }
 
     function test_getMagicMethod()
@@ -423,13 +439,13 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $reflection = Reflection::instance(MagicClass::class);
         $this->assertEquals([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 116,
-            'end'   => 116,
+            'start' => 122,
+            'end'   => 122,
         ], $reflection->getMagicPropertyLocation('magicProperty'));
         $this->assertEquals([
             'path'  => realpath(__DIR__ . '/_ReflectionTest/all.php'),
-            'start' => 117,
-            'end'   => 117,
+            'start' => 123,
+            'end'   => 123,
         ], $reflection->getMagicMethodLocation('magicMethod'));
     }
 
@@ -485,6 +501,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertException(new \DomainException(), [$reflection, 'getProtoType']);
         $this->assertException(new \DomainException(), [$reflection, 'getProtoTypes']);
         $this->assertException(new \DomainException(), [$reflection, 'getType']);
+        $this->assertException(new \DomainException(), [$reflection, 'hasValue']);
         $this->assertException(new \DomainException(), [$reflection, 'getValue']);
     }
 }
