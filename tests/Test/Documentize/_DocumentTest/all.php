@@ -17,6 +17,8 @@ namespace GlobalSpace {
      */
     function globalFunction(int $arg): int { }
 
+    function globalFunction2(int $arg): int { }
+
     /**
      * interface comment
      */

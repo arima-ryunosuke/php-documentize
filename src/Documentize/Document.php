@@ -435,7 +435,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             }
 
             // 環境によって関数の定義順がバラけるようなので functions だけは定義順でソート
-            uasort($data['functions'], function ($a, $b) { return $a['location']['start'] - $b['location']['start']; });
+            uasort($data['functions'], function ($a, $b) {
+                return $a['location']['path'] <=> $b['location']['path'] ?: $a['location']['start'] - $b['location']['start'];
+            });
 
             foreach (self::TYPE_MULTIPLES as $type) {
                 array_walk($data[$type], $marshal);
