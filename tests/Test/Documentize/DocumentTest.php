@@ -300,43 +300,56 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         ]);
         $parseDoccomment = self::forcedCallize($document, 'parseDoccomment');
 
-        $comment = $parseDoccomment('/**
- * this is description{@inline1 tag}{@inline2 tag}
- *
- * this is description1.
- * this is description2.
- * there is inline tag.{@inlinetag}
- * there is special tag.<@specialtag>
- *
- * - list1:    {@inlisttag1}
- * - list2:    {@inlisttag2}
- *
- * @property hoge() {
- *     {@internaltag1}
- *     text <@internaltag2> text
- * }
- *
- * @method fuga() {
- *     {@internaltag1}
- *     text <@internaltag2> text
- * }
- *
- * @tagname1 tagvalue1
- * @tagname2 tagvalue21
- * @tagname2 tagvalue22
- */
-', null, null);
-        $this->assertEquals("this is description<tag_inline1 ></tag_inline1><tag_inline2 ></tag_inline2>
-
-this is description1.
-this is description2.
-there is inline tag.<tag_inlinetag ></tag_inlinetag>
-there is special tag.<tag_specialtag ></tag_specialtag>
-
-- list1:    <tag_inlisttag1 ></tag_inlisttag1>
-- list2:    <tag_inlisttag2 ></tag_inlisttag2>
-
-", $comment['description']);
+        $comment = $parseDoccomment(<<<COMMENT
+        /**
+         * this is description{@inline1 tag}{@inline2 tag}
+         *
+         * this is description1.
+         * this is description2.
+         * there is inline tag.{@inlinetag}
+         * there is special tag.<@specialtag>
+         *
+         * - list1:    {@inlisttag1}
+         * - list2:    {@inlisttag2}
+         *
+         * ```
+         * this is code block
+         * @internalAnnotation
+         * ```
+         *
+         * @property hoge() {
+         *     {@internaltag1}
+         *     text <@internaltag2> text
+         * }
+         *
+         * @method fuga() {
+         *     {@internaltag1}
+         *     text <@internaltag2> text
+         * }
+         *
+         * @tagname1 tagvalue1
+         * @tagname2 tagvalue21
+         * @tagname2 tagvalue22
+         */
+        COMMENT, null, null);
+        $this->assertEquals(<<<DESCRIPTION
+        this is description<tag_inline1 ></tag_inline1><tag_inline2 ></tag_inline2>
+        
+        this is description1.
+        this is description2.
+        there is inline tag.<tag_inlinetag ></tag_inlinetag>
+        there is special tag.<tag_specialtag ></tag_specialtag>
+        
+        - list1:    <tag_inlisttag1 ></tag_inlisttag1>
+        - list2:    <tag_inlisttag2 ></tag_inlisttag2>
+        
+        ```
+        this is code block
+        @internalAnnotation
+        ```
+        
+        
+        DESCRIPTION, $comment['description']);
 
         $this->assertEquals(['inline1', 'inline2', 'inlinetag', 'specialtag', 'inlisttag1', 'inlisttag2', 'property', 'method', 'tagname1', 'tagname2'], array_keys($comment['tags']));
     }

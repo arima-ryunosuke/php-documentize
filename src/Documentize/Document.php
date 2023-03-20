@@ -998,13 +998,24 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
     {
         $doccomment = trim(preg_replace('#(^/\\*\\*)|(\s+\\*/$)|(^ +\\* ?)#m', '', $doccomment));
 
+        // コードブロックを逃しておく
+        $mapping = [];
+        preg_match_all('#(`{4,}).+?\1|(`{3,}).+?\2|(`{2,}).+? \3|(`).+?\4#us', $doccomment, $matches, PREG_OFFSET_CAPTURE);
+        foreach (array_reverse($matches[0]) as $n => $match) {
+            $offset = $match[1];
+            $length = strlen($match[0]);
+            $tag = "-dummy-" . $n;
+            $mapping[$tag] = substr($doccomment, $offset, $length);
+            $doccomment = substr_replace($doccomment, $tag, $offset, $length);
+        }
+
         $tags = [];
 
-        $doccomment = preg_replace_callback('#(.*?)([<\{]@.+?[>\}])#', function ($m) use (&$tags, $namespace, $own) {
+        $doccomment = preg_replace_callback('#(.*?)([<\{]@.+?[>\}])#', function ($m) use (&$tags, $namespace, $own, $mapping) {
             if (starts_with($m[1], ["    ", "\t"])) {
                 return $m[0];
             }
-            $tag = new Tag($m[2], $this->usings, $namespace, $own, null);
+            $tag = new Tag(strtr($m[2], $mapping), $this->usings, $namespace, $own, null);
             $this->fqsens[$own] = array_merge($this->fqsens[$own] ?? [], $tag->getDependedFqsens());
             $tagvalues = $tag->toArray();
             $tags[$tagvalues['tagname']][] = $tagvalues;
@@ -1013,15 +1024,18 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         $last = null;
         foreach (preg_grep('#^@#', preg_split('#(?=^@)#m', $doccomment)) as $tagstr) {
-            $tag = new Tag($tagstr, $this->usings, $namespace, $own, $last);
+            $tag = new Tag(strtr($tagstr, $mapping), $this->usings, $namespace, $own, $last);
             $this->fqsens[$own] = array_merge($this->fqsens[$own] ?? [], $tag->getDependedFqsens());
             $tagvalues = $tag->toArray();
             $tags[$tagvalues['tagname']][] = $tagvalues;
             $last = $tagstr;
         }
 
+        $description = preg_match('#^(.*?)(^@|\Z)#ms', $doccomment, $matches) ? $matches[1] : $doccomment;
+        $description = strtr($description, $mapping);
+
         return [
-            'description' => preg_match('#^(.*?)(^@|\Z)#ms', $doccomment, $matches) ? $matches[1] : $doccomment,
+            'description' => $description,
             'tags'        => $tags,
         ];
     }
