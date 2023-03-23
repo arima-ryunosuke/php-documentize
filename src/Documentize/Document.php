@@ -302,7 +302,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 }
 
                 // タグは要素を問わずすべて継承
-                $target['tags'] = $parent['tags'];
+                $target['tags'] = array_merge_recursive($target['tags'], $parent['tags']);
 
                 if ($mtype === 'type') {
                     // dummy. 型で継承したい要素があるならここに記述
