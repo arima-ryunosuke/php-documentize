@@ -47,6 +47,10 @@ class Fqsen
      */
     public static function detectType($type)
     {
+        if (!strlen(trim($type, "\\"))) {
+           return null;
+        }
+
         if (class_exists($type)) {
             return 'class';
         }

@@ -24,6 +24,7 @@ class FqsenTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertEquals(null, Fqsen::detectType('Hoge'));
         $this->assertEquals(null, Fqsen::detectType('123'));
         $this->assertEquals(null, Fqsen::detectType('Int'));
+        $this->assertEquals(null, Fqsen::detectType('\\'));
     }
 
     function test_parse()
