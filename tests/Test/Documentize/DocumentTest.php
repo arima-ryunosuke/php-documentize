@@ -80,7 +80,8 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertEquals("override classMethod1 arg comment\n", $methods['classMethod1']['parameters'][0]['description']);
         $this->assertEquals("override classMethod1 return comment", $methods['classMethod1']['return']['description']);
         $this->assertEquals("classMethod2 arg comment\n", $methods['classMethod2']['parameters'][0]['description']);
-        $this->assertEquals("classMethod2 return comment", $methods['classMethod2']['return']['description']);
+        $this->assertEquals("classMethod2 return comment\n", $methods['classMethod2']['return']['description']);
+        $this->assertEquals("2nd return comment", $methods['classMethod2']['returns'][1]['description']);
 
         $uses = array_intersect_key($methods, ['usedByMethod' => true, 'magicMethod' => true]);
         $this->assertSame(['usedByMethod', 'magicMethod'], array_keys($uses));

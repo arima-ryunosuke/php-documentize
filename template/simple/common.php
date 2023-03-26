@@ -175,17 +175,19 @@ function render_parameter($params)
     <?php
 }
 
-function render_return($return)
+function render_return($returns)
 {
     ?>
 	<table class="table">
 		<caption>Return</caption>
 		<tbody>
-		<tr>
-			<td class="type"><?= $return['types'] ? render_type($return['types']) : 'void' ?></td>
-			<td class="desc"><?= md($return['description']) ?></td>
-			<td class="rest"></td>
-		</tr>
+        <?php foreach ($returns as $return): ?>
+			<tr>
+				<td class="type"><?= $return['types'] ? render_type($return['types']) : 'void' ?></td>
+				<td class="desc"><?= md($return['description']) ?></td>
+				<td class="rest"></td>
+			</tr>
+        <?php endforeach ?>
 		</tbody>
 	</table>
     <?php

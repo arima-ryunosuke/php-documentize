@@ -327,6 +327,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                     if (!$target['return']['types']) {
                         $target['return'] = $parent['return'];
                     }
+                    if (!$target['returns']) {
+                        $target['returns'] = $parent['returns'];
+                    }
                 }
 
                 $OK = true;
@@ -584,6 +587,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'description' => $data['description'],
                 'parameters'  => $data['parameters'],
                 'return'      => $data['return'],
+                'returns'     => $data['returns'],
                 'tags'        => $data['tags'],
             ];
             $result++;
@@ -730,6 +734,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             'description' => $docs['description'],
             'parameters'  => [],
             'return'      => [],
+            'returns'     => [],
             'tags'        => $docs['tags'],
         ];
 
@@ -757,6 +762,13 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             'types'       => $merge($docs['tags']['return'][0]['type'] ?? [], $reffunc->getType(), $this->usings, $namespace, $own),
             'description' => $docs['tags']['return'][0]['description'] ?? '',
         ];
+
+        foreach ($docs['tags']['return'] ?? [] as $return) {
+            $result['returns'][] = [
+                'types'       => $return['type'] ?? [],
+                'description' => $return['description'] ?? '',
+            ];
+        }
 
         return $result;
     }
@@ -901,6 +913,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'prototypes'  => $prototypes,
                 'parameters'  => $rmethod['parameters'],
                 'return'      => $rmethod['return'],
+                'returns'     => $rmethod['returns'],
                 'tags'        => $rmethod['tags'],
             ];
         }
@@ -927,6 +940,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'prototypes'  => [],
                 'parameters'  => $mmethod['parameters'],
                 'return'      => $mmethod['return'],
+                'returns'     => $mmethod['returns'],
                 'tags'        => $mmethod['tags'],
             ];
         }

@@ -126,7 +126,7 @@
 					<div class="inner-item">
 						<div class="description"><?= md($method['description']) ?></div>
                         <?= render_parameter($method['parameters']) ?>
-                        <?= render_return($method['return']) ?>
+                        <?= render_return($method['returns']) ?>
                         <?= render_throwsTag($method['tags']['throws'] ?? []) ?>
                         <?= render_prototype($method['prototypes']) ?>
                         <?= render_seeTag($method['tags']['see'] ?? []) ?>

@@ -123,7 +123,7 @@
 					<div class="inner-item">
 						<div class="description"><?= md($function['description']) ?></div>
                         <?= render_parameter($function['parameters']) ?>
-                        <?= render_return($function['return']) ?>
+                        <?= render_return($function['returns']) ?>
                         <?= render_throwsTag($function['tags']['throws'] ?? []) ?>
                         <?= render_seeTag($function['tags']['see'] ?? []) ?>
 					</div>

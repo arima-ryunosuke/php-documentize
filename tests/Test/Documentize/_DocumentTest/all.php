@@ -81,6 +81,7 @@ namespace GlobalSpace {
          *
          * @param int $arg classMethod2 arg comment
          * @return self classMethod2 return comment
+         * @return false 2nd return comment
          */
         public function classMethod2(int $arg) { }
     }
