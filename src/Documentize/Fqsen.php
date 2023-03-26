@@ -27,6 +27,7 @@ class Fqsen
         'array'    => true,
         'object'   => true,
         'mixed'    => true,
+        'list'     => true, // 内部型ではないが頻出するので特別扱いする
     ];
 
     /** @var array phpdoc 特有のタイプヒンティング */
