@@ -791,7 +791,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             'final'          => $refclass->isFinal(),
             'abstract'       => $refclass->isAbstract(),
             'cloneable'      => false, // $refclass->isCloneable(), # php has bug called __destruct
-            'iterateable'    => $refclass->isIterateable(),
+            'iterateable'    => $refclass->isIterable(), // for compatible
+            'iterable'       => $refclass->isIterable(),
             'hierarchy'      => [],
             'parents'        => $refclass->getParents(),
             'implements'     => $refclass->getImplements(),

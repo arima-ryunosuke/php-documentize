@@ -95,7 +95,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame([], $reflection->getUses());
         $this->assertSame(false, $reflection->isFinal());
         $this->assertSame(true, $reflection->isAbstract());
-        $this->assertSame(false, $reflection->isIterateable());
+        $this->assertSame(false, $reflection->isIterable());
         $this->assertSame(true, $reflection->isInterface());
         $this->assertSame(false, $reflection->isTrait());
         $this->assertCount(0, $reflection->getTraitProperties());
@@ -125,7 +125,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame([], $reflection->getUses());
         $this->assertSame(false, $reflection->isFinal());
         $this->assertSame(false, $reflection->isAbstract());
-        $this->assertSame(false, $reflection->isIterateable());
+        $this->assertSame(false, $reflection->isIterable());
         $this->assertSame(false, $reflection->isInterface());
         $this->assertSame(true, $reflection->isTrait());
         $this->assertCount(0, $reflection->getTraitProperties());
@@ -155,7 +155,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertSame(['NS\\MockTrait'], $reflection->getUses());
         $this->assertSame(false, $reflection->isFinal());
         $this->assertSame(false, $reflection->isAbstract());
-        $this->assertSame(false, $reflection->isIterateable());
+        $this->assertSame(false, $reflection->isIterable());
         $this->assertSame(false, $reflection->isInterface());
         $this->assertSame(false, $reflection->isTrait());
         $this->assertCount(1, $reflection->getTraitProperties());

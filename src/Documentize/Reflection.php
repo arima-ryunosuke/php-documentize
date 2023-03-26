@@ -285,9 +285,9 @@ class Reflection
         return $this->reflection->isAbstract();
     }
 
-    public function isIterateable()
+    public function isIterable()
     {
-        return $this->reflection->isIterateable();
+        return $this->reflection->isIterable();
     }
 
     public function isInterface()
