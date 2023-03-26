@@ -525,6 +525,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         list($ns, $name) = namespace_split($namespace);
         return [
             'category'    => 'namespace',
+            'id'          => "$namespace\\",
             'fqsen'       => "$namespace\\",
             'namespace'   => $ns,
             'name'        => $name,
@@ -551,6 +552,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $namespaces[$ref->getNamespaceName()] = $namespaces[$ref->getNamespaceName()] ?? $this->defaultNS($ref->getNamespaceName());
             $namespaces[$ref->getNamespaceName()]['constants'][$ref->getShortName()] = [
                 'category'    => $ref->getCategory(),
+                'id'          => $ref->getFqsen(),
                 'fqsen'       => $ref->getFqsen(),
                 'namespace'   => $ref->getNamespaceName(),
                 'name'        => $ref->getShortName(),
@@ -580,6 +582,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $namespaces[$ref->getNamespaceName()] = $namespaces[$ref->getNamespaceName()] ?? $this->defaultNS($ref->getNamespaceName());
             $namespaces[$ref->getNamespaceName()]['functions'][$ref->getShortName()] = [
                 'category'    => $ref->getCategory(),
+                'id'          => $ref->getFqsen(),
                 'fqsen'       => $ref->getFqsen(),
                 'namespace'   => $ref->getNamespaceName(),
                 'name'        => $ref->getShortName(),
@@ -779,6 +782,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         $result = [
             'category'       => $refclass->getCategory(),
+            'id'             => $refclass->getFqsen(),
             'fqsen'          => $refclass->getFqsen(),
             'namespace'      => $refclass->getNamespaceName(),
             'name'           => $refclass->getShortName(),
@@ -811,6 +815,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $prototypes = $refconst->getProtoTypes();
             $result[$refconst->getShortName()] = [
                 'category'    => $refconst->getCategory(),
+                'id'          => $refconst->getFqsen(),
                 'fqsen'       => $refconst->getFqsen(),
                 'namespace'   => $refconst->getNamespaceName(),
                 'name'        => $refconst->getShortName(),
@@ -846,6 +851,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $prototypes = $refproperty->getProtoTypes();
             $result[$refproperty->getShortName()] = [
                 'category'    => $refproperty->getCategory(),
+                'id'          => $refproperty->getFqsen(),
                 'fqsen'       => $refproperty->getFqsen(),
                 'namespace'   => $refproperty->getNamespaceName(),
                 'name'        => $refproperty->getShortName(),
@@ -871,6 +877,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $types = $propdocs['tags']['var'][0]['type'] ?? [];
             $result[$tag['name']] = [
                 'category'    => 'property',
+                'id'          => $refclass->getFqsen() . '::$' . $tag['name'],
                 'fqsen'       => $refclass->getFqsen() . '::$' . $tag['name'],
                 'namespace'   => $refclass->getNamespaceName(),
                 'name'        => $tag['name'],
@@ -899,6 +906,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $prototypes = $refmethod->getProtoTypes();
             $result[$refmethod->getShortName()] = [
                 'category'    => $refmethod->getCategory(),
+                'id'          => $refmethod->getFqsen(),
                 'fqsen'       => $refmethod->getFqsen(),
                 'namespace'   => $refmethod->getNamespaceName(),
                 'name'        => $refmethod->getShortName(),
@@ -926,6 +934,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $mmethod = $this->parseFunction($reffunc, $refclass->getNamespaceName(), $refclass->getFqsen());
             $result[$tag['name']] = [
                 'category'    => 'method',
+                'id'          => $refclass->getFqsen() . '::' . $tag['name'] . '()',
                 'fqsen'       => $refclass->getFqsen() . '::' . $tag['name'] . '()',
                 'namespace'   => $refclass->getNamespaceName(),
                 'name'        => $tag['name'],
