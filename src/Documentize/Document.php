@@ -408,7 +408,10 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 });
             }
         };
-        $result = [];
+        $result = [
+            'namespaces' => [],
+            'markdowns'  => $this->markdowns,
+        ];
         ksort($namespaces);
         foreach ($namespaces as $namespace => $data) {
             if ($this->skip($data, null, null)) {
@@ -453,17 +456,16 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $data['description'] = $nsdata['description'];
             $data['tags'] = $nsdata['tags'];
 
-            $mns = [];
-            $tmp = &$result;
-            $nss = preg_split('#\\\\#', $data['namespace'], -1, PREG_SPLIT_NO_EMPTY);
-            foreach ($nss as $ns) {
-                $mns[] = $ns;
-                if (!isset($tmp[$ns])) {
-                    $tmp[$ns] = $this->defaultNS(ltrim(implode('\\', $mns), '\\'));
+            $absolute = $relative = [];
+            $target = &$result;
+            foreach (explode('\\', $namespace) as $nspart) {
+                $absolute[] = $relative[] = $nspart;
+                if (isset($namespaces[implode('\\', $absolute)])) {
+                    $target = &$target['namespaces'][implode('\\', $relative)];
+                    $relative = [];
                 }
-                $tmp = &$tmp[$ns]['namespaces'];
             }
-            $tmp[$data['name']] = $data;
+            $target = $data;
         }
 
         // 5パス目。過程で見つからなかった FQSEN を報告
@@ -496,10 +498,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         restore_error_handler();
 
-        return [
-            'namespaces' => $result,
-            'markdowns'  => $this->markdowns,
-        ];
+        return $result;
     }
 
     private function cache($id, $originaltime, $provider)
