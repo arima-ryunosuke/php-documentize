@@ -411,6 +411,14 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 });
             }
         };
+        $array_walk_recursive = function (&$array, $callback) use (&$array_walk_recursive) {
+            $callback($array);
+            foreach ($array as &$v) {
+                if (is_array($v)) {
+                    $array_walk_recursive($v, $callback);
+                }
+            }
+        };
         $result = [
             'namespaces' => [],
             'markdowns'  => $this->markdowns,
@@ -458,6 +466,12 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $nsdata = $this->parseDoccomment($nsdescription, $namespace, null);
             $data['description'] = $nsdata['description'];
             $data['tags'] = $nsdata['tags'];
+
+            $array_walk_recursive($data, function (&$value) {
+                if (array_key_exists('description', $value)) {
+                    $value['summary'] = trim(explode("\n", trim($value['description'] ?? ''))[0]);
+                }
+            });
 
             $absolute = $relative = [];
             $target = &$result;

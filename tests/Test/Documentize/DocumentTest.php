@@ -61,6 +61,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertArrayHasKey('globalConstant', $namespaces['GlobalSpace']['constants']);
         $this->assertArrayHasKey('abc_function', $namespaces['A\\B\\C']['functions']);
         $this->assertEquals('ABC comment', $namespaces['A\\B\\C']['description']);
+        $this->assertEquals('ABC comment', $namespaces['A\\B\\C']['summary']);
 
         $properties = $namespaces['GlobalSpace']['classes']['GlobalClass']['properties'];
         $this->assertEquals([
