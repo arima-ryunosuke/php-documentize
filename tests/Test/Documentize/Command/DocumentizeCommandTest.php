@@ -56,14 +56,20 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
             'source'      => __DIR__ . '/_DocumentizeCommand',
             'destination' => "$tmpdir/rdz-test",
             '--config'    => $this->writePhpFile([
-                'cachedir' => "$tmpdir/rdz-test",
-                'stats'    => true,
+                'cachedir'        => "$tmpdir/rdz-test",
+                'template'        => 'simple',
+                'template-config' => $this->writePhpFile([
+                    'title' => 'custom title'
+                ]),
+                'stats'           => true,
             ]),
             '-vvv'        => true,
         ]);
         $this->assertStringContainsString('Gather and parse files from', $output);
         $this->assertStringContainsString('Found 0 markdowns, 0 constants, 0 functions, 0 interfaces, 0 traits, 1 classes in 1 namespaces', $output);
         $this->assertStringContainsString('Input php count 2 files', $output);
+
+        $this->assertStringContainsString('<title>custom title</title>', file_get_contents("$tmpdir/rdz-test/index.html"));
     }
 
     function test_no_generate()

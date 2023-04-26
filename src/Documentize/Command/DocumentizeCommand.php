@@ -92,8 +92,10 @@ class DocumentizeCommand extends Command
             }
         }
 
-        $tpl = $input->getOption('template');
-        $tpl = $tpl ? path_resolve($tpl) : __DIR__ . '/../../../template/simple/bootstrap.php';
+        $tpl = $input->getOption('template') ?: __DIR__ . '/../../../template/simple/bootstrap.php';
+        if (file_exists($local = __DIR__ . "/../../../template/$tpl/bootstrap.php")) {
+            $tpl = $local;
+        }
 
         $tplcfg = $input->getOption('template-config') ?? [];
         if (is_string($tplcfg)) {
