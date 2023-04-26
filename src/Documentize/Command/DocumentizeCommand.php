@@ -22,6 +22,7 @@ class DocumentizeCommand extends Command
         $this->setDefinition([
             new InputArgument('source', InputArgument::REQUIRED, 'Specify Source path'),
             new InputArgument('destination', InputArgument::REQUIRED, 'Specify Destination path'),
+            new InputOption('config', 'C', InputOption::VALUE_REQUIRED, 'Specify Config file'),
             new InputOption('autoload', 'a', InputOption::VALUE_OPTIONAL, 'Specify Autoload file'),
             new InputOption('cachedir', null, InputOption::VALUE_REQUIRED, 'Specify cache directory', sys_get_temp_dir() . '/rdz'),
             new InputOption('force', null, InputOption::VALUE_NONE, 'Specify cache recreation'),
@@ -75,9 +76,29 @@ class DocumentizeCommand extends Command
     {
         $src = path_resolve($input->getArgument('source'));
         $dst = path_resolve($input->getArgument('destination'));
+
+        $cfgfile = $input->getOption('config');
+        $config = file_exists($cfgfile) ? require $cfgfile : [];
+        $definition = $this->getDefinition();
+        foreach ($config as $name => $value) {
+            if ($definition->hasOption($name)) {
+                $option = $definition->getOption($name);
+                if ($option->acceptValue()) {
+                    $option->setDefault($value);
+                }
+                else {
+                    $input->setOption($name, $value);
+                }
+            }
+        }
+
         $tpl = $input->getOption('template');
         $tpl = $tpl ? path_resolve($tpl) : __DIR__ . '/../../../template/simple/bootstrap.php';
-        $tplcfg = path_resolve($input->getOption('template-config'));
+
+        $tplcfg = $input->getOption('template-config') ?? [];
+        if (is_string($tplcfg)) {
+            $tplcfg = require $tplcfg;
+        }
 
         $cachedir = $input->getOption('cachedir');
         if ($cachedir) {

@@ -55,8 +55,10 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
         $output = $this->runApp([
             'source'      => __DIR__ . '/_DocumentizeCommand',
             'destination' => "$tmpdir/rdz-test",
-            '--cachedir'  => "$tmpdir/rdz-test",
-            '--stats'     => true,
+            '--config'    => $this->writePhpFile([
+                'cachedir' => "$tmpdir/rdz-test",
+                'stats'    => true,
+            ]),
             '-vvv'        => true,
         ]);
         $this->assertStringContainsString('Gather and parse files from', $output);

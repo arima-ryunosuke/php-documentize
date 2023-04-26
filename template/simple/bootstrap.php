@@ -6,7 +6,7 @@ return function ($dataarray, $dst, $config) {
         'frontpage'  => '',
         'menusize'   => 30,
         'source-map' => [],
-    ], is_file($config) ? require $config : []);
+    ], $config);
 
     // レンダリングしてファイルに書き込んでその realpath を返すクロージャ
     $perform = function ($template, $vars, $outfile) {

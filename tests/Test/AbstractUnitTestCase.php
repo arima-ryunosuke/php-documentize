@@ -105,4 +105,11 @@ abstract class AbstractUnitTestCase extends \PHPUnit\Framework\TestCase
         $refprop->setValue($object, $value);
         return $current;
     }
+
+    public static function writePhpFile($data, $filename = null)
+    {
+        $filename ??= tempnam(sys_get_temp_dir(), 'php');
+        file_put_contents($filename, "<?php return " . var_export($data, true) . ";");
+        return $filename;
+    }
 }
