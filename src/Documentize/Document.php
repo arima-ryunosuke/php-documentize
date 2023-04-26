@@ -78,6 +78,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         $this->options = array_replace([
             'target'                      => null,
+            'directory'                   => [],
             'autoloader'                  => null,
             'recursive'                   => false,
             'include'                     => [],
@@ -192,13 +193,16 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         if (file_exists($this->options['autoloader'])) {
             require_once $this->options['autoloader'];
         }
-        if (is_dir($this->options['target'])) {
-            foreach (file_list($this->options['target']) as $file) {
-                $this->parseFile($file);
+        foreach ($this->options['directory'] ?: [''] as $directory) {
+            $target = rtrim("{$this->options['target']}/$directory", '/');
+            if (is_dir($target)) {
+                foreach (file_list($target) as $file) {
+                    $this->parseFile($file);
+                }
             }
-        }
-        else {
-            $this->parseFile($this->options['target']);
+            else {
+                $this->parseFile($target);
+            }
         }
 
         // 1パス目。名前空間に属する「定数」「関数」「インターフェース」「トレイト」「クラス」を掻き集める

@@ -23,6 +23,7 @@ class DocumentizeCommand extends Command
             new InputArgument('source', InputArgument::REQUIRED, 'Specify Source path'),
             new InputArgument('destination', InputArgument::REQUIRED, 'Specify Destination path'),
             new InputOption('config', 'C', InputOption::VALUE_REQUIRED, 'Specify Config file'),
+            new InputOption('directory', 'd', InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Specify Source directory'),
             new InputOption('autoload', 'a', InputOption::VALUE_OPTIONAL, 'Specify Autoload file'),
             new InputOption('cachedir', null, InputOption::VALUE_REQUIRED, 'Specify cache directory', sys_get_temp_dir() . '/rdz'),
             new InputOption('force', null, InputOption::VALUE_NONE, 'Specify cache recreation'),
@@ -119,6 +120,7 @@ class DocumentizeCommand extends Command
 
         $options = [
             'target'                      => $src,
+            'directory'                   => $input->getOption('directory'),
             'autoloader'                  => $autoloader,
             'cachedir'                    => $cachedir,
             'force'                       => $input->getOption('force'),
