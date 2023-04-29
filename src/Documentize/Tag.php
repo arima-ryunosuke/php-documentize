@@ -333,6 +333,15 @@ class Tag
         ];
     }
 
+    protected function parsePackage($tagValue)
+    {
+        // @package [level 1]\[level 2]\[etc.]
+        $value = preg_split('#\s+#', $tagValue, 1);
+        return [
+            'namespace' => trim(ltrim($value[0] ?? '', '\\')),
+        ];
+    }
+
     protected function parseParam($tagValue)
     {
         // @param ["Type"] [name] [<description>]

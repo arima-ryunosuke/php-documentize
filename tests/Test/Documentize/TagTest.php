@@ -551,6 +551,15 @@ class TagTest extends \ryunosuke\Test\AbstractUnitTestCase
         ]);
     }
 
+    function test_parsePackage()
+    {
+        $this->assertTag(new Tag('@package \\fullname', [], null, null, null), [
+            'tagname'   => 'package',
+            'inline'    => false,
+            'namespace' => 'fullname',
+        ]);
+    }
+
     function test_parseParam()
     {
         $this->assertTag(new Tag('@param ArrayObject[] $name this is description.', [], null, null, null), [

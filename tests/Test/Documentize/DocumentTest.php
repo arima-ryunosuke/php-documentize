@@ -55,6 +55,8 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertEquals(123, defined('LOADED'));
 
         $this->assertArrayHasKey('GlobalSpace', $namespaces);
+        $this->assertArrayHasKey('other\\space', $namespaces);
+        $this->assertArrayHasKey('packageFunction', $namespaces['other\\space']['functions']);
         $this->assertArrayHasKey('constants', $namespaces['GlobalSpace']);
         $this->assertArrayHasKey('globalConstant', $namespaces['GlobalSpace']['constants']);
         $this->assertArrayHasKey('abc_function', $namespaces['A\\B\\C']['functions']);

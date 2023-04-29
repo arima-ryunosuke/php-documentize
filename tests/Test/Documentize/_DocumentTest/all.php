@@ -8,6 +8,9 @@ namespace GlobalSpace {
 
     const globalConstant = 1;
 
+    /** @package other\space */
+    function packageFunction() { }
+
     /**
      * function comment
      *

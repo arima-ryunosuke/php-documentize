@@ -549,8 +549,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             $data = $this->parseConstant($ref, $ref->getNamespaceName(), null);
             $this->parseTag($data['tags']);
 
-            $namespaces[$ref->getNamespaceName()] = $namespaces[$ref->getNamespaceName()] ?? $this->defaultNS($ref->getNamespaceName());
-            $namespaces[$ref->getNamespaceName()]['constants'][$ref->getShortName()] = [
+            $namespace = $data['tags']['package'][0]['namespace'] ?? $ref->getNamespaceName();
+            $namespaces[$namespace] = $namespaces[$namespace] ?? $this->defaultNS($namespace);
+            $namespaces[$namespace]['constants'][$ref->getShortName()] = [
                 'category'    => $ref->getCategory(),
                 'id'          => $ref->getFqsen(),
                 'fqsen'       => $ref->getFqsen(),
@@ -579,8 +580,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             });
             $this->parseTag($data['tags']);
 
-            $namespaces[$ref->getNamespaceName()] = $namespaces[$ref->getNamespaceName()] ?? $this->defaultNS($ref->getNamespaceName());
-            $namespaces[$ref->getNamespaceName()]['functions'][$ref->getShortName()] = [
+            $namespace = $data['tags']['package'][0]['namespace'] ?? $ref->getNamespaceName();
+            $namespaces[$namespace] = $namespaces[$namespace] ?? $this->defaultNS($namespace);
+            $namespaces[$namespace]['functions'][$ref->getShortName()] = [
                 'category'    => $ref->getCategory(),
                 'id'          => $ref->getFqsen(),
                 'fqsen'       => $ref->getFqsen(),
@@ -634,8 +636,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 }
 
                 $category = self::TYPE_MULTIPLES[$data['category']];
-                $namespaces[$ref->getNamespaceName()] = $namespaces[$ref->getNamespaceName()] ?? $this->defaultNS($ref->getNamespaceName());
-                $namespaces[$ref->getNamespaceName()][$category][$ref->getShortName()] = $data;
+                $namespace = $data['tags']['package'][0]['namespace'] ?? $ref->getNamespaceName();
+                $namespaces[$namespace] = $namespaces[$namespace] ?? $this->defaultNS($namespace);
+                $namespaces[$namespace][$category][$ref->getShortName()] = $data;
                 $result++;
 
                 // トレイトに implement という概念はない
