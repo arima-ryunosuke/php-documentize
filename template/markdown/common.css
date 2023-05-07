@@ -1,0 +1,45 @@
+.rst-content .right.sidebar {
+    margin: -3.2em 4px 4px 0px;
+}
+
+.section-header small {
+    display: none;
+}
+
+a[href^="http://"],
+a[href^="https://"] {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+a[href^="#--"] {
+    color: #404040;
+    cursor: not-allowed;
+    text-decoration: underline dotted;
+}
+
+table.no-border code {
+    font-size: 1em;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    white-space: nowrap;
+}
+
+span.summary:not(:first-child) {
+    display: block;
+    margin-top: 0.5em;
+}
+
+div.description {
+    margin-bottom: 24px;
+}
+
+div.description h1,
+div.description h2,
+div.description h3,
+div.description h4,
+div.description h5,
+div.description h6 {
+    background: transparent;
+}
