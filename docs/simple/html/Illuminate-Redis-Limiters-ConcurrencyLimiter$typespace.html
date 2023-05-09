@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/foundation.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
+    </head>
+<body class="typespace">
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis fixed">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Illuminate\Redis\Limiters\ConcurrencyLimiter)</small>
+	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"></span>
+		<span class="label label-warning"></span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L9-L166" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                    	</div>
+
+	<h2>class <span class="category-name">Illuminate\Redis\Limiters\ConcurrencyLimiter</span></h2>
+
+	<div class="description"></div>
+
+	<h3>Construction</h3>
+                
+	<h3>Hierarchy</h3>
+	<div class="hierarchy"></div>
+
+	<h3>Constants</h3>
+    
+	<h3>Properties</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L11-L16" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::$redis" tabindex="-1" class="structure-title">
+						<small><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+						$redis						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The Redis factory implementation.</p>
+</div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L18-L23" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::$name" tabindex="-1" class="structure-title">
+						<small>string</small>
+						$name						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The name of the limiter.</p>
+</div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L25-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::$maxLocks" tabindex="-1" class="structure-title">
+						<small>int</small>
+						$maxLocks						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The allowed number of concurrent tasks.</p>
+</div>
+                                                					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L32-L37" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::$releaseAfter" tabindex="-1" class="structure-title">
+						<small>int</small>
+						$releaseAfter						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The number of seconds a slot should be maintained.</p>
+</div>
+                                                					</div>
+				</li>
+            		</ul>
+    
+	<h3>Methods</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L39-L54" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::__construct()" tabindex="-1" class="structure-title ">
+                        __construct                        	<small>($redis, $name, $maxLocks, $releaseAfter) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Create a new concurrency limiter instance.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></td>
+				<td class="rest">$redis</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$maxLocks</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$releaseAfter</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L56-L93" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::block()" tabindex="-1" class="structure-title ">
+                        block                        	<small>($timeout, $callback = null) : bool</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Attempt to acquire the lock for the given number of seconds.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">int</td>
+				<td class="rest">$timeout</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">callable<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$callback = null</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Contracts-Redis-LimiterTimeoutException$typespace.html#Illuminate\Contracts\Redis\LimiterTimeoutException" class="fqsen "><small>Illuminate\Contracts\Redis\</small><wbr>LimiterTimeoutException</a></td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.throwable.php" class="fqsen" target="_blank">\Throwable</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L95-L111" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::acquire()" tabindex="-1" class="structure-title ">
+                        acquire                        	<small>($id) : mixed</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Attempt to acquire the lock.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$id</td>
+				<td class="desc"><p>A unique identifier for this lock</p>
+</td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L113-L133" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::lockScript()" tabindex="-1" class="structure-title ">
+                        lockScript                        	<small>() : string</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the Lua script for acquiring a lock.</p>
+<p>KEYS    - The keys that represent available slots<br />
+ARGV[1] - The limiter name<br />
+ARGV[2] - The number of seconds the slot should be reserved<br />
+ARGV[3] - The unique identifier for this lock</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L135-L145" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::release()" tabindex="-1" class="structure-title ">
+                        release                        	<small>($key, $id) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Release the lock.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$key</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$id</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L147-L165" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Limiters\ConcurrencyLimiter::releaseScript()" tabindex="-1" class="structure-title ">
+                        releaseScript                        	<small>() : string</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the Lua script to atomically release a lock.</p>
+<p>KEYS[1] - The name of the lock<br />
+ARGV[1] - The unique identifier for this lock</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            		</ul>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default"></span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

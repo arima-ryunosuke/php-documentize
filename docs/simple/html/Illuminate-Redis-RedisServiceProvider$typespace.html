@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/foundation.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
+    </head>
+<body class="typespace">
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis fixed">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Illuminate\Redis\RedisServiceProvider)</small>
+	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"></span>
+		<span class="label label-warning"></span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/RedisServiceProvider.php#L9-L38" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                    	</div>
+
+	<h2>class <span class="category-name">Illuminate\Redis\RedisServiceProvider</span></h2>
+
+	<div class="description"></div>
+
+	<h3>Construction</h3>
+    	<table class="table">
+		<caption>Parents</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+        	<table class="table">
+		<caption>Implements</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Contracts-Support-DeferrableProvider$typespace.html#Illuminate\Contracts\Support\DeferrableProvider" class="fqsen "><small>Illuminate\Contracts\Support\</small><wbr>DeferrableProvider</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+            
+	<h3>Hierarchy</h3>
+	<div class="hierarchy">
+	<ul class="">
+        			<li class="">
+                <a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider" class="fqsen bold"><small>Illuminate\Redis\</small><wbr>RedisServiceProvider</a>                			</li>
+        	</ul>
+    			</li>
+        	</ul>
+    </div>
+
+	<h3>Constants</h3>
+    
+	<h3>Properties</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L15-L20" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::$app" tabindex="-1" class="structure-title">
+						<small><a href="Illuminate-Contracts-Foundation-Application$typespace.html#Illuminate\Contracts\Foundation\Application" class="fqsen "><small>Illuminate\Contracts\Foundation\</small><wbr>Application</a></small>
+						$app						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The application instance.</p>
+</div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::$app" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::$app</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L22-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::$bootingCallbacks" tabindex="-1" class="structure-title">
+						<small>array</small>
+						$bootingCallbacks						<var> = []</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>All of the registered booting callbacks.</p>
+</div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::$bootingCallbacks" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::$bootingCallbacks</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L29-L34" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::$bootedCallbacks" tabindex="-1" class="structure-title">
+						<small>array</small>
+						$bootedCallbacks						<var> = []</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>All of the registered booted callbacks.</p>
+</div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::$bootedCallbacks" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::$bootedCallbacks</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default">static</span>
+						<span class="label label-primary"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L36-L41" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::$publishes" tabindex="-1" class="structure-title">
+						<small>array</small>
+						$publishes						<var> = []</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The paths that should be published.</p>
+</div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::$publishes" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::$publishes</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default">static</span>
+						<span class="label label-primary"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L43-L48" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::$publishGroups" tabindex="-1" class="structure-title">
+						<small>array</small>
+						$publishGroups						<var> = []</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The paths that should be published by group.</p>
+</div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::$publishGroups" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::$publishGroups</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            		</ul>
+    
+	<h3>Methods</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/RedisServiceProvider.php#L11-L27" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::register()" tabindex="-1" class="structure-title ">
+                        register                        	<small>() : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register the service provider.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::register()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::register()</a></td>
+				<td class="desc"></td>
+				<td class="rest">override</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/RedisServiceProvider.php#L29-L37" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::provides()" tabindex="-1" class="structure-title ">
+                        provides                        	<small>() : array</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the services provided by the provider.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Contracts-Support-DeferrableProvider$typespace.html#Illuminate\Contracts\Support\DeferrableProvider::provides()" class="fqsen "><small>Illuminate\Contracts\Support\</small><wbr>DeferrableProvider::provides()</a></td>
+				<td class="desc"></td>
+				<td class="rest">implement</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L50-L59" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::__construct()" tabindex="-1" class="structure-title ">
+                        __construct                        	<small>($app) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Create a new service provider instance.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Contracts-Foundation-Application$typespace.html#Illuminate\Contracts\Foundation\Application" class="fqsen "><small>Illuminate\Contracts\Foundation\</small><wbr>Application</a></td>
+				<td class="rest">$app</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::__construct()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::__construct()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L71-L80" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::booting()" tabindex="-1" class="structure-title ">
+                        booting                        	<small>($callback) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register a booting callback to be run before the "boot" method is called.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.closure.php" class="fqsen" target="_blank">\Closure</a></td>
+				<td class="rest">$callback</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::booting()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::booting()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L82-L91" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::booted()" tabindex="-1" class="structure-title ">
+                        booted                        	<small>($callback) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register a booted callback to be run after the "boot" method is called.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.closure.php" class="fqsen" target="_blank">\Closure</a></td>
+				<td class="rest">$callback</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::booted()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::booted()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L93-L107" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::callBootingCallbacks()" tabindex="-1" class="structure-title ">
+                        callBootingCallbacks                        	<small>() : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Call the registered booting callbacks.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::callBootingCallbacks()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::callBootingCallbacks()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L109-L123" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::callBootedCallbacks()" tabindex="-1" class="structure-title ">
+                        callBootedCallbacks                        	<small>() : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Call the registered booted callbacks.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::callBootedCallbacks()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::callBootedCallbacks()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L125-L141" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::mergeConfigFrom()" tabindex="-1" class="structure-title ">
+                        mergeConfigFrom                        	<small>($path, $key) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Merge the given configuration with the existing configuration.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$path</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$key</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::mergeConfigFrom()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::mergeConfigFrom()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L143-L154" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::loadRoutesFrom()" tabindex="-1" class="structure-title ">
+                        loadRoutesFrom                        	<small>($path) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Load the given routes file if routes are not already cached.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$path</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::loadRoutesFrom()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::loadRoutesFrom()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L156-L177" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::loadViewsFrom()" tabindex="-1" class="structure-title ">
+                        loadViewsFrom                        	<small>($path, $namespace) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register a view file namespace.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>array</td>
+				<td class="rest">$path</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$namespace</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::loadViewsFrom()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::loadViewsFrom()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L179-L193" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::loadViewComponentsAs()" tabindex="-1" class="structure-title ">
+                        loadViewComponentsAs                        	<small>($prefix, $components) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register the given view components with a custom prefix.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$prefix</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$components</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::loadViewComponentsAs()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::loadViewComponentsAs()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L195-L207" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::loadTranslationsFrom()" tabindex="-1" class="structure-title ">
+                        loadTranslationsFrom                        	<small>($path, $namespace) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register a translation file namespace.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$path</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$namespace</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::loadTranslationsFrom()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::loadTranslationsFrom()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L209-L220" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::loadJsonTranslationsFrom()" tabindex="-1" class="structure-title ">
+                        loadJsonTranslationsFrom                        	<small>($path) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register a JSON translation file path.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$path</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::loadJsonTranslationsFrom()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::loadJsonTranslationsFrom()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L222-L235" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::loadMigrationsFrom()" tabindex="-1" class="structure-title ">
+                        loadMigrationsFrom                        	<small>($paths) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register database migration paths.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array<span class="type-separator"></span><wbr>string</td>
+				<td class="rest">$paths</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::loadMigrationsFrom()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::loadMigrationsFrom()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated">deprecated </span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L237-L252" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::loadFactoriesFrom()" tabindex="-1" class="structure-title strike">
+                        loadFactoriesFrom                        	<small>($paths) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register Eloquent model factory paths.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array<span class="type-separator"></span><wbr>string</td>
+				<td class="rest">$paths</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::loadFactoriesFrom()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::loadFactoriesFrom()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L254-L268" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::callAfterResolving()" tabindex="-1" class="structure-title ">
+                        callAfterResolving                        	<small>($name, $callback) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Setup an after resolving listener, or fire immediately if already resolved.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">callable</td>
+				<td class="rest">$callback</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::callAfterResolving()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::callAfterResolving()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L270-L286" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::publishes()" tabindex="-1" class="structure-title ">
+                        publishes                        	<small>($paths, $groups = null) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register paths to be published by the publish command.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$paths</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="rest">$groups = null</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::publishes()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::publishes()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L288-L299" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::ensurePublishArrayInitialized()" tabindex="-1" class="structure-title ">
+                        ensurePublishArrayInitialized                        	<small>($class) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Ensure the publish array for the service provider is initialized.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$class</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::ensurePublishArrayInitialized()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::ensurePublishArrayInitialized()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L301-L317" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::addPublishGroup()" tabindex="-1" class="structure-title ">
+                        addPublishGroup                        	<small>($group, $paths) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Add a publish group / tag to the service provider.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$group</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$paths</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::addPublishGroup()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::addPublishGroup()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L319-L335" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::pathsToPublish()" tabindex="-1" class="structure-title ">
+                        pathsToPublish                        	<small>($provider = null, $group = null) : array</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the paths to publish.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$provider = null</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$group = null</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::pathsToPublish()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::pathsToPublish()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L337-L355" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::pathsForProviderOrGroup()" tabindex="-1" class="structure-title ">
+                        pathsForProviderOrGroup                        	<small>($provider, $group) : array</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the paths for the provider or group (or both).</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$provider</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>null</td>
+				<td class="rest">$group</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::pathsForProviderOrGroup()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::pathsForProviderOrGroup()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L357-L371" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::pathsForProviderAndGroup()" tabindex="-1" class="structure-title ">
+                        pathsForProviderAndGroup                        	<small>($provider, $group) : array</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the paths for the provider and group.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$provider</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$group</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::pathsForProviderAndGroup()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::pathsForProviderAndGroup()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L373-L381" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::publishableProviders()" tabindex="-1" class="structure-title ">
+                        publishableProviders                        	<small>() : array</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the service providers available for publishing.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::publishableProviders()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::publishableProviders()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L383-L391" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::publishableGroups()" tabindex="-1" class="structure-title ">
+                        publishableGroups                        	<small>() : array</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the groups available for publishing.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::publishableGroups()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::publishableGroups()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L393-L406" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::commands()" tabindex="-1" class="structure-title ">
+                        commands                        	<small>($commands) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register the package's custom Artisan commands.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array<span class="type-separator"></span><wbr>mixed</td>
+				<td class="rest">$commands</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::commands()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::commands()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L418-L426" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::when()" tabindex="-1" class="structure-title ">
+                        when                        	<small>() : array</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the events that trigger this service provider to register.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::when()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::when()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/ServiceProvider.php#L428-L436" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\RedisServiceProvider::isDeferred()" tabindex="-1" class="structure-title ">
+                        isDeferred                        	<small>() : bool</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Determine if the provider is deferred.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Support-ServiceProvider$typespace.html#Illuminate\Support\ServiceProvider::isDeferred()" class="fqsen "><small>Illuminate\Support\</small><wbr>ServiceProvider::isDeferred()</a></td>
+				<td class="desc"></td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            		</ul>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default"></span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

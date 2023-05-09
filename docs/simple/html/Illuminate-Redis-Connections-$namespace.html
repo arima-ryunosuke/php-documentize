@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/foundation.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
+    </head>
+<body class="namespace">
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis fixed">
+	Structure
+	<small class="ellipsis-text">(Illuminate\Redis\Connections\)</small>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<h2>namespace <span class="category-name">Illuminate\Redis\Connections\</span></h2>
+	<div class="inner-item">
+		<div class="description"></div>
+	</div>
+
+    
+                        			<h3>Traits</h3>
+			<ul>
+                					<li class="structure-item">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/PacksPhpRedisValues.php#L9-L183" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Illuminate\Redis\Connections\PacksPhpRedisValues" tabindex="-1" class="structure-title ">
+							<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues">PacksPhpRedisValues</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default"></span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                			</ul>
+                    			<h3>Classes</h3>
+			<ul>
+                					<li class="structure-item">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning">abstract</span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L12-L222" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Illuminate\Redis\Connections\Connection" tabindex="-1" class="structure-title ">
+							<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection">Connection</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default"></span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/PhpRedisClusterConnection.php#L5-L24" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Illuminate\Redis\Connections\PhpRedisClusterConnection" tabindex="-1" class="structure-title ">
+							<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection">PhpRedisClusterConnection</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default"></span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/PhpRedisConnection.php#L12-L577" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Illuminate\Redis\Connections\PhpRedisConnection" tabindex="-1" class="structure-title ">
+							<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection">PhpRedisConnection</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default"></span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/PredisClusterConnection.php#L7-L20" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Illuminate\Redis\Connections\PredisClusterConnection" tabindex="-1" class="structure-title ">
+							<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection">PredisClusterConnection</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default"></span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                					<li class="structure-item">
+						<div class="attribute">
+							<span class="label label-danger"></span>
+							<span class="label label-warning"></span>
+							<span class="label label-info"></span>
+							<span class="label label-info"></span>
+							<span class="label label-deprecated"></span>
+                            			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/PredisConnection.php#L8-L53" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+            						</div>
+						<h4 id="Illuminate\Redis\Connections\PredisConnection" tabindex="-1" class="structure-title ">
+							<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection">PredisConnection</a>
+						</h4>
+						<div class="inner-item">
+							<div class="description"></div>
+						</div>
+						<div class="attribute">
+							<span class="label label-default"></span>
+							<span class="label label-default"></span>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+                			</ul>
+            
+    
+    	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default"></span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/foundation.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
+    </head>
+<body class="typespace">
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis fixed">
+	<span class="pull-left">
+	Structure
+	<small class="ellipsis-text">(Illuminate\Redis\Connections\PredisConnection)</small>
+	</span>
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+	<div class="attribute">
+		<span class="label label-danger"></span>
+		<span class="label label-warning"></span>
+		<span class="label label-info"></span>
+		<span class="label label-info"></span>
+		<span class="label label-deprecated"></span>
+        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/PredisConnection.php#L8-L53" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                    	</div>
+
+	<h2>class <span class="category-name">Illuminate\Redis\Connections\PredisConnection</span></h2>
+
+	<div class="description"></div>
+
+	<h3>Construction</h3>
+    	<table class="table">
+		<caption>Parents</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+        	<table class="table">
+		<caption>Implements</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Contracts-Redis-Connection$typespace.html#Illuminate\Contracts\Redis\Connection" class="fqsen "><small>Illuminate\Contracts\Redis\</small><wbr>Connection</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+            
+	<h3>Hierarchy</h3>
+	<div class="hierarchy">
+	<ul class="">
+        			<li class="">
+                <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>PhpRedisConnection</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>PhpRedisClusterConnection</a>                			</li>
+        	</ul>
+    			</li>
+        			<li class="indent">
+                <a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection" class="fqsen bold"><small>Illuminate\Redis\Connections\</small><wbr>PredisConnection</a>                
+	<ul class="has-indent">
+        			<li class="indent">
+                <a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>PredisClusterConnection</a>                			</li>
+        	</ul>
+    			</li>
+        	</ul>
+    			</li>
+        	</ul>
+    </div>
+
+	<h3>Constants</h3>
+    
+	<h3>Properties</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/PredisConnection.php#L13-L18" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::$client" tabindex="-1" class="structure-title">
+						<small><a href="Predis-Client$typespace.html#Predis\Client" class="fqsen "><small>Predis\</small><wbr>Client</a></small>
+						$client						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The Predis client.</p>
+</div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::$client" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::$client</a></td>
+				<td class="desc">The Redis client.</td>
+				<td class="rest">override</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L25-L30" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::$name" tabindex="-1" class="structure-title">
+						<small>string<span class="type-separator"></span><wbr>null</small>
+						$name						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The Redis connection name.</p>
+</div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::$name" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::$name</a></td>
+				<td class="desc">The Redis connection name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L32-L37" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::$events" tabindex="-1" class="structure-title">
+						<small><a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+						$events						<var> = null</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The event dispatcher instance.</p>
+</div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::$events" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::$events</a></td>
+				<td class="desc">The event dispatcher instance.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-default">static</span>
+						<span class="label label-primary"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L-L" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::$macros" tabindex="-1" class="structure-title">
+						<small>array</small>
+						$macros						<var> = []</var>
+					</h4>
+					<div class="inner-item">
+						<div class="description"><p>The registered string macros.</p>
+</div>
+                        	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::$macros" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::$macros</a></td>
+				<td class="desc">The registered string macros.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+				</li>
+            		</ul>
+    
+	<h3>Methods</h3>
+    		<ul>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/PredisConnection.php#L20-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::__construct()" tabindex="-1" class="structure-title ">
+                        __construct                        	<small>($client) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Create a new Predis connection.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Predis-Client$typespace.html#Predis\Client" class="fqsen "><small>Predis\</small><wbr>Client</a></td>
+				<td class="rest">$client</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/PredisConnection.php#L31-L52" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::createSubscription()" tabindex="-1" class="structure-title ">
+                        createSubscription                        	<small>($channels, $callback, $method = &quot;subscribe&quot;) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array<span class="type-separator"></span><wbr>string</td>
+				<td class="rest">$channels</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.closure.php" class="fqsen" target="_blank">\Closure</a></td>
+				<td class="rest">$callback</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$method = &quot;subscribe&quot;</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::createSubscription()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::createSubscription()</a></td>
+				<td class="desc">Subscribe to a set of given channels for messages.</td>
+				<td class="rest">override</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L49-L58" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::funnel()" tabindex="-1" class="structure-title ">
+                        funnel                        	<small>($name) : <a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Funnel a callback for a maximum number of simultaneous executions.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::funnel()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::funnel()</a></td>
+				<td class="desc">Funnel a callback for a maximum number of simultaneous executions.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L60-L69" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::throttle()" tabindex="-1" class="structure-title ">
+                        throttle                        	<small>($name) : <a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Throttle a callback for a maximum number of executions over a given duration.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::throttle()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::throttle()</a></td>
+				<td class="desc">Throttle a callback for a maximum number of executions over a given duration.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L71-L79" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::client()" tabindex="-1" class="structure-title ">
+                        client                        	<small>() : mixed</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the underlying Redis client.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::client()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::client()</a></td>
+				<td class="desc">Get the underlying Redis client.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L81-L91" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::subscribe()" tabindex="-1" class="structure-title ">
+                        subscribe                        	<small>($channels, $callback) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array<span class="type-separator"></span><wbr>string</td>
+				<td class="rest">$channels</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.closure.php" class="fqsen" target="_blank">\Closure</a></td>
+				<td class="rest">$callback</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::subscribe()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::subscribe()</a></td>
+				<td class="desc">Subscribe to a set of given channels for messages.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L93-L103" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::psubscribe()" tabindex="-1" class="structure-title ">
+                        psubscribe                        	<small>($channels, $callback) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Subscribe to a set of given channels with wildcards.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">array<span class="type-separator"></span><wbr>string</td>
+				<td class="rest">$channels</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.closure.php" class="fqsen" target="_blank">\Closure</a></td>
+				<td class="rest">$callback</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::psubscribe()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::psubscribe()</a></td>
+				<td class="desc">Subscribe to a set of given channels with wildcards.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L105-L125" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::command()" tabindex="-1" class="structure-title ">
+                        command                        	<small>($method, $parameters = []) : mixed</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Run a command against the Redis database.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$method</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$parameters = []</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::command()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::command()</a></td>
+				<td class="desc">Run a command against the Redis database.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-protected">protected</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L127-L138" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::event()" tabindex="-1" class="structure-title ">
+                        event                        	<small>($event) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Fire the given event if possible.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="rest">$event</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::event()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::event()</a></td>
+				<td class="desc">Fire the given event if possible.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L140-L151" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::listen()" tabindex="-1" class="structure-title ">
+                        listen                        	<small>($callback) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register a Redis command listener with the connection.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.closure.php" class="fqsen" target="_blank">\Closure</a></td>
+				<td class="rest">$callback</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::listen()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::listen()</a></td>
+				<td class="desc">Register a Redis command listener with the connection.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L153-L161" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::getName()" tabindex="-1" class="structure-title ">
+                        getName                        	<small>() : string<span class="type-separator"></span><wbr>null</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the connection name.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string<span class="type-separator"></span><wbr>null</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::getName()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::getName()</a></td>
+				<td class="desc">Get the connection name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L163-L174" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::setName()" tabindex="-1" class="structure-title ">
+                        setName                        	<small>($name) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Set the connections name.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::setName()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::setName()</a></td>
+				<td class="desc">Set the connections name.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L176-L184" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::getEventDispatcher()" tabindex="-1" class="structure-title ">
+                        getEventDispatcher                        	<small>() : <a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Get the event dispatcher used by the connection.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::getEventDispatcher()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::getEventDispatcher()</a></td>
+				<td class="desc">Get the event dispatcher used by the connection.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L186-L195" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::setEventDispatcher()" tabindex="-1" class="structure-title ">
+                        setEventDispatcher                        	<small>($events) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Set the event dispatcher instance on the connection.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></td>
+				<td class="rest">$events</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::setEventDispatcher()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::setEventDispatcher()</a></td>
+				<td class="desc">Set the event dispatcher instance on the connection.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L197-L205" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::unsetEventDispatcher()" tabindex="-1" class="structure-title ">
+                        unsetEventDispatcher                        	<small>() : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Unset the event dispatcher instance on the connection.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::unsetEventDispatcher()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::unsetEventDispatcher()</a></td>
+				<td class="desc">Unset the event dispatcher instance on the connection.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Connections/Connection.php#L207-L221" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::__call()" tabindex="-1" class="structure-title ">
+                        __call                        	<small>($method, $parameters) : mixed</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Pass other method calls down to the underlying client.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$method</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$parameters</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::__call()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::__call()</a></td>
+				<td class="desc">Pass other method calls down to the underlying client.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Macroable/Traits/Macroable.php#L19-L29" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::macro()" tabindex="-1" class="structure-title ">
+                        macro                        	<small>($name, $macro) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Register a custom macro.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">object<span class="type-separator"></span><wbr>callable</td>
+				<td class="rest">$macro</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::macro()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::macro()</a></td>
+				<td class="desc">Register a custom macro.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Macroable/Traits/Macroable.php#L31-L52" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::mixin()" tabindex="-1" class="structure-title ">
+                        mixin                        	<small>($mixin, $replace = true) : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Mix another object into the class.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">object</td>
+				<td class="rest">$mixin</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="rest">$replace = true</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.reflectionexception.php" class="fqsen" target="_blank">\ReflectionException</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::mixin()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::mixin()</a></td>
+				<td class="desc">Mix another object into the class.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Macroable/Traits/Macroable.php#L54-L63" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::hasMacro()" tabindex="-1" class="structure-title ">
+                        hasMacro                        	<small>($name) : bool</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Checks if macro is registered.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$name</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">bool</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::hasMacro()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::hasMacro()</a></td>
+				<td class="desc">Checks if macro is registered.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Macroable/Traits/Macroable.php#L65-L73" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::flushMacros()" tabindex="-1" class="structure-title ">
+                        flushMacros                        	<small>() : void</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Flush the existing macros.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">void</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                                                    	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::flushMacros()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::flushMacros()</a></td>
+				<td class="desc">Flush the existing macros.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default">static</span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Macroable/Traits/Macroable.php#L75-L99" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::__callStatic()" tabindex="-1" class="structure-title ">
+                        __callStatic                        	<small>($method, $parameters) : mixed</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$method</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$parameters</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.badmethodcallexception.php" class="fqsen" target="_blank">\BadMethodCallException</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::__callStatic()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::__callStatic()</a></td>
+				<td class="desc">Dynamically handle calls to the class.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            				<li class="structure-item">
+					<div class="attribute">
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-magic"></span>
+						<span class="label label-danger"></span>
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+						<span class="label label-deprecated"></span>
+						<span class="label label-public">public</span>
+                        			<a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Macroable/Traits/Macroable.php#L101-L125" class="source-link glyphicon glyphicon-new-window" target="_blank"></a>
+                                    					</div>
+					<h4 id="Illuminate\Redis\Connections\PredisConnection::macroCall()" tabindex="-1" class="structure-title ">
+                        macroCall                        	<small>($method, $parameters) : mixed</small>
+						</h4>
+					<div class="inner-item">
+						<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+                        	<table class="table">
+		<caption>Parameters</caption>
+		<tbody>
+        			<tr>
+				<td class="type">string</td>
+				<td class="rest">$method</td>
+				<td class="desc"></td>
+			</tr>
+        			<tr>
+				<td class="type">array</td>
+				<td class="rest">$parameters</td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Return</caption>
+		<tbody>
+        			<tr>
+				<td class="type">mixed</td>
+				<td class="desc"></td>
+				<td class="rest"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Throws</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="http://php.net/manual/ja/class.badmethodcallexception.php" class="fqsen" target="_blank">\BadMethodCallException</a></td>
+				<td class="desc"></td>
+			</tr>
+        		</tbody>
+	</table>
+                            	<table class="table">
+		<caption>Prototype</caption>
+		<tbody>
+        			<tr>
+				<td class="type"><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::macroCall()" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection::macroCall()</a></td>
+				<td class="desc">Dynamically handle calls to the class.</td>
+				<td class="rest">inherit</td>
+			</tr>
+        		</tbody>
+	</table>
+                            					</div>
+					<div class="attribute">
+						<span class="label label-default"></span>
+						<span class="label label-default"></span>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+            		</ul>
+    
+	<div class="attribute">
+		<span class="label label-default"></span>
+		<span class="label label-default"></span>
+	</div>
+	<div class="clearfix"></div>
+</div>
+</body>
+</html>

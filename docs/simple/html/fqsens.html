@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html>
+<head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/foundation.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+	<link rel="stylesheet" type="text/css" data-href="common.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/3.1.1/bootstrap3-typeahead.min.js"></script>
+	<script data-src="common.js"></script>
+
+	<script>
+        (function () {
+            var cachekey;
+            try {
+                cachekey = window.parent.CACHEKEY;
+            }
+            catch (e) {
+                cachekey = 'nocache';
+            }
+            $('link[data-href]').attr('href', function () {
+                return this.dataset.href + '?' + cachekey;
+            });
+            $('script[data-src]').attr('src', function () {
+                return this.dataset.src + '?' + cachekey;
+            });
+
+            $(document).on('click', 'a[href]:not([target="_blank"]):not(.cachekey)', function () {
+                this.classList.add('cachekey');
+                this.href = this.href.replace('.html', '.html?' + cachekey);
+            });
+        })();
+	</script>
+    </head>
+<body class="fqsen">
+<a id="anchor" href="./" style="display: none"></a>
+<h1 class="ellipsis fixed">
+	All Fqsen (for search Ctrl+F)
+	<span class="pull-right">
+		<small class="frame-switch">
+		<a target="_parent">frame</a> | <a target="_parent">noframe</a>
+		</small>
+	</span>
+</h1>
+<div class="main-wrapper">
+            	<h4 class="fqsen-title">namespace		<small></small>
+		<a href="Illuminate-Redis-$namespace.html#Illuminate\Redis\">
+            Illuminate\Redis                        		</a>	</h4>
+	<div class="description"></div>
+                	<h4 class="fqsen-title">namespace		<small></small>
+		<a href="Illuminate-Redis-Connections-$namespace.html#Illuminate\Redis\Connections\">
+            Illuminate\Redis\Connections                        		</a>	</h4>
+	<div class="description"></div>
+                
+                	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection">
+                                    Illuminate\Redis\Connections::Connection		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small><a href="http://php.net/manual/ja/class.redis.php" class="fqsen" target="_blank">\Redis</a></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::$client">
+                                    Illuminate\Redis\Connections\Connection::client		</a>	</h4>
+	<div class="description"><p>The Redis client.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::$name">
+                                    Illuminate\Redis\Connections\Connection::name		</a>	</h4>
+	<div class="description"><p>The Redis connection name.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small><a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::$events">
+                                    Illuminate\Redis\Connections\Connection::events		</a>	</h4>
+	<div class="description"><p>The event dispatcher instance.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::$macros">
+                                    Illuminate\Redis\Connections\Connection::macros		</a>	</h4>
+	<div class="description"><p>The registered string macros.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::createSubscription()">
+                                    Illuminate\Redis\Connections\Connection::createSubscription		</a>	<small>($channels, $callback, $method = &quot;subscribe&quot;) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::funnel()">
+                                    Illuminate\Redis\Connections\Connection::funnel		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Funnel a callback for a maximum number of simultaneous executions.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::throttle()">
+                                    Illuminate\Redis\Connections\Connection::throttle		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Throttle a callback for a maximum number of executions over a given duration.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::client()">
+                                    Illuminate\Redis\Connections\Connection::client		</a>	<small>() : mixed</small>
+		</h4>
+	<div class="description"><p>Get the underlying Redis client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::subscribe()">
+                                    Illuminate\Redis\Connections\Connection::subscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::psubscribe()">
+                                    Illuminate\Redis\Connections\Connection::psubscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels with wildcards.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::command()">
+                                    Illuminate\Redis\Connections\Connection::command		</a>	<small>($method, $parameters = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Run a command against the Redis database.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::event()">
+                                    Illuminate\Redis\Connections\Connection::event		</a>	<small>($event) : void</small>
+		</h4>
+	<div class="description"><p>Fire the given event if possible.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::listen()">
+                                    Illuminate\Redis\Connections\Connection::listen		</a>	<small>($callback) : void</small>
+		</h4>
+	<div class="description"><p>Register a Redis command listener with the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::getName()">
+                                    Illuminate\Redis\Connections\Connection::getName		</a>	<small>() : string<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Get the connection name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::setName()">
+                                    Illuminate\Redis\Connections\Connection::setName		</a>	<small>($name) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		</h4>
+	<div class="description"><p>Set the connections name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::getEventDispatcher()">
+                                    Illuminate\Redis\Connections\Connection::getEventDispatcher		</a>	<small>() : <a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		</h4>
+	<div class="description"><p>Get the event dispatcher used by the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::setEventDispatcher()">
+                                    Illuminate\Redis\Connections\Connection::setEventDispatcher		</a>	<small>($events) : void</small>
+		</h4>
+	<div class="description"><p>Set the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::unsetEventDispatcher()">
+                                    Illuminate\Redis\Connections\Connection::unsetEventDispatcher		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Unset the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::__call()">
+                                    Illuminate\Redis\Connections\Connection::__call		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Pass other method calls down to the underlying client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::macro()">
+                                    Illuminate\Redis\Connections\Connection::macro		</a>	<small>($name, $macro) : void</small>
+		</h4>
+	<div class="description"><p>Register a custom macro.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::mixin()">
+                                    Illuminate\Redis\Connections\Connection::mixin		</a>	<small>($mixin, $replace = true) : void</small>
+		</h4>
+	<div class="description"><p>Mix another object into the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::hasMacro()">
+                                    Illuminate\Redis\Connections\Connection::hasMacro		</a>	<small>($name) : bool</small>
+		</h4>
+	<div class="description"><p>Checks if macro is registered.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::flushMacros()">
+                                    Illuminate\Redis\Connections\Connection::flushMacros		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Flush the existing macros.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::__callStatic()">
+                                    Illuminate\Redis\Connections\Connection::__callStatic		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection::macroCall()">
+                                    Illuminate\Redis\Connections\Connection::macroCall		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection">
+                                    Illuminate\Redis\Connections::PhpRedisClusterConnection		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small>callable</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::$connector">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::connector		</a>	</h4>
+	<div class="description"><p>The connection creation callback.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::$config">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::config		</a>	</h4>
+	<div class="description"><p>The connection configuration array.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small><a href="http://php.net/manual/ja/class.redis.php" class="fqsen" target="_blank">\Redis</a></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::$client">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::client		</a>	</h4>
+	<div class="description"><p>The Redis client.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::$name">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::name		</a>	</h4>
+	<div class="description"><p>The Redis connection name.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small><a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::$events">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::events		</a>	</h4>
+	<div class="description"><p>The event dispatcher instance.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::$macros">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::macros		</a>	</h4>
+	<div class="description"><p>The registered string macros.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>bool<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::$supportsPacking">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::supportsPacking		</a>	</h4>
+	<div class="description"><p>Indicates if Redis supports packing.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>bool<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::$supportsLzf">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::supportsLzf		</a>	</h4>
+	<div class="description"><p>Indicates if Redis supports LZF compression.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>bool<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::$supportsZstd">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::supportsZstd		</a>	</h4>
+	<div class="description"><p>Indicates if Redis supports Zstd compression.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::flushdb()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::flushdb		</a>	<small>() : mixed</small>
+		</h4>
+	<div class="description"><p>Flush the selected Redis database on all master nodes.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::__construct()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::__construct		</a>	<small>($client, $connector = null, $config = []) : void</small>
+		</h4>
+	<div class="description"><p>Create a new PhpRedis connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::get()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::get		</a>	<small>($key) : string<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Returns the value of the given key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::mget()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::mget		</a>	<small>($keys) : array</small>
+		</h4>
+	<div class="description"><p>Get the values of all the given keys.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::set()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::set		</a>	<small>($key, $value, $expireResolution = null, $expireTTL = null, $flag = null) : bool</small>
+		</h4>
+	<div class="description"><p>Set the string value in the argument as the value of the key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::setnx()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::setnx		</a>	<small>($key, $value) : int</small>
+		</h4>
+	<div class="description"><p>Set the given key if it doesn't exist.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::hmget()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::hmget		</a>	<small>($key, ...$dictionary) : array</small>
+		</h4>
+	<div class="description"><p>Get the value of the given hash fields.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::hmset()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::hmset		</a>	<small>($key, ...$dictionary) : int</small>
+		</h4>
+	<div class="description"><p>Set the given hash fields to their respective values.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::hsetnx()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::hsetnx		</a>	<small>($hash, $key, $value) : int</small>
+		</h4>
+	<div class="description"><p>Set the given hash field if it doesn't exist.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::lrem()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::lrem		</a>	<small>($key, $count, $value) : int<span class="type-separator"></span><wbr>false</small>
+		</h4>
+	<div class="description"><p>Removes the first count occurrences of the value element from the list.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::blpop()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::blpop		</a>	<small>(...$arguments) : array<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Removes and returns the first element of the list stored at key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::brpop()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::brpop		</a>	<small>(...$arguments) : array<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Removes and returns the last element of the list stored at key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::spop()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::spop		</a>	<small>($key, $count = 1) : mixed<span class="type-separator"></span><wbr>false</small>
+		</h4>
+	<div class="description"><p>Removes and returns a random element from the set value at key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::zadd()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::zadd		</a>	<small>($key, ...$dictionary) : int</small>
+		</h4>
+	<div class="description"><p>Add one or more members to a sorted set or update its score if it already exists.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::zrangebyscore()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::zrangebyscore		</a>	<small>($key, $min, $max, $options = []) : array</small>
+		</h4>
+	<div class="description"><p>Return elements with score between $min and $max.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::zrevrangebyscore()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::zrevrangebyscore		</a>	<small>($key, $min, $max, $options = []) : array</small>
+		</h4>
+	<div class="description"><p>Return elements with score between $min and $max.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::zinterstore()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::zinterstore		</a>	<small>($output, $keys, $options = []) : int</small>
+		</h4>
+	<div class="description"><p>Find the intersection between sets and store in a new set.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::zunionstore()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::zunionstore		</a>	<small>($output, $keys, $options = []) : int</small>
+		</h4>
+	<div class="description"><p>Find the union between sets and store in a new set.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::scan()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::scan		</a>	<small>($cursor, $options = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Scans all keys based on options.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::zscan()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::zscan		</a>	<small>($key, $cursor, $options = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Scans the given set for all values based on options.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::hscan()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::hscan		</a>	<small>($key, $cursor, $options = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Scans the given hash for all values based on options.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::sscan()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::sscan		</a>	<small>($key, $cursor, $options = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Scans the given set for all values based on options.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::pipeline()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::pipeline		</a>	<small>($callback = null) : <a href="http://php.net/manual/ja/class.redis.php" class="fqsen" target="_blank">\Redis</a><span class="type-separator"></span><wbr>array</small>
+		</h4>
+	<div class="description"><p>Execute commands in a pipeline.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::transaction()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::transaction		</a>	<small>($callback = null) : <a href="http://php.net/manual/ja/class.redis.php" class="fqsen" target="_blank">\Redis</a><span class="type-separator"></span><wbr>array</small>
+		</h4>
+	<div class="description"><p>Execute commands in a transaction.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::evalsha()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::evalsha		</a>	<small>($script, $numkeys, ...$arguments) : mixed</small>
+		</h4>
+	<div class="description"><p>Evaluate a LUA script serverside, from the SHA1 hash of the script instead of the script itself.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::eval()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::eval		</a>	<small>($script, $numberOfKeys, ...$arguments) : mixed</small>
+		</h4>
+	<div class="description"><p>Evaluate a script and return its result.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::subscribe()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::subscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::psubscribe()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::psubscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels with wildcards.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::createSubscription()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::createSubscription		</a>	<small>($channels, $callback, $method = &quot;subscribe&quot;) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::executeRaw()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::executeRaw		</a>	<small>($parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Execute a raw command.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::command()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::command		</a>	<small>($method, $parameters = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Run a command against the Redis database.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::disconnect()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::disconnect		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Disconnects from the Redis instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::__call()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::__call		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Pass other method calls down to the underlying client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::funnel()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::funnel		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Funnel a callback for a maximum number of simultaneous executions.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::throttle()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::throttle		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Throttle a callback for a maximum number of executions over a given duration.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::client()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::client		</a>	<small>() : mixed</small>
+		</h4>
+	<div class="description"><p>Get the underlying Redis client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::event()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::event		</a>	<small>($event) : void</small>
+		</h4>
+	<div class="description"><p>Fire the given event if possible.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::listen()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::listen		</a>	<small>($callback) : void</small>
+		</h4>
+	<div class="description"><p>Register a Redis command listener with the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::getName()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::getName		</a>	<small>() : string<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Get the connection name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::setName()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::setName		</a>	<small>($name) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		</h4>
+	<div class="description"><p>Set the connections name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::getEventDispatcher()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::getEventDispatcher		</a>	<small>() : <a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		</h4>
+	<div class="description"><p>Get the event dispatcher used by the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::setEventDispatcher()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::setEventDispatcher		</a>	<small>($events) : void</small>
+		</h4>
+	<div class="description"><p>Set the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::unsetEventDispatcher()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::unsetEventDispatcher		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Unset the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::macro()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::macro		</a>	<small>($name, $macro) : void</small>
+		</h4>
+	<div class="description"><p>Register a custom macro.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::mixin()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::mixin		</a>	<small>($mixin, $replace = true) : void</small>
+		</h4>
+	<div class="description"><p>Mix another object into the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::hasMacro()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::hasMacro		</a>	<small>($name) : bool</small>
+		</h4>
+	<div class="description"><p>Checks if macro is registered.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::flushMacros()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::flushMacros		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Flush the existing macros.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::__callStatic()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::__callStatic		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::macroCall()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::macroCall		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::pack()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::pack		</a>	<small>($values) : array</small>
+		</h4>
+	<div class="description"><p>Prepares the given values to be used with the <code>eval</code> command, including serialization and compression.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::compressed()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::compressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::lzfCompressed()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::lzfCompressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if LZF compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::zstdCompressed()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::zstdCompressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if ZSTD compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::lz4Compressed()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::lz4Compressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if LZ4 compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::supportsPacking()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::supportsPacking		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the current PhpRedis extension version supports packing.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::supportsLzf()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::supportsLzf		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the current PhpRedis extension version supports LZF compression.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::supportsZstd()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::supportsZstd		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the current PhpRedis extension version supports Zstd compression.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection::phpRedisVersionAtLeast()">
+                                    Illuminate\Redis\Connections\PhpRedisClusterConnection::phpRedisVersionAtLeast		</a>	<small>($version) : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the PhpRedis extension version is at least the given version.</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection">
+                                    Illuminate\Redis\Connections::PhpRedisConnection		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small>callable</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::$connector">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::connector		</a>	</h4>
+	<div class="description"><p>The connection creation callback.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::$config">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::config		</a>	</h4>
+	<div class="description"><p>The connection configuration array.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small><a href="http://php.net/manual/ja/class.redis.php" class="fqsen" target="_blank">\Redis</a></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::$client">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::client		</a>	</h4>
+	<div class="description"><p>The Redis client.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::$name">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::name		</a>	</h4>
+	<div class="description"><p>The Redis connection name.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small><a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::$events">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::events		</a>	</h4>
+	<div class="description"><p>The event dispatcher instance.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::$macros">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::macros		</a>	</h4>
+	<div class="description"><p>The registered string macros.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>bool<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::$supportsPacking">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::supportsPacking		</a>	</h4>
+	<div class="description"><p>Indicates if Redis supports packing.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>bool<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::$supportsLzf">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::supportsLzf		</a>	</h4>
+	<div class="description"><p>Indicates if Redis supports LZF compression.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>bool<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::$supportsZstd">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::supportsZstd		</a>	</h4>
+	<div class="description"><p>Indicates if Redis supports Zstd compression.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::__construct()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::__construct		</a>	<small>($client, $connector = null, $config = []) : void</small>
+		</h4>
+	<div class="description"><p>Create a new PhpRedis connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::get()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::get		</a>	<small>($key) : string<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Returns the value of the given key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::mget()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::mget		</a>	<small>($keys) : array</small>
+		</h4>
+	<div class="description"><p>Get the values of all the given keys.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::set()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::set		</a>	<small>($key, $value, $expireResolution = null, $expireTTL = null, $flag = null) : bool</small>
+		</h4>
+	<div class="description"><p>Set the string value in the argument as the value of the key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::setnx()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::setnx		</a>	<small>($key, $value) : int</small>
+		</h4>
+	<div class="description"><p>Set the given key if it doesn't exist.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::hmget()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::hmget		</a>	<small>($key, ...$dictionary) : array</small>
+		</h4>
+	<div class="description"><p>Get the value of the given hash fields.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::hmset()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::hmset		</a>	<small>($key, ...$dictionary) : int</small>
+		</h4>
+	<div class="description"><p>Set the given hash fields to their respective values.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::hsetnx()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::hsetnx		</a>	<small>($hash, $key, $value) : int</small>
+		</h4>
+	<div class="description"><p>Set the given hash field if it doesn't exist.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::lrem()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::lrem		</a>	<small>($key, $count, $value) : int<span class="type-separator"></span><wbr>false</small>
+		</h4>
+	<div class="description"><p>Removes the first count occurrences of the value element from the list.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::blpop()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::blpop		</a>	<small>(...$arguments) : array<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Removes and returns the first element of the list stored at key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::brpop()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::brpop		</a>	<small>(...$arguments) : array<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Removes and returns the last element of the list stored at key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::spop()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::spop		</a>	<small>($key, $count = 1) : mixed<span class="type-separator"></span><wbr>false</small>
+		</h4>
+	<div class="description"><p>Removes and returns a random element from the set value at key.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::zadd()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::zadd		</a>	<small>($key, ...$dictionary) : int</small>
+		</h4>
+	<div class="description"><p>Add one or more members to a sorted set or update its score if it already exists.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::zrangebyscore()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::zrangebyscore		</a>	<small>($key, $min, $max, $options = []) : array</small>
+		</h4>
+	<div class="description"><p>Return elements with score between $min and $max.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::zrevrangebyscore()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::zrevrangebyscore		</a>	<small>($key, $min, $max, $options = []) : array</small>
+		</h4>
+	<div class="description"><p>Return elements with score between $min and $max.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::zinterstore()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::zinterstore		</a>	<small>($output, $keys, $options = []) : int</small>
+		</h4>
+	<div class="description"><p>Find the intersection between sets and store in a new set.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::zunionstore()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::zunionstore		</a>	<small>($output, $keys, $options = []) : int</small>
+		</h4>
+	<div class="description"><p>Find the union between sets and store in a new set.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::scan()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::scan		</a>	<small>($cursor, $options = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Scans all keys based on options.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::zscan()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::zscan		</a>	<small>($key, $cursor, $options = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Scans the given set for all values based on options.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::hscan()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::hscan		</a>	<small>($key, $cursor, $options = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Scans the given hash for all values based on options.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::sscan()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::sscan		</a>	<small>($key, $cursor, $options = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Scans the given set for all values based on options.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::pipeline()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::pipeline		</a>	<small>($callback = null) : <a href="http://php.net/manual/ja/class.redis.php" class="fqsen" target="_blank">\Redis</a><span class="type-separator"></span><wbr>array</small>
+		</h4>
+	<div class="description"><p>Execute commands in a pipeline.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::transaction()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::transaction		</a>	<small>($callback = null) : <a href="http://php.net/manual/ja/class.redis.php" class="fqsen" target="_blank">\Redis</a><span class="type-separator"></span><wbr>array</small>
+		</h4>
+	<div class="description"><p>Execute commands in a transaction.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::evalsha()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::evalsha		</a>	<small>($script, $numkeys, ...$arguments) : mixed</small>
+		</h4>
+	<div class="description"><p>Evaluate a LUA script serverside, from the SHA1 hash of the script instead of the script itself.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::eval()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::eval		</a>	<small>($script, $numberOfKeys, ...$arguments) : mixed</small>
+		</h4>
+	<div class="description"><p>Evaluate a script and return its result.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::subscribe()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::subscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::psubscribe()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::psubscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels with wildcards.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::createSubscription()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::createSubscription		</a>	<small>($channels, $callback, $method = &quot;subscribe&quot;) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::flushdb()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::flushdb		</a>	<small>() : mixed</small>
+		</h4>
+	<div class="description"><p>Flush the selected Redis database.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::executeRaw()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::executeRaw		</a>	<small>($parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Execute a raw command.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::command()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::command		</a>	<small>($method, $parameters = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Run a command against the Redis database.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::disconnect()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::disconnect		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Disconnects from the Redis instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::applyPrefix()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::applyPrefix		</a>	<small>($key) : string</small>
+		</h4>
+	<div class="description"><p>Apply a prefix to the given key if necessary.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::__call()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::__call		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Pass other method calls down to the underlying client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::funnel()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::funnel		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Funnel a callback for a maximum number of simultaneous executions.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::throttle()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::throttle		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Throttle a callback for a maximum number of executions over a given duration.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::client()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::client		</a>	<small>() : mixed</small>
+		</h4>
+	<div class="description"><p>Get the underlying Redis client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::event()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::event		</a>	<small>($event) : void</small>
+		</h4>
+	<div class="description"><p>Fire the given event if possible.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::listen()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::listen		</a>	<small>($callback) : void</small>
+		</h4>
+	<div class="description"><p>Register a Redis command listener with the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::getName()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::getName		</a>	<small>() : string<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Get the connection name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::setName()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::setName		</a>	<small>($name) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		</h4>
+	<div class="description"><p>Set the connections name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::getEventDispatcher()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::getEventDispatcher		</a>	<small>() : <a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		</h4>
+	<div class="description"><p>Get the event dispatcher used by the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::setEventDispatcher()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::setEventDispatcher		</a>	<small>($events) : void</small>
+		</h4>
+	<div class="description"><p>Set the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::unsetEventDispatcher()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::unsetEventDispatcher		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Unset the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::macro()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::macro		</a>	<small>($name, $macro) : void</small>
+		</h4>
+	<div class="description"><p>Register a custom macro.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::mixin()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::mixin		</a>	<small>($mixin, $replace = true) : void</small>
+		</h4>
+	<div class="description"><p>Mix another object into the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::hasMacro()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::hasMacro		</a>	<small>($name) : bool</small>
+		</h4>
+	<div class="description"><p>Checks if macro is registered.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::flushMacros()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::flushMacros		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Flush the existing macros.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::__callStatic()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::__callStatic		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::macroCall()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::macroCall		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::pack()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::pack		</a>	<small>($values) : array</small>
+		</h4>
+	<div class="description"><p>Prepares the given values to be used with the <code>eval</code> command, including serialization and compression.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::compressed()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::compressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::lzfCompressed()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::lzfCompressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if LZF compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::zstdCompressed()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::zstdCompressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if ZSTD compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::lz4Compressed()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::lz4Compressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if LZ4 compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::supportsPacking()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::supportsPacking		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the current PhpRedis extension version supports packing.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::supportsLzf()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::supportsLzf		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the current PhpRedis extension version supports LZF compression.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::supportsZstd()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::supportsZstd		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the current PhpRedis extension version supports Zstd compression.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection::phpRedisVersionAtLeast()">
+                                    Illuminate\Redis\Connections\PhpRedisConnection::phpRedisVersionAtLeast		</a>	<small>($version) : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the PhpRedis extension version is at least the given version.</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection">
+                                    Illuminate\Redis\Connections::PredisClusterConnection		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small><a href="Predis-Client$typespace.html#Predis\Client" class="fqsen "><small>Predis\</small><wbr>Client</a></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::$client">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::client		</a>	</h4>
+	<div class="description"><p>The Predis client.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::$name">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::name		</a>	</h4>
+	<div class="description"><p>The Redis connection name.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small><a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::$events">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::events		</a>	</h4>
+	<div class="description"><p>The event dispatcher instance.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::$macros">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::macros		</a>	</h4>
+	<div class="description"><p>The registered string macros.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::flushdb()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::flushdb		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Flush the selected Redis database on all cluster nodes.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::__construct()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::__construct		</a>	<small>($client) : void</small>
+		</h4>
+	<div class="description"><p>Create a new Predis connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::createSubscription()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::createSubscription		</a>	<small>($channels, $callback, $method = &quot;subscribe&quot;) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::funnel()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::funnel		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Funnel a callback for a maximum number of simultaneous executions.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::throttle()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::throttle		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Throttle a callback for a maximum number of executions over a given duration.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::client()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::client		</a>	<small>() : mixed</small>
+		</h4>
+	<div class="description"><p>Get the underlying Redis client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::subscribe()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::subscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::psubscribe()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::psubscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels with wildcards.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::command()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::command		</a>	<small>($method, $parameters = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Run a command against the Redis database.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::event()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::event		</a>	<small>($event) : void</small>
+		</h4>
+	<div class="description"><p>Fire the given event if possible.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::listen()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::listen		</a>	<small>($callback) : void</small>
+		</h4>
+	<div class="description"><p>Register a Redis command listener with the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::getName()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::getName		</a>	<small>() : string<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Get the connection name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::setName()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::setName		</a>	<small>($name) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		</h4>
+	<div class="description"><p>Set the connections name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::getEventDispatcher()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::getEventDispatcher		</a>	<small>() : <a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		</h4>
+	<div class="description"><p>Get the event dispatcher used by the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::setEventDispatcher()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::setEventDispatcher		</a>	<small>($events) : void</small>
+		</h4>
+	<div class="description"><p>Set the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::unsetEventDispatcher()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::unsetEventDispatcher		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Unset the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::__call()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::__call		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Pass other method calls down to the underlying client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::macro()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::macro		</a>	<small>($name, $macro) : void</small>
+		</h4>
+	<div class="description"><p>Register a custom macro.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::mixin()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::mixin		</a>	<small>($mixin, $replace = true) : void</small>
+		</h4>
+	<div class="description"><p>Mix another object into the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::hasMacro()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::hasMacro		</a>	<small>($name) : bool</small>
+		</h4>
+	<div class="description"><p>Checks if macro is registered.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::flushMacros()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::flushMacros		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Flush the existing macros.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::__callStatic()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::__callStatic		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection::macroCall()">
+                                    Illuminate\Redis\Connections\PredisClusterConnection::macroCall		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection">
+                                    Illuminate\Redis\Connections::PredisConnection		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small><a href="Predis-Client$typespace.html#Predis\Client" class="fqsen "><small>Predis\</small><wbr>Client</a></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::$client">
+                                    Illuminate\Redis\Connections\PredisConnection::client		</a>	</h4>
+	<div class="description"><p>The Predis client.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::$name">
+                                    Illuminate\Redis\Connections\PredisConnection::name		</a>	</h4>
+	<div class="description"><p>The Redis connection name.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small><a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::$events">
+                                    Illuminate\Redis\Connections\PredisConnection::events		</a>	</h4>
+	<div class="description"><p>The event dispatcher instance.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::$macros">
+                                    Illuminate\Redis\Connections\PredisConnection::macros		</a>	</h4>
+	<div class="description"><p>The registered string macros.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::__construct()">
+                                    Illuminate\Redis\Connections\PredisConnection::__construct		</a>	<small>($client) : void</small>
+		</h4>
+	<div class="description"><p>Create a new Predis connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::createSubscription()">
+                                    Illuminate\Redis\Connections\PredisConnection::createSubscription		</a>	<small>($channels, $callback, $method = &quot;subscribe&quot;) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::funnel()">
+                                    Illuminate\Redis\Connections\PredisConnection::funnel		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Funnel a callback for a maximum number of simultaneous executions.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::throttle()">
+                                    Illuminate\Redis\Connections\PredisConnection::throttle		</a>	<small>($name) : <a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Throttle a callback for a maximum number of executions over a given duration.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::client()">
+                                    Illuminate\Redis\Connections\PredisConnection::client		</a>	<small>() : mixed</small>
+		</h4>
+	<div class="description"><p>Get the underlying Redis client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::subscribe()">
+                                    Illuminate\Redis\Connections\PredisConnection::subscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels for messages.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::psubscribe()">
+                                    Illuminate\Redis\Connections\PredisConnection::psubscribe		</a>	<small>($channels, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Subscribe to a set of given channels with wildcards.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::command()">
+                                    Illuminate\Redis\Connections\PredisConnection::command		</a>	<small>($method, $parameters = []) : mixed</small>
+		</h4>
+	<div class="description"><p>Run a command against the Redis database.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::event()">
+                                    Illuminate\Redis\Connections\PredisConnection::event		</a>	<small>($event) : void</small>
+		</h4>
+	<div class="description"><p>Fire the given event if possible.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::listen()">
+                                    Illuminate\Redis\Connections\PredisConnection::listen		</a>	<small>($callback) : void</small>
+		</h4>
+	<div class="description"><p>Register a Redis command listener with the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::getName()">
+                                    Illuminate\Redis\Connections\PredisConnection::getName		</a>	<small>() : string<span class="type-separator"></span><wbr>null</small>
+		</h4>
+	<div class="description"><p>Get the connection name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::setName()">
+                                    Illuminate\Redis\Connections\PredisConnection::setName		</a>	<small>($name) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		</h4>
+	<div class="description"><p>Set the connections name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::getEventDispatcher()">
+                                    Illuminate\Redis\Connections\PredisConnection::getEventDispatcher		</a>	<small>() : <a href="Illuminate-Contracts-Events-Dispatcher$typespace.html#Illuminate\Contracts\Events\Dispatcher" class="fqsen "><small>Illuminate\Contracts\Events\</small><wbr>Dispatcher</a></small>
+		</h4>
+	<div class="description"><p>Get the event dispatcher used by the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::setEventDispatcher()">
+                                    Illuminate\Redis\Connections\PredisConnection::setEventDispatcher		</a>	<small>($events) : void</small>
+		</h4>
+	<div class="description"><p>Set the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::unsetEventDispatcher()">
+                                    Illuminate\Redis\Connections\PredisConnection::unsetEventDispatcher		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Unset the event dispatcher instance on the connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::__call()">
+                                    Illuminate\Redis\Connections\PredisConnection::__call		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Pass other method calls down to the underlying client.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::macro()">
+                                    Illuminate\Redis\Connections\PredisConnection::macro		</a>	<small>($name, $macro) : void</small>
+		</h4>
+	<div class="description"><p>Register a custom macro.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::mixin()">
+                                    Illuminate\Redis\Connections\PredisConnection::mixin		</a>	<small>($mixin, $replace = true) : void</small>
+		</h4>
+	<div class="description"><p>Mix another object into the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::hasMacro()">
+                                    Illuminate\Redis\Connections\PredisConnection::hasMacro		</a>	<small>($name) : bool</small>
+		</h4>
+	<div class="description"><p>Checks if macro is registered.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::flushMacros()">
+                                    Illuminate\Redis\Connections\PredisConnection::flushMacros		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Flush the existing macros.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::__callStatic()">
+                                    Illuminate\Redis\Connections\PredisConnection::__callStatic		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection::macroCall()">
+                                    Illuminate\Redis\Connections\PredisConnection::macroCall		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Dynamically handle calls to the class.</p>
+</div>
+                	<h4 class="fqsen-title">trait		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues">
+                                    Illuminate\Redis\Connections::PacksPhpRedisValues		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small>bool<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::$supportsPacking">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::supportsPacking		</a>	</h4>
+	<div class="description"><p>Indicates if Redis supports packing.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>bool<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::$supportsLzf">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::supportsLzf		</a>	</h4>
+	<div class="description"><p>Indicates if Redis supports LZF compression.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>bool<span class="type-separator"></span><wbr>null</small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::$supportsZstd">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::supportsZstd		</a>	</h4>
+	<div class="description"><p>Indicates if Redis supports Zstd compression.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::pack()">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::pack		</a>	<small>($values) : array</small>
+		</h4>
+	<div class="description"><p>Prepares the given values to be used with the <code>eval</code> command, including serialization and compression.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::compressed()">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::compressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::lzfCompressed()">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::lzfCompressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if LZF compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::zstdCompressed()">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::zstdCompressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if ZSTD compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::lz4Compressed()">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::lz4Compressed		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if LZ4 compression is enabled.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::supportsPacking()">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::supportsPacking		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the current PhpRedis extension version supports packing.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::supportsLzf()">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::supportsLzf		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the current PhpRedis extension version supports LZF compression.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::supportsZstd()">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::supportsZstd		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the current PhpRedis extension version supports Zstd compression.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connections-PacksPhpRedisValues$typespace.html#Illuminate\Redis\Connections\PacksPhpRedisValues::phpRedisVersionAtLeast()">
+                                    Illuminate\Redis\Connections\PacksPhpRedisValues::phpRedisVersionAtLeast		</a>	<small>($version) : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the PhpRedis extension version is at least the given version.</p>
+</div>
+            
+    	<h4 class="fqsen-title">namespace		<small></small>
+		<a href="Illuminate-Redis-Connectors-$namespace.html#Illuminate\Redis\Connectors\">
+            Illuminate\Redis\Connectors                        		</a>	</h4>
+	<div class="description"></div>
+                
+                	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Connectors-PhpRedisConnector$typespace.html#Illuminate\Redis\Connectors\PhpRedisConnector">
+                                    Illuminate\Redis\Connectors::PhpRedisConnector		</a>	</h4>
+	<div class="description"></div>
+                	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connectors-PhpRedisConnector$typespace.html#Illuminate\Redis\Connectors\PhpRedisConnector::connect()">
+                                    Illuminate\Redis\Connectors\PhpRedisConnector::connect		</a>	<small>($config, $options) : <a href="Illuminate-Redis-Connections-PhpRedisConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisConnection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>PhpRedisConnection</a></small>
+		</h4>
+	<div class="description"><p>Create a new clustered PhpRedis connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connectors-PhpRedisConnector$typespace.html#Illuminate\Redis\Connectors\PhpRedisConnector::connectToCluster()">
+                                    Illuminate\Redis\Connectors\PhpRedisConnector::connectToCluster		</a>	<small>($config, $clusterOptions, $options) : <a href="Illuminate-Redis-Connections-PhpRedisClusterConnection$typespace.html#Illuminate\Redis\Connections\PhpRedisClusterConnection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>PhpRedisClusterConnection</a></small>
+		</h4>
+	<div class="description"><p>Create a new clustered PhpRedis connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connectors-PhpRedisConnector$typespace.html#Illuminate\Redis\Connectors\PhpRedisConnector::buildClusterConnectionString()">
+                                    Illuminate\Redis\Connectors\PhpRedisConnector::buildClusterConnectionString		</a>	<small>($server) : string</small>
+		</h4>
+	<div class="description"><p>Build a single cluster seed string from an array.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connectors-PhpRedisConnector$typespace.html#Illuminate\Redis\Connectors\PhpRedisConnector::createClient()">
+                                    Illuminate\Redis\Connectors\PhpRedisConnector::createClient		</a>	<small>($config) : <a href="http://php.net/manual/ja/class.redis.php" class="fqsen" target="_blank">\Redis</a></small>
+		</h4>
+	<div class="description"><p>Create the Redis client instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connectors-PhpRedisConnector$typespace.html#Illuminate\Redis\Connectors\PhpRedisConnector::establishConnection()">
+                                    Illuminate\Redis\Connectors\PhpRedisConnector::establishConnection		</a>	<small>($client, $config) : void</small>
+		</h4>
+	<div class="description"><p>Establish a connection with the Redis host.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connectors-PhpRedisConnector$typespace.html#Illuminate\Redis\Connectors\PhpRedisConnector::createRedisClusterInstance()">
+                                    Illuminate\Redis\Connectors\PhpRedisConnector::createRedisClusterInstance		</a>	<small>($servers, $options) : <a href="http://php.net/manual/ja/class.rediscluster.php" class="fqsen" target="_blank">\RedisCluster</a></small>
+		</h4>
+	<div class="description"><p>Create a new redis cluster instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connectors-PhpRedisConnector$typespace.html#Illuminate\Redis\Connectors\PhpRedisConnector::formatHost()">
+                                    Illuminate\Redis\Connectors\PhpRedisConnector::formatHost		</a>	<small>($options) : string</small>
+		</h4>
+	<div class="description"><p>Format the host using the scheme if available.</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Connectors-PredisConnector$typespace.html#Illuminate\Redis\Connectors\PredisConnector">
+                                    Illuminate\Redis\Connectors::PredisConnector		</a>	</h4>
+	<div class="description"></div>
+                	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connectors-PredisConnector$typespace.html#Illuminate\Redis\Connectors\PredisConnector::connect()">
+                                    Illuminate\Redis\Connectors\PredisConnector::connect		</a>	<small>($config, $options) : <a href="Illuminate-Redis-Connections-PredisConnection$typespace.html#Illuminate\Redis\Connections\PredisConnection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>PredisConnection</a></small>
+		</h4>
+	<div class="description"><p>Create a new clustered Predis connection.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Connectors-PredisConnector$typespace.html#Illuminate\Redis\Connectors\PredisConnector::connectToCluster()">
+                                    Illuminate\Redis\Connectors\PredisConnector::connectToCluster		</a>	<small>($config, $clusterOptions, $options) : <a href="Illuminate-Redis-Connections-PredisClusterConnection$typespace.html#Illuminate\Redis\Connections\PredisClusterConnection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>PredisClusterConnection</a></small>
+		</h4>
+	<div class="description"><p>Create a new clustered Predis connection.</p>
+</div>
+                
+    	<h4 class="fqsen-title">namespace		<small></small>
+		<a href="Illuminate-Redis-Events-$namespace.html#Illuminate\Redis\Events\">
+            Illuminate\Redis\Events                        		</a>	</h4>
+	<div class="description"></div>
+                
+                	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Events-CommandExecuted$typespace.html#Illuminate\Redis\Events\CommandExecuted">
+                                    Illuminate\Redis\Events::CommandExecuted		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small>string</small>
+		<a href="Illuminate-Redis-Events-CommandExecuted$typespace.html#Illuminate\Redis\Events\CommandExecuted::$command">
+                                    Illuminate\Redis\Events\CommandExecuted::command		</a>	</h4>
+	<div class="description"><p>The Redis command that was executed.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-Events-CommandExecuted$typespace.html#Illuminate\Redis\Events\CommandExecuted::$parameters">
+                                    Illuminate\Redis\Events\CommandExecuted::parameters		</a>	</h4>
+	<div class="description"><p>The array of command parameters.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>float</small>
+		<a href="Illuminate-Redis-Events-CommandExecuted$typespace.html#Illuminate\Redis\Events\CommandExecuted::$time">
+                                    Illuminate\Redis\Events\CommandExecuted::time		</a>	</h4>
+	<div class="description"><p>The number of milliseconds it took to execute the command.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		<a href="Illuminate-Redis-Events-CommandExecuted$typespace.html#Illuminate\Redis\Events\CommandExecuted::$connection">
+                                    Illuminate\Redis\Events\CommandExecuted::connection		</a>	</h4>
+	<div class="description"><p>The Redis connection instance.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string</small>
+		<a href="Illuminate-Redis-Events-CommandExecuted$typespace.html#Illuminate\Redis\Events\CommandExecuted::$connectionName">
+                                    Illuminate\Redis\Events\CommandExecuted::connectionName		</a>	</h4>
+	<div class="description"><p>The Redis connection name.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Events-CommandExecuted$typespace.html#Illuminate\Redis\Events\CommandExecuted::__construct()">
+                                    Illuminate\Redis\Events\CommandExecuted::__construct		</a>	<small>($command, $parameters, $time, $connection) : void</small>
+		</h4>
+	<div class="description"><p>Create a new event instance.</p>
+</div>
+                
+    	<h4 class="fqsen-title">namespace		<small></small>
+		<a href="Illuminate-Redis-Limiters-$namespace.html#Illuminate\Redis\Limiters\">
+            Illuminate\Redis\Limiters                        		</a>	</h4>
+	<div class="description"></div>
+                
+                	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter">
+                                    Illuminate\Redis\Limiters::ConcurrencyLimiter		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::$redis">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::redis		</a>	</h4>
+	<div class="description"><p>The Redis factory implementation.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string</small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::$name">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::name		</a>	</h4>
+	<div class="description"><p>The name of the limiter.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::$maxLocks">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::maxLocks		</a>	</h4>
+	<div class="description"><p>The allowed number of concurrent tasks.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::$releaseAfter">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::releaseAfter		</a>	</h4>
+	<div class="description"><p>The number of seconds a slot should be maintained.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::__construct()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::__construct		</a>	<small>($redis, $name, $maxLocks, $releaseAfter) : void</small>
+		</h4>
+	<div class="description"><p>Create a new concurrency limiter instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::block()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::block		</a>	<small>($timeout, $callback = null) : bool</small>
+		</h4>
+	<div class="description"><p>Attempt to acquire the lock for the given number of seconds.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::acquire()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::acquire		</a>	<small>($id) : mixed</small>
+		</h4>
+	<div class="description"><p>Attempt to acquire the lock.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::lockScript()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::lockScript		</a>	<small>() : string</small>
+		</h4>
+	<div class="description"><p>Get the Lua script for acquiring a lock.</p>
+<p>KEYS    - The keys that represent available slots<br />
+ARGV[1] - The limiter name<br />
+ARGV[2] - The number of seconds the slot should be reserved<br />
+ARGV[3] - The unique identifier for this lock</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::release()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::release		</a>	<small>($key, $id) : void</small>
+		</h4>
+	<div class="description"><p>Release the lock.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiter$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiter::releaseScript()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiter::releaseScript		</a>	<small>() : string</small>
+		</h4>
+	<div class="description"><p>Get the Lua script to atomically release a lock.</p>
+<p>KEYS[1] - The name of the lock<br />
+ARGV[1] - The unique identifier for this lock</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder">
+                                    Illuminate\Redis\Limiters::ConcurrencyLimiterBuilder		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::$connection">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::connection		</a>	</h4>
+	<div class="description"><p>The Redis connection.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string</small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::$name">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::name		</a>	</h4>
+	<div class="description"><p>The name of the lock.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::$maxLocks">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::maxLocks		</a>	</h4>
+	<div class="description"><p>The maximum number of entities that can hold the lock at the same time.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::$releaseAfter">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::releaseAfter		</a>	</h4>
+	<div class="description"><p>The number of seconds to maintain the lock until it is automatically released.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::$timeout">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::timeout		</a>	</h4>
+	<div class="description"><p>The amount of time to block until a lock is available.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::__construct()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::__construct		</a>	<small>($connection, $name) : void</small>
+		</h4>
+	<div class="description"><p>Create a new builder instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::limit()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::limit		</a>	<small>($maxLocks) : <a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Set the maximum number of locks that can be obtained per time window.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::releaseAfter()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::releaseAfter		</a>	<small>($releaseAfter) : <a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Set the number of seconds until the lock will be released.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::block()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::block		</a>	<small>($timeout) : <a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>ConcurrencyLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Set the amount of time to block until a lock is available.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::then()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::then		</a>	<small>($callback, $failure = null) : mixed</small>
+		</h4>
+	<div class="description"><p>Execute the given callback if a lock is obtained, otherwise call the failure callback.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::secondsUntil()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::secondsUntil		</a>	<small>($delay) : int</small>
+		</h4>
+	<div class="description"><p>Get the number of seconds until the given DateTime.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::availableAt()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::availableAt		</a>	<small>($delay = 0) : int</small>
+		</h4>
+	<div class="description"><p>Get the "available at" UNIX timestamp.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::parseDateInterval()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::parseDateInterval		</a>	<small>($delay) : <a href="http://php.net/manual/ja/class.datetimeinterface.php" class="fqsen" target="_blank">\DateTimeInterface</a><span class="type-separator"></span><wbr>int</small>
+		</h4>
+	<div class="description"><p>If the given value is an interval, convert it to a DateTime instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::currentTime()">
+                                    Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder::currentTime		</a>	<small>() : int</small>
+		</h4>
+	<div class="description"><p>Get the current system time as a UNIX timestamp.</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter">
+                                    Illuminate\Redis\Limiters::DurationLimiter		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::$redis">
+                                    Illuminate\Redis\Limiters\DurationLimiter::redis		</a>	</h4>
+	<div class="description"><p>The Redis factory implementation.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string</small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::$name">
+                                    Illuminate\Redis\Limiters\DurationLimiter::name		</a>	</h4>
+	<div class="description"><p>The unique name of the lock.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::$maxLocks">
+                                    Illuminate\Redis\Limiters\DurationLimiter::maxLocks		</a>	</h4>
+	<div class="description"><p>The allowed number of concurrent tasks.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::$decay">
+                                    Illuminate\Redis\Limiters\DurationLimiter::decay		</a>	</h4>
+	<div class="description"><p>The number of seconds a slot should be maintained.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::$decaysAt">
+                                    Illuminate\Redis\Limiters\DurationLimiter::decaysAt		</a>	</h4>
+	<div class="description"><p>The timestamp of the end of the current duration.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::$remaining">
+                                    Illuminate\Redis\Limiters\DurationLimiter::remaining		</a>	</h4>
+	<div class="description"><p>The number of remaining slots.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::__construct()">
+                                    Illuminate\Redis\Limiters\DurationLimiter::__construct		</a>	<small>($redis, $name, $maxLocks, $decay) : void</small>
+		</h4>
+	<div class="description"><p>Create a new duration limiter instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::block()">
+                                    Illuminate\Redis\Limiters\DurationLimiter::block		</a>	<small>($timeout, $callback = null) : mixed</small>
+		</h4>
+	<div class="description"><p>Attempt to acquire the lock for the given number of seconds.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::acquire()">
+                                    Illuminate\Redis\Limiters\DurationLimiter::acquire		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Attempt to acquire the lock.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::tooManyAttempts()">
+                                    Illuminate\Redis\Limiters\DurationLimiter::tooManyAttempts		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the key has been "accessed" too many times.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::clear()">
+                                    Illuminate\Redis\Limiters\DurationLimiter::clear		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Clear the limiter.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::luaScript()">
+                                    Illuminate\Redis\Limiters\DurationLimiter::luaScript		</a>	<small>() : string</small>
+		</h4>
+	<div class="description"><p>Get the Lua script for acquiring a lock.</p>
+<p>KEYS[1] - The limiter name<br />
+ARGV[1] - Current time in microseconds<br />
+ARGV[2] - Current time in seconds<br />
+ARGV[3] - Duration of the bucket<br />
+ARGV[4] - Allowed number of tasks</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiter$typespace.html#Illuminate\Redis\Limiters\DurationLimiter::tooManyAttemptsLuaScript()">
+                                    Illuminate\Redis\Limiters\DurationLimiter::tooManyAttemptsLuaScript		</a>	<small>() : string</small>
+		</h4>
+	<div class="description"><p>Get the Lua script to determine if the key has been "accessed" too many times.</p>
+<p>KEYS[1] - The limiter name<br />
+ARGV[1] - Current time in microseconds<br />
+ARGV[2] - Current time in seconds<br />
+ARGV[3] - Duration of the bucket<br />
+ARGV[4] - Allowed number of tasks</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder">
+                                    Illuminate\Redis\Limiters::DurationLimiterBuilder		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small><a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::$connection">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::connection		</a>	</h4>
+	<div class="description"><p>The Redis connection.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string</small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::$name">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::name		</a>	</h4>
+	<div class="description"><p>The name of the lock.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::$maxLocks">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::maxLocks		</a>	</h4>
+	<div class="description"><p>The maximum number of locks that can be obtained per time window.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::$decay">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::decay		</a>	</h4>
+	<div class="description"><p>The amount of time the lock window is maintained.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>int</small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::$timeout">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::timeout		</a>	</h4>
+	<div class="description"><p>The amount of time to block until a lock is available.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::__construct()">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::__construct		</a>	<small>($connection, $name) : void</small>
+		</h4>
+	<div class="description"><p>Create a new builder instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::allow()">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::allow		</a>	<small>($maxLocks) : <a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Set the maximum number of locks that can be obtained per time window.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::every()">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::every		</a>	<small>($decay) : <a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Set the amount of time the lock window is maintained.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::block()">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::block		</a>	<small>($timeout) : <a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder" class="fqsen "><small>Illuminate\Redis\Limiters\</small><wbr>DurationLimiterBuilder</a></small>
+		</h4>
+	<div class="description"><p>Set the amount of time to block until a lock is available.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::then()">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::then		</a>	<small>($callback, $failure = null) : mixed</small>
+		</h4>
+	<div class="description"><p>Execute the given callback if a lock is obtained, otherwise call the failure callback.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::secondsUntil()">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::secondsUntil		</a>	<small>($delay) : int</small>
+		</h4>
+	<div class="description"><p>Get the number of seconds until the given DateTime.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::availableAt()">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::availableAt		</a>	<small>($delay = 0) : int</small>
+		</h4>
+	<div class="description"><p>Get the "available at" UNIX timestamp.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::parseDateInterval()">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::parseDateInterval		</a>	<small>($delay) : <a href="http://php.net/manual/ja/class.datetimeinterface.php" class="fqsen" target="_blank">\DateTimeInterface</a><span class="type-separator"></span><wbr>int</small>
+		</h4>
+	<div class="description"><p>If the given value is an interval, convert it to a DateTime instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-Limiters-DurationLimiterBuilder$typespace.html#Illuminate\Redis\Limiters\DurationLimiterBuilder::currentTime()">
+                                    Illuminate\Redis\Limiters\DurationLimiterBuilder::currentTime		</a>	<small>() : int</small>
+		</h4>
+	<div class="description"><p>Get the current system time as a UNIX timestamp.</p>
+</div>
+                
+    
+                	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager">
+                                    Illuminate\Redis::RedisManager		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small><a href="Illuminate-Contracts-Foundation-Application$typespace.html#Illuminate\Contracts\Foundation\Application" class="fqsen "><small>Illuminate\Contracts\Foundation\</small><wbr>Application</a></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::$app">
+                                    Illuminate\Redis\RedisManager::app		</a>	</h4>
+	<div class="description"><p>The application instance.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>string</small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::$driver">
+                                    Illuminate\Redis\RedisManager::driver		</a>	</h4>
+	<div class="description"><p>The name of the default driver.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::$customCreators">
+                                    Illuminate\Redis\RedisManager::customCreators		</a>	</h4>
+	<div class="description"><p>The registered custom driver creators.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::$config">
+                                    Illuminate\Redis\RedisManager::config		</a>	</h4>
+	<div class="description"><p>The Redis server configurations.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>mixed</small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::$connections">
+                                    Illuminate\Redis\RedisManager::connections		</a>	</h4>
+	<div class="description"><p>The Redis connections.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>bool</small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::$events">
+                                    Illuminate\Redis\RedisManager::events		</a>	</h4>
+	<div class="description"><p>Indicates whether event dispatcher is set on connections.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::__construct()">
+                                    Illuminate\Redis\RedisManager::__construct		</a>	<small>($app, $driver, $config) : void</small>
+		</h4>
+	<div class="description"><p>Create a new Redis manager instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::connection()">
+                                    Illuminate\Redis\RedisManager::connection		</a>	<small>($name = null) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		</h4>
+	<div class="description"><p>Get a Redis connection by name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::resolve()">
+                                    Illuminate\Redis\RedisManager::resolve		</a>	<small>($name = null) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		</h4>
+	<div class="description"><p>Resolve the given connection by name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::resolveCluster()">
+                                    Illuminate\Redis\RedisManager::resolveCluster		</a>	<small>($name) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		</h4>
+	<div class="description"><p>Resolve the given cluster connection by name.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::configure()">
+                                    Illuminate\Redis\RedisManager::configure		</a>	<small>($connection, $name) : <a href="Illuminate-Redis-Connections-Connection$typespace.html#Illuminate\Redis\Connections\Connection" class="fqsen "><small>Illuminate\Redis\Connections\</small><wbr>Connection</a></small>
+		</h4>
+	<div class="description"><p>Configure the given connection to prepare it for commands.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::connector()">
+                                    Illuminate\Redis\RedisManager::connector		</a>	<small>() : <a href="Illuminate-Contracts-Redis-Connector$typespace.html#Illuminate\Contracts\Redis\Connector" class="fqsen "><small>Illuminate\Contracts\Redis\</small><wbr>Connector</a></small>
+		</h4>
+	<div class="description"><p>Get the connector instance for the current driver.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::parseConnectionConfiguration()">
+                                    Illuminate\Redis\RedisManager::parseConnectionConfiguration		</a>	<small>($config) : array</small>
+		</h4>
+	<div class="description"><p>Parse the Redis connection configuration.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::connections()">
+                                    Illuminate\Redis\RedisManager::connections		</a>	<small>() : array</small>
+		</h4>
+	<div class="description"><p>Return all of the created connections.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::enableEvents()">
+                                    Illuminate\Redis\RedisManager::enableEvents		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Enable the firing of Redis command events.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::disableEvents()">
+                                    Illuminate\Redis\RedisManager::disableEvents		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Disable the firing of Redis command events.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::setDriver()">
+                                    Illuminate\Redis\RedisManager::setDriver		</a>	<small>($driver) : void</small>
+		</h4>
+	<div class="description"><p>Set the default driver.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::purge()">
+                                    Illuminate\Redis\RedisManager::purge		</a>	<small>($name = null) : void</small>
+		</h4>
+	<div class="description"><p>Disconnect the given connection and remove from local cache.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::extend()">
+                                    Illuminate\Redis\RedisManager::extend		</a>	<small>($driver, $callback) : <a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager" class="fqsen "><small>Illuminate\Redis\</small><wbr>RedisManager</a></small>
+		</h4>
+	<div class="description"><p>Register a custom driver creator Closure.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisManager$typespace.html#Illuminate\Redis\RedisManager::__call()">
+                                    Illuminate\Redis\RedisManager::__call		</a>	<small>($method, $parameters) : mixed</small>
+		</h4>
+	<div class="description"><p>Pass methods onto the default Redis connection.</p>
+</div>
+            	<h4 class="fqsen-title">class		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider">
+                                    Illuminate\Redis::RedisServiceProvider		</a>	</h4>
+	<div class="description"></div>
+            	<h4 class="fqsen-title">property		<small><a href="Illuminate-Contracts-Foundation-Application$typespace.html#Illuminate\Contracts\Foundation\Application" class="fqsen "><small>Illuminate\Contracts\Foundation\</small><wbr>Application</a></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::$app">
+                                    Illuminate\Redis\RedisServiceProvider::app		</a>	</h4>
+	<div class="description"><p>The application instance.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::$bootingCallbacks">
+                                    Illuminate\Redis\RedisServiceProvider::bootingCallbacks		</a>	</h4>
+	<div class="description"><p>All of the registered booting callbacks.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::$bootedCallbacks">
+                                    Illuminate\Redis\RedisServiceProvider::bootedCallbacks		</a>	</h4>
+	<div class="description"><p>All of the registered booted callbacks.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::$publishes">
+                                    Illuminate\Redis\RedisServiceProvider::publishes		</a>	</h4>
+	<div class="description"><p>The paths that should be published.</p>
+</div>
+    	<h4 class="fqsen-title">property		<small>array</small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::$publishGroups">
+                                    Illuminate\Redis\RedisServiceProvider::publishGroups		</a>	</h4>
+	<div class="description"><p>The paths that should be published by group.</p>
+</div>
+        	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::register()">
+                                    Illuminate\Redis\RedisServiceProvider::register		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Register the service provider.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::provides()">
+                                    Illuminate\Redis\RedisServiceProvider::provides		</a>	<small>() : array</small>
+		</h4>
+	<div class="description"><p>Get the services provided by the provider.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::__construct()">
+                                    Illuminate\Redis\RedisServiceProvider::__construct		</a>	<small>($app) : void</small>
+		</h4>
+	<div class="description"><p>Create a new service provider instance.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::booting()">
+                                    Illuminate\Redis\RedisServiceProvider::booting		</a>	<small>($callback) : void</small>
+		</h4>
+	<div class="description"><p>Register a booting callback to be run before the "boot" method is called.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::booted()">
+                                    Illuminate\Redis\RedisServiceProvider::booted		</a>	<small>($callback) : void</small>
+		</h4>
+	<div class="description"><p>Register a booted callback to be run after the "boot" method is called.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::callBootingCallbacks()">
+                                    Illuminate\Redis\RedisServiceProvider::callBootingCallbacks		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Call the registered booting callbacks.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::callBootedCallbacks()">
+                                    Illuminate\Redis\RedisServiceProvider::callBootedCallbacks		</a>	<small>() : void</small>
+		</h4>
+	<div class="description"><p>Call the registered booted callbacks.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::mergeConfigFrom()">
+                                    Illuminate\Redis\RedisServiceProvider::mergeConfigFrom		</a>	<small>($path, $key) : void</small>
+		</h4>
+	<div class="description"><p>Merge the given configuration with the existing configuration.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::loadRoutesFrom()">
+                                    Illuminate\Redis\RedisServiceProvider::loadRoutesFrom		</a>	<small>($path) : void</small>
+		</h4>
+	<div class="description"><p>Load the given routes file if routes are not already cached.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::loadViewsFrom()">
+                                    Illuminate\Redis\RedisServiceProvider::loadViewsFrom		</a>	<small>($path, $namespace) : void</small>
+		</h4>
+	<div class="description"><p>Register a view file namespace.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::loadViewComponentsAs()">
+                                    Illuminate\Redis\RedisServiceProvider::loadViewComponentsAs		</a>	<small>($prefix, $components) : void</small>
+		</h4>
+	<div class="description"><p>Register the given view components with a custom prefix.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::loadTranslationsFrom()">
+                                    Illuminate\Redis\RedisServiceProvider::loadTranslationsFrom		</a>	<small>($path, $namespace) : void</small>
+		</h4>
+	<div class="description"><p>Register a translation file namespace.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::loadJsonTranslationsFrom()">
+                                    Illuminate\Redis\RedisServiceProvider::loadJsonTranslationsFrom		</a>	<small>($path) : void</small>
+		</h4>
+	<div class="description"><p>Register a JSON translation file path.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::loadMigrationsFrom()">
+                                    Illuminate\Redis\RedisServiceProvider::loadMigrationsFrom		</a>	<small>($paths) : void</small>
+		</h4>
+	<div class="description"><p>Register database migration paths.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::loadFactoriesFrom()">
+                                    Illuminate\Redis\RedisServiceProvider::loadFactoriesFrom		</a>	<small>($paths) : void</small>
+		</h4>
+	<div class="description"><p>Register Eloquent model factory paths.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::callAfterResolving()">
+                                    Illuminate\Redis\RedisServiceProvider::callAfterResolving		</a>	<small>($name, $callback) : void</small>
+		</h4>
+	<div class="description"><p>Setup an after resolving listener, or fire immediately if already resolved.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::publishes()">
+                                    Illuminate\Redis\RedisServiceProvider::publishes		</a>	<small>($paths, $groups = null) : void</small>
+		</h4>
+	<div class="description"><p>Register paths to be published by the publish command.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::ensurePublishArrayInitialized()">
+                                    Illuminate\Redis\RedisServiceProvider::ensurePublishArrayInitialized		</a>	<small>($class) : void</small>
+		</h4>
+	<div class="description"><p>Ensure the publish array for the service provider is initialized.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::addPublishGroup()">
+                                    Illuminate\Redis\RedisServiceProvider::addPublishGroup		</a>	<small>($group, $paths) : void</small>
+		</h4>
+	<div class="description"><p>Add a publish group / tag to the service provider.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::pathsToPublish()">
+                                    Illuminate\Redis\RedisServiceProvider::pathsToPublish		</a>	<small>($provider = null, $group = null) : array</small>
+		</h4>
+	<div class="description"><p>Get the paths to publish.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::pathsForProviderOrGroup()">
+                                    Illuminate\Redis\RedisServiceProvider::pathsForProviderOrGroup		</a>	<small>($provider, $group) : array</small>
+		</h4>
+	<div class="description"><p>Get the paths for the provider or group (or both).</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::pathsForProviderAndGroup()">
+                                    Illuminate\Redis\RedisServiceProvider::pathsForProviderAndGroup		</a>	<small>($provider, $group) : array</small>
+		</h4>
+	<div class="description"><p>Get the paths for the provider and group.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::publishableProviders()">
+                                    Illuminate\Redis\RedisServiceProvider::publishableProviders		</a>	<small>() : array</small>
+		</h4>
+	<div class="description"><p>Get the service providers available for publishing.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::publishableGroups()">
+                                    Illuminate\Redis\RedisServiceProvider::publishableGroups		</a>	<small>() : array</small>
+		</h4>
+	<div class="description"><p>Get the groups available for publishing.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::commands()">
+                                    Illuminate\Redis\RedisServiceProvider::commands		</a>	<small>($commands) : void</small>
+		</h4>
+	<div class="description"><p>Register the package's custom Artisan commands.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::when()">
+                                    Illuminate\Redis\RedisServiceProvider::when		</a>	<small>() : array</small>
+		</h4>
+	<div class="description"><p>Get the events that trigger this service provider to register.</p>
+</div>
+    	<h4 class="fqsen-title">method		<small></small>
+		<a href="Illuminate-Redis-RedisServiceProvider$typespace.html#Illuminate\Redis\RedisServiceProvider::isDeferred()">
+                                    Illuminate\Redis\RedisServiceProvider::isDeferred		</a>	<small>() : bool</small>
+		</h4>
+	<div class="description"><p>Determine if the provider is deferred.</p>
+</div>
+                
+    </div>
+</body>
+</html>
