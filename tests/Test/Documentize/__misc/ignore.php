@@ -10,8 +10,7 @@ namespace {
             eval("function func_$count(){}");
         }
 
-        return new class()
-        {
+        return new class() {
         };
     }
 

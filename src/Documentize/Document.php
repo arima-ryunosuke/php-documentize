@@ -272,7 +272,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             else {
                 return;
             }
-            list(, $ns, $cname, $member) = Fqsen::parse(rtrim($tfqsen, '()'));
+            [, $ns, $cname, $member] = Fqsen::parse(rtrim($tfqsen, '()'));
             $OK = false;
             foreach (self::TYPE_MULTIPLES as $type) {
                 if ($mtype === 'type') {
@@ -365,7 +365,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         // 4パス目。この時点ですべて出来上がっているので lookup したり最終調整
         $marshal = static function (&$typeArray) use ($hierarchies, &$namespaces) {
             $lookup = static function ($fqsen) use (&$namespaces) {
-                list($category, $ns, $cname, $member) = Fqsen::parse($fqsen);
+                [$category, $ns, $cname, $member] = Fqsen::parse($fqsen);
                 foreach (self::MEMBER_MULTIPLES as $cate => $key) {
                     if ($category === $cate) {
                         return null
@@ -492,7 +492,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         // 5パス目。過程で見つからなかった FQSEN を報告
         foreach ($this->fqsens as $type => $fqsens) {
             foreach ($fqsens as $fqsen) {
-                list($category, $ns, $cname, $m) = Fqsen::parse($fqsen);
+                [$category, $ns, $cname, $m] = Fqsen::parse($fqsen);
                 if ($ttype = Fqsen::detectType("$ns\\$cname")) {
                     $ref = Reflection::instance("$ns\\$cname");
                     if (!$ref->isInternal()) {
@@ -540,7 +540,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function defaultNS($namespace)
     {
-        list($ns, $name) = namespace_split($namespace);
+        [$ns, $name] = namespace_split($namespace);
         return [
             'category'    => 'namespace',
             'id'          => "$namespace\\",
@@ -983,7 +983,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 $result2[$k] = $v;
             }
             foreach ($v['tags']['used-by'] ?? [] as $used_by) {
-                list(, , , $member) = Fqsen::parse($used_by['type']['fqsen']);
+                [, , , $member] = Fqsen::parse($used_by['type']['fqsen']);
                 if (isset($result[$member])) {
                     $result2[$member] = $result[$member];
                 }
@@ -998,8 +998,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $localname = ltrim(str_replace('\\', '/', str_lchop($filename, $this->targetdir)), '/');
         $filehash = sha1($localname);
 
-        $parser = new class extends \cebe\markdown\GithubMarkdown
-        {
+        $parser = new class extends \cebe\markdown\GithubMarkdown {
             private $id = 0;
 
             protected function renderHeadline($block)
@@ -1023,7 +1022,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             /** @var \DOMNode $node */
             if (preg_match('#^h(\\d)$#', $node->nodeName, $m)) {
                 $id++;
-                list($tag, $level) = $m;
+                [$tag, $level] = $m;
                 $nexttag = 'h' . ($level + 1);
                 ($$tag)[] = ['id' => "header-$filehash-$id", 'content' => $node->textContent, $nexttag => []];
                 $$nexttag = &$$tag[count($$tag) - 1][$nexttag];
@@ -1102,7 +1101,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         foreach (['see', 'throws'] as $single) {
             foreach ($tags[$single] ?? [] as $tag) {
                 if (isset($tag['type']['fqsen'])) {
-                    list($cate, $ns, $type) = Fqsen::parse($tag['type']['fqsen']);
+                    [$cate, $ns, $type] = Fqsen::parse($tag['type']['fqsen']);
                     if ($cate !== 'namespace' && Fqsen::detectType("$ns\\$type")) {
                         $ref = Reflection::instance("$ns\\$type");
                         if (!$ref->isInternal()) {

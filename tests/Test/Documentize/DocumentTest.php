@@ -256,7 +256,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_gatherMarkdown()
     {
         $document = new Document([
-            'target'  => __DIR__ . '/_DocumentTest/test.md',
+            'target' => __DIR__ . '/_DocumentTest/test.md',
         ]);
         $markdowns = $document->gather()['markdowns'];
 

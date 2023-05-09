@@ -24,7 +24,7 @@ class Reflection
     private function __construct($reflection, $context = null)
     {
         if (is_string($reflection)) {
-            list($category, $ns, $cname, $member) = Fqsen::parse($reflection);
+            [$category, $ns, $cname, $member] = Fqsen::parse($reflection);
             if ($category === 'function') {
                 $reflection = new \ReflectionFunction("$ns\\$cname");
             }
@@ -42,8 +42,8 @@ class Reflection
             }
         }
         if (is_array($reflection)) {
-            list($name, $value) = first_keyvalue($reflection);
-            list($ns, $name) = namespace_split($name);
+            [$name, $value] = first_keyvalue($reflection);
+            [$ns, $name] = namespace_split($name);
             $reflection = new \stdClass();
             $reflection->name = $name;
             $reflection->namespace = $ns;

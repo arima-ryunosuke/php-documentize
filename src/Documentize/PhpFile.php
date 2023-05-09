@@ -279,7 +279,7 @@ class PhpFile
                 }
             }
             else {
-                break;
+                throw new \DomainException('next で引っ掛けた token に対して処理漏れがある'); // @codeCoverageIgnore
             }
         }
         return array_map(function ($namespace) {

@@ -177,7 +177,7 @@ class Fqsen
             $fqsen = str_replace('[]', '', trim($type), $count);
             $fqsen = strstr($fqsen . '<', '<', true);
             $fqsen = strstr($fqsen . '{', '{', true);
-            list($class, $member) = explode('::', $fqsen) + [1 => ''];
+            [$class, $member] = explode('::', $fqsen) + [1 => ''];
             $default = [
                 'category' => 'type',
                 'fqsen'    => ltrim($class, '\\'),

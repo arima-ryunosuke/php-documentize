@@ -20,7 +20,7 @@ class Tag
 
     public function __construct($tagtext, $usings, $namespace, $own, $last)
     {
-        list($this->usings, $this->namespace, $this->own, $this->last) = [$usings, $namespace, $own, $last];
+        [$this->usings, $this->namespace, $this->own, $this->last] = [$usings, $namespace, $own, $last];
 
         // <@tag> は特殊なインラインタグ
         if (preg_match('#^<@([^\s]*)(.*)>$#', $tagtext, $m)) {
