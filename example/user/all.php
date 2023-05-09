@@ -439,11 +439,18 @@ namespace NS {
         protected $tagProperty;
 
         /**
-         * 型付きプロパティです
+         * デフォルトあり型付きプロパティです
          *
-         * @var array
+         * @var string
          */
-        protected ?string $typeProperty = null;
+        protected string $defaultTypeProperty = 'default';
+
+        /**
+         * デフォルトなし型付きプロパティです
+         *
+         * @var string
+         */
+        protected string $nodefaultTypeProperty;
 
         /**
          * このプロパティは @ignore によりドキュメント化されません
@@ -490,6 +497,7 @@ namespace NS {
          * @internal これは internal タグの説明です
          * @param string $arg1 これは param タグの説明です。{@link Tclass インラインタグが使えます}
          * @return string これは return タグの説明です。{@link Tclass インラインタグが使えます}
+         * @return false これは2つ目の return タグの説明です。{@link Tclass インラインタグが使えます}
          * @throws \RuntimeException これは throws タグの説明です
          * @author ryunosuke <ryunosuke.arima@gmail.com>
          */

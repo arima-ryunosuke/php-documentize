@@ -48,7 +48,8 @@
       "@composer export",
       "@composer test",
       "@composer box",
-      "@composer example"
+      "@composer example",
+      "@composer generate"
     ],
     "export": [
       "export-function",
@@ -65,8 +66,12 @@
     "example": [
       "cd example && composer install --no-dev",
       "rm -rf docs",
-      "@php documentize.phar generate example/example             docs/example         --stats --force --autoload example/vendor/autoload.php --template-config example/config.php -i '*.php' -i '*.md'",
-      "bin/documentize generate example/vendor/symfony/console/   docs/symfony-console --stats --force --autoload example/vendor/autoload.php --template-config example/config.php -i '*.php' -i '*.md' -e '/Tests/*'"
+      "@php documentize.phar generate example/user                                          docs/markdown --stats --force --template template/markdown/bootstrap.php --template-config example/config.php -i '*.php' -i '*.md'",
+      "bin/documentize       generate example/vendor/laravel/framework/src/Illuminate/Redis docs/markdown --stats --force --template template/markdown/bootstrap.php --template-config example/config.php -i '*.php' -i '*.md' --autoload example/vendor/autoload.php --contain 'Illuminate\\Redis'",
+      "bin/documentize       generate example/vendor/laravel/framework/src/Illuminate/Redis docs/simple   --stats --force --template template/simple/bootstrap.php   --template-config example/config.php -i '*.php' -i '*.md' --autoload example/vendor/autoload.php --contain 'Illuminate\\Redis'"
+    ],
+    "generate": [
+      "@php bin/htmarkdown.phar docs/markdown docs/markdown/html"
     ],
     "post-install-cmd": [
       "@export"
