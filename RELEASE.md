@@ -22,6 +22,29 @@
 - 「オーバーライドされてない」を virtual と呼んだのは大失敗だった。メジャーアップで変更する
 - Document が何をしてるかさっぱりわからないのでリファクタする
 
+## 1.2.0
+
+- [feature] 生成テンプレートに markdown を追加
+- [feature] サブディレクトリを複数指定できる機能
+- [feature] phar の状態で組み込みテンプレートの指定が煩雑だったので簡易化
+- [feature] 全オプションを php ファイルで指定できる config オプションを追加
+- [feature] description の1行目のプレーンテキストである summary を追加
+- [feature] package タグを有効化
+- [feature] iterable キーを追加
+- [feature] 主要となるエントリに id を追加
+- [feature] returns を追加
+- [feature] 内部型に list を追加
+- [*change] 途中経過の名前空間が結果に含まれないように修正
+- [fixbug] inheritdoc したときに自身の型が無くなる不具合を修正
+- [fixbug] タグが完全上書きされていたのでマージにする
+- [fixbug] 記法によっては class_exists で notice が出る不具合を修正
+- [fixbug] ファイルをまたがる関数群がバラバラになる不具合を修正
+- [fixbug] コードブロックにアノテーションが含まれている場合に誤作動する不具合を修正
+- [fixbug] 型付プロパティのデフォルト値が null になっている不具合を修正
+- [fixbug] 参照渡し可変引数の宣言が誤っていたので修正
+- [fixbug] 実際の型なのに integer, boolean などエイリアス名で取得される不具合を修正
+- [fixbug] ドキュメント由来ではないエラーが出ていたので修正
+
 ## 1.1.6
 
 - [feature] generic/shape でエラーが出ないように修正

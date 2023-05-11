@@ -125,7 +125,7 @@ class MyMagicClass
 
 #### @package
 
-参照・被参照の扱いがかなりややこしくなる上に、名前空間があれば個人的に不要だと思うので未実装です。
+名前空間を指定すると「あたかもその名前空間にいる」かのように `namespace` の値が変わります。
 
 #### @subpackage
 
@@ -178,6 +178,8 @@ Arguments:
   destination                            Specify Destination path
 
 Options:
+  -C, --config=CONFIG                    Specify Config file
+  -d, --directory=DIRECTORY              Specify Source directory (multiple values allowed)
   -a, --autoload[=AUTOLOAD]              Specify Autoload file
       --cachedir=CACHEDIR                Specify cache directory [default: "/tmp/rdz"]
       --force                            Specify cache recreation
@@ -237,6 +239,34 @@ Help:
 ```
 
 `source` `destination` 引数はそのまんまなので説明は省きます。
+
+### --config(-C)
+
+上記のコマンドラインプションが配列で書かれた php ファイルを指定します。
+
+```php
+return [
+    'cachedir' => '/tmp/hoge',
+];
+```
+
+というファイルを `--config config.php` で渡すと `--cachedir /tmp/hoge` が指定されたのと同じ効果があります。
+
+### --directory(-d)
+
+`source` に付け足す対象ディレクトリを指定します。
+`source` は単一引数のため、例えば下記のようなディレクトリ構成で、 `src/dir1` と `src/dir3` だけを指定することはできません。
+
+```
+src
+├─ dir1
+├─ dir2
+└─ dir3
+```
+
+このとき `src --directory dir1 --directory dir3` とすると dir2 が除外されます。
+
+`exclude` でも似たようなことは可能ですが、少々煩雑かつ読み込みは発生してしまうので、この `directory` の方が簡易かつ高速です。
 
 ### --autoload(-a)
 
@@ -373,11 +403,13 @@ FQSEN を指定して結果を除外します。
     'NS' => [
         // 名前空間の名前空間属性です
         'category'    => 'namespace',
+        'id'          => 'NS',
         'fqsen'       => 'NS',
         'namespace'   => '',
         'name'        => 'NS',
         // 名前空間の説明です
         'description' => '',
+        'summary'     => '',
         // 所属するサブ名前空間です
         'namespaces'  => [
             'subns' => [
@@ -391,6 +423,7 @@ FQSEN を指定して結果を除外します。
             'NAMESPACE_CONSTANT' => [
                 // 定数の名前空間属性です
                 'category'    => 'constant',
+                'id'          => 'NS\\NAMESPACE_CONSTANT',
                 'fqsen'       => 'NS\\NAMESPACE_CONSTANT',
                 'namespace'   => 'NS',
                 'name'        => 'NAMESPACE_CONSTANT',
@@ -402,6 +435,7 @@ FQSEN を指定して結果を除外します。
                 ],
                 // 定数の説明です
                 'description' => '',
+                'summary'     => '',
                 // 定数の値です
                 'value'       => '1',
                 // 定数のアクセスレベルです
@@ -433,6 +467,7 @@ FQSEN を指定して結果を除外します。
             'namespace_function' => [
                 // 関数の名前空間属性です
                 'category'    => 'function',
+                'id'          => 'NS\\namespace_function',
                 'fqsen'       => 'NS\\namespace_function',
                 'namespace'   => 'NS',
                 'name'        => 'namespace_function',
@@ -444,6 +479,7 @@ FQSEN を指定して結果を除外します。
                 ],
                 // 関数の説明です
                 'description' => '名前空間に定義された関数です\n\nこれは関数の説明です。',
+                'summary'     => '名前空間に定義された関数です',
                 // 関数の引数配列です
                 'parameters'  => [
                     // 下記が引数分繰り返されます
@@ -468,6 +504,7 @@ FQSEN を指定して結果を除外します。
                         'declaration' => '&$ref',
                         // 引数の説明です
                         'description' => '引数1です',
+                        'summary'     => '引数1です',
                     ],
                 ],
                 // 関数の返り値です
@@ -488,6 +525,11 @@ FQSEN を指定して結果を除外します。
                     ],
                     // 返り値の説明です
                     'description' => '返り値です',
+                    'summary'     => '返り値です',
+                ],
+                'returns'     => [
+                    // return の繰り返しです。phpdoc で複数の @return を書いた場合に複数になります
+                    /* ... */
                 ],
                 // 関数のタグです
                 'tags'        => [
@@ -502,6 +544,7 @@ FQSEN を指定して結果を除外します。
             'ClassName' => [
                 // クラスの名前空間属性です
                 'category'       => 'class',
+                'id'             => 'NS\\ClassName',
                 'fqsen'          => 'NS\\ClassName',
                 'namespace'      => 'NS',
                 'name'           => 'ClassName',
@@ -513,11 +556,13 @@ FQSEN を指定して結果を除外します。
                 ],
                 // クラスの説明です
                 'description'    => '名前空間に定義されたクラスです',
+                'summary'        => '名前空間に定義されたクラスです',
                 // クラスの属性を表す真偽値です
                 'final'          => false,
                 'abstract'       => false,
                 'cloneable'      => true,
-                'iterateable'    => false,
+                'iterateable'    => false, // 非推奨です。iterable を使ってください
+                'iterable'       => false,
                 // このクラスが属する階層構造です
                 'hierarchy'      => [
                     // このクラスが属するクラスツリー配列です。属するツリー分繰り返されます
@@ -536,6 +581,7 @@ FQSEN を指定して結果を除外します。
                         'category'    => 'class',
                         // クラスの説明です
                         'description' => 'クラスの説明です',
+                        'summary'     => 'クラスの説明です',
                     ],
                 ],
                 // このクラスが実装しているインターフェースです
@@ -562,6 +608,7 @@ FQSEN を指定して結果を除外します。
                     'propertname' => [
                         // プロパティの名前空間属性です
                         'category'    => 'property',
+                        'id'          => 'NS\\ClassName::$propertname',
                         'fqsen'       => 'NS\\ClassName::$propertname',
                         'namespace'   => 'NS\\ClassName',
                         'name'        => 'propertname',
@@ -573,7 +620,9 @@ FQSEN を指定して結果を除外します。
                         ],
                         // プロパティの説明です
                         'description' => 'クラスのプロパティです',
+                        'summary'     => 'クラスのプロパティです',
                         // プロパティの値です
+                        'hasValue'    => 'null',
                         'value'       => 'null',
                         // プロパティの属性を表す真偽値です
                         'virtuall'    => false,
@@ -589,6 +638,7 @@ FQSEN を指定して結果を除外します。
                             'fqsen'       => 'vendor\\package\\Parents::methodname',
                             // FQSEN の説明です
                             'description' => '/* ... */',
+                            'summary'     => '/* ... */',
                         ],
                         // プロパティの型配列です
                         'types'       => [
@@ -612,6 +662,7 @@ FQSEN を指定して結果を除外します。
                     // メソッド名がキーになります。メソッド分繰り返されます
                     'methodname' => [
                         'category'    => 'method',
+                        'id'          => 'NS\\ClassName::methodname()',
                         'fqsen'       => 'NS\\ClassName::methodname()',
                         'namespace'   => 'NS\\ClassName',
                         'name'        => 'methodname',
@@ -623,6 +674,7 @@ FQSEN を指定して結果を除外します。
                         ],
                         // メソッドの説明です
                         'description' => 'クラスのメソッドです\n\nこれはクラスメソッドの説明です。',
+                        'summary'     => 'クラスのメソッドです',
                         // メソッドの属性を表す真偽値です
                         'virtuall'    => false,
                         'magic'       => false,
@@ -639,6 +691,7 @@ FQSEN を指定して結果を除外します。
                             'fqsen'       => 'vendor\\package\\Parents::methodname',
                             // FQSEN の説明です
                             'description' => '/* ... */',
+                            'summary'     => '/* ... */',
                         ],
                         // メソッドの引数配列です
                         'parameters'  => [
@@ -647,6 +700,10 @@ FQSEN を指定して結果を除外します。
                         ],
                         // メソッドの返り値です
                         'return'      => [
+                            // 関数と同じなので省略します
+                            /* ... */
+                        ],
+                        'returns'     => [
                             // 関数と同じなので省略します
                             /* ... */
                         ],
