@@ -39,7 +39,7 @@
     "symfony/process": "3.*"
   },
   "require-dev": {
-    "ryunosuke/functions": "1.5.*",
+    "ryunosuke/functions": "1.6.*",
     "phpunit/phpunit": "8.*"
   },
   "scripts": {

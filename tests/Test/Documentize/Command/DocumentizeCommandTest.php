@@ -3,10 +3,10 @@
 namespace ryunosuke\Test\Documentize\Command;
 
 use ryunosuke\Documentize\Command\DocumentizeCommand;
-use ryunosuke\Functions\Package\FileSystem;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
+use function ryunosuke\Documentize\rm_rf;
 
 class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
 {
@@ -50,7 +50,7 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_generate()
     {
         $tmpdir = sys_get_temp_dir();
-        FileSystem::rm_rf("$tmpdir/rdz-test");
+        rm_rf("$tmpdir/rdz-test");
 
         $output = $this->runApp([
             'source'      => __DIR__ . '/_DocumentizeCommand',
@@ -67,7 +67,7 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
     function test_no_generate()
     {
         $tmpdir = sys_get_temp_dir();
-        FileSystem::rm_rf("$tmpdir/rdz-test");
+        rm_rf("$tmpdir/rdz-test");
 
         $output = $this->runApp([
             'source'      => __DIR__ . '/_DocumentizeCommand',
