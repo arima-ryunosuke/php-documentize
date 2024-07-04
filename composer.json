@@ -1,7 +1,7 @@
 {
   "config": {
     "platform": {
-      "php": "7.4"
+      "php": "8.0.2"
     }
   },
   "name": "ryunosuke/documentize",
@@ -33,14 +33,14 @@
     "bin/documentize"
   ],
   "require": {
-    "php": ">=7.4",
+    "php": ">=8.0",
     "cebe/markdown": "1.2.*",
-    "symfony/console": "3.*",
-    "symfony/process": "3.*"
+    "symfony/console": "6.*",
+    "symfony/process": "6.*"
   },
   "require-dev": {
-    "ryunosuke/functions": "1.6.*",
-    "phpunit/phpunit": "8.*"
+    "ryunosuke/functions": "2.0.*",
+    "phpunit/phpunit": "9.*"
   },
   "scripts": {
     "build": [
