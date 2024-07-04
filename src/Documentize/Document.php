@@ -578,6 +578,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'namespace'   => $ref->getNamespaceName(),
                 'name'        => $ref->getShortName(),
                 'location'    => $ref->getLocation(),
+                'attributes'  => $data['attributes'],
                 'description' => $data['description'],
                 'value'       => $data['value'],
                 'accessible'  => $data['accessible'],
@@ -609,6 +610,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'namespace'   => $ref->getNamespaceName(),
                 'name'        => $ref->getShortName(),
                 'location'    => $ref->getLocation(),
+                'attributes'  => $data['attributes'],
                 'description' => $data['description'],
                 'parameters'  => $data['parameters'],
                 'return'      => $data['return'],
@@ -744,6 +746,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $docs = $this->parseDoccomment($refconst->getDocComment(), $namespace, $own);
 
         return [
+            'attributes'  => $refconst->getAttributes(),
             'description' => $docs['description'] ?: $docs['tags']['var'][0]['description'] ?? '',
             'value'       => var_export2($refconst->getValue(), true),
             'accessible'  => 'public', // 取りようがない
@@ -757,6 +760,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $docs = $this->parseDoccomment($reffunc->getDocComment(), $namespace, $own);
 
         $result = [
+            'attributes'  => $reffunc->getAttributes(),
             'description' => $docs['description'],
             'parameters'  => [],
             'return'      => [],
@@ -777,6 +781,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         $paramTags = array_column($docs['tags']['param'] ?? [], null, 'name');
         foreach ($reffunc->getParameters() as $param) {
             $result['parameters'][] = [
+                'attributes'  => $param->getAttributes(),
                 'types'       => $merge($paramTags[$param->getShortName()]['type'] ?? [], $param->getType(), $this->usings, $namespace, $own),
                 'name'        => $param->getShortName(),
                 'declaration' => $param->getDeclaration(),
@@ -810,6 +815,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             'namespace'      => $refclass->getNamespaceName(),
             'name'           => $refclass->getShortName(),
             'location'       => $refclass->getLocation(),
+            'attributes'     => $refclass->getAttributes(),
             'description'    => $classdocs['description'],
             'final'          => $refclass->isFinal(),
             'abstract'       => $refclass->isAbstract(),
@@ -844,6 +850,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'namespace'   => $refconst->getNamespaceName(),
                 'name'        => $refconst->getShortName(),
                 'location'    => $refconst->getLocation(),
+                'attributes'  => $refconst->getAttributes(),
                 'description' => $constdocs['description'] ?: $constdocs['tags']['var'][0]['description'] ?? '',
                 'value'       => var_export2($refconst->getValue(), true),
                 'virtual'     => $prototypes && !in_array_or(['override'], array_column($prototypes, 'kind')),
@@ -880,6 +887,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'namespace'   => $refproperty->getNamespaceName(),
                 'name'        => $refproperty->getShortName(),
                 'location'    => $refproperty->getLocation(),
+                'attributes'  => $refproperty->getAttributes(),
                 'description' => $propdocs['description'] ?: $propdocs['tags']['var'][0]['description'] ?? '',
                 'hasValue'    => $refproperty->hasValue(),
                 'value'       => var_export2($refproperty->getValue(), true),
@@ -905,6 +913,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'fqsen'       => $refclass->getFqsen() . '::$' . $tag['name'],
                 'namespace'   => $refclass->getNamespaceName(),
                 'name'        => $tag['name'],
+                'attributes'  => [],
                 'location'    => $refclass->getMagicPropertyLocation($tag['name']),
                 'description' => $propdocs['description'],
                 'hasValue'    => false,
@@ -935,6 +944,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'namespace'   => $refmethod->getNamespaceName(),
                 'name'        => $refmethod->getShortName(),
                 'location'    => $refmethod->getLocation(),
+                'attributes'  => $refmethod->getAttributes(),
                 'description' => $rmethod['description'],
                 'virtual'     => $prototypes && !in_array_or(['override', 'implement'], array_column($prototypes, 'kind')),
                 'magic'       => false,
@@ -963,6 +973,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'namespace'   => $refclass->getNamespaceName(),
                 'name'        => $tag['name'],
                 'location'    => $refclass->getMagicMethodLocation($tag['name']),
+                'attributes'  => [],
                 'description' => $mmethod['description'],
                 'virtual'     => false,
                 'magic'       => true,

@@ -230,6 +230,36 @@ class Reflection
         throw new \DomainException();
     }
 
+    public function getAttributes()
+    {
+        switch (true) {
+            case $this->reflection instanceof \stdClass:
+                return [];
+            default:
+                $attributes = [];
+                foreach ($this->reflection->getAttributes() as $attribute) {
+                    $attributes[] = [
+                        'name'        => $attribute->getName(),
+                        'arguments'   => $attribute->getArguments(),
+                        'declaration' => (function (\ReflectionAttribute $attribute) {
+                            $argstrings = [];
+                            foreach ($attribute->getArguments() as $key => $arg) {
+                                $val = var_export2($arg, ['return' => true, 'minify' => true]);
+                                if (is_int($key)) {
+                                    $argstrings[] = $val;
+                                }
+                                else {
+                                    $argstrings[] = "$key: $val";
+                                }
+                            }
+                            return implode(', ', $argstrings);
+                        })($attribute),
+                    ];
+                }
+                return $attributes;
+        }
+    }
+
     /** @return $this */
     public function getDeclaringClass()
     {

@@ -486,6 +486,31 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         ], array_pickup($reflection->getProperties()['b']->getLocation(), ['start', 'end']));
     }
 
+    function test_getAttributes()
+    {
+        $closure = function (
+            #[Attr(1, 2)] int $arg1,
+            #[Attr(1, c: 3)] int $arg2,
+        ) {
+        };
+        $reflection = (Reflection::instance(new \ReflectionFunction($closure)));
+        $parameters = $reflection->getParameters();
+        $this->assertEquals([
+            [
+                'name'        => 'ryunosuke\\Test\\Documentize\\Attr',
+                'arguments'   => [1, 2],
+                'declaration' => '1, 2',
+            ],
+        ], $parameters['arg1']->getAttributes());
+        $this->assertEquals([
+            [
+                'name'        => 'ryunosuke\\Test\\Documentize\\Attr',
+                'arguments'   => [1, 'c' => 3],
+                'declaration' => '1, c: 3',
+            ],
+        ], $parameters['arg2']->getAttributes());
+    }
+
     function test_misc()
     {
         $reflection = Reflection::instance(new \ReflectionExtension('Reflection'));
