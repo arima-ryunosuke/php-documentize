@@ -486,6 +486,22 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         ], array_pickup($reflection->getProperties()['b']->getLocation(), ['start', 'end']));
     }
 
+    function test_getGetDocComments()
+    {
+        $closure = /** function */
+            function (
+                /** arg1 */ int $arg1,
+                int $arg2,
+            ) /** return */ {
+            };
+        $reflection = (Reflection::instance(new \ReflectionFunction($closure)));
+        $this->assertEquals([
+            '' => "/** function */",
+            0  => "/** arg1 */",
+            -1 => "/** return */",
+        ], $reflection->getDocComments());
+    }
+
     function test_getAttributes()
     {
         $closure = function (
@@ -520,6 +536,7 @@ class ReflectionTest extends \ryunosuke\Test\AbstractUnitTestCase
         $this->assertException(new \DomainException(), [$reflection, 'getShortName']);
         $this->assertException(new \DomainException(), [$reflection, 'getFileName']);
         $this->assertException(new \DomainException(), [$reflection, 'getLocation'], '');
+        $this->assertException(new \DomainException(), [$reflection, 'getDocComments']);
         $this->assertException(new \DomainException(), [$reflection, 'getDocComment']);
         $this->assertException(new \DomainException(), [$reflection, 'getLastModified']);
         $this->assertException(new \DomainException(), [$reflection, 'getDeclaringClass']);

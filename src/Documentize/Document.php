@@ -757,7 +757,8 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
     private function parseFunction(Reflection $reffunc, $namespace, $own)
     {
-        $docs = $this->parseDoccomment($reffunc->getDocComment(), $namespace, $own);
+        $doccomments = $reffunc->getDocComments();
+        $docs = $this->parseDoccomment($doccomments[''] ?? $reffunc->getDocComment(), $namespace, $own);
 
         $result = [
             'attributes'  => $reffunc->getAttributes(),
@@ -768,38 +769,45 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             'tags'        => $docs['tags'],
         ];
 
-        $merge = static function (array $types, $type, $usings, $namespace, $own) {
+        $merge = function ($type, array ...$types) use ($namespace, $own) {
             /** @var Reflection $type */
             $stype = $type->getFqsen();
             if ($stype === 'void') {
-                return $types;
+                return array_values(array_unique(array_merge(...$types), SORT_REGULAR));
             }
             $fqsen = new Fqsen($stype);
-            return array_values(array_unique(array_merge($fqsen->resolve($usings, $namespace, $own), $types), SORT_REGULAR));
+            return array_values(array_unique(array_merge($fqsen->resolve($this->usings, $namespace, $own), ...$types), SORT_REGULAR));
         };
 
         $paramTags = array_column($docs['tags']['param'] ?? [], null, 'name');
         foreach ($reffunc->getParameters() as $param) {
+            $doccomment = $this->parseDoccomment($doccomments[$param->getPosition()] ?? '', $namespace, $own);
+            $docvar = $doccomment['tags']['var'][0] ?? [];
+            $tag = $paramTags[$param->getShortName()] ?? [];
             $result['parameters'][] = [
                 'attributes'  => $param->getAttributes(),
-                'types'       => $merge($paramTags[$param->getShortName()]['type'] ?? [], $param->getType(), $this->usings, $namespace, $own),
+                'types'       => $merge($param->getType(), $tag['type'] ?? [], $docvar['type'] ?? []),
                 'name'        => $param->getShortName(),
                 'declaration' => $param->getDeclaration(),
-                'description' => $paramTags[$param->getShortName()]['description'] ?? '',
+                'description' => $tag['description'] ?? '' ?: $doccomment['description'] ?: $docvar['description'] ?? '',
             ];
         }
 
-        $result['return'] = [
-            'types'       => $merge($docs['tags']['return'][0]['type'] ?? [], $reffunc->getType(), $this->usings, $namespace, $own),
-            'description' => $docs['tags']['return'][0]['description'] ?? '',
+        $doccomment = $this->parseDoccomment($doccomments[-1] ?? '', $namespace, $own);
+        $docvar = $doccomment['tags']['var'][0] ?? [];
+        $tag = $docs['tags']['return'][0] ?? [];
+        $result['returns'][] = $result['return'] = [
+            'types'       => $merge($reffunc->getType(), $tag['type'] ?? [], $docvar['type'] ?? []),
+            'description' => $tag['description'] ?? '' ?: $doccomment['description'] ?: $docvar['description'] ?? '',
         ];
 
-        foreach ($docs['tags']['return'] ?? [] as $return) {
+        foreach (array_slice($docs['tags']['return'] ?? [], 1) as $return) {
             $result['returns'][] = [
                 'types'       => $return['type'] ?? [],
                 'description' => $return['description'] ?? '',
             ];
         }
+        $result['returns'] = array_values(array_filter($result['returns'], fn($return) => $return['types'] || $return['description']));
 
         return $result;
     }

@@ -5,6 +5,13 @@ namespace ryunosuke\Documentize;
 /**
  * リフレクションを統一的に扱えるようにしたクラス
  *
+ * @mixin \ReflectionFunction
+ * @mixin \ReflectionClass
+ * @mixin \ReflectionClassConstant
+ * @mixin \ReflectionProperty
+ * @mixin \ReflectionMethod
+ * @mixin \ReflectionParameter
+ * @mixin \ReflectionType
  * @todo リフレクション周りの汚い処理を押し込めようとしたら本当にクソ汚くなったので要修正
  * @todo いつか個別に継承クラスで作り直す
  */
@@ -56,6 +63,11 @@ class Reflection
         elseif (method_exists($this->reflection, 'getDeclaringClass') && $this->reflection->getDeclaringClass()) {
             $this->context = new self($this->reflection->getDeclaringClass());
         }
+    }
+
+    public function __call(string $name, array $arguments)
+    {
+        return $this->reflection->$name(...$arguments);
     }
 
     public function getCategory()
@@ -193,6 +205,19 @@ class Reflection
                     'start' => $this->reflection->getStartLine() - $start_offset,
                     'end'   => $this->reflection->getEndLine(),
                 ];
+        }
+        throw new \DomainException();
+    }
+
+    public function getDocComments()
+    {
+        switch (true) {
+            case $this->reflection instanceof \ReflectionFunction:
+            case $this->reflection instanceof \ReflectionMethod:
+                if ($this->reflection->getFileName() === false || str_contains($this->reflection->getFileName(), "eval()'d code")) {
+                    return [];
+                }
+                return function_doccomments($this->reflection);
         }
         throw new \DomainException();
     }
