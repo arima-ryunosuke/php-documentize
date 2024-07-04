@@ -92,8 +92,8 @@ class Reflection
                 return $this->getNamespaceName() . '::$' . $this->getShortName();
             case $this->reflection instanceof \ReflectionMethod:
                 return $this->getNamespaceName() . '::' . $this->getShortName() . '()';
-            case $this->reflection instanceof \ReflectionNamedType:
-                return ($this->reflection->allowsNull() ? '?' : '') . $this->reflection->getName();
+            case $this->reflection instanceof \ReflectionType:
+                return (string) $this->reflection;
         }
         throw new \DomainException();
     }
@@ -494,7 +494,7 @@ class Reflection
                     }
                     return self::instance($this->reflection->getPrototype());
                 }
-                catch (\Exception $ex) {
+                catch (\Exception) {
                     foreach ($this->reflection->getDeclaringClass()->getTraits() as $trait) {
                         if ($trait->hasMethod($this->getShortName())) {
                             return self::instance($trait->getMethod($this->getShortName()));
@@ -619,11 +619,7 @@ class Reflection
             case $this->reflection instanceof \ReflectionFunction:
             case $this->reflection instanceof \ReflectionMethod:
                 return new self($this->reflection->getReturnType() ?: $void);
-            /** @noinspection PhpMissingBreakStatementInspection */
             case $this->reflection instanceof \ReflectionProperty:
-                if (version_compare(PHP_VERSION, '7.4.0') < 0) {
-                    return new self($void); // @codeCoverageIgnore
-                }
             case $this->reflection instanceof \ReflectionParameter:
                 return new self($this->reflection->getType() ?: $void);
         }

@@ -239,12 +239,7 @@ class DocumentTest extends \ryunosuke\Test\AbstractUnitTestCase
         ]);
         $document->gather($logs);
         $logs = array_column($logs, 'message');
-        if (version_compare(PHP_VERSION, 8.0) >= 0) {
-            $this->assertContains('Undefined variable $t', $logs);
-        }
-        else {
-            $this->assertContains("Undefined variable: t", $logs);
-        }
+        $this->assertContains('Undefined variable $t', $logs);
         $this->assertContains("ChildClass uses inheritdoc, but Invalid is not found.", $logs);
         $this->assertContains("ChildClass::method() uses inheritdoc, but Invalid::invalid() is not found.", $logs);
         $this->assertContains("'UndefinedClass' is undefined type in (ChildClass)", $logs);

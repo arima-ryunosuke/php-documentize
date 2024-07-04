@@ -36,32 +36,25 @@ PHPCODE
         $this->assertSame($phpfile, $phpfile->reset());
 
         $this->assertEquals(false, $phpfile->prev());
-        $phpfile->next();
-        $phpfile->next();
-        $this->assertEquals("<?php\n", $phpfile->current()[1]);
-        if (version_compare(PHP_VERSION, 8.0) >= 0) {
-            $this->assertEquals("namespace|{|use|\ArrayObject|as|AO|;", implode('|', array_column($phpfile->next(T_CLASS), 1)));
-        }
-        else {
-            $this->assertEquals("namespace|{|use|\|ArrayObject|as|AO|;", implode('|', array_column($phpfile->next(T_CLASS), 1)));
-        }
-        $this->assertEquals("C", $phpfile->next()[1]);
+        $this->assertEquals("<?php\n", $phpfile->current()->text);
+        $this->assertEquals("namespace|{|use|\ArrayObject|as|AO|;", implode('|', array_column($phpfile->next(T_CLASS), 'text')));
+        $this->assertEquals("C", $phpfile->next()->text);
         $phpfile->next('DE');
-        $this->assertEquals("DE", $phpfile->current()[1]);
-        $this->assertEquals(";", implode('|', array_column($phpfile->next(T_TRAIT), 1)));
-        $this->assertEquals("T", $phpfile->next()[1]);
+        $this->assertEquals("DE", $phpfile->current()->text);
+        $this->assertEquals(";", implode('|', array_column($phpfile->next(T_TRAIT), 'text')));
+        $this->assertEquals("T", $phpfile->next()->text);
 
         $phpfile->next('END');
         $this->assertEquals(false, $phpfile->current());
         $this->assertEquals(false, $phpfile->next());
         $this->assertEquals(false, $phpfile->next(T_NAMESPACE));
-        $this->assertEquals([ord('}'), '}', 13], array_pickup($phpfile->prev(), [0, 1, 2]));
-        $this->assertEquals([ord('}'), '}', 12], array_pickup($phpfile->prev(), [0, 1, 2]));
-        $this->assertEquals([ord('{'), '{', 12], array_pickup($phpfile->prev(), [0, 1, 2]));
-        $this->assertEquals([ord('{'), '{', 12], array_pickup($phpfile->current(), [0, 1, 2]));
-        $this->assertEquals([T_NAMESPACE, 'namespace', 8], array_pickup($phpfile->prev(T_NAMESPACE)[0], [0, 1, 2]));
+        $this->assertEquals([ord('}'), '}', 13], array_pickup($phpfile->prev(), ['id' => 0, 'text' => 1, 'line' => 2]));
+        $this->assertEquals([ord('}'), '}', 12], array_pickup($phpfile->prev(), ['id' => 0, 'text' => 1, 'line' => 2]));
+        $this->assertEquals([ord('{'), '{', 12], array_pickup($phpfile->prev(), ['id' => 0, 'text' => 1, 'line' => 2]));
+        $this->assertEquals([ord('{'), '{', 12], array_pickup($phpfile->current(), ['id' => 0, 'text' => 1, 'line' => 2]));
+        $this->assertEquals([T_NAMESPACE, 'namespace', 8], array_pickup($phpfile->prev(T_NAMESPACE)[0], ['id' => 0, 'text' => 1, 'line' => 2]));
 
-        $this->assertEquals(T_OPEN_TAG, $phpfile->reset()->current()[0]);
+        $this->assertEquals(T_OPEN_TAG, $phpfile->reset()->current()->id);
     }
 
     function test_gather()

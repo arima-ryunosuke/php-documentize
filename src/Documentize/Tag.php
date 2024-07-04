@@ -265,7 +265,7 @@ class Tag
         }
 
         $args = str_between($matches['remnant'], '(', ')');
-        if ($args === false) {
+        if ($args === null) {
             return [];
         }
 
@@ -419,7 +419,7 @@ class Tag
         $ref = try_null([Reflection::class, 'instance'], $fqsen['fqsen']);
         return [
             'fqsen'       => $fqsen['fqsen'],
-            'location'    => optional($ref)->getLocation(),
+            'location'    => $ref?->getLocation(),
             'description' => $value[1] ?? '',
         ];
     }

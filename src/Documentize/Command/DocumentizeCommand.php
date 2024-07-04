@@ -75,8 +75,8 @@ class DocumentizeCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $src = path_resolve($input->getArgument('source'));
-        $dst = path_resolve($input->getArgument('destination'));
+        $src = path_resolve($input->getArgument('source')) ?? $input->getArgument('source');
+        $dst = path_resolve($input->getArgument('destination')) ?? $input->getArgument('destination');
 
         $cfgfile = $input->getOption('config');
         $config = file_exists($cfgfile) ? require $cfgfile : [];
@@ -107,7 +107,7 @@ class DocumentizeCommand extends Command
         if ($cachedir) {
             $pharpath = \Phar::running(false);
             $hash = $pharpath ? md5_file($pharpath) : md5(implode(',', array_map('md5_file', file_list(dirname(__DIR__)))));
-            $cachedir = path_resolve("$cachedir/$hash");
+            $cachedir = path_resolve("$cachedir/$hash") ?? "$cachedir/$hash";
             mkdir_p($cachedir);
         }
 
@@ -163,7 +163,7 @@ class DocumentizeCommand extends Command
         $result = Document::gatherIsolative($options, $errors);
         if ($result === false) {
             $output->writeln("<fg=red>$errors</>");
-            return;
+            return 255;
         }
         $gathered = $result['result'];
 
@@ -240,5 +240,7 @@ class DocumentizeCommand extends Command
             $output->writeln(sprintf('Output total size <comment>%s</comment> bytes', number_format($gensize)));
             $output->writeln(sprintf('Peak Memory <comment>%s</comment> bytes', number_format($result['memory'])));
         }
+
+        return 0;
     }
 }

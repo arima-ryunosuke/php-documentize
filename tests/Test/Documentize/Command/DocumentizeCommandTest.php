@@ -67,7 +67,7 @@ class DocumentizeCommandTest extends \ryunosuke\Test\AbstractUnitTestCase
         ]);
         $this->assertStringContainsString('Gather and parse files from', $output);
         $this->assertStringContainsString('Found 0 markdowns, 0 constants, 0 functions, 0 interfaces, 0 traits, 1 classes in 1 namespaces', $output);
-        $this->assertStringContainsString('Input php count 2 files', $output);
+        $this->assertStringContainsString('Input php count 1 files', $output);
 
         $this->assertStringContainsString('<title>custom title</title>', file_get_contents("$tmpdir/rdz-test/index.html"));
     }

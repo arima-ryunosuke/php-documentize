@@ -130,7 +130,9 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         }
 
         if ($this->options['cachedir']) {
-            cachedir($this->options['cachedir'] . '/rfc');
+            function_configure([
+                'cachedir' => $this->options['cachedir'] . '/rfc',
+            ]);
         }
 
         // rsync を真似ようとしたが思ったより複雑だったのでシンプルに「すべて * をプレフィックス」という仕様にする
@@ -745,7 +747,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             'description' => $docs['description'] ?: $docs['tags']['var'][0]['description'] ?? '',
             'value'       => var_export2($refconst->getValue(), true),
             'accessible'  => 'public', // 取りようがない
-            'types'       => (new Fqsen(var_type($refconst->getValue(), true)))->resolve($this->usings, $namespace, $own),
+            'types'       => (new Fqsen(var_type($refconst->getValue())))->resolve($this->usings, $namespace, $own),
             'tags'        => $docs['tags'],
         ];
     }
@@ -833,7 +835,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
         foreach ($refclass->getConstants() as $refconst) {
             $decclass = $refconst->getDeclaringClass();
             $constdocs = $this->parseDoccomment($refconst->getDocComment(), $decclass->getNamespaceName(), $decclass->getFqsen());
-            $types = $constdocs['tags']['var'][0]['type'] ?? (new Fqsen(var_type($refconst->getValue(), true)))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
+            $types = $constdocs['tags']['var'][0]['type'] ?? (new Fqsen(var_type($refconst->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen());
             $prototypes = $refconst->getProtoTypes();
             $result[$refconst->getShortName()] = [
                 'category'    => $refconst->getCategory(),
@@ -886,7 +888,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 'static'      => $refproperty->isStatic(),
                 'accessible'  => $refproperty->getAccessible(),
                 'prototypes'  => $prototypes,
-                'types'       => $merge($propdocs['tags']['var'][0]['type'] ?? [], $refproperty->getType(), $this->usings, $refclass->getNamespaceName(), $refclass->getFqsen()) ?: (new Fqsen(var_type($refproperty->getValue(), true)))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen()),
+                'types'       => $merge($propdocs['tags']['var'][0]['type'] ?? [], $refproperty->getType(), $this->usings, $refclass->getNamespaceName(), $refclass->getFqsen()) ?: (new Fqsen(var_type($refproperty->getValue())))->resolve($this->usings, $refclass->getNamespaceName(), $refclass->getFqsen()),
                 'tags'        => $propdocs['tags'],
             ];
         }

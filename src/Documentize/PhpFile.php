@@ -10,7 +10,7 @@ class PhpFile
     /** @var array gather 結果のキャッシュ */
     private static $cache = [];
 
-    /** @var array 処理するトークン */
+    /** @var \PhpToken[] 処理するトークン */
     private $tokens;
 
     /** @var int トークン数 */
@@ -35,7 +35,7 @@ class PhpFile
 
     public function __construct($filename_or_code)
     {
-        $this->tokens = parse_php('?>' . (file_exists($filename_or_code) ? file_get_contents($filename_or_code) : $filename_or_code), [
+        $this->tokens = php_parse(file_exists($filename_or_code) ? file_get_contents($filename_or_code) : $filename_or_code, [
             'flags' => TOKEN_PARSE,
             'cache' => false,
         ]);
@@ -57,7 +57,7 @@ class PhpFile
     /**
      * 現在位置のトークンを返す
      *
-     * @return array|false 現在位置のトークン。終端まで達しているなら false
+     * @return \PhpToken|false 現在位置のトークン。終端まで達しているなら false
      */
     public function current()
     {
@@ -86,7 +86,7 @@ class PhpFile
 
         $result = [];
         for ($i = $this->position - 1; $i >= 0; $i--) {
-            if ($this->tokens[$i][0] === T_WHITESPACE) {
+            if ($this->tokens[$i]->is(T_WHITESPACE)) {
                 continue;
             }
 
@@ -98,7 +98,7 @@ class PhpFile
             $result[] = $this->tokens[$i];
 
             foreach ($stop_token as $nt) {
-                if ($nt === $this->tokens[$i][0] || $nt === $this->tokens[$i][1]) {
+                if ($this->tokens[$i]->is($nt)) {
                     break 2;
                 }
             }
@@ -125,7 +125,7 @@ class PhpFile
 
         $result = [];
         for ($i = $this->position + 1; $i < $this->length; $i++) {
-            if ($this->tokens[$i][0] === T_WHITESPACE) {
+            if ($this->tokens[$i]->is(T_WHITESPACE)) {
                 continue;
             }
 
@@ -135,7 +135,7 @@ class PhpFile
             }
 
             foreach ($stop_token as $nt) {
-                if ($nt === $this->tokens[$i][0] || $nt === $this->tokens[$i][1]) {
+                if ($this->tokens[$i]->is($nt)) {
                     break 2;
                 }
             }
@@ -168,11 +168,11 @@ class PhpFile
             $alias = null;
             $uses = [];
             foreach ($parts as $i => $part) {
-                if ($part[0] === T_AS) {
-                    $alias = $parts[$i + 1][1];
+                if ($part->is(T_AS)) {
+                    $alias = $parts[$i + 1]->text;
                     break;
                 }
-                $uses[] = $part[1];
+                $uses[] = $part->text;
             }
             if ($alias === null) {
                 $alias = last_value(explode('\\', implode('', $uses)));
@@ -191,20 +191,20 @@ class PhpFile
                 break;
             }
 
-            if ($current[0] === T_NAMESPACE) {
+            if ($current->is(T_NAMESPACE)) {
                 $classname = '';
-                $namespace = implode('', array_column($this->next([';', '{']), 1));
+                $namespace = implode('', array_column($this->next([';', '{']), 'text'));
                 $p = $this->position;
                 $doccomment = $this->prev([T_DOC_COMMENT, '}']);
-                $result[$namespace]['@comment'] = $doccomment[0][0] === T_DOC_COMMENT ? $doccomment[0][1] : '';
+                $result[$namespace]['@comment'] = $doccomment[0]->is(T_DOC_COMMENT) ? $doccomment[0]->text : '';
                 $this->position = $p;
             }
-            elseif ($current[0] === T_CLASS || $current[0] === T_TRAIT || $current[0] === T_INTERFACE) {
+            elseif ($current->is([T_CLASS, T_TRAIT, T_INTERFACE])) {
                 $next = $this->next();
-                $classname = ltrim($namespace . '\\' . $next[1], '\\');
-                $result[$namespace]['@using'][$next[1]] = $classname;
+                $classname = ltrim($namespace . '\\' . $next->text, '\\');
+                $result[$namespace]['@using'][$next->text] = $classname;
             }
-            elseif ($current[0] === T_USE) {
+            elseif ($current->is(T_USE)) {
                 $parts = $this->next([';', '{']);
                 $current = $this->current();
 
@@ -213,49 +213,49 @@ class PhpFile
                     continue;
                 }
                 // おそらく use const/function
-                if ($parts[0][0] === T_CONST || $parts[0][0] === T_FUNCTION) {
+                if ($parts[0]->is(T_CONST) || $parts[0]->is(T_FUNCTION)) {
                     continue;
                 }
 
                 // 単一指定モード
-                if ($current[1] === ';') {
+                if ($current->is(';')) {
                     $use('', $parts, $result[$namespace]['@using']);
                 }
                 // 複数指定モード
-                elseif ($current[1] === '{') {
-                    $ns = ltrim(implode('', array_column($parts, 1)), '\\');
+                elseif ($current->is('{')) {
+                    $ns = ltrim(implode('', array_column($parts, 'text')), '\\');
                     do {
                         $use($ns, $this->next(['}', ',']), $result[$namespace]['@using']);
-                    } while ($this->current()[1] === ',');
+                    } while ($this->current()->is(','));
                 }
             }
-            elseif ($current[0] === T_CONST || $current[0] === T_PRIVATE || $current[0] === T_PROTECTED || $current[0] === T_PUBLIC || $current[0] === T_VAR) {
-                $mode = $current[0];
-                $start = $current[2];
+            elseif ($current->is([T_CONST, T_PRIVATE, T_PROTECTED, T_PUBLIC, T_VAR])) {
+                $mode = $current->id;
+                $start = $current->line;
                 $name = '';
                 $end = 0;
                 $parts = $this->next([';', '{']);
                 foreach ($parts as $n => $part) {
-                    if ($part[0] === T_FUNCTION) {
+                    if ($part->is(T_FUNCTION)) {
                         // T_FUNCTION からメソッド名までに邪魔者はいない…と思ったんだが参照返しの & がいる可能性があるので T_STRING まで読み飛ばし
                         $next = $part;
                         for ($i = $n + 1, $l = count($parts); $i < $l; $i++) {
-                            if ($parts[$i][0] === T_STRING) {
+                            if ($parts[$i]->is(T_STRING)) {
                                 $next = $parts[$n + 1];
                                 break;
                             }
                         }
-                        $result[$namespace][$classname][$next[1] . '()'] = [null, null];// リフレクションで取ったほうが正確なので設定しない
+                        $result[$namespace][$classname][$next->text . '()'] = [null, null];// リフレクションで取ったほうが正確なので設定しない
                         continue 2;
                     }
-                    elseif (!$name && $part[0] === T_STRING) {
-                        $name = $part[1];
+                    elseif (!$name && $part->is(T_STRING)) {
+                        $name = $part->text;
                     }
-                    elseif (!$name && $mode !== T_CONST && $part[0] === T_VARIABLE) {
-                        $name = $part[1];
+                    elseif (!$name && $mode !== T_CONST && $part->is(T_VARIABLE)) {
+                        $name = $part->text;
                     }
-                    if ($part[2] !== 0) {
-                        $end = $part[2];
+                    if ($part->line !== 0) {
+                        $end = $part->line;
                     }
                 }
                 if ($name && $end) {
@@ -266,16 +266,16 @@ class PhpFile
                     $p = $this->position;
                     $doccomment = $this->prev([T_DOC_COMMENT, ';', '{']);
                     $this->position = $p;
-                    $result[$namespace]['@const'][$name] = $doccomment[0][0] === T_DOC_COMMENT ? $doccomment[0][1] : '';
+                    $result[$namespace]['@const'][$name] = $doccomment[0]->is(T_DOC_COMMENT) ? $doccomment[0]->text : '';
                 }
             }
             // ↑は public などのアクセス修飾子で引っ掛けている（プロパティ宣言が T_VARIABLE なのでそうしないと大量に引っかかってしまう）
             // その都合上、 T_FUNCTION も引っかかってしまうので↑で処理しているが、メソッドは修飾省略可なので別途検出しなければならない
-            elseif ($current[0] === T_FUNCTION) {
+            elseif ($current->is(T_FUNCTION)) {
                 // 注意点は↑と同じ。ただしここは読み飛ばしてもいいコンテキストなので skip が使える
                 $this->next([T_STRING, '{', ';']);
-                if ($this->current()[0] === T_STRING) {
-                    $result[$namespace][$classname][$this->current()[1] . '()'] = [null, null];// リフレクションで取ったほうが正確なので設定しない
+                if ($this->current()->is(T_STRING)) {
+                    $result[$namespace][$classname][$this->current()->text . '()'] = [null, null];// リフレクションで取ったほうが正確なので設定しない
                 }
             }
             else {

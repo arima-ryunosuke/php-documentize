@@ -56,7 +56,7 @@ abstract class AbstractUnitTestCase extends \PHPUnit\Framework\TestCase
                     };
                 }
             }
-            catch (\ReflectionException $ex) {
+            catch (\ReflectionException) {
                 // __call を考慮するとどうしようもない
             }
         }
