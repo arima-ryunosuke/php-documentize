@@ -44,7 +44,6 @@
   },
   "scripts": {
     "build": [
-      "@composer install",
       "@composer export",
       "@composer test",
       "@composer box",
@@ -59,9 +58,7 @@
       "vendor/bin/phpunit --configuration=tests/phpunit.xml"
     ],
     "box": [
-      "@composer dump-autoload --no-dev",
-      "bin/box.phar build -c box.json",
-      "@composer dump-autoload"
+      "bin/box.phar compile -c box.json"
     ],
     "example": [
       "cd example && composer install --no-dev",

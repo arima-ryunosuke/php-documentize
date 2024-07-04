@@ -1,37 +1,7 @@
 {
   "compression": "GZ",
   "chmod": "0755",
-  "files": [
-    "src/functions.stub",
-    "vendor/autoload.php"
-  ],
-  "finder": [
-    {
-      "name": "*.php",
-      "exclude": [
-        "Examples",
-        "test",
-        "tests",
-        "Test",
-        "Tests",
-        "unitTests"
-      ],
-      "in": [
-        "src",
-        "vendor/composer",
-        "vendor/psr",
-        "vendor/cebe",
-        "vendor/symfony"
-      ]
-    },
-    {
-      "name": "*",
-      "in": [
-        "template"
-      ]
-    }
-  ],
-  "main": "bin/documentize",
-  "output": "documentize.phar",
-  "stub": true
+  "force-autodiscovery": true,
+  "directories": ["template"],
+  "output": "documentize.phar"
 }
