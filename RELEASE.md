@@ -22,6 +22,19 @@
 - 「オーバーライドされてない」を virtual と呼んだのは大失敗だった。メジャーアップで変更する
 - Document が何をしてるかさっぱりわからないのでリファクタする
 
+## 1.3.0
+
+- [template] 追加した機能の template と example
+- [template] 名前空間単位の出力
+- [template] mtime 維持のため内容が同じなら書き込まないように変更
+- [feature] 名前空間の並びを contain に合わせる
+- [feature] 引数・返り値の DocComment 対応
+- [feature] アトリビュート対応
+- [all] php8.0 とパッケージ更新の対応
+- [all] code format and fix inspection
+- [bin] phar 依存更新
+- [change] php>=8.0
+
 ## 1.2.0
 
 - [feature] 生成テンプレートに markdown を追加
