@@ -57,16 +57,12 @@ namespace vendor\subspace {
 namespace {
 
     use ArrayObject as AO;
-    use vendor\{
-        Single
-    };
-    use vendor\{
-        Fuga, Hoge, Inner\Bar as InnerBar, Inner\Foo, Piyo
-    };
+    use vendor\{Single};
+    use vendor\{Fuga, Hoge, Inner\Bar as InnerBar, Inner\Foo, Piyo};
     use vendor\subspace as Sub;
     use vendor\Ttrait;
-    use const vendor\subspace\FOO;
     use function vendor\subspace\bar;
+    use const vendor\subspace\FOO;
 
     /**
      * @return callable|AO|Single|Hoge|Fuga|Piyo|Foo|InnerBar|Sub\SubClass 使用しないとコードフォーマッターで吹き飛んでしまうので無理やり使用

@@ -69,102 +69,108 @@ PHPCODE
         $phpfile = new PhpFile(__DIR__ . '/_PhpFileTest/all.php');
 
         // 行数がコロコロ変わってとてもしんどいのでコピペ用（コピった場合差分は確認すること）
-        //\ryunosuke\Documentize\Utils\Vars::var_export2($phpfile->gather());
+        //\ryunosuke\Documentize\var_export2($phpfile->gather());
 
         $this->assertEquals([
-            'vendor'           => [
-                '@comment' => '/**
- * namespace vendor comment
- */',
-                '@using'   => [
-                    'Ttrait' => 'vendor\\Ttrait',
-                    'Single' => 'vendor\\Single',
-                    'Hoge'   => 'vendor\\Hoge',
-                    'Fuga'   => 'vendor\\Fuga',
-                    'Piyo'   => 'vendor\\Piyo',
+            "vendor"           => [
+                "@comment" => <<<TEXT
+                /**
+                 * namespace vendor comment
+                 */
+                TEXT,
+                "@using"   => [
+                    "Ttrait" => "vendor\\Ttrait",
+                    "Single" => "vendor\\Single",
+                    "Hoge"   => "vendor\\Hoge",
+                    "Fuga"   => "vendor\\Fuga",
+                    "Piyo"   => "vendor\\Piyo",
                 ],
-                '@const'   => [],
+                "@const"   => [],
             ],
-            'vendor\\Inner'    => [
-                '@comment' => '/**
- * namespace vendor\\Inner comment
- */',
-                '@using'   => [
-                    'Foo' => 'vendor\\Inner\\Foo',
-                    'Bar' => 'vendor\\Inner\\Bar',
+            "vendor\\Inner"    => [
+                "@comment" => <<<TEXT
+                /**
+                 * namespace vendor\\Inner comment
+                 */
+                TEXT,
+                "@using"   => [
+                    "Foo" => "vendor\\Inner\\Foo",
+                    "Bar" => "vendor\\Inner\\Bar",
                 ],
-                '@const'   => [],
+                "@const"   => [],
             ],
-            'vendor\\subspace' => [
-                '@comment' => '',
-                ''         => [
-                    'FOO'   => [46, 46],
-                    'bar()' => [null, null],
+            "vendor\\subspace" => [
+                "@comment" => "",
+                "@using"   => [
+                    "SubClass" => "vendor\\subspace\\SubClass",
                 ],
-                '@const'   => [
-                    'FOO' => '/** const doc */',
+                "@const"   => [
+                    "FOO" => "/** const doc */",
                 ],
-                '@using'   => [
-                    'SubClass' => 'vendor\\subspace\\SubClass',
-                ],
-            ],
-            ''                 => [
-                '@comment' => '/**
- * namespace global comment
- */',
-                '@using'   => [
-                    'AO'       => 'ArrayObject',
-                    'Single'   => 'vendor\\Single',
-                    'Fuga'     => 'vendor\\Fuga',
-                    'Hoge'     => 'vendor\\Hoge',
-                    'InnerBar' => 'vendor\\Inner\\Bar',
-                    'Foo'      => 'vendor\\Inner\\Foo',
-                    'Piyo'     => 'vendor\\Piyo',
-                    'Sub'      => 'vendor\\subspace',
-                    'Ttrait'   => 'vendor\\Ttrait',
-                    'C'        => 'C',
-                    'I'        => 'I',
-                    'T'        => 'T',
-                ],
-                '@const'   => [],
-                ''         => [
-                    'f()' => [null, null],
-                ],
-                'C'        => [
-                    'method()' => [null, null],
-                ],
-                'I'        => [
-                    'INTERFACE_CONST' => [96, 99],
-                    'method()'        => [null, null],
-                ],
-                'T'        => [
-                    'method1()'       => [null, null],
-                    '$staticProperty' => [112, 112],
-                    '$traitProperty'  => [113, 115],
-                    'method2()'       => [null, null],
+                ""         => [
+                    "FOO"   => [46, 46],
+                    "bar()" => [null, null],
                 ],
             ],
-            'NS'               => [
-                '@comment' => '',
-                '@using'   => [
-                    'P' => 'NS\\P',
-                    'C' => 'NS\\C',
+            ""                 => [
+                "@comment" => <<<TEXT
+                /**
+                 * namespace global comment
+                 */
+                TEXT,
+                "@using"   => [
+                    "AO"       => "ArrayObject",
+                    "Single"   => "vendor\\Single",
+                    "Fuga"     => "vendor\\Fuga",
+                    "Hoge"     => "vendor\\Hoge",
+                    "InnerBar" => "vendor\\Inner\\Bar",
+                    "Foo"      => "vendor\\Inner\\Foo",
+                    "Piyo"     => "vendor\\Piyo",
+                    "Sub"      => "vendor\\subspace",
+                    "Ttrait"   => "vendor\\Ttrait",
+                    "C"        => "C",
+                    "I"        => "I",
+                    "T"        => "T",
                 ],
-                '@const'   => [],
-                'NS\\P'    => [
-                    'EXTERNAL'    => [129, 129],
-                    'CLASS_CONST' => [130, 130],
+                "@const"   => [],
+                ""         => [
+                    "f()" => [null, null],
                 ],
-                'NS\\C'    => [
-                    'method1()'       => [null, null],
-                    'PRIVATE_CONST'   => [143, 143],
-                    'PUBLIC_CONST'    => [144, 144],
-                    '$staticProperty' => [146, 146],
-                    '$classProperty'  => [147, 150],
-                    'method2()'       => [null, null],
-                    'method()'        => [null, null],
-                    'func()'          => [null, null],
-                    'refunc()'        => [null, null],
+                "C"        => [
+                    "method()" => [null, null],
+                ],
+                "I"        => [
+                    "INTERFACE_CONST" => [92, 95],
+                    "method()"        => [null, null],
+                ],
+                "T"        => [
+                    "method1()"        => [null, null],
+                    "\$staticProperty" => [108, 108],
+                    "\$traitProperty"  => [109, 111],
+                    "method2()"        => [null, null],
+                ],
+            ],
+            "NS"               => [
+                "@comment" => "",
+                "@using"   => [
+                    "P" => "NS\\P",
+                    "C" => "NS\\C",
+                ],
+                "@const"   => [],
+                "NS\\P"    => [
+                    "EXTERNAL"    => [125, 125],
+                    "CLASS_CONST" => [126, 126],
+                ],
+                "NS\\C"    => [
+                    "method1()"        => [null, null],
+                    "PRIVATE_CONST"    => [139, 139],
+                    "PUBLIC_CONST"     => [140, 140],
+                    "\$staticProperty" => [142, 142],
+                    "\$classProperty"  => [143, 146],
+                    "method2()"        => [null, null],
+                    "method()"         => [null, null],
+                    "func()"           => [null, null],
+                    "refunc()"         => [null, null],
                 ],
             ],
         ], $phpfile->gather());

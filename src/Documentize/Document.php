@@ -349,7 +349,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
                 }
             }
         };
-        foreach ($namespaces as $namespace => &$elements) {
+        foreach ($namespaces as &$elements) {
             foreach (self::TYPE_MULTIPLES as $type) {
                 foreach (self::MEMBER_MULTIPLES as $mtype) {
                     foreach ($elements[$type] as &$typeArray) {
@@ -1023,7 +1023,7 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
             if (preg_match('#^h(\\d)$#', $node->nodeName, $m)) {
                 $id++;
                 [$tag, $level] = $m;
-                $nexttag = 'h' . ($level + 1);
+                $nexttag = 'h' . (intval($level) + 1);
                 ($$tag)[] = ['id' => "header-$filehash-$id", 'content' => $node->textContent, $nexttag => []];
                 $$nexttag = &$$tag[count($$tag) - 1][$nexttag];
             }

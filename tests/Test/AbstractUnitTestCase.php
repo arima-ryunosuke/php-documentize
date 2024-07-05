@@ -66,7 +66,6 @@ abstract class AbstractUnitTestCase extends \PHPUnit\Framework\TestCase
 
     public static function forcedRead($object, $property)
     {
-        $refprop = null;
         $class = get_class($object);
         while (true) {
             try {
@@ -86,7 +85,6 @@ abstract class AbstractUnitTestCase extends \PHPUnit\Framework\TestCase
 
     public static function forcedWrite($object, $property, $value)
     {
-        $refprop = null;
         $class = get_class($object);
         while (true) {
             try {
