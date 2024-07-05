@@ -1,6 +1,13 @@
 <style>.rst-content .right.sidebar {
     margin: -3.2em 4px 4px 0px;
 }
+.toc-h span:nth-of-type(n + 3) {
+    font-size: 80%;
+    color: #aaaaaa;
+}
+.toc-h span:nth-of-type(3):before {
+    content: " - ";
+}
 .section-header small {
     display: none;
 }
@@ -20,6 +27,27 @@ table.no-border code {
     background-color: transparent;
     border: none;
     white-space: nowrap;
+}
+.rst-content h1:has([data-attribute]),
+.rst-content h2:has([data-attribute]),
+.rst-content h3:has([data-attribute]),
+.rst-content h4:has([data-attribute]),
+.rst-content h5:has([data-attribute]),
+.rst-content h6:has([data-attribute]),
+.rst-content td:has([data-attribute]),
+.rst-content tr:has([data-attribute]) td {
+    padding-top: 1.5em;
+}
+[data-attribute] {
+    position: absolute;
+}
+[data-attribute]:after {
+    content: attr(data-attribute);
+    position: absolute;
+    top: -3em;
+    white-space: nowrap;
+    font-size: 80%;
+    color: #8a8a8a;
 }
 span.summary:not(:first-child) {
     display: block;
@@ -116,7 +144,7 @@ type | summary
 #### <a id='NS-package_function()' class='anchor'></a>[F] package\_function <small><span class="summary">色々なタグを試すための名前空間関数です</span></small>
 
 ///right
-{alert:deprecated 1.2.3}[all.php#353~363](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L353-L363 target=_blank)
+{alert:deprecated 1.2.3}[all.php#389~399](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L389-L399 target=_blank)
 ///
 
 ...色々なタグを試すための名前空間関数です
@@ -190,6 +218,8 @@ protected string $class_property = "class property"
 ```
 
 
+**Type**: string
+
 
 
 ...
@@ -259,6 +289,8 @@ public string $magicProperty1
 ```
 
 
+**Type**: string
+
 
 
 ...
@@ -282,6 +314,8 @@ public string $magicProperty2
 ただ、下記のようにタグを貼る際は有用です。
 
 </div>
+
+**Type**: string
 
 
 :See
@@ -661,6 +695,8 @@ protected string $class_property = "Rclass property"
 ```
 
 
+**Type**: string
+
 
 
 ...
@@ -677,6 +713,8 @@ protected string $class_property = "Rclass property"
 private string $trait_property = "trait property"
 ```
 
+
+**Type**: string
 
 :Prototype
 kind | source | summary
@@ -998,10 +1036,97 @@ kind | source | summary
 ...
 
 
+### <a id='NS-Aclass' class='anchor'></a><div data-attribute='#[NS\Attribute, NS\Attribute(1, target: &quot;class&quot;)]'></div>[C] Aclass <small><span class="summary">属性とか引数・返り値の DocComment を試すためのクラスです</span></small>
+
+///right
+[all.php#355~387](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L355-L387 target=_blank)
+///
+
+<div class="description">
+
+属性とか引数・返り値の DocComment を試すためのクラスです
+
+</div>
+
+
+
+
+
+
+#### <a id='NS-Aclass::CONSTANT' class='anchor'></a><div data-attribute='#[NS\Attribute, NS\Attribute(2, target: &quot;constant&quot;)]'></div>[C] CONSTANT <small><span class="summary"></span></small>
+
+///right
+[all.php#362~362](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L362-L362 target=_blank)
+///
+
+...
+```php:Definitation
+public const string CONSTANT = "constant"
+```
+
+
+
+
+...
+
+
+#### <a id='NS-Aclass::$property' class='anchor'></a><div data-attribute='#[NS\Attribute, NS\Attribute(3, target: &quot;property&quot;)]'></div>[p] $property <small><span class="summary"></span></small>
+
+///right
+[all.php#366~366](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L366-L366 target=_blank)
+///
+
+...
+```php:Definitation
+private null $property = null
+```
+
+
+**Type**: null
+
+
+
+...
+
+
+#### <a id='NS-Aclass::method()' class='anchor'></a><div data-attribute='#[NS\Attribute, NS\Attribute(4, target: &quot;method&quot;)]'></div>[m] method <small><span class="summary"></span></small>
+
+///right
+[all.php#370~386](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L370-L386 target=_blank)
+///
+
+...
+```php:Definitation
+private function method(
+    int|bool $arg1,
+    int|float $arg2,
+    int|string $arg3
+): array|iterable
+```
+
+
+:Parameter
+type | name | summary
+----------------------- | --------------------------------- | -----------------------------------------------------
+​<div data-attribute='#[NS\Attribute, NS\Attribute(7, target: &quot;parameter&quot;)]'></div>int\|​bool | ​`$arg1` | ​<span class="summary">summary1</span>
+​<div data-attribute='#[NS\Attribute, NS\Attribute(8, target: &quot;parameter&quot;)]'></div>int\|​float | ​`$arg2` | ​<span class="summary">summary2</span>
+​<div data-attribute='#[NS\Attribute, NS\Attribute(9, target: &quot;parameter&quot;)]'></div>int\|​string | ​`$arg3` | ​<span class="summary">summary3</span>
+
+:Return
+type | summary
+----------------------- | -----------------------------------------------------------------------------------
+​array\|​iterable | ​<span class="summary">return</span>
+
+
+
+
+...
+
+
 ### <a id='NS-Tclass' class='anchor'></a>[C] Tclass <small><span class="summary">色々なタグを試すためのクラスです</span></small>
 
 ///right
-{final}{alert:deprecated 3.4.5}[all.php#365~517](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L365-L517 target=_blank)
+{final}{alert:deprecated 3.4.5}[all.php#401~553](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L401-L553 target=_blank)
 ///
 
 <div class="description">
@@ -1114,7 +1239,7 @@ kind | source | summary
 #### <a id='NS-Tclass::$tagProperty' class='anchor'></a>[p] $tagProperty <small><span class="summary">これはプロパティ用のタグの例示用メソッドです</span></small>
 
 ///right
-[all.php#432~439](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L432-L439 target=_blank)
+[all.php#468~475](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L468-L475 target=_blank)
 ///
 
 ...これはプロパティ用のタグの例示用メソッドです
@@ -1128,6 +1253,8 @@ protected array $tagProperty = null
 とは言えプロパティ専用のタグはほとんど無いため、 var のためだけに存在しています。
 
 </div>
+
+**Type**: array
 
 
 
@@ -1146,6 +1273,8 @@ protected string $defaultTypeProperty = "default"
 ```
 
 
+**Type**: string
+
 
 
 ...
@@ -1162,6 +1291,8 @@ protected string $defaultTypeProperty = "default"
 protected string $nodefaultTypeProperty
 ```
 
+
+**Type**: string
 
 
 
@@ -1180,6 +1311,8 @@ protected string $class_property = "Rclass property"
 ```
 
 
+**Type**: string
+
 :Prototype
 kind | source | summary
 ----------------------- | --------------------------------- | -----------------------------------------------------
@@ -1192,7 +1325,7 @@ kind | source | summary
 #### <a id='NS-Tclass::tagMethod()' class='anchor'></a>[m] tagMethod <small><span class="summary">これはメソッド用の[タグ](https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#7-tags target=_blank)の例示用メソッドです</span></small>
 
 ///right
-{final}{success:api}{success:version 3.4.5}{notice:internal}{alert:deprecated 2.3.4}[all.php#462~504](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L462-L504 target=_blank)
+{final}{success:api}{success:version 3.4.5}{notice:internal}{alert:deprecated 2.3.4}[all.php#498~540](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L498-L540 target=_blank)
 ///
 
 ...これはメソッド用の[タグ](https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md#7-tags target=_blank)の例示用メソッドです
@@ -1260,7 +1393,7 @@ type | summary
 #### <a id='NS-Tclass::typeMethod()' class='anchor'></a>[m] typeMethod <small><span class="summary"></span></small>
 
 ///right
-[all.php#506~506](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L506-L506 target=_blank)
+[all.php#542~542](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L542-L542 target=_blank)
 ///
 
 ...
@@ -1278,6 +1411,10 @@ type | name | summary
 ​?[Tclass](NS.md#NS-Tclass "NS\Tclass") | ​`$arg1` | ​<span class="summary"></span>
 ​?string | ​`$arg2` | ​<span class="summary"></span>
 
+:Return
+type | summary
+----------------------- | -----------------------------------------------------------------------------------
+​?[Tclass](NS.md#NS-Tclass "NS\Tclass") | ​<span class="summary"></span>
 
 
 
@@ -1288,7 +1425,7 @@ type | name | summary
 #### <a id='NS-Tclass::inheritMethod()' class='anchor'></a>[m] inheritMethod <small><span class="summary">これはドキュメントの継承元を指定したメソッドです</span></small>
 
 ///right
-[all.php#516~516](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L516-L516 target=_blank)
+[all.php#552~552](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L552-L552 target=_blank)
 ///
 
 ...これはドキュメントの継承元を指定したメソッドです
@@ -1365,6 +1502,8 @@ kind | source | summary
 private string $trait_property = "trait property"
 ```
 
+
+**Type**: string
 
 
 
@@ -1490,7 +1629,7 @@ type | summary
 #### <a id='NS-NSS-fff()' class='anchor'></a>[F] fff <small><span class="summary">これはネストされた名前空間用です。実質的な意味はありません</span></small>
 
 ///right
-[all.php#527~530](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L527-L530 target=_blank)
+[all.php#563~566](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L563-L566 target=_blank)
 ///
 
 ...これはネストされた名前空間用です。実質的な意味はありません
@@ -1509,7 +1648,7 @@ function fff()
 ### <a id='NS-NSS-C' class='anchor'></a>[C] C <small><span class="summary">これはネストされた名前空間用です。実質的な意味はありません</span></small>
 
 ///right
-[all.php#532~538](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L532-L538 target=_blank)
+[all.php#568~574](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L568-L574 target=_blank)
 ///
 
 <div class="description">
@@ -1528,7 +1667,7 @@ function fff()
 #### <a id='NS-NSS-C::m()' class='anchor'></a>[m] m <small><span class="summary"></span></small>
 
 ///right
-[all.php#537~537](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L537-L537 target=_blank)
+[all.php#573~573](https://github.com/arima-ryunosuke/php-documentize/blob/master/example/user/all.php#L573-L573 target=_blank)
 ///
 
 ...

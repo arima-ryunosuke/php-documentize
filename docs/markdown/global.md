@@ -1,6 +1,13 @@
 <style>.rst-content .right.sidebar {
     margin: -3.2em 4px 4px 0px;
 }
+.toc-h span:nth-of-type(n + 3) {
+    font-size: 80%;
+    color: #aaaaaa;
+}
+.toc-h span:nth-of-type(3):before {
+    content: " - ";
+}
 .section-header small {
     display: none;
 }
@@ -20,6 +27,27 @@ table.no-border code {
     background-color: transparent;
     border: none;
     white-space: nowrap;
+}
+.rst-content h1:has([data-attribute]),
+.rst-content h2:has([data-attribute]),
+.rst-content h3:has([data-attribute]),
+.rst-content h4:has([data-attribute]),
+.rst-content h5:has([data-attribute]),
+.rst-content h6:has([data-attribute]),
+.rst-content td:has([data-attribute]),
+.rst-content tr:has([data-attribute]) td {
+    padding-top: 1.5em;
+}
+[data-attribute] {
+    position: absolute;
+}
+[data-attribute]:after {
+    content: attr(data-attribute);
+    position: absolute;
+    top: -3em;
+    white-space: nowrap;
+    font-size: 80%;
+    color: #8a8a8a;
 }
 span.summary:not(:first-child) {
     display: block;
@@ -185,6 +213,8 @@ protected string $class_property = "class property"
 ```
 
 
+**Type**: string
+
 
 
 ...
@@ -249,6 +279,8 @@ type | summary
 private string $trait_property = "trait property"
 ```
 
+
+**Type**: string
 
 
 

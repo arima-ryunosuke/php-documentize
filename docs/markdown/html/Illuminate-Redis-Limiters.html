@@ -1,0 +1,2387 @@
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Illuminate-Redis-Limiters.html</title>
+
+    <link id="sphinx_rtd_theme" href="https://cdn.jsdelivr.net/npm/sphinx_rtd_theme@0.4.2/css/theme.css" rel="stylesheet">
+    <link id="highlight_style" data-cdn-url="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/" href="" rel="stylesheet">
+            <link href="style.css" rel="stylesheet">
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mermaid@9.1.7/dist/mermaid.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"></script>
+            <script defer src="script.js"></script>
+        </head>
+
+<body class="wy-body-for-nav downloaded ">
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search">
+                <a href="" class="icon icon-home"> Illuminate-Redis-Limiters.html</a>
+                <div class="version">
+                    Last Modified 2024/07/16 03:40:23                </div>
+                <div role="search">
+                    <form id="rtd-search-form" class="wy-form hidden-download" method="get">
+                        <input type="text" name="query" placeholder="Search directory" value="">
+                    </form>
+                </div>
+            </div>
+            <div class="wy-menu wy-menu-vertical markdown-toc">
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+            </div>
+        </div>
+    </nav>
+    <div data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <nav class="wy-nav-top" aria-label="Mobile navigation menu">
+            <i data-toggle="wy-nav-top" class="fa fa-bars" data-toggle-target="[data-toggle=&quot;wy-nav-shift&quot;]" data-toggle-class="shift"></i>
+            <a href=""> Illuminate-Redis-Limiters.html</a>
+        </nav>
+        <div class="wy-nav-content">
+            <div class="rst-content">
+                <header class="hidden-single">
+                    <ul class="wy-breadcrumbs">
+                        <li class="top-breadcrumb"><a href="/" class="icon icon-home"></a> »</li>
+                                                    <li><a href="index.html">markdown/</a> »</li>
+                                                <li>Illuminate-Redis-Limiters.html</li>
+                        <li class="wy-breadcrumbs-aside hidden-download">
+                            <a href="?raw=true" class="fa fa-file-text"> View Markdown</a>
+                            <a href="?dl=html" class="fa fa-download" download> Download(html)</a>
+                            <a href="?dl=zip" class="fa fa-download" download> Download(zip)</a>
+                            <a id="button-export" href="javascript:void(0)" class="fa fa-arrow-circle-down"> Export</a>
+                        </li>
+                    </ul>
+                    <hr>
+                </header>
+                <div class="markdown-head">
+                    <script>
+                        var METADATA = [];
+                    </script>
+                                    </div>
+                <main class="markdown-body">
+                    <article><style>.rst-content .right.sidebar {
+    margin: -3.2em 4px 4px 0px;
+}
+.toc-h span:nth-of-type(n + 3) {
+    font-size: 80%;
+    color: #aaaaaa;
+}
+.toc-h span:nth-of-type(3):before {
+    content: " - ";
+}
+.section-header small {
+    display: none;
+}
+a[href^="http://"],
+a[href^="https://"] {
+    font-style: italic;
+    text-decoration: underline;
+}
+a[href^="#--"] {
+    color: #404040;
+    cursor: not-allowed;
+    text-decoration: underline dotted;
+}
+table.no-border code {
+    font-size: 1em;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    white-space: nowrap;
+}
+.rst-content h1:has([data-attribute]),
+.rst-content h2:has([data-attribute]),
+.rst-content h3:has([data-attribute]),
+.rst-content h4:has([data-attribute]),
+.rst-content h5:has([data-attribute]),
+.rst-content h6:has([data-attribute]),
+.rst-content td:has([data-attribute]),
+.rst-content tr:has([data-attribute]) td {
+    padding-top: 1.5em;
+}
+[data-attribute] {
+    position: absolute;
+}
+[data-attribute]:after {
+    content: attr(data-attribute);
+    position: absolute;
+    top: -3em;
+    white-space: nowrap;
+    font-size: 80%;
+    color: #8a8a8a;
+}
+span.summary:not(:first-child) {
+    display: block;
+    margin-top: 0.5em;
+}
+div.description {
+    margin-bottom: 24px;
+}
+div.description h1,
+div.description h2,
+div.description h3,
+div.description h4,
+div.description h5,
+div.description h6 {
+    background: transparent;
+}
+</style>
+<script>window.addEventListener('hashchange', function (e) {
+    const url = new URL(e.newURL);
+    const target = document.querySelector('#' + CSS.escape(decodeURIComponent(url.hash.substring(1))));
+    const section = target?.closest('.section');
+    const details = Array.from(section?.children ?? []).find(e => e.tagName === 'DETAILS');
+    if (details) {
+        details.open = true;
+    }
+});
+</script>
+<section id="_026e6835f407f5f83c475ac509dc4c91e2e0cf81-1" class="section section-level-h2" data-section-level="2"><h2 class="section-header"><a id="Illuminate-Redis-Limiters" class="anchor"></a>[N] Illuminate\Redis\Limiters\ <small><span class="summary"></span></small></h2>
+</section><section id="_291e03747f7a959d373fe2779b369461c8f305e6-1" class="section section-level-h3" data-section-level="3"><h3 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter" class="anchor"></a>[C] ConcurrencyLimiter <small><span class="summary"></span></small></h3>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L9-L166" target="_blank">ConcurrencyLimiter.php#9~166</a></p>
+</div>
+</section><section id="_deeffb28c8a6109013a48f352671c2803bd387ff-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::$redis" class="anchor"></a>[p] $redis <small><span class="summary">The Redis factory implementation.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L11-L16" target="_blank">ConcurrencyLimiter.php#11~16</a></p>
+</div>
+<details>
+<summary class="">The Redis factory implementation.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected Illuminate\Redis\Connections\Connection $redis = null</div></pre>
+<p><strong>Type</strong>: <a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></p>
+</details>
+</section><section id="_b16730db36f44ee6b0ad506139164a0630aac0f8-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::$name" class="anchor"></a>[p] $name <small><span class="summary">The name of the limiter.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L18-L23" target="_blank">ConcurrencyLimiter.php#18~23</a></p>
+</div>
+<details>
+<summary class="">The name of the limiter.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected string $name = null</div></pre>
+<p><strong>Type</strong>: string</p>
+</details>
+</section><section id="_b7c72255f8d5ec03cbdc8841ee61d3f68f90ef24-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::$maxLocks" class="anchor"></a>[p] $maxLocks <small><span class="summary">The allowed number of concurrent tasks.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L25-L30" target="_blank">ConcurrencyLimiter.php#25~30</a></p>
+</div>
+<details>
+<summary class="">The allowed number of concurrent tasks.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected int $maxLocks = null</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_ea78ddb427bc3edf9d3ba6f9bcf11fe11b1ee5e6-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::$releaseAfter" class="anchor"></a>[p] $releaseAfter <small><span class="summary">The number of seconds a slot should be maintained.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L32-L37" target="_blank">ConcurrencyLimiter.php#32~37</a></p>
+</div>
+<details>
+<summary class="">The number of seconds a slot should be maintained.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected int $releaseAfter = null</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_43330bbe09a6e0355eee378cde6a764ffa2375a4-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::__construct()" class="anchor"></a>[m] __construct <small><span class="summary">Create a new concurrency limiter instance.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L39-L54" target="_blank">ConcurrencyLimiter.php#39~54</a></p>
+</div>
+<details>
+<summary class="">Create a new concurrency limiter instance.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function __construct(
+    Illuminate\Redis\Connections\Connection $redis,
+    string $name,
+    int $maxLocks,
+    int $releaseAfter
+): void</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></td>
+<td>​<code>$redis</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​string</td>
+<td>​<code>$name</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​int</td>
+<td>​<code>$maxLocks</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​int</td>
+<td>​<code>$releaseAfter</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​void</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_daed4092d5e03ade0d421deba6a17b5b078136ab-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::block()" class="anchor"></a>[m] block <small><span class="summary">Attempt to acquire the lock for the given number of seconds.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L56-L93" target="_blank">ConcurrencyLimiter.php#56~93</a></p>
+</div>
+<details>
+<summary class="">Attempt to acquire the lock for the given number of seconds.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function block(
+    int $timeout,
+    callable|null $callback = null
+): bool</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<code>$timeout</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​callable|​null</td>
+<td>​<code>$callback = null</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​bool</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Throws</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="#--Illuminate-Contracts-Redis-LimiterTimeoutException">LimiterTimeoutException</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​<a href="https://php.net/manual/class.throwable.php" target="_blank">Throwable</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_6eb186d74ec6b74d8af0052653e6539dde4eaf3d-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::acquire()" class="anchor"></a>[m] acquire <small><span class="summary">Attempt to acquire the lock.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L95-L111" target="_blank">ConcurrencyLimiter.php#95~111</a></p>
+</div>
+<details>
+<summary class="">Attempt to acquire the lock.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function acquire(string $id): mixed</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​string</td>
+<td>​<code>$id</code></td>
+<td>​<span class="summary">A unique identifier for this lock</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​mixed</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_cfff817ca16dafbc2e05c0614f0ace1273158b5b-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::lockScript()" class="anchor"></a>[m] lockScript <small><span class="summary">Get the Lua script for acquiring a lock.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L113-L133" target="_blank">ConcurrencyLimiter.php#113~133</a></p>
+</div>
+<details>
+<summary class="">Get the Lua script for acquiring a lock.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function lockScript(): string</div></pre>
+<div class="description">
+<p>KEYS    - The keys that represent available slots<span class="implicit-br">
+</span>ARGV[1] - The limiter name<span class="implicit-br">
+</span>ARGV[2] - The number of seconds the slot should be reserved<span class="implicit-br">
+</span>ARGV[3] - The unique identifier for this lock</p>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​string</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_df006b7147015927778d2a9f599aa23e66c17a41-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::release()" class="anchor"></a>[m] release <small><span class="summary">Release the lock.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L135-L145" target="_blank">ConcurrencyLimiter.php#135~145</a></p>
+</div>
+<details>
+<summary class="">Release the lock.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function release(
+    string $key,
+    string $id
+): void</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​string</td>
+<td>​<code>$key</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​string</td>
+<td>​<code>$id</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​void</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_a308a0533e6612a92847b60dd75744c8f73f9492-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiter::releaseScript()" class="anchor"></a>[m] releaseScript <small><span class="summary">Get the Lua script to atomically release a lock.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiter.php#L147-L165" target="_blank">ConcurrencyLimiter.php#147~165</a></p>
+</div>
+<details>
+<summary class="">Get the Lua script to atomically release a lock.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function releaseScript(): string</div></pre>
+<div class="description">
+<p>KEYS[1] - The name of the lock<span class="implicit-br">
+</span>ARGV[1] - The unique identifier for this lock</p>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​string</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_d1d58ca80c6764346b2fff5d16f22f4db763cdec-1" class="section section-level-h3" data-section-level="3"><h3 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder" class="anchor"></a>[C] ConcurrencyLimiterBuilder <small><span class="summary"></span></small></h3>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L8-L122" target="_blank">ConcurrencyLimiterBuilder.php#8~122</a></p>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Uses</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime">InteractsWithTime</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section><section id="_dc5477e4aac85e17da0324ec26f2bbd918ec9165-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::$connection" class="anchor"></a>[p] $connection <small><span class="summary">The Redis connection.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L12-L17" target="_blank">ConcurrencyLimiterBuilder.php#12~17</a></p>
+</div>
+<details>
+<summary class="">The Redis connection.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public Illuminate\Redis\Connections\Connection $connection = null</div></pre>
+<p><strong>Type</strong>: <a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></p>
+</details>
+</section><section id="_543155c3820b265ab7b72cd8a78c52a0c5f0ac6d-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::$name" class="anchor"></a>[p] $name <small><span class="summary">The name of the lock.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L19-L24" target="_blank">ConcurrencyLimiterBuilder.php#19~24</a></p>
+</div>
+<details>
+<summary class="">The name of the lock.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public string $name = null</div></pre>
+<p><strong>Type</strong>: string</p>
+</details>
+</section><section id="_69af52d32dc1a8154719c1dd7f73a839c0a12bb9-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::$maxLocks" class="anchor"></a>[p] $maxLocks <small><span class="summary">The maximum number of entities that can hold the lock at the same time.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L26-L31" target="_blank">ConcurrencyLimiterBuilder.php#26~31</a></p>
+</div>
+<details>
+<summary class="">The maximum number of entities that can hold the lock at the same time.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public int $maxLocks = null</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_456f721dd0d3bbabbf0865ef004a6ac99bcab612-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::$releaseAfter" class="anchor"></a>[p] $releaseAfter <small><span class="summary">The number of seconds to maintain the lock until it is automatically released.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L33-L38" target="_blank">ConcurrencyLimiterBuilder.php#33~38</a></p>
+</div>
+<details>
+<summary class="">The number of seconds to maintain the lock until it is automatically released.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public int $releaseAfter = 60</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_440f1802456aed29732f390ec32c83faacfaa52a-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::$timeout" class="anchor"></a>[p] $timeout <small><span class="summary">The amount of time to block until a lock is available.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L40-L45" target="_blank">ConcurrencyLimiterBuilder.php#40~45</a></p>
+</div>
+<details>
+<summary class="">The amount of time to block until a lock is available.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public int $timeout = 3</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_3a441d02d7585e27455797a07c2165c178e18c6d-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::__construct()" class="anchor"></a>[m] __construct <small><span class="summary">Create a new builder instance.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L47-L58" target="_blank">ConcurrencyLimiterBuilder.php#47~58</a></p>
+</div>
+<details>
+<summary class="">Create a new builder instance.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function __construct(
+    Illuminate\Redis\Connections\Connection $connection,
+    string $name
+): void</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></td>
+<td>​<code>$connection</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​string</td>
+<td>​<code>$name</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​void</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_cb297f9edcf23edfe7c11710348fa928b371c093-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::limit()" class="anchor"></a>[m] limit <small><span class="summary">Set the maximum number of locks that can be obtained per time window.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L60-L71" target="_blank">ConcurrencyLimiterBuilder.php#60~71</a></p>
+</div>
+<details>
+<summary class="">Set the maximum number of locks that can be obtained per time window.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function limit(int $maxLocks): Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<code>$maxLocks</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder" title="Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder">ConcurrencyLimiterBuilder</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_cdf222bd1a707e33b7e462ab3616a8cbccae6aba-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::releaseAfter()" class="anchor"></a>[m] releaseAfter <small><span class="summary">Set the number of seconds until the lock will be released.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L73-L84" target="_blank">ConcurrencyLimiterBuilder.php#73~84</a></p>
+</div>
+<details>
+<summary class="">Set the number of seconds until the lock will be released.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function releaseAfter(int $releaseAfter): Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<code>$releaseAfter</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder" title="Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder">ConcurrencyLimiterBuilder</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_7edcad105e68f4bbbd6b3aed5cfa3e019a794c86-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::block()" class="anchor"></a>[m] block <small><span class="summary">Set the amount of time to block until a lock is available.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L86-L97" target="_blank">ConcurrencyLimiterBuilder.php#86~97</a></p>
+</div>
+<details>
+<summary class="">Set the amount of time to block until a lock is available.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function block(int $timeout): Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<code>$timeout</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder" title="Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder">ConcurrencyLimiterBuilder</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_30b69f7d7ab301ce7d6318fc4f7106b1abdf4c5e-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::then()" class="anchor"></a>[m] then <small><span class="summary">Execute the given callback if a lock is obtained, otherwise call the failure callback.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/ConcurrencyLimiterBuilder.php#L99-L121" target="_blank">ConcurrencyLimiterBuilder.php#99~121</a></p>
+</div>
+<details>
+<summary class="">Execute the given callback if a lock is obtained, otherwise call the failure callback.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function then(
+    callable $callback,
+    ?callable|callable|null $failure = null
+): mixed</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​callable</td>
+<td>​<code>$callback</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​?callable|​callable|​null</td>
+<td>​<code>$failure = null</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​mixed</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Throws</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="#--Illuminate-Contracts-Redis-LimiterTimeoutException">LimiterTimeoutException</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_49c093970869d8534db633e8f759085af0e781db-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::secondsUntil()" class="anchor"></a>[m] secondsUntil <small><span class="summary">Get the number of seconds until the given DateTime.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/InteractsWithTime.php#L10-L23" target="_blank">InteractsWithTime.php#10~23</a></p>
+</div>
+<details>
+<summary class="">Get the number of seconds until the given DateTime.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function secondsUntil(\DateTimeInterface|\DateInterval|int $delay): int</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="https://php.net/manual/class.datetimeinterface.php" target="_blank">DateTimeInterface</a>|​<a href="https://php.net/manual/class.dateinterval.php" target="_blank">DateInterval</a>|​int</td>
+<td>​<code>$delay</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Prototype</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>kind</th>
+<th>source</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​instead</td>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime%3A%3AsecondsUntil%28%29">InteractsWithTime::secondsUntil()</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_7ef12c858ca50fb46e3d1234f6bdac88446e93bb-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::availableAt()" class="anchor"></a>[m] availableAt <small><span class="summary">Get the "available at" UNIX timestamp.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/InteractsWithTime.php#L25-L38" target="_blank">InteractsWithTime.php#25~38</a></p>
+</div>
+<details>
+<summary class="">Get the "available at" UNIX timestamp.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function availableAt(\DateTimeInterface|\DateInterval|int $delay = 0): int</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="https://php.net/manual/class.datetimeinterface.php" target="_blank">DateTimeInterface</a>|​<a href="https://php.net/manual/class.dateinterval.php" target="_blank">DateInterval</a>|​int</td>
+<td>​<code>$delay = 0</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Prototype</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>kind</th>
+<th>source</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​instead</td>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime%3A%3AavailableAt%28%29">InteractsWithTime::availableAt()</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_7540f6028f75db12433c345c7baa03db4d3903a4-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::parseDateInterval()" class="anchor"></a>[m] parseDateInterval <small><span class="summary">If the given value is an interval, convert it to a DateTime instance.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/InteractsWithTime.php#L40-L53" target="_blank">InteractsWithTime.php#40~53</a></p>
+</div>
+<details>
+<summary class="">If the given value is an interval, convert it to a DateTime instance.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function parseDateInterval(\DateTimeInterface|\DateInterval|int $delay): \DateTimeInterface|int</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="https://php.net/manual/class.datetimeinterface.php" target="_blank">DateTimeInterface</a>|​<a href="https://php.net/manual/class.dateinterval.php" target="_blank">DateInterval</a>|​int</td>
+<td>​<code>$delay</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="https://php.net/manual/class.datetimeinterface.php" target="_blank">DateTimeInterface</a>|​int</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Prototype</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>kind</th>
+<th>source</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​instead</td>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime%3A%3AparseDateInterval%28%29">InteractsWithTime::parseDateInterval()</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_a1a59374e3734db7e19a777d226f852cc52b350f-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder::currentTime()" class="anchor"></a>[m] currentTime <small><span class="summary">Get the current system time as a UNIX timestamp.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/InteractsWithTime.php#L55-L63" target="_blank">InteractsWithTime.php#55~63</a></p>
+</div>
+<details>
+<summary class="">Get the current system time as a UNIX timestamp.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function currentTime(): int</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Prototype</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>kind</th>
+<th>source</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​instead</td>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime%3A%3AcurrentTime%28%29">InteractsWithTime::currentTime()</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_1724b579f8419abfc22ee51da5ae49673a27b330-1" class="section section-level-h3" data-section-level="3"><h3 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter" class="anchor"></a>[C] DurationLimiter <small><span class="summary"></span></small></h3>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L7-L202" target="_blank">DurationLimiter.php#7~202</a></p>
+</div>
+</section><section id="_deeffb28c8a6109013a48f352671c2803bd387ff-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::$redis" class="anchor"></a>[p] $redis <small><span class="summary">The Redis factory implementation.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L9-L14" target="_blank">DurationLimiter.php#9~14</a></p>
+</div>
+<details>
+<summary class="">The Redis factory implementation.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">private Illuminate\Redis\Connections\Connection $redis = null</div></pre>
+<p><strong>Type</strong>: <a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></p>
+</details>
+</section><section id="_aba49dd0dc50fd020023f7523578c23b0c41995d-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::$name" class="anchor"></a>[p] $name <small><span class="summary">The unique name of the lock.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L16-L21" target="_blank">DurationLimiter.php#16~21</a></p>
+</div>
+<details>
+<summary class="">The unique name of the lock.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">private string $name = null</div></pre>
+<p><strong>Type</strong>: string</p>
+</details>
+</section><section id="_b7c72255f8d5ec03cbdc8841ee61d3f68f90ef24-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::$maxLocks" class="anchor"></a>[p] $maxLocks <small><span class="summary">The allowed number of concurrent tasks.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L23-L28" target="_blank">DurationLimiter.php#23~28</a></p>
+</div>
+<details>
+<summary class="">The allowed number of concurrent tasks.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">private int $maxLocks = null</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_ff996662bf991d744138ae80fa7e76cff795c0e4-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::$decay" class="anchor"></a>[p] $decay <small><span class="summary">The number of seconds a slot should be maintained.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L30-L35" target="_blank">DurationLimiter.php#30~35</a></p>
+</div>
+<details>
+<summary class="">The number of seconds a slot should be maintained.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">private int $decay = null</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_23233509934b445b82b5bb2f827805262f16d67e-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::$decaysAt" class="anchor"></a>[p] $decaysAt <small><span class="summary">The timestamp of the end of the current duration.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L37-L42" target="_blank">DurationLimiter.php#37~42</a></p>
+</div>
+<details>
+<summary class="">The timestamp of the end of the current duration.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public int $decaysAt = null</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_e51fec5154460bf7adef6c62d97adbb457a20926-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::$remaining" class="anchor"></a>[p] $remaining <small><span class="summary">The number of remaining slots.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L44-L49" target="_blank">DurationLimiter.php#44~49</a></p>
+</div>
+<details>
+<summary class="">The number of remaining slots.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public int $remaining = null</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_0a405a200100036af4301106c822a240a1b3f428-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::__construct()" class="anchor"></a>[m] __construct <small><span class="summary">Create a new duration limiter instance.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L51-L66" target="_blank">DurationLimiter.php#51~66</a></p>
+</div>
+<details>
+<summary class="">Create a new duration limiter instance.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function __construct(
+    Illuminate\Redis\Connections\Connection $redis,
+    string $name,
+    int $maxLocks,
+    int $decay
+): void</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></td>
+<td>​<code>$redis</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​string</td>
+<td>​<code>$name</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​int</td>
+<td>​<code>$maxLocks</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​int</td>
+<td>​<code>$decay</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​void</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_daed4092d5e03ade0d421deba6a17b5b078136ab-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::block()" class="anchor"></a>[m] block <small><span class="summary">Attempt to acquire the lock for the given number of seconds.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L68-L94" target="_blank">DurationLimiter.php#68~94</a></p>
+</div>
+<details>
+<summary class="">Attempt to acquire the lock for the given number of seconds.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function block(
+    int $timeout,
+    callable|null $callback = null
+): mixed</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<code>$timeout</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​callable|​null</td>
+<td>​<code>$callback = null</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​mixed</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Throws</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="#--Illuminate-Contracts-Redis-LimiterTimeoutException">LimiterTimeoutException</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_6eb186d74ec6b74d8af0052653e6539dde4eaf3d-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::acquire()" class="anchor"></a>[m] acquire <small><span class="summary">Attempt to acquire the lock.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L96-L112" target="_blank">DurationLimiter.php#96~112</a></p>
+</div>
+<details>
+<summary class="">Attempt to acquire the lock.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function acquire(): bool</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​bool</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_7222e582092f2077a7d2f3af307c07e9db7849b5-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::tooManyAttempts()" class="anchor"></a>[m] tooManyAttempts <small><span class="summary">Determine if the key has been "accessed" too many times.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L114-L126" target="_blank">DurationLimiter.php#114~126</a></p>
+</div>
+<details>
+<summary class="">Determine if the key has been "accessed" too many times.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function tooManyAttempts(): bool</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​bool</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_4308e873479744b44ba684f8d15cb3e3ed7a918f-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::clear()" class="anchor"></a>[m] clear <small><span class="summary">Clear the limiter.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L128-L136" target="_blank">DurationLimiter.php#128~136</a></p>
+</div>
+<details>
+<summary class="">Clear the limiter.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function clear(): void</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​void</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_9d4ea6a3ae3798f064872ae77714361bb357a2b9-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::luaScript()" class="anchor"></a>[m] luaScript <small><span class="summary">Get the Lua script for acquiring a lock.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L138-L171" target="_blank">DurationLimiter.php#138~171</a></p>
+</div>
+<details>
+<summary class="">Get the Lua script for acquiring a lock.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function luaScript(): string</div></pre>
+<div class="description">
+<p>KEYS[1] - The limiter name<span class="implicit-br">
+</span>ARGV[1] - Current time in microseconds<span class="implicit-br">
+</span>ARGV[2] - Current time in seconds<span class="implicit-br">
+</span>ARGV[3] - Duration of the bucket<span class="implicit-br">
+</span>ARGV[4] - Allowed number of tasks</p>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​string</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_751710e061248c7a159dc82d57b2107955e01cae-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiter::tooManyAttemptsLuaScript()" class="anchor"></a>[m] tooManyAttemptsLuaScript <small><span class="summary">Get the Lua script to determine if the key has been "accessed" too many times.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiter.php#L173-L201" target="_blank">DurationLimiter.php#173~201</a></p>
+</div>
+<details>
+<summary class="">Get the Lua script to determine if the key has been "accessed" too many times.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function tooManyAttemptsLuaScript(): string</div></pre>
+<div class="description">
+<p>KEYS[1] - The limiter name<span class="implicit-br">
+</span>ARGV[1] - Current time in microseconds<span class="implicit-br">
+</span>ARGV[2] - Current time in seconds<span class="implicit-br">
+</span>ARGV[3] - Duration of the bucket<span class="implicit-br">
+</span>ARGV[4] - Allowed number of tasks</p>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​string</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_48ff95aa8ea2796352e56c8e5b6bbee01990eb60-1" class="section section-level-h3" data-section-level="3"><h3 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder" class="anchor"></a>[C] DurationLimiterBuilder <small><span class="summary"></span></small></h3>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L8-L122" target="_blank">DurationLimiterBuilder.php#8~122</a></p>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Uses</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime">InteractsWithTime</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section><section id="_dc5477e4aac85e17da0324ec26f2bbd918ec9165-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::$connection" class="anchor"></a>[p] $connection <small><span class="summary">The Redis connection.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L12-L17" target="_blank">DurationLimiterBuilder.php#12~17</a></p>
+</div>
+<details>
+<summary class="">The Redis connection.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public Illuminate\Redis\Connections\Connection $connection = null</div></pre>
+<p><strong>Type</strong>: <a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></p>
+</details>
+</section><section id="_543155c3820b265ab7b72cd8a78c52a0c5f0ac6d-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::$name" class="anchor"></a>[p] $name <small><span class="summary">The name of the lock.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L19-L24" target="_blank">DurationLimiterBuilder.php#19~24</a></p>
+</div>
+<details>
+<summary class="">The name of the lock.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public string $name = null</div></pre>
+<p><strong>Type</strong>: string</p>
+</details>
+</section><section id="_fb0a149ba9b590449f9ba32e22a354891d28873f-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::$maxLocks" class="anchor"></a>[p] $maxLocks <small><span class="summary">The maximum number of locks that can be obtained per time window.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L26-L31" target="_blank">DurationLimiterBuilder.php#26~31</a></p>
+</div>
+<details>
+<summary class="">The maximum number of locks that can be obtained per time window.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public int $maxLocks = null</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_ab1a0eb9a191f9a8b92e8b63ebb0726339983dd0-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::$decay" class="anchor"></a>[p] $decay <small><span class="summary">The amount of time the lock window is maintained.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L33-L38" target="_blank">DurationLimiterBuilder.php#33~38</a></p>
+</div>
+<details>
+<summary class="">The amount of time the lock window is maintained.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public int $decay = null</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_440f1802456aed29732f390ec32c83faacfaa52a-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::$timeout" class="anchor"></a>[p] $timeout <small><span class="summary">The amount of time to block until a lock is available.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L40-L45" target="_blank">DurationLimiterBuilder.php#40~45</a></p>
+</div>
+<details>
+<summary class="">The amount of time to block until a lock is available.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public int $timeout = 3</div></pre>
+<p><strong>Type</strong>: int</p>
+</details>
+</section><section id="_3a441d02d7585e27455797a07c2165c178e18c6d-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::__construct()" class="anchor"></a>[m] __construct <small><span class="summary">Create a new builder instance.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L47-L58" target="_blank">DurationLimiterBuilder.php#47~58</a></p>
+</div>
+<details>
+<summary class="">Create a new builder instance.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function __construct(
+    Illuminate\Redis\Connections\Connection $connection,
+    string $name
+): void</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></td>
+<td>​<code>$connection</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​string</td>
+<td>​<code>$name</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​void</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_45724c488ebbd7003fb55d1c4ede6c53452022a4-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::allow()" class="anchor"></a>[m] allow <small><span class="summary">Set the maximum number of locks that can be obtained per time window.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L60-L71" target="_blank">DurationLimiterBuilder.php#60~71</a></p>
+</div>
+<details>
+<summary class="">Set the maximum number of locks that can be obtained per time window.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function allow(int $maxLocks): Illuminate\Redis\Limiters\DurationLimiterBuilder</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<code>$maxLocks</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-DurationLimiterBuilder" title="Illuminate\Redis\Limiters\DurationLimiterBuilder">DurationLimiterBuilder</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_ef02159ee2ee5b3b53d88cc92b7f8fed8e71c6fa-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::every()" class="anchor"></a>[m] every <small><span class="summary">Set the amount of time the lock window is maintained.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L73-L84" target="_blank">DurationLimiterBuilder.php#73~84</a></p>
+</div>
+<details>
+<summary class="">Set the amount of time the lock window is maintained.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function every(\DateTimeInterface|\DateInterval|int $decay): Illuminate\Redis\Limiters\DurationLimiterBuilder</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="https://php.net/manual/class.datetimeinterface.php" target="_blank">DateTimeInterface</a>|​<a href="https://php.net/manual/class.dateinterval.php" target="_blank">DateInterval</a>|​int</td>
+<td>​<code>$decay</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-DurationLimiterBuilder" title="Illuminate\Redis\Limiters\DurationLimiterBuilder">DurationLimiterBuilder</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_7edcad105e68f4bbbd6b3aed5cfa3e019a794c86-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::block()" class="anchor"></a>[m] block <small><span class="summary">Set the amount of time to block until a lock is available.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L86-L97" target="_blank">DurationLimiterBuilder.php#86~97</a></p>
+</div>
+<details>
+<summary class="">Set the amount of time to block until a lock is available.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function block(int $timeout): Illuminate\Redis\Limiters\DurationLimiterBuilder</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<code>$timeout</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-DurationLimiterBuilder" title="Illuminate\Redis\Limiters\DurationLimiterBuilder">DurationLimiterBuilder</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_30b69f7d7ab301ce7d6318fc4f7106b1abdf4c5e-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::then()" class="anchor"></a>[m] then <small><span class="summary">Execute the given callback if a lock is obtained, otherwise call the failure callback.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Limiters/DurationLimiterBuilder.php#L99-L121" target="_blank">DurationLimiterBuilder.php#99~121</a></p>
+</div>
+<details>
+<summary class="">Execute the given callback if a lock is obtained, otherwise call the failure callback.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function then(
+    callable $callback,
+    ?callable|callable|null $failure = null
+): mixed</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​callable</td>
+<td>​<code>$callback</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​?callable|​callable|​null</td>
+<td>​<code>$failure = null</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​mixed</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Throws</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="#--Illuminate-Contracts-Redis-LimiterTimeoutException">LimiterTimeoutException</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_49c093970869d8534db633e8f759085af0e781db-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::secondsUntil()" class="anchor"></a>[m] secondsUntil <small><span class="summary">Get the number of seconds until the given DateTime.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/InteractsWithTime.php#L10-L23" target="_blank">InteractsWithTime.php#10~23</a></p>
+</div>
+<details>
+<summary class="">Get the number of seconds until the given DateTime.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function secondsUntil(\DateTimeInterface|\DateInterval|int $delay): int</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="https://php.net/manual/class.datetimeinterface.php" target="_blank">DateTimeInterface</a>|​<a href="https://php.net/manual/class.dateinterval.php" target="_blank">DateInterval</a>|​int</td>
+<td>​<code>$delay</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Prototype</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>kind</th>
+<th>source</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​instead</td>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime%3A%3AsecondsUntil%28%29">InteractsWithTime::secondsUntil()</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_7ef12c858ca50fb46e3d1234f6bdac88446e93bb-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::availableAt()" class="anchor"></a>[m] availableAt <small><span class="summary">Get the "available at" UNIX timestamp.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/InteractsWithTime.php#L25-L38" target="_blank">InteractsWithTime.php#25~38</a></p>
+</div>
+<details>
+<summary class="">Get the "available at" UNIX timestamp.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function availableAt(\DateTimeInterface|\DateInterval|int $delay = 0): int</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="https://php.net/manual/class.datetimeinterface.php" target="_blank">DateTimeInterface</a>|​<a href="https://php.net/manual/class.dateinterval.php" target="_blank">DateInterval</a>|​int</td>
+<td>​<code>$delay = 0</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Prototype</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>kind</th>
+<th>source</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​instead</td>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime%3A%3AavailableAt%28%29">InteractsWithTime::availableAt()</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_7540f6028f75db12433c345c7baa03db4d3903a4-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::parseDateInterval()" class="anchor"></a>[m] parseDateInterval <small><span class="summary">If the given value is an interval, convert it to a DateTime instance.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/InteractsWithTime.php#L40-L53" target="_blank">InteractsWithTime.php#40~53</a></p>
+</div>
+<details>
+<summary class="">If the given value is an interval, convert it to a DateTime instance.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function parseDateInterval(\DateTimeInterface|\DateInterval|int $delay): \DateTimeInterface|int</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Parameter</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>name</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="https://php.net/manual/class.datetimeinterface.php" target="_blank">DateTimeInterface</a>|​<a href="https://php.net/manual/class.dateinterval.php" target="_blank">DateInterval</a>|​int</td>
+<td>​<code>$delay</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​<a href="https://php.net/manual/class.datetimeinterface.php" target="_blank">DateTimeInterface</a>|​int</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Prototype</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>kind</th>
+<th>source</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​instead</td>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime%3A%3AparseDateInterval%28%29">InteractsWithTime::parseDateInterval()</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+</section><section id="_a1a59374e3734db7e19a777d226f852cc52b350f-2" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Limiters-DurationLimiterBuilder::currentTime()" class="anchor"></a>[m] currentTime <small><span class="summary">Get the current system time as a UNIX timestamp.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Support/InteractsWithTime.php#L55-L63" target="_blank">InteractsWithTime.php#55~63</a></p>
+</div>
+<details>
+<summary class="">Get the current system time as a UNIX timestamp.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected function currentTime(): int</div></pre>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Return</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:80%">
+</colgroup>
+<thead>
+<tr>
+<th>type</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​int</td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="wy-table-responsive">
+<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
+<caption style="text-align: left;caption-side: top">Prototype</caption>
+<colgroup>
+<col style="width:20%">
+<col style="width:30%">
+<col style="width:50%">
+</colgroup>
+<thead>
+<tr>
+<th>kind</th>
+<th>source</th>
+<th>summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>​instead</td>
+<td>​<a href="#--Illuminate-Support-InteractsWithTime%3A%3AcurrentTime%28%29">InteractsWithTime::currentTime()</a></td>
+<td>​<span class="summary"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details></section></article>                </main>
+                <footer>
+                    <div class="rst-footer-buttons hidden-single">
+                        <div>
+                                                            <a href="Illuminate-Redis-Events.html" class="btn btn-neutral" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Illuminate-Redis-Events.html</a>
+                                                    </div>
+                        <div>
+                                                            <a href="index.html" class="btn btn-neutral" accesskey="u" rel="up"><span class="fa fa-arrow-circle-up" aria-hidden="true"></span> markdown/</a>
+                                                    </div>
+                        <div>
+                                                            <a href="Illuminate-Redis.html" class="btn btn-neutral" accesskey="n" rel="next">Illuminate-Redis.html <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+                                                    </div>
+                    </div>
+                    <hr>
+                    <div role="contentinfo">
+                        <p>© Copyright Dave Snider, Read the Docs, Inc. &amp; contributors.</p>
+                    </div>
+                    Built with htmarkdown Using a
+                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+                </footer>
+            </div>
+        </div>
+        <div class="sentinel"></div>
+    </div>
+</div>
+<div data-toggle="wy-nav-shift" class="rst-versions">
+    <span class="rst-current-version" data-toggle-target=".rst-versions" data-toggle-class="shift-up">
+        <span class="fa fa-cog"> Control Panel</span>
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <form class="control-panel">
+            <dl>
+                <dt>View</dt>
+                <dd>
+                    <label class="option-title" for="font_family">font</label>
+                    <input id="fontFamily" class="option-input savedata" data-default-value="sans-serif" type="search" list="fonts">
+                    <datalist id="fonts">
+                                                    <option value="serif">serif</option>
+                                                    <option value="sans-serif">sans-serif</option>
+                                                    <option value="monospace">monospace</option>
+                                            </datalist>
+                </dd>
+                <dd>
+                    <label class="option-title" for="font_size">font size</label>
+                    <span>
+                        <input id="fontSize" class="option-input savedata" data-default-value="16" type="range" min="10" max="24">
+                        <output for="fontSize"></output>
+                    </span>
+                </dd>
+                <dd>
+                    <label class="option-title" for="toc_visible">TOC visible</label>
+                    <input id="tocVisible" class="option-input savedata" data-default-value="true" type="checkbox" value="1">
+                </dd>
+                <dt>Head</dt>
+                <dd>
+                    <label class="option-title" for="toc_width">TOC width</label>
+                    <input id="tocWidth" class="option-input savedata" data-default-value="380" type="number" min="0" max="700">
+                </dd>
+                <dd>
+                    <label class="option-title" for="toc_level">TOC level</label>
+                    <input id="tocLevel" class="option-input savedata" data-default-value="5" type="number" min="1" max="6">
+                </dd>
+                <dd>
+                    <label class="option-title" for="toc_sticky">TOC sticky</label>
+                    <input id="tocSticky" class="option-input savedata" data-default-value="3" type="number" min="0" max="6">
+                </dd>
+                <dd>
+                    <label class="option-title" for="toc_active">TOC active same level</label>
+                    <select id="tocActive" class="option-input savedata" data-default-value="some">
+                                                    <option value="none">none</option>
+                                                    <option value="some">partial</option>
+                                                    <option value="all">all</option>
+                                            </select>
+                </dd>
+                <dd>
+                    <label class="option-title" for="toc_number">TOC number</label>
+                    <input id="tocNumber" class="option-input savedata" data-default-value="true" type="checkbox" value="1">
+                </dd>
+                <dd>
+                    <label class="option-title" for="toc_child">TOC child count</label>
+                    <input id="tocChild" class="option-input savedata" data-default-value="true" type="checkbox" value="1">
+                </dd>
+                <dd>
+                    <label class="option-title" for="toc_follow">TOC follow</label>
+                    <input id="tocFollow" class="option-input savedata" data-default-value="true" type="checkbox" value="1">
+                </dd>
+                <dt>Body</dt>
+                <dd>
+                    <label class="option-title" for="section_indent">section indent</label>
+                    <input id="sectionIndent" class="option-input savedata" data-default-value="0" type="number" min="0" max="6">
+                </dd>
+                <dd>
+                    <label class="option-title" for="highlight_css">syntax highlight</label>
+                    <select id="highlightCss" class="option-input savedata" data-default-value="default">
+                                                    <option value="default">default</option>
+                                                    <option value="zenburn">zenburn</option>
+                                                    <option value="github">github</option>
+                                                    <option value="vs">vs</option>
+                                            </select>
+                </dd>
+                <dd>
+                    <label class="option-title" for="section_number">section number</label>
+                    <input id="sectionNumber" class="option-input savedata" data-default-value="true" type="checkbox" value="1">
+                </dd>
+                <dd>
+                    <label class="option-title" for="link_url">url link</label>
+                    <input id="linkUrl" class="option-input savedata" data-default-value="true" type="checkbox" value="1">
+                </dd>
+                <dd>
+                    <label class="option-title" for="break_line">handling of break line</label>
+                    <select id="breakLine" class="option-input savedata" data-default-value="break">
+                                                    <option value="ignore">ignore</option>
+                                                    <option value="break">break</option>
+                                                    <option value="space">space</option>
+                                            </select>
+                </dd>
+            </dl>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

@@ -24,7 +24,7 @@
             <div class="wy-side-nav-search">
                 <a href="" class="icon icon-home"> global.html</a>
                 <div class="version">
-                    Last Modified 2023/06/04 14:37:12                </div>
+                    Last Modified 2024/07/16 03:40:23                </div>
                 <div role="search">
                     <form id="rtd-search-form" class="wy-form hidden-download" method="get">
                         <input type="text" name="query" placeholder="Search directory" value="">
@@ -50,7 +50,8 @@
                                                 <li>global.html</li>
                         <li class="wy-breadcrumbs-aside hidden-download">
                             <a href="?raw=true" class="fa fa-file-text"> View Markdown</a>
-                            <a href="?dl=true" class="fa fa-download" download> Download</a>
+                            <a href="?dl=html" class="fa fa-download" download> Download(html)</a>
+                            <a href="?dl=zip" class="fa fa-download" download> Download(zip)</a>
                             <a id="button-export" href="javascript:void(0)" class="fa fa-arrow-circle-down"> Export</a>
                         </li>
                     </ul>
@@ -64,6 +65,13 @@
                 <main class="markdown-body">
                     <article><style>.rst-content .right.sidebar {
     margin: -3.2em 4px 4px 0px;
+}
+.toc-h span:nth-of-type(n + 3) {
+    font-size: 80%;
+    color: #aaaaaa;
+}
+.toc-h span:nth-of-type(3):before {
+    content: " - ";
 }
 .section-header small {
     display: none;
@@ -84,6 +92,27 @@ table.no-border code {
     background-color: transparent;
     border: none;
     white-space: nowrap;
+}
+.rst-content h1:has([data-attribute]),
+.rst-content h2:has([data-attribute]),
+.rst-content h3:has([data-attribute]),
+.rst-content h4:has([data-attribute]),
+.rst-content h5:has([data-attribute]),
+.rst-content h6:has([data-attribute]),
+.rst-content td:has([data-attribute]),
+.rst-content tr:has([data-attribute]) td {
+    padding-top: 1.5em;
+}
+[data-attribute] {
+    position: absolute;
+}
+[data-attribute]:after {
+    content: attr(data-attribute);
+    position: absolute;
+    top: -3em;
+    white-space: nowrap;
+    font-size: 80%;
+    color: #8a8a8a;
 }
 span.summary:not(:first-child) {
     display: block;
@@ -249,6 +278,7 @@ div.description h6 {
 <details>
 <summary class="">クラスのプロパティです</summary>
 <pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">protected string $class_property = "class property"</div></pre>
+<p><strong>Type</strong>: string</p>
 </details>
 </section><section id="_46a565a579f972f172af6eead4543d2eb5b838e3-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Gclass::classMethod()" class="anchor"></a>[m] classMethod <small><span class="summary">クラスのメソッドです</span></small></h4>
 <div class="right sidebar">
@@ -321,6 +351,7 @@ div.description h6 {
 <details>
 <summary class="">トレイトのプロパティです</summary>
 <pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">private string $trait_property = "trait property"</div></pre>
+<p><strong>Type</strong>: string</p>
 </details>
 </section><section id="_03bd2c64e0dde861fac8004ec71272f3cfbec4c0-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Gtrait::traitMethod()" class="anchor"></a>[m] traitMethod <small><span class="summary">トレイトのメソッドです</span></small></h4>
 <div class="right sidebar">

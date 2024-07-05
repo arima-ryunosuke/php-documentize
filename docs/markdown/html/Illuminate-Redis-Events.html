@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>markdown/</title>
+    <title>Illuminate-Redis-Events.html</title>
 
     <link id="sphinx_rtd_theme" href="https://cdn.jsdelivr.net/npm/sphinx_rtd_theme@0.4.2/css/theme.css" rel="stylesheet">
     <link id="highlight_style" data-cdn-url="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/" href="" rel="stylesheet">
@@ -22,9 +22,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
         <div class="wy-side-scroll">
             <div class="wy-side-nav-search">
-                <a href="" class="icon icon-home"> markdown/</a>
+                <a href="" class="icon icon-home"> Illuminate-Redis-Events.html</a>
                 <div class="version">
-                    Last Modified 2024/07/16 03:42:16                </div>
+                    Last Modified 2024/07/16 03:40:23                </div>
                 <div role="search">
                     <form id="rtd-search-form" class="wy-form hidden-download" method="get">
                         <input type="text" name="query" placeholder="Search directory" value="">
@@ -39,14 +39,15 @@
     <div data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
         <nav class="wy-nav-top" aria-label="Mobile navigation menu">
             <i data-toggle="wy-nav-top" class="fa fa-bars" data-toggle-target="[data-toggle=&quot;wy-nav-shift&quot;]" data-toggle-class="shift"></i>
-            <a href=""> markdown/</a>
+            <a href=""> Illuminate-Redis-Events.html</a>
         </nav>
         <div class="wy-nav-content">
             <div class="rst-content">
                 <header class="hidden-single">
                     <ul class="wy-breadcrumbs">
                         <li class="top-breadcrumb"><a href="/" class="icon icon-home"></a> »</li>
-                                                <li>markdown/</li>
+                                                    <li><a href="index.html">markdown/</a> »</li>
+                                                <li>Illuminate-Redis-Events.html</li>
                         <li class="wy-breadcrumbs-aside hidden-download">
                             <a href="?raw=true" class="fa fa-file-text"> View Markdown</a>
                             <a href="?dl=html" class="fa fa-download" download> Download(html)</a>
@@ -139,65 +140,109 @@ div.description h6 {
     }
 });
 </script>
-<section id="_d992288748258296bb33b3c094a53a3bb6036265-1" class="section section-level-h2" data-section-level="2"><h2 class="section-header"><a id="Illuminate-Redis" class="anchor"></a>[N] Illuminate\Redis\ <small><span class="summary"></span></small></h2>
-<div class="wy-table-responsive">
-<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
-<caption style="text-align: left;caption-side: top">classes</caption>
-<colgroup>
-<col style="width:30%">
-<col style="width:70%">
-</colgroup>
-<thead>
-<tr>
-<th>name</th>
-<th>summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>​<a href="Illuminate-Redis.html#Illuminate-Redis-RedisManager" title="Illuminate\Redis\RedisManager">RedisManager</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-<tr>
-<td>​<a href="Illuminate-Redis.html#Illuminate-Redis-RedisServiceProvider" title="Illuminate\Redis\RedisServiceProvider">RedisServiceProvider</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-</tbody>
-</table>
+<section id="_522e0e726b5b3a049e50319e40f034fec6e45ee7-1" class="section section-level-h2" data-section-level="2"><h2 class="section-header"><a id="Illuminate-Redis-Events" class="anchor"></a>[N] Illuminate\Redis\Events\ <small><span class="summary"></span></small></h2>
+</section><section id="_e6dd055351790ab6ff51b52c42ce120425b223e3-1" class="section section-level-h3" data-section-level="3"><h3 class="section-header"><a id="Illuminate-Redis-Events-CommandExecuted" class="anchor"></a>[C] CommandExecuted <small><span class="summary"></span></small></h3>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Events/CommandExecuted.php#L5-L59" target="_blank">CommandExecuted.php#5~59</a></p>
 </div>
-</section><section id="_2ba34d579f167a22e1d5bcc9d4b39caf5c6d4b97-1" class="section section-level-h2" data-section-level="2"><h2 class="section-header"><a id="Illuminate-Redis-Connections" class="anchor"></a>[N] Illuminate\Redis\Connections\ <small><span class="summary"></span></small></h2>
+</section><section id="_ef4854e1f17c6ec95e514e02b0496ea50990b359-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Events-CommandExecuted::$command" class="anchor"></a>[p] $command <small><span class="summary">The Redis command that was executed.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Events/CommandExecuted.php#L7-L12" target="_blank">CommandExecuted.php#7~12</a></p>
+</div>
+<details>
+<summary class="">The Redis command that was executed.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public string $command = null</div></pre>
+<p><strong>Type</strong>: string</p>
+</details>
+</section><section id="_a6d810b6e5a9c2d43d6f5d832e059614c973b08b-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Events-CommandExecuted::$parameters" class="anchor"></a>[p] $parameters <small><span class="summary">The array of command parameters.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Events/CommandExecuted.php#L14-L19" target="_blank">CommandExecuted.php#14~19</a></p>
+</div>
+<details>
+<summary class="">The array of command parameters.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public array $parameters = null</div></pre>
+<p><strong>Type</strong>: array</p>
+</details>
+</section><section id="_486a3417ea3c11785d35fb986d084bf3379254bf-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Events-CommandExecuted::$time" class="anchor"></a>[p] $time <small><span class="summary">The number of milliseconds it took to execute the command.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Events/CommandExecuted.php#L21-L26" target="_blank">CommandExecuted.php#21~26</a></p>
+</div>
+<details>
+<summary class="">The number of milliseconds it took to execute the command.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public float $time = null</div></pre>
+<p><strong>Type</strong>: float</p>
+</details>
+</section><section id="_dd08dd8b5f992bebd3e564a0940ecfe87ab1a6b1-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Events-CommandExecuted::$connection" class="anchor"></a>[p] $connection <small><span class="summary">The Redis connection instance.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Events/CommandExecuted.php#L28-L33" target="_blank">CommandExecuted.php#28~33</a></p>
+</div>
+<details>
+<summary class="">The Redis connection instance.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public Illuminate\Redis\Connections\Connection $connection = null</div></pre>
+<p><strong>Type</strong>: <a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></p>
+</details>
+</section><section id="_305da56c3f14362adbc9c70c6cfe29e001e01dee-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Events-CommandExecuted::$connectionName" class="anchor"></a>[p] $connectionName <small><span class="summary">The Redis connection name.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Events/CommandExecuted.php#L35-L40" target="_blank">CommandExecuted.php#35~40</a></p>
+</div>
+<details>
+<summary class="">The Redis connection name.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public string $connectionName = null</div></pre>
+<p><strong>Type</strong>: string</p>
+</details>
+</section><section id="_81ea4775430e5fb8d6250abd0eb1ab53c89900e5-1" class="section section-level-h4" data-section-level="4"><h4 class="section-header"><a id="Illuminate-Redis-Events-CommandExecuted::__construct()" class="anchor"></a>[m] __construct <small><span class="summary">Create a new event instance.</span></small></h4>
+<div class="right sidebar">
+<p class="sidebar-title"></p>
+<p><a href="https://github.com/laravel/framework/blob/v8.83.23/src/Illuminate/Redis/Events/CommandExecuted.php#L42-L58" target="_blank">CommandExecuted.php#42~58</a></p>
+</div>
+<details>
+<summary class="">Create a new event instance.</summary>
+<pre data-label="Definitation"><div class="code language-php:Definitation php:Definitation">public function __construct(
+    string $command,
+    array $parameters,
+    float|null $time,
+    Illuminate\Redis\Connections\Connection $connection
+): void</div></pre>
 <div class="wy-table-responsive">
 <table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
-<caption style="text-align: left;caption-side: top">classes</caption>
+<caption style="text-align: left;caption-side: top">Parameter</caption>
 <colgroup>
+<col style="width:20%">
 <col style="width:30%">
-<col style="width:70%">
+<col style="width:50%">
 </colgroup>
 <thead>
 <tr>
+<th>type</th>
 <th>name</th>
 <th>summary</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>​string</td>
+<td>​<code>$command</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​array</td>
+<td>​<code>$parameters</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
+<tr>
+<td>​float|​null</td>
+<td>​<code>$time</code></td>
+<td>​<span class="summary"></span></td>
+</tr>
 <tr>
 <td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-Connection" title="Illuminate\Redis\Connections\Connection">Connection</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-<tr>
-<td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-PhpRedisClusterConnection" title="Illuminate\Redis\Connections\PhpRedisClusterConnection">PhpRedisClusterConnection</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-<tr>
-<td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-PhpRedisConnection" title="Illuminate\Redis\Connections\PhpRedisConnection">PhpRedisConnection</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-<tr>
-<td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-PredisClusterConnection" title="Illuminate\Redis\Connections\PredisClusterConnection">PredisClusterConnection</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-<tr>
-<td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-PredisConnection" title="Illuminate\Redis\Connections\PredisConnection">PredisConnection</a></td>
+<td>​<code>$connection</code></td>
 <td>​<span class="summary"></span></td>
 </tr>
 </tbody>
@@ -205,114 +250,36 @@ div.description h6 {
 </div>
 <div class="wy-table-responsive">
 <table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
-<caption style="text-align: left;caption-side: top">traits</caption>
+<caption style="text-align: left;caption-side: top">Return</caption>
 <colgroup>
-<col style="width:30%">
-<col style="width:70%">
+<col style="width:20%">
+<col style="width:80%">
 </colgroup>
 <thead>
 <tr>
-<th>name</th>
+<th>type</th>
 <th>summary</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>​<a href="Illuminate-Redis-Connections.html#Illuminate-Redis-Connections-PacksPhpRedisValues" title="Illuminate\Redis\Connections\PacksPhpRedisValues">PacksPhpRedisValues</a></td>
+<td>​void</td>
 <td>​<span class="summary"></span></td>
 </tr>
 </tbody>
 </table>
 </div>
-</section><section id="_905299fd15eb38281ab12e1a446e08cbf6e872e6-1" class="section section-level-h2" data-section-level="2"><h2 class="section-header"><a id="Illuminate-Redis-Connectors" class="anchor"></a>[N] Illuminate\Redis\Connectors\ <small><span class="summary"></span></small></h2>
-<div class="wy-table-responsive">
-<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
-<caption style="text-align: left;caption-side: top">classes</caption>
-<colgroup>
-<col style="width:30%">
-<col style="width:70%">
-</colgroup>
-<thead>
-<tr>
-<th>name</th>
-<th>summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>​<a href="Illuminate-Redis-Connectors.html#Illuminate-Redis-Connectors-PhpRedisConnector" title="Illuminate\Redis\Connectors\PhpRedisConnector">PhpRedisConnector</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-<tr>
-<td>​<a href="Illuminate-Redis-Connectors.html#Illuminate-Redis-Connectors-PredisConnector" title="Illuminate\Redis\Connectors\PredisConnector">PredisConnector</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section><section id="_522e0e726b5b3a049e50319e40f034fec6e45ee7-1" class="section section-level-h2" data-section-level="2"><h2 class="section-header"><a id="Illuminate-Redis-Events" class="anchor"></a>[N] Illuminate\Redis\Events\ <small><span class="summary"></span></small></h2>
-<div class="wy-table-responsive">
-<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
-<caption style="text-align: left;caption-side: top">classes</caption>
-<colgroup>
-<col style="width:30%">
-<col style="width:70%">
-</colgroup>
-<thead>
-<tr>
-<th>name</th>
-<th>summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>​<a href="Illuminate-Redis-Events.html#Illuminate-Redis-Events-CommandExecuted" title="Illuminate\Redis\Events\CommandExecuted">CommandExecuted</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section><section id="_026e6835f407f5f83c475ac509dc4c91e2e0cf81-1" class="section section-level-h2" data-section-level="2"><h2 class="section-header"><a id="Illuminate-Redis-Limiters" class="anchor"></a>[N] Illuminate\Redis\Limiters\ <small><span class="summary"></span></small></h2>
-<div class="wy-table-responsive">
-<table class=" no-border docutils align-default has-colgroup has-caption has-top-caption">
-<caption style="text-align: left;caption-side: top">classes</caption>
-<colgroup>
-<col style="width:30%">
-<col style="width:70%">
-</colgroup>
-<thead>
-<tr>
-<th>name</th>
-<th>summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-ConcurrencyLimiter" title="Illuminate\Redis\Limiters\ConcurrencyLimiter">ConcurrencyLimiter</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-<tr>
-<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-ConcurrencyLimiterBuilder" title="Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder">ConcurrencyLimiterBuilder</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-<tr>
-<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-DurationLimiter" title="Illuminate\Redis\Limiters\DurationLimiter">DurationLimiter</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-<tr>
-<td>​<a href="Illuminate-Redis-Limiters.html#Illuminate-Redis-Limiters-DurationLimiterBuilder" title="Illuminate\Redis\Limiters\DurationLimiterBuilder">DurationLimiterBuilder</a></td>
-<td>​<span class="summary"></span></td>
-</tr>
-</tbody>
-</table>
-</div></section></article>                </main>
+</details></section></article>                </main>
                 <footer>
                     <div class="rst-footer-buttons hidden-single">
                         <div>
+                                                            <a href="Illuminate-Redis-Connectors.html" class="btn btn-neutral" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Illuminate-Redis-Connectors.html</a>
                                                     </div>
                         <div>
+                                                            <a href="index.html" class="btn btn-neutral" accesskey="u" rel="up"><span class="fa fa-arrow-circle-up" aria-hidden="true"></span> markdown/</a>
                                                     </div>
                         <div>
+                                                            <a href="Illuminate-Redis-Limiters.html" class="btn btn-neutral" accesskey="n" rel="next">Illuminate-Redis-Limiters.html <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
                                                     </div>
                     </div>
                     <hr>
