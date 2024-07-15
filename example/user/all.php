@@ -15,12 +15,12 @@ namespace {
      *
      * これは関数の説明です。
      *
-     * @see \implode()
-     *
      * @param string $format 引数1です
      * @param array $args 可変引数です。
      *     これは改行も含めた少し長めの引数概要です。
      * @return string 返り値です
+     * @see \implode()
+     *
      */
     function global_function($format, ...$args) { }
 
@@ -350,6 +350,42 @@ namespace NS {
         public function inheritMethod3($arg1) { }
     }
 
+    #[Attribute()]
+    #[Attribute(1, target: 'class')]
+    /**
+     * 属性とか引数・返り値の DocComment を試すためのクラスです
+     */
+    class Aclass
+    {
+        #[Attribute()]
+        #[Attribute(2, target: 'constant')]
+        const CONSTANT = 'constant';
+
+        #[Attribute()]
+        #[Attribute(3, target: 'property')]
+        private $property;
+
+        #[Attribute()]
+        #[Attribute(4, target: 'method')]
+        private function method(
+            #[Attribute()]
+            #[Attribute(7, target: 'parameter')]
+            /** @var bool summary1 */
+            int $arg1,
+            #[Attribute()]
+            #[Attribute(8, target: 'parameter')]
+            /** @var float summary2 */
+            int $arg2,
+            #[Attribute()]
+            #[Attribute(9, target: 'parameter')]
+            /** @var string summary3 */
+            int $arg3,
+        ): /** @var iterable return */ array
+        {
+            return [];
+        }
+    }
+
     /**
      * 色々なタグを試すための名前空間関数です
      *
@@ -489,21 +525,21 @@ namespace NS {
          * ただこれは生成側の処理です。掻き集める側はそもそも markdown を認識しません（結果としてコードブロックも得られない）。
          * 基本的に Description はただのテキストです。
          *
+         * @param string $arg1 これは param タグの説明です。{@link Tclass インラインタグが使えます}
+         * @return string これは return タグの説明です。{@link Tclass インラインタグが使えます}
+         * @return false これは2つ目の return タグの説明です。{@link Tclass インラインタグが使えます}
+         * @throws \RuntimeException これは throws タグの説明です
          * @api
          * @see Rclass::actualMethod これは see タグの説明です
          * @since 1.2.3 これは version タグの説明です
          * @deprecated 2.3.4 これは deprecated タグの説明です
          * @version 3.4.5 これは version タグの説明です
          * @internal これは internal タグの説明です
-         * @param string $arg1 これは param タグの説明です。{@link Tclass インラインタグが使えます}
-         * @return string これは return タグの説明です。{@link Tclass インラインタグが使えます}
-         * @return false これは2つ目の return タグの説明です。{@link Tclass インラインタグが使えます}
-         * @throws \RuntimeException これは throws タグの説明です
          * @author ryunosuke <ryunosuke.arima@gmail.com>
          */
         final public function tagMethod($arg1) { }
 
-        public function typeMethod(?self $arg1, ?string $arg2): ?self {}
+        public function typeMethod(?self $arg1, ?string $arg2): ?self { }
 
         /**
          * このメソッドは @ignore によりドキュメント化されません

@@ -151,7 +151,7 @@ class Renderer
     protected function blockTypespace(array $typespace): string
     {
         return <<<TYPESPACE
-        {$this->blockHeader(3, "{$this->inlineMark($typespace)}{$this->markdown($typespace['name'])} {$this->inlineSmall($this->inlineSummary($typespace['summary']))}", $typespace['fqsen'])}
+        {$this->blockHeader(3, "{$this->inlineAttributes($typespace['attributes'])}{$this->inlineMark($typespace)}{$this->markdown($typespace['name'])} {$this->inlineSmall($this->inlineSummary($typespace['summary']))}", $typespace['fqsen'])}
         {$this->blockAside([$this->inlineBadges($typespace), $this->inlineSource($typespace['location'])])}
         {$this->blockDescription($typespace['description'], false)}
         {$this->blockSee($typespace['tags']['see'] ?? [])}
@@ -168,7 +168,7 @@ class Renderer
     protected function blockConstant(array $fqsen): string
     {
         return <<<CONSTANT
-        {$this->blockHeader(4, "{$this->inlineMark($fqsen)}{$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
+        {$this->blockHeader(4, "{$this->inlineAttributes($fqsen['attributes'])}{$this->inlineMark($fqsen)}{$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
         {$this->blockAside([$this->inlineBadges($fqsen), $this->inlineSource($fqsen['location'])])}
         {$this->details($fqsen['summary'], <<<DETAILS
         {$this->blockDefinitation("const {$this->concat($this->inlineType($fqsen['types'], true), ' ')}{$fqsen['name']}{$this->concat(' = ', $fqsen['value'])}")}
@@ -182,7 +182,7 @@ class Renderer
     protected function blockFunction(array $fqsen): string
     {
         return <<<FUNCTION
-        {$this->blockHeader(4, "{$this->inlineMark($fqsen)}{$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
+        {$this->blockHeader(4, "{$this->inlineAttributes($fqsen['attributes'])}{$this->inlineMark($fqsen)}{$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
         {$this->blockAside([$this->inlineBadges($fqsen), $this->inlineSource($fqsen['location'])])}
         {$this->details($fqsen['summary'], <<<DETAILS
         {$this->blockDefinitation("function {$fqsen['name']}{$this->inlineSignature($fqsen['parameters'], true)}{$this->concat(': ', $this->inlineType($fqsen['return']['types'], true))}")}
@@ -199,7 +199,7 @@ class Renderer
     protected function blockClassConstant(array $fqsen): string
     {
         return <<<CLASSCONSTANT
-        {$this->blockHeader(4, "{$this->inlineMark($fqsen)}{$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
+        {$this->blockHeader(4, "{$this->inlineAttributes($fqsen['attributes'])}{$this->inlineMark($fqsen)}{$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
         {$this->blockAside([$this->inlineBadges($fqsen), $this->inlineSource($fqsen['location'])])}
         {$this->details($fqsen['summary'], <<<DETAILS
         {$this->blockDefinitation("{$this->inlineModifier($fqsen)} const {$this->concat($this->inlineType($fqsen['types'], true), ' ')}{$fqsen['name']}{$this->concat(' = ', $fqsen['value'])}")}
@@ -214,11 +214,13 @@ class Renderer
     protected function blockProperty(array $fqsen): string
     {
         return <<<PROPERTY
-        {$this->blockHeader(4, "{$this->inlineMark($fqsen)}\${$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
+        {$this->blockHeader(4, "{$this->inlineAttributes($fqsen['attributes'])}{$this->inlineMark($fqsen)}\${$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
         {$this->blockAside([$this->inlineBadges($fqsen), $this->inlineSource($fqsen['location'])])}
         {$this->details($fqsen['summary'], <<<DETAILS
         {$this->blockDefinitation("{$this->inlineModifier($fqsen)} {$this->concat($this->inlineType($fqsen['types'], true), ' ')}\${$fqsen['name']}{$this->concat(' = ', $fqsen['hasValue'] ? $fqsen['value'] : '')}")}
         {$this->blockDescription($fqsen['description'], true)}
+        **Type**: {$this->inlineType($fqsen['types'], false)}
+        
         {$this->blockPrototype($fqsen['prototypes'])}
         {$this->blockSee($fqsen['tags']['see'] ?? [])}
         DETAILS,)}
@@ -229,7 +231,7 @@ class Renderer
     protected function blockMethod(array $fqsen): string
     {
         return <<<METHOD
-        {$this->blockHeader(4, "{$this->inlineMark($fqsen)}{$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
+        {$this->blockHeader(4, "{$this->inlineAttributes($fqsen['attributes'])}{$this->inlineMark($fqsen)}{$this->markdown($fqsen['name'])} {$this->inlineSmall($this->inlineSummary($fqsen['summary']))}", $fqsen['fqsen'])}
         {$this->blockAside([$this->inlineBadges($fqsen), $this->inlineSource($fqsen['location'])])}
         {$this->details($fqsen['summary'], <<<DETAILS
         {$this->blockDefinitation("{$this->inlineModifier($fqsen)} function {$fqsen['name']}{$this->inlineSignature($fqsen['parameters'], true)}{$this->concat(': ', $this->inlineType($fqsen['return']['types'], true))}")}
@@ -316,11 +318,13 @@ class Renderer
             [
                 'header'  => 'type',
                 'width'   => 20,
+                'label'   => fn($fqsen) => '',
                 'content' => fn($fqsen) => $this->inlineLink($fqsen['fqsen']),
             ],
             [
                 'header'  => 'summary',
                 'width'   => 80,
+                'label'   => fn($fqsen) => '',
                 'content' => fn($fqsen) => $this->inlineSummary($fqsen['summary']),
             ],
         ])}
@@ -366,16 +370,19 @@ class Renderer
             [
                 'header'  => 'type',
                 'width'   => 20,
+                'label'   => fn($parameter) => $this->inlineAttributes($parameter['attributes']),
                 'content' => fn($parameter) => $this->inlineType($parameter['types'], false),
             ],
             [
                 'header'  => 'name',
                 'width'   => 30,
+                'label'   => fn($parameter) => '',
                 'content' => fn($parameter) => $this->inlineCode($parameter['declaration']),
             ],
             [
                 'header'  => 'summary',
                 'width'   => 50,
+                'label'   => fn($parameter) => '',
                 'content' => fn($parameter) => $this->inlineSummary($parameter['summary']),
             ],
         ])}
@@ -393,11 +400,13 @@ class Renderer
             [
                 'header'  => 'type',
                 'width'   => 20,
+                'label'   => fn($return) => '',
                 'content' => fn($return) => $this->inlineType($return['types'], false),
             ],
             [
                 'header'  => 'summary',
                 'width'   => 80,
+                'label'   => fn($return) => '',
                 'content' => fn($return) => $this->inlineSummary($return['summary']),
             ],
         ])}
@@ -415,11 +424,13 @@ class Renderer
             [
                 'header'  => 'type',
                 'width'   => 20,
+                'label'   => fn($throw) => '',
                 'content' => fn($throw) => $this->inlineType([$throw['type']], false),
             ],
             [
                 'header'  => 'summary',
                 'width'   => 80,
+                'label'   => fn($throw) => '',
                 'content' => fn($throw) => $this->inlineSummary($throw['summary']),
             ],
         ])}
@@ -437,16 +448,19 @@ class Renderer
             [
                 'header'  => 'kind',
                 'width'   => 20,
+                'label'   => fn($prototype) => '',
                 'content' => fn($prototype) => $prototype['kind'],
             ],
             [
                 'header'  => 'source',
                 'width'   => 30,
+                'label'   => fn($prototype) => '',
                 'content' => fn($prototype) => $this->inlineLink($prototype['fqsen']),
             ],
             [
                 'header'  => 'summary',
                 'width'   => 50,
+                'label'   => fn($prototype) => '',
                 'content' => fn($prototype) => $this->inlineSummary($prototype['summary']),
             ],
         ])}
@@ -464,11 +478,13 @@ class Renderer
             [
                 'header'  => 'type',
                 'width'   => 30,
+                'label'   => fn($see) => '',
                 'content' => fn($see) => $this->inlineLink(is_string($see['type']) ? $see['type'] : $see['type']['fqsen']),
             ],
             [
                 'header'  => 'summary',
                 'width'   => 70,
+                'label'   => fn($see) => '',
                 'content' => fn($see) => $this->inlineSummary($see['summary']),
             ],
         ])}
@@ -541,6 +557,19 @@ class Renderer
             $badges[] = "{alert:deprecated {$fqsen['tags']['deprecated'][0]['start']}}";
         }
         return implode('', $badges);
+    }
+
+    protected function inlineAttributes(array $attributes): string
+    {
+        if (!count($attributes)) {
+            return '';
+        }
+
+        $attrs = [];
+        foreach ($attributes as $attribute) {
+            $attrs[] = "{$attribute['name']}{$this->concat('(', $attribute['declaration'], ')')}";
+        }
+        return "<div data-attribute='{$this->html("#[" . implode(", ", $attrs) . "]")}'></div>";
     }
 
     protected function inlineModifier(array $fqsen): string
@@ -706,7 +735,7 @@ class Renderer
         $rows = [];
         foreach ($data as $no => $datum) {
             foreach ($rules as $rule) {
-                $rows[$no][] = $rule['content']($datum);
+                $rows[$no][] = $rule['label']($datum) . $rule['content']($datum);
             }
         }
         return <<<TABLE
