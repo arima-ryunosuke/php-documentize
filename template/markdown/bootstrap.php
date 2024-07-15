@@ -12,7 +12,9 @@ return function ($dataarray, $dst, $config) {
 
     foreach ($renderer->render($dataarray['namespaces']) as $namespace => $markdown) {
         $outfile = $outdir . '/' . (rtrim(str_replace('\\', '-', $namespace), '-') ?: 'global') . '.md';
-        file_put_contents($outfile, $markdown);
+        if (!file_exists($outfile) || sha1_file($outfile) !== sha1($markdown)) {
+            file_put_contents($outfile, $markdown);
+        }
         yield realpath($outfile);
     }
 };
