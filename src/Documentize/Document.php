@@ -521,6 +521,16 @@ file_put_contents(' . var_export($outfile, true) . ', serialize([
 
         restore_error_handler();
 
+        uksort($result['namespaces'], function ($a, $b) {
+            foreach ($this->options['contain'] as $contain) {
+                $is_a = fnmatch($contain, $a, FNM_NOESCAPE);
+                $is_b = fnmatch($contain, $b, FNM_NOESCAPE);
+                if ($is_a xor $is_b) {
+                    return -($is_a <=> $is_b);
+                }
+            }
+            return $a <=> $b;
+        });
         return $result;
     }
 
