@@ -10,15 +10,17 @@ class Renderer
         $this->config = $config;
     }
 
-    public function render(array $namespaces): \Generator
+    public function preprocess(array $namespaces): array
     {
         $this->existedFqsens = [];
 
         foreach ($namespaces as $namespace) {
-            $topspace = strtr(rtrim($namespace['fqsen'], '\\'), ['\\' => '-']) ?: 'global';
-            array_walk_recursive($namespace, function ($value, $key) use ($topspace) {
+            array_walk_recursive($namespace, function ($value, $key) use ($namespace) {
                 if ($key === 'id') {
-                    $this->existedFqsens[$value] = $topspace;
+                    $this->existedFqsens[$value] = match ($this->config['mode']) {
+                        'flat' => implode('-', array_slice(array_slice(explode('\\', explode('::', $value)[0]), 0, -1), 0, 3)),
+                        'nest' => strtr(rtrim($namespace['fqsen'], '\\'), ['\\' => '-']) ?: 'global'
+                    };
                 }
             });
         }
@@ -36,6 +38,37 @@ class Renderer
             }
         });
 
+        if ($this->config['mode'] === 'flat') {
+            $result = [];
+            $flatten = function ($namespaces) use (&$flatten, &$result) {
+                foreach ($namespaces as $namespace) {
+                    $subspace = [];
+                    if (count(explode('\\', trim($namespace['fqsen'], '\\'))) < 3) {
+                        $subspace = $namespace['namespaces'];
+                        $namespace['namespaces'] = [];
+                    }
+                    $result[$namespace['fqsen']] = $namespace;
+                    $flatten($subspace);
+                }
+            };
+            $flatten($namespaces);
+            return $result;
+        }
+        return $namespaces;
+    }
+
+    public function render(array $namespaces): \Generator
+    {
+        if ($this->config['mode'] === 'flat') {
+            yield 'index' => <<<CONTENTS
+            <style>{$this->echo(preg_replace('#\\R{2,}#u', "\n", file_get_contents(__DIR__ . '/common.css')))}</style>
+            <script>{$this->echo(preg_replace('#\\R{2,}#u', "\n", file_get_contents(__DIR__ . '/common.js')))}</script>
+            
+            {$this->each($namespaces, fn($namespace) => $this->blockNamespaceIndex($namespace, 2), "\n")}
+            
+            CONTENTS;
+        }
+
         foreach ($namespaces as $namespace) {
             yield $namespace['fqsen'] => <<<CONTENTS
             <style>{$this->echo(preg_replace('#\\R{2,}#u', "\n", file_get_contents(__DIR__ . '/common.css')))}</style>
@@ -45,6 +78,53 @@ class Renderer
             
             CONTENTS;
         }
+    }
+
+    protected function blockNamespaceIndex(array $namespace, int $level): string
+    {
+        $tableOptions = [
+            [
+                'header'  => 'name',
+                'width'   => 30,
+                'label'   => fn($fqsen) => '',
+                'content' => fn($fqsen) => $this->inlineLink($fqsen['fqsen']),
+            ],
+            [
+                'header'  => 'summary',
+                'width'   => 70,
+                'label'   => fn($fqsen) => '',
+                'content' => fn($fqsen) => $this->inlineSummary($fqsen['summary']),
+            ],
+        ];
+
+        return <<<INDEX
+        {$this->blockHeader($level, "{$this->inlineMark($namespace)}{$this->markdown((rtrim($namespace['fqsen'], '\\') ?: 'global') . "\\")} {$this->inlineSmall($this->inlineSummary($namespace['summary']))}", $namespace['fqsen'] ?: 'global')}
+        
+        {$this->if(!!$namespace['constants'], <<<C
+        {$this->table('constants', $namespace['constants'], $tableOptions)}
+        C,)}
+        
+        {$this->if(!!$namespace['functions'], <<<C
+        {$this->table('functions', $namespace['functions'], $tableOptions)}
+        C,)}
+        
+        {$this->if(!!$namespace['classes'], <<<C
+        {$this->table('classes', $namespace['classes'], $tableOptions)}
+        C,)}
+        
+        {$this->if(!!$namespace['traits'], <<<C
+        {$this->table('traits', $namespace['traits'], $tableOptions)}
+        C,)}
+        
+        {$this->if(!!$namespace['interfaces'], <<<C
+        {$this->table('interfaces', $namespace['interfaces'], $tableOptions)}
+        C,)}
+        
+        {$this->if(!!$namespace['namespaces'], <<<C
+        {$this->each($namespace['namespaces'], fn($fqsen) => $this->blockNamespaceIndex($fqsen, 3), "\n")}
+        C,)}
+        
+        INDEX;
     }
 
     protected function blockNamespace(array $namespace): string
@@ -549,7 +629,7 @@ class Renderer
             $content = $this->markdown($content, '[]');
         }
         else {
-            $parts = explode('\\', $fqsen);
+            $parts = explode('\\', rtrim($fqsen, '\\'));
             $content = $this->markdown(end($parts), '[]');
         }
 
