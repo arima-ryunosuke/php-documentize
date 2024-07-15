@@ -61,11 +61,12 @@
       "bin/box.phar compile -c box.json"
     ],
     "example": [
+      "rm -rf docs/simple",
+      "rm -rf docs/markdown/html",
       "cd example && composer install --no-dev",
-      "rm -rf docs",
-      "@php documentize.phar generate example/user                                          docs/markdown --stats --force --template template/markdown/bootstrap.php --template-config example/config.php -i '*.php' -i '*.md'",
-      "bin/documentize       generate example/vendor/laravel/framework/src/Illuminate/Redis docs/markdown --stats --force --template template/markdown/bootstrap.php --template-config example/config.php -i '*.php' -i '*.md' --autoload example/vendor/autoload.php --contain 'Illuminate\\Redis'",
-      "bin/documentize       generate example/vendor/laravel/framework/src/Illuminate/Redis docs/simple   --stats --force --template template/simple/bootstrap.php   --template-config example/config.php -i '*.php' -i '*.md' --autoload example/vendor/autoload.php --contain 'Illuminate\\Redis'"
+      "@php documentize.phar generate example/user                                          docs/markdown --stats --force --template template/markdown/bootstrap.php --template-config example/user.config.php -i '*.php' -i '*.md'",
+      "bin/documentize       generate example/vendor/laravel/framework/src/Illuminate/Redis docs/markdown --stats --force --template template/markdown/bootstrap.php --template-config example/laravel.config.php -i '*.php' -i '*.md' --autoload example/vendor/autoload.php --contain 'Illuminate\\Redis'",
+      "bin/documentize       generate example/vendor/laravel/framework/src/Illuminate/Redis docs/simple   --stats --force --template template/simple/bootstrap.php   --template-config example/laravel.config.php -i '*.php' -i '*.md' --autoload example/vendor/autoload.php --contain 'Illuminate\\Redis'"
     ],
     "generate": [
       "@php bin/htmarkdown.phar docs/markdown docs/markdown/html"
