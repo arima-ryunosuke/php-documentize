@@ -94,8 +94,8 @@ class Fqsen
             'namespace' => '',   // 名前空間
             'localname' => '',   // ローカル名
             'member'    => null, // メンバー名
-            'pmark'     => null, // プロパティを表す $
-            'fmark'     => null, // callble を表す ()
+            'pmark'     => '',   // プロパティを表す $
+            'fmark'     => '',   // callble を表す ()
         ]);
 
         // \\ で終わるものは超特別扱いで名前空間とする
@@ -103,8 +103,8 @@ class Fqsen
             $category = 'namespace';
         }
         // member が無いならグローバルのなにか
-        elseif (strlen($match['member']) === 0) {
-            if ($match['fmark']) {
+        elseif (strlen($match['member'] ?? '') === 0) {
+            if (strlen($match['fmark'])) {
                 $category = 'function';
             }
             // ClassName と CONST_NAME を判断する術はない。定義されているか、敢えて言うならすべて大文字なら定数
@@ -117,11 +117,11 @@ class Fqsen
         }
         // member が有るならクラスメンバーのなにか
         else {
-            if ($match['pmark']) {
+            if (strlen($match['pmark'])) {
                 $category = 'property';
             }
             // Const と Method を判断する術はない（厳密には Method の FQSEN は () が必須だが付いていないプロダクトがあまりにも多い）
-            elseif (const_exists($fqsen) || (!$match['fmark'] && preg_match('#^[A-Z_0-9]+$#', $match['member']))) {
+            elseif (const_exists($fqsen) || (!strlen($match['fmark']) && preg_match('#^[A-Z_0-9]+$#', $match['member']))) {
                 $category = 'classconstant';
             }
             else {

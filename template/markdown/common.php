@@ -34,7 +34,7 @@ class Renderer
                     "#<(tag_link){$any}{$some('data-type-fqsen')}{$any}>{$body}</\\1>#um" => fn($m) => $this->inlineLink($m[3], $m['body']),
                     "#<(tag_link){$any}{$some('data-type')}{$any}>{$body}</\\1>#um"       => fn($m) => $this->inlineLink($m[3], $m['body']),
                     "#<(tag_source){$any}{$some('data-fqsen')}{$any}>{$body}</\\1>#um"    => fn($m) => $this->inlineLink($m[3], $m['body']),
-                ], trim($value));
+                ], trim($value ?? ''));
             }
         });
 

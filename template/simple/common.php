@@ -70,7 +70,7 @@ function ref($value, $suffix)
 
 function summary($description)
 {
-    return strip_tags(preg_split('#\\R#u', $description, 2)[0]);
+    return strip_tags(preg_split('#\\R#u', $description ?? '', 2)[0]);
 }
 
 function render_head()

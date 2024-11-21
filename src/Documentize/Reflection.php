@@ -444,7 +444,7 @@ class Reflection
     {
         $doccomment = $this->getDocComment();
         $lines = preg_split('#\\R#u', $doccomment);
-        $line = array_find($lines, function ($v) use ($pattern) {
+        $line = array_find_first($lines, function ($v) use ($pattern) {
             return preg_match($pattern, $v);
         });
         // $line == 0 は考慮しない（無いならないで構わない）

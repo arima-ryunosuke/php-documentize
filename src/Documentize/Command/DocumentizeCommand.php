@@ -78,7 +78,7 @@ class DocumentizeCommand extends Command
         $src = path_resolve($input->getArgument('source')) ?? $input->getArgument('source');
         $dst = path_resolve($input->getArgument('destination')) ?? $input->getArgument('destination');
 
-        $cfgfile = $input->getOption('config');
+        $cfgfile = $input->getOption('config') ?? '';
         $config = file_exists($cfgfile) ? require $cfgfile : [];
         $definition = $this->getDefinition();
         foreach ($config as $name => $value) {
@@ -169,12 +169,14 @@ class DocumentizeCommand extends Command
 
         foreach (array_unique($result['logs'], SORT_REGULAR) as $log) {
             $map = [
-                E_NOTICE       => [OutputInterface::VERBOSITY_VERBOSE, 'fg=yellow'],
-                E_USER_NOTICE  => [OutputInterface::VERBOSITY_VERBOSE, 'fg=yellow'],
-                E_WARNING      => [OutputInterface::VERBOSITY_NORMAL, 'fg=magenta'],
-                E_USER_WARNING => [OutputInterface::VERBOSITY_NORMAL, 'fg=magenta'],
-                E_ERROR        => [0, 'fg=red'],
-                E_USER_ERROR   => [0, 'fg=red'],
+                E_DEPRECATED      => [OutputInterface::VERBOSITY_VERBOSE, 'fg=yellow'],
+                E_USER_DEPRECATED => [OutputInterface::VERBOSITY_VERBOSE, 'fg=yellow'],
+                E_NOTICE          => [OutputInterface::VERBOSITY_VERBOSE, 'fg=yellow'],
+                E_USER_NOTICE     => [OutputInterface::VERBOSITY_VERBOSE, 'fg=yellow'],
+                E_WARNING         => [OutputInterface::VERBOSITY_NORMAL, 'fg=magenta'],
+                E_USER_WARNING    => [OutputInterface::VERBOSITY_NORMAL, 'fg=magenta'],
+                E_ERROR           => [0, 'fg=red'],
+                E_USER_ERROR      => [0, 'fg=red'],
             ];
             $tag = $map[$log['errorno']][1] ?? 'fg=default';
             $message = $log['message'] . ($output->isDebug() ? ' at ' . $log['file'] . '#' . $log['line'] : '');

@@ -40,7 +40,7 @@ class Tag
         elseif (preg_match('#^\{(.*)\}$#', $tagtext, $m)) {
             $parts = preg_split('#\s+#', $m[1], 2);
             $tagName = strtolower(ltrim(trim($parts[0]), '@'));
-            $tagValue = $parts[1] ?? null;
+            $tagValue = $parts[1] ?? '';
 
             $this->attributes = [
                 'tagname' => $tagName,
@@ -51,7 +51,7 @@ class Tag
         else {
             $parts = preg_split('#\s+#', $tagtext, 2);
             $tagName = strtolower(ltrim(trim($parts[0]), '@'));
-            $tagValue = $parts[1] ?? null;
+            $tagValue = $parts[1] ?? '';
 
             $this->attributes = [
                 'tagname' => $tagName,
