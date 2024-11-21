@@ -86,19 +86,6 @@ div.description h6 {
 
 ### <a id='--constants' class='anchor'></a>[G] constants
 
-#### <a id='MYSQLI_REFRESH_REPLICA' class='anchor'></a>[C] MYSQLI\_REFRESH\_REPLICA <small><span class="summary"></span></small>
-
-
-...
-```php:Definitation
-const int MYSQLI_REFRESH_REPLICA = 64
-```
-
-
-
-...
-
-
 #### <a id='GLOBAL_CONSTANT' class='anchor'></a>[C] GLOBAL\_CONSTANT <small><span class="summary">グローバルの定数です</span></small>
 
 ///right
